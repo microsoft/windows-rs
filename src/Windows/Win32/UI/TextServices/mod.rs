@@ -150,7 +150,7 @@ pub unsafe fn DoMsCtfMonitor<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msctfmonitor")]
+        #[link(name = "windows")]
         extern "system" {
             fn DoMsCtfMonitor(
                 dwflags: u32,
@@ -24890,7 +24890,7 @@ pub struct IVersionInfo_abi(
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msctfmonitor")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::runtime::HRESULT;
         }
@@ -27439,7 +27439,7 @@ unsafe impl ::windows::runtime::Abi for TsShiftDir {
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msctfmonitor")]
+        #[link(name = "windows")]
         extern "system" {
             fn UninitLocalMsCtfMonitor() -> ::windows::runtime::HRESULT;
         }

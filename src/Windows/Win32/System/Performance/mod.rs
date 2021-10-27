@@ -55,7 +55,7 @@ pub unsafe fn BackupPerfRegistryToFileW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn BackupPerfRegistryToFileW(
                 szfilename: super::super::Foundation::PWSTR,
@@ -15712,7 +15712,7 @@ pub unsafe fn InstallPerfDllA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallPerfDllA(
                 szcomputername: super::super::Foundation::PSTR,
@@ -15741,7 +15741,7 @@ pub unsafe fn InstallPerfDllW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallPerfDllW(
                 szcomputername: super::super::Foundation::PWSTR,
@@ -15779,7 +15779,7 @@ pub unsafe fn LoadPerfCounterTextStringsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadPerfCounterTextStringsA(
                 lpcommandline: super::super::Foundation::PSTR,
@@ -15805,7 +15805,7 @@ pub unsafe fn LoadPerfCounterTextStringsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadPerfCounterTextStringsW(
                 lpcommandline: super::super::Foundation::PWSTR,
@@ -18698,7 +18698,7 @@ pub unsafe fn PdhAddCounterA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhAddCounterA(
                 hquery: isize,
@@ -18729,7 +18729,7 @@ pub unsafe fn PdhAddCounterW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhAddCounterW(
                 hquery: isize,
@@ -18760,7 +18760,7 @@ pub unsafe fn PdhAddEnglishCounterA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhAddEnglishCounterA(
                 hquery: isize,
@@ -18791,7 +18791,7 @@ pub unsafe fn PdhAddEnglishCounterW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhAddEnglishCounterW(
                 hquery: isize,
@@ -18820,7 +18820,7 @@ pub unsafe fn PdhBindInputDataSourceA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhBindInputDataSourceA(
                 phdatasource: *mut isize,
@@ -18845,7 +18845,7 @@ pub unsafe fn PdhBindInputDataSourceW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhBindInputDataSourceW(
                 phdatasource: *mut isize,
@@ -18864,7 +18864,7 @@ pub unsafe fn PdhBindInputDataSourceW<
 pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhBrowseCountersA(
                 pbrowsedlgdata: *const ::std::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_A>,
@@ -18879,7 +18879,7 @@ pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A)
 pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhBrowseCountersHA(
                 pbrowsedlgdata: *const ::std::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_HA>,
@@ -18894,7 +18894,7 @@ pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
 pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhBrowseCountersHW(
                 pbrowsedlgdata: *const ::std::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_HW>,
@@ -18909,7 +18909,7 @@ pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
 pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhBrowseCountersW(
                 pbrowsedlgdata: *const ::std::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_W>,
@@ -18930,7 +18930,7 @@ pub unsafe fn PdhCalculateCounterFromRawValue(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCalculateCounterFromRawValue(
                 hcounter: isize,
@@ -18954,7 +18954,7 @@ pub unsafe fn PdhCalculateCounterFromRawValue(
 pub unsafe fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32;
         }
@@ -18969,7 +18969,7 @@ pub unsafe fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32 {
 pub unsafe fn PdhCloseQuery(hquery: isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCloseQuery(hquery: isize) -> i32;
         }
@@ -18981,7 +18981,7 @@ pub unsafe fn PdhCloseQuery(hquery: isize) -> i32 {
 pub unsafe fn PdhCollectQueryData(hquery: isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCollectQueryData(hquery: isize) -> i32;
         }
@@ -19001,7 +19001,7 @@ pub unsafe fn PdhCollectQueryDataEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCollectQueryDataEx(
                 hquery: isize,
@@ -19021,7 +19021,7 @@ pub unsafe fn PdhCollectQueryDataEx<
 pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32;
         }
@@ -19044,7 +19044,7 @@ pub unsafe fn PdhComputeCounterStatistics(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhComputeCounterStatistics(
                 hcounter: isize,
@@ -19076,7 +19076,7 @@ pub unsafe fn PdhConnectMachineA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhConnectMachineA(szmachinename: super::super::Foundation::PSTR) -> i32;
         }
@@ -19094,7 +19094,7 @@ pub unsafe fn PdhConnectMachineW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhConnectMachineW(szmachinename: super::super::Foundation::PWSTR) -> i32;
         }
@@ -19112,7 +19112,7 @@ pub unsafe fn PdhCreateSQLTablesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCreateSQLTablesA(szdatasource: super::super::Foundation::PSTR) -> i32;
         }
@@ -19130,7 +19130,7 @@ pub unsafe fn PdhCreateSQLTablesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhCreateSQLTablesW(szdatasource: super::super::Foundation::PWSTR) -> i32;
         }
@@ -19150,7 +19150,7 @@ pub unsafe fn PdhEnumLogSetNamesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumLogSetNamesA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -19178,7 +19178,7 @@ pub unsafe fn PdhEnumLogSetNamesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumLogSetNamesW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -19206,7 +19206,7 @@ pub unsafe fn PdhEnumMachinesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumMachinesA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -19231,7 +19231,7 @@ pub unsafe fn PdhEnumMachinesHA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumMachinesHA(
                 hdatasource: isize,
@@ -19256,7 +19256,7 @@ pub unsafe fn PdhEnumMachinesHW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumMachinesHW(
                 hdatasource: isize,
@@ -19284,7 +19284,7 @@ pub unsafe fn PdhEnumMachinesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumMachinesW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -19320,7 +19320,7 @@ pub unsafe fn PdhEnumObjectItemsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectItemsA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -19367,7 +19367,7 @@ pub unsafe fn PdhEnumObjectItemsHA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectItemsHA(
                 hdatasource: isize,
@@ -19414,7 +19414,7 @@ pub unsafe fn PdhEnumObjectItemsHW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectItemsHW(
                 hdatasource: isize,
@@ -19462,7 +19462,7 @@ pub unsafe fn PdhEnumObjectItemsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectItemsW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -19507,7 +19507,7 @@ pub unsafe fn PdhEnumObjectsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectsA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -19545,7 +19545,7 @@ pub unsafe fn PdhEnumObjectsHA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectsHA(
                 hdatasource: isize,
@@ -19583,7 +19583,7 @@ pub unsafe fn PdhEnumObjectsHW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectsHW(
                 hdatasource: isize,
@@ -19622,7 +19622,7 @@ pub unsafe fn PdhEnumObjectsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectsW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -19656,7 +19656,7 @@ pub unsafe fn PdhExpandCounterPathA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhExpandCounterPathA(
                 szwildcardpath: super::super::Foundation::PSTR,
@@ -19684,7 +19684,7 @@ pub unsafe fn PdhExpandCounterPathW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhExpandCounterPathW(
                 szwildcardpath: super::super::Foundation::PWSTR,
@@ -19715,7 +19715,7 @@ pub unsafe fn PdhExpandWildCardPathA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhExpandWildCardPathA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -19749,7 +19749,7 @@ pub unsafe fn PdhExpandWildCardPathHA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhExpandWildCardPathHA(
                 hdatasource: isize,
@@ -19783,7 +19783,7 @@ pub unsafe fn PdhExpandWildCardPathHW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhExpandWildCardPathHW(
                 hdatasource: isize,
@@ -19818,7 +19818,7 @@ pub unsafe fn PdhExpandWildCardPathW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhExpandWildCardPathW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -19850,7 +19850,7 @@ pub unsafe fn PdhFormatFromRawValue(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhFormatFromRawValue(
                 dwcountertype: u32,
@@ -19885,7 +19885,7 @@ pub unsafe fn PdhGetCounterInfoA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetCounterInfoA(
                 hcounter: isize,
@@ -19916,7 +19916,7 @@ pub unsafe fn PdhGetCounterInfoW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetCounterInfoW(
                 hcounter: isize,
@@ -19938,7 +19938,7 @@ pub unsafe fn PdhGetCounterInfoW<
 pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32;
         }
@@ -19962,7 +19962,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDataSourceTimeRangeA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -19989,7 +19989,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeH(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDataSourceTimeRangeH(
                 hdatasource: isize,
@@ -20020,7 +20020,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDataSourceTimeRangeW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -20054,7 +20054,7 @@ pub unsafe fn PdhGetDefaultPerfCounterA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfCounterA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -20089,7 +20089,7 @@ pub unsafe fn PdhGetDefaultPerfCounterHA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfCounterHA(
                 hdatasource: isize,
@@ -20124,7 +20124,7 @@ pub unsafe fn PdhGetDefaultPerfCounterHW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfCounterHW(
                 hdatasource: isize,
@@ -20160,7 +20160,7 @@ pub unsafe fn PdhGetDefaultPerfCounterW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfCounterW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -20194,7 +20194,7 @@ pub unsafe fn PdhGetDefaultPerfObjectA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfObjectA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -20225,7 +20225,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfObjectHA(
                 hdatasource: isize,
@@ -20256,7 +20256,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfObjectHW(
                 hdatasource: isize,
@@ -20288,7 +20288,7 @@ pub unsafe fn PdhGetDefaultPerfObjectW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDefaultPerfObjectW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -20310,7 +20310,7 @@ pub unsafe fn PdhGetDefaultPerfObjectW<
 pub unsafe fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32;
         }
@@ -20329,7 +20329,7 @@ pub unsafe fn PdhGetFormattedCounterArrayA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetFormattedCounterArrayA(
                 hcounter: isize,
@@ -20360,7 +20360,7 @@ pub unsafe fn PdhGetFormattedCounterArrayW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetFormattedCounterArrayW(
                 hcounter: isize,
@@ -20390,7 +20390,7 @@ pub unsafe fn PdhGetFormattedCounterValue(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetFormattedCounterValue(
                 hcounter: isize,
@@ -20412,7 +20412,7 @@ pub unsafe fn PdhGetFormattedCounterValue(
 pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32;
         }
@@ -20431,7 +20431,7 @@ pub unsafe fn PdhGetLogSetGUID(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetLogSetGUID(
                 hlog: isize,
@@ -20457,7 +20457,7 @@ pub unsafe fn PdhGetRawCounterArrayA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetRawCounterArrayA(
                 hcounter: isize,
@@ -20485,7 +20485,7 @@ pub unsafe fn PdhGetRawCounterArrayW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetRawCounterArrayW(
                 hcounter: isize,
@@ -20512,7 +20512,7 @@ pub unsafe fn PdhGetRawCounterValue(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhGetRawCounterValue(
                 hcounter: isize,
@@ -20533,7 +20533,7 @@ pub unsafe fn PdhGetRawCounterValue(
 pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL;
         }
@@ -20554,7 +20554,7 @@ pub unsafe fn PdhLookupPerfIndexByNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhLookupPerfIndexByNameA(
                 szmachinename: super::super::Foundation::PSTR,
@@ -20583,7 +20583,7 @@ pub unsafe fn PdhLookupPerfIndexByNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhLookupPerfIndexByNameW(
                 szmachinename: super::super::Foundation::PWSTR,
@@ -20612,7 +20612,7 @@ pub unsafe fn PdhLookupPerfNameByIndexA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhLookupPerfNameByIndexA(
                 szmachinename: super::super::Foundation::PSTR,
@@ -20643,7 +20643,7 @@ pub unsafe fn PdhLookupPerfNameByIndexW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhLookupPerfNameByIndexW(
                 szmachinename: super::super::Foundation::PWSTR,
@@ -20671,7 +20671,7 @@ pub unsafe fn PdhMakeCounterPathA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhMakeCounterPathA(
                 pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A,
@@ -20699,7 +20699,7 @@ pub unsafe fn PdhMakeCounterPathW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhMakeCounterPathW(
                 pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W,
@@ -20734,7 +20734,7 @@ pub unsafe fn PdhOpenLogA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhOpenLogA(
                 szlogfilename: super::super::Foundation::PSTR,
@@ -20775,7 +20775,7 @@ pub unsafe fn PdhOpenLogW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhOpenLogW(
                 szlogfilename: super::super::Foundation::PWSTR,
@@ -20811,7 +20811,7 @@ pub unsafe fn PdhOpenQueryA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhOpenQueryA(
                 szdatasource: super::super::Foundation::PSTR,
@@ -20831,7 +20831,7 @@ pub unsafe fn PdhOpenQueryA<
 pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32;
         }
@@ -20855,7 +20855,7 @@ pub unsafe fn PdhOpenQueryW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhOpenQueryW(
                 szdatasource: super::super::Foundation::PWSTR,
@@ -20884,7 +20884,7 @@ pub unsafe fn PdhParseCounterPathA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhParseCounterPathA(
                 szfullpathbuffer: super::super::Foundation::PSTR,
@@ -20915,7 +20915,7 @@ pub unsafe fn PdhParseCounterPathW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhParseCounterPathW(
                 szfullpathbuffer: super::super::Foundation::PWSTR,
@@ -20948,7 +20948,7 @@ pub unsafe fn PdhParseInstanceNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhParseInstanceNameA(
                 szinstancestring: super::super::Foundation::PSTR,
@@ -20985,7 +20985,7 @@ pub unsafe fn PdhParseInstanceNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhParseInstanceNameW(
                 szinstancestring: super::super::Foundation::PWSTR,
@@ -21020,7 +21020,7 @@ pub unsafe fn PdhReadRawLogRecord<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhReadRawLogRecord(
                 hlog: isize,
@@ -21042,7 +21042,7 @@ pub unsafe fn PdhReadRawLogRecord<
 pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhRemoveCounter(hcounter: isize) -> i32;
         }
@@ -21064,7 +21064,7 @@ pub unsafe fn PdhSelectDataSourceA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhSelectDataSourceA(
                 hwndowner: super::super::Foundation::HWND,
@@ -21096,7 +21096,7 @@ pub unsafe fn PdhSelectDataSourceW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhSelectDataSourceW(
                 hwndowner: super::super::Foundation::HWND,
@@ -21118,7 +21118,7 @@ pub unsafe fn PdhSelectDataSourceW<
 pub unsafe fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32;
         }
@@ -21135,7 +21135,7 @@ pub unsafe fn PdhSetDefaultRealTimeDataSource(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhSetDefaultRealTimeDataSource(
                 dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS,
@@ -21151,7 +21151,7 @@ pub unsafe fn PdhSetDefaultRealTimeDataSource(
 pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32;
         }
@@ -21166,7 +21166,7 @@ pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
 pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32;
         }
@@ -21188,7 +21188,7 @@ pub unsafe fn PdhUpdateLogA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhUpdateLogA(hlog: isize, szuserstring: super::super::Foundation::PSTR) -> i32;
         }
@@ -21203,7 +21203,7 @@ pub unsafe fn PdhUpdateLogA<
 pub unsafe fn PdhUpdateLogFileCatalog(hlog: isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhUpdateLogFileCatalog(hlog: isize) -> i32;
         }
@@ -21222,7 +21222,7 @@ pub unsafe fn PdhUpdateLogW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhUpdateLogW(hlog: isize, szuserstring: super::super::Foundation::PWSTR) -> i32;
         }
@@ -21243,7 +21243,7 @@ pub unsafe fn PdhValidatePathA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhValidatePathA(szfullpathbuffer: super::super::Foundation::PSTR) -> i32;
         }
@@ -21262,7 +21262,7 @@ pub unsafe fn PdhValidatePathExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhValidatePathExA(
                 hdatasource: isize,
@@ -21287,7 +21287,7 @@ pub unsafe fn PdhValidatePathExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhValidatePathExW(
                 hdatasource: isize,
@@ -21311,7 +21311,7 @@ pub unsafe fn PdhValidatePathW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhValidatePathW(szfullpathbuffer: super::super::Foundation::PWSTR) -> i32;
         }
@@ -21329,7 +21329,7 @@ pub unsafe fn PdhVerifySQLDBA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhVerifySQLDBA(szdatasource: super::super::Foundation::PSTR) -> i32;
         }
@@ -21347,7 +21347,7 @@ pub unsafe fn PdhVerifySQLDBW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "pdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdhVerifySQLDBW(szdatasource: super::super::Foundation::PWSTR) -> i32;
         }
@@ -21363,7 +21363,7 @@ pub unsafe fn PerfAddCounters<'a, Param0: ::windows::runtime::IntoParam<'a, Perf
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfAddCounters(
                 hquery: PerfQueryHandle,
@@ -21389,7 +21389,7 @@ pub unsafe fn PerfCloseQueryHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfCloseQueryHandle(hquery: super::super::Foundation::HANDLE) -> u32;
         }
@@ -21435,7 +21435,7 @@ pub unsafe fn PerfCreateInstance<
 ) -> *mut PERF_COUNTERSET_INSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfCreateInstance(
                 providerhandle: PerfProviderHandle,
@@ -21466,7 +21466,7 @@ pub unsafe fn PerfDecrementULongCounterValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfDecrementULongCounterValue(
                 provider: super::super::Foundation::HANDLE,
@@ -21497,7 +21497,7 @@ pub unsafe fn PerfDecrementULongLongCounterValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfDecrementULongLongCounterValue(
                 provider: super::super::Foundation::HANDLE,
@@ -21523,7 +21523,7 @@ pub unsafe fn PerfDeleteCounters<'a, Param0: ::windows::runtime::IntoParam<'a, P
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfDeleteCounters(
                 hquery: PerfQueryHandle,
@@ -21549,7 +21549,7 @@ pub unsafe fn PerfDeleteInstance<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfDeleteInstance(
                 provider: PerfProviderHandle,
@@ -21576,7 +21576,7 @@ pub unsafe fn PerfEnumerateCounterSet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfEnumerateCounterSet(
                 szmachine: super::super::Foundation::PWSTR,
@@ -21608,7 +21608,7 @@ pub unsafe fn PerfEnumerateCounterSetInstances<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfEnumerateCounterSetInstances(
                 szmachine: super::super::Foundation::PWSTR,
@@ -21641,7 +21641,7 @@ pub unsafe fn PerfIncrementULongCounterValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfIncrementULongCounterValue(
                 provider: super::super::Foundation::HANDLE,
@@ -21672,7 +21672,7 @@ pub unsafe fn PerfIncrementULongLongCounterValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfIncrementULongLongCounterValue(
                 provider: super::super::Foundation::HANDLE,
@@ -21701,7 +21701,7 @@ pub unsafe fn PerfOpenQueryHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfOpenQueryHandle(
                 szmachine: super::super::Foundation::PWSTR,
@@ -21747,7 +21747,7 @@ pub unsafe fn PerfQueryCounterData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfQueryCounterData(
                 hquery: PerfQueryHandle,
@@ -21777,7 +21777,7 @@ pub unsafe fn PerfQueryCounterInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfQueryCounterInfo(
                 hquery: PerfQueryHandle,
@@ -21811,7 +21811,7 @@ pub unsafe fn PerfQueryCounterSetRegistrationInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfQueryCounterSetRegistrationInfo(
                 szmachine: super::super::Foundation::PWSTR,
@@ -21868,7 +21868,7 @@ pub unsafe fn PerfQueryInstance<
 ) -> *mut PERF_COUNTERSET_INSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfQueryInstance(
                 providerhandle: super::super::Foundation::HANDLE,
@@ -21928,7 +21928,7 @@ pub unsafe fn PerfSetCounterRefValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfSetCounterRefValue(
                 provider: super::super::Foundation::HANDLE,
@@ -21958,7 +21958,7 @@ pub unsafe fn PerfSetCounterSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfSetCounterSetInfo(
                 providerhandle: super::super::Foundation::HANDLE,
@@ -21987,7 +21987,7 @@ pub unsafe fn PerfSetULongCounterValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfSetULongCounterValue(
                 provider: super::super::Foundation::HANDLE,
@@ -22018,7 +22018,7 @@ pub unsafe fn PerfSetULongLongCounterValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfSetULongLongCounterValue(
                 provider: super::super::Foundation::HANDLE,
@@ -22044,7 +22044,7 @@ pub unsafe fn PerfStartProvider(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfStartProvider(
                 providerguid: *const ::windows::runtime::GUID,
@@ -22068,7 +22068,7 @@ pub unsafe fn PerfStartProviderEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfStartProviderEx(
                 providerguid: *const ::windows::runtime::GUID,
@@ -22093,7 +22093,7 @@ pub unsafe fn PerfStopProvider<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PerfStopProvider(providerhandle: PerfProviderHandle) -> u32;
         }
@@ -22108,7 +22108,7 @@ pub unsafe fn QueryPerformanceCounter(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryPerformanceCounter(
                 lpperformancecount: *mut i64,
@@ -22125,7 +22125,7 @@ pub unsafe fn QueryPerformanceCounter(
 pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL;
         }
@@ -22242,7 +22242,7 @@ pub unsafe fn RestorePerfRegistryFromFileW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestorePerfRegistryFromFileW(
                 szfilename: super::super::Foundation::PWSTR,
@@ -22278,7 +22278,7 @@ pub unsafe fn SetServiceAsTrustedA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetServiceAsTrustedA(
                 szreserved: super::super::Foundation::PSTR,
@@ -22304,7 +22304,7 @@ pub unsafe fn SetServiceAsTrustedW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetServiceAsTrustedW(
                 szreserved: super::super::Foundation::PWSTR,
@@ -22456,7 +22456,7 @@ pub unsafe fn UnloadPerfCounterTextStringsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnloadPerfCounterTextStringsA(
                 lpcommandline: super::super::Foundation::PSTR,
@@ -22482,7 +22482,7 @@ pub unsafe fn UnloadPerfCounterTextStringsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnloadPerfCounterTextStringsW(
                 lpcommandline: super::super::Foundation::PWSTR,
@@ -22511,7 +22511,7 @@ pub unsafe fn UpdatePerfNameFilesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdatePerfNameFilesA(
                 sznewctrfilepath: super::super::Foundation::PSTR,
@@ -22544,7 +22544,7 @@ pub unsafe fn UpdatePerfNameFilesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "loadperf")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdatePerfNameFilesW(
                 sznewctrfilepath: super::super::Foundation::PWSTR,

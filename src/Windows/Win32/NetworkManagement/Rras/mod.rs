@@ -2920,7 +2920,7 @@ pub unsafe fn MgmAddGroupMembershipEntry<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmAddGroupMembershipEntry(
                 hprotocol: super::super::Foundation::HANDLE,
@@ -2956,7 +2956,7 @@ pub unsafe fn MgmDeRegisterMProtocol<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
         }
@@ -2981,7 +2981,7 @@ pub unsafe fn MgmDeleteGroupMembershipEntry<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmDeleteGroupMembershipEntry(
                 hprotocol: super::super::Foundation::HANDLE,
@@ -3015,7 +3015,7 @@ pub unsafe fn MgmGetFirstMfe(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGetFirstMfe(
                 pdwbuffersize: *mut u32,
@@ -3040,7 +3040,7 @@ pub unsafe fn MgmGetFirstMfeStats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGetFirstMfeStats(
                 pdwbuffersize: *mut u32,
@@ -3067,7 +3067,7 @@ pub unsafe fn MgmGetMfe(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGetMfe(
                 pimm: *mut super::IpHelper::MIB_IPMCAST_MFE,
@@ -3093,7 +3093,7 @@ pub unsafe fn MgmGetMfeStats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGetMfeStats(
                 pimm: *mut super::IpHelper::MIB_IPMCAST_MFE,
@@ -3121,7 +3121,7 @@ pub unsafe fn MgmGetNextMfe(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGetNextMfe(
                 pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE,
@@ -3150,7 +3150,7 @@ pub unsafe fn MgmGetNextMfeStats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGetNextMfeStats(
                 pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE,
@@ -3179,7 +3179,7 @@ pub unsafe fn MgmGetProtocolOnInterface(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGetProtocolOnInterface(
                 dwifindex: u32,
@@ -3207,7 +3207,7 @@ pub unsafe fn MgmGroupEnumerationEnd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3228,7 +3228,7 @@ pub unsafe fn MgmGroupEnumerationGetNext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGroupEnumerationGetNext(
                 henum: super::super::Foundation::HANDLE,
@@ -3258,7 +3258,7 @@ pub unsafe fn MgmGroupEnumerationStart<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmGroupEnumerationStart(
                 hprotocol: super::super::Foundation::HANDLE,
@@ -3284,7 +3284,7 @@ pub unsafe fn MgmRegisterMProtocol(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmRegisterMProtocol(
                 prpiinfo: *mut ::std::mem::ManuallyDrop<ROUTING_PROTOCOL_CONFIG>,
@@ -3314,7 +3314,7 @@ pub unsafe fn MgmReleaseInterfaceOwnership<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmReleaseInterfaceOwnership(
                 hprotocol: super::super::Foundation::HANDLE,
@@ -3342,7 +3342,7 @@ pub unsafe fn MgmTakeInterfaceOwnership<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn MgmTakeInterfaceOwnership(
                 hprotocol: super::super::Foundation::HANDLE,
@@ -3362,7 +3362,7 @@ pub unsafe fn MgmTakeInterfaceOwnership<
 pub unsafe fn MprAdminBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32;
         }
@@ -3381,7 +3381,7 @@ pub unsafe fn MprAdminConnectionClearStats<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminConnectionClearStats(
                 hrasserver: isize,
@@ -3407,7 +3407,7 @@ pub unsafe fn MprAdminConnectionEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminConnectionEnum(
                 hrasserver: isize,
@@ -3444,7 +3444,7 @@ pub unsafe fn MprAdminConnectionEnumEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminConnectionEnumEx(
                 hrasserver: isize,
@@ -3481,7 +3481,7 @@ pub unsafe fn MprAdminConnectionGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminConnectionGetInfo(
                 hrasserver: isize,
@@ -3511,7 +3511,7 @@ pub unsafe fn MprAdminConnectionGetInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminConnectionGetInfoEx(
                 hrasserver: isize,
@@ -3541,7 +3541,7 @@ pub unsafe fn MprAdminConnectionRemoveQuarantine<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminConnectionRemoveQuarantine(
                 hrasserver: super::super::Foundation::HANDLE,
@@ -3568,7 +3568,7 @@ pub unsafe fn MprAdminDeregisterConnectionNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminDeregisterConnectionNotification(
                 hmprserver: isize,
@@ -3591,7 +3591,7 @@ pub unsafe fn MprAdminDeviceEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminDeviceEnum(
                 hmprserver: isize,
@@ -3623,7 +3623,7 @@ pub unsafe fn MprAdminEstablishDomainRasServer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminEstablishDomainRasServer(
                 pszdomain: super::super::Foundation::PWSTR,
@@ -3647,7 +3647,7 @@ pub unsafe fn MprAdminGetErrorString(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminGetErrorString(
                 dwerror: u32,
@@ -3674,7 +3674,7 @@ pub unsafe fn MprAdminGetPDCServer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminGetPDCServer(
                 lpszdomain: super::super::Foundation::PWSTR,
@@ -3705,7 +3705,7 @@ pub unsafe fn MprAdminInterfaceConnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceConnect(
                 hmprserver: isize,
@@ -3733,7 +3733,7 @@ pub unsafe fn MprAdminInterfaceCreate(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceCreate(
                 hmprserver: isize,
@@ -3762,7 +3762,7 @@ pub unsafe fn MprAdminInterfaceDelete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceDelete(
                 hmprserver: isize,
@@ -3790,7 +3790,7 @@ pub unsafe fn MprAdminInterfaceDeviceGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceDeviceGetInfo(
                 hmprserver: isize,
@@ -3824,7 +3824,7 @@ pub unsafe fn MprAdminInterfaceDeviceSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceDeviceSetInfo(
                 hmprserver: isize,
@@ -3855,7 +3855,7 @@ pub unsafe fn MprAdminInterfaceDisconnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceDisconnect(
                 hmprserver: isize,
@@ -3881,7 +3881,7 @@ pub unsafe fn MprAdminInterfaceEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceEnum(
                 hmprserver: isize,
@@ -3920,7 +3920,7 @@ pub unsafe fn MprAdminInterfaceGetCredentials<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceGetCredentials(
                 lpwsserver: super::super::Foundation::PWSTR,
@@ -3953,7 +3953,7 @@ pub unsafe fn MprAdminInterfaceGetCredentialsEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceGetCredentialsEx(
                 hmprserver: isize,
@@ -3987,7 +3987,7 @@ pub unsafe fn MprAdminInterfaceGetCustomInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceGetCustomInfoEx(
                 hmprserver: isize,
@@ -4017,7 +4017,7 @@ pub unsafe fn MprAdminInterfaceGetHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceGetHandle(
                 hmprserver: isize,
@@ -4048,7 +4048,7 @@ pub unsafe fn MprAdminInterfaceGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceGetInfo(
                 hmprserver: isize,
@@ -4079,7 +4079,7 @@ pub unsafe fn MprAdminInterfaceQueryUpdateResult<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceQueryUpdateResult(
                 hmprserver: isize,
@@ -4115,7 +4115,7 @@ pub unsafe fn MprAdminInterfaceSetCredentials<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceSetCredentials(
                 lpwsserver: super::super::Foundation::PWSTR,
@@ -4148,7 +4148,7 @@ pub unsafe fn MprAdminInterfaceSetCredentialsEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceSetCredentialsEx(
                 hmprserver: isize,
@@ -4182,7 +4182,7 @@ pub unsafe fn MprAdminInterfaceSetCustomInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceSetCustomInfoEx(
                 hmprserver: isize,
@@ -4211,7 +4211,7 @@ pub unsafe fn MprAdminInterfaceSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceSetInfo(
                 hmprserver: isize,
@@ -4243,7 +4243,7 @@ pub unsafe fn MprAdminInterfaceTransportAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceTransportAdd(
                 hmprserver: isize,
@@ -4277,7 +4277,7 @@ pub unsafe fn MprAdminInterfaceTransportGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceTransportGetInfo(
                 hmprserver: isize,
@@ -4309,7 +4309,7 @@ pub unsafe fn MprAdminInterfaceTransportRemove<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceTransportRemove(
                 hmprserver: isize,
@@ -4339,7 +4339,7 @@ pub unsafe fn MprAdminInterfaceTransportSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceTransportSetInfo(
                 hmprserver: isize,
@@ -4370,7 +4370,7 @@ pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceUpdatePhonebookInfo(
                 hmprserver: isize,
@@ -4398,7 +4398,7 @@ pub unsafe fn MprAdminInterfaceUpdateRoutes<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminInterfaceUpdateRoutes(
                 hmprserver: isize,
@@ -4429,7 +4429,7 @@ pub unsafe fn MprAdminIsDomainRasServer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminIsDomainRasServer(
                 pszdomain: super::super::Foundation::PWSTR,
@@ -4456,7 +4456,7 @@ pub unsafe fn MprAdminIsServiceInitialized<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminIsServiceInitialized(
                 lpwsservername: super::super::Foundation::PWSTR,
@@ -4480,7 +4480,7 @@ pub unsafe fn MprAdminIsServiceRunning<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminIsServiceRunning(
                 lpwsservername: super::super::Foundation::PWSTR,
@@ -4494,7 +4494,7 @@ pub unsafe fn MprAdminIsServiceRunning<
 pub unsafe fn MprAdminMIBBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32;
         }
@@ -4512,7 +4512,7 @@ pub unsafe fn MprAdminMIBEntryCreate(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBEntryCreate(
                 hmibserver: isize,
@@ -4542,7 +4542,7 @@ pub unsafe fn MprAdminMIBEntryDelete(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBEntryDelete(
                 hmibserver: isize,
@@ -4574,7 +4574,7 @@ pub unsafe fn MprAdminMIBEntryGet(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBEntryGet(
                 hmibserver: isize,
@@ -4610,7 +4610,7 @@ pub unsafe fn MprAdminMIBEntryGetFirst(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBEntryGetFirst(
                 hmibserver: isize,
@@ -4646,7 +4646,7 @@ pub unsafe fn MprAdminMIBEntryGetNext(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBEntryGetNext(
                 hmibserver: isize,
@@ -4680,7 +4680,7 @@ pub unsafe fn MprAdminMIBEntrySet(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBEntrySet(
                 hmibserver: isize,
@@ -4711,7 +4711,7 @@ pub unsafe fn MprAdminMIBServerConnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBServerConnect(
                 lpwsservername: super::super::Foundation::PWSTR,
@@ -4729,7 +4729,7 @@ pub unsafe fn MprAdminMIBServerConnect<
 pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminMIBServerDisconnect(hmibserver: isize);
         }
@@ -4750,7 +4750,7 @@ pub unsafe fn MprAdminPortClearStats<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminPortClearStats(
                 hrasserver: isize,
@@ -4775,7 +4775,7 @@ pub unsafe fn MprAdminPortDisconnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminPortDisconnect(
                 hrasserver: isize,
@@ -4806,7 +4806,7 @@ pub unsafe fn MprAdminPortEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminPortEnum(
                 hrasserver: isize,
@@ -4845,7 +4845,7 @@ pub unsafe fn MprAdminPortGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminPortGetInfo(
                 hrasserver: isize,
@@ -4874,7 +4874,7 @@ pub unsafe fn MprAdminPortReset<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminPortReset(hrasserver: isize, hport: super::super::Foundation::HANDLE)
                 -> u32;
@@ -4897,7 +4897,7 @@ pub unsafe fn MprAdminRegisterConnectionNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminRegisterConnectionNotification(
                 hmprserver: isize,
@@ -4924,7 +4924,7 @@ pub unsafe fn MprAdminSendUserMessage<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminSendUserMessage(
                 hmprserver: isize,
@@ -4951,7 +4951,7 @@ pub unsafe fn MprAdminServerConnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerConnect(
                 lpwsservername: super::super::Foundation::PWSTR,
@@ -4969,7 +4969,7 @@ pub unsafe fn MprAdminServerConnect<
 pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerDisconnect(hmprserver: isize);
         }
@@ -4985,7 +4985,7 @@ pub unsafe fn MprAdminServerGetCredentials(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerGetCredentials(
                 hmprserver: isize,
@@ -5009,7 +5009,7 @@ pub unsafe fn MprAdminServerGetInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerGetInfo(
                 hmprserver: isize,
@@ -5033,7 +5033,7 @@ pub unsafe fn MprAdminServerGetInfo(
 pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
         }
@@ -5052,7 +5052,7 @@ pub unsafe fn MprAdminServerSetCredentials(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerSetCredentials(
                 hmprserver: isize,
@@ -5072,7 +5072,7 @@ pub unsafe fn MprAdminServerSetCredentials(
 pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -5095,7 +5095,7 @@ pub unsafe fn MprAdminServerSetInfoEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminServerSetInfoEx(
                 hmprserver: isize,
@@ -5127,7 +5127,7 @@ pub unsafe fn MprAdminTransportCreate<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminTransportCreate(
                 hmprserver: isize,
@@ -5164,7 +5164,7 @@ pub unsafe fn MprAdminTransportGetInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminTransportGetInfo(
                 hmprserver: isize,
@@ -5197,7 +5197,7 @@ pub unsafe fn MprAdminTransportSetInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminTransportSetInfo(
                 hmprserver: isize,
@@ -5231,7 +5231,7 @@ pub unsafe fn MprAdminUpdateConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminUpdateConnection(
                 hrasserver: isize,
@@ -5261,7 +5261,7 @@ pub unsafe fn MprAdminUserGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminUserGetInfo(
                 lpszserver: super::super::Foundation::PWSTR,
@@ -5293,7 +5293,7 @@ pub unsafe fn MprAdminUserSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprAdminUserSetInfo(
                 lpszserver: super::super::Foundation::PWSTR,
@@ -5315,7 +5315,7 @@ pub unsafe fn MprAdminUserSetInfo<
 pub unsafe fn MprConfigBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32;
         }
@@ -5336,7 +5336,7 @@ pub unsafe fn MprConfigFilterGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigFilterGetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5367,7 +5367,7 @@ pub unsafe fn MprConfigFilterSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigFilterSetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5399,7 +5399,7 @@ pub unsafe fn MprConfigGetFriendlyName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigGetFriendlyName(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5431,7 +5431,7 @@ pub unsafe fn MprConfigGetGuidName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigGetGuidName(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5462,7 +5462,7 @@ pub unsafe fn MprConfigInterfaceCreate<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceCreate(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5492,7 +5492,7 @@ pub unsafe fn MprConfigInterfaceDelete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceDelete(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5522,7 +5522,7 @@ pub unsafe fn MprConfigInterfaceEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceEnum(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5563,7 +5563,7 @@ pub unsafe fn MprConfigInterfaceGetCustomInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceGetCustomInfoEx(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5592,7 +5592,7 @@ pub unsafe fn MprConfigInterfaceGetHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceGetHandle(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5623,7 +5623,7 @@ pub unsafe fn MprConfigInterfaceGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceGetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5660,7 +5660,7 @@ pub unsafe fn MprConfigInterfaceSetCustomInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceSetCustomInfoEx(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5690,7 +5690,7 @@ pub unsafe fn MprConfigInterfaceSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceSetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5726,7 +5726,7 @@ pub unsafe fn MprConfigInterfaceTransportAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceTransportAdd(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5768,7 +5768,7 @@ pub unsafe fn MprConfigInterfaceTransportEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceTransportEnum(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5808,7 +5808,7 @@ pub unsafe fn MprConfigInterfaceTransportGetHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceTransportGetHandle(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5842,7 +5842,7 @@ pub unsafe fn MprConfigInterfaceTransportGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceTransportGetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5876,7 +5876,7 @@ pub unsafe fn MprConfigInterfaceTransportRemove<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceTransportRemove(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5908,7 +5908,7 @@ pub unsafe fn MprConfigInterfaceTransportSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigInterfaceTransportSetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5940,7 +5940,7 @@ pub unsafe fn MprConfigServerBackup<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerBackup(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -5965,7 +5965,7 @@ pub unsafe fn MprConfigServerConnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerConnect(
                 lpwsservername: super::super::Foundation::PWSTR,
@@ -5989,7 +5989,7 @@ pub unsafe fn MprConfigServerDisconnect<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE);
         }
@@ -6009,7 +6009,7 @@ pub unsafe fn MprConfigServerGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerGetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6039,7 +6039,7 @@ pub unsafe fn MprConfigServerGetInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerGetInfoEx(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6057,7 +6057,7 @@ pub unsafe fn MprConfigServerGetInfoEx<
 pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::std::ffi::c_void) -> u32;
         }
@@ -6078,7 +6078,7 @@ pub unsafe fn MprConfigServerRefresh<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerRefresh(hmprconfig: super::super::Foundation::HANDLE) -> u32;
         }
@@ -6098,7 +6098,7 @@ pub unsafe fn MprConfigServerRestore<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerRestore(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6116,7 +6116,7 @@ pub unsafe fn MprConfigServerRestore<
 pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8)
                 -> u32;
@@ -6143,7 +6143,7 @@ pub unsafe fn MprConfigServerSetInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigServerSetInfoEx(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6177,7 +6177,7 @@ pub unsafe fn MprConfigTransportCreate<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigTransportCreate(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6217,7 +6217,7 @@ pub unsafe fn MprConfigTransportDelete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigTransportDelete(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6247,7 +6247,7 @@ pub unsafe fn MprConfigTransportEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigTransportEnum(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6283,7 +6283,7 @@ pub unsafe fn MprConfigTransportGetHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigTransportGetHandle(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6316,7 +6316,7 @@ pub unsafe fn MprConfigTransportGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigTransportGetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6358,7 +6358,7 @@ pub unsafe fn MprConfigTransportSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprConfigTransportSetInfo(
                 hmprconfig: super::super::Foundation::HANDLE,
@@ -6393,7 +6393,7 @@ pub unsafe fn MprInfoBlockAdd(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoBlockAdd(
                 lpheader: *const ::std::ffi::c_void,
@@ -6425,7 +6425,7 @@ pub unsafe fn MprInfoBlockFind(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoBlockFind(
                 lpheader: *const ::std::ffi::c_void,
@@ -6449,7 +6449,7 @@ pub unsafe fn MprInfoBlockFind(
 pub unsafe fn MprInfoBlockQuerySize(lpheader: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoBlockQuerySize(lpheader: *const ::std::ffi::c_void) -> u32;
         }
@@ -6465,7 +6465,7 @@ pub unsafe fn MprInfoBlockRemove(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoBlockRemove(
                 lpheader: *const ::std::ffi::c_void,
@@ -6492,7 +6492,7 @@ pub unsafe fn MprInfoBlockSet(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoBlockSet(
                 lpheader: *const ::std::ffi::c_void,
@@ -6518,7 +6518,7 @@ pub unsafe fn MprInfoBlockSet(
 pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32;
         }
@@ -6533,7 +6533,7 @@ pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::std::ffi:
 pub unsafe fn MprInfoDelete(lpheader: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoDelete(lpheader: *const ::std::ffi::c_void) -> u32;
         }
@@ -6548,7 +6548,7 @@ pub unsafe fn MprInfoDuplicate(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoDuplicate(
                 lpheader: *const ::std::ffi::c_void,
@@ -6569,7 +6569,7 @@ pub unsafe fn MprInfoRemoveAll(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mprapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprInfoRemoveAll(
                 lpheader: *const ::std::ffi::c_void,
@@ -12501,7 +12501,7 @@ pub unsafe fn RasClearConnectionStatistics<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
         }
@@ -12516,7 +12516,7 @@ pub unsafe fn RasClearLinkStatistics<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32;
         }
@@ -12540,7 +12540,7 @@ pub unsafe fn RasConnectionNotificationA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasConnectionNotificationA(
                 param0: HRASCONN,
@@ -12569,7 +12569,7 @@ pub unsafe fn RasConnectionNotificationW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasConnectionNotificationW(
                 param0: HRASCONN,
@@ -12597,7 +12597,7 @@ pub unsafe fn RasCreatePhonebookEntryA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasCreatePhonebookEntryA(
                 param0: super::super::Foundation::HWND,
@@ -12623,7 +12623,7 @@ pub unsafe fn RasCreatePhonebookEntryW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasCreatePhonebookEntryW(
                 param0: super::super::Foundation::HWND,
@@ -12699,7 +12699,7 @@ pub unsafe fn RasDeleteEntryA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDeleteEntryA(
                 param0: super::super::Foundation::PSTR,
@@ -12725,7 +12725,7 @@ pub unsafe fn RasDeleteEntryW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDeleteEntryW(
                 param0: super::super::Foundation::PWSTR,
@@ -12752,7 +12752,7 @@ pub unsafe fn RasDeleteSubEntryA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDeleteSubEntryA(
                 pszphonebook: super::super::Foundation::PSTR,
@@ -12781,7 +12781,7 @@ pub unsafe fn RasDeleteSubEntryW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDeleteSubEntryW(
                 pszphonebook: super::super::Foundation::PWSTR,
@@ -12812,7 +12812,7 @@ pub unsafe fn RasDialA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDialA(
                 param0: *const RASDIALEXTENSIONS,
@@ -12849,7 +12849,7 @@ pub unsafe fn RasDialDlgA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rasdlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDialDlgA(
                 lpszphonebook: super::super::Foundation::PSTR,
@@ -12882,7 +12882,7 @@ pub unsafe fn RasDialDlgW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rasdlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDialDlgW(
                 lpszphonebook: super::super::Foundation::PWSTR,
@@ -12915,7 +12915,7 @@ pub unsafe fn RasDialW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasDialW(
                 param0: *const RASDIALEXTENSIONS,
@@ -12951,7 +12951,7 @@ pub unsafe fn RasEditPhonebookEntryA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEditPhonebookEntryA(
                 param0: super::super::Foundation::HWND,
@@ -12981,7 +12981,7 @@ pub unsafe fn RasEditPhonebookEntryW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEditPhonebookEntryW(
                 param0: super::super::Foundation::HWND,
@@ -13010,7 +13010,7 @@ pub unsafe fn RasEntryDlgA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rasdlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEntryDlgA(
                 lpszphonebook: super::super::Foundation::PSTR,
@@ -13039,7 +13039,7 @@ pub unsafe fn RasEntryDlgW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rasdlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEntryDlgW(
                 lpszphonebook: super::super::Foundation::PWSTR,
@@ -13064,7 +13064,7 @@ pub unsafe fn RasEnumAutodialAddressesA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumAutodialAddressesA(
                 lpprasautodialaddresses: *mut super::super::Foundation::PSTR,
@@ -13089,7 +13089,7 @@ pub unsafe fn RasEnumAutodialAddressesW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumAutodialAddressesW(
                 lpprasautodialaddresses: *mut super::super::Foundation::PWSTR,
@@ -13114,7 +13114,7 @@ pub unsafe fn RasEnumConnectionsA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumConnectionsA(
                 param0: *mut RASCONNA,
@@ -13139,7 +13139,7 @@ pub unsafe fn RasEnumConnectionsW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumConnectionsW(
                 param0: *mut RASCONNW,
@@ -13160,7 +13160,7 @@ pub unsafe fn RasEnumConnectionsW(
 pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32)
                 -> u32;
@@ -13177,7 +13177,7 @@ pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2
 pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32)
                 -> u32;
@@ -13205,7 +13205,7 @@ pub unsafe fn RasEnumEntriesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumEntriesA(
                 param0: super::super::Foundation::PSTR,
@@ -13240,7 +13240,7 @@ pub unsafe fn RasEnumEntriesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasEnumEntriesW(
                 param0: super::super::Foundation::PWSTR,
@@ -13265,7 +13265,7 @@ pub unsafe fn RasEnumEntriesW<
 pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA) {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA);
         }
@@ -13279,7 +13279,7 @@ pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDEN
 pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW) {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW);
         }
@@ -13303,7 +13303,7 @@ pub unsafe fn RasGetAutodialAddressA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetAutodialAddressA(
                 param0: super::super::Foundation::PSTR,
@@ -13337,7 +13337,7 @@ pub unsafe fn RasGetAutodialAddressW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetAutodialAddressW(
                 param0: super::super::Foundation::PWSTR,
@@ -13361,7 +13361,7 @@ pub unsafe fn RasGetAutodialAddressW<
 pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32;
         }
@@ -13376,7 +13376,7 @@ pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
 pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32;
         }
@@ -13395,7 +13395,7 @@ pub unsafe fn RasGetAutodialParamA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetAutodialParamA(
                 param0: u32,
@@ -13419,7 +13419,7 @@ pub unsafe fn RasGetAutodialParamW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetAutodialParamW(
                 param0: u32,
@@ -13446,7 +13446,7 @@ pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetConnectStatusA(param0: HRASCONN, param1: *mut RASCONNSTATUSA) -> u32;
         }
@@ -13465,7 +13465,7 @@ pub unsafe fn RasGetConnectStatusW<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetConnectStatusW(param0: HRASCONN, param1: *mut RASCONNSTATUSW) -> u32;
         }
@@ -13486,7 +13486,7 @@ pub unsafe fn RasGetConnectionStatistics<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: *mut RAS_STATS) -> u32;
         }
@@ -13501,7 +13501,7 @@ pub unsafe fn RasGetConnectionStatistics<
 pub unsafe fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
         }
@@ -13516,7 +13516,7 @@ pub unsafe fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> 
 pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
         }
@@ -13540,7 +13540,7 @@ pub unsafe fn RasGetCredentialsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetCredentialsA(
                 param0: super::super::Foundation::PSTR,
@@ -13569,7 +13569,7 @@ pub unsafe fn RasGetCredentialsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetCredentialsW(
                 param0: super::super::Foundation::PWSTR,
@@ -13599,7 +13599,7 @@ pub unsafe fn RasGetCustomAuthDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetCustomAuthDataA(
                 pszphonebook: super::super::Foundation::PSTR,
@@ -13631,7 +13631,7 @@ pub unsafe fn RasGetCustomAuthDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetCustomAuthDataW(
                 pszphonebook: super::super::Foundation::PWSTR,
@@ -13665,7 +13665,7 @@ pub unsafe fn RasGetEapUserDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEapUserDataA(
                 htoken: super::super::Foundation::HANDLE,
@@ -13701,7 +13701,7 @@ pub unsafe fn RasGetEapUserDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEapUserDataW(
                 htoken: super::super::Foundation::HANDLE,
@@ -13737,7 +13737,7 @@ pub unsafe fn RasGetEapUserIdentityA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEapUserIdentityA(
                 pszphonebook: super::super::Foundation::PSTR,
@@ -13773,7 +13773,7 @@ pub unsafe fn RasGetEapUserIdentityW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEapUserIdentityW(
                 pszphonebook: super::super::Foundation::PWSTR,
@@ -13805,7 +13805,7 @@ pub unsafe fn RasGetEntryDialParamsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEntryDialParamsA(
                 param0: super::super::Foundation::PSTR,
@@ -13833,7 +13833,7 @@ pub unsafe fn RasGetEntryDialParamsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEntryDialParamsW(
                 param0: super::super::Foundation::PWSTR,
@@ -13869,7 +13869,7 @@ pub unsafe fn RasGetEntryPropertiesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEntryPropertiesA(
                 param0: super::super::Foundation::PSTR,
@@ -13907,7 +13907,7 @@ pub unsafe fn RasGetEntryPropertiesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetEntryPropertiesW(
                 param0: super::super::Foundation::PWSTR,
@@ -13938,7 +13938,7 @@ pub unsafe fn RasGetErrorStringA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetErrorStringA(
                 resourceid: u32,
@@ -13963,7 +13963,7 @@ pub unsafe fn RasGetErrorStringW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetErrorStringW(
                 resourceid: u32,
@@ -13987,7 +13987,7 @@ pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetLinkStatistics(
                 hrasconn: HRASCONN,
@@ -14008,7 +14008,7 @@ pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::runtime::IntoParam<'a,
 pub unsafe fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32;
         }
@@ -14025,7 +14025,7 @@ pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetProjectionInfoA(
                 param0: HRASCONN,
@@ -14052,7 +14052,7 @@ pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetProjectionInfoEx(
                 hrasconn: HRASCONN,
@@ -14077,7 +14077,7 @@ pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetProjectionInfoW(
                 param0: HRASCONN,
@@ -14103,7 +14103,7 @@ pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         }
@@ -14123,7 +14123,7 @@ pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         }
@@ -14152,7 +14152,7 @@ pub unsafe fn RasGetSubEntryPropertiesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetSubEntryPropertiesA(
                 param0: super::super::Foundation::PSTR,
@@ -14193,7 +14193,7 @@ pub unsafe fn RasGetSubEntryPropertiesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasGetSubEntryPropertiesW(
                 param0: super::super::Foundation::PWSTR,
@@ -14223,7 +14223,7 @@ pub unsafe fn RasHangUpA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasHangUpA(param0: HRASCONN) -> u32;
         }
@@ -14237,7 +14237,7 @@ pub unsafe fn RasHangUpW<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasHangUpW(param0: HRASCONN) -> u32;
         }
@@ -14259,7 +14259,7 @@ pub unsafe fn RasInvokeEapUI<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasInvokeEapUI(
                 param0: HRASCONN,
@@ -14290,7 +14290,7 @@ pub unsafe fn RasPhonebookDlgA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rasdlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasPhonebookDlgA(
                 lpszphonebook: super::super::Foundation::PSTR,
@@ -14319,7 +14319,7 @@ pub unsafe fn RasPhonebookDlgW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rasdlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasPhonebookDlgW(
                 lpszphonebook: super::super::Foundation::PWSTR,
@@ -14349,7 +14349,7 @@ pub unsafe fn RasRenameEntryA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasRenameEntryA(
                 param0: super::super::Foundation::PSTR,
@@ -14379,7 +14379,7 @@ pub unsafe fn RasRenameEntryW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasRenameEntryW(
                 param0: super::super::Foundation::PWSTR,
@@ -14409,7 +14409,7 @@ pub unsafe fn RasSetAutodialAddressA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetAutodialAddressA(
                 param0: super::super::Foundation::PSTR,
@@ -14443,7 +14443,7 @@ pub unsafe fn RasSetAutodialAddressW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetAutodialAddressW(
                 param0: super::super::Foundation::PWSTR,
@@ -14474,7 +14474,7 @@ pub unsafe fn RasSetAutodialEnableA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetAutodialEnableA(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
         }
@@ -14496,7 +14496,7 @@ pub unsafe fn RasSetAutodialEnableW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetAutodialEnableW(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
         }
@@ -14515,7 +14515,7 @@ pub unsafe fn RasSetAutodialParamA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetAutodialParamA(
                 param0: u32,
@@ -14539,7 +14539,7 @@ pub unsafe fn RasSetAutodialParamW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetAutodialParamW(
                 param0: u32,
@@ -14570,7 +14570,7 @@ pub unsafe fn RasSetCredentialsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetCredentialsA(
                 param0: super::super::Foundation::PSTR,
@@ -14603,7 +14603,7 @@ pub unsafe fn RasSetCredentialsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetCredentialsW(
                 param0: super::super::Foundation::PWSTR,
@@ -14635,7 +14635,7 @@ pub unsafe fn RasSetCustomAuthDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetCustomAuthDataA(
                 pszphonebook: super::super::Foundation::PSTR,
@@ -14667,7 +14667,7 @@ pub unsafe fn RasSetCustomAuthDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetCustomAuthDataW(
                 pszphonebook: super::super::Foundation::PWSTR,
@@ -14701,7 +14701,7 @@ pub unsafe fn RasSetEapUserDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetEapUserDataA(
                 htoken: super::super::Foundation::HANDLE,
@@ -14737,7 +14737,7 @@ pub unsafe fn RasSetEapUserDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetEapUserDataW(
                 htoken: super::super::Foundation::HANDLE,
@@ -14770,7 +14770,7 @@ pub unsafe fn RasSetEntryDialParamsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetEntryDialParamsA(
                 param0: super::super::Foundation::PSTR,
@@ -14799,7 +14799,7 @@ pub unsafe fn RasSetEntryDialParamsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetEntryDialParamsW(
                 param0: super::super::Foundation::PWSTR,
@@ -14835,7 +14835,7 @@ pub unsafe fn RasSetEntryPropertiesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetEntryPropertiesA(
                 param0: super::super::Foundation::PSTR,
@@ -14873,7 +14873,7 @@ pub unsafe fn RasSetEntryPropertiesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetEntryPropertiesW(
                 param0: super::super::Foundation::PWSTR,
@@ -14912,7 +14912,7 @@ pub unsafe fn RasSetSubEntryPropertiesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetSubEntryPropertiesA(
                 param0: super::super::Foundation::PSTR,
@@ -14953,7 +14953,7 @@ pub unsafe fn RasSetSubEntryPropertiesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasSetSubEntryPropertiesW(
                 param0: super::super::Foundation::PWSTR,
@@ -14985,7 +14985,7 @@ pub unsafe fn RasUpdateConnection<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasUpdateConnection(
                 hrasconn: HRASCONN,
@@ -15011,7 +15011,7 @@ pub unsafe fn RasValidateEntryNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasValidateEntryNameA(
                 param0: super::super::Foundation::PSTR,
@@ -15037,7 +15037,7 @@ pub unsafe fn RasValidateEntryNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rasapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RasValidateEntryNameW(
                 param0: super::super::Foundation::PWSTR,
@@ -15060,7 +15060,7 @@ pub unsafe fn RtmAddNextHop(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmAddNextHop(
                 rtmreghandle: isize,
@@ -15092,7 +15092,7 @@ pub unsafe fn RtmAddRouteToDest(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmAddRouteToDest(
                 rtmreghandle: isize,
@@ -15133,7 +15133,7 @@ pub unsafe fn RtmBlockMethods<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmBlockMethods(
                 rtmreghandle: isize,
@@ -15164,7 +15164,7 @@ pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmConvertIpv6AddressAndLengthToNetAddress(
                 pnetaddress: *mut RTM_NET_ADDRESS,
@@ -15192,7 +15192,7 @@ pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmConvertNetAddressToIpv6AddressAndLength(
                 pnetaddress: *mut RTM_NET_ADDRESS,
@@ -15221,7 +15221,7 @@ pub unsafe fn RtmCreateDestEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmCreateDestEnum(
                 rtmreghandle: isize,
@@ -15252,7 +15252,7 @@ pub unsafe fn RtmCreateNextHopEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmCreateNextHopEnum(
                 rtmreghandle: isize,
@@ -15284,7 +15284,7 @@ pub unsafe fn RtmCreateRouteEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmCreateRouteEnum(
                 rtmreghandle: isize,
@@ -15316,7 +15316,7 @@ pub unsafe fn RtmCreateRouteEnum(
 pub unsafe fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32;
         }
@@ -15335,7 +15335,7 @@ pub unsafe fn RtmCreateRouteListEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmCreateRouteListEnum(
                 rtmreghandle: isize,
@@ -15355,7 +15355,7 @@ pub unsafe fn RtmCreateRouteListEnum(
 pub unsafe fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32;
         }
@@ -15374,7 +15374,7 @@ pub unsafe fn RtmDeleteNextHop(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmDeleteNextHop(
                 rtmreghandle: isize,
@@ -15394,7 +15394,7 @@ pub unsafe fn RtmDeleteNextHop(
 pub unsafe fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32;
         }
@@ -15413,7 +15413,7 @@ pub unsafe fn RtmDeleteRouteToDest(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmDeleteRouteToDest(
                 rtmreghandle: isize,
@@ -15433,7 +15433,7 @@ pub unsafe fn RtmDeleteRouteToDest(
 pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmDeregisterEntity(rtmreghandle: isize) -> u32;
         }
@@ -15445,7 +15445,7 @@ pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
 pub unsafe fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize)
                 -> u32;
@@ -15466,7 +15466,7 @@ pub unsafe fn RtmFindNextHop(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmFindNextHop(
                 rtmreghandle: isize,
@@ -15494,7 +15494,7 @@ pub unsafe fn RtmGetChangeStatus(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetChangeStatus(
                 rtmreghandle: isize,
@@ -15522,7 +15522,7 @@ pub unsafe fn RtmGetChangedDests(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetChangedDests(
                 rtmreghandle: isize,
@@ -15551,7 +15551,7 @@ pub unsafe fn RtmGetDestInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetDestInfo(
                 rtmreghandle: isize,
@@ -15579,7 +15579,7 @@ pub unsafe fn RtmGetEntityInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetEntityInfo(
                 rtmreghandle: isize,
@@ -15604,7 +15604,7 @@ pub unsafe fn RtmGetEntityMethods(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetEntityMethods(
                 rtmreghandle: isize,
@@ -15632,7 +15632,7 @@ pub unsafe fn RtmGetEnumDests(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetEnumDests(
                 rtmreghandle: isize,
@@ -15659,7 +15659,7 @@ pub unsafe fn RtmGetEnumNextHops(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetEnumNextHops(
                 rtmreghandle: isize,
@@ -15686,7 +15686,7 @@ pub unsafe fn RtmGetEnumRoutes(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetEnumRoutes(
                 rtmreghandle: isize,
@@ -15715,7 +15715,7 @@ pub unsafe fn RtmGetExactMatchDestination(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetExactMatchDestination(
                 rtmreghandle: isize,
@@ -15747,7 +15747,7 @@ pub unsafe fn RtmGetExactMatchRoute(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetExactMatchRoute(
                 rtmreghandle: isize,
@@ -15782,7 +15782,7 @@ pub unsafe fn RtmGetLessSpecificDestination(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetLessSpecificDestination(
                 rtmreghandle: isize,
@@ -15811,7 +15811,7 @@ pub unsafe fn RtmGetListEnumRoutes(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetListEnumRoutes(
                 rtmreghandle: isize,
@@ -15840,7 +15840,7 @@ pub unsafe fn RtmGetMostSpecificDestination(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetMostSpecificDestination(
                 rtmreghandle: isize,
@@ -15868,7 +15868,7 @@ pub unsafe fn RtmGetNextHopInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetNextHopInfo(
                 rtmreghandle: isize,
@@ -15892,7 +15892,7 @@ pub unsafe fn RtmGetNextHopPointer(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetNextHopPointer(
                 rtmreghandle: isize,
@@ -15916,7 +15916,7 @@ pub unsafe fn RtmGetOpaqueInformationPointer(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetOpaqueInformationPointer(
                 rtmreghandle: isize,
@@ -15941,7 +15941,7 @@ pub unsafe fn RtmGetRegisteredEntities(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetRegisteredEntities(
                 rtmreghandle: isize,
@@ -15968,7 +15968,7 @@ pub unsafe fn RtmGetRouteInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetRouteInfo(
                 rtmreghandle: isize,
@@ -15994,7 +15994,7 @@ pub unsafe fn RtmGetRoutePointer(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmGetRoutePointer(
                 rtmreghandle: isize,
@@ -16019,7 +16019,7 @@ pub unsafe fn RtmHoldDestination(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmHoldDestination(
                 rtmreghandle: isize,
@@ -16046,7 +16046,7 @@ pub unsafe fn RtmIgnoreChangedDests(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmIgnoreChangedDests(
                 rtmreghandle: isize,
@@ -16073,7 +16073,7 @@ pub unsafe fn RtmInsertInRouteList(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmInsertInRouteList(
                 rtmreghandle: isize,
@@ -16101,7 +16101,7 @@ pub unsafe fn RtmInvokeMethod(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmInvokeMethod(
                 rtmreghandle: isize,
@@ -16129,7 +16129,7 @@ pub unsafe fn RtmIsBestRoute(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmIsBestRoute(
                 rtmreghandle: isize,
@@ -16155,7 +16155,7 @@ pub unsafe fn RtmIsMarkedForChangeNotification(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmIsMarkedForChangeNotification(
                 rtmreghandle: isize,
@@ -16187,7 +16187,7 @@ pub unsafe fn RtmLockDestination<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmLockDestination(
                 rtmreghandle: isize,
@@ -16220,7 +16220,7 @@ pub unsafe fn RtmLockNextHop<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmLockNextHop(
                 rtmreghandle: isize,
@@ -16255,7 +16255,7 @@ pub unsafe fn RtmLockRoute<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmLockRoute(
                 rtmreghandle: isize,
@@ -16288,7 +16288,7 @@ pub unsafe fn RtmMarkDestForChangeNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmMarkDestForChangeNotification(
                 rtmreghandle: isize,
@@ -16315,7 +16315,7 @@ pub unsafe fn RtmReferenceHandles(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReferenceHandles(
                 rtmreghandle: isize,
@@ -16346,7 +16346,7 @@ pub unsafe fn RtmRegisterEntity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmRegisterEntity(
                 rtmentityinfo: *mut RTM_ENTITY_INFO,
@@ -16378,7 +16378,7 @@ pub unsafe fn RtmRegisterForChangeNotification(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmRegisterForChangeNotification(
                 rtmreghandle: isize,
@@ -16408,7 +16408,7 @@ pub unsafe fn RtmReleaseChangedDests(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseChangedDests(
                 rtmreghandle: isize,
@@ -16431,7 +16431,7 @@ pub unsafe fn RtmReleaseChangedDests(
 pub unsafe fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32;
         }
@@ -16451,7 +16451,7 @@ pub unsafe fn RtmReleaseDests(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseDests(
                 rtmreghandle: isize,
@@ -16475,7 +16475,7 @@ pub unsafe fn RtmReleaseEntities(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseEntities(
                 rtmreghandle: isize,
@@ -16495,7 +16495,7 @@ pub unsafe fn RtmReleaseEntities(
 pub unsafe fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
         }
@@ -16513,7 +16513,7 @@ pub unsafe fn RtmReleaseNextHopInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseNextHopInfo(
                 rtmreghandle: isize,
@@ -16535,7 +16535,7 @@ pub unsafe fn RtmReleaseNextHops(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseNextHops(
                 rtmreghandle: isize,
@@ -16555,7 +16555,7 @@ pub unsafe fn RtmReleaseNextHops(
 pub unsafe fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32;
         }
@@ -16574,7 +16574,7 @@ pub unsafe fn RtmReleaseRoutes(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmReleaseRoutes(
                 rtmreghandle: isize,
@@ -16602,7 +16602,7 @@ pub unsafe fn RtmUpdateAndUnlockRoute(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtmUpdateAndUnlockRoute(
                 rtmreghandle: isize,

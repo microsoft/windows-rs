@@ -191,7 +191,7 @@ pub unsafe fn SRSetRestorePointA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SRSetRestorePointA(
                 prestoreptspec: *const RESTOREPOINTINFOA,
@@ -213,7 +213,7 @@ pub unsafe fn SRSetRestorePointW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SRSetRestorePointW(
                 prestoreptspec: *const RESTOREPOINTINFOW,

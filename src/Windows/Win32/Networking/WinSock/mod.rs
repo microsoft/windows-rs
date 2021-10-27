@@ -872,7 +872,7 @@ pub unsafe fn AcceptEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn AcceptEx(
                 slistensocket: SOCKET,
@@ -1094,7 +1094,7 @@ pub unsafe fn EnumProtocolsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumProtocolsA(
                 lpiprotocols: *const i32,
@@ -1118,7 +1118,7 @@ pub unsafe fn EnumProtocolsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumProtocolsW(
                 lpiprotocols: *const i32,
@@ -1158,7 +1158,7 @@ pub const FROM_PROTOCOL_INFO: i32 = -1i32;
 pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA);
         }
@@ -1171,7 +1171,7 @@ pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
 pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW);
         }
@@ -1184,7 +1184,7 @@ pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
 pub unsafe fn FreeAddrInfoW(paddrinfo: *const addrinfoW) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeAddrInfoW(paddrinfo: *const addrinfoW);
         }
@@ -1332,7 +1332,7 @@ pub unsafe fn GetAcceptExSockaddrs(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAcceptExSockaddrs(
                 lpoutputbuffer: *const ::std::ffi::c_void,
@@ -1378,7 +1378,7 @@ pub unsafe fn GetAddrInfoExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoExA(
                 pname: super::super::Foundation::PSTR,
@@ -1413,7 +1413,7 @@ pub unsafe fn GetAddrInfoExA<
 pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32;
         }
@@ -1428,7 +1428,7 @@ pub unsafe fn GetAddrInfoExOverlappedResult(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoExOverlappedResult(
                 lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -1460,7 +1460,7 @@ pub unsafe fn GetAddrInfoExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoExW(
                 pname: super::super::Foundation::PWSTR,
@@ -1504,7 +1504,7 @@ pub unsafe fn GetAddrInfoW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoW(
                 pnodename: super::super::Foundation::PWSTR,
@@ -1542,7 +1542,7 @@ pub unsafe fn GetAddressByNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAddressByNameA(
                 dwnamespace: u32,
@@ -1592,7 +1592,7 @@ pub unsafe fn GetAddressByNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAddressByNameW(
                 dwnamespace: u32,
@@ -1627,7 +1627,7 @@ pub unsafe fn GetAddressByNameW<
 pub unsafe fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) -> i32;
         }
@@ -1647,7 +1647,7 @@ pub unsafe fn GetNameByTypeA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNameByTypeA(
                 lpservicetype: *const ::windows::runtime::GUID,
@@ -1672,7 +1672,7 @@ pub unsafe fn GetNameByTypeW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNameByTypeW(
                 lpservicetype: *const ::windows::runtime::GUID,
@@ -1701,7 +1701,7 @@ pub unsafe fn GetNameInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNameInfoW(
                 psockaddr: *const SOCKADDR,
@@ -1741,7 +1741,7 @@ pub unsafe fn GetServiceA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceA(
                 dwnamespace: u32,
@@ -1781,7 +1781,7 @@ pub unsafe fn GetServiceW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceW(
                 dwnamespace: u32,
@@ -1816,7 +1816,7 @@ pub unsafe fn GetTypeByNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTypeByNameA(
                 lpservicename: super::super::Foundation::PSTR,
@@ -1841,7 +1841,7 @@ pub unsafe fn GetTypeByNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTypeByNameW(
                 lpservicename: super::super::Foundation::PWSTR,
@@ -2915,7 +2915,7 @@ pub unsafe fn InetNtopW(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InetNtopW(
                 family: i32,
@@ -2945,7 +2945,7 @@ pub unsafe fn InetPtonW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InetPtonW(
                 family: i32,
@@ -5625,7 +5625,7 @@ pub unsafe fn ProcessSocketNotifications<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessSocketNotifications(
                 completionport: super::super::Foundation::HANDLE,
@@ -6590,7 +6590,7 @@ pub unsafe fn RtlEthernetAddressToStringA(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlEthernetAddressToStringA(
                 addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48,
@@ -6615,7 +6615,7 @@ pub unsafe fn RtlEthernetAddressToStringW(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlEthernetAddressToStringW(
                 addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48,
@@ -6644,7 +6644,7 @@ pub unsafe fn RtlEthernetStringToAddressA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlEthernetStringToAddressA(
                 s: super::super::Foundation::PSTR,
@@ -6675,7 +6675,7 @@ pub unsafe fn RtlEthernetStringToAddressW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlEthernetStringToAddressW(
                 s: super::super::Foundation::PWSTR,
@@ -6699,7 +6699,7 @@ pub unsafe fn RtlIpv4AddressToStringA(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4AddressToStringA(
                 addr: *const IN_ADDR,
@@ -6723,7 +6723,7 @@ pub unsafe fn RtlIpv4AddressToStringExA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4AddressToStringExA(
                 address: *const IN_ADDR,
@@ -6751,7 +6751,7 @@ pub unsafe fn RtlIpv4AddressToStringExW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4AddressToStringExW(
                 address: *const IN_ADDR,
@@ -6777,7 +6777,7 @@ pub unsafe fn RtlIpv4AddressToStringW(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4AddressToStringW(
                 addr: *const IN_ADDR,
@@ -6805,7 +6805,7 @@ pub unsafe fn RtlIpv4StringToAddressA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4StringToAddressA(
                 s: super::super::Foundation::PSTR,
@@ -6837,7 +6837,7 @@ pub unsafe fn RtlIpv4StringToAddressExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4StringToAddressExA(
                 addressstring: super::super::Foundation::PSTR,
@@ -6869,7 +6869,7 @@ pub unsafe fn RtlIpv4StringToAddressExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4StringToAddressExW(
                 addressstring: super::super::Foundation::PWSTR,
@@ -6901,7 +6901,7 @@ pub unsafe fn RtlIpv4StringToAddressW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv4StringToAddressW(
                 s: super::super::Foundation::PWSTR,
@@ -6927,7 +6927,7 @@ pub unsafe fn RtlIpv6AddressToStringA(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6AddressToStringA(
                 addr: *const IN6_ADDR,
@@ -6952,7 +6952,7 @@ pub unsafe fn RtlIpv6AddressToStringExA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6AddressToStringExA(
                 address: *const IN6_ADDR,
@@ -6983,7 +6983,7 @@ pub unsafe fn RtlIpv6AddressToStringExW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6AddressToStringExW(
                 address: *const IN6_ADDR,
@@ -7011,7 +7011,7 @@ pub unsafe fn RtlIpv6AddressToStringW(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6AddressToStringW(
                 addr: *const IN6_ADDR,
@@ -7037,7 +7037,7 @@ pub unsafe fn RtlIpv6StringToAddressA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6StringToAddressA(
                 s: super::super::Foundation::PSTR,
@@ -7066,7 +7066,7 @@ pub unsafe fn RtlIpv6StringToAddressExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6StringToAddressExA(
                 addressstring: super::super::Foundation::PSTR,
@@ -7097,7 +7097,7 @@ pub unsafe fn RtlIpv6StringToAddressExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6StringToAddressExW(
                 addressstring: super::super::Foundation::PWSTR,
@@ -7127,7 +7127,7 @@ pub unsafe fn RtlIpv6StringToAddressW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIpv6StringToAddressW(
                 s: super::super::Foundation::PWSTR,
@@ -8909,7 +8909,7 @@ pub unsafe fn SetAddrInfoExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetAddrInfoExA(
                 pname: super::super::Foundation::PSTR,
@@ -8969,7 +8969,7 @@ pub unsafe fn SetAddrInfoExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetAddrInfoExW(
                 pname: super::super::Foundation::PWSTR,
@@ -9015,7 +9015,7 @@ pub unsafe fn SetServiceA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetServiceA(
                 dwnamespace: u32,
@@ -9049,7 +9049,7 @@ pub unsafe fn SetServiceW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetServiceW(
                 dwnamespace: u32,
@@ -9081,7 +9081,7 @@ pub unsafe fn SetSocketMediaStreamingMode<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.networking")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSocketMediaStreamingMode(
                 value: super::super::Foundation::BOOL,
@@ -9697,7 +9697,7 @@ pub unsafe fn TransmitFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn TransmitFile(
                 hsocket: SOCKET,
@@ -10143,7 +10143,7 @@ pub unsafe fn WPUCompleteOverlappedRequest<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WPUCompleteOverlappedRequest(
                 s: SOCKET,
@@ -10178,7 +10178,7 @@ pub unsafe fn WSAAccept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAccept(
                 s: SOCKET,
@@ -10209,7 +10209,7 @@ pub unsafe fn WSAAddressToStringA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAddressToStringA(
                 lpsaaddress: *const SOCKADDR,
@@ -10240,7 +10240,7 @@ pub unsafe fn WSAAddressToStringW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAddressToStringW(
                 lpsaaddress: *const SOCKADDR,
@@ -10272,7 +10272,7 @@ pub unsafe fn WSAAdvertiseProvider(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAdvertiseProvider(
                 puuidproviderid: *const ::windows::runtime::GUID,
@@ -10303,7 +10303,7 @@ pub unsafe fn WSAAsyncGetHostByAddr<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAsyncGetHostByAddr(
                 hwnd: super::super::Foundation::HWND,
@@ -10342,7 +10342,7 @@ pub unsafe fn WSAAsyncGetHostByName<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAsyncGetHostByName(
                 hwnd: super::super::Foundation::HWND,
@@ -10377,7 +10377,7 @@ pub unsafe fn WSAAsyncGetProtoByName<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAsyncGetProtoByName(
                 hwnd: super::super::Foundation::HWND,
@@ -10411,7 +10411,7 @@ pub unsafe fn WSAAsyncGetProtoByNumber<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAsyncGetProtoByNumber(
                 hwnd: super::super::Foundation::HWND,
@@ -10448,7 +10448,7 @@ pub unsafe fn WSAAsyncGetServByName<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAsyncGetServByName(
                 hwnd: super::super::Foundation::HWND,
@@ -10486,7 +10486,7 @@ pub unsafe fn WSAAsyncGetServByPort<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAsyncGetServByPort(
                 hwnd: super::super::Foundation::HWND,
@@ -10522,7 +10522,7 @@ pub unsafe fn WSAAsyncSelect<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAAsyncSelect(
                 s: SOCKET,
@@ -10832,7 +10832,7 @@ pub unsafe fn WSACancelAsyncRequest<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSACancelAsyncRequest(hasynctaskhandle: super::super::Foundation::HANDLE) -> i32;
         }
@@ -10844,7 +10844,7 @@ pub unsafe fn WSACancelAsyncRequest<
 pub unsafe fn WSACancelBlockingCall() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSACancelBlockingCall() -> i32;
         }
@@ -10856,7 +10856,7 @@ pub unsafe fn WSACancelBlockingCall() -> i32 {
 pub unsafe fn WSACleanup() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSACleanup() -> i32;
         }
@@ -10874,7 +10874,7 @@ pub unsafe fn WSACloseEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSACloseEvent(
                 hevent: super::super::Foundation::HANDLE,
@@ -10901,7 +10901,7 @@ pub unsafe fn WSAConnect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAConnect(
                 s: SOCKET,
@@ -10939,7 +10939,7 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::windows::runtime::IntoParam<'a, SOC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAConnectByList(
                 s: SOCKET,
@@ -10985,7 +10985,7 @@ pub unsafe fn WSAConnectByNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAConnectByNameA(
                 s: SOCKET,
@@ -11033,7 +11033,7 @@ pub unsafe fn WSAConnectByNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAConnectByNameW(
                 s: SOCKET,
@@ -11066,7 +11066,7 @@ pub unsafe fn WSAConnectByNameW<
 pub unsafe fn WSACreateEvent() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSACreateEvent() -> super::super::Foundation::HANDLE;
         }
@@ -11142,7 +11142,7 @@ pub unsafe fn WSADeleteSocketPeerTargetName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSADeleteSocketPeerTargetName(
                 socket: SOCKET,
@@ -11171,7 +11171,7 @@ pub unsafe fn WSADuplicateSocketA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSADuplicateSocketA(
                 s: SOCKET,
@@ -11195,7 +11195,7 @@ pub unsafe fn WSADuplicateSocketW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSADuplicateSocketW(
                 s: SOCKET,
@@ -11262,7 +11262,7 @@ pub unsafe fn WSAEnumNameSpaceProvidersA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEnumNameSpaceProvidersA(
                 lpdwbufferlength: *mut u32,
@@ -11284,7 +11284,7 @@ pub unsafe fn WSAEnumNameSpaceProvidersExA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEnumNameSpaceProvidersExA(
                 lpdwbufferlength: *mut u32,
@@ -11306,7 +11306,7 @@ pub unsafe fn WSAEnumNameSpaceProvidersExW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEnumNameSpaceProvidersExW(
                 lpdwbufferlength: *mut u32,
@@ -11328,7 +11328,7 @@ pub unsafe fn WSAEnumNameSpaceProvidersW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEnumNameSpaceProvidersW(
                 lpdwbufferlength: *mut u32,
@@ -11355,7 +11355,7 @@ pub unsafe fn WSAEnumNetworkEvents<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEnumNetworkEvents(
                 s: SOCKET,
@@ -11380,7 +11380,7 @@ pub unsafe fn WSAEnumProtocolsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEnumProtocolsA(
                 lpiprotocols: *const i32,
@@ -11404,7 +11404,7 @@ pub unsafe fn WSAEnumProtocolsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEnumProtocolsW(
                 lpiprotocols: *const i32,
@@ -11433,7 +11433,7 @@ pub unsafe fn WSAEventSelect<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAEventSelect(
                 s: SOCKET,
@@ -11453,7 +11453,7 @@ pub unsafe fn WSAEventSelect<
 pub unsafe fn WSAGetLastError() -> WSA_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAGetLastError() -> WSA_ERROR;
         }
@@ -11476,7 +11476,7 @@ pub unsafe fn WSAGetOverlappedResult<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAGetOverlappedResult(
                 s: SOCKET,
@@ -11505,7 +11505,7 @@ pub unsafe fn WSAGetQOSByName<'a, Param0: ::windows::runtime::IntoParam<'a, SOCK
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAGetQOSByName(
                 s: SOCKET,
@@ -11531,7 +11531,7 @@ pub unsafe fn WSAGetServiceClassInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAGetServiceClassInfoA(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -11559,7 +11559,7 @@ pub unsafe fn WSAGetServiceClassInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAGetServiceClassInfoW(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -11586,7 +11586,7 @@ pub unsafe fn WSAGetServiceClassNameByClassIdA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAGetServiceClassNameByClassIdA(
                 lpserviceclassid: *const ::windows::runtime::GUID,
@@ -11611,7 +11611,7 @@ pub unsafe fn WSAGetServiceClassNameByClassIdW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAGetServiceClassNameByClassIdW(
                 lpserviceclassid: *const ::windows::runtime::GUID,
@@ -11635,7 +11635,7 @@ pub unsafe fn WSAHtonl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAHtonl(s: SOCKET, hostlong: u32, lpnetlong: *mut u32) -> i32;
         }
@@ -11655,7 +11655,7 @@ pub unsafe fn WSAHtons<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAHtons(s: SOCKET, hostshort: u16, lpnetshort: *mut u16) -> i32;
         }
@@ -11676,7 +11676,7 @@ pub unsafe fn WSAImpersonateSocketPeer<'a, Param0: ::windows::runtime::IntoParam
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAImpersonateSocketPeer(
                 socket: SOCKET,
@@ -11697,7 +11697,7 @@ pub unsafe fn WSAImpersonateSocketPeer<'a, Param0: ::windows::runtime::IntoParam
 pub unsafe fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASSINFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASSINFOA) -> i32;
         }
@@ -11712,7 +11712,7 @@ pub unsafe fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASS
 pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32;
         }
@@ -11737,7 +11737,7 @@ pub unsafe fn WSAIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAIoctl(
                 s: SOCKET,
@@ -11770,7 +11770,7 @@ pub unsafe fn WSAIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 pub unsafe fn WSAIsBlocking() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAIsBlocking() -> super::super::Foundation::BOOL;
         }
@@ -11796,7 +11796,7 @@ pub unsafe fn WSAJoinLeaf<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
 ) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAJoinLeaf(
                 s: SOCKET,
@@ -11835,7 +11835,7 @@ pub unsafe fn WSALookupServiceBeginA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSALookupServiceBeginA(
                 lpqsrestrictions: *const WSAQUERYSETA,
@@ -11864,7 +11864,7 @@ pub unsafe fn WSALookupServiceBeginW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSALookupServiceBeginW(
                 lpqsrestrictions: *const WSAQUERYSETW,
@@ -11890,7 +11890,7 @@ pub unsafe fn WSALookupServiceEnd<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSALookupServiceEnd(hlookup: super::super::Foundation::HANDLE) -> i32;
         }
@@ -11915,7 +11915,7 @@ pub unsafe fn WSALookupServiceNextA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSALookupServiceNextA(
                 hlookup: super::super::Foundation::HANDLE,
@@ -11950,7 +11950,7 @@ pub unsafe fn WSALookupServiceNextW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSALookupServiceNextW(
                 hlookup: super::super::Foundation::HANDLE,
@@ -12353,7 +12353,7 @@ pub unsafe fn WSANSPIoctl<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSANSPIoctl(
                 hlookup: super::super::Foundation::HANDLE,
@@ -12387,7 +12387,7 @@ pub unsafe fn WSANtohl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSANtohl(s: SOCKET, netlong: u32, lphostlong: *mut u32) -> i32;
         }
@@ -12407,7 +12407,7 @@ pub unsafe fn WSANtohs<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSANtohs(s: SOCKET, netshort: u16, lphostshort: *mut u16) -> i32;
         }
@@ -12700,7 +12700,7 @@ pub const WSAPROTOCOL_LEN: u32 = 255u32;
 pub unsafe fn WSAPoll(fdarray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAPoll(fdarray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32;
         }
@@ -12723,7 +12723,7 @@ pub unsafe fn WSAProviderCompleteAsyncCall<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAProviderCompleteAsyncCall(
                 hasynccall: super::super::Foundation::HANDLE,
@@ -12746,7 +12746,7 @@ pub unsafe fn WSAProviderConfigChange(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAProviderConfigChange(
                 lpnotificationhandle: *mut super::super::Foundation::HANDLE,
@@ -13189,7 +13189,7 @@ pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAQuerySocketSecurity(
                 socket: SOCKET,
@@ -13226,7 +13226,7 @@ pub unsafe fn WSARecv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSARecv(
                 s: SOCKET,
@@ -13258,7 +13258,7 @@ pub unsafe fn WSARecvDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, SO
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSARecvDisconnect(s: SOCKET, lpinbounddisconnectdata: *const WSABUF) -> i32;
         }
@@ -13279,7 +13279,7 @@ pub unsafe fn WSARecvEx<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mswsock")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSARecvEx(
                 s: SOCKET,
@@ -13312,7 +13312,7 @@ pub unsafe fn WSARecvFrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSARecvFrom(
                 s: SOCKET,
@@ -13344,7 +13344,7 @@ pub unsafe fn WSARecvFrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
 pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSARemoveServiceClass(lpserviceclassid: *const ::windows::runtime::GUID) -> i32;
         }
@@ -13364,7 +13364,7 @@ pub unsafe fn WSAResetEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAResetEvent(
                 hevent: super::super::Foundation::HANDLE,
@@ -13378,7 +13378,7 @@ pub unsafe fn WSAResetEvent<
 pub unsafe fn WSARevertImpersonation() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSARevertImpersonation() -> i32;
         }
@@ -13535,7 +13535,7 @@ pub unsafe fn WSASend<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASend(
                 s: SOCKET,
@@ -13567,7 +13567,7 @@ pub unsafe fn WSASendDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, SO
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASendDisconnect(s: SOCKET, lpoutbounddisconnectdata: *const WSABUF) -> i32;
         }
@@ -13590,7 +13590,7 @@ pub unsafe fn WSASendMsg<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASendMsg(
                 handle: SOCKET,
@@ -13627,7 +13627,7 @@ pub unsafe fn WSASendTo<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASendTo(
                 s: SOCKET,
@@ -13662,7 +13662,7 @@ pub unsafe fn WSASetBlockingHook(
 ) -> ::std::option::Option<super::super::Foundation::FARPROC> {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASetBlockingHook(
                 lpblockfunc: ::windows::runtime::RawPtr,
@@ -13682,7 +13682,7 @@ pub unsafe fn WSASetEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASetEvent(
                 hevent: super::super::Foundation::HANDLE,
@@ -13696,7 +13696,7 @@ pub unsafe fn WSASetEvent<
 pub unsafe fn WSASetLastError(ierror: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASetLastError(ierror: i32);
         }
@@ -13717,7 +13717,7 @@ pub unsafe fn WSASetServiceA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASetServiceA(
                 lpqsreginfo: *const WSAQUERYSETA,
@@ -13746,7 +13746,7 @@ pub unsafe fn WSASetServiceW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASetServiceW(
                 lpqsreginfo: *const WSAQUERYSETW,
@@ -13773,7 +13773,7 @@ pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::runtime::IntoPar
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASetSocketPeerTargetName(
                 socket: SOCKET,
@@ -13804,7 +13804,7 @@ pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASetSocketSecurity(
                 socket: SOCKET,
@@ -13836,7 +13836,7 @@ pub unsafe fn WSASocketA(
 ) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASocketA(
                 af: i32,
@@ -13869,7 +13869,7 @@ pub unsafe fn WSASocketW(
 ) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSASocketW(
                 af: i32,
@@ -13896,7 +13896,7 @@ pub unsafe fn WSASocketW(
 pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32;
         }
@@ -13921,7 +13921,7 @@ pub unsafe fn WSAStringToAddressA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAStringToAddressA(
                 addressstring: super::super::Foundation::PSTR,
@@ -13955,7 +13955,7 @@ pub unsafe fn WSAStringToAddressW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAStringToAddressW(
                 addressstring: super::super::Foundation::PWSTR,
@@ -14016,7 +14016,7 @@ unsafe impl ::windows::runtime::Abi for WSATHREADID {
 pub unsafe fn WSAUnadvertiseProvider(puuidproviderid: *const ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAUnadvertiseProvider(puuidproviderid: *const ::windows::runtime::GUID) -> i32;
         }
@@ -14030,7 +14030,7 @@ pub unsafe fn WSAUnadvertiseProvider(puuidproviderid: *const ::windows::runtime:
 pub unsafe fn WSAUnhookBlockingHook() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAUnhookBlockingHook() -> i32;
         }
@@ -14083,7 +14083,7 @@ pub unsafe fn WSAWaitForMultipleEvents<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSAWaitForMultipleEvents(
                 cevents: u32,
@@ -14294,7 +14294,7 @@ pub unsafe fn WSCDeinstallProvider(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCDeinstallProvider(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14315,7 +14315,7 @@ pub unsafe fn WSCDeinstallProvider32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCDeinstallProvider32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14340,7 +14340,7 @@ pub unsafe fn WSCEnableNSProvider<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCEnableNSProvider(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14365,7 +14365,7 @@ pub unsafe fn WSCEnableNSProvider32<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCEnableNSProvider32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14387,7 +14387,7 @@ pub unsafe fn WSCEnumNameSpaceProviders32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCEnumNameSpaceProviders32(
                 lpdwbufferlength: *mut u32,
@@ -14409,7 +14409,7 @@ pub unsafe fn WSCEnumNameSpaceProvidersEx32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCEnumNameSpaceProvidersEx32(
                 lpdwbufferlength: *mut u32,
@@ -14432,7 +14432,7 @@ pub unsafe fn WSCEnumProtocols(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCEnumProtocols(
                 lpiprotocols: *const i32,
@@ -14459,7 +14459,7 @@ pub unsafe fn WSCEnumProtocols32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCEnumProtocols32(
                 lpiprotocols: *const i32,
@@ -14493,7 +14493,7 @@ pub unsafe fn WSCGetApplicationCategory<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCGetApplicationCategory(
                 path: super::super::Foundation::PWSTR,
@@ -14526,7 +14526,7 @@ pub unsafe fn WSCGetProviderInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCGetProviderInfo(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14559,7 +14559,7 @@ pub unsafe fn WSCGetProviderInfo32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCGetProviderInfo32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14591,7 +14591,7 @@ pub unsafe fn WSCGetProviderPath(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCGetProviderPath(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14619,7 +14619,7 @@ pub unsafe fn WSCGetProviderPath32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCGetProviderPath32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14652,7 +14652,7 @@ pub unsafe fn WSCInstallNameSpace<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCInstallNameSpace(
                 lpszidentifier: super::super::Foundation::PWSTR,
@@ -14687,7 +14687,7 @@ pub unsafe fn WSCInstallNameSpace32<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCInstallNameSpace32(
                 lpszidentifier: super::super::Foundation::PWSTR,
@@ -14723,7 +14723,7 @@ pub unsafe fn WSCInstallNameSpaceEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCInstallNameSpaceEx(
                 lpszidentifier: super::super::Foundation::PWSTR,
@@ -14761,7 +14761,7 @@ pub unsafe fn WSCInstallNameSpaceEx32<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCInstallNameSpaceEx32(
                 lpszidentifier: super::super::Foundation::PWSTR,
@@ -14797,7 +14797,7 @@ pub unsafe fn WSCInstallProvider<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCInstallProvider(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14831,7 +14831,7 @@ pub unsafe fn WSCInstallProvider64_32<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCInstallProvider64_32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14871,7 +14871,7 @@ pub unsafe fn WSCInstallProviderAndChains64_32<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCInstallProviderAndChains64_32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14916,7 +14916,7 @@ pub unsafe fn WSCSetApplicationCategory<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCSetApplicationCategory(
                 path: super::super::Foundation::PWSTR,
@@ -14951,7 +14951,7 @@ pub unsafe fn WSCSetProviderInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCSetProviderInfo(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -14984,7 +14984,7 @@ pub unsafe fn WSCSetProviderInfo32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCSetProviderInfo32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -15010,7 +15010,7 @@ pub unsafe fn WSCSetProviderInfo32(
 pub unsafe fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::runtime::GUID) -> i32;
         }
@@ -15022,7 +15022,7 @@ pub unsafe fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::runtime::GUI
 pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::runtime::GUID) -> i32;
         }
@@ -15044,7 +15044,7 @@ pub unsafe fn WSCUpdateProvider<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCUpdateProvider(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -15078,7 +15078,7 @@ pub unsafe fn WSCUpdateProvider32<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCUpdateProvider32(
                 lpproviderid: *const ::windows::runtime::GUID,
@@ -15105,7 +15105,7 @@ pub unsafe fn WSCWriteNameSpaceOrder(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCWriteNameSpaceOrder(
                 lpproviderid: *mut ::windows::runtime::GUID,
@@ -15126,7 +15126,7 @@ pub unsafe fn WSCWriteNameSpaceOrder32(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCWriteNameSpaceOrder32(
                 lpproviderid: *mut ::windows::runtime::GUID,
@@ -15144,7 +15144,7 @@ pub unsafe fn WSCWriteNameSpaceOrder32(
 pub unsafe fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32;
         }
@@ -15159,7 +15159,7 @@ pub unsafe fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentr
 pub unsafe fn WSCWriteProviderOrder32(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSCWriteProviderOrder32(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32)
                 -> i32;
@@ -15505,7 +15505,7 @@ pub unsafe fn __WSAFDIsSet<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn __WSAFDIsSet(fd: SOCKET, param1: *mut fd_set) -> i32;
         }
@@ -15525,7 +15525,7 @@ pub unsafe fn accept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn accept(s: SOCKET, addr: *mut SOCKADDR, addrlen: *mut i32) -> SOCKET;
         }
@@ -16252,7 +16252,7 @@ pub unsafe fn bind<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn bind(s: SOCKET, name: *const SOCKADDR, namelen: i32) -> i32;
         }
@@ -16268,7 +16268,7 @@ pub unsafe fn bind<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 pub unsafe fn closesocket<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn closesocket(s: SOCKET) -> i32;
         }
@@ -16319,7 +16319,7 @@ pub unsafe fn connect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn connect(s: SOCKET, name: *const SOCKADDR, namelen: i32) -> i32;
         }
@@ -16387,7 +16387,7 @@ unsafe impl ::windows::runtime::Abi for fd_set {
 pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn freeaddrinfo(paddrinfo: *const ADDRINFOA);
         }
@@ -16409,7 +16409,7 @@ pub unsafe fn getaddrinfo<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getaddrinfo(
                 pnodename: super::super::Foundation::PSTR,
@@ -16439,7 +16439,7 @@ pub unsafe fn gethostbyaddr<
 ) -> *mut hostent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn gethostbyaddr(
                 addr: super::super::Foundation::PSTR,
@@ -16465,7 +16465,7 @@ pub unsafe fn gethostbyname<
 ) -> *mut hostent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn gethostbyname(name: super::super::Foundation::PSTR) -> *mut hostent;
         }
@@ -16478,7 +16478,7 @@ pub unsafe fn gethostbyname<
 pub unsafe fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) -> i32;
         }
@@ -16502,7 +16502,7 @@ pub unsafe fn getnameinfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getnameinfo(
                 psockaddr: *const SOCKADDR,
@@ -16535,7 +16535,7 @@ pub unsafe fn getpeername<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getpeername(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32) -> i32;
         }
@@ -16557,7 +16557,7 @@ pub unsafe fn getprotobyname<
 ) -> *mut protoent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getprotobyname(name: super::super::Foundation::PSTR) -> *mut protoent;
         }
@@ -16570,7 +16570,7 @@ pub unsafe fn getprotobyname<
 pub unsafe fn getprotobynumber(number: i32) -> *mut protoent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getprotobynumber(number: i32) -> *mut protoent;
         }
@@ -16590,7 +16590,7 @@ pub unsafe fn getservbyname<
 ) -> *mut servent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getservbyname(
                 name: super::super::Foundation::PSTR,
@@ -16615,7 +16615,7 @@ pub unsafe fn getservbyport<
 ) -> *mut servent {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getservbyport(port: i32, proto: super::super::Foundation::PSTR) -> *mut servent;
         }
@@ -16635,7 +16635,7 @@ pub unsafe fn getsockname<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getsockname(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32) -> i32;
         }
@@ -16658,7 +16658,7 @@ pub unsafe fn getsockopt<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn getsockopt(
                 s: SOCKET,
@@ -16729,7 +16729,7 @@ unsafe impl ::windows::runtime::Abi for hostent {
 pub unsafe fn htonl(hostlong: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn htonl(hostlong: u32) -> u32;
         }
@@ -16741,7 +16741,7 @@ pub unsafe fn htonl(hostlong: u32) -> u32 {
 pub unsafe fn htons(hostshort: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn htons(hostshort: u16) -> u16;
         }
@@ -16781,7 +16781,7 @@ pub unsafe fn inet_addr<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn inet_addr(cp: super::super::Foundation::PSTR) -> u32;
         }
@@ -16796,7 +16796,7 @@ pub unsafe fn inet_ntoa<'a, Param0: ::windows::runtime::IntoParam<'a, IN_ADDR>>(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn inet_ntoa(r#in: IN_ADDR) -> super::super::Foundation::PSTR;
         }
@@ -16814,7 +16814,7 @@ pub unsafe fn inet_ntop(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn inet_ntop(
                 family: i32,
@@ -16844,7 +16844,7 @@ pub unsafe fn inet_pton<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn inet_pton(
                 family: i32,
@@ -16868,7 +16868,7 @@ pub unsafe fn ioctlsocket<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ioctlsocket(s: SOCKET, cmd: i32, argp: *mut u32) -> i32;
         }
@@ -16917,7 +16917,7 @@ pub unsafe fn listen<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn listen(s: SOCKET, backlog: i32) -> i32;
         }
@@ -16973,7 +16973,7 @@ unsafe impl ::windows::runtime::Abi for netent {
 pub unsafe fn ntohl(netlong: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ntohl(netlong: u32) -> u32;
         }
@@ -16985,7 +16985,7 @@ pub unsafe fn ntohl(netlong: u32) -> u32 {
 pub unsafe fn ntohs(netshort: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ntohs(netshort: u16) -> u16;
         }
@@ -17044,7 +17044,7 @@ pub unsafe fn recv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn recv(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: i32) -> i32;
         }
@@ -17069,7 +17069,7 @@ pub unsafe fn recvfrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn recvfrom(
                 s: SOCKET,
@@ -17101,7 +17101,7 @@ pub unsafe fn select(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn select(
                 nfds: i32,
@@ -17135,7 +17135,7 @@ pub unsafe fn send<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn send(
                 s: SOCKET,
@@ -17169,7 +17169,7 @@ pub unsafe fn sendto<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn sendto(
                 s: SOCKET,
@@ -17250,7 +17250,7 @@ pub unsafe fn setsockopt<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn setsockopt(
                 s: SOCKET,
@@ -17277,7 +17277,7 @@ pub unsafe fn shutdown<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn shutdown(s: SOCKET, how: i32) -> i32;
         }
@@ -17584,7 +17584,7 @@ unsafe impl ::windows::runtime::Abi for sockaddr_vns {
 pub unsafe fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET {
     #[cfg(windows)]
     {
-        #[link(name = "ws2_32")]
+        #[link(name = "windows")]
         extern "system" {
             fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET;
         }

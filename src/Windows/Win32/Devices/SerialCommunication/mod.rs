@@ -17,7 +17,7 @@ pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msports")]
+        #[link(name = "windows")]
         extern "system" {
             fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32;
         }
@@ -42,7 +42,7 @@ pub unsafe fn ComDBClaimPort<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msports")]
+        #[link(name = "windows")]
         extern "system" {
             fn ComDBClaimPort(
                 hcomdb: HCOMDB,
@@ -66,7 +66,7 @@ pub unsafe fn ComDBClose<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msports")]
+        #[link(name = "windows")]
         extern "system" {
             fn ComDBClose(hcomdb: HCOMDB) -> i32;
         }
@@ -84,7 +84,7 @@ pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::runtime::IntoParam
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msports")]
+        #[link(name = "windows")]
         extern "system" {
             fn ComDBGetCurrentPortUsage(
                 hcomdb: HCOMDB,
@@ -108,7 +108,7 @@ pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::runtime::IntoParam
 pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msports")]
+        #[link(name = "windows")]
         extern "system" {
             fn ComDBOpen(phcomdb: *mut isize) -> i32;
         }
@@ -123,7 +123,7 @@ pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msports")]
+        #[link(name = "windows")]
         extern "system" {
             fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32;
         }
@@ -141,7 +141,7 @@ pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msports")]
+        #[link(name = "windows")]
         extern "system" {
             fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32;
         }

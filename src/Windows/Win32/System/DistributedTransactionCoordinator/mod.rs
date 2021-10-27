@@ -173,7 +173,7 @@ pub unsafe fn DtcGetTransactionManager<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xolehlp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DtcGetTransactionManager(
                 i_pszhost: super::super::Foundation::PSTR,
@@ -215,7 +215,7 @@ pub unsafe fn DtcGetTransactionManagerC<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xolehlp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DtcGetTransactionManagerC(
                 i_pszhost: super::super::Foundation::PSTR,
@@ -256,7 +256,7 @@ pub unsafe fn DtcGetTransactionManagerExA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xolehlp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DtcGetTransactionManagerExA(
                 i_pszhost: super::super::Foundation::PSTR,
@@ -295,7 +295,7 @@ pub unsafe fn DtcGetTransactionManagerExW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xolehlp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DtcGetTransactionManagerExW(
                 i_pwszhost: super::super::Foundation::PWSTR,

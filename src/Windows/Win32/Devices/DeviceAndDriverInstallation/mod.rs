@@ -178,7 +178,7 @@ unsafe impl ::windows::runtime::Abi for CABINET_INFO_W {
 pub unsafe fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32;
         }
@@ -204,7 +204,7 @@ pub unsafe fn CM_Add_Empty_Log_Conf(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_Empty_Log_Conf(
                 plclogconf: *mut usize,
@@ -233,7 +233,7 @@ pub unsafe fn CM_Add_Empty_Log_Conf_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_Empty_Log_Conf_Ex(
                 plclogconf: *mut usize,
@@ -265,7 +265,7 @@ pub unsafe fn CM_Add_IDA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_IDA(
                 dndevinst: u32,
@@ -293,7 +293,7 @@ pub unsafe fn CM_Add_IDW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_IDW(
                 dndevinst: u32,
@@ -322,7 +322,7 @@ pub unsafe fn CM_Add_ID_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_ID_ExA(
                 dndevinst: u32,
@@ -353,7 +353,7 @@ pub unsafe fn CM_Add_ID_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_ID_ExW(
                 dndevinst: u32,
@@ -380,7 +380,7 @@ pub unsafe fn CM_Add_Range(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_Range(
                 ullstartvalue: u64,
@@ -409,7 +409,7 @@ pub unsafe fn CM_Add_Res_Des(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_Res_Des(
                 prdresdes: *mut usize,
@@ -443,7 +443,7 @@ pub unsafe fn CM_Add_Res_Des_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Add_Res_Des_Ex(
                 prdresdes: *mut usize,
@@ -512,7 +512,7 @@ pub unsafe fn CM_Connect_MachineA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Connect_MachineA(
                 uncservername: super::super::Foundation::PSTR,
@@ -537,7 +537,7 @@ pub unsafe fn CM_Connect_MachineW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Connect_MachineW(
                 uncservername: super::super::Foundation::PWSTR,
@@ -560,7 +560,7 @@ pub unsafe fn CM_Create_DevNodeA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Create_DevNodeA(
                 pdndevinst: *mut u32,
@@ -587,7 +587,7 @@ pub unsafe fn CM_Create_DevNodeW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Create_DevNodeW(
                 pdndevinst: *mut u32,
@@ -615,7 +615,7 @@ pub unsafe fn CM_Create_DevNode_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Create_DevNode_ExA(
                 pdndevinst: *mut u32,
@@ -645,7 +645,7 @@ pub unsafe fn CM_Create_DevNode_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Create_DevNode_ExW(
                 pdndevinst: *mut u32,
@@ -669,7 +669,7 @@ pub unsafe fn CM_Create_DevNode_ExW(
 pub unsafe fn CM_Create_Range_List(prlh: *mut usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Create_Range_List(prlh: *mut usize, ulflags: u32) -> CONFIGRET;
         }
@@ -774,7 +774,7 @@ pub unsafe fn CM_Delete_Class_Key(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_Class_Key(
                 classguid: *const ::windows::runtime::GUID,
@@ -796,7 +796,7 @@ pub unsafe fn CM_Delete_Class_Key_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_Class_Key_Ex(
                 classguid: *const ::windows::runtime::GUID,
@@ -820,7 +820,7 @@ pub unsafe fn CM_Delete_DevNode_Key(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_DevNode_Key(
                 dndevnode: u32,
@@ -845,7 +845,7 @@ pub unsafe fn CM_Delete_DevNode_Key_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_DevNode_Key_Ex(
                 dndevnode: u32,
@@ -874,7 +874,7 @@ pub unsafe fn CM_Delete_Device_Interface_KeyA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_Device_Interface_KeyA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -899,7 +899,7 @@ pub unsafe fn CM_Delete_Device_Interface_KeyW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_Device_Interface_KeyW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -925,7 +925,7 @@ pub unsafe fn CM_Delete_Device_Interface_Key_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_Device_Interface_Key_ExA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -953,7 +953,7 @@ pub unsafe fn CM_Delete_Device_Interface_Key_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_Device_Interface_Key_ExW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -978,7 +978,7 @@ pub unsafe fn CM_Delete_Range(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Delete_Range(
                 ullstartvalue: u64,
@@ -1008,7 +1008,7 @@ pub unsafe fn CM_Detect_Resource_Conflict(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Detect_Resource_Conflict(
                 dndevinst: u32,
@@ -1043,7 +1043,7 @@ pub unsafe fn CM_Detect_Resource_Conflict_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Detect_Resource_Conflict_Ex(
                 dndevinst: u32,
@@ -1071,7 +1071,7 @@ pub unsafe fn CM_Detect_Resource_Conflict_Ex(
 pub unsafe fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1086,7 +1086,7 @@ pub unsafe fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1102,7 +1102,7 @@ pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isiz
 pub unsafe fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET;
         }
@@ -1114,7 +1114,7 @@ pub unsafe fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET {
 pub unsafe fn CM_Dup_Range_List(rlhold: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Dup_Range_List(rlhold: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1133,7 +1133,7 @@ pub const CM_ENUMERATE_CLASSES_INTERFACE: u32 = 1u32;
 pub unsafe fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1148,7 +1148,7 @@ pub unsafe fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1168,7 +1168,7 @@ pub unsafe fn CM_Enumerate_Classes(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enumerate_Classes(
                 ulclassindex: u32,
@@ -1193,7 +1193,7 @@ pub unsafe fn CM_Enumerate_Classes_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enumerate_Classes_Ex(
                 ulclassindex: u32,
@@ -1221,7 +1221,7 @@ pub unsafe fn CM_Enumerate_EnumeratorsA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enumerate_EnumeratorsA(
                 ulenumindex: u32,
@@ -1249,7 +1249,7 @@ pub unsafe fn CM_Enumerate_EnumeratorsW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enumerate_EnumeratorsW(
                 ulenumindex: u32,
@@ -1278,7 +1278,7 @@ pub unsafe fn CM_Enumerate_Enumerators_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enumerate_Enumerators_ExA(
                 ulenumindex: u32,
@@ -1309,7 +1309,7 @@ pub unsafe fn CM_Enumerate_Enumerators_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Enumerate_Enumerators_ExW(
                 ulenumindex: u32,
@@ -1341,7 +1341,7 @@ pub unsafe fn CM_Find_Range(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Find_Range(
                 pullstart: *mut u64,
@@ -1375,7 +1375,7 @@ pub unsafe fn CM_First_Range(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_First_Range(
                 rlh: usize,
@@ -1399,7 +1399,7 @@ pub unsafe fn CM_First_Range(
 pub unsafe fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1418,7 +1418,7 @@ pub unsafe fn CM_Free_Log_Conf_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Log_Conf_Ex(
                 lclogconftobefreed: usize,
@@ -1438,7 +1438,7 @@ pub unsafe fn CM_Free_Log_Conf_Ex(
 pub unsafe fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET;
         }
@@ -1450,7 +1450,7 @@ pub unsafe fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET {
 pub unsafe fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1465,7 +1465,7 @@ pub unsafe fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1486,7 +1486,7 @@ pub unsafe fn CM_Free_Res_Des_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Res_Des_Ex(
                 prdresdes: *mut usize,
@@ -1508,7 +1508,7 @@ pub unsafe fn CM_Free_Res_Des_Ex(
 pub unsafe fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET;
         }
@@ -1520,7 +1520,7 @@ pub unsafe fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET {
 pub unsafe fn CM_Free_Resource_Conflict_Handle(clconflictlist: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Free_Resource_Conflict_Handle(clconflictlist: usize) -> CONFIGRET;
         }
@@ -1555,7 +1555,7 @@ pub const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8u32;
 pub unsafe fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1576,7 +1576,7 @@ pub unsafe fn CM_Get_Child_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Child_Ex(
                 pdndevinst: *mut u32,
@@ -1604,7 +1604,7 @@ pub unsafe fn CM_Get_Class_Key_NameA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Key_NameA(
                 classguid: *const ::windows::runtime::GUID,
@@ -1632,7 +1632,7 @@ pub unsafe fn CM_Get_Class_Key_NameW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Key_NameW(
                 classguid: *const ::windows::runtime::GUID,
@@ -1661,7 +1661,7 @@ pub unsafe fn CM_Get_Class_Key_Name_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Key_Name_ExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -1692,7 +1692,7 @@ pub unsafe fn CM_Get_Class_Key_Name_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Key_Name_ExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -1722,7 +1722,7 @@ pub unsafe fn CM_Get_Class_NameA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_NameA(
                 classguid: *const ::windows::runtime::GUID,
@@ -1750,7 +1750,7 @@ pub unsafe fn CM_Get_Class_NameW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_NameW(
                 classguid: *const ::windows::runtime::GUID,
@@ -1779,7 +1779,7 @@ pub unsafe fn CM_Get_Class_Name_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Name_ExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -1810,7 +1810,7 @@ pub unsafe fn CM_Get_Class_Name_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Name_ExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -1842,7 +1842,7 @@ pub unsafe fn CM_Get_Class_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_PropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -1877,7 +1877,7 @@ pub unsafe fn CM_Get_Class_Property_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Property_ExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -1911,7 +1911,7 @@ pub unsafe fn CM_Get_Class_Property_Keys(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Property_Keys(
                 classguid: *const ::windows::runtime::GUID,
@@ -1940,7 +1940,7 @@ pub unsafe fn CM_Get_Class_Property_Keys_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Property_Keys_Ex(
                 classguid: *const ::windows::runtime::GUID,
@@ -1972,7 +1972,7 @@ pub unsafe fn CM_Get_Class_Registry_PropertyA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Registry_PropertyA(
                 classguid: *const ::windows::runtime::GUID,
@@ -2008,7 +2008,7 @@ pub unsafe fn CM_Get_Class_Registry_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Class_Registry_PropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -2036,7 +2036,7 @@ pub unsafe fn CM_Get_Class_Registry_PropertyW(
 pub unsafe fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2057,7 +2057,7 @@ pub unsafe fn CM_Get_Depth_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Depth_Ex(
                 puldepth: *mut u32,
@@ -2090,7 +2090,7 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Custom_PropertyA(
                 dndevinst: u32,
@@ -2127,7 +2127,7 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Custom_PropertyW(
                 dndevinst: u32,
@@ -2165,7 +2165,7 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Custom_Property_ExA(
                 dndevinst: u32,
@@ -2205,7 +2205,7 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Custom_Property_ExW(
                 dndevinst: u32,
@@ -2241,7 +2241,7 @@ pub unsafe fn CM_Get_DevNode_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_PropertyW(
                 dndevinst: u32,
@@ -2276,7 +2276,7 @@ pub unsafe fn CM_Get_DevNode_Property_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Property_ExW(
                 dndevinst: u32,
@@ -2310,7 +2310,7 @@ pub unsafe fn CM_Get_DevNode_Property_Keys(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Property_Keys(
                 dndevinst: u32,
@@ -2339,7 +2339,7 @@ pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Property_Keys_Ex(
                 dndevinst: u32,
@@ -2370,7 +2370,7 @@ pub unsafe fn CM_Get_DevNode_Registry_PropertyA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Registry_PropertyA(
                 dndevinst: u32,
@@ -2403,7 +2403,7 @@ pub unsafe fn CM_Get_DevNode_Registry_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Registry_PropertyW(
                 dndevinst: u32,
@@ -2437,7 +2437,7 @@ pub unsafe fn CM_Get_DevNode_Registry_Property_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Registry_Property_ExA(
                 dndevinst: u32,
@@ -2473,7 +2473,7 @@ pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Registry_Property_ExW(
                 dndevinst: u32,
@@ -2506,7 +2506,7 @@ pub unsafe fn CM_Get_DevNode_Status(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Status(
                 pulstatus: *mut u32,
@@ -2534,7 +2534,7 @@ pub unsafe fn CM_Get_DevNode_Status_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_DevNode_Status_Ex(
                 pulstatus: *mut u32,
@@ -2564,7 +2564,7 @@ pub unsafe fn CM_Get_Device_IDA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_IDA(
                 dndevinst: u32,
@@ -2592,7 +2592,7 @@ pub unsafe fn CM_Get_Device_IDW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_IDW(
                 dndevinst: u32,
@@ -2621,7 +2621,7 @@ pub unsafe fn CM_Get_Device_ID_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_ExA(
                 dndevinst: u32,
@@ -2652,7 +2652,7 @@ pub unsafe fn CM_Get_Device_ID_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_ExW(
                 dndevinst: u32,
@@ -2685,7 +2685,7 @@ pub unsafe fn CM_Get_Device_ID_ListA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_ListA(
                 pszfilter: super::super::Foundation::PSTR,
@@ -2716,7 +2716,7 @@ pub unsafe fn CM_Get_Device_ID_ListW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_ListW(
                 pszfilter: super::super::Foundation::PWSTR,
@@ -2748,7 +2748,7 @@ pub unsafe fn CM_Get_Device_ID_List_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_List_ExA(
                 pszfilter: super::super::Foundation::PSTR,
@@ -2782,7 +2782,7 @@ pub unsafe fn CM_Get_Device_ID_List_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_List_ExW(
                 pszfilter: super::super::Foundation::PWSTR,
@@ -2814,7 +2814,7 @@ pub unsafe fn CM_Get_Device_ID_List_SizeA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_List_SizeA(
                 pullen: *mut u32,
@@ -2842,7 +2842,7 @@ pub unsafe fn CM_Get_Device_ID_List_SizeW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_List_SizeW(
                 pullen: *mut u32,
@@ -2871,7 +2871,7 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_List_Size_ExA(
                 pullen: *mut u32,
@@ -2902,7 +2902,7 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_List_Size_ExW(
                 pullen: *mut u32,
@@ -2924,7 +2924,7 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExW<
 pub unsafe fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2945,7 +2945,7 @@ pub unsafe fn CM_Get_Device_ID_Size_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_ID_Size_Ex(
                 pullen: *mut u32,
@@ -2977,7 +2977,7 @@ pub unsafe fn CM_Get_Device_Interface_AliasA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_AliasA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -3011,7 +3011,7 @@ pub unsafe fn CM_Get_Device_Interface_AliasW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_AliasW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -3046,7 +3046,7 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_Alias_ExA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -3083,7 +3083,7 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_Alias_ExW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -3116,7 +3116,7 @@ pub unsafe fn CM_Get_Device_Interface_ListA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_ListA(
                 interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3147,7 +3147,7 @@ pub unsafe fn CM_Get_Device_Interface_ListW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_ListW(
                 interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3179,7 +3179,7 @@ pub unsafe fn CM_Get_Device_Interface_List_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_List_ExA(
                 interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3213,7 +3213,7 @@ pub unsafe fn CM_Get_Device_Interface_List_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_List_ExW(
                 interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3244,7 +3244,7 @@ pub unsafe fn CM_Get_Device_Interface_List_SizeA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_List_SizeA(
                 pullen: *mut u32,
@@ -3271,7 +3271,7 @@ pub unsafe fn CM_Get_Device_Interface_List_SizeW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_List_SizeW(
                 pullen: *mut u32,
@@ -3299,7 +3299,7 @@ pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_List_Size_ExA(
                 pullen: *mut u32,
@@ -3329,7 +3329,7 @@ pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_List_Size_ExW(
                 pullen: *mut u32,
@@ -3364,7 +3364,7 @@ pub unsafe fn CM_Get_Device_Interface_PropertyW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_PropertyW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -3402,7 +3402,7 @@ pub unsafe fn CM_Get_Device_Interface_Property_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_Property_ExW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -3439,7 +3439,7 @@ pub unsafe fn CM_Get_Device_Interface_Property_KeysW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_Property_KeysW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -3471,7 +3471,7 @@ pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Device_Interface_Property_Keys_ExW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -3499,7 +3499,7 @@ pub unsafe fn CM_Get_First_Log_Conf(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_First_Log_Conf(
                 plclogconf: *mut usize,
@@ -3524,7 +3524,7 @@ pub unsafe fn CM_Get_First_Log_Conf_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_First_Log_Conf_Ex(
                 plclogconf: *mut usize,
@@ -3546,7 +3546,7 @@ pub unsafe fn CM_Get_First_Log_Conf_Ex(
 pub unsafe fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3565,7 +3565,7 @@ pub unsafe fn CM_Get_Global_State_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Global_State_Ex(
                 pulstate: *mut u32,
@@ -3590,7 +3590,7 @@ pub unsafe fn CM_Get_HW_Prof_FlagsA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_HW_Prof_FlagsA(
                 pdeviceid: *const i8,
@@ -3617,7 +3617,7 @@ pub unsafe fn CM_Get_HW_Prof_FlagsW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_HW_Prof_FlagsW(
                 pdeviceid: *const u16,
@@ -3645,7 +3645,7 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_HW_Prof_Flags_ExA(
                 pdeviceid: *const i8,
@@ -3675,7 +3675,7 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_HW_Prof_Flags_ExW(
                 pdeviceid: *const u16,
@@ -3704,7 +3704,7 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Hardware_Profile_InfoA(
                 ulindex: u32,
@@ -3728,7 +3728,7 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Hardware_Profile_InfoW(
                 ulindex: u32,
@@ -3754,7 +3754,7 @@ pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Hardware_Profile_Info_ExA(
                 ulindex: u32,
@@ -3781,7 +3781,7 @@ pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Hardware_Profile_Info_ExW(
                 ulindex: u32,
@@ -3807,7 +3807,7 @@ pub unsafe fn CM_Get_Log_Conf_Priority(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Log_Conf_Priority(
                 lclogconf: usize,
@@ -3832,7 +3832,7 @@ pub unsafe fn CM_Get_Log_Conf_Priority_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Log_Conf_Priority_Ex(
                 lclogconf: usize,
@@ -3858,7 +3858,7 @@ pub unsafe fn CM_Get_Next_Log_Conf(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Next_Log_Conf(
                 plclogconf: *mut usize,
@@ -3883,7 +3883,7 @@ pub unsafe fn CM_Get_Next_Log_Conf_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Next_Log_Conf_Ex(
                 plclogconf: *mut usize,
@@ -3911,7 +3911,7 @@ pub unsafe fn CM_Get_Next_Res_Des(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Next_Res_Des(
                 prdresdes: *mut usize,
@@ -3942,7 +3942,7 @@ pub unsafe fn CM_Get_Next_Res_Des_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Next_Res_Des_Ex(
                 prdresdes: *mut usize,
@@ -3968,7 +3968,7 @@ pub unsafe fn CM_Get_Next_Res_Des_Ex(
 pub unsafe fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3989,7 +3989,7 @@ pub unsafe fn CM_Get_Parent_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Parent_Ex(
                 pdndevinst: *mut u32,
@@ -4016,7 +4016,7 @@ pub unsafe fn CM_Get_Res_Des_Data(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Res_Des_Data(
                 rdresdes: usize,
@@ -4044,7 +4044,7 @@ pub unsafe fn CM_Get_Res_Des_Data_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Res_Des_Data_Ex(
                 rdresdes: usize,
@@ -4072,7 +4072,7 @@ pub unsafe fn CM_Get_Res_Des_Data_Size(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Res_Des_Data_Size(
                 pulsize: *mut u32,
@@ -4097,7 +4097,7 @@ pub unsafe fn CM_Get_Res_Des_Data_Size_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Res_Des_Data_Size_Ex(
                 pulsize: *mut u32,
@@ -4122,7 +4122,7 @@ pub unsafe fn CM_Get_Resource_Conflict_Count(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Resource_Conflict_Count(
                 clconflictlist: usize,
@@ -4145,7 +4145,7 @@ pub unsafe fn CM_Get_Resource_Conflict_DetailsA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Resource_Conflict_DetailsA(
                 clconflictlist: usize,
@@ -4169,7 +4169,7 @@ pub unsafe fn CM_Get_Resource_Conflict_DetailsW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Resource_Conflict_DetailsW(
                 clconflictlist: usize,
@@ -4189,7 +4189,7 @@ pub unsafe fn CM_Get_Resource_Conflict_DetailsW(
 pub unsafe fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4210,7 +4210,7 @@ pub unsafe fn CM_Get_Sibling_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Sibling_Ex(
                 pdndevinst: *mut u32,
@@ -4232,7 +4232,7 @@ pub unsafe fn CM_Get_Sibling_Ex(
 pub unsafe fn CM_Get_Version() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Version() -> u16;
         }
@@ -4244,7 +4244,7 @@ pub unsafe fn CM_Get_Version() -> u16 {
 pub unsafe fn CM_Get_Version_Ex(hmachine: isize) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Get_Version_Ex(hmachine: isize) -> u16;
         }
@@ -4268,7 +4268,7 @@ pub unsafe fn CM_Intersect_Range_List(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Intersect_Range_List(
                 rlhold1: usize,
@@ -4295,7 +4295,7 @@ pub unsafe fn CM_Invert_Range_List(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Invert_Range_List(
                 rlhold: usize,
@@ -4320,7 +4320,7 @@ pub unsafe fn CM_Is_Dock_Station_Present(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Is_Dock_Station_Present(
                 pbpresent: *mut super::super::Foundation::BOOL,
@@ -4338,7 +4338,7 @@ pub unsafe fn CM_Is_Dock_Station_Present_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Is_Dock_Station_Present_Ex(
                 pbpresent: *mut super::super::Foundation::BOOL,
@@ -4357,7 +4357,7 @@ pub unsafe fn CM_Is_Dock_Station_Present_Ex(
 pub unsafe fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation::BOOL;
         }
@@ -4373,7 +4373,7 @@ pub unsafe fn CM_Is_Version_Available_Ex(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Is_Version_Available_Ex(
                 wversion: u16,
@@ -4405,7 +4405,7 @@ pub unsafe fn CM_Locate_DevNodeA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Locate_DevNodeA(
                 pdndevinst: *mut u32,
@@ -4429,7 +4429,7 @@ pub unsafe fn CM_Locate_DevNodeW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Locate_DevNodeW(
                 pdndevinst: *mut u32,
@@ -4454,7 +4454,7 @@ pub unsafe fn CM_Locate_DevNode_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Locate_DevNode_ExA(
                 pdndevinst: *mut u32,
@@ -4481,7 +4481,7 @@ pub unsafe fn CM_Locate_DevNode_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Locate_DevNode_ExW(
                 pdndevinst: *mut u32,
@@ -4503,7 +4503,7 @@ pub unsafe fn CM_Locate_DevNode_ExW(
 pub unsafe fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u32;
         }
@@ -4523,7 +4523,7 @@ pub unsafe fn CM_Merge_Range_List(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Merge_Range_List(
                 rlhold1: usize,
@@ -4552,7 +4552,7 @@ pub unsafe fn CM_Modify_Res_Des(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Modify_Res_Des(
                 prdresdes: *mut usize,
@@ -4586,7 +4586,7 @@ pub unsafe fn CM_Modify_Res_Des_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Modify_Res_Des_Ex(
                 prdresdes: *mut usize,
@@ -4614,7 +4614,7 @@ pub unsafe fn CM_Modify_Res_Des_Ex(
 pub unsafe fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4635,7 +4635,7 @@ pub unsafe fn CM_Move_DevNode_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Move_DevNode_Ex(
                 dnfromdevinst: u32,
@@ -5012,7 +5012,7 @@ pub unsafe fn CM_Next_Range(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Next_Range(
                 preelement: *mut usize,
@@ -5048,7 +5048,7 @@ pub unsafe fn CM_Open_Class_KeyA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Class_KeyA(
                 classguid: *const ::windows::runtime::GUID,
@@ -5085,7 +5085,7 @@ pub unsafe fn CM_Open_Class_KeyW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Class_KeyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -5123,7 +5123,7 @@ pub unsafe fn CM_Open_Class_Key_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Class_Key_ExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -5163,7 +5163,7 @@ pub unsafe fn CM_Open_Class_Key_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Class_Key_ExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -5199,7 +5199,7 @@ pub unsafe fn CM_Open_DevNode_Key(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_DevNode_Key(
                 dndevnode: u32,
@@ -5234,7 +5234,7 @@ pub unsafe fn CM_Open_DevNode_Key_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_DevNode_Key_Ex(
                 dndevnode: u32,
@@ -5272,7 +5272,7 @@ pub unsafe fn CM_Open_Device_Interface_KeyA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Device_Interface_KeyA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -5306,7 +5306,7 @@ pub unsafe fn CM_Open_Device_Interface_KeyW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Device_Interface_KeyW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -5341,7 +5341,7 @@ pub unsafe fn CM_Open_Device_Interface_Key_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Device_Interface_Key_ExA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -5378,7 +5378,7 @@ pub unsafe fn CM_Open_Device_Interface_Key_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Open_Device_Interface_Key_ExW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -5473,7 +5473,7 @@ pub unsafe fn CM_Query_And_Remove_SubTreeA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_And_Remove_SubTreeA(
                 dnancestor: u32,
@@ -5504,7 +5504,7 @@ pub unsafe fn CM_Query_And_Remove_SubTreeW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_And_Remove_SubTreeW(
                 dnancestor: u32,
@@ -5536,7 +5536,7 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_And_Remove_SubTree_ExA(
                 dnancestor: u32,
@@ -5570,7 +5570,7 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_And_Remove_SubTree_ExW(
                 dnancestor: u32,
@@ -5602,7 +5602,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Data(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Data(
                 pdata: *mut ::std::ffi::c_void,
@@ -5633,7 +5633,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Data_Ex(
                 pdata: *mut ::std::ffi::c_void,
@@ -5664,7 +5664,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Size(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Size(
                 pulsize: *mut u32,
@@ -5692,7 +5692,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Size_Ex(
                 pulsize: *mut u32,
@@ -5716,7 +5716,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(
 pub unsafe fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -5735,7 +5735,7 @@ pub unsafe fn CM_Query_Remove_SubTree_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_Remove_SubTree_Ex(
                 dnancestor: u32,
@@ -5763,7 +5763,7 @@ pub unsafe fn CM_Query_Resource_Conflict_List(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Query_Resource_Conflict_List(
                 pclconflictlist: *mut usize,
@@ -5817,7 +5817,7 @@ pub const CM_RESDES_WIDTH_DEFAULT: u32 = 0u32;
 pub unsafe fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -5836,7 +5836,7 @@ pub unsafe fn CM_Reenumerate_DevNode_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Reenumerate_DevNode_Ex(
                 dndevinst: u32,
@@ -5856,7 +5856,7 @@ pub unsafe fn CM_Reenumerate_DevNode_Ex(
 pub unsafe fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -5875,7 +5875,7 @@ pub unsafe fn CM_Register_Device_Driver_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Register_Device_Driver_Ex(
                 dndevinst: u32,
@@ -5906,7 +5906,7 @@ pub unsafe fn CM_Register_Device_InterfaceA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Register_Device_InterfaceA(
                 dndevinst: u32,
@@ -5943,7 +5943,7 @@ pub unsafe fn CM_Register_Device_InterfaceW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Register_Device_InterfaceW(
                 dndevinst: u32,
@@ -5981,7 +5981,7 @@ pub unsafe fn CM_Register_Device_Interface_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Register_Device_Interface_ExA(
                 dndevinst: u32,
@@ -6021,7 +6021,7 @@ pub unsafe fn CM_Register_Device_Interface_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Register_Device_Interface_ExW(
                 dndevinst: u32,
@@ -6055,7 +6055,7 @@ pub unsafe fn CM_Register_Notification(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Register_Notification(
                 pfilter: *const CM_NOTIFY_FILTER,
@@ -6077,7 +6077,7 @@ pub unsafe fn CM_Register_Notification(
 pub unsafe fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -6092,7 +6092,7 @@ pub unsafe fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -6115,7 +6115,7 @@ pub unsafe fn CM_Request_Device_EjectA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Request_Device_EjectA(
                 dndevinst: u32,
@@ -6146,7 +6146,7 @@ pub unsafe fn CM_Request_Device_EjectW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Request_Device_EjectW(
                 dndevinst: u32,
@@ -6178,7 +6178,7 @@ pub unsafe fn CM_Request_Device_Eject_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Request_Device_Eject_ExA(
                 dndevinst: u32,
@@ -6212,7 +6212,7 @@ pub unsafe fn CM_Request_Device_Eject_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Request_Device_Eject_ExW(
                 dndevinst: u32,
@@ -6238,7 +6238,7 @@ pub unsafe fn CM_Request_Device_Eject_ExW(
 pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Request_Eject_PC() -> CONFIGRET;
         }
@@ -6250,7 +6250,7 @@ pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {
 pub unsafe fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET;
         }
@@ -6262,7 +6262,7 @@ pub unsafe fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET {
 pub unsafe fn CM_Run_Detection(ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Run_Detection(ulflags: u32) -> CONFIGRET;
         }
@@ -6274,7 +6274,7 @@ pub unsafe fn CM_Run_Detection(ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Run_Detection_Ex(ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Run_Detection_Ex(ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -6321,7 +6321,7 @@ pub unsafe fn CM_Set_Class_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_Class_PropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -6356,7 +6356,7 @@ pub unsafe fn CM_Set_Class_Property_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_Class_Property_ExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -6391,7 +6391,7 @@ pub unsafe fn CM_Set_Class_Registry_PropertyA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_Class_Registry_PropertyA(
                 classguid: *const ::windows::runtime::GUID,
@@ -6424,7 +6424,7 @@ pub unsafe fn CM_Set_Class_Registry_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_Class_Registry_PropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -6450,7 +6450,7 @@ pub unsafe fn CM_Set_Class_Registry_PropertyW(
 pub unsafe fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -6471,7 +6471,7 @@ pub unsafe fn CM_Set_DevNode_Problem_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_Problem_Ex(
                 dndevinst: u32,
@@ -6501,7 +6501,7 @@ pub unsafe fn CM_Set_DevNode_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_PropertyW(
                 dndevinst: u32,
@@ -6536,7 +6536,7 @@ pub unsafe fn CM_Set_DevNode_Property_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_Property_ExW(
                 dndevinst: u32,
@@ -6570,7 +6570,7 @@ pub unsafe fn CM_Set_DevNode_Registry_PropertyA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_Registry_PropertyA(
                 dndevinst: u32,
@@ -6600,7 +6600,7 @@ pub unsafe fn CM_Set_DevNode_Registry_PropertyW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_Registry_PropertyW(
                 dndevinst: u32,
@@ -6631,7 +6631,7 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_Registry_Property_ExA(
                 dndevinst: u32,
@@ -6664,7 +6664,7 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_DevNode_Registry_Property_ExW(
                 dndevinst: u32,
@@ -6701,7 +6701,7 @@ pub unsafe fn CM_Set_Device_Interface_PropertyW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_Device_Interface_PropertyW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -6739,7 +6739,7 @@ pub unsafe fn CM_Set_Device_Interface_Property_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_Device_Interface_Property_ExW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -6767,7 +6767,7 @@ pub unsafe fn CM_Set_Device_Interface_Property_ExW<
 pub unsafe fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -6786,7 +6786,7 @@ pub unsafe fn CM_Set_HW_Prof_Ex(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_HW_Prof_Ex(
                 ulhardwareprofile: u32,
@@ -6811,7 +6811,7 @@ pub unsafe fn CM_Set_HW_Prof_FlagsA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_HW_Prof_FlagsA(
                 pdeviceid: *const i8,
@@ -6838,7 +6838,7 @@ pub unsafe fn CM_Set_HW_Prof_FlagsW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_HW_Prof_FlagsW(
                 pdeviceid: *const u16,
@@ -6866,7 +6866,7 @@ pub unsafe fn CM_Set_HW_Prof_Flags_ExA(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_HW_Prof_Flags_ExA(
                 pdeviceid: *const i8,
@@ -6896,7 +6896,7 @@ pub unsafe fn CM_Set_HW_Prof_Flags_ExW(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Set_HW_Prof_Flags_ExW(
                 pdeviceid: *const u16,
@@ -6920,7 +6920,7 @@ pub unsafe fn CM_Set_HW_Prof_Flags_ExW(
 pub unsafe fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -6935,7 +6935,7 @@ pub unsafe fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -6956,7 +6956,7 @@ pub unsafe fn CM_Test_Range_Available(
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Test_Range_Available(
                 ullstartvalue: u64,
@@ -6978,7 +6978,7 @@ pub unsafe fn CM_Test_Range_Available(
 pub unsafe fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -6993,7 +6993,7 @@ pub unsafe fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -7016,7 +7016,7 @@ pub unsafe fn CM_Unregister_Device_InterfaceA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Unregister_Device_InterfaceA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -7041,7 +7041,7 @@ pub unsafe fn CM_Unregister_Device_InterfaceW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Unregister_Device_InterfaceW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -7067,7 +7067,7 @@ pub unsafe fn CM_Unregister_Device_Interface_ExA<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Unregister_Device_Interface_ExA(
                 pszdeviceinterface: super::super::Foundation::PSTR,
@@ -7095,7 +7095,7 @@ pub unsafe fn CM_Unregister_Device_Interface_ExW<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Unregister_Device_Interface_ExW(
                 pszdeviceinterface: super::super::Foundation::PWSTR,
@@ -7120,7 +7120,7 @@ pub unsafe fn CM_Unregister_Notification<
 ) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CM_Unregister_Notification(notifycontext: HCMNOTIFICATION) -> CONFIGRET;
         }
@@ -7928,7 +7928,7 @@ pub unsafe fn DiInstallDevice<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiInstallDevice(
                 hwndparent: super::super::Foundation::HWND,
@@ -7964,7 +7964,7 @@ pub unsafe fn DiInstallDriverA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiInstallDriverA(
                 hwndparent: super::super::Foundation::HWND,
@@ -7996,7 +7996,7 @@ pub unsafe fn DiInstallDriverW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiInstallDriverW(
                 hwndparent: super::super::Foundation::HWND,
@@ -8028,7 +8028,7 @@ pub unsafe fn DiRollbackDriver<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiRollbackDriver(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -8062,7 +8062,7 @@ pub unsafe fn DiShowUpdateDevice<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiShowUpdateDevice(
                 hwndparent: super::super::Foundation::HWND,
@@ -8096,7 +8096,7 @@ pub unsafe fn DiShowUpdateDriver<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiShowUpdateDriver(
                 hwndparent: super::super::Foundation::HWND,
@@ -8128,7 +8128,7 @@ pub unsafe fn DiUninstallDevice<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiUninstallDevice(
                 hwndparent: super::super::Foundation::HWND,
@@ -8162,7 +8162,7 @@ pub unsafe fn DiUninstallDriverA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiUninstallDriverA(
                 hwndparent: super::super::Foundation::HWND,
@@ -8194,7 +8194,7 @@ pub unsafe fn DiUninstallDriverW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiUninstallDriverW(
                 hwndparent: super::super::Foundation::HWND,
@@ -10132,7 +10132,7 @@ pub unsafe fn InstallHinfSectionA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallHinfSectionA(
                 window: super::super::Foundation::HWND,
@@ -10165,7 +10165,7 @@ pub unsafe fn InstallHinfSectionW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallHinfSectionW(
                 window: super::super::Foundation::HWND,
@@ -13335,7 +13335,7 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddInstallSectionToDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -13372,7 +13372,7 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddInstallSectionToDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -13410,7 +13410,7 @@ pub unsafe fn SetupAddSectionToDiskSpaceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddSectionToDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -13450,7 +13450,7 @@ pub unsafe fn SetupAddSectionToDiskSpaceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddSectionToDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -13489,7 +13489,7 @@ pub unsafe fn SetupAddToDiskSpaceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddToDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -13526,7 +13526,7 @@ pub unsafe fn SetupAddToDiskSpaceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddToDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -13559,7 +13559,7 @@ pub unsafe fn SetupAddToSourceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddToSourceListA(
                 flags: u32,
@@ -13584,7 +13584,7 @@ pub unsafe fn SetupAddToSourceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAddToSourceListW(
                 flags: u32,
@@ -13612,7 +13612,7 @@ pub unsafe fn SetupAdjustDiskSpaceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAdjustDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -13646,7 +13646,7 @@ pub unsafe fn SetupAdjustDiskSpaceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupAdjustDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -13684,7 +13684,7 @@ pub unsafe fn SetupBackupErrorA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupBackupErrorA(
                 hwndparent: super::super::Foundation::HWND,
@@ -13724,7 +13724,7 @@ pub unsafe fn SetupBackupErrorW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupBackupErrorW(
                 hwndparent: super::super::Foundation::HWND,
@@ -13751,7 +13751,7 @@ pub unsafe fn SetupBackupErrorW<
 pub unsafe fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL;
         }
@@ -13766,7 +13766,7 @@ pub unsafe fn SetupCloseFileQueue(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCloseFileQueue(
                 queuehandle: *const ::std::ffi::c_void,
@@ -13780,7 +13780,7 @@ pub unsafe fn SetupCloseFileQueue(
 pub unsafe fn SetupCloseInfFile(infhandle: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCloseInfFile(infhandle: *const ::std::ffi::c_void);
         }
@@ -13792,7 +13792,7 @@ pub unsafe fn SetupCloseInfFile(infhandle: *const ::std::ffi::c_void) {
 pub unsafe fn SetupCloseLog() {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCloseLog();
         }
@@ -13813,7 +13813,7 @@ pub unsafe fn SetupCommitFileQueueA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCommitFileQueueA(
                 owner: super::super::Foundation::HWND,
@@ -13844,7 +13844,7 @@ pub unsafe fn SetupCommitFileQueueW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCommitFileQueueW(
                 owner: super::super::Foundation::HWND,
@@ -13874,7 +13874,7 @@ pub unsafe fn SetupConfigureWmiFromInfSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupConfigureWmiFromInfSectionA(
                 infhandle: *const ::std::ffi::c_void,
@@ -13902,7 +13902,7 @@ pub unsafe fn SetupConfigureWmiFromInfSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupConfigureWmiFromInfSectionW(
                 infhandle: *const ::std::ffi::c_void,
@@ -13943,7 +13943,7 @@ pub unsafe fn SetupCopyErrorA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCopyErrorA(
                 hwndparent: super::super::Foundation::HWND,
@@ -14000,7 +14000,7 @@ pub unsafe fn SetupCopyErrorW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCopyErrorW(
                 hwndparent: super::super::Foundation::HWND,
@@ -14050,7 +14050,7 @@ pub unsafe fn SetupCopyOEMInfA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCopyOEMInfA(
                 sourceinffilename: super::super::Foundation::PSTR,
@@ -14094,7 +14094,7 @@ pub unsafe fn SetupCopyOEMInfW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCopyOEMInfW(
                 sourceinffilename: super::super::Foundation::PWSTR,
@@ -14128,7 +14128,7 @@ pub unsafe fn SetupCreateDiskSpaceListA(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCreateDiskSpaceListA(
                 reserved1: *mut ::std::ffi::c_void,
@@ -14152,7 +14152,7 @@ pub unsafe fn SetupCreateDiskSpaceListW(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupCreateDiskSpaceListW(
                 reserved1: *mut ::std::ffi::c_void,
@@ -14181,7 +14181,7 @@ pub unsafe fn SetupDecompressOrCopyFileA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDecompressOrCopyFileA(
                 sourcefilename: super::super::Foundation::PSTR,
@@ -14210,7 +14210,7 @@ pub unsafe fn SetupDecompressOrCopyFileW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDecompressOrCopyFileW(
                 sourcefilename: super::super::Foundation::PWSTR,
@@ -14235,7 +14235,7 @@ pub unsafe fn SetupDefaultQueueCallbackA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDefaultQueueCallbackA(
                 context: *const ::std::ffi::c_void,
@@ -14262,7 +14262,7 @@ pub unsafe fn SetupDefaultQueueCallbackW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDefaultQueueCallbackW(
                 context: *const ::std::ffi::c_void,
@@ -14296,7 +14296,7 @@ pub unsafe fn SetupDeleteErrorA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDeleteErrorA(
                 hwndparent: super::super::Foundation::HWND,
@@ -14332,7 +14332,7 @@ pub unsafe fn SetupDeleteErrorW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDeleteErrorW(
                 hwndparent: super::super::Foundation::HWND,
@@ -14359,7 +14359,7 @@ pub unsafe fn SetupDestroyDiskSpaceList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDestroyDiskSpaceList(
                 diskspace: *mut ::std::ffi::c_void,
@@ -14377,7 +14377,7 @@ pub unsafe fn SetupDiAskForOEMDisk(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiAskForOEMDisk(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -14401,7 +14401,7 @@ pub unsafe fn SetupDiBuildClassInfoList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiBuildClassInfoList(
                 flags: u32,
@@ -14434,7 +14434,7 @@ pub unsafe fn SetupDiBuildClassInfoListExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiBuildClassInfoListExA(
                 flags: u32,
@@ -14471,7 +14471,7 @@ pub unsafe fn SetupDiBuildClassInfoListExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiBuildClassInfoListExW(
                 flags: u32,
@@ -14502,7 +14502,7 @@ pub unsafe fn SetupDiBuildDriverInfoList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiBuildDriverInfoList(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -14527,7 +14527,7 @@ pub unsafe fn SetupDiCallClassInstaller(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCallClassInstaller(
                 installfunction: u32,
@@ -14550,7 +14550,7 @@ pub unsafe fn SetupDiCancelDriverInfoSearch(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCancelDriverInfoSearch(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -14570,7 +14570,7 @@ pub unsafe fn SetupDiChangeState(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiChangeState(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -14597,7 +14597,7 @@ pub unsafe fn SetupDiClassGuidsFromNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassGuidsFromNameA(
                 classname: super::super::Foundation::PSTR,
@@ -14631,7 +14631,7 @@ pub unsafe fn SetupDiClassGuidsFromNameExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassGuidsFromNameExA(
                 classname: super::super::Foundation::PSTR,
@@ -14669,7 +14669,7 @@ pub unsafe fn SetupDiClassGuidsFromNameExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassGuidsFromNameExW(
                 classname: super::super::Foundation::PWSTR,
@@ -14704,7 +14704,7 @@ pub unsafe fn SetupDiClassGuidsFromNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassGuidsFromNameW(
                 classname: super::super::Foundation::PWSTR,
@@ -14732,7 +14732,7 @@ pub unsafe fn SetupDiClassNameFromGuidA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassNameFromGuidA(
                 classguid: *const ::windows::runtime::GUID,
@@ -14765,7 +14765,7 @@ pub unsafe fn SetupDiClassNameFromGuidExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassNameFromGuidExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -14802,7 +14802,7 @@ pub unsafe fn SetupDiClassNameFromGuidExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassNameFromGuidExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -14834,7 +14834,7 @@ pub unsafe fn SetupDiClassNameFromGuidW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiClassNameFromGuidW(
                 classguid: *const ::windows::runtime::GUID,
@@ -14868,7 +14868,7 @@ pub unsafe fn SetupDiCreateDevRegKeyA<
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDevRegKeyA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -14908,7 +14908,7 @@ pub unsafe fn SetupDiCreateDevRegKeyW<
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDevRegKeyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -14950,7 +14950,7 @@ pub unsafe fn SetupDiCreateDeviceInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInfoA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -14985,7 +14985,7 @@ pub unsafe fn SetupDiCreateDeviceInfoList<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInfoList(
                 classguid: *const ::windows::runtime::GUID,
@@ -15013,7 +15013,7 @@ pub unsafe fn SetupDiCreateDeviceInfoListExA<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInfoListExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -15045,7 +15045,7 @@ pub unsafe fn SetupDiCreateDeviceInfoListExW<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInfoListExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -15081,7 +15081,7 @@ pub unsafe fn SetupDiCreateDeviceInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInfoW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15120,7 +15120,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15157,7 +15157,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceRegKeyA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15194,7 +15194,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceRegKeyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15231,7 +15231,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15264,7 +15264,7 @@ pub unsafe fn SetupDiDeleteDevRegKey(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDeleteDevRegKey(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15292,7 +15292,7 @@ pub unsafe fn SetupDiDeleteDeviceInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDeleteDeviceInfo(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15314,7 +15314,7 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceData(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDeleteDeviceInterfaceData(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15337,7 +15337,7 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDeleteDeviceInterfaceRegKey(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15360,7 +15360,7 @@ pub unsafe fn SetupDiDestroyClassImageList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDestroyClassImageList(
                 classimagelistdata: *const SP_CLASSIMAGELIST_DATA,
@@ -15379,7 +15379,7 @@ pub unsafe fn SetupDiDestroyDeviceInfoList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDestroyDeviceInfoList(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15400,7 +15400,7 @@ pub unsafe fn SetupDiDestroyDriverInfoList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDestroyDriverInfoList(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15430,7 +15430,7 @@ pub unsafe fn SetupDiDrawMiniIcon<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiDrawMiniIcon(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -15457,7 +15457,7 @@ pub unsafe fn SetupDiEnumDeviceInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiEnumDeviceInfo(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15484,7 +15484,7 @@ pub unsafe fn SetupDiEnumDeviceInterfaces(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiEnumDeviceInterfaces(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15515,7 +15515,7 @@ pub unsafe fn SetupDiEnumDriverInfoA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiEnumDriverInfoA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15546,7 +15546,7 @@ pub unsafe fn SetupDiEnumDriverInfoW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiEnumDriverInfoW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -15581,7 +15581,7 @@ pub unsafe fn SetupDiGetActualModelsSectionA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetActualModelsSectionA(
                 context: *const INFCONTEXT,
@@ -15618,7 +15618,7 @@ pub unsafe fn SetupDiGetActualModelsSectionW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetActualModelsSectionW(
                 context: *const INFCONTEXT,
@@ -15655,7 +15655,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetActualSectionToInstallA(
                 infhandle: *const ::std::ffi::c_void,
@@ -15697,7 +15697,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetActualSectionToInstallExA(
                 infhandle: *const ::std::ffi::c_void,
@@ -15743,7 +15743,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetActualSectionToInstallExW(
                 infhandle: *const ::std::ffi::c_void,
@@ -15784,7 +15784,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetActualSectionToInstallW(
                 infhandle: *const ::std::ffi::c_void,
@@ -15814,7 +15814,7 @@ pub unsafe fn SetupDiGetClassBitmapIndex(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassBitmapIndex(
                 classguid: *const ::windows::runtime::GUID,
@@ -15838,7 +15838,7 @@ pub unsafe fn SetupDiGetClassDescriptionA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDescriptionA(
                 classguid: *const ::windows::runtime::GUID,
@@ -15871,7 +15871,7 @@ pub unsafe fn SetupDiGetClassDescriptionExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDescriptionExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -15908,7 +15908,7 @@ pub unsafe fn SetupDiGetClassDescriptionExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDescriptionExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -15940,7 +15940,7 @@ pub unsafe fn SetupDiGetClassDescriptionW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDescriptionW(
                 classguid: *const ::windows::runtime::GUID,
@@ -15975,7 +15975,7 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDevPropertySheetsA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16016,7 +16016,7 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDevPropertySheetsW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16054,7 +16054,7 @@ pub unsafe fn SetupDiGetClassDevsA<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDevsA(
                 classguid: *const ::windows::runtime::GUID,
@@ -16090,7 +16090,7 @@ pub unsafe fn SetupDiGetClassDevsExA<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDevsExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -16132,7 +16132,7 @@ pub unsafe fn SetupDiGetClassDevsExW<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDevsExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -16170,7 +16170,7 @@ pub unsafe fn SetupDiGetClassDevsW<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassDevsW(
                 classguid: *const ::windows::runtime::GUID,
@@ -16197,7 +16197,7 @@ pub unsafe fn SetupDiGetClassImageIndex(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassImageIndex(
                 classimagelistdata: *const SP_CLASSIMAGELIST_DATA,
@@ -16220,7 +16220,7 @@ pub unsafe fn SetupDiGetClassImageList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassImageList(
                 classimagelistdata: *mut SP_CLASSIMAGELIST_DATA,
@@ -16244,7 +16244,7 @@ pub unsafe fn SetupDiGetClassImageListExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassImageListExA(
                 classimagelistdata: *mut SP_CLASSIMAGELIST_DATA,
@@ -16272,7 +16272,7 @@ pub unsafe fn SetupDiGetClassImageListExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassImageListExW(
                 classimagelistdata: *mut SP_CLASSIMAGELIST_DATA,
@@ -16299,7 +16299,7 @@ pub unsafe fn SetupDiGetClassInstallParamsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassInstallParamsA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16330,7 +16330,7 @@ pub unsafe fn SetupDiGetClassInstallParamsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassInstallParamsW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16368,7 +16368,7 @@ pub unsafe fn SetupDiGetClassPropertyExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassPropertyExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -16407,7 +16407,7 @@ pub unsafe fn SetupDiGetClassPropertyKeys(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassPropertyKeys(
                 classguid: *const ::windows::runtime::GUID,
@@ -16443,7 +16443,7 @@ pub unsafe fn SetupDiGetClassPropertyKeysExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassPropertyKeysExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -16480,7 +16480,7 @@ pub unsafe fn SetupDiGetClassPropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassPropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -16521,7 +16521,7 @@ pub unsafe fn SetupDiGetClassRegistryPropertyA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassRegistryPropertyA(
                 classguid: *const ::windows::runtime::GUID,
@@ -16564,7 +16564,7 @@ pub unsafe fn SetupDiGetClassRegistryPropertyW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetClassRegistryPropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -16607,7 +16607,7 @@ pub unsafe fn SetupDiGetCustomDevicePropertyA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetCustomDevicePropertyA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16650,7 +16650,7 @@ pub unsafe fn SetupDiGetCustomDevicePropertyW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetCustomDevicePropertyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16684,7 +16684,7 @@ pub unsafe fn SetupDiGetDeviceInfoListClass(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInfoListClass(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16706,7 +16706,7 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInfoListDetailA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16728,7 +16728,7 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInfoListDetailW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16751,7 +16751,7 @@ pub unsafe fn SetupDiGetDeviceInstallParamsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInstallParamsA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16776,7 +16776,7 @@ pub unsafe fn SetupDiGetDeviceInstallParamsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInstallParamsW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16803,7 +16803,7 @@ pub unsafe fn SetupDiGetDeviceInstanceIdA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInstanceIdA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16834,7 +16834,7 @@ pub unsafe fn SetupDiGetDeviceInstanceIdW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInstanceIdW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16864,7 +16864,7 @@ pub unsafe fn SetupDiGetDeviceInterfaceAlias(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInterfaceAlias(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16894,7 +16894,7 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInterfaceDetailA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16928,7 +16928,7 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInterfaceDetailW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16962,7 +16962,7 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInterfacePropertyKeys(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -16998,7 +16998,7 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceInterfacePropertyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17036,7 +17036,7 @@ pub unsafe fn SetupDiGetDevicePropertyKeys(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDevicePropertyKeys(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17072,7 +17072,7 @@ pub unsafe fn SetupDiGetDevicePropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDevicePropertyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17111,7 +17111,7 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceRegistryPropertyA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17148,7 +17148,7 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDeviceRegistryPropertyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17184,7 +17184,7 @@ pub unsafe fn SetupDiGetDriverInfoDetailA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDriverInfoDetailA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17218,7 +17218,7 @@ pub unsafe fn SetupDiGetDriverInfoDetailW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDriverInfoDetailW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17250,7 +17250,7 @@ pub unsafe fn SetupDiGetDriverInstallParamsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDriverInstallParamsA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17278,7 +17278,7 @@ pub unsafe fn SetupDiGetDriverInstallParamsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetDriverInstallParamsW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17306,7 +17306,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameA(
                 hwprofile: u32,
@@ -17339,7 +17339,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameExA(
                 hwprofile: u32,
@@ -17376,7 +17376,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameExW(
                 hwprofile: u32,
@@ -17408,7 +17408,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameW(
                 hwprofile: u32,
@@ -17436,7 +17436,7 @@ pub unsafe fn SetupDiGetHwProfileList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetHwProfileList(
                 hwprofilelist: *mut u32,
@@ -17469,7 +17469,7 @@ pub unsafe fn SetupDiGetHwProfileListExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetHwProfileListExA(
                 hwprofilelist: *mut u32,
@@ -17506,7 +17506,7 @@ pub unsafe fn SetupDiGetHwProfileListExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetHwProfileListExW(
                 hwprofilelist: *mut u32,
@@ -17542,7 +17542,7 @@ pub unsafe fn SetupDiGetINFClassA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetINFClassA(
                 infname: super::super::Foundation::PSTR,
@@ -17576,7 +17576,7 @@ pub unsafe fn SetupDiGetINFClassW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetINFClassW(
                 infname: super::super::Foundation::PWSTR,
@@ -17604,7 +17604,7 @@ pub unsafe fn SetupDiGetSelectedDevice(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetSelectedDevice(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17627,7 +17627,7 @@ pub unsafe fn SetupDiGetSelectedDriverA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetSelectedDriverA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17652,7 +17652,7 @@ pub unsafe fn SetupDiGetSelectedDriverW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetSelectedDriverW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17679,7 +17679,7 @@ pub unsafe fn SetupDiGetWizardPage(
 ) -> super::super::UI::Controls::HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiGetWizardPage(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17713,7 +17713,7 @@ pub unsafe fn SetupDiInstallClassA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiInstallClassA(
                 hwndparent: super::super::Foundation::HWND,
@@ -17748,7 +17748,7 @@ pub unsafe fn SetupDiInstallClassExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiInstallClassExA(
                 hwndparent: super::super::Foundation::HWND,
@@ -17789,7 +17789,7 @@ pub unsafe fn SetupDiInstallClassExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiInstallClassExW(
                 hwndparent: super::super::Foundation::HWND,
@@ -17827,7 +17827,7 @@ pub unsafe fn SetupDiInstallClassW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiInstallClassW(
                 hwndparent: super::super::Foundation::HWND,
@@ -17853,7 +17853,7 @@ pub unsafe fn SetupDiInstallDevice(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiInstallDevice(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17875,7 +17875,7 @@ pub unsafe fn SetupDiInstallDeviceInterfaces(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiInstallDeviceInterfaces(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17897,7 +17897,7 @@ pub unsafe fn SetupDiInstallDriverFiles(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiInstallDriverFiles(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17920,7 +17920,7 @@ pub unsafe fn SetupDiLoadClassIcon(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiLoadClassIcon(
                 classguid: *const ::windows::runtime::GUID,
@@ -17948,7 +17948,7 @@ pub unsafe fn SetupDiLoadDeviceIcon(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiLoadDeviceIcon(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -17978,7 +17978,7 @@ pub unsafe fn SetupDiOpenClassRegKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenClassRegKey(
                 classguid: *const ::windows::runtime::GUID,
@@ -18006,7 +18006,7 @@ pub unsafe fn SetupDiOpenClassRegKeyExA<
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenClassRegKeyExA(
                 classguid: *const ::windows::runtime::GUID,
@@ -18040,7 +18040,7 @@ pub unsafe fn SetupDiOpenClassRegKeyExW<
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenClassRegKeyExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -18072,7 +18072,7 @@ pub unsafe fn SetupDiOpenDevRegKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenDevRegKey(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18109,7 +18109,7 @@ pub unsafe fn SetupDiOpenDeviceInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenDeviceInfoA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18144,7 +18144,7 @@ pub unsafe fn SetupDiOpenDeviceInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenDeviceInfoW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18177,7 +18177,7 @@ pub unsafe fn SetupDiOpenDeviceInterfaceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenDeviceInterfaceA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18205,7 +18205,7 @@ pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenDeviceInterfaceRegKey(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18236,7 +18236,7 @@ pub unsafe fn SetupDiOpenDeviceInterfaceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiOpenDeviceInterfaceW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18262,7 +18262,7 @@ pub unsafe fn SetupDiRegisterCoDeviceInstallers(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiRegisterCoDeviceInstallers(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18288,7 +18288,7 @@ pub unsafe fn SetupDiRegisterDeviceInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiRegisterDeviceInfo(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18318,7 +18318,7 @@ pub unsafe fn SetupDiRemoveDevice(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiRemoveDevice(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18340,7 +18340,7 @@ pub unsafe fn SetupDiRemoveDeviceInterface(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiRemoveDeviceInterface(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18362,7 +18362,7 @@ pub unsafe fn SetupDiRestartDevices(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiRestartDevices(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18384,7 +18384,7 @@ pub unsafe fn SetupDiSelectBestCompatDrv(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSelectBestCompatDrv(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18406,7 +18406,7 @@ pub unsafe fn SetupDiSelectDevice(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSelectDevice(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18432,7 +18432,7 @@ pub unsafe fn SetupDiSelectOEMDrv<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSelectOEMDrv(
                 hwndparent: super::super::Foundation::HWND,
@@ -18458,7 +18458,7 @@ pub unsafe fn SetupDiSetClassInstallParamsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetClassInstallParamsA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18486,7 +18486,7 @@ pub unsafe fn SetupDiSetClassInstallParamsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetClassInstallParamsW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18521,7 +18521,7 @@ pub unsafe fn SetupDiSetClassPropertyExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetClassPropertyExW(
                 classguid: *const ::windows::runtime::GUID,
@@ -18559,7 +18559,7 @@ pub unsafe fn SetupDiSetClassPropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetClassPropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -18596,7 +18596,7 @@ pub unsafe fn SetupDiSetClassRegistryPropertyA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetClassRegistryPropertyA(
                 classguid: *const ::windows::runtime::GUID,
@@ -18633,7 +18633,7 @@ pub unsafe fn SetupDiSetClassRegistryPropertyW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetClassRegistryPropertyW(
                 classguid: *const ::windows::runtime::GUID,
@@ -18664,7 +18664,7 @@ pub unsafe fn SetupDiSetDeviceInstallParamsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDeviceInstallParamsA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18689,7 +18689,7 @@ pub unsafe fn SetupDiSetDeviceInstallParamsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDeviceInstallParamsW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18715,7 +18715,7 @@ pub unsafe fn SetupDiSetDeviceInterfaceDefault(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDeviceInterfaceDefault(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18746,7 +18746,7 @@ pub unsafe fn SetupDiSetDeviceInterfacePropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDeviceInterfacePropertyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18783,7 +18783,7 @@ pub unsafe fn SetupDiSetDevicePropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDevicePropertyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18818,7 +18818,7 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDeviceRegistryPropertyA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18849,7 +18849,7 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDeviceRegistryPropertyW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18879,7 +18879,7 @@ pub unsafe fn SetupDiSetDriverInstallParamsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDriverInstallParamsA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18907,7 +18907,7 @@ pub unsafe fn SetupDiSetDriverInstallParamsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetDriverInstallParamsW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18933,7 +18933,7 @@ pub unsafe fn SetupDiSetSelectedDevice(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetSelectedDevice(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18956,7 +18956,7 @@ pub unsafe fn SetupDiSetSelectedDriverA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetSelectedDriverA(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -18981,7 +18981,7 @@ pub unsafe fn SetupDiSetSelectedDriverW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiSetSelectedDriverW(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -19005,7 +19005,7 @@ pub unsafe fn SetupDiUnremoveDevice(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDiUnremoveDevice(
                 deviceinfoset: *const ::std::ffi::c_void,
@@ -19028,7 +19028,7 @@ pub unsafe fn SetupDuplicateDiskSpaceListA(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDuplicateDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -19055,7 +19055,7 @@ pub unsafe fn SetupDuplicateDiskSpaceListW(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupDuplicateDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -19084,7 +19084,7 @@ pub unsafe fn SetupEnumInfSectionsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupEnumInfSectionsA(
                 infhandle: *const ::std::ffi::c_void,
@@ -19115,7 +19115,7 @@ pub unsafe fn SetupEnumInfSectionsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupEnumInfSectionsW(
                 infhandle: *const ::std::ffi::c_void,
@@ -19174,7 +19174,7 @@ pub unsafe fn SetupFindFirstLineA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupFindFirstLineA(
                 infhandle: *const ::std::ffi::c_void,
@@ -19206,7 +19206,7 @@ pub unsafe fn SetupFindFirstLineW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupFindFirstLineW(
                 infhandle: *const ::std::ffi::c_void,
@@ -19232,7 +19232,7 @@ pub unsafe fn SetupFindNextLine(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupFindNextLine(
                 contextin: *const INFCONTEXT,
@@ -19258,7 +19258,7 @@ pub unsafe fn SetupFindNextMatchLineA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupFindNextMatchLineA(
                 contextin: *const INFCONTEXT,
@@ -19286,7 +19286,7 @@ pub unsafe fn SetupFindNextMatchLineW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupFindNextMatchLineW(
                 contextin: *const INFCONTEXT,
@@ -19310,7 +19310,7 @@ pub unsafe fn SetupFreeSourceListA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupFreeSourceListA(
                 list: *mut *mut super::super::Foundation::PSTR,
@@ -19332,7 +19332,7 @@ pub unsafe fn SetupFreeSourceListW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupFreeSourceListW(
                 list: *mut *mut super::super::Foundation::PWSTR,
@@ -19354,7 +19354,7 @@ pub unsafe fn SetupGetBackupInformationA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetBackupInformationA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -19376,7 +19376,7 @@ pub unsafe fn SetupGetBackupInformationW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetBackupInformationW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -19401,7 +19401,7 @@ pub unsafe fn SetupGetBinaryField(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetBinaryField(
                 context: *const INFCONTEXT,
@@ -19425,7 +19425,7 @@ pub unsafe fn SetupGetBinaryField(
 pub unsafe fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32;
         }
@@ -19447,7 +19447,7 @@ pub unsafe fn SetupGetFileCompressionInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetFileCompressionInfoA(
                 sourcefilename: super::super::Foundation::PSTR,
@@ -19484,7 +19484,7 @@ pub unsafe fn SetupGetFileCompressionInfoExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetFileCompressionInfoExA(
                 sourcefilename: super::super::Foundation::PSTR,
@@ -19525,7 +19525,7 @@ pub unsafe fn SetupGetFileCompressionInfoExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetFileCompressionInfoExW(
                 sourcefilename: super::super::Foundation::PWSTR,
@@ -19563,7 +19563,7 @@ pub unsafe fn SetupGetFileCompressionInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetFileCompressionInfoW(
                 sourcefilename: super::super::Foundation::PWSTR,
@@ -19592,7 +19592,7 @@ pub unsafe fn SetupGetFileQueueCount(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetFileQueueCount(
                 filequeue: *const ::std::ffi::c_void,
@@ -19616,7 +19616,7 @@ pub unsafe fn SetupGetFileQueueFlags(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetFileQueueFlags(
                 filequeue: *const ::std::ffi::c_void,
@@ -19649,7 +19649,7 @@ pub unsafe fn SetupGetInfDriverStoreLocationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfDriverStoreLocationA(
                 filename: super::super::Foundation::PSTR,
@@ -19690,7 +19690,7 @@ pub unsafe fn SetupGetInfDriverStoreLocationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfDriverStoreLocationW(
                 filename: super::super::Foundation::PWSTR,
@@ -19726,7 +19726,7 @@ pub unsafe fn SetupGetInfFileListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfFileListA(
                 directorypath: super::super::Foundation::PSTR,
@@ -19760,7 +19760,7 @@ pub unsafe fn SetupGetInfFileListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfFileListW(
                 directorypath: super::super::Foundation::PWSTR,
@@ -19791,7 +19791,7 @@ pub unsafe fn SetupGetInfInformationA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfInformationA(
                 infspec: *const ::std::ffi::c_void,
@@ -19822,7 +19822,7 @@ pub unsafe fn SetupGetInfInformationW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfInformationW(
                 infspec: *const ::std::ffi::c_void,
@@ -19855,7 +19855,7 @@ pub unsafe fn SetupGetInfPublishedNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfPublishedNameA(
                 driverstorelocation: super::super::Foundation::PSTR,
@@ -19886,7 +19886,7 @@ pub unsafe fn SetupGetInfPublishedNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetInfPublishedNameW(
                 driverstorelocation: super::super::Foundation::PWSTR,
@@ -19913,7 +19913,7 @@ pub unsafe fn SetupGetIntField(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetIntField(
                 context: *const INFCONTEXT,
@@ -19942,7 +19942,7 @@ pub unsafe fn SetupGetLineByIndexA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetLineByIndexA(
                 infhandle: *const ::std::ffi::c_void,
@@ -19973,7 +19973,7 @@ pub unsafe fn SetupGetLineByIndexW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetLineByIndexW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20002,7 +20002,7 @@ pub unsafe fn SetupGetLineCountA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetLineCountA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20027,7 +20027,7 @@ pub unsafe fn SetupGetLineCountW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetLineCountW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20058,7 +20058,7 @@ pub unsafe fn SetupGetLineTextA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetLineTextA(
                 context: *const INFCONTEXT,
@@ -20099,7 +20099,7 @@ pub unsafe fn SetupGetLineTextW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetLineTextW(
                 context: *const INFCONTEXT,
@@ -20134,7 +20134,7 @@ pub unsafe fn SetupGetMultiSzFieldA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetMultiSzFieldA(
                 context: *const INFCONTEXT,
@@ -20165,7 +20165,7 @@ pub unsafe fn SetupGetMultiSzFieldW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetMultiSzFieldW(
                 context: *const INFCONTEXT,
@@ -20190,7 +20190,7 @@ pub unsafe fn SetupGetMultiSzFieldW(
 pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL;
         }
@@ -20214,7 +20214,7 @@ pub unsafe fn SetupGetSourceFileLocationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetSourceFileLocationA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20254,7 +20254,7 @@ pub unsafe fn SetupGetSourceFileLocationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetSourceFileLocationW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20294,7 +20294,7 @@ pub unsafe fn SetupGetSourceFileSizeA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetSourceFileSizeA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20332,7 +20332,7 @@ pub unsafe fn SetupGetSourceFileSizeW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetSourceFileSizeW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20366,7 +20366,7 @@ pub unsafe fn SetupGetSourceInfoA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetSourceInfoA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20400,7 +20400,7 @@ pub unsafe fn SetupGetSourceInfoW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetSourceInfoW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20433,7 +20433,7 @@ pub unsafe fn SetupGetStringFieldA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetStringFieldA(
                 context: *const INFCONTEXT,
@@ -20464,7 +20464,7 @@ pub unsafe fn SetupGetStringFieldW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetStringFieldW(
                 context: *const INFCONTEXT,
@@ -20499,7 +20499,7 @@ pub unsafe fn SetupGetTargetPathA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetTargetPathA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20536,7 +20536,7 @@ pub unsafe fn SetupGetTargetPathW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetTargetPathW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20562,7 +20562,7 @@ pub unsafe fn SetupGetTargetPathW<
 pub unsafe fn SetupGetThreadLogToken() -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupGetThreadLogToken() -> u64;
         }
@@ -20580,7 +20580,7 @@ pub unsafe fn SetupInitDefaultQueueCallback<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInitDefaultQueueCallback(
                 ownerwindow: super::super::Foundation::HWND,
@@ -20607,7 +20607,7 @@ pub unsafe fn SetupInitDefaultQueueCallbackEx<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInitDefaultQueueCallbackEx(
                 ownerwindow: super::super::Foundation::HWND,
@@ -20638,7 +20638,7 @@ pub unsafe fn SetupInitializeFileLogA<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInitializeFileLogA(
                 logfilename: super::super::Foundation::PSTR,
@@ -20663,7 +20663,7 @@ pub unsafe fn SetupInitializeFileLogW<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInitializeFileLogW(
                 logfilename: super::super::Foundation::PWSTR,
@@ -20696,7 +20696,7 @@ pub unsafe fn SetupInstallFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFileA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20742,7 +20742,7 @@ pub unsafe fn SetupInstallFileExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFileExA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20790,7 +20790,7 @@ pub unsafe fn SetupInstallFileExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFileExW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20837,7 +20837,7 @@ pub unsafe fn SetupInstallFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFileW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20879,7 +20879,7 @@ pub unsafe fn SetupInstallFilesFromInfSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFilesFromInfSectionA(
                 infhandle: *const ::std::ffi::c_void,
@@ -20917,7 +20917,7 @@ pub unsafe fn SetupInstallFilesFromInfSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFilesFromInfSectionW(
                 infhandle: *const ::std::ffi::c_void,
@@ -20962,7 +20962,7 @@ pub unsafe fn SetupInstallFromInfSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFromInfSectionA(
                 owner: super::super::Foundation::HWND,
@@ -21017,7 +21017,7 @@ pub unsafe fn SetupInstallFromInfSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFromInfSectionW(
                 owner: super::super::Foundation::HWND,
@@ -21061,7 +21061,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallServicesFromInfSectionA(
                 infhandle: *const ::std::ffi::c_void,
@@ -21093,7 +21093,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallServicesFromInfSectionExA(
                 infhandle: *const ::std::ffi::c_void,
@@ -21133,7 +21133,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallServicesFromInfSectionExW(
                 infhandle: *const ::std::ffi::c_void,
@@ -21169,7 +21169,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupInstallServicesFromInfSectionW(
                 infhandle: *const ::std::ffi::c_void,
@@ -21198,7 +21198,7 @@ pub unsafe fn SetupIterateCabinetA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupIterateCabinetA(
                 cabinetfile: super::super::Foundation::PSTR,
@@ -21229,7 +21229,7 @@ pub unsafe fn SetupIterateCabinetW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupIterateCabinetW(
                 cabinetfile: super::super::Foundation::PWSTR,
@@ -21258,7 +21258,7 @@ pub unsafe fn SetupLogErrorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupLogErrorA(
                 messagestring: super::super::Foundation::PSTR,
@@ -21283,7 +21283,7 @@ pub unsafe fn SetupLogErrorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupLogErrorW(
                 messagestring: super::super::Foundation::PWSTR,
@@ -21320,7 +21320,7 @@ pub unsafe fn SetupLogFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupLogFileA(
                 fileloghandle: *const ::std::ffi::c_void,
@@ -21371,7 +21371,7 @@ pub unsafe fn SetupLogFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupLogFileW(
                 fileloghandle: *const ::std::ffi::c_void,
@@ -21411,7 +21411,7 @@ pub unsafe fn SetupOpenAppendInfFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupOpenAppendInfFileA(
                 filename: super::super::Foundation::PSTR,
@@ -21439,7 +21439,7 @@ pub unsafe fn SetupOpenAppendInfFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupOpenAppendInfFileW(
                 filename: super::super::Foundation::PWSTR,
@@ -21459,7 +21459,7 @@ pub unsafe fn SetupOpenAppendInfFileW<
 pub unsafe fn SetupOpenFileQueue() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupOpenFileQueue() -> *mut ::std::ffi::c_void;
         }
@@ -21481,7 +21481,7 @@ pub unsafe fn SetupOpenInfFileA<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupOpenInfFileA(
                 filename: super::super::Foundation::PSTR,
@@ -21513,7 +21513,7 @@ pub unsafe fn SetupOpenInfFileW<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupOpenInfFileW(
                 filename: super::super::Foundation::PWSTR,
@@ -21541,7 +21541,7 @@ pub unsafe fn SetupOpenLog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupOpenLog(
                 erase: super::super::Foundation::BOOL,
@@ -21555,7 +21555,7 @@ pub unsafe fn SetupOpenLog<
 pub unsafe fn SetupOpenMasterInf() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupOpenMasterInf() -> *mut ::std::ffi::c_void;
         }
@@ -21575,7 +21575,7 @@ pub unsafe fn SetupPrepareQueueForRestoreA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupPrepareQueueForRestoreA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -21603,7 +21603,7 @@ pub unsafe fn SetupPrepareQueueForRestoreW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupPrepareQueueForRestoreW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -21643,7 +21643,7 @@ pub unsafe fn SetupPromptForDiskA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupPromptForDiskA(
                 hwndparent: super::super::Foundation::HWND,
@@ -21697,7 +21697,7 @@ pub unsafe fn SetupPromptForDiskW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupPromptForDiskW(
                 hwndparent: super::super::Foundation::HWND,
@@ -21740,7 +21740,7 @@ pub unsafe fn SetupPromptReboot<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupPromptReboot(
                 filequeue: *const ::std::ffi::c_void,
@@ -21766,7 +21766,7 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryDrivesInDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -21794,7 +21794,7 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryDrivesInDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -21829,7 +21829,7 @@ pub unsafe fn SetupQueryFileLogA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryFileLogA(
                 fileloghandle: *const ::std::ffi::c_void,
@@ -21870,7 +21870,7 @@ pub unsafe fn SetupQueryFileLogW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryFileLogW(
                 fileloghandle: *const ::std::ffi::c_void,
@@ -21905,7 +21905,7 @@ pub unsafe fn SetupQueryInfFileInformationA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryInfFileInformationA(
                 infinformation: *const SP_INF_INFORMATION,
@@ -21936,7 +21936,7 @@ pub unsafe fn SetupQueryInfFileInformationW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryInfFileInformationW(
                 infinformation: *const SP_INF_INFORMATION,
@@ -21970,7 +21970,7 @@ pub unsafe fn SetupQueryInfOriginalFileInformationA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryInfOriginalFileInformationA(
                 infinformation: *const SP_INF_INFORMATION,
@@ -22001,7 +22001,7 @@ pub unsafe fn SetupQueryInfOriginalFileInformationW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryInfOriginalFileInformationW(
                 infinformation: *const SP_INF_INFORMATION,
@@ -22034,7 +22034,7 @@ pub unsafe fn SetupQueryInfVersionInformationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryInfVersionInformationA(
                 infinformation: *const SP_INF_INFORMATION,
@@ -22071,7 +22071,7 @@ pub unsafe fn SetupQueryInfVersionInformationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueryInfVersionInformationW(
                 infinformation: *const SP_INF_INFORMATION,
@@ -22102,7 +22102,7 @@ pub unsafe fn SetupQuerySourceListA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQuerySourceListA(
                 flags: u32,
@@ -22127,7 +22127,7 @@ pub unsafe fn SetupQuerySourceListW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQuerySourceListW(
                 flags: u32,
@@ -22157,7 +22157,7 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQuerySpaceRequiredOnDriveA(
                 diskspace: *const ::std::ffi::c_void,
@@ -22191,7 +22191,7 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQuerySpaceRequiredOnDriveW(
                 diskspace: *const ::std::ffi::c_void,
@@ -22235,7 +22235,7 @@ pub unsafe fn SetupQueueCopyA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueCopyA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22270,7 +22270,7 @@ pub unsafe fn SetupQueueCopyIndirectA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueCopyIndirectA(
                 copyparams: *const SP_FILE_COPY_PARAMS_A,
@@ -22287,7 +22287,7 @@ pub unsafe fn SetupQueueCopyIndirectW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueCopyIndirectW(
                 copyparams: *const SP_FILE_COPY_PARAMS_W,
@@ -22313,7 +22313,7 @@ pub unsafe fn SetupQueueCopySectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueCopySectionA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22351,7 +22351,7 @@ pub unsafe fn SetupQueueCopySectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueCopySectionW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22397,7 +22397,7 @@ pub unsafe fn SetupQueueCopyW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueCopyW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22442,7 +22442,7 @@ pub unsafe fn SetupQueueDefaultCopyA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueDefaultCopyA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22481,7 +22481,7 @@ pub unsafe fn SetupQueueDefaultCopyW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueDefaultCopyW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22516,7 +22516,7 @@ pub unsafe fn SetupQueueDeleteA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueDeleteA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22545,7 +22545,7 @@ pub unsafe fn SetupQueueDeleteSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueDeleteSectionA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22576,7 +22576,7 @@ pub unsafe fn SetupQueueDeleteSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueDeleteSectionW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22607,7 +22607,7 @@ pub unsafe fn SetupQueueDeleteW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueDeleteW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22640,7 +22640,7 @@ pub unsafe fn SetupQueueRenameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueRenameA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22673,7 +22673,7 @@ pub unsafe fn SetupQueueRenameSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueRenameSectionA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22704,7 +22704,7 @@ pub unsafe fn SetupQueueRenameSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueRenameSectionW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22739,7 +22739,7 @@ pub unsafe fn SetupQueueRenameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupQueueRenameW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -22772,7 +22772,7 @@ pub unsafe fn SetupRemoveFileLogEntryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveFileLogEntryA(
                 fileloghandle: *const ::std::ffi::c_void,
@@ -22801,7 +22801,7 @@ pub unsafe fn SetupRemoveFileLogEntryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveFileLogEntryW(
                 fileloghandle: *const ::std::ffi::c_void,
@@ -22831,7 +22831,7 @@ pub unsafe fn SetupRemoveFromDiskSpaceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveFromDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -22865,7 +22865,7 @@ pub unsafe fn SetupRemoveFromDiskSpaceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveFromDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -22896,7 +22896,7 @@ pub unsafe fn SetupRemoveFromSourceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveFromSourceListA(
                 flags: u32,
@@ -22921,7 +22921,7 @@ pub unsafe fn SetupRemoveFromSourceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveFromSourceListW(
                 flags: u32,
@@ -22950,7 +22950,7 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveInstallSectionFromDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -22987,7 +22987,7 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveInstallSectionFromDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -23025,7 +23025,7 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveSectionFromDiskSpaceListA(
                 diskspace: *const ::std::ffi::c_void,
@@ -23065,7 +23065,7 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRemoveSectionFromDiskSpaceListW(
                 diskspace: *const ::std::ffi::c_void,
@@ -23107,7 +23107,7 @@ pub unsafe fn SetupRenameErrorA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRenameErrorA(
                 hwndparent: super::super::Foundation::HWND,
@@ -23147,7 +23147,7 @@ pub unsafe fn SetupRenameErrorW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupRenameErrorW(
                 hwndparent: super::super::Foundation::HWND,
@@ -23184,7 +23184,7 @@ pub unsafe fn SetupScanFileQueueA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupScanFileQueueA(
                 filequeue: *const ::std::ffi::c_void,
@@ -23221,7 +23221,7 @@ pub unsafe fn SetupScanFileQueueW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupScanFileQueueW(
                 filequeue: *const ::std::ffi::c_void,
@@ -23255,7 +23255,7 @@ pub unsafe fn SetupSetDirectoryIdA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetDirectoryIdA(
                 infhandle: *const ::std::ffi::c_void,
@@ -23286,7 +23286,7 @@ pub unsafe fn SetupSetDirectoryIdExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetDirectoryIdExA(
                 infhandle: *const ::std::ffi::c_void,
@@ -23323,7 +23323,7 @@ pub unsafe fn SetupSetDirectoryIdExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetDirectoryIdExW(
                 infhandle: *const ::std::ffi::c_void,
@@ -23357,7 +23357,7 @@ pub unsafe fn SetupSetDirectoryIdW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetDirectoryIdW(
                 infhandle: *const ::std::ffi::c_void,
@@ -23388,7 +23388,7 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetFileQueueAlternatePlatformA(
                 queuehandle: *const ::std::ffi::c_void,
@@ -23419,7 +23419,7 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetFileQueueAlternatePlatformW(
                 queuehandle: *const ::std::ffi::c_void,
@@ -23444,7 +23444,7 @@ pub unsafe fn SetupSetFileQueueFlags(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetFileQueueFlags(
                 filequeue: *const ::std::ffi::c_void,
@@ -23470,7 +23470,7 @@ pub unsafe fn SetupSetNonInteractiveMode<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetNonInteractiveMode(
                 noninteractiveflag: super::super::Foundation::BOOL,
@@ -23492,7 +23492,7 @@ pub unsafe fn SetupSetPlatformPathOverrideA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetPlatformPathOverrideA(
                 r#override: super::super::Foundation::PSTR,
@@ -23512,7 +23512,7 @@ pub unsafe fn SetupSetPlatformPathOverrideW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetPlatformPathOverrideW(
                 r#override: super::super::Foundation::PWSTR,
@@ -23531,7 +23531,7 @@ pub unsafe fn SetupSetSourceListA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetSourceListA(
                 flags: u32,
@@ -23556,7 +23556,7 @@ pub unsafe fn SetupSetSourceListW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetSourceListW(
                 flags: u32,
@@ -23576,7 +23576,7 @@ pub unsafe fn SetupSetSourceListW(
 pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupSetThreadLogToken(logtoken: u64);
         }
@@ -23588,7 +23588,7 @@ pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
 pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupTermDefaultQueueCallback(context: *const ::std::ffi::c_void);
         }
@@ -23605,7 +23605,7 @@ pub unsafe fn SetupTerminateFileLog(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupTerminateFileLog(
                 fileloghandle: *const ::std::ffi::c_void,
@@ -23624,7 +23624,7 @@ pub unsafe fn SetupUninstallNewlyCopiedInfs(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupUninstallNewlyCopiedInfs(
                 filequeue: *const ::std::ffi::c_void,
@@ -23652,7 +23652,7 @@ pub unsafe fn SetupUninstallOEMInfA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupUninstallOEMInfA(
                 inffilename: super::super::Foundation::PSTR,
@@ -23680,7 +23680,7 @@ pub unsafe fn SetupUninstallOEMInfW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupUninstallOEMInfW(
                 inffilename: super::super::Foundation::PWSTR,
@@ -23712,7 +23712,7 @@ pub unsafe fn SetupVerifyInfFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupVerifyInfFileA(
                 infname: super::super::Foundation::PSTR,
@@ -23743,7 +23743,7 @@ pub unsafe fn SetupVerifyInfFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupVerifyInfFileW(
                 infname: super::super::Foundation::PWSTR,
@@ -23772,7 +23772,7 @@ pub unsafe fn SetupWriteTextLog<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupWriteTextLog(
                 logtoken: u64,
@@ -23804,7 +23804,7 @@ pub unsafe fn SetupWriteTextLogError<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupWriteTextLogError(
                 logtoken: u64,
@@ -23833,7 +23833,7 @@ pub unsafe fn SetupWriteTextLogInfLine(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "setupapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupWriteTextLogInfLine(
                 logtoken: u64,
@@ -23867,7 +23867,7 @@ pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateDriverForPlugAndPlayDevicesA(
                 hwndparent: super::super::Foundation::HWND,
@@ -23903,7 +23903,7 @@ pub unsafe fn UpdateDriverForPlugAndPlayDevicesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "newdev")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateDriverForPlugAndPlayDevicesW(
                 hwndparent: super::super::Foundation::HWND,

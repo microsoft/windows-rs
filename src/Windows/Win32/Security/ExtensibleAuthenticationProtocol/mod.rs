@@ -1716,7 +1716,7 @@ pub unsafe fn EapHostPeerBeginSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerBeginSession(
                 dwflags: u32,
@@ -1762,7 +1762,7 @@ pub unsafe fn EapHostPeerClearConnection(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerClearConnection(
                 pconnectionid: *mut ::windows::runtime::GUID,
@@ -1791,7 +1791,7 @@ pub unsafe fn EapHostPeerConfigBlob2Xml<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerConfigBlob2Xml(
                 dwflags: u32,
@@ -1828,7 +1828,7 @@ pub unsafe fn EapHostPeerConfigXml2Blob<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerConfigXml2Blob(
                 dwflags: u32,
@@ -1867,7 +1867,7 @@ pub unsafe fn EapHostPeerCredentialsXml2Blob<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerCredentialsXml2Blob(
                 dwflags: u32,
@@ -1898,7 +1898,7 @@ pub unsafe fn EapHostPeerCredentialsXml2Blob<
 pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
@@ -1914,7 +1914,7 @@ pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EA
 pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR);
         }
@@ -1927,7 +1927,7 @@ pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
 pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR);
         }
@@ -1939,7 +1939,7 @@ pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
 pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerFreeMemory(pdata: *mut u8);
         }
@@ -1951,7 +1951,7 @@ pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
 pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8);
         }
@@ -1970,7 +1970,7 @@ pub unsafe fn EapHostPeerGetAuthStatus(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetAuthStatus(
                 sessionhandle: u32,
@@ -2001,7 +2001,7 @@ pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetDataToUnplumbCredentials(
                 pconnectionidthatlastsavedcreds: *mut ::windows::runtime::GUID,
@@ -2033,7 +2033,7 @@ pub unsafe fn EapHostPeerGetEncryptedPassword<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetEncryptedPassword(
                 dwsizeofpassword: u32,
@@ -2073,7 +2073,7 @@ pub unsafe fn EapHostPeerGetIdentity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetIdentity(
                 dwversion: u32,
@@ -2131,7 +2131,7 @@ pub unsafe fn EapHostPeerGetMethodProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetMethodProperties(
                 dwversion: u32,
@@ -2169,7 +2169,7 @@ pub unsafe fn EapHostPeerGetMethods(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetMethods(
                 peapmethodinfoarray: *mut EAP_METHOD_INFO_ARRAY,
@@ -2192,7 +2192,7 @@ pub unsafe fn EapHostPeerGetResponseAttributes(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetResponseAttributes(
                 sessionhandle: u32,
@@ -2218,7 +2218,7 @@ pub unsafe fn EapHostPeerGetResult(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetResult(
                 sessionhandle: u32,
@@ -2246,7 +2246,7 @@ pub unsafe fn EapHostPeerGetSendPacket(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetSendPacket(
                 sessionhandle: u32,
@@ -2274,7 +2274,7 @@ pub unsafe fn EapHostPeerGetUIContext(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerGetUIContext(
                 sessionhandle: u32,
@@ -2296,7 +2296,7 @@ pub unsafe fn EapHostPeerGetUIContext(
 pub unsafe fn EapHostPeerInitialize() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerInitialize() -> u32;
         }
@@ -2322,7 +2322,7 @@ pub unsafe fn EapHostPeerInvokeConfigUI<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerInvokeConfigUI(
                 hwndparent: super::super::Foundation::HWND,
@@ -2371,7 +2371,7 @@ pub unsafe fn EapHostPeerInvokeIdentityUI<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerInvokeIdentityUI(
                 dwversion: u32,
@@ -2422,7 +2422,7 @@ pub unsafe fn EapHostPeerInvokeInteractiveUI<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerInvokeInteractiveUI(
                 hwndparent: super::super::Foundation::HWND,
@@ -2548,7 +2548,7 @@ pub unsafe fn EapHostPeerProcessReceivedPacket(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerProcessReceivedPacket(
                 sessionhandle: u32,
@@ -2585,7 +2585,7 @@ pub unsafe fn EapHostPeerQueryCredentialInputFields<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerQueryCredentialInputFields(
                 huserimpersonationtoken: super::super::Foundation::HANDLE,
@@ -2622,7 +2622,7 @@ pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerQueryInteractiveUIInputFields(
                 dwversion: u32,
@@ -2661,7 +2661,7 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(
                 dwversion: u32,
@@ -2708,7 +2708,7 @@ pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappcfg")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerQueryUserBlobFromCredentialInputFields(
                 huserimpersonationtoken: super::super::Foundation::HANDLE,
@@ -2773,7 +2773,7 @@ pub unsafe fn EapHostPeerSetResponseAttributes(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerSetResponseAttributes(
                 sessionhandle: u32,
@@ -2802,7 +2802,7 @@ pub unsafe fn EapHostPeerSetUIContext(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerSetUIContext(
                 sessionhandle: u32,
@@ -2826,7 +2826,7 @@ pub unsafe fn EapHostPeerSetUIContext(
 pub unsafe fn EapHostPeerUninitialize() {
     #[cfg(windows)]
     {
-        #[link(name = "eappprxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerUninitialize();
         }

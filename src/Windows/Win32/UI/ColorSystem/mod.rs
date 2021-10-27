@@ -22,7 +22,7 @@ pub unsafe fn AssociateColorProfileWithDeviceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn AssociateColorProfileWithDeviceA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -52,7 +52,7 @@ pub unsafe fn AssociateColorProfileWithDeviceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn AssociateColorProfileWithDeviceW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -251,7 +251,7 @@ pub unsafe fn CMCheckColors(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCheckColors(
                 hcmtransform: isize,
@@ -281,7 +281,7 @@ pub unsafe fn CMCheckColorsInGamut(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCheckColorsInGamut(
                 hcmtransform: isize,
@@ -317,7 +317,7 @@ pub unsafe fn CMCheckRGBs<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCheckRGBs(
                 hcmtransform: isize,
@@ -355,7 +355,7 @@ pub unsafe fn CMConvertColorNameToIndex(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMConvertColorNameToIndex(
                 hprofile: isize,
@@ -383,7 +383,7 @@ pub unsafe fn CMConvertIndexToColorName(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMConvertIndexToColorName(
                 hprofile: isize,
@@ -413,7 +413,7 @@ pub unsafe fn CMCreateDeviceLinkProfile(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateDeviceLinkProfile(
                 pahprofiles: *const isize,
@@ -445,7 +445,7 @@ pub unsafe fn CMCreateMultiProfileTransform(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateMultiProfileTransform(
                 pahprofiles: *const isize,
@@ -473,7 +473,7 @@ pub unsafe fn CMCreateProfile(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateProfile(
                 lpcolorspace: *mut LOGCOLORSPACEA,
@@ -495,7 +495,7 @@ pub unsafe fn CMCreateProfileW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateProfileW(
                 lpcolorspace: *mut LOGCOLORSPACEW,
@@ -518,7 +518,7 @@ pub unsafe fn CMCreateTransform(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateTransform(
                 lpcolorspace: *const LOGCOLORSPACEA,
@@ -544,7 +544,7 @@ pub unsafe fn CMCreateTransformExt(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateTransformExt(
                 lpcolorspace: *const LOGCOLORSPACEA,
@@ -571,7 +571,7 @@ pub unsafe fn CMCreateTransformExtW(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateTransformExtW(
                 lpcolorspace: *const LOGCOLORSPACEW,
@@ -597,7 +597,7 @@ pub unsafe fn CMCreateTransformW(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMCreateTransformW(
                 lpcolorspace: *const LOGCOLORSPACEW,
@@ -618,7 +618,7 @@ pub unsafe fn CMCreateTransformW(
 pub unsafe fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation::BOOL;
         }
@@ -630,7 +630,7 @@ pub unsafe fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation
 pub unsafe fn CMGetInfo(dwinfo: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMGetInfo(dwinfo: u32) -> u32;
         }
@@ -646,7 +646,7 @@ pub unsafe fn CMGetNamedProfileInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMGetNamedProfileInfo(
                 hprofile: isize,
@@ -668,7 +668,7 @@ pub unsafe fn CMIsProfileValid(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMIsProfileValid(
                 hprofile: isize,
@@ -719,7 +719,7 @@ pub unsafe fn CMTranslateColors(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMTranslateColors(
                 hcmtransform: isize,
@@ -751,7 +751,7 @@ pub unsafe fn CMTranslateRGB(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMTranslateRGB(
                 hcmtransform: isize,
@@ -784,7 +784,7 @@ pub unsafe fn CMTranslateRGBs(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMTranslateRGBs(
                 hcmtransform: isize,
@@ -832,7 +832,7 @@ pub unsafe fn CMTranslateRGBsExt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CMTranslateRGBsExt(
                 hcmtransform: isize,
@@ -1294,7 +1294,7 @@ pub unsafe fn CheckBitmapBits<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckBitmapBits(
                 hcolortransform: isize,
@@ -1333,7 +1333,7 @@ pub unsafe fn CheckColors(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckColors(
                 hcolortransform: isize,
@@ -1366,7 +1366,7 @@ pub unsafe fn CheckColorsInGamut<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckColorsInGamut(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -1389,7 +1389,7 @@ pub unsafe fn CheckColorsInGamut<
 pub unsafe fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL;
         }
@@ -1411,7 +1411,7 @@ pub unsafe fn ColorCorrectPalette<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorCorrectPalette(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -1442,7 +1442,7 @@ pub unsafe fn ColorMatchToTarget<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorMatchToTarget(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -1476,7 +1476,7 @@ pub unsafe fn ColorProfileAddDisplayAssociation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorProfileAddDisplayAssociation(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -1513,7 +1513,7 @@ pub unsafe fn ColorProfileGetDisplayDefault<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorProfileGetDisplayDefault(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -1552,7 +1552,7 @@ pub unsafe fn ColorProfileGetDisplayList<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorProfileGetDisplayList(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -1584,7 +1584,7 @@ pub unsafe fn ColorProfileGetDisplayUserScope<
 ) -> ::windows::runtime::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorProfileGetDisplayUserScope(
                 targetadapterid: super::super::System::SystemServices::LUID,
@@ -1619,7 +1619,7 @@ pub unsafe fn ColorProfileRemoveDisplayAssociation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorProfileRemoveDisplayAssociation(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -1656,7 +1656,7 @@ pub unsafe fn ColorProfileSetDisplayDefaultAssociation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ColorProfileSetDisplayDefaultAssociation(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -1689,7 +1689,7 @@ pub unsafe fn ConvertColorNameToIndex(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertColorNameToIndex(
                 hprofile: isize,
@@ -1717,7 +1717,7 @@ pub unsafe fn ConvertIndexToColorName(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertIndexToColorName(
                 hprofile: isize,
@@ -1740,7 +1740,7 @@ pub unsafe fn ConvertIndexToColorName(
 pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
         }
@@ -1752,7 +1752,7 @@ pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
 pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
         }
@@ -1770,7 +1770,7 @@ pub unsafe fn CreateColorTransformA(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateColorTransformA(
                 plogcolorspace: *const LOGCOLORSPACEA,
@@ -1797,7 +1797,7 @@ pub unsafe fn CreateColorTransformW(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateColorTransformW(
                 plogcolorspace: *const LOGCOLORSPACEW,
@@ -1828,7 +1828,7 @@ pub unsafe fn CreateDeviceLinkProfile(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDeviceLinkProfile(
                 hprofile: *const isize,
@@ -1863,7 +1863,7 @@ pub unsafe fn CreateMultiProfileTransform(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMultiProfileTransform(
                 pahprofiles: *const isize,
@@ -1893,7 +1893,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProfileFromLogColorSpaceA(
                 plogcolorspace: *const LOGCOLORSPACEA,
@@ -1915,7 +1915,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProfileFromLogColorSpaceW(
                 plogcolorspace: *const LOGCOLORSPACEW,
@@ -1937,7 +1937,7 @@ pub unsafe fn DeleteColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteColorSpace(hcs: HCOLORSPACE) -> super::super::Foundation::BOOL;
         }
@@ -1950,7 +1950,7 @@ pub unsafe fn DeleteColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
 pub unsafe fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL;
         }
@@ -1972,7 +1972,7 @@ pub unsafe fn DisassociateColorProfileFromDeviceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisassociateColorProfileFromDeviceA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -2002,7 +2002,7 @@ pub unsafe fn DisassociateColorProfileFromDeviceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisassociateColorProfileFromDeviceW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -2237,7 +2237,7 @@ pub unsafe fn EnumColorProfilesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumColorProfilesA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -2271,7 +2271,7 @@ pub unsafe fn EnumColorProfilesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumColorProfilesW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -2304,7 +2304,7 @@ pub unsafe fn EnumICMProfilesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumICMProfilesA(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -2333,7 +2333,7 @@ pub unsafe fn EnumICMProfilesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumICMProfilesW(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -2531,7 +2531,7 @@ unsafe impl ::windows::runtime::Abi for GamutShellTriangle {
 pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32;
         }
@@ -2554,7 +2554,7 @@ pub unsafe fn GetColorDirectoryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorDirectoryA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -2582,7 +2582,7 @@ pub unsafe fn GetColorDirectoryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorDirectoryW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -2610,7 +2610,7 @@ pub unsafe fn GetColorProfileElement(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorProfileElement(
                 hprofile: isize,
@@ -2641,7 +2641,7 @@ pub unsafe fn GetColorProfileElementTag(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorProfileElementTag(
                 hprofile: isize,
@@ -2666,7 +2666,7 @@ pub unsafe fn GetColorProfileFromHandle(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorProfileFromHandle(
                 hprofile: isize,
@@ -2690,7 +2690,7 @@ pub unsafe fn GetColorProfileHeader(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorProfileHeader(
                 hprofile: isize,
@@ -2714,7 +2714,7 @@ pub unsafe fn GetColorSpace<
 ) -> HCOLORSPACE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorSpace(hdc: super::super::Graphics::Gdi::HDC) -> HCOLORSPACE;
         }
@@ -2730,7 +2730,7 @@ pub unsafe fn GetCountColorProfileElements(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCountColorProfileElements(
                 hprofile: isize,
@@ -2755,7 +2755,7 @@ pub unsafe fn GetDeviceGammaRamp<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeviceGammaRamp(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -2781,7 +2781,7 @@ pub unsafe fn GetICMProfileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetICMProfileA(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -2809,7 +2809,7 @@ pub unsafe fn GetICMProfileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetICMProfileW(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -2834,7 +2834,7 @@ pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogColorSpaceA(
                 hcolorspace: HCOLORSPACE,
@@ -2859,7 +2859,7 @@ pub unsafe fn GetLogColorSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogColorSpaceW(
                 hcolorspace: HCOLORSPACE,
@@ -2883,7 +2883,7 @@ pub unsafe fn GetNamedProfileInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedProfileInfo(
                 hprofile: isize,
@@ -2908,7 +2908,7 @@ pub unsafe fn GetPS2ColorRenderingDictionary(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPS2ColorRenderingDictionary(
                 hprofile: isize,
@@ -2938,7 +2938,7 @@ pub unsafe fn GetPS2ColorRenderingIntent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPS2ColorRenderingIntent(
                 hprofile: isize,
@@ -2968,7 +2968,7 @@ pub unsafe fn GetPS2ColorSpaceArray(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPS2ColorSpaceArray(
                 hprofile: isize,
@@ -3003,7 +3003,7 @@ pub unsafe fn GetStandardColorSpaceProfileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStandardColorSpaceProfileA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -3034,7 +3034,7 @@ pub unsafe fn GetStandardColorSpaceProfileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStandardColorSpaceProfileW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -3563,7 +3563,7 @@ pub unsafe fn InstallColorProfileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallColorProfileA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -3589,7 +3589,7 @@ pub unsafe fn InstallColorProfileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallColorProfileW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -3612,7 +3612,7 @@ pub unsafe fn IsColorProfileTagPresent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsColorProfileTagPresent(
                 hprofile: isize,
@@ -3636,7 +3636,7 @@ pub unsafe fn IsColorProfileValid(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsColorProfileValid(
                 hprofile: isize,
@@ -3948,7 +3948,7 @@ pub unsafe fn OpenColorProfileA(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenColorProfileA(
                 pprofile: *const PROFILE,
@@ -3975,7 +3975,7 @@ pub unsafe fn OpenColorProfileW(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenColorProfileW(
                 pprofile: *const PROFILE,
@@ -4263,7 +4263,7 @@ pub unsafe fn RegisterCMMA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterCMMA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -4292,7 +4292,7 @@ pub unsafe fn RegisterCMMW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterCMMW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -4314,7 +4314,7 @@ pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 pub unsafe fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL;
         }
@@ -4333,7 +4333,7 @@ pub unsafe fn SetColorProfileElement(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetColorProfileElement(
                 hprofile: isize,
@@ -4362,7 +4362,7 @@ pub unsafe fn SetColorProfileElementReference(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetColorProfileElementReference(
                 hprofile: isize,
@@ -4387,7 +4387,7 @@ pub unsafe fn SetColorProfileElementSize(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetColorProfileElementSize(
                 hprofile: isize,
@@ -4411,7 +4411,7 @@ pub unsafe fn SetColorProfileHeader(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetColorProfileHeader(
                 hprofile: isize,
@@ -4437,7 +4437,7 @@ pub unsafe fn SetColorSpace<
 ) -> HCOLORSPACE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetColorSpace(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4462,7 +4462,7 @@ pub unsafe fn SetDeviceGammaRamp<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDeviceGammaRamp(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4487,7 +4487,7 @@ pub unsafe fn SetICMMode<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: i32) -> i32;
         }
@@ -4510,7 +4510,7 @@ pub unsafe fn SetICMProfileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetICMProfileA(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4536,7 +4536,7 @@ pub unsafe fn SetICMProfileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetICMProfileW(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4563,7 +4563,7 @@ pub unsafe fn SetStandardColorSpaceProfileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetStandardColorSpaceProfileA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -4592,7 +4592,7 @@ pub unsafe fn SetStandardColorSpaceProfileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetStandardColorSpaceProfileW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -4613,7 +4613,7 @@ pub unsafe fn SetStandardColorSpaceProfileW<
 pub unsafe fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icmui")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupColorMatchingA(
                 pcms: *mut ::std::mem::ManuallyDrop<COLORMATCHSETUPA>,
@@ -4628,7 +4628,7 @@ pub unsafe fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::
 pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "icmui")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupColorMatchingW(
                 pcms: *mut ::std::mem::ManuallyDrop<COLORMATCHSETUPW>,
@@ -4658,7 +4658,7 @@ pub unsafe fn TranslateBitmapBits<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateBitmapBits(
                 hcolortransform: isize,
@@ -4702,7 +4702,7 @@ pub unsafe fn TranslateColors(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateColors(
                 hcolortransform: isize,
@@ -4739,7 +4739,7 @@ pub unsafe fn UninstallColorProfileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn UninstallColorProfileA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -4769,7 +4769,7 @@ pub unsafe fn UninstallColorProfileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn UninstallColorProfileW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -4796,7 +4796,7 @@ pub unsafe fn UnregisterCMMA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterCMMA(
                 pmachinename: super::super::Foundation::PSTR,
@@ -4821,7 +4821,7 @@ pub unsafe fn UnregisterCMMW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterCMMW(
                 pmachinename: super::super::Foundation::PWSTR,
@@ -4849,7 +4849,7 @@ pub unsafe fn UpdateICMRegKeyA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateICMRegKeyA(
                 reserved: u32,
@@ -4881,7 +4881,7 @@ pub unsafe fn UpdateICMRegKeyW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateICMRegKeyW(
                 reserved: u32,
@@ -5044,7 +5044,7 @@ pub unsafe fn WcsAssociateColorProfileWithDevice<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsAssociateColorProfileWithDevice(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5073,7 +5073,7 @@ pub unsafe fn WcsCheckColors(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsCheckColors(
                 hcolortransform: isize,
@@ -5101,7 +5101,7 @@ pub unsafe fn WcsCheckColors(
 pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize;
         }
@@ -5125,7 +5125,7 @@ pub unsafe fn WcsDisassociateColorProfileFromDevice<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsDisassociateColorProfileFromDevice(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5152,7 +5152,7 @@ pub unsafe fn WcsEnumColorProfiles(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsEnumColorProfiles(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5181,7 +5181,7 @@ pub unsafe fn WcsEnumColorProfilesSize(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsEnumColorProfilesSize(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5204,7 +5204,7 @@ pub unsafe fn WcsGetCalibrationManagementState(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsGetCalibrationManagementState(
                 pbisenabled: *mut super::super::Foundation::BOOL,
@@ -5232,7 +5232,7 @@ pub unsafe fn WcsGetDefaultColorProfile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsGetDefaultColorProfile(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5271,7 +5271,7 @@ pub unsafe fn WcsGetDefaultColorProfileSize<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsGetDefaultColorProfileSize(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5301,7 +5301,7 @@ pub unsafe fn WcsGetDefaultRenderingIntent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsGetDefaultRenderingIntent(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5327,7 +5327,7 @@ pub unsafe fn WcsGetUsePerUserProfiles<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsGetUsePerUserProfiles(
                 pdevicename: super::super::Foundation::PWSTR,
@@ -5355,7 +5355,7 @@ pub unsafe fn WcsOpenColorProfileA(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsOpenColorProfileA(
                 pcdmpprofile: *const PROFILE,
@@ -5391,7 +5391,7 @@ pub unsafe fn WcsOpenColorProfileW(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsOpenColorProfileW(
                 pcdmpprofile: *const PROFILE,
@@ -5425,7 +5425,7 @@ pub unsafe fn WcsSetCalibrationManagementState<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsSetCalibrationManagementState(
                 bisenabled: super::super::Foundation::BOOL,
@@ -5453,7 +5453,7 @@ pub unsafe fn WcsSetDefaultColorProfile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsSetDefaultColorProfile(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5483,7 +5483,7 @@ pub unsafe fn WcsSetDefaultRenderingIntent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsSetDefaultRenderingIntent(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -5510,7 +5510,7 @@ pub unsafe fn WcsSetUsePerUserProfiles<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsSetUsePerUserProfiles(
                 pdevicename: super::super::Foundation::PWSTR,
@@ -5542,7 +5542,7 @@ pub unsafe fn WcsTranslateColors(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcsTranslateColors(
                 hcolortransform: isize,

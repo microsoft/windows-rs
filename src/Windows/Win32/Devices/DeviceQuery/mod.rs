@@ -385,7 +385,7 @@ unsafe impl ::windows::runtime::Abi for DEV_QUERY_STATE {
 pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__);
         }
@@ -407,7 +407,7 @@ pub unsafe fn DevCreateObjectQuery(
 ) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevCreateObjectQuery(
                 objecttype: DEV_OBJECT_TYPE,
@@ -453,7 +453,7 @@ pub unsafe fn DevCreateObjectQueryEx(
 ) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevCreateObjectQueryEx(
                 objecttype: DEV_OBJECT_TYPE,
@@ -505,7 +505,7 @@ pub unsafe fn DevCreateObjectQueryFromId<
 ) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevCreateObjectQueryFromId(
                 objecttype: DEV_OBJECT_TYPE,
@@ -557,7 +557,7 @@ pub unsafe fn DevCreateObjectQueryFromIdEx<
 ) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevCreateObjectQueryFromIdEx(
                 objecttype: DEV_OBJECT_TYPE,
@@ -611,7 +611,7 @@ pub unsafe fn DevCreateObjectQueryFromIds<
 ) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevCreateObjectQueryFromIds(
                 objecttype: DEV_OBJECT_TYPE,
@@ -663,7 +663,7 @@ pub unsafe fn DevCreateObjectQueryFromIdsEx<
 ) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevCreateObjectQueryFromIdsEx(
                 objecttype: DEV_OBJECT_TYPE,
@@ -713,7 +713,7 @@ pub unsafe fn DevFindProperty<
 ) -> *mut super::super::System::SystemServices::DEVPROPERTY {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevFindProperty(
                 pkey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -741,7 +741,7 @@ pub unsafe fn DevFreeObjectProperties(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevFreeObjectProperties(
                 cpropertycount: u32,
@@ -760,7 +760,7 @@ pub unsafe fn DevFreeObjectProperties(
 pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT);
         }
@@ -787,7 +787,7 @@ pub unsafe fn DevGetObjectProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevGetObjectProperties(
                 objecttype: DEV_OBJECT_TYPE,
@@ -830,7 +830,7 @@ pub unsafe fn DevGetObjectPropertiesEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevGetObjectPropertiesEx(
                 objecttype: DEV_OBJECT_TYPE,
@@ -873,7 +873,7 @@ pub unsafe fn DevGetObjects(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevGetObjects(
                 objecttype: DEV_OBJECT_TYPE,
@@ -916,7 +916,7 @@ pub unsafe fn DevGetObjectsEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-devices-query-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevGetObjectsEx(
                 objecttype: DEV_OBJECT_TYPE,

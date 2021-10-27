@@ -1920,7 +1920,7 @@ pub unsafe fn GetNetScheduleAccountInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mstask")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNetScheduleAccountInformation(
                 pwszservername: super::super::Foundation::PWSTR,
@@ -5202,7 +5202,7 @@ pub unsafe fn I_NetLogonControl2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_NetLogonControl2(
                 servername: super::super::Foundation::PWSTR,
@@ -5558,7 +5558,7 @@ pub unsafe fn LogErrorA(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogErrorA(
                 dwmessageid: u32,
@@ -5586,7 +5586,7 @@ pub unsafe fn LogErrorW(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogErrorW(
                 dwmessageid: u32,
@@ -5614,7 +5614,7 @@ pub unsafe fn LogEventA(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogEventA(
                 weventtype: u32,
@@ -5642,7 +5642,7 @@ pub unsafe fn LogEventW(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogEventW(
                 weventtype: u32,
@@ -5904,7 +5904,7 @@ pub unsafe fn MprSetupProtocolEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprSetupProtocolEnum(
                 dwtransportid: u32,
@@ -5924,7 +5924,7 @@ pub unsafe fn MprSetupProtocolEnum(
 pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn MprSetupProtocolFree(lpbuffer: *mut ::std::ffi::c_void) -> u32;
         }
@@ -7860,7 +7860,7 @@ pub unsafe fn NetAccessAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAccessAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -7890,7 +7890,7 @@ pub unsafe fn NetAccessDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAccessDel(
                 servername: super::super::Foundation::PWSTR,
@@ -7923,7 +7923,7 @@ pub unsafe fn NetAccessEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAccessEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -7965,7 +7965,7 @@ pub unsafe fn NetAccessGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAccessGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -7998,7 +7998,7 @@ pub unsafe fn NetAccessGetUserPerms<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAccessGetUserPerms(
                 servername: super::super::Foundation::PWSTR,
@@ -8031,7 +8031,7 @@ pub unsafe fn NetAccessSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAccessSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -8068,7 +8068,7 @@ pub unsafe fn NetAddAlternateComputerName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAddAlternateComputerName(
                 server: super::super::Foundation::PWSTR,
@@ -8103,7 +8103,7 @@ pub unsafe fn NetAddServiceAccount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAddServiceAccount(
                 servername: super::super::Foundation::PWSTR,
@@ -8134,7 +8134,7 @@ pub unsafe fn NetAlertRaise<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAlertRaise(
                 alerttype: super::super::Foundation::PWSTR,
@@ -8164,7 +8164,7 @@ pub unsafe fn NetAlertRaiseEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAlertRaiseEx(
                 alerttype: super::super::Foundation::PWSTR,
@@ -8186,7 +8186,7 @@ pub unsafe fn NetAlertRaiseEx<
 pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::std::ffi::c_void) -> u32;
         }
@@ -8201,7 +8201,7 @@ pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::std::ffi:
 pub unsafe fn NetApiBufferFree(buffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetApiBufferFree(buffer: *const ::std::ffi::c_void) -> u32;
         }
@@ -8217,7 +8217,7 @@ pub unsafe fn NetApiBufferReallocate(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetApiBufferReallocate(
                 oldbuffer: *const ::std::ffi::c_void,
@@ -8237,7 +8237,7 @@ pub unsafe fn NetApiBufferReallocate(
 pub unsafe fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mut u32) -> u32;
         }
@@ -8262,7 +8262,7 @@ pub unsafe fn NetAuditClear<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAuditClear(
                 server: super::super::Foundation::PWSTR,
@@ -8299,7 +8299,7 @@ pub unsafe fn NetAuditRead<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAuditRead(
                 server: super::super::Foundation::PWSTR,
@@ -8345,7 +8345,7 @@ pub unsafe fn NetAuditWrite<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetAuditWrite(
                 r#type: u32,
@@ -8380,7 +8380,7 @@ pub unsafe fn NetConfigGet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetConfigGet(
                 server: super::super::Foundation::PWSTR,
@@ -8411,7 +8411,7 @@ pub unsafe fn NetConfigGetAll<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetConfigGetAll(
                 server: super::super::Foundation::PWSTR,
@@ -8445,7 +8445,7 @@ pub unsafe fn NetConfigSet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetConfigSet(
                 server: super::super::Foundation::PWSTR,
@@ -8479,7 +8479,7 @@ pub unsafe fn NetCreateProvisioningPackage(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetCreateProvisioningPackage(
                 pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS,
@@ -8511,7 +8511,7 @@ pub unsafe fn NetEnumerateComputerNames<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetEnumerateComputerNames(
                 server: super::super::Foundation::PWSTR,
@@ -8544,7 +8544,7 @@ pub unsafe fn NetEnumerateServiceAccounts<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetEnumerateServiceAccounts(
                 servername: super::super::Foundation::PWSTR,
@@ -8576,7 +8576,7 @@ pub unsafe fn NetErrorLogClear<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetErrorLogClear(
                 uncservername: super::super::Foundation::PWSTR,
@@ -8613,7 +8613,7 @@ pub unsafe fn NetErrorLogRead<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetErrorLogRead(
                 uncservername: super::super::Foundation::PWSTR,
@@ -8662,7 +8662,7 @@ pub unsafe fn NetErrorLogWrite<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetErrorLogWrite(
                 reserved1: *const u8,
@@ -8696,7 +8696,7 @@ pub unsafe fn NetErrorLogWrite<
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO);
         }
@@ -8717,7 +8717,7 @@ pub unsafe fn NetGetAadJoinInformation<
 ) -> ::windows::runtime::Result<*mut DSREG_JOIN_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGetAadJoinInformation(
                 pcsztenantid: super::super::Foundation::PWSTR,
@@ -8744,7 +8744,7 @@ pub unsafe fn NetGetAnyDCName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGetAnyDCName(
                 servername: super::super::Foundation::PWSTR,
@@ -8773,7 +8773,7 @@ pub unsafe fn NetGetDCName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGetDCName(
                 servername: super::super::Foundation::PWSTR,
@@ -8803,7 +8803,7 @@ pub unsafe fn NetGetDisplayInformationIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGetDisplayInformationIndex(
                 servername: super::super::Foundation::PWSTR,
@@ -8833,7 +8833,7 @@ pub unsafe fn NetGetJoinInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGetJoinInformation(
                 lpserver: super::super::Foundation::PWSTR,
@@ -8867,7 +8867,7 @@ pub unsafe fn NetGetJoinableOUs<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGetJoinableOUs(
                 lpserver: super::super::Foundation::PWSTR,
@@ -8902,7 +8902,7 @@ pub unsafe fn NetGroupAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -8934,7 +8934,7 @@ pub unsafe fn NetGroupAddUser<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupAddUser(
                 servername: super::super::Foundation::PWSTR,
@@ -8962,7 +8962,7 @@ pub unsafe fn NetGroupDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupDel(
                 servername: super::super::Foundation::PWSTR,
@@ -8990,7 +8990,7 @@ pub unsafe fn NetGroupDelUser<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupDelUser(
                 servername: super::super::Foundation::PWSTR,
@@ -9022,7 +9022,7 @@ pub unsafe fn NetGroupEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -9060,7 +9060,7 @@ pub unsafe fn NetGroupGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -9096,7 +9096,7 @@ pub unsafe fn NetGroupGetUsers<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupGetUsers(
                 servername: super::super::Foundation::PWSTR,
@@ -9137,7 +9137,7 @@ pub unsafe fn NetGroupSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -9172,7 +9172,7 @@ pub unsafe fn NetGroupSetUsers<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetGroupSetUsers(
                 servername: super::super::Foundation::PWSTR,
@@ -9205,7 +9205,7 @@ pub unsafe fn NetIsServiceAccount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetIsServiceAccount(
                 servername: super::super::Foundation::PWSTR,
@@ -9241,7 +9241,7 @@ pub unsafe fn NetJoinDomain<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetJoinDomain(
                 lpserver: super::super::Foundation::PWSTR,
@@ -9276,7 +9276,7 @@ pub unsafe fn NetLocalGroupAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -9308,7 +9308,7 @@ pub unsafe fn NetLocalGroupAddMember<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupAddMember(
                 servername: super::super::Foundation::PWSTR,
@@ -9339,7 +9339,7 @@ pub unsafe fn NetLocalGroupAddMembers<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupAddMembers(
                 servername: super::super::Foundation::PWSTR,
@@ -9371,7 +9371,7 @@ pub unsafe fn NetLocalGroupDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupDel(
                 servername: super::super::Foundation::PWSTR,
@@ -9399,7 +9399,7 @@ pub unsafe fn NetLocalGroupDelMember<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupDelMember(
                 servername: super::super::Foundation::PWSTR,
@@ -9430,7 +9430,7 @@ pub unsafe fn NetLocalGroupDelMembers<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupDelMembers(
                 servername: super::super::Foundation::PWSTR,
@@ -9466,7 +9466,7 @@ pub unsafe fn NetLocalGroupEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -9504,7 +9504,7 @@ pub unsafe fn NetLocalGroupGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -9540,7 +9540,7 @@ pub unsafe fn NetLocalGroupGetMembers<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupGetMembers(
                 servername: super::super::Foundation::PWSTR,
@@ -9581,7 +9581,7 @@ pub unsafe fn NetLocalGroupSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -9616,7 +9616,7 @@ pub unsafe fn NetLocalGroupSetMembers<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetLocalGroupSetMembers(
                 servername: super::super::Foundation::PWSTR,
@@ -9652,7 +9652,7 @@ pub unsafe fn NetMessageBufferSend<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetMessageBufferSend(
                 servername: super::super::Foundation::PWSTR,
@@ -9684,7 +9684,7 @@ pub unsafe fn NetMessageNameAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetMessageNameAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -9710,7 +9710,7 @@ pub unsafe fn NetMessageNameDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetMessageNameDel(
                 servername: super::super::Foundation::PWSTR,
@@ -9740,7 +9740,7 @@ pub unsafe fn NetMessageNameEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetMessageNameEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -9778,7 +9778,7 @@ pub unsafe fn NetMessageNameGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetMessageNameGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -9816,7 +9816,7 @@ pub unsafe fn NetProvisionComputerAccount<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetProvisionComputerAccount(
                 lpdomain: super::super::Foundation::PWSTR,
@@ -9864,7 +9864,7 @@ pub unsafe fn NetQueryDisplayInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetQueryDisplayInformation(
                 servername: super::super::Foundation::PWSTR,
@@ -9902,7 +9902,7 @@ pub unsafe fn NetQueryServiceAccount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetQueryServiceAccount(
                 servername: super::super::Foundation::PWSTR,
@@ -9933,7 +9933,7 @@ pub unsafe fn NetRemoteComputerSupports<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetRemoteComputerSupports(
                 uncservername: super::super::Foundation::PWSTR,
@@ -9960,7 +9960,7 @@ pub unsafe fn NetRemoteTOD<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetRemoteTOD(
                 uncservername: super::super::Foundation::PWSTR,
@@ -9991,7 +9991,7 @@ pub unsafe fn NetRemoveAlternateComputerName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetRemoveAlternateComputerName(
                 server: super::super::Foundation::PWSTR,
@@ -10024,7 +10024,7 @@ pub unsafe fn NetRemoveServiceAccount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetRemoveServiceAccount(
                 servername: super::super::Foundation::PWSTR,
@@ -10058,7 +10058,7 @@ pub unsafe fn NetRenameMachineInDomain<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetRenameMachineInDomain(
                 lpserver: super::super::Foundation::PWSTR,
@@ -10091,7 +10091,7 @@ pub unsafe fn NetReplExportDirAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplExportDirAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -10121,7 +10121,7 @@ pub unsafe fn NetReplExportDirDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplExportDirDel(
                 servername: super::super::Foundation::PWSTR,
@@ -10151,7 +10151,7 @@ pub unsafe fn NetReplExportDirEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplExportDirEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -10189,7 +10189,7 @@ pub unsafe fn NetReplExportDirGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplExportDirGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10219,7 +10219,7 @@ pub unsafe fn NetReplExportDirLock<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplExportDirLock(
                 servername: super::super::Foundation::PWSTR,
@@ -10248,7 +10248,7 @@ pub unsafe fn NetReplExportDirSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplExportDirSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10281,7 +10281,7 @@ pub unsafe fn NetReplExportDirUnlock<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplExportDirUnlock(
                 servername: super::super::Foundation::PWSTR,
@@ -10309,7 +10309,7 @@ pub unsafe fn NetReplGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10338,7 +10338,7 @@ pub unsafe fn NetReplImportDirAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplImportDirAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -10368,7 +10368,7 @@ pub unsafe fn NetReplImportDirDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplImportDirDel(
                 servername: super::super::Foundation::PWSTR,
@@ -10398,7 +10398,7 @@ pub unsafe fn NetReplImportDirEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplImportDirEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -10436,7 +10436,7 @@ pub unsafe fn NetReplImportDirGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplImportDirGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10466,7 +10466,7 @@ pub unsafe fn NetReplImportDirLock<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplImportDirLock(
                 servername: super::super::Foundation::PWSTR,
@@ -10493,7 +10493,7 @@ pub unsafe fn NetReplImportDirUnlock<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplImportDirUnlock(
                 servername: super::super::Foundation::PWSTR,
@@ -10522,7 +10522,7 @@ pub unsafe fn NetReplSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetReplSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10553,7 +10553,7 @@ pub unsafe fn NetRequestOfflineDomainJoin<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetRequestOfflineDomainJoin(
                 pprovisionbindata: *const u8,
@@ -10585,7 +10585,7 @@ pub unsafe fn NetRequestProvisioningPackageInstall<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetRequestProvisioningPackageInstall(
                 ppackagebindata: *const u8,
@@ -10617,7 +10617,7 @@ pub unsafe fn NetScheduleJobAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetScheduleJobAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -10645,7 +10645,7 @@ pub unsafe fn NetScheduleJobDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetScheduleJobDel(
                 servername: super::super::Foundation::PWSTR,
@@ -10676,7 +10676,7 @@ pub unsafe fn NetScheduleJobEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetScheduleJobEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -10710,7 +10710,7 @@ pub unsafe fn NetScheduleJobGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetScheduleJobGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10740,7 +10740,7 @@ pub unsafe fn NetServerComputerNameAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerComputerNameAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -10768,7 +10768,7 @@ pub unsafe fn NetServerComputerNameDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerComputerNameDel(
                 servername: super::super::Foundation::PWSTR,
@@ -10798,7 +10798,7 @@ pub unsafe fn NetServerDiskEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerDiskEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -10841,7 +10841,7 @@ pub unsafe fn NetServerEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -10881,7 +10881,7 @@ pub unsafe fn NetServerGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10910,7 +10910,7 @@ pub unsafe fn NetServerSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -10940,7 +10940,7 @@ pub unsafe fn NetServerTransportAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerTransportAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -10968,7 +10968,7 @@ pub unsafe fn NetServerTransportAddEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerTransportAddEx(
                 servername: super::super::Foundation::PWSTR,
@@ -10996,7 +10996,7 @@ pub unsafe fn NetServerTransportDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerTransportDel(
                 servername: super::super::Foundation::PWSTR,
@@ -11028,7 +11028,7 @@ pub unsafe fn NetServerTransportEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerTransportEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -11067,7 +11067,7 @@ pub unsafe fn NetServiceControl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServiceControl(
                 servername: super::super::Foundation::PWSTR,
@@ -11103,7 +11103,7 @@ pub unsafe fn NetServiceEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServiceEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -11141,7 +11141,7 @@ pub unsafe fn NetServiceGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServiceGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -11174,7 +11174,7 @@ pub unsafe fn NetServiceInstall<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServiceInstall(
                 servername: super::super::Foundation::PWSTR,
@@ -11211,7 +11211,7 @@ pub unsafe fn NetSetPrimaryComputerName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetSetPrimaryComputerName(
                 server: super::super::Foundation::PWSTR,
@@ -11246,7 +11246,7 @@ pub unsafe fn NetUnjoinDomain<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUnjoinDomain(
                 lpserver: super::super::Foundation::PWSTR,
@@ -11273,7 +11273,7 @@ pub unsafe fn NetUseAdd(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUseAdd(
                 servername: *const i8,
@@ -11304,7 +11304,7 @@ pub unsafe fn NetUseDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUseDel(
                 uncservername: super::super::Foundation::PWSTR,
@@ -11336,7 +11336,7 @@ pub unsafe fn NetUseEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUseEnum(
                 uncservername: super::super::Foundation::PWSTR,
@@ -11374,7 +11374,7 @@ pub unsafe fn NetUseGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUseGetInfo(
                 uncservername: super::super::Foundation::PWSTR,
@@ -11405,7 +11405,7 @@ pub unsafe fn NetUserAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -11439,7 +11439,7 @@ pub unsafe fn NetUserChangePassword<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserChangePassword(
                 domainname: super::super::Foundation::PWSTR,
@@ -11469,7 +11469,7 @@ pub unsafe fn NetUserDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserDel(
                 servername: super::super::Foundation::PWSTR,
@@ -11500,7 +11500,7 @@ pub unsafe fn NetUserEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -11543,7 +11543,7 @@ pub unsafe fn NetUserGetGroups<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserGetGroups(
                 servername: super::super::Foundation::PWSTR,
@@ -11581,7 +11581,7 @@ pub unsafe fn NetUserGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -11617,7 +11617,7 @@ pub unsafe fn NetUserGetLocalGroups<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserGetLocalGroups(
                 servername: super::super::Foundation::PWSTR,
@@ -11655,7 +11655,7 @@ pub unsafe fn NetUserModalsGet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserModalsGet(
                 servername: super::super::Foundation::PWSTR,
@@ -11684,7 +11684,7 @@ pub unsafe fn NetUserModalsSet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserModalsSet(
                 servername: super::super::Foundation::PWSTR,
@@ -11717,7 +11717,7 @@ pub unsafe fn NetUserSetGroups<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserSetGroups(
                 servername: super::super::Foundation::PWSTR,
@@ -11752,7 +11752,7 @@ pub unsafe fn NetUserSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetUserSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -11789,7 +11789,7 @@ pub unsafe fn NetValidateName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetValidateName(
                 lpserver: super::super::Foundation::PWSTR,
@@ -11823,7 +11823,7 @@ pub unsafe fn NetValidatePasswordPolicy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetValidatePasswordPolicy(
                 servername: super::super::Foundation::PWSTR,
@@ -11847,7 +11847,7 @@ pub unsafe fn NetValidatePasswordPolicy<
 pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_void) -> u32;
         }
@@ -11869,7 +11869,7 @@ pub unsafe fn NetWkstaGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -11898,7 +11898,7 @@ pub unsafe fn NetWkstaSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -11925,7 +11925,7 @@ pub unsafe fn NetWkstaTransportAdd(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaTransportAdd(
                 servername: *const i8,
@@ -11956,7 +11956,7 @@ pub unsafe fn NetWkstaTransportDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaTransportDel(
                 servername: super::super::Foundation::PWSTR,
@@ -11984,7 +11984,7 @@ pub unsafe fn NetWkstaTransportEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaTransportEnum(
                 servername: *const i8,
@@ -12024,7 +12024,7 @@ pub unsafe fn NetWkstaUserEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaUserEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -12060,7 +12060,7 @@ pub unsafe fn NetWkstaUserGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaUserGetInfo(
                 reserved: super::super::Foundation::PWSTR,
@@ -12089,7 +12089,7 @@ pub unsafe fn NetWkstaUserSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetWkstaUserSetInfo(
                 reserved: super::super::Foundation::PWSTR,
@@ -12906,7 +12906,7 @@ pub unsafe fn RouterAssert<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterAssert(
                 pszfailedassertion: super::super::Foundation::PSTR,
@@ -12932,7 +12932,7 @@ pub unsafe fn RouterGetErrorStringA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterGetErrorStringA(
                 dwerrorcode: u32,
@@ -12954,7 +12954,7 @@ pub unsafe fn RouterGetErrorStringW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterGetErrorStringW(
                 dwerrorcode: u32,
@@ -12978,7 +12978,7 @@ pub unsafe fn RouterLogDeregisterA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
         }
@@ -12996,7 +12996,7 @@ pub unsafe fn RouterLogDeregisterW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
         }
@@ -13019,7 +13019,7 @@ pub unsafe fn RouterLogEventA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventA(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13057,7 +13057,7 @@ pub unsafe fn RouterLogEventDataA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventDataA(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13097,7 +13097,7 @@ pub unsafe fn RouterLogEventDataW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventDataW(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13136,7 +13136,7 @@ pub unsafe fn RouterLogEventExA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventExA(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13171,7 +13171,7 @@ pub unsafe fn RouterLogEventExW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventExW(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13207,7 +13207,7 @@ pub unsafe fn RouterLogEventStringA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventStringA(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13247,7 +13247,7 @@ pub unsafe fn RouterLogEventStringW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventStringW(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13287,7 +13287,7 @@ pub unsafe fn RouterLogEventValistExA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventValistExA(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13325,7 +13325,7 @@ pub unsafe fn RouterLogEventValistExW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventValistExW(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13362,7 +13362,7 @@ pub unsafe fn RouterLogEventW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventW(
                 hloghandle: super::super::Foundation::HANDLE,
@@ -13394,7 +13394,7 @@ pub unsafe fn RouterLogRegisterA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogRegisterA(
                 lpszsource: super::super::Foundation::PSTR,
@@ -13414,7 +13414,7 @@ pub unsafe fn RouterLogRegisterW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterLogRegisterW(
                 lpszsource: super::super::Foundation::PWSTR,
@@ -18352,7 +18352,7 @@ pub unsafe fn SetNetScheduleAccountInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mstask")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetNetScheduleAccountInformation(
                 pwszservername: super::super::Foundation::PWSTR,
@@ -18503,7 +18503,7 @@ unsafe impl ::windows::runtime::Abi for TRANSPORT_TYPE {
 pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceDeregisterA(dwtraceid: u32) -> u32;
         }
@@ -18515,7 +18515,7 @@ pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
 pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32;
         }
@@ -18530,7 +18530,7 @@ pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
 pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32;
         }
@@ -18545,7 +18545,7 @@ pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
 pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceDeregisterW(dwtraceid: u32) -> u32;
         }
@@ -18570,7 +18570,7 @@ pub unsafe fn TraceDumpExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceDumpExA(
                 dwtraceid: u32,
@@ -18611,7 +18611,7 @@ pub unsafe fn TraceDumpExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceDumpExW(
                 dwtraceid: u32,
@@ -18643,7 +18643,7 @@ pub unsafe fn TraceGetConsoleA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceGetConsoleA(
                 dwtraceid: u32,
@@ -18665,7 +18665,7 @@ pub unsafe fn TraceGetConsoleW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceGetConsoleW(
                 dwtraceid: u32,
@@ -18690,7 +18690,7 @@ pub unsafe fn TracePrintfA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TracePrintfA(dwtraceid: u32, lpszformat: super::super::Foundation::PSTR) -> u32;
         }
@@ -18713,7 +18713,7 @@ pub unsafe fn TracePrintfExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TracePrintfExA(
                 dwtraceid: u32,
@@ -18741,7 +18741,7 @@ pub unsafe fn TracePrintfExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TracePrintfExW(
                 dwtraceid: u32,
@@ -18768,7 +18768,7 @@ pub unsafe fn TracePrintfW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TracePrintfW(dwtraceid: u32, lpszformat: super::super::Foundation::PWSTR) -> u32;
         }
@@ -18791,7 +18791,7 @@ pub unsafe fn TracePutsExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TracePutsExA(
                 dwtraceid: u32,
@@ -18819,7 +18819,7 @@ pub unsafe fn TracePutsExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TracePutsExW(
                 dwtraceid: u32,
@@ -18846,7 +18846,7 @@ pub unsafe fn TraceRegisterExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceRegisterExA(
                 lpszcallername: super::super::Foundation::PSTR,
@@ -18871,7 +18871,7 @@ pub unsafe fn TraceRegisterExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceRegisterExW(
                 lpszcallername: super::super::Foundation::PWSTR,
@@ -18898,7 +18898,7 @@ pub unsafe fn TraceVprintfExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceVprintfExA(
                 dwtraceid: u32,
@@ -18929,7 +18929,7 @@ pub unsafe fn TraceVprintfExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceVprintfExW(
                 dwtraceid: u32,

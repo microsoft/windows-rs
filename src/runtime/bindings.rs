@@ -2843,7 +2843,7 @@ pub mod Windows {
             ) -> BOOL {
                 #[cfg(windows)]
                 {
-                    #[link(name = "kernel32")]
+                    #[link(name = "windows")]
                     extern "system" {
                         fn CloseHandle(hobject: HANDLE) -> BOOL;
                     }
@@ -2858,7 +2858,7 @@ pub mod Windows {
             pub unsafe fn GetLastError() -> WIN32_ERROR {
                 #[cfg(windows)]
                 {
-                    #[link(name = "kernel32")]
+                    #[link(name = "windows")]
                     extern "system" {
                         fn GetLastError() -> WIN32_ERROR;
                     }
@@ -3145,7 +3145,7 @@ pub mod Windows {
                 {
                     #[cfg(windows)]
                     {
-                        #[link(name = "ole32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn CoCreateGuid(
                                 pguid: *mut ::windows::runtime::GUID,
@@ -3160,7 +3160,7 @@ pub mod Windows {
                 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
                     #[cfg(windows)]
                     {
-                        #[link(name = "ole32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
                         }
@@ -3172,7 +3172,7 @@ pub mod Windows {
                 pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
                     #[cfg(windows)]
                     {
-                        #[link(name = "ole32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn CoTaskMemFree(pv: *const ::std::ffi::c_void);
                         }
@@ -3316,7 +3316,7 @@ pub mod Windows {
                     ) -> u32 {
                         #[cfg(windows)]
                         {
-                            #[link(name = "kernel32")]
+                            #[link(name = "windows")]
                             extern "system" {
                                 fn FormatMessageW(
                                     dwflags: FORMAT_MESSAGE_OPTIONS,
@@ -3352,7 +3352,7 @@ pub mod Windows {
                 ) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn FreeLibrary(
                                 hlibmodule: super::super::Foundation::HINSTANCE,
@@ -3373,7 +3373,7 @@ pub mod Windows {
                 ) -> ::std::option::Option<super::super::Foundation::FARPROC> {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn GetProcAddress(
                                 hmodule: super::super::Foundation::HINSTANCE,
@@ -3396,7 +3396,7 @@ pub mod Windows {
                 ) -> super::super::Foundation::HINSTANCE {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn LoadLibraryA(
                                 lplibfilename: super::super::Foundation::PSTR,
@@ -3412,7 +3412,7 @@ pub mod Windows {
                 pub unsafe fn GetProcessHeap() -> HeapHandle {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn GetProcessHeap() -> HeapHandle;
                         }
@@ -3495,7 +3495,7 @@ pub mod Windows {
                 ) -> *mut ::std::ffi::c_void {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn HeapAlloc(
                                 hheap: HeapHandle,
@@ -3522,7 +3522,7 @@ pub mod Windows {
                 ) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn HeapFree(
                                 hheap: HeapHandle,
@@ -3565,7 +3565,7 @@ pub mod Windows {
                 ) -> ::windows::runtime::Result<IErrorInfo> {
                     #[cfg(windows)]
                     {
-                        #[link(name = "oleaut32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn GetErrorInfo(
                                 dwreserved: u32,
@@ -3731,7 +3731,7 @@ pub mod Windows {
                 ) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
                     {
-                        #[link(name = "oleaut32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn SetErrorInfo(
                                 dwreserved: u32,
@@ -3762,7 +3762,7 @@ pub mod Windows {
                 ) -> super::super::Foundation::HANDLE {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn CreateEventA(
                                 lpeventattributes : * const super::super::Security:: SECURITY_ATTRIBUTES,
@@ -3789,7 +3789,7 @@ pub mod Windows {
                 ) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn SetEvent(
                                 hevent: super::super::Foundation::HANDLE,
@@ -3809,7 +3809,7 @@ pub mod Windows {
                 ) -> u32 {
                     #[cfg(windows)]
                     {
-                        #[link(name = "kernel32")]
+                        #[link(name = "windows")]
                         extern "system" {
                             fn WaitForSingleObject(
                                 hhandle: super::super::Foundation::HANDLE,

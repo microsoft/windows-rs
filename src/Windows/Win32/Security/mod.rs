@@ -627,7 +627,7 @@ pub unsafe fn AccessCheck<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheck(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -676,7 +676,7 @@ pub unsafe fn AccessCheckAndAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckAndAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -731,7 +731,7 @@ pub unsafe fn AccessCheckAndAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckAndAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -784,7 +784,7 @@ pub unsafe fn AccessCheckByType<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByType(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -845,7 +845,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeAndAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -916,7 +916,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeAndAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -979,7 +979,7 @@ pub unsafe fn AccessCheckByTypeResultList<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeResultList(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -1040,7 +1040,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -1113,7 +1113,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(
                 subsystemname: super::Foundation::PSTR,
@@ -1188,7 +1188,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(
                 subsystemname: super::Foundation::PWSTR,
@@ -1261,7 +1261,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeResultListAndAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -1316,7 +1316,7 @@ pub unsafe fn AddAccessAllowedAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAccessAllowedAce(
                 pacl: *mut ACL,
@@ -1348,7 +1348,7 @@ pub unsafe fn AddAccessAllowedAceEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAccessAllowedAceEx(
                 pacl: *mut ACL,
@@ -1384,7 +1384,7 @@ pub unsafe fn AddAccessAllowedObjectAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAccessAllowedObjectAce(
                 pacl: *mut ACL,
@@ -1421,7 +1421,7 @@ pub unsafe fn AddAccessDeniedAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAccessDeniedAce(
                 pacl: *mut ACL,
@@ -1453,7 +1453,7 @@ pub unsafe fn AddAccessDeniedAceEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAccessDeniedAceEx(
                 pacl: *mut ACL,
@@ -1489,7 +1489,7 @@ pub unsafe fn AddAccessDeniedObjectAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAccessDeniedObjectAce(
                 pacl: *mut ACL,
@@ -1524,7 +1524,7 @@ pub unsafe fn AddAce(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAce(
                 pacl: *mut ACL,
@@ -1561,7 +1561,7 @@ pub unsafe fn AddAuditAccessAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAuditAccessAce(
                 pacl: *mut ACL,
@@ -1601,7 +1601,7 @@ pub unsafe fn AddAuditAccessAceEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAuditAccessAceEx(
                 pacl: *mut ACL,
@@ -1645,7 +1645,7 @@ pub unsafe fn AddAuditAccessObjectAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddAuditAccessObjectAce(
                 pacl: *mut ACL,
@@ -1691,7 +1691,7 @@ pub unsafe fn AddConditionalAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddConditionalAce(
                 pacl: *mut ACL,
@@ -1731,7 +1731,7 @@ pub unsafe fn AddMandatoryAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddMandatoryAce(
                 pacl: *mut ACL,
@@ -1767,7 +1767,7 @@ pub unsafe fn AddResourceAttributeAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddResourceAttributeAce(
                 pacl: *mut ACL,
@@ -1805,7 +1805,7 @@ pub unsafe fn AddScopedPolicyIDAce<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddScopedPolicyIDAce(
                 pacl: *mut ACL,
@@ -1841,7 +1841,7 @@ pub unsafe fn AdjustTokenGroups<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdjustTokenGroups(
                 tokenhandle: super::Foundation::HANDLE,
@@ -1879,7 +1879,7 @@ pub unsafe fn AdjustTokenPrivileges<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdjustTokenPrivileges(
                 tokenhandle: super::Foundation::HANDLE,
@@ -1918,7 +1918,7 @@ pub unsafe fn AllocateAndInitializeSid(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocateAndInitializeSid(
                 pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY,
@@ -1957,7 +1957,7 @@ pub unsafe fn AllocateLocallyUniqueId(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocateLocallyUniqueId(
                 luid: *mut super::System::SystemServices::LUID,
@@ -1975,7 +1975,7 @@ pub unsafe fn AreAllAccessesGranted(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AreAllAccessesGranted(
                 grantedaccess: u32,
@@ -1997,7 +1997,7 @@ pub unsafe fn AreAnyAccessesGranted(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AreAnyAccessesGranted(
                 grantedaccess: u32,
@@ -4088,7 +4088,7 @@ pub unsafe fn CheckTokenCapability<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckTokenCapability(
                 tokenhandle: super::Foundation::HANDLE,
@@ -4117,7 +4117,7 @@ pub unsafe fn CheckTokenMembership<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckTokenMembership(
                 tokenhandle: super::Foundation::HANDLE,
@@ -4147,7 +4147,7 @@ pub unsafe fn CheckTokenMembershipEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckTokenMembershipEx(
                 tokenhandle: super::Foundation::HANDLE,
@@ -4180,7 +4180,7 @@ pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertToAutoInheritPrivateObjectSecurity(
                 parentdescriptor: *const SECURITY_DESCRIPTOR,
@@ -4211,7 +4211,7 @@ pub unsafe fn CopySid<'a, Param2: ::windows::runtime::IntoParam<'a, super::Found
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopySid(
                 ndestinationsidlength: u32,
@@ -4243,7 +4243,7 @@ pub unsafe fn CreatePrivateObjectSecurity<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePrivateObjectSecurity(
                 parentdescriptor: *const SECURITY_DESCRIPTOR,
@@ -4283,7 +4283,7 @@ pub unsafe fn CreatePrivateObjectSecurityEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePrivateObjectSecurityEx(
                 parentdescriptor: *const SECURITY_DESCRIPTOR,
@@ -4328,7 +4328,7 @@ pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePrivateObjectSecurityWithMultipleInheritance(
                 parentdescriptor: *const SECURITY_DESCRIPTOR,
@@ -4374,7 +4374,7 @@ pub unsafe fn CreateRestrictedToken<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRestrictedToken(
                 existingtokenhandle: super::Foundation::HANDLE,
@@ -4415,7 +4415,7 @@ pub unsafe fn CreateWellKnownSid<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWellKnownSid(
                 wellknownsidtype: WELL_KNOWN_SID_TYPE,
@@ -4442,7 +4442,7 @@ pub unsafe fn CryptCATAdminAcquireContext(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminAcquireContext(
                 phcatadmin: *mut isize,
@@ -4475,7 +4475,7 @@ pub unsafe fn CryptCATAdminAcquireContext2<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminAcquireContext2(
                 phcatadmin: *mut isize,
@@ -4509,7 +4509,7 @@ pub unsafe fn CryptCATAdminAddCatalog<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminAddCatalog(
                 hcatadmin: isize,
@@ -4540,7 +4540,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminCalcHashFromFileHandle(
                 hfile: super::Foundation::HANDLE,
@@ -4572,7 +4572,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminCalcHashFromFileHandle2(
                 hcatadmin: isize,
@@ -4602,7 +4602,7 @@ pub unsafe fn CryptCATAdminEnumCatalogFromHash(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminEnumCatalogFromHash(
                 hcatadmin: isize,
@@ -4633,7 +4633,7 @@ pub unsafe fn CryptCATAdminPauseServiceForBackup<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminPauseServiceForBackup(
                 dwflags: u32,
@@ -4656,7 +4656,7 @@ pub unsafe fn CryptCATAdminReleaseCatalogContext(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminReleaseCatalogContext(
                 hcatadmin: isize,
@@ -4680,7 +4680,7 @@ pub unsafe fn CryptCATAdminReleaseContext(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminReleaseContext(
                 hcatadmin: isize,
@@ -4706,7 +4706,7 @@ pub unsafe fn CryptCATAdminRemoveCatalog<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminRemoveCatalog(
                 hcatadmin: isize,
@@ -4735,7 +4735,7 @@ pub unsafe fn CryptCATAdminResolveCatalogPath<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminResolveCatalogPath(
                 hcatadmin: isize,
@@ -4768,7 +4768,7 @@ pub unsafe fn CryptCATAllocSortedMemberInfo<
 ) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATAllocSortedMemberInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -4787,7 +4787,7 @@ pub unsafe fn CryptCATAllocSortedMemberInfo<
 pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::Foundation::BOOL;
         }
@@ -4808,7 +4808,7 @@ pub unsafe fn CryptCATCDFEnumAttributes(
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFEnumAttributes(
                 pcdf: *mut CRYPTCATCDF,
@@ -4835,7 +4835,7 @@ pub unsafe fn CryptCATCDFEnumCatAttributes(
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFEnumCatAttributes(
                 pcdf: *mut CRYPTCATCDF,
@@ -4863,7 +4863,7 @@ pub unsafe fn CryptCATCDFEnumMembers(
 ) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFEnumMembers(
                 pcdf: *mut CRYPTCATCDF,
@@ -4890,7 +4890,7 @@ pub unsafe fn CryptCATCDFOpen<
 ) -> *mut CRYPTCATCDF {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATCDFOpen(
                 pwszfilepath: super::Foundation::PWSTR,
@@ -4913,7 +4913,7 @@ pub unsafe fn CryptCATCatalogInfoFromContext(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATCatalogInfoFromContext(
                 hcatinfo: isize,
@@ -4939,7 +4939,7 @@ pub unsafe fn CryptCATClose<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATClose(hcatalog: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
@@ -4962,7 +4962,7 @@ pub unsafe fn CryptCATEnumerateAttr<
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATEnumerateAttr(
                 hcatalog: super::Foundation::HANDLE,
@@ -4989,7 +4989,7 @@ pub unsafe fn CryptCATEnumerateCatAttr<
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATEnumerateCatAttr(
                 hcatalog: super::Foundation::HANDLE,
@@ -5017,7 +5017,7 @@ pub unsafe fn CryptCATEnumerateMember<
 ) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATEnumerateMember(
                 hcatalog: super::Foundation::HANDLE,
@@ -5045,7 +5045,7 @@ pub unsafe fn CryptCATFreeSortedMemberInfo<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATFreeSortedMemberInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -5075,7 +5075,7 @@ pub unsafe fn CryptCATGetAttrInfo<
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATGetAttrInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -5103,7 +5103,7 @@ pub unsafe fn CryptCATGetCatAttrInfo<
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATGetCatAttrInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -5132,7 +5132,7 @@ pub unsafe fn CryptCATGetMemberInfo<
 ) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATGetMemberInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -5151,7 +5151,7 @@ pub unsafe fn CryptCATGetMemberInfo<
 pub unsafe fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::Foundation::HANDLE;
         }
@@ -5173,7 +5173,7 @@ pub unsafe fn CryptCATOpen<
 ) -> super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATOpen(
                 pwszfilename: super::Foundation::PWSTR,
@@ -5203,7 +5203,7 @@ pub unsafe fn CryptCATPersistStore<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATPersistStore(hcatalog: super::Foundation::HANDLE)
                 -> super::Foundation::BOOL;
@@ -5231,7 +5231,7 @@ pub unsafe fn CryptCATPutAttrInfo<
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATPutAttrInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -5268,7 +5268,7 @@ pub unsafe fn CryptCATPutCatAttrInfo<
 ) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATPutCatAttrInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -5309,7 +5309,7 @@ pub unsafe fn CryptCATPutMemberInfo<
 ) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATPutMemberInfo(
                 hcatalog: super::Foundation::HANDLE,
@@ -5343,7 +5343,7 @@ pub unsafe fn CryptCATStoreFromHandle<
 ) -> *mut CRYPTCATSTORE {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptCATStoreFromHandle(hcatalog: super::Foundation::HANDLE) -> *mut CRYPTCATSTORE;
         }
@@ -5370,7 +5370,7 @@ pub unsafe fn CryptProtectData<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptProtectData(
                 pdatain: *const Cryptography::Core::CRYPTOAPI_BLOB,
@@ -5403,7 +5403,7 @@ pub unsafe fn CryptProtectMemory(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptProtectMemory(
                 pdatain: *mut ::std::ffi::c_void,
@@ -5424,7 +5424,7 @@ pub unsafe fn CryptProtectMemory(
 pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super::Foundation::BOOL;
         }
@@ -5444,7 +5444,7 @@ pub unsafe fn CryptSIPCreateIndirectData(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPCreateIndirectData(
                 psubjectinfo: *mut SIP_SUBJECTINFO,
@@ -5471,7 +5471,7 @@ pub unsafe fn CryptSIPGetCaps(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPGetCaps(
                 psubjinfo: *const SIP_SUBJECTINFO,
@@ -5499,7 +5499,7 @@ pub unsafe fn CryptSIPGetSealedDigest(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPGetSealedDigest(
                 psubjectinfo: *const SIP_SUBJECTINFO,
@@ -5533,7 +5533,7 @@ pub unsafe fn CryptSIPGetSignedDataMsg(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPGetSignedDataMsg(
                 psubjectinfo: *mut SIP_SUBJECTINFO,
@@ -5565,7 +5565,7 @@ pub unsafe fn CryptSIPLoad(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPLoad(
                 pgsubject: *const ::windows::runtime::GUID,
@@ -5595,7 +5595,7 @@ pub unsafe fn CryptSIPPutSignedDataMsg(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPPutSignedDataMsg(
                 psubjectinfo: *mut SIP_SUBJECTINFO,
@@ -5622,7 +5622,7 @@ pub unsafe fn CryptSIPRemoveProvider(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPRemoveProvider(
                 pgprov: *mut ::windows::runtime::GUID,
@@ -5643,7 +5643,7 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPRemoveSignedDataMsg(
                 psubjectinfo: *mut SIP_SUBJECTINFO,
@@ -5670,7 +5670,7 @@ pub unsafe fn CryptSIPRetrieveSubjectGuid<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPRetrieveSubjectGuid(
                 filename: super::Foundation::PWSTR,
@@ -5699,7 +5699,7 @@ pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPRetrieveSubjectGuidForCatalogFile(
                 filename: super::Foundation::PWSTR,
@@ -5726,7 +5726,7 @@ pub unsafe fn CryptSIPVerifyIndirectData(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptSIPVerifyIndirectData(
                 psubjectinfo: *mut SIP_SUBJECTINFO,
@@ -5756,7 +5756,7 @@ pub unsafe fn CryptUnprotectData(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptUnprotectData(
                 pdatain: *const Cryptography::Core::CRYPTOAPI_BLOB,
@@ -5789,7 +5789,7 @@ pub unsafe fn CryptUnprotectMemory(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptUnprotectMemory(
                 pdatain: *mut ::std::ffi::c_void,
@@ -5820,7 +5820,7 @@ pub unsafe fn CryptUpdateProtectedState<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "crypt32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CryptUpdateProtectedState(
                 poldsid: super::Foundation::PSID,
@@ -6517,7 +6517,7 @@ pub unsafe fn DSCreateISecurityInfoObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dssec")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSCreateISecurityInfoObject(
                 pwszobjectpath: super::Foundation::PWSTR,
@@ -6566,7 +6566,7 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dssec")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSCreateISecurityInfoObjectEx(
                 pwszobjectpath: super::Foundation::PWSTR,
@@ -6615,7 +6615,7 @@ pub unsafe fn DSCreateSecurityPage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dssec")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSCreateSecurityPage(
                 pwszobjectpath: super::Foundation::PWSTR,
@@ -6661,7 +6661,7 @@ pub unsafe fn DSEditSecurity<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dssec")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSEditSecurity(
                 hwndowner: super::Foundation::HWND,
@@ -6726,7 +6726,7 @@ pub unsafe fn DdqCancelDiagnosticRecordOperation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqCancelDiagnosticRecordOperation(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -6745,7 +6745,7 @@ pub unsafe fn DdqCloseSession<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqCloseSession(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -6761,7 +6761,7 @@ pub unsafe fn DdqCreateSession(
 ) -> ::windows::runtime::Result<HDIAGNOSTIC_DATA_QUERY_SESSION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqCreateSession(
                 accesslevel: DdqAccessLevel,
@@ -6790,7 +6790,7 @@ pub unsafe fn DdqExtractDiagnosticReport<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqExtractDiagnosticReport(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -6818,7 +6818,7 @@ pub unsafe fn DdqFreeDiagnosticRecordLocaleTags<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqFreeDiagnosticRecordLocaleTags(
                 htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION,
@@ -6837,7 +6837,7 @@ pub unsafe fn DdqFreeDiagnosticRecordPage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqFreeDiagnosticRecordPage(
                 hrecord: HDIAGNOSTIC_RECORD,
@@ -6856,7 +6856,7 @@ pub unsafe fn DdqFreeDiagnosticRecordProducerCategories<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqFreeDiagnosticRecordProducerCategories(
                 hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION,
@@ -6875,7 +6875,7 @@ pub unsafe fn DdqFreeDiagnosticRecordProducers<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqFreeDiagnosticRecordProducers(
                 hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION,
@@ -6894,7 +6894,7 @@ pub unsafe fn DdqFreeDiagnosticReport<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqFreeDiagnosticReport(hreport: HDIAGNOSTIC_REPORT) -> ::windows::runtime::HRESULT;
         }
@@ -6907,7 +6907,7 @@ pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows::runtime::Re
 {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticDataAccessLevelAllowed(
                 accesslevel: *mut DdqAccessLevel,
@@ -6929,7 +6929,7 @@ pub unsafe fn DdqGetDiagnosticRecordAtIndex<
 ) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_RECORD> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordAtIndex(
                 hrecord: HDIAGNOSTIC_RECORD,
@@ -6963,7 +6963,7 @@ pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordBinaryDistribution(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -6997,7 +6997,7 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryAtIndex<
 ) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordCategoryAtIndex(
                 hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION,
@@ -7024,7 +7024,7 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryCount<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordCategoryCount(
                 hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION,
@@ -7046,7 +7046,7 @@ pub unsafe fn DdqGetDiagnosticRecordCount<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordCount(
                 hrecord: HDIAGNOSTIC_RECORD,
@@ -7070,7 +7070,7 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagAtIndex<
 ) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordLocaleTagAtIndex(
                 htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION,
@@ -7098,7 +7098,7 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordLocaleTagCount(
                 htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION,
@@ -7123,7 +7123,7 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTags<
 ) -> ::windows::runtime::Result<HDIAGNOSTIC_EVENT_TAG_DESCRIPTION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordLocaleTags(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7156,7 +7156,7 @@ pub unsafe fn DdqGetDiagnosticRecordPage<
 ) -> ::windows::runtime::Result<HDIAGNOSTIC_RECORD> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordPage(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7192,7 +7192,7 @@ pub unsafe fn DdqGetDiagnosticRecordPayload<
 ) -> ::windows::runtime::Result<super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordPayload(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7222,7 +7222,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex<
 ) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordProducerAtIndex(
                 hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION,
@@ -7252,7 +7252,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducerCategories<
 ) -> ::windows::runtime::Result<HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordProducerCategories(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7280,7 +7280,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducerCount<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordProducerCount(
                 hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION,
@@ -7302,7 +7302,7 @@ pub unsafe fn DdqGetDiagnosticRecordProducers<
 ) -> ::windows::runtime::Result<HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordProducers(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7330,7 +7330,7 @@ pub unsafe fn DdqGetDiagnosticRecordStats<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordStats(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7363,7 +7363,7 @@ pub unsafe fn DdqGetDiagnosticRecordSummary<
 ) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_GENERAL_STATS> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordSummary(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7398,7 +7398,7 @@ pub unsafe fn DdqGetDiagnosticRecordTagDistribution<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticRecordTagDistribution(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7429,7 +7429,7 @@ pub unsafe fn DdqGetDiagnosticReport<
 ) -> ::windows::runtime::Result<HDIAGNOSTIC_REPORT> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticReport(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7459,7 +7459,7 @@ pub unsafe fn DdqGetDiagnosticReportAtIndex<
 ) -> ::windows::runtime::Result<DIAGNOSTIC_REPORT_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticReportAtIndex(
                 hreport: HDIAGNOSTIC_REPORT,
@@ -7487,7 +7487,7 @@ pub unsafe fn DdqGetDiagnosticReportCount<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticReportCount(
                 hreport: HDIAGNOSTIC_REPORT,
@@ -7510,7 +7510,7 @@ pub unsafe fn DdqGetDiagnosticReportStoreReportCount<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetDiagnosticReportStoreReportCount(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7537,7 +7537,7 @@ pub unsafe fn DdqGetSessionAccessLevel<
 ) -> ::windows::runtime::Result<DdqAccessLevel> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetSessionAccessLevel(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7559,7 +7559,7 @@ pub unsafe fn DdqGetTranscriptConfiguration<
 ) -> ::windows::runtime::Result<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqGetTranscriptConfiguration(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7591,7 +7591,7 @@ pub unsafe fn DdqIsDiagnosticRecordSampledIn<
 ) -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqIsDiagnosticRecordSampledIn(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7632,7 +7632,7 @@ pub unsafe fn DdqSetTranscriptConfiguration<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "diagnosticdataquery")]
+        #[link(name = "windows")]
         extern "system" {
             fn DdqSetTranscriptConfiguration(
                 hsession: HDIAGNOSTIC_DATA_QUERY_SESSION,
@@ -7652,7 +7652,7 @@ pub unsafe fn DdqSetTranscriptConfiguration<
 pub unsafe fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::BOOL;
         }
@@ -7677,7 +7677,7 @@ pub unsafe fn DeriveCapabilitySidsFromName<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-security-base-l1-2-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeriveCapabilitySidsFromName(
                 capname: super::Foundation::PWSTR,
@@ -7704,7 +7704,7 @@ pub unsafe fn DestroyPrivateObjectSecurity(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyPrivateObjectSecurity(
                 objectdescriptor: *const *const SECURITY_DESCRIPTOR,
@@ -7728,7 +7728,7 @@ pub unsafe fn DuplicateToken<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DuplicateToken(
                 existingtokenhandle: super::Foundation::HANDLE,
@@ -7759,7 +7759,7 @@ pub unsafe fn DuplicateTokenEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DuplicateTokenEx(
                 hexistingtoken: super::Foundation::HANDLE,
@@ -7821,7 +7821,7 @@ pub unsafe fn EqualDomainSid<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EqualDomainSid(
                 psid1: super::Foundation::PSID,
@@ -7849,7 +7849,7 @@ pub unsafe fn EqualPrefixSid<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EqualPrefixSid(
                 psid1: super::Foundation::PSID,
@@ -7875,7 +7875,7 @@ pub unsafe fn EqualSid<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EqualSid(
                 psid1: super::Foundation::PSID,
@@ -7894,7 +7894,7 @@ pub unsafe fn FindFirstFreeAce(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFreeAce(
                 pacl: *const ACL,
@@ -7915,7 +7915,7 @@ pub unsafe fn FreeSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::Found
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeSid(psid: super::Foundation::PSID) -> *mut ::std::ffi::c_void;
         }
@@ -7969,7 +7969,7 @@ pub unsafe fn GetAce(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAce(
                 pacl: *const ACL,
@@ -7995,7 +7995,7 @@ pub unsafe fn GetAclInformation(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAclInformation(
                 pacl: *const ACL,
@@ -8023,7 +8023,7 @@ pub unsafe fn GetAppContainerAce(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAppContainerAce(
                 acl: *const ACL,
@@ -8056,7 +8056,7 @@ pub unsafe fn GetCachedSigningLevel<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCachedSigningLevel(
                 file: super::Foundation::HANDLE,
@@ -8092,7 +8092,7 @@ pub unsafe fn GetFileSecurityA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileSecurityA(
                 lpfilename: super::Foundation::PSTR,
@@ -8126,7 +8126,7 @@ pub unsafe fn GetFileSecurityW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileSecurityW(
                 lpfilename: super::Foundation::PWSTR,
@@ -8160,7 +8160,7 @@ pub unsafe fn GetKernelObjectSecurity<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKernelObjectSecurity(
                 handle: super::Foundation::HANDLE,
@@ -8190,7 +8190,7 @@ pub unsafe fn GetLengthSid<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLengthSid(psid: super::Foundation::PSID) -> u32;
         }
@@ -8209,7 +8209,7 @@ pub unsafe fn GetPrivateObjectSecurity(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateObjectSecurity(
                 objectdescriptor: *const SECURITY_DESCRIPTOR,
@@ -8238,7 +8238,7 @@ pub unsafe fn GetSecurityDescriptorControl(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityDescriptorControl(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -8264,7 +8264,7 @@ pub unsafe fn GetSecurityDescriptorDacl(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityDescriptorDacl(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -8291,7 +8291,7 @@ pub unsafe fn GetSecurityDescriptorGroup(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityDescriptorGroup(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -8312,7 +8312,7 @@ pub unsafe fn GetSecurityDescriptorGroup(
 pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityDescriptorLength(psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> u32;
         }
@@ -8331,7 +8331,7 @@ pub unsafe fn GetSecurityDescriptorOwner(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityDescriptorOwner(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -8355,7 +8355,7 @@ pub unsafe fn GetSecurityDescriptorRMControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityDescriptorRMControl(
                 securitydescriptor: *const SECURITY_DESCRIPTOR,
@@ -8379,7 +8379,7 @@ pub unsafe fn GetSecurityDescriptorSacl(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityDescriptorSacl(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -8407,7 +8407,7 @@ pub unsafe fn GetSidIdentifierAuthority<
 ) -> *mut SID_IDENTIFIER_AUTHORITY {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSidIdentifierAuthority(
                 psid: super::Foundation::PSID,
@@ -8421,7 +8421,7 @@ pub unsafe fn GetSidIdentifierAuthority<
 pub unsafe fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32;
         }
@@ -8442,7 +8442,7 @@ pub unsafe fn GetSidSubAuthority<
 ) -> *mut u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSidSubAuthority(psid: super::Foundation::PSID, nsubauthority: u32) -> *mut u32;
         }
@@ -8463,7 +8463,7 @@ pub unsafe fn GetSidSubAuthorityCount<
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSidSubAuthorityCount(psid: super::Foundation::PSID) -> *mut u8;
         }
@@ -8485,7 +8485,7 @@ pub unsafe fn GetTokenInformation<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTokenInformation(
                 tokenhandle: super::Foundation::HANDLE,
@@ -8519,7 +8519,7 @@ pub unsafe fn GetUserObjectSecurity<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserObjectSecurity(
                 hobj: super::Foundation::HANDLE,
@@ -8551,7 +8551,7 @@ pub unsafe fn GetWindowsAccountDomainSid<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowsAccountDomainSid(
                 psid: super::Foundation::PSID,
@@ -12301,7 +12301,7 @@ pub unsafe fn ImpersonateAnonymousToken<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImpersonateAnonymousToken(
                 threadhandle: super::Foundation::HANDLE,
@@ -12321,7 +12321,7 @@ pub unsafe fn ImpersonateLoggedOnUser<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImpersonateLoggedOnUser(
                 htoken: super::Foundation::HANDLE,
@@ -12338,7 +12338,7 @@ pub unsafe fn ImpersonateSelf(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImpersonateSelf(
                 impersonationlevel: SECURITY_IMPERSONATION_LEVEL,
@@ -12357,7 +12357,7 @@ pub unsafe fn InitializeAcl(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeAcl(
                 pacl: *mut ACL,
@@ -12381,7 +12381,7 @@ pub unsafe fn InitializeSecurityDescriptor(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeSecurityDescriptor(
                 psecuritydescriptor: *mut SECURITY_DESCRIPTOR,
@@ -12404,7 +12404,7 @@ pub unsafe fn InitializeSid(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeSid(
                 sid: super::Foundation::PSID,
@@ -12432,7 +12432,7 @@ pub unsafe fn IsCatalogFile<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCatalogFile(
                 hfile: super::Foundation::HANDLE,
@@ -12456,7 +12456,7 @@ pub unsafe fn IsTokenRestricted<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsTokenRestricted(tokenhandle: super::Foundation::HANDLE)
                 -> super::Foundation::BOOL;
@@ -12470,7 +12470,7 @@ pub unsafe fn IsTokenRestricted<
 pub unsafe fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL;
         }
@@ -12485,7 +12485,7 @@ pub unsafe fn IsValidSecurityDescriptor(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidSecurityDescriptor(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -12504,7 +12504,7 @@ pub unsafe fn IsValidSid<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fo
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidSid(psid: super::Foundation::PSID) -> super::Foundation::BOOL;
         }
@@ -12523,7 +12523,7 @@ pub unsafe fn IsWellKnownSid<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWellKnownSid(
                 psid: super::Foundation::PSID,
@@ -12774,7 +12774,7 @@ pub unsafe fn LogonUserA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogonUserA(
                 lpszusername: super::Foundation::PSTR,
@@ -12817,7 +12817,7 @@ pub unsafe fn LogonUserExA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogonUserExA(
                 lpszusername: super::Foundation::PSTR,
@@ -12868,7 +12868,7 @@ pub unsafe fn LogonUserExW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogonUserExW(
                 lpszusername: super::Foundation::PWSTR,
@@ -12915,7 +12915,7 @@ pub unsafe fn LogonUserW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogonUserW(
                 lpszusername: super::Foundation::PWSTR,
@@ -12954,7 +12954,7 @@ pub unsafe fn LookupAccountNameA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupAccountNameA(
                 lpsystemname: super::Foundation::PSTR,
@@ -12995,7 +12995,7 @@ pub unsafe fn LookupAccountNameW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupAccountNameW(
                 lpsystemname: super::Foundation::PWSTR,
@@ -13036,7 +13036,7 @@ pub unsafe fn LookupAccountSidA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupAccountSidA(
                 lpsystemname: super::Foundation::PSTR,
@@ -13077,7 +13077,7 @@ pub unsafe fn LookupAccountSidW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupAccountSidW(
                 lpsystemname: super::Foundation::PWSTR,
@@ -13116,7 +13116,7 @@ pub unsafe fn LookupPrivilegeDisplayNameA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPrivilegeDisplayNameA(
                 lpsystemname: super::Foundation::PSTR,
@@ -13151,7 +13151,7 @@ pub unsafe fn LookupPrivilegeDisplayNameW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPrivilegeDisplayNameW(
                 lpsystemname: super::Foundation::PWSTR,
@@ -13184,7 +13184,7 @@ pub unsafe fn LookupPrivilegeNameA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPrivilegeNameA(
                 lpsystemname: super::Foundation::PSTR,
@@ -13215,7 +13215,7 @@ pub unsafe fn LookupPrivilegeNameW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPrivilegeNameW(
                 lpsystemname: super::Foundation::PWSTR,
@@ -13246,7 +13246,7 @@ pub unsafe fn LookupPrivilegeValueA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPrivilegeValueA(
                 lpsystemname: super::Foundation::PSTR,
@@ -13275,7 +13275,7 @@ pub unsafe fn LookupPrivilegeValueW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPrivilegeValueW(
                 lpsystemname: super::Foundation::PWSTR,
@@ -13530,7 +13530,7 @@ pub unsafe fn MakeAbsoluteSD(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MakeAbsoluteSD(
                 pselfrelativesecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -13571,7 +13571,7 @@ pub unsafe fn MakeSelfRelativeSD(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MakeSelfRelativeSD(
                 pabsolutesecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -13591,7 +13591,7 @@ pub unsafe fn MakeSelfRelativeSD(
 pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING);
         }
@@ -13685,7 +13685,7 @@ pub unsafe fn ObjectCloseAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectCloseAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -13714,7 +13714,7 @@ pub unsafe fn ObjectCloseAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectCloseAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -13743,7 +13743,7 @@ pub unsafe fn ObjectDeleteAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectDeleteAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -13772,7 +13772,7 @@ pub unsafe fn ObjectDeleteAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectDeleteAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -13814,7 +13814,7 @@ pub unsafe fn ObjectOpenAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectOpenAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -13874,7 +13874,7 @@ pub unsafe fn ObjectOpenAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectOpenAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -13925,7 +13925,7 @@ pub unsafe fn ObjectPrivilegeAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectPrivilegeAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -13964,7 +13964,7 @@ pub unsafe fn ObjectPrivilegeAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectPrivilegeAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -13996,7 +13996,7 @@ pub unsafe fn OpenPersonalTrustDBDialog<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPersonalTrustDBDialog(
                 hwndparent: super::Foundation::HWND,
@@ -14018,7 +14018,7 @@ pub unsafe fn OpenPersonalTrustDBDialogEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPersonalTrustDBDialogEx(
                 hwndparent: super::Foundation::HWND,
@@ -14550,7 +14550,7 @@ pub unsafe fn PrivilegeCheck<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrivilegeCheck(
                 clienttoken: super::Foundation::HANDLE,
@@ -14583,7 +14583,7 @@ pub unsafe fn PrivilegedServiceAuditAlarmA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrivilegedServiceAuditAlarmA(
                 subsystemname: super::Foundation::PSTR,
@@ -14620,7 +14620,7 @@ pub unsafe fn PrivilegedServiceAuditAlarmW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrivilegedServiceAuditAlarmW(
                 subsystemname: super::Foundation::PWSTR,
@@ -14687,7 +14687,7 @@ unsafe impl ::windows::runtime::Abi for QUOTA_LIMITS {
 pub unsafe fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
         }
@@ -14709,7 +14709,7 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<
 ) -> ::windows::runtime::Result<LicenseProtectionStatus> {
     #[cfg(windows)]
     {
-        #[link(name = "licenseprotection")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterLicenseKeyWithExpiration(
                 licensekey: super::Foundation::PWSTR,
@@ -14740,7 +14740,7 @@ pub const RemoteTpmVirtualSmartCardManager: ::windows::runtime::GUID =
 pub unsafe fn RevertToSelf() -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RevertToSelf() -> super::Foundation::BOOL;
         }
@@ -14761,7 +14761,7 @@ pub unsafe fn RtlConvertSidToUnicodeString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlConvertSidToUnicodeString(
                 unicodestring: *mut super::System::Kernel::UNICODE_STRING,
@@ -17625,7 +17625,7 @@ pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::runtime::IntoParam<'a, SAFE
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferCloseLevel(hlevelhandle: SAFER_LEVEL_HANDLE) -> super::Foundation::BOOL;
         }
@@ -17648,7 +17648,7 @@ pub unsafe fn SaferComputeTokenFromLevel<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferComputeTokenFromLevel(
                 levelhandle: SAFER_LEVEL_HANDLE,
@@ -17679,7 +17679,7 @@ pub unsafe fn SaferCreateLevel(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferCreateLevel(
                 dwscopeid: u32,
@@ -17713,7 +17713,7 @@ pub unsafe fn SaferGetLevelInformation<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferGetLevelInformation(
                 levelhandle: SAFER_LEVEL_HANDLE,
@@ -17745,7 +17745,7 @@ pub unsafe fn SaferGetPolicyInformation(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferGetPolicyInformation(
                 dwscopeid: u32,
@@ -17777,7 +17777,7 @@ pub unsafe fn SaferIdentifyLevel(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferIdentifyLevel(
                 dwnumproperties: u32,
@@ -17808,7 +17808,7 @@ pub unsafe fn SaferRecordEventLogEntry<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferRecordEventLogEntry(
                 hlevel: SAFER_LEVEL_HANDLE,
@@ -17837,7 +17837,7 @@ pub unsafe fn SaferSetLevelInformation<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferSetLevelInformation(
                 levelhandle: SAFER_LEVEL_HANDLE,
@@ -17866,7 +17866,7 @@ pub unsafe fn SaferSetPolicyInformation(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferSetPolicyInformation(
                 dwscopeid: u32,
@@ -17898,7 +17898,7 @@ pub unsafe fn SaferiIsExecutableFileType<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaferiIsExecutableFileType(
                 szfullpathname: super::Foundation::PWSTR,
@@ -17922,7 +17922,7 @@ pub unsafe fn SetAclInformation(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetAclInformation(
                 pacl: *mut ACL,
@@ -17953,7 +17953,7 @@ pub unsafe fn SetCachedSigningLevel<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCachedSigningLevel(
                 sourcefiles: *const super::Foundation::HANDLE,
@@ -17983,7 +17983,7 @@ pub unsafe fn SetFileSecurityA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileSecurityA(
                 lpfilename: super::Foundation::PSTR,
@@ -18011,7 +18011,7 @@ pub unsafe fn SetFileSecurityW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileSecurityW(
                 lpfilename: super::Foundation::PWSTR,
@@ -18039,7 +18039,7 @@ pub unsafe fn SetKernelObjectSecurity<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetKernelObjectSecurity(
                 handle: super::Foundation::HANDLE,
@@ -18069,7 +18069,7 @@ pub unsafe fn SetPrivateObjectSecurity<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrivateObjectSecurity(
                 securityinformation: u32,
@@ -18104,7 +18104,7 @@ pub unsafe fn SetPrivateObjectSecurityEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrivateObjectSecurityEx(
                 securityinformation: u32,
@@ -18130,7 +18130,7 @@ pub unsafe fn SetPrivateObjectSecurityEx<
 pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32);
         }
@@ -18150,7 +18150,7 @@ pub unsafe fn SetSecurityDescriptorControl(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityDescriptorControl(
                 psecuritydescriptor: *const SECURITY_DESCRIPTOR,
@@ -18180,7 +18180,7 @@ pub unsafe fn SetSecurityDescriptorDacl<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityDescriptorDacl(
                 psecuritydescriptor: *mut SECURITY_DESCRIPTOR,
@@ -18211,7 +18211,7 @@ pub unsafe fn SetSecurityDescriptorGroup<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityDescriptorGroup(
                 psecuritydescriptor: *mut SECURITY_DESCRIPTOR,
@@ -18240,7 +18240,7 @@ pub unsafe fn SetSecurityDescriptorOwner<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityDescriptorOwner(
                 psecuritydescriptor: *mut SECURITY_DESCRIPTOR,
@@ -18264,7 +18264,7 @@ pub unsafe fn SetSecurityDescriptorRMControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityDescriptorRMControl(
                 securitydescriptor: *mut SECURITY_DESCRIPTOR,
@@ -18292,7 +18292,7 @@ pub unsafe fn SetSecurityDescriptorSacl<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityDescriptorSacl(
                 psecuritydescriptor: *mut SECURITY_DESCRIPTOR,
@@ -18323,7 +18323,7 @@ pub unsafe fn SetTokenInformation<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTokenInformation(
                 tokenhandle: super::Foundation::HANDLE,
@@ -18353,7 +18353,7 @@ pub unsafe fn SetUserObjectSecurity<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUserObjectSecurity(
                 hobj: super::Foundation::HANDLE,
@@ -19556,7 +19556,7 @@ pub unsafe fn ValidateLicenseKeyProtection<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "licenseprotection")]
+        #[link(name = "windows")]
         extern "system" {
             fn ValidateLicenseKeyProtection(
                 licensekey: super::Foundation::PWSTR,
@@ -22321,7 +22321,7 @@ pub unsafe fn WTHelperCertCheckValidSignature(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTHelperCertCheckValidSignature(
                 pprovdata: *mut CRYPT_PROVIDER_DATA,
@@ -22342,7 +22342,7 @@ pub unsafe fn WTHelperCertIsSelfSigned(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTHelperCertIsSelfSigned(
                 dwencoding: u32,
@@ -22367,7 +22367,7 @@ pub unsafe fn WTHelperGetProvCertFromChain(
 ) -> *mut CRYPT_PROVIDER_CERT {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTHelperGetProvCertFromChain(
                 psgnr: *mut CRYPT_PROVIDER_SGNR,
@@ -22392,7 +22392,7 @@ pub unsafe fn WTHelperGetProvPrivateDataFromChain(
 ) -> *mut CRYPT_PROVIDER_PRIVDATA {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTHelperGetProvPrivateDataFromChain(
                 pprovdata: *mut CRYPT_PROVIDER_DATA,
@@ -22422,7 +22422,7 @@ pub unsafe fn WTHelperGetProvSignerFromChain<
 ) -> *mut CRYPT_PROVIDER_SGNR {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTHelperGetProvSignerFromChain(
                 pprovdata: *mut CRYPT_PROVIDER_DATA,
@@ -22453,7 +22453,7 @@ pub unsafe fn WTHelperProvDataFromStateData<
 ) -> *mut CRYPT_PROVIDER_DATA {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTHelperProvDataFromStateData(
                 hstatedata: super::Foundation::HANDLE,
@@ -22481,7 +22481,7 @@ pub unsafe fn WinVerifyTrust<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinVerifyTrust(
                 hwnd: super::Foundation::HWND,
@@ -22512,7 +22512,7 @@ pub unsafe fn WinVerifyTrustEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinVerifyTrustEx(
                 hwnd: super::Foundation::HWND,
@@ -22537,7 +22537,7 @@ pub unsafe fn WintrustAddActionID(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustAddActionID(
                 pgactionid: *const ::windows::runtime::GUID,
@@ -22564,7 +22564,7 @@ pub unsafe fn WintrustAddDefaultForUsage<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustAddDefaultForUsage(
                 pszusageoid: super::Foundation::PSTR,
@@ -22590,7 +22590,7 @@ pub unsafe fn WintrustGetDefaultForUsage<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustGetDefaultForUsage(
                 dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION,
@@ -22610,7 +22610,7 @@ pub unsafe fn WintrustGetDefaultForUsage<
 pub unsafe fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS) {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS);
         }
@@ -22631,7 +22631,7 @@ pub unsafe fn WintrustLoadFunctionPointers(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustLoadFunctionPointers(
                 pgactionid: *mut ::windows::runtime::GUID,
@@ -22652,7 +22652,7 @@ pub unsafe fn WintrustRemoveActionID(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustRemoveActionID(
                 pgactionid: *const ::windows::runtime::GUID,
@@ -22672,7 +22672,7 @@ pub unsafe fn WintrustSetDefaultIncludePEPageHashes<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: super::Foundation::BOOL);
         }
@@ -22689,7 +22689,7 @@ pub unsafe fn WintrustSetRegPolicyFlags(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wintrust")]
+        #[link(name = "windows")]
         extern "system" {
             fn WintrustSetRegPolicyFlags(
                 dwpolicyflags: WINTRUST_POLICY_FLAGS,

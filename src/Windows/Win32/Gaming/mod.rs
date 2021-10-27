@@ -19,7 +19,7 @@ pub unsafe fn CheckGamingPrivilegeSilently<
 ) -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckGamingPrivilegeSilently(
                 privilegeid: u32,
@@ -55,7 +55,7 @@ pub unsafe fn CheckGamingPrivilegeSilentlyForUser<
 ) -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckGamingPrivilegeSilentlyForUser(
                 user: ::windows::runtime::RawPtr,
@@ -94,7 +94,7 @@ pub unsafe fn CheckGamingPrivilegeWithUI<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckGamingPrivilegeWithUI(
                 privilegeid: u32,
@@ -135,7 +135,7 @@ pub unsafe fn CheckGamingPrivilegeWithUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckGamingPrivilegeWithUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -324,7 +324,7 @@ pub type GameUICompletionRoutine = unsafe extern "system" fn(
 pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-expandedresources-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExpandedResourceExclusiveCpuCount(
                 exclusivecpucount: *mut u32,
@@ -340,7 +340,7 @@ pub unsafe fn GetGamingDeviceModelInformation(
 ) -> ::windows::runtime::Result<GAMING_DEVICE_MODEL_INFORMATION> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-deviceinformation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGamingDeviceModelInformation(
                 information: *mut GAMING_DEVICE_MODEL_INFORMATION,
@@ -358,7 +358,7 @@ pub unsafe fn GetGamingDeviceModelInformation(
 pub unsafe fn HasExpandedResources() -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-expandedresources-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HasExpandedResources(
                 hasexpandedresources: *mut super::Foundation::BOOL,
@@ -1770,7 +1770,7 @@ pub unsafe fn ProcessPendingGameUI<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessPendingGameUI(
                 waitforcompletion: super::Foundation::BOOL,
@@ -1784,7 +1784,7 @@ pub unsafe fn ProcessPendingGameUI<
 pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-expandedresources-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseExclusiveCpuSets() -> ::windows::runtime::HRESULT;
         }
@@ -1803,7 +1803,7 @@ pub unsafe fn ShowChangeFriendRelationshipUI<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowChangeFriendRelationshipUI(
                 targetuserxuid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -1833,7 +1833,7 @@ pub unsafe fn ShowChangeFriendRelationshipUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowChangeFriendRelationshipUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -1859,7 +1859,7 @@ pub unsafe fn ShowCustomizeUserProfileUI(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowCustomizeUserProfileUI(
                 completionroutine: ::windows::runtime::RawPtr,
@@ -1885,7 +1885,7 @@ pub unsafe fn ShowCustomizeUserProfileUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowCustomizeUserProfileUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -1909,7 +1909,7 @@ pub unsafe fn ShowFindFriendsUI(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowFindFriendsUI(
                 completionroutine: ::windows::runtime::RawPtr,
@@ -1935,7 +1935,7 @@ pub unsafe fn ShowFindFriendsUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowFindFriendsUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -1960,7 +1960,7 @@ pub unsafe fn ShowGameInfoUI(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowGameInfoUI(
                 titleid: u32,
@@ -1989,7 +1989,7 @@ pub unsafe fn ShowGameInfoUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowGameInfoUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -2025,7 +2025,7 @@ pub unsafe fn ShowGameInviteUI<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowGameInviteUI(
                 serviceconfigurationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -2067,7 +2067,7 @@ pub unsafe fn ShowGameInviteUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowGameInviteUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -2111,7 +2111,7 @@ pub unsafe fn ShowGameInviteUIWithContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowGameInviteUIWithContext(
                 serviceconfigurationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -2157,7 +2157,7 @@ pub unsafe fn ShowGameInviteUIWithContextForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowGameInviteUIWithContextForUser(
                 user: ::windows::runtime::RawPtr,
@@ -2201,7 +2201,7 @@ pub unsafe fn ShowPlayerPickerUI<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowPlayerPickerUI(
                 promptdisplaytext: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -2249,7 +2249,7 @@ pub unsafe fn ShowPlayerPickerUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowPlayerPickerUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -2291,7 +2291,7 @@ pub unsafe fn ShowProfileCardUI<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowProfileCardUI(
                 targetuserxuid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -2321,7 +2321,7 @@ pub unsafe fn ShowProfileCardUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowProfileCardUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -2348,7 +2348,7 @@ pub unsafe fn ShowTitleAchievementsUI(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowTitleAchievementsUI(
                 titleid: u32,
@@ -2377,7 +2377,7 @@ pub unsafe fn ShowTitleAchievementsUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowTitleAchievementsUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -2403,7 +2403,7 @@ pub unsafe fn ShowUserSettingsUI(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowUserSettingsUI(
                 completionroutine: ::windows::runtime::RawPtr,
@@ -2429,7 +2429,7 @@ pub unsafe fn ShowUserSettingsUIForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowUserSettingsUIForUser(
                 user: ::windows::runtime::RawPtr,
@@ -2451,7 +2451,7 @@ pub unsafe fn ShowUserSettingsUIForUser<
 pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-gaming-tcui-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn TryCancelPendingGameUI() -> super::Foundation::BOOL;
         }

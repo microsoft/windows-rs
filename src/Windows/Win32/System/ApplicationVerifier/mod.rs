@@ -216,7 +216,7 @@ pub unsafe fn VerifierEnumerateResource<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "verifier")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifierEnumerateResource(
                 process: super::super::Foundation::HANDLE,

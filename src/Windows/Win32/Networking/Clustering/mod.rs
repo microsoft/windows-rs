@@ -13,7 +13,7 @@ pub unsafe fn AddClusterGroupDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterGroupDependency(
                 hdependentgroup: *const _HGROUP,
@@ -34,7 +34,7 @@ pub unsafe fn AddClusterGroupSetDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterGroupSetDependency(
                 hdependentgroupset: *const _HGROUPSET,
@@ -55,7 +55,7 @@ pub unsafe fn AddClusterGroupToGroupSetDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterGroupToGroupSetDependency(
                 hdependentgroup: *const _HGROUP,
@@ -82,7 +82,7 @@ pub unsafe fn AddClusterNode<
 ) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterNode(
                 hcluster: *const _HCLUSTER,
@@ -114,7 +114,7 @@ pub unsafe fn AddClusterNodeEx<
 ) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterNodeEx(
                 hcluster: *const _HCLUSTER,
@@ -141,7 +141,7 @@ pub unsafe fn AddClusterResourceDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterResourceDependency(
                 hresource: *const _HRESOURCE,
@@ -159,7 +159,7 @@ pub unsafe fn AddClusterResourceDependency(
 pub unsafe fn AddClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE) -> u32;
         }
@@ -187,7 +187,7 @@ pub unsafe fn AddClusterStorageNode<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddClusterStorageNode(
                 hcluster: *const _HCLUSTER,
@@ -222,7 +222,7 @@ pub unsafe fn AddCrossClusterGroupSetDependency<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddCrossClusterGroupSetDependency(
                 hdependentgroupset: *const _HGROUPSET,
@@ -242,7 +242,7 @@ pub unsafe fn AddCrossClusterGroupSetDependency<
 pub unsafe fn AddResourceToClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddResourceToClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32;
         }
@@ -263,7 +263,7 @@ pub unsafe fn BackupClusterDatabase<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn BackupClusterDatabase(
                 hcluster: *const _HCLUSTER,
@@ -6949,7 +6949,7 @@ pub unsafe fn CanResourceBeDependent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CanResourceBeDependent(
                 hresource: *const _HRESOURCE,
@@ -6970,7 +6970,7 @@ pub unsafe fn CancelClusterGroupOperation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelClusterGroupOperation(
                 hgroup: *const _HGROUP,
@@ -6991,7 +6991,7 @@ pub unsafe fn ChangeClusterResourceGroup(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeClusterResourceGroup(
                 hresource: *const _HRESOURCE,
@@ -7013,7 +7013,7 @@ pub unsafe fn ChangeClusterResourceGroupEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeClusterResourceGroupEx(
                 hresource: *const _HRESOURCE,
@@ -7034,7 +7034,7 @@ pub unsafe fn ChangeClusterResourceGroupEx(
 pub unsafe fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL;
         }
@@ -7046,7 +7046,7 @@ pub unsafe fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundati
 pub unsafe fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32;
         }
@@ -7061,7 +7061,7 @@ pub unsafe fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPR
 pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL;
         }
@@ -7074,7 +7074,7 @@ pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundat
 pub unsafe fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET)
                 -> super::super::Foundation::BOOL;
@@ -7090,7 +7090,7 @@ pub unsafe fn CloseClusterNetInterface(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterNetInterface(
                 hnetinterface: *const _HNETINTERFACE,
@@ -7107,7 +7107,7 @@ pub unsafe fn CloseClusterNetInterface(
 pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL;
         }
@@ -7120,7 +7120,7 @@ pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::F
 pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation::BOOL;
         }
@@ -7133,7 +7133,7 @@ pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation
 pub unsafe fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::Foundation::BOOL;
         }
@@ -7146,7 +7146,7 @@ pub unsafe fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::
 pub unsafe fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseClusterResource(hresource: *const _HRESOURCE)
                 -> super::super::Foundation::BOOL;
@@ -7164,7 +7164,7 @@ pub unsafe fn ClusAddClusterHealthFault(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusAddClusterHealthFault(
                 hcluster: *const _HCLUSTER,
@@ -7213,7 +7213,7 @@ pub unsafe fn ClusGetClusterHealthFaults(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusGetClusterHealthFaults(
                 hcluster: *const _HCLUSTER,
@@ -7350,7 +7350,7 @@ pub unsafe fn ClusRemoveClusterHealthFault<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusRemoveClusterHealthFault(
                 hcluster: *const _HCLUSTER,
@@ -7466,7 +7466,7 @@ pub unsafe fn ClusWorkerCheckTerminate(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusWorkerCheckTerminate(
                 lpworker: *mut CLUS_WORKER,
@@ -7485,7 +7485,7 @@ pub unsafe fn ClusWorkerCreate(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusWorkerCreate(
                 lpworker: *mut CLUS_WORKER,
@@ -7506,7 +7506,7 @@ pub unsafe fn ClusWorkerCreate(
 pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER);
         }
@@ -7526,7 +7526,7 @@ pub unsafe fn ClusWorkerTerminateEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusWorkerTerminateEx(
                 clusworker: *mut CLUS_WORKER,
@@ -7555,7 +7555,7 @@ pub unsafe fn ClusWorkersTerminate<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusWorkersTerminate(
                 clusworkers: *mut *mut CLUS_WORKER,
@@ -7591,7 +7591,7 @@ pub unsafe fn ClusterAddGroupToAffinityRule<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterAddGroupToAffinityRule(
                 hcluster: *const _HCLUSTER,
@@ -7614,7 +7614,7 @@ pub unsafe fn ClusterAddGroupToGroupSet(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterAddGroupToGroupSet(
                 hgroupset: *const _HGROUPSET,
@@ -7637,7 +7637,7 @@ pub unsafe fn ClusterAddGroupToGroupSetWithDomains(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterAddGroupToGroupSetWithDomains(
                 hgroupset: *const _HGROUPSET,
@@ -7673,7 +7673,7 @@ pub unsafe fn ClusterAffinityRuleControl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterAffinityRuleControl(
                 hcluster: *const _HCLUSTER,
@@ -7711,7 +7711,7 @@ pub unsafe fn ClusterClearBackupStateForSharedVolume<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterClearBackupStateForSharedVolume(
                 lpszvolumepathname: super::super::Foundation::PWSTR,
@@ -7727,7 +7727,7 @@ pub unsafe fn ClusterClearBackupStateForSharedVolume<
 pub unsafe fn ClusterCloseEnum(henum: *const _HCLUSENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterCloseEnum(henum: *const _HCLUSENUM) -> u32;
         }
@@ -7739,7 +7739,7 @@ pub unsafe fn ClusterCloseEnum(henum: *const _HCLUSENUM) -> u32 {
 pub unsafe fn ClusterCloseEnumEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterCloseEnumEx(hclusterenum: *const _HCLUSENUMEX) -> u32;
         }
@@ -7760,7 +7760,7 @@ pub unsafe fn ClusterControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterControl(
                 hcluster: *const _HCLUSTER,
@@ -7798,7 +7798,7 @@ pub unsafe fn ClusterCreateAffinityRule<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterCreateAffinityRule(
                 hcluster: *const _HCLUSTER,
@@ -7824,7 +7824,7 @@ pub unsafe fn ClusterDecrypt(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterDecrypt(
                 hcluscryptprovider: *const _HCLUSCRYPTPROVIDER,
@@ -7854,7 +7854,7 @@ pub unsafe fn ClusterEncrypt(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterEncrypt(
                 hcluscryptprovider: *const _HCLUSCRYPTPROVIDER,
@@ -7885,7 +7885,7 @@ pub unsafe fn ClusterEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterEnum(
                 henum: *const _HCLUSENUM,
@@ -7915,7 +7915,7 @@ pub unsafe fn ClusterEnumEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterEnumEx(
                 hclusterenum: *const _HCLUSENUMEX,
@@ -7937,7 +7937,7 @@ pub unsafe fn ClusterEnumEx(
 pub unsafe fn ClusterGetEnumCount(henum: *const _HCLUSENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGetEnumCount(henum: *const _HCLUSENUM) -> u32;
         }
@@ -7949,7 +7949,7 @@ pub unsafe fn ClusterGetEnumCount(henum: *const _HCLUSENUM) -> u32 {
 pub unsafe fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32;
         }
@@ -7969,7 +7969,7 @@ pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGetVolumeNameForVolumeMountPoint(
                 lpszvolumemountpoint: super::super::Foundation::PWSTR,
@@ -7997,7 +7997,7 @@ pub unsafe fn ClusterGetVolumePathName<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGetVolumePathName(
                 lpszfilename: super::super::Foundation::PWSTR,
@@ -8017,7 +8017,7 @@ pub unsafe fn ClusterGetVolumePathName<
 pub unsafe fn ClusterGroupCloseEnum(hgroupenum: *const _HGROUPENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupCloseEnum(hgroupenum: *const _HGROUPENUM) -> u32;
         }
@@ -8029,7 +8029,7 @@ pub unsafe fn ClusterGroupCloseEnum(hgroupenum: *const _HGROUPENUM) -> u32 {
 pub unsafe fn ClusterGroupCloseEnumEx(hgroupenumex: *const _HGROUPENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupCloseEnumEx(hgroupenumex: *const _HGROUPENUMEX) -> u32;
         }
@@ -8050,7 +8050,7 @@ pub unsafe fn ClusterGroupControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupControl(
                 hgroup: *const _HGROUP,
@@ -8087,7 +8087,7 @@ pub unsafe fn ClusterGroupEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupEnum(
                 hgroupenum: *const _HGROUPENUM,
@@ -8117,7 +8117,7 @@ pub unsafe fn ClusterGroupEnumEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupEnumEx(
                 hgroupenumex: *const _HGROUPENUMEX,
@@ -8139,7 +8139,7 @@ pub unsafe fn ClusterGroupEnumEx(
 pub unsafe fn ClusterGroupGetEnumCount(hgroupenum: *const _HGROUPENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupGetEnumCount(hgroupenum: *const _HGROUPENUM) -> u32;
         }
@@ -8151,7 +8151,7 @@ pub unsafe fn ClusterGroupGetEnumCount(hgroupenum: *const _HGROUPENUM) -> u32 {
 pub unsafe fn ClusterGroupGetEnumCountEx(hgroupenumex: *const _HGROUPENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupGetEnumCountEx(hgroupenumex: *const _HGROUPENUMEX) -> u32;
         }
@@ -8165,7 +8165,7 @@ pub unsafe fn ClusterGroupGetEnumCountEx(hgroupenumex: *const _HGROUPENUMEX) -> 
 pub unsafe fn ClusterGroupOpenEnum(hgroup: *const _HGROUP, dwtype: u32) -> *mut _HGROUPENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupOpenEnum(hgroup: *const _HGROUP, dwtype: u32) -> *mut _HGROUPENUM;
         }
@@ -8192,7 +8192,7 @@ pub unsafe fn ClusterGroupOpenEnumEx<
 ) -> *mut _HGROUPENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupOpenEnumEx(
                 hcluster: *const _HCLUSTER,
@@ -8218,7 +8218,7 @@ pub unsafe fn ClusterGroupOpenEnumEx<
 pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: *mut _HGROUPSETENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupSetCloseEnum(hgroupsetenum: *mut _HGROUPSETENUM) -> u32;
         }
@@ -8241,7 +8241,7 @@ pub unsafe fn ClusterGroupSetControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupSetControl(
                 hgroupset: *const _HGROUPSET,
@@ -8277,7 +8277,7 @@ pub unsafe fn ClusterGroupSetEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupSetEnum(
                 hgroupsetenum: *const _HGROUPSETENUM,
@@ -8299,7 +8299,7 @@ pub unsafe fn ClusterGroupSetEnum(
 pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) -> u32;
         }
@@ -8313,7 +8313,7 @@ pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) ->
 pub unsafe fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> *mut _HGROUPSETENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> *mut _HGROUPSETENUM;
         }
@@ -8331,7 +8331,7 @@ pub unsafe fn ClusterIsPathOnSharedVolume<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterIsPathOnSharedVolume(
                 lpszpathname: super::super::Foundation::PWSTR,
@@ -8351,7 +8351,7 @@ pub const ClusterNames: ::windows::runtime::GUID = ::windows::runtime::GUID::fro
 pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM) -> u32;
         }
@@ -8374,7 +8374,7 @@ pub unsafe fn ClusterNetInterfaceControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetInterfaceControl(
                 hnetinterface: *const _HNETINTERFACE,
@@ -8410,7 +8410,7 @@ pub unsafe fn ClusterNetInterfaceEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetInterfaceEnum(
                 hnetinterfaceenum: *const _HNETINTERFACEENUM,
@@ -8441,7 +8441,7 @@ pub unsafe fn ClusterNetInterfaceOpenEnum<
 ) -> *mut _HNETINTERFACEENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetInterfaceOpenEnum(
                 hcluster: *const _HCLUSTER,
@@ -8461,7 +8461,7 @@ pub unsafe fn ClusterNetInterfaceOpenEnum<
 pub unsafe fn ClusterNetworkCloseEnum(hnetworkenum: *const _HNETWORKENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetworkCloseEnum(hnetworkenum: *const _HNETWORKENUM) -> u32;
         }
@@ -8482,7 +8482,7 @@ pub unsafe fn ClusterNetworkControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetworkControl(
                 hnetwork: *const _HNETWORK,
@@ -8519,7 +8519,7 @@ pub unsafe fn ClusterNetworkEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetworkEnum(
                 hnetworkenum: *const _HNETWORKENUM,
@@ -8543,7 +8543,7 @@ pub unsafe fn ClusterNetworkEnum(
 pub unsafe fn ClusterNetworkGetEnumCount(hnetworkenum: *const _HNETWORKENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetworkGetEnumCount(hnetworkenum: *const _HNETWORKENUM) -> u32;
         }
@@ -8560,7 +8560,7 @@ pub unsafe fn ClusterNetworkOpenEnum(
 ) -> *mut _HNETWORKENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNetworkOpenEnum(
                 hnetwork: *const _HNETWORK,
@@ -8578,7 +8578,7 @@ pub unsafe fn ClusterNetworkOpenEnum(
 pub unsafe fn ClusterNodeCloseEnum(hnodeenum: *const _HNODEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeCloseEnum(hnodeenum: *const _HNODEENUM) -> u32;
         }
@@ -8590,7 +8590,7 @@ pub unsafe fn ClusterNodeCloseEnum(hnodeenum: *const _HNODEENUM) -> u32 {
 pub unsafe fn ClusterNodeCloseEnumEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeCloseEnumEx(hnodeenum: *const _HNODEENUMEX) -> u32;
         }
@@ -8611,7 +8611,7 @@ pub unsafe fn ClusterNodeControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeControl(
                 hnode: *const _HNODE,
@@ -8648,7 +8648,7 @@ pub unsafe fn ClusterNodeEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeEnum(
                 hnodeenum: *const _HNODEENUM,
@@ -8678,7 +8678,7 @@ pub unsafe fn ClusterNodeEnumEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeEnumEx(
                 hnodeenum: *const _HNODEENUMEX,
@@ -8700,7 +8700,7 @@ pub unsafe fn ClusterNodeEnumEx(
 pub unsafe fn ClusterNodeGetEnumCount(hnodeenum: *const _HNODEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeGetEnumCount(hnodeenum: *const _HNODEENUM) -> u32;
         }
@@ -8712,7 +8712,7 @@ pub unsafe fn ClusterNodeGetEnumCount(hnodeenum: *const _HNODEENUM) -> u32 {
 pub unsafe fn ClusterNodeGetEnumCountEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeGetEnumCountEx(hnodeenum: *const _HNODEENUMEX) -> u32;
         }
@@ -8724,7 +8724,7 @@ pub unsafe fn ClusterNodeGetEnumCountEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
 pub unsafe fn ClusterNodeOpenEnum(hnode: *const _HNODE, dwtype: u32) -> *mut _HNODEENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeOpenEnum(hnode: *const _HNODE, dwtype: u32) -> *mut _HNODEENUM;
         }
@@ -8743,7 +8743,7 @@ pub unsafe fn ClusterNodeOpenEnumEx(
 ) -> *mut _HNODEENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeOpenEnumEx(
                 hnode: *const _HNODE,
@@ -8772,7 +8772,7 @@ pub unsafe fn ClusterNodeReplacement<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterNodeReplacement(
                 hcluster: *const _HCLUSTER,
@@ -8792,7 +8792,7 @@ pub unsafe fn ClusterNodeReplacement<
 pub unsafe fn ClusterOpenEnum(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _HCLUSENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterOpenEnum(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _HCLUSENUM;
         }
@@ -8811,7 +8811,7 @@ pub unsafe fn ClusterOpenEnumEx(
 ) -> *mut _HCLUSENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterOpenEnumEx(
                 hcluster: *const _HCLUSTER,
@@ -8841,7 +8841,7 @@ pub unsafe fn ClusterPrepareSharedVolumeForBackup<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterPrepareSharedVolumeForBackup(
                 lpszfilename: super::super::Foundation::PWSTR,
@@ -8876,7 +8876,7 @@ pub unsafe fn ClusterRegBatchAddCommand<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegBatchAddCommand(
                 hregbatch: *const _HREGBATCH,
@@ -8904,7 +8904,7 @@ pub unsafe fn ClusterRegBatchCloseNotification(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegBatchCloseNotification(
                 hbatchnotification: *const _HREGBATCHNOTIFICATION,
@@ -8924,7 +8924,7 @@ pub unsafe fn ClusterRegBatchReadCommand(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegBatchReadCommand(
                 hbatchnotification: *const _HREGBATCHNOTIFICATION,
@@ -8950,7 +8950,7 @@ pub unsafe fn ClusterRegCloseBatch<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCloseBatch(
                 hregbatch: *const _HREGBATCH,
@@ -8974,7 +8974,7 @@ pub unsafe fn ClusterRegCloseBatchEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCloseBatchEx(
                 hregbatch: *const _HREGBATCH,
@@ -8994,7 +8994,7 @@ pub unsafe fn ClusterRegCloseBatchEx(
 pub unsafe fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: *const _HREGBATCHPORT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: *const _HREGBATCHPORT) -> i32;
         }
@@ -9014,7 +9014,7 @@ pub unsafe fn ClusterRegCloseKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCloseKey(hkey: super::super::System::Registry::HKEY) -> i32;
         }
@@ -9029,7 +9029,7 @@ pub unsafe fn ClusterRegCloseReadBatch(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCloseReadBatch(
                 hregreadbatch: *const _HREGREADBATCH,
@@ -9051,7 +9051,7 @@ pub unsafe fn ClusterRegCloseReadBatchEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCloseReadBatchEx(
                 hregreadbatch: *const _HREGREADBATCH,
@@ -9071,7 +9071,7 @@ pub unsafe fn ClusterRegCloseReadBatchEx(
 pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: *const _HREGREADBATCHREPLY) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCloseReadBatchReply(hregreadbatchreply: *const _HREGREADBATCHREPLY)
                 -> i32;
@@ -9093,7 +9093,7 @@ pub unsafe fn ClusterRegCreateBatch<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCreateBatch(
                 hkey: super::super::System::Registry::HKEY,
@@ -9118,7 +9118,7 @@ pub unsafe fn ClusterRegCreateBatchNotifyPort<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCreateBatchNotifyPort(
                 hkey: super::super::System::Registry::HKEY,
@@ -9153,7 +9153,7 @@ pub unsafe fn ClusterRegCreateKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCreateKey(
                 hkey: super::super::System::Registry::HKEY,
@@ -9188,7 +9188,7 @@ pub unsafe fn ClusterRegCreateReadBatch<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegCreateReadBatch(
                 hkey: super::super::System::Registry::HKEY,
@@ -9214,7 +9214,7 @@ pub unsafe fn ClusterRegDeleteKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegDeleteKey(
                 hkey: super::super::System::Registry::HKEY,
@@ -9240,7 +9240,7 @@ pub unsafe fn ClusterRegDeleteValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegDeleteValue(
                 hkey: super::super::System::Registry::HKEY,
@@ -9268,7 +9268,7 @@ pub unsafe fn ClusterRegEnumKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegEnumKey(
                 hkey: super::super::System::Registry::HKEY,
@@ -9304,7 +9304,7 @@ pub unsafe fn ClusterRegEnumValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegEnumValue(
                 hkey: super::super::System::Registry::HKEY,
@@ -9335,7 +9335,7 @@ pub unsafe fn ClusterRegGetBatchNotification(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegGetBatchNotification(
                 hbatchnotify: *const _HREGBATCHPORT,
@@ -9366,7 +9366,7 @@ pub unsafe fn ClusterRegGetKeySecurity<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegGetKeySecurity(
                 hkey: super::super::System::Registry::HKEY,
@@ -9398,7 +9398,7 @@ pub unsafe fn ClusterRegOpenKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegOpenKey(
                 hkey: super::super::System::Registry::HKEY,
@@ -9433,7 +9433,7 @@ pub unsafe fn ClusterRegQueryInfoKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegQueryInfoKey(
                 hkey: super::super::System::Registry::HKEY,
@@ -9474,7 +9474,7 @@ pub unsafe fn ClusterRegQueryValue<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegQueryValue(
                 hkey: super::super::System::Registry::HKEY,
@@ -9507,7 +9507,7 @@ pub unsafe fn ClusterRegReadBatchAddCommand<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegReadBatchAddCommand(
                 hregreadbatch: *const _HREGREADBATCH,
@@ -9531,7 +9531,7 @@ pub unsafe fn ClusterRegReadBatchReplyNextCommand(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegReadBatchReplyNextCommand(
                 hregreadbatchreply: *const _HREGREADBATCHREPLY,
@@ -9561,7 +9561,7 @@ pub unsafe fn ClusterRegSetKeySecurity<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegSetKeySecurity(
                 hkey: super::super::System::Registry::HKEY,
@@ -9592,7 +9592,7 @@ pub unsafe fn ClusterRegSetValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegSetValue(
                 hkey: super::super::System::Registry::HKEY,
@@ -9616,7 +9616,7 @@ pub unsafe fn ClusterRegSetValue<
 pub unsafe fn ClusterRegSyncDatabase(hcluster: *const _HCLUSTER, flags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRegSyncDatabase(hcluster: *const _HCLUSTER, flags: u32) -> i32;
         }
@@ -9638,7 +9638,7 @@ pub unsafe fn ClusterRemoveAffinityRule<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRemoveAffinityRule(
                 hcluster: *const _HCLUSTER,
@@ -9664,7 +9664,7 @@ pub unsafe fn ClusterRemoveGroupFromAffinityRule<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRemoveGroupFromAffinityRule(
                 hcluster: *const _HCLUSTER,
@@ -9684,7 +9684,7 @@ pub unsafe fn ClusterRemoveGroupFromAffinityRule<
 pub unsafe fn ClusterRemoveGroupFromGroupSet(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterRemoveGroupFromGroupSet(hgroup: *const _HGROUP) -> u32;
         }
@@ -9698,7 +9698,7 @@ pub unsafe fn ClusterRemoveGroupFromGroupSet(hgroup: *const _HGROUP) -> u32 {
 pub unsafe fn ClusterResourceCloseEnum(hresenum: *const _HRESENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceCloseEnum(hresenum: *const _HRESENUM) -> u32;
         }
@@ -9710,7 +9710,7 @@ pub unsafe fn ClusterResourceCloseEnum(hresenum: *const _HRESENUM) -> u32 {
 pub unsafe fn ClusterResourceCloseEnumEx(hresourceenumex: *const _HRESENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceCloseEnumEx(hresourceenumex: *const _HRESENUMEX) -> u32;
         }
@@ -9733,7 +9733,7 @@ pub unsafe fn ClusterResourceControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceControl(
                 hresource: *const _HRESOURCE,
@@ -9772,7 +9772,7 @@ pub unsafe fn ClusterResourceControlAsUser(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceControlAsUser(
                 hresource: *const _HRESOURCE,
@@ -9809,7 +9809,7 @@ pub unsafe fn ClusterResourceEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceEnum(
                 hresenum: *const _HRESENUM,
@@ -9839,7 +9839,7 @@ pub unsafe fn ClusterResourceEnumEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceEnumEx(
                 hresourceenumex: *const _HRESENUMEX,
@@ -9861,7 +9861,7 @@ pub unsafe fn ClusterResourceEnumEx(
 pub unsafe fn ClusterResourceGetEnumCount(hresenum: *const _HRESENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceGetEnumCount(hresenum: *const _HRESENUM) -> u32;
         }
@@ -9873,7 +9873,7 @@ pub unsafe fn ClusterResourceGetEnumCount(hresenum: *const _HRESENUM) -> u32 {
 pub unsafe fn ClusterResourceGetEnumCountEx(hresourceenumex: *const _HRESENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceGetEnumCountEx(hresourceenumex: *const _HRESENUMEX) -> u32;
         }
@@ -9887,7 +9887,7 @@ pub unsafe fn ClusterResourceGetEnumCountEx(hresourceenumex: *const _HRESENUMEX)
 pub unsafe fn ClusterResourceOpenEnum(hresource: *const _HRESOURCE, dwtype: u32) -> *mut _HRESENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceOpenEnum(hresource: *const _HRESOURCE, dwtype: u32)
                 -> *mut _HRESENUM;
@@ -9915,7 +9915,7 @@ pub unsafe fn ClusterResourceOpenEnumEx<
 ) -> *mut _HRESENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceOpenEnumEx(
                 hcluster: *const _HCLUSTER,
@@ -9941,7 +9941,7 @@ pub unsafe fn ClusterResourceOpenEnumEx<
 pub unsafe fn ClusterResourceTypeCloseEnum(hrestypeenum: *const _HRESTYPEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceTypeCloseEnum(hrestypeenum: *const _HRESTYPEENUM) -> u32;
         }
@@ -9969,7 +9969,7 @@ pub unsafe fn ClusterResourceTypeControl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceTypeControl(
                 hcluster: *const _HCLUSTER,
@@ -10015,7 +10015,7 @@ pub unsafe fn ClusterResourceTypeControlAsUser<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceTypeControlAsUser(
                 hcluster: *const _HCLUSTER,
@@ -10054,7 +10054,7 @@ pub unsafe fn ClusterResourceTypeEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceTypeEnum(
                 hrestypeenum: *const _HRESTYPEENUM,
@@ -10078,7 +10078,7 @@ pub unsafe fn ClusterResourceTypeEnum(
 pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: *const _HRESTYPEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceTypeGetEnumCount(hrestypeenum: *const _HRESTYPEENUM) -> u32;
         }
@@ -10100,7 +10100,7 @@ pub unsafe fn ClusterResourceTypeOpenEnum<
 ) -> *mut _HRESTYPEENUM {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterResourceTypeOpenEnum(
                 hcluster: *const _HCLUSTER,
@@ -10129,7 +10129,7 @@ pub unsafe fn ClusterSetAccountAccess<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterSetAccountAccess(
                 hcluster: *const _HCLUSTER,
@@ -10160,7 +10160,7 @@ pub unsafe fn ClusterSharedVolumeSetSnapshotState<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterSharedVolumeSetSnapshotState(
                 guidsnapshotset: ::windows::runtime::GUID,
@@ -10189,7 +10189,7 @@ pub unsafe fn ClusterUpgradeFunctionalLevel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClusterUpgradeFunctionalLevel(
                 hcluster: *const _HCLUSTER,
@@ -10216,7 +10216,7 @@ pub unsafe fn CreateCluster(
 ) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCluster(
                 pconfig: *const CREATE_CLUSTER_CONFIG,
@@ -10244,7 +10244,7 @@ pub unsafe fn CreateClusterAvailabilitySet<
 ) -> *mut _HGROUPSET {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterAvailabilitySet(
                 hcluster: *const _HCLUSTER,
@@ -10271,7 +10271,7 @@ pub unsafe fn CreateClusterGroup<
 ) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterGroup(
                 hcluster: *const _HCLUSTER,
@@ -10297,7 +10297,7 @@ pub unsafe fn CreateClusterGroupEx<
 ) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterGroupEx(
                 hcluster: *const _HCLUSTER,
@@ -10324,7 +10324,7 @@ pub unsafe fn CreateClusterGroupSet<
 ) -> *mut _HGROUPSET {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterGroupSet(
                 hcluster: *const _HCLUSTER,
@@ -10348,7 +10348,7 @@ pub unsafe fn CreateClusterNameAccount(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterNameAccount(
                 hcluster: *const _HCLUSTER,
@@ -10375,7 +10375,7 @@ pub unsafe fn CreateClusterNotifyPort(
 ) -> *mut _HCHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterNotifyPort(
                 hchange: *const _HCHANGE,
@@ -10403,7 +10403,7 @@ pub unsafe fn CreateClusterNotifyPortV2(
 ) -> *mut _HCHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterNotifyPortV2(
                 hchange: *const _HCHANGE,
@@ -10437,7 +10437,7 @@ pub unsafe fn CreateClusterResource<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterResource(
                 hgroup: *const _HGROUP,
@@ -10472,7 +10472,7 @@ pub unsafe fn CreateClusterResourceType<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClusterResourceType(
                 hcluster: *const _HCLUSTER,
@@ -10499,7 +10499,7 @@ pub const DNS_LENGTH: u32 = 64u32;
 pub unsafe fn DeleteClusterGroup(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteClusterGroup(hgroup: *const _HGROUP) -> u32;
         }
@@ -10511,7 +10511,7 @@ pub unsafe fn DeleteClusterGroup(hgroup: *const _HGROUP) -> u32 {
 pub unsafe fn DeleteClusterGroupSet(hgroupset: *const _HGROUPSET) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteClusterGroupSet(hgroupset: *const _HGROUPSET) -> u32;
         }
@@ -10523,7 +10523,7 @@ pub unsafe fn DeleteClusterGroupSet(hgroupset: *const _HGROUPSET) -> u32 {
 pub unsafe fn DeleteClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -10542,7 +10542,7 @@ pub unsafe fn DeleteClusterResourceType<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteClusterResourceType(
                 hcluster: *const _HCLUSTER,
@@ -10569,7 +10569,7 @@ pub unsafe fn DestroyCluster<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyCluster(
                 hcluster: *const _HCLUSTER,
@@ -10591,7 +10591,7 @@ pub unsafe fn DestroyCluster<
 pub unsafe fn DestroyClusterGroup(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyClusterGroup(hgroup: *const _HGROUP) -> u32;
         }
@@ -10606,7 +10606,7 @@ pub unsafe fn DetermineCNOResTypeFromCluster(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DetermineCNOResTypeFromCluster(
                 hcluster: *const _HCLUSTER,
@@ -10629,7 +10629,7 @@ pub unsafe fn DetermineCNOResTypeFromNodelist(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DetermineCNOResTypeFromNodelist(
                 cnodes: u32,
@@ -10652,7 +10652,7 @@ pub unsafe fn DetermineClusterCloudTypeFromCluster(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DetermineClusterCloudTypeFromCluster(
                 hcluster: *const _HCLUSTER,
@@ -10675,7 +10675,7 @@ pub unsafe fn DetermineClusterCloudTypeFromNodelist(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DetermineClusterCloudTypeFromNodelist(
                 cnodes: u32,
@@ -10701,7 +10701,7 @@ pub const DomainNames: ::windows::runtime::GUID = ::windows::runtime::GUID::from
 pub unsafe fn EvictClusterNode(hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvictClusterNode(hnode: *const _HNODE) -> u32;
         }
@@ -10717,7 +10717,7 @@ pub unsafe fn EvictClusterNodeEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvictClusterNodeEx(
                 hnode: *const _HNODE,
@@ -10843,7 +10843,7 @@ unsafe impl ::windows::runtime::Abi for FILESHARE_CHANGE_LIST {
 pub unsafe fn FailClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn FailClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -10855,7 +10855,7 @@ pub unsafe fn FailClusterResource(hresource: *const _HRESOURCE) -> u32 {
 pub unsafe fn FreeClusterCrypt(pcryptinfo: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeClusterCrypt(pcryptinfo: *const ::std::ffi::c_void) -> u32;
         }
@@ -10868,7 +10868,7 @@ pub unsafe fn FreeClusterCrypt(pcryptinfo: *const ::std::ffi::c_void) -> u32 {
 pub unsafe fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
         }
@@ -10885,7 +10885,7 @@ pub unsafe fn FreeClusterHealthFaultArray(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeClusterHealthFaultArray(
                 clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY,
@@ -11032,7 +11032,7 @@ pub const GUID_PRESENT: u32 = 1u32;
 pub unsafe fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER;
         }
@@ -11044,7 +11044,7 @@ pub unsafe fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER {
 pub unsafe fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER;
         }
@@ -11058,7 +11058,7 @@ pub unsafe fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -
 pub unsafe fn GetClusterFromNetwork(hnetwork: *const _HNETWORK) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterFromNetwork(hnetwork: *const _HNETWORK) -> *mut _HCLUSTER;
         }
@@ -11070,7 +11070,7 @@ pub unsafe fn GetClusterFromNetwork(hnetwork: *const _HNETWORK) -> *mut _HCLUSTE
 pub unsafe fn GetClusterFromNode(hnode: *const _HNODE) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterFromNode(hnode: *const _HNODE) -> *mut _HCLUSTER;
         }
@@ -11082,7 +11082,7 @@ pub unsafe fn GetClusterFromNode(hnode: *const _HNODE) -> *mut _HCLUSTER {
 pub unsafe fn GetClusterFromResource(hresource: *const _HRESOURCE) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterFromResource(hresource: *const _HRESOURCE) -> *mut _HCLUSTER;
         }
@@ -11098,7 +11098,7 @@ pub unsafe fn GetClusterGroupKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterGroupKey(
                 hgroup: *const _HGROUP,
@@ -11121,7 +11121,7 @@ pub unsafe fn GetClusterGroupState(
 ) -> CLUSTER_GROUP_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterGroupState(
                 hgroup: *const _HGROUP,
@@ -11147,7 +11147,7 @@ pub unsafe fn GetClusterInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterInformation(
                 hcluster: *const _HCLUSTER,
@@ -11173,7 +11173,7 @@ pub unsafe fn GetClusterKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterKey(
                 hcluster: *const _HCLUSTER,
@@ -11202,7 +11202,7 @@ pub unsafe fn GetClusterNetInterface<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNetInterface(
                 hcluster: *const _HCLUSTER,
@@ -11230,7 +11230,7 @@ pub unsafe fn GetClusterNetInterfaceKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNetInterfaceKey(
                 hnetinterface: *const _HNETINTERFACE,
@@ -11250,7 +11250,7 @@ pub unsafe fn GetClusterNetInterfaceState(
 ) -> CLUSTER_NETINTERFACE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNetInterfaceState(
                 hnetinterface: *const _HNETINTERFACE,
@@ -11271,7 +11271,7 @@ pub unsafe fn GetClusterNetworkId(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNetworkId(
                 hnetwork: *const _HNETWORK,
@@ -11295,7 +11295,7 @@ pub unsafe fn GetClusterNetworkKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNetworkKey(
                 hnetwork: *const _HNETWORK,
@@ -11313,7 +11313,7 @@ pub unsafe fn GetClusterNetworkKey(
 pub unsafe fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE;
         }
@@ -11330,7 +11330,7 @@ pub unsafe fn GetClusterNodeId(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNodeId(
                 hnode: *const _HNODE,
@@ -11354,7 +11354,7 @@ pub unsafe fn GetClusterNodeKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNodeKey(
                 hnode: *const _HNODE,
@@ -11372,7 +11372,7 @@ pub unsafe fn GetClusterNodeKey(
 pub unsafe fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE;
         }
@@ -11392,7 +11392,7 @@ pub unsafe fn GetClusterNotify(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNotify(
                 hchange: *const _HCHANGE,
@@ -11434,7 +11434,7 @@ pub unsafe fn GetClusterNotifyV2(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterNotifyV2(
                 hchange: *const _HCHANGE,
@@ -11484,7 +11484,7 @@ pub unsafe fn GetClusterQuorumResource(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterQuorumResource(
                 hcluster: *const _HCLUSTER,
@@ -11515,7 +11515,7 @@ pub unsafe fn GetClusterResourceDependencyExpression(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterResourceDependencyExpression(
                 hresource: *const _HRESOURCE,
@@ -11539,7 +11539,7 @@ pub unsafe fn GetClusterResourceKey(
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterResourceKey(
                 hresource: *const _HRESOURCE,
@@ -11562,7 +11562,7 @@ pub unsafe fn GetClusterResourceNetworkName(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterResourceNetworkName(
                 hresource: *const _HRESOURCE,
@@ -11589,7 +11589,7 @@ pub unsafe fn GetClusterResourceState(
 ) -> CLUSTER_RESOURCE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterResourceState(
                 hresource: *const _HRESOURCE,
@@ -11621,7 +11621,7 @@ pub unsafe fn GetClusterResourceTypeKey<
 ) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClusterResourceTypeKey(
                 hcluster: *const _HCLUSTER,
@@ -11648,7 +11648,7 @@ pub unsafe fn GetNodeCloudTypeDW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNodeCloudTypeDW(
                 ppsznodename: super::super::Foundation::PWSTR,
@@ -11673,7 +11673,7 @@ pub unsafe fn GetNodeClusterState<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNodeClusterState(
                 lpsznodename: super::super::Foundation::PWSTR,
@@ -11695,7 +11695,7 @@ pub unsafe fn GetNotifyEventHandle(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNotifyEventHandle(
                 hchange: *const _HCHANGE,
@@ -26915,7 +26915,7 @@ pub struct IWEInvokeCommand_abi(
 pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
         }
@@ -26932,7 +26932,7 @@ pub unsafe fn InitializeClusterHealthFaultArray(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeClusterHealthFaultArray(
                 clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY,
@@ -26955,7 +26955,7 @@ pub unsafe fn IsFileOnClusterSharedVolume<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsFileOnClusterSharedVolume(
                 lpszpathname: super::super::Foundation::PWSTR,
@@ -27097,7 +27097,7 @@ unsafe impl ::windows::runtime::Abi for MONITOR_STATE {
 pub unsafe fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
         }
@@ -27118,7 +27118,7 @@ pub unsafe fn MoveClusterGroupEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveClusterGroupEx(
                 hgroup: *const _HGROUP,
@@ -27247,7 +27247,7 @@ unsafe impl ::windows::runtime::Abi for NodeUtilizationInfoElement {
 pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32;
         }
@@ -27264,7 +27264,7 @@ pub unsafe fn OfflineClusterGroupEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineClusterGroupEx(
                 hgroup: *const _HGROUP,
@@ -27286,7 +27286,7 @@ pub unsafe fn OfflineClusterGroupEx(
 pub unsafe fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -27303,7 +27303,7 @@ pub unsafe fn OfflineClusterResourceEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineClusterResourceEx(
                 hresource: *const _HRESOURCE,
@@ -27325,7 +27325,7 @@ pub unsafe fn OfflineClusterResourceEx(
 pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
         }
@@ -27346,7 +27346,7 @@ pub unsafe fn OnlineClusterGroupEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OnlineClusterGroupEx(
                 hgroup: *const _HGROUP,
@@ -27370,7 +27370,7 @@ pub unsafe fn OnlineClusterGroupEx(
 pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -27387,7 +27387,7 @@ pub unsafe fn OnlineClusterResourceEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OnlineClusterResourceEx(
                 hresource: *const _HRESOURCE,
@@ -27415,7 +27415,7 @@ pub unsafe fn OpenCluster<
 ) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenCluster(lpszclustername: super::super::Foundation::PWSTR) -> *mut _HCLUSTER;
         }
@@ -27436,7 +27436,7 @@ pub unsafe fn OpenClusterCryptProvider<
 ) -> *mut _HCLUSCRYPTPROVIDER {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterCryptProvider(
                 lpszresource: super::super::Foundation::PWSTR,
@@ -27469,7 +27469,7 @@ pub unsafe fn OpenClusterCryptProviderEx<
 ) -> *mut _HCLUSCRYPTPROVIDER {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterCryptProviderEx(
                 lpszresource: super::super::Foundation::PWSTR,
@@ -27501,7 +27501,7 @@ pub unsafe fn OpenClusterEx<
 ) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterEx(
                 lpszclustername: super::super::Foundation::PWSTR,
@@ -27528,7 +27528,7 @@ pub unsafe fn OpenClusterGroup<
 ) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterGroup(
                 hcluster: *const _HCLUSTER,
@@ -27555,7 +27555,7 @@ pub unsafe fn OpenClusterGroupEx<
 ) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterGroupEx(
                 hcluster: *const _HCLUSTER,
@@ -27584,7 +27584,7 @@ pub unsafe fn OpenClusterGroupSet<
 ) -> *mut _HGROUPSET {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterGroupSet(
                 hcluster: *const _HCLUSTER,
@@ -27609,7 +27609,7 @@ pub unsafe fn OpenClusterNetInterface<
 ) -> *mut _HNETINTERFACE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterNetInterface(
                 hcluster: *const _HCLUSTER,
@@ -27636,7 +27636,7 @@ pub unsafe fn OpenClusterNetInterfaceEx<
 ) -> *mut _HNETINTERFACE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterNetInterfaceEx(
                 hcluster: *const _HCLUSTER,
@@ -27665,7 +27665,7 @@ pub unsafe fn OpenClusterNetwork<
 ) -> *mut _HNETWORK {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterNetwork(
                 hcluster: *const _HCLUSTER,
@@ -27692,7 +27692,7 @@ pub unsafe fn OpenClusterNetworkEx<
 ) -> *mut _HNETWORK {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterNetworkEx(
                 hcluster: *const _HCLUSTER,
@@ -27721,7 +27721,7 @@ pub unsafe fn OpenClusterNode<
 ) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterNode(
                 hcluster: *const _HCLUSTER,
@@ -27739,7 +27739,7 @@ pub unsafe fn OpenClusterNode<
 pub unsafe fn OpenClusterNodeById(hcluster: *const _HCLUSTER, nodeid: u32) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterNodeById(hcluster: *const _HCLUSTER, nodeid: u32) -> *mut _HNODE;
         }
@@ -27763,7 +27763,7 @@ pub unsafe fn OpenClusterNodeEx<
 ) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterNodeEx(
                 hcluster: *const _HCLUSTER,
@@ -27792,7 +27792,7 @@ pub unsafe fn OpenClusterResource<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterResource(
                 hcluster: *const _HCLUSTER,
@@ -27819,7 +27819,7 @@ pub unsafe fn OpenClusterResourceEx<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenClusterResourceEx(
                 hcluster: *const _HCLUSTER,
@@ -29835,7 +29835,7 @@ pub type PWORKER_START_ROUTINE = unsafe extern "system" fn(
 pub unsafe fn PauseClusterNode(hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PauseClusterNode(hnode: *const _HNODE) -> u32;
         }
@@ -29856,7 +29856,7 @@ pub unsafe fn PauseClusterNodeEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PauseClusterNodeEx(
                 hnode: *const _HNODE,
@@ -29963,7 +29963,7 @@ pub unsafe fn QueryAppInstanceVersion(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryAppInstanceVersion(
                 appinstanceid: *const ::windows::runtime::GUID,
@@ -30475,7 +30475,7 @@ pub unsafe fn RegisterAppInstance<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterAppInstance(
                 processhandle: super::super::Foundation::HANDLE,
@@ -30499,7 +30499,7 @@ pub unsafe fn RegisterAppInstanceVersion(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterAppInstanceVersion(
                 appinstanceid: *const ::windows::runtime::GUID,
@@ -30528,7 +30528,7 @@ pub unsafe fn RegisterClusterNotify<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterClusterNotify(
                 hchange: *const _HCHANGE,
@@ -30560,7 +30560,7 @@ pub unsafe fn RegisterClusterNotifyV2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterClusterNotifyV2(
                 hchange: *const _HCHANGE,
@@ -30592,7 +30592,7 @@ pub unsafe fn RegisterClusterResourceTypeNotifyV2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterClusterResourceTypeNotifyV2(
                 hchange: *const _HCHANGE,
@@ -30619,7 +30619,7 @@ pub unsafe fn RemoveClusterGroupDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveClusterGroupDependency(
                 hgroup: *const _HGROUP,
@@ -30640,7 +30640,7 @@ pub unsafe fn RemoveClusterGroupSetDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveClusterGroupSetDependency(
                 hgroupset: *const _HGROUPSET,
@@ -30661,7 +30661,7 @@ pub unsafe fn RemoveClusterGroupToGroupSetDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveClusterGroupToGroupSetDependency(
                 hgroup: *const _HGROUP,
@@ -30686,7 +30686,7 @@ pub unsafe fn RemoveClusterNameAccount<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveClusterNameAccount(
                 hcluster: *const _HCLUSTER,
@@ -30707,7 +30707,7 @@ pub unsafe fn RemoveClusterResourceDependency(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveClusterResourceDependency(
                 hresource: *const _HRESOURCE,
@@ -30725,7 +30725,7 @@ pub unsafe fn RemoveClusterResourceDependency(
 pub unsafe fn RemoveClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE)
                 -> u32;
@@ -30750,7 +30750,7 @@ pub unsafe fn RemoveClusterStorageNode<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveClusterStorageNode(
                 hcluster: *const _HCLUSTER,
@@ -30781,7 +30781,7 @@ pub unsafe fn RemoveCrossClusterGroupSetDependency<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveCrossClusterGroupSetDependency(
                 hdependentgroupset: *const _HGROUPSET,
@@ -30801,7 +30801,7 @@ pub unsafe fn RemoveCrossClusterGroupSetDependency<
 pub unsafe fn RemoveResourceFromClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveResourceFromClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32;
         }
@@ -30826,7 +30826,7 @@ pub unsafe fn ResUtilAddUnknownProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilAddUnknownProperties(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -30858,7 +30858,7 @@ pub unsafe fn ResUtilCreateDirectoryTree<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilCreateDirectoryTree(pszpath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -30870,7 +30870,7 @@ pub unsafe fn ResUtilCreateDirectoryTree<
 pub unsafe fn ResUtilDupGroup(group: *mut _HGROUP, copy: *mut *mut _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilDupGroup(group: *mut _HGROUP, copy: *mut *mut _HGROUP) -> u32;
         }
@@ -30890,7 +30890,7 @@ pub unsafe fn ResUtilDupParameterBlock(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilDupParameterBlock(
                 poutparams: *mut u8,
@@ -30910,7 +30910,7 @@ pub unsafe fn ResUtilDupParameterBlock(
 pub unsafe fn ResUtilDupResource(group: *mut _HRESOURCE, copy: *mut *mut _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilDupResource(group: *mut _HRESOURCE, copy: *mut *mut _HRESOURCE) -> u32;
         }
@@ -30931,7 +30931,7 @@ pub unsafe fn ResUtilDupString<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilDupString(
                 pszinstring: super::super::Foundation::PWSTR,
@@ -30950,7 +30950,7 @@ pub unsafe fn ResUtilEnumGroups(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilEnumGroups(
                 hcluster: *mut _HCLUSTER,
@@ -30978,7 +30978,7 @@ pub unsafe fn ResUtilEnumGroupsEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilEnumGroupsEx(
                 hcluster: *mut _HCLUSTER,
@@ -31012,7 +31012,7 @@ pub unsafe fn ResUtilEnumPrivateProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilEnumPrivateProperties(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -31043,7 +31043,7 @@ pub unsafe fn ResUtilEnumProperties(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilEnumProperties(
                 ppropertytable: *const RESUTIL_PROPERTY_ITEM,
@@ -31076,7 +31076,7 @@ pub unsafe fn ResUtilEnumResources<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilEnumResources(
                 hself: *mut _HRESOURCE,
@@ -31108,7 +31108,7 @@ pub unsafe fn ResUtilEnumResourcesEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilEnumResourcesEx(
                 hcluster: *mut _HCLUSTER,
@@ -31143,7 +31143,7 @@ pub unsafe fn ResUtilEnumResourcesEx2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilEnumResourcesEx2(
                 hcluster: *mut _HCLUSTER,
@@ -31175,7 +31175,7 @@ pub unsafe fn ResUtilExpandEnvironmentStrings<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilExpandEnvironmentStrings(
                 pszsrc: super::super::Foundation::PWSTR,
@@ -31199,7 +31199,7 @@ pub unsafe fn ResUtilFindBinaryProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindBinaryProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31229,7 +31229,7 @@ pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindDependentDiskResourceDriveLetter(
                 hcluster: *const _HCLUSTER,
@@ -31260,7 +31260,7 @@ pub unsafe fn ResUtilFindDwordProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindDwordProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31291,7 +31291,7 @@ pub unsafe fn ResUtilFindExpandSzProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindExpandSzProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31322,7 +31322,7 @@ pub unsafe fn ResUtilFindExpandedSzProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindExpandedSzProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31353,7 +31353,7 @@ pub unsafe fn ResUtilFindFileTimeProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindFileTimeProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31384,7 +31384,7 @@ pub unsafe fn ResUtilFindLongProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindLongProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31416,7 +31416,7 @@ pub unsafe fn ResUtilFindMultiSzProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindMultiSzProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31449,7 +31449,7 @@ pub unsafe fn ResUtilFindSzProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindSzProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31480,7 +31480,7 @@ pub unsafe fn ResUtilFindULargeIntegerProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFindULargeIntegerProperty(
                 ppropertylist: *const ::std::ffi::c_void,
@@ -31502,7 +31502,7 @@ pub unsafe fn ResUtilFindULargeIntegerProperty<
 pub unsafe fn ResUtilFreeEnvironment(lpenvironment: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFreeEnvironment(lpenvironment: *mut ::std::ffi::c_void) -> u32;
         }
@@ -31519,7 +31519,7 @@ pub unsafe fn ResUtilFreeParameterBlock(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilFreeParameterBlock(
                 poutparams: *mut u8,
@@ -31550,7 +31550,7 @@ pub unsafe fn ResUtilGetAllProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetAllProperties(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -31584,7 +31584,7 @@ pub unsafe fn ResUtilGetBinaryProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetBinaryProperty(
                 ppboutvalue: *mut *mut u8,
@@ -31622,7 +31622,7 @@ pub unsafe fn ResUtilGetBinaryValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetBinaryValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -31647,7 +31647,7 @@ pub unsafe fn ResUtilGetClusterGroupType(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetClusterGroupType(
                 hgroup: *mut _HGROUP,
@@ -31668,7 +31668,7 @@ pub unsafe fn ResUtilGetClusterId(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetClusterId(
                 hcluster: *mut _HCLUSTER,
@@ -31689,7 +31689,7 @@ pub unsafe fn ResUtilGetClusterRoleState(
 ) -> CLUSTER_ROLE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetClusterRoleState(
                 hcluster: *const _HCLUSTER,
@@ -31712,7 +31712,7 @@ pub unsafe fn ResUtilGetCoreClusterResources(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetCoreClusterResources(
                 hcluster: *const _HCLUSTER,
@@ -31739,7 +31739,7 @@ pub unsafe fn ResUtilGetCoreClusterResourcesEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetCoreClusterResourcesEx(
                 hclusterin: *const _HCLUSTER,
@@ -31761,7 +31761,7 @@ pub unsafe fn ResUtilGetCoreClusterResourcesEx(
 pub unsafe fn ResUtilGetCoreGroup(hcluster: *mut _HCLUSTER) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetCoreGroup(hcluster: *mut _HCLUSTER) -> *mut _HGROUP;
         }
@@ -31781,7 +31781,7 @@ pub unsafe fn ResUtilGetDwordProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetDwordProperty(
                 pdwoutvalue: *mut u32,
@@ -31819,7 +31819,7 @@ pub unsafe fn ResUtilGetDwordValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetDwordValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -31843,7 +31843,7 @@ pub unsafe fn ResUtilGetEnvironmentWithNetName(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetEnvironmentWithNetName(
                 hresource: *const _HRESOURCE,
@@ -31873,7 +31873,7 @@ pub unsafe fn ResUtilGetFileTimeProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetFileTimeProperty(
                 pftoutvalue: *mut super::super::Foundation::FILETIME,
@@ -31909,7 +31909,7 @@ pub unsafe fn ResUtilGetLongProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetLongProperty(
                 ploutvalue: *mut i32,
@@ -31949,7 +31949,7 @@ pub unsafe fn ResUtilGetMultiSzProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetMultiSzProperty(
                 ppszoutvalue: *mut super::super::Foundation::PWSTR,
@@ -31987,7 +31987,7 @@ pub unsafe fn ResUtilGetPrivateProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetPrivateProperties(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32022,7 +32022,7 @@ pub unsafe fn ResUtilGetProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetProperties(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32059,7 +32059,7 @@ pub unsafe fn ResUtilGetPropertiesToParameterBlock<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetPropertiesToParameterBlock(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32092,7 +32092,7 @@ pub unsafe fn ResUtilGetProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetProperty(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32121,7 +32121,7 @@ pub unsafe fn ResUtilGetPropertyFormats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetPropertyFormats(
                 ppropertytable: *const RESUTIL_PROPERTY_ITEM,
@@ -32154,7 +32154,7 @@ pub unsafe fn ResUtilGetPropertySize<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetPropertySize(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32186,7 +32186,7 @@ pub unsafe fn ResUtilGetQwordValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetQwordValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32216,7 +32216,7 @@ pub unsafe fn ResUtilGetResourceDependency<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceDependency(
                 hself: super::super::Foundation::HANDLE,
@@ -32244,7 +32244,7 @@ pub unsafe fn ResUtilGetResourceDependencyByClass<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceDependencyByClass(
                 hcluster: *mut _HCLUSTER,
@@ -32277,7 +32277,7 @@ pub unsafe fn ResUtilGetResourceDependencyByClassEx<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceDependencyByClassEx(
                 hcluster: *mut _HCLUSTER,
@@ -32312,7 +32312,7 @@ pub unsafe fn ResUtilGetResourceDependencyByName<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceDependencyByName(
                 hcluster: *mut _HCLUSTER,
@@ -32346,7 +32346,7 @@ pub unsafe fn ResUtilGetResourceDependencyByNameEx<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceDependencyByNameEx(
                 hcluster: *mut _HCLUSTER,
@@ -32379,7 +32379,7 @@ pub unsafe fn ResUtilGetResourceDependencyEx<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceDependencyEx(
                 hself: super::super::Foundation::HANDLE,
@@ -32408,7 +32408,7 @@ pub unsafe fn ResUtilGetResourceDependentIPAddressProps(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceDependentIPAddressProps(
                 hresource: *const _HRESOURCE,
@@ -32441,7 +32441,7 @@ pub unsafe fn ResUtilGetResourceName(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceName(
                 hresource: *const _HRESOURCE,
@@ -32469,7 +32469,7 @@ pub unsafe fn ResUtilGetResourceNameDependency<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceNameDependency(
                 lpszresourcename: super::super::Foundation::PWSTR,
@@ -32496,7 +32496,7 @@ pub unsafe fn ResUtilGetResourceNameDependencyEx<
 ) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetResourceNameDependencyEx(
                 lpszresourcename: super::super::Foundation::PWSTR,
@@ -32526,7 +32526,7 @@ pub unsafe fn ResUtilGetSzProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetSzProperty(
                 ppszoutvalue: *mut super::super::Foundation::PWSTR,
@@ -32558,7 +32558,7 @@ pub unsafe fn ResUtilGetSzValue<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetSzValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32581,7 +32581,7 @@ pub unsafe fn ResUtilGroupsEqual(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilGroupsEqual(
                 hself: *mut _HGROUP,
@@ -32607,7 +32607,7 @@ pub unsafe fn ResUtilIsPathValid<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilIsPathValid(
                 pszpath: super::super::Foundation::PWSTR,
@@ -32625,7 +32625,7 @@ pub unsafe fn ResUtilIsResourceClassEqual(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilIsResourceClassEqual(
                 prci: *mut CLUS_RESOURCE_CLASS_INFO,
@@ -32647,7 +32647,7 @@ pub unsafe fn ResUtilLeftPaxosIsLessThanRight(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilLeftPaxosIsLessThanRight(
                 left: *const PaxosTagCStruct,
@@ -32669,7 +32669,7 @@ pub unsafe fn ResUtilNodeEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilNodeEnum(
                 hcluster: *mut _HCLUSTER,
@@ -32693,7 +32693,7 @@ pub unsafe fn ResUtilPaxosComparer(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilPaxosComparer(
                 left: *const PaxosTagCStruct,
@@ -32719,7 +32719,7 @@ pub unsafe fn ResUtilPropertyListFromParameterBlock(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilPropertyListFromParameterBlock(
                 ppropertytable: *const RESUTIL_PROPERTY_ITEM,
@@ -32753,7 +32753,7 @@ pub unsafe fn ResUtilRemoveResourceServiceEnvironment<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilRemoveResourceServiceEnvironment(
                 pszservicename: super::super::Foundation::PWSTR,
@@ -32778,7 +32778,7 @@ pub unsafe fn ResUtilResourceDepEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilResourceDepEnum(
                 hself: *mut _HRESOURCE,
@@ -32807,7 +32807,7 @@ pub unsafe fn ResUtilResourceTypesEqual<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilResourceTypesEqual(
                 lpszresourcetypename: super::super::Foundation::PWSTR,
@@ -32829,7 +32829,7 @@ pub unsafe fn ResUtilResourcesEqual(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilResourcesEqual(
                 hself: *mut _HRESOURCE,
@@ -32859,7 +32859,7 @@ pub unsafe fn ResUtilSetBinaryValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetBinaryValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32895,7 +32895,7 @@ pub unsafe fn ResUtilSetDwordValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetDwordValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32928,7 +32928,7 @@ pub unsafe fn ResUtilSetExpandSzValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetExpandSzValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32963,7 +32963,7 @@ pub unsafe fn ResUtilSetMultiSzValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetMultiSzValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -32997,7 +32997,7 @@ pub unsafe fn ResUtilSetPrivatePropertyList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetPrivatePropertyList(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33029,7 +33029,7 @@ pub unsafe fn ResUtilSetPropertyParameterBlock<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetPropertyParameterBlock(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33071,7 +33071,7 @@ pub unsafe fn ResUtilSetPropertyParameterBlockEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetPropertyParameterBlockEx(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33114,7 +33114,7 @@ pub unsafe fn ResUtilSetPropertyTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetPropertyTable(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33157,7 +33157,7 @@ pub unsafe fn ResUtilSetPropertyTableEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetPropertyTableEx(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33197,7 +33197,7 @@ pub unsafe fn ResUtilSetQwordValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetQwordValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33228,7 +33228,7 @@ pub unsafe fn ResUtilSetResourceServiceEnvironment<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetResourceServiceEnvironment(
                 pszservicename: super::super::Foundation::PWSTR,
@@ -33261,7 +33261,7 @@ pub unsafe fn ResUtilSetResourceServiceStartParameters<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetResourceServiceStartParameters(
                 pszservicename: super::super::Foundation::PWSTR,
@@ -33297,7 +33297,7 @@ pub unsafe fn ResUtilSetResourceServiceStartParametersEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetResourceServiceStartParametersEx(
                 pszservicename: super::super::Foundation::PWSTR,
@@ -33334,7 +33334,7 @@ pub unsafe fn ResUtilSetSzValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetSzValue(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33365,7 +33365,7 @@ pub unsafe fn ResUtilSetUnknownProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetUnknownProperties(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33399,7 +33399,7 @@ pub unsafe fn ResUtilSetValueEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetValueEx(
                 hkeyclusterkey: super::super::System::Registry::HKEY,
@@ -33432,7 +33432,7 @@ pub unsafe fn ResUtilStartResourceService<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilStartResourceService(
                 pszservicename: super::super::Foundation::PWSTR,
@@ -33456,7 +33456,7 @@ pub unsafe fn ResUtilStopResourceService<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilStopResourceService(pszservicename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -33476,7 +33476,7 @@ pub unsafe fn ResUtilStopService<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilStopService(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
         }
@@ -33498,7 +33498,7 @@ pub unsafe fn ResUtilTerminateServiceProcessFromResDll<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilTerminateServiceProcessFromResDll(
                 dwservicepid: u32,
@@ -33525,7 +33525,7 @@ pub unsafe fn ResUtilVerifyPrivatePropertyList(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilVerifyPrivatePropertyList(
                 pinpropertylist: *const ::std::ffi::c_void,
@@ -33554,7 +33554,7 @@ pub unsafe fn ResUtilVerifyPropertyTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilVerifyPropertyTable(
                 ppropertytable: *const RESUTIL_PROPERTY_ITEM,
@@ -33586,7 +33586,7 @@ pub unsafe fn ResUtilVerifyResourceService<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilVerifyResourceService(pszservicename: super::super::Foundation::PWSTR)
                 -> u32;
@@ -33607,7 +33607,7 @@ pub unsafe fn ResUtilVerifyService<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilVerifyService(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
         }
@@ -33619,7 +33619,7 @@ pub unsafe fn ResUtilVerifyService<
 pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u32) -> u32;
         }
@@ -33645,7 +33645,7 @@ pub unsafe fn ResUtilsDeleteKeyTree<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "resutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResUtilsDeleteKeyTree(
                 key: super::super::System::Registry::HKEY,
@@ -33665,7 +33665,7 @@ pub unsafe fn ResUtilsDeleteKeyTree<
 pub unsafe fn ResetAllAppInstanceVersions() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetAllAppInstanceVersions() -> u32;
         }
@@ -33707,7 +33707,7 @@ unsafe impl ::windows::runtime::Abi for ResourceUtilizationInfoElement {
 pub unsafe fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32) -> u32;
         }
@@ -33732,7 +33732,7 @@ pub unsafe fn RestoreClusterDatabase<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestoreClusterDatabase(
                 lpszpathname: super::super::Foundation::PWSTR,
@@ -33752,7 +33752,7 @@ pub unsafe fn RestoreClusterDatabase<
 pub unsafe fn ResumeClusterNode(hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResumeClusterNode(hnode: *const _HNODE) -> u32;
         }
@@ -33768,7 +33768,7 @@ pub unsafe fn ResumeClusterNodeEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResumeClusterNodeEx(
                 hnode: *const _HNODE,
@@ -34288,7 +34288,7 @@ pub unsafe fn SetAppInstanceCsvFlags<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetAppInstanceCsvFlags(
                 processhandle: super::super::Foundation::HANDLE,
@@ -34315,7 +34315,7 @@ pub unsafe fn SetClusterGroupName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterGroupName(
                 hgroup: *const _HGROUP,
@@ -34337,7 +34337,7 @@ pub unsafe fn SetClusterGroupNodeList(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterGroupNodeList(
                 hgroup: *const _HGROUP,
@@ -34364,7 +34364,7 @@ pub unsafe fn SetClusterGroupSetDependencyExpression<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterGroupSetDependencyExpression(
                 hgroupset: *const _HGROUPSET,
@@ -34389,7 +34389,7 @@ pub unsafe fn SetClusterName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterName(
                 hcluster: *const _HCLUSTER,
@@ -34414,7 +34414,7 @@ pub unsafe fn SetClusterNetworkName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterNetworkName(
                 hnetwork: *const _HNETWORK,
@@ -34436,7 +34436,7 @@ pub unsafe fn SetClusterNetworkPriorityOrder(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterNetworkPriorityOrder(
                 hcluster: *const _HCLUSTER,
@@ -34464,7 +34464,7 @@ pub unsafe fn SetClusterQuorumResource<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterQuorumResource(
                 hresource: *const _HRESOURCE,
@@ -34491,7 +34491,7 @@ pub unsafe fn SetClusterResourceDependencyExpression<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterResourceDependencyExpression(
                 hresource: *const _HRESOURCE,
@@ -34516,7 +34516,7 @@ pub unsafe fn SetClusterResourceName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterResourceName(
                 hresource: *const _HRESOURCE,
@@ -34545,7 +34545,7 @@ pub unsafe fn SetClusterServiceAccountPassword<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClusterServiceAccountPassword(
                 lpszclustername: super::super::Foundation::PWSTR,
@@ -34576,7 +34576,7 @@ pub unsafe fn SetGroupDependencyExpression<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clusapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetGroupDependencyExpression(
                 hgroup: *const _HGROUP,

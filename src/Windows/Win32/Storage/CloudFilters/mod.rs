@@ -4125,7 +4125,7 @@ pub unsafe fn CfCloseHandle<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE);
         }
@@ -4146,7 +4146,7 @@ pub unsafe fn CfConnectSyncRoot<
 ) -> ::windows::runtime::Result<CF_CONNECTION_KEY> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfConnectSyncRoot(
                 syncrootpath: super::super::Foundation::PWSTR,
@@ -4184,7 +4184,7 @@ pub unsafe fn CfConvertToPlaceholder<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfConvertToPlaceholder(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4221,7 +4221,7 @@ pub unsafe fn CfCreatePlaceholders<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfCreatePlaceholders(
                 basedirectorypath: super::super::Foundation::PWSTR,
@@ -4256,7 +4256,7 @@ pub unsafe fn CfDehydratePlaceholder<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfDehydratePlaceholder(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4286,7 +4286,7 @@ pub unsafe fn CfDisconnectSyncRoot<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfDisconnectSyncRoot(
                 connectionkey: CF_CONNECTION_KEY,
@@ -4308,7 +4308,7 @@ pub unsafe fn CfExecute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfExecute(
                 opinfo: *const CF_OPERATION_INFO,
@@ -4333,7 +4333,7 @@ pub unsafe fn CfGetCorrelationVector<
 ) -> ::windows::runtime::Result<super::super::System::SystemServices::CORRELATION_VECTOR> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetCorrelationVector(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4360,7 +4360,7 @@ pub unsafe fn CfGetPlaceholderInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetPlaceholderInfo(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4397,7 +4397,7 @@ pub unsafe fn CfGetPlaceholderRangeInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetPlaceholderRangeInfo(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4429,7 +4429,7 @@ pub unsafe fn CfGetPlaceholderStateFromAttributeTag(
 ) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetPlaceholderStateFromAttributeTag(
                 fileattributes: u32,
@@ -4451,7 +4451,7 @@ pub unsafe fn CfGetPlaceholderStateFromFileInfo(
 ) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetPlaceholderStateFromFileInfo(
                 infobuffer: *const ::std::ffi::c_void,
@@ -4476,7 +4476,7 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(
 ) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetPlaceholderStateFromFindData(
                 finddata: *const super::FileSystem::WIN32_FIND_DATAA,
@@ -4492,7 +4492,7 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(
 pub unsafe fn CfGetPlatformInfo() -> ::windows::runtime::Result<CF_PLATFORM_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetPlatformInfo(
                 platformversion: *mut CF_PLATFORM_INFO,
@@ -4517,7 +4517,7 @@ pub unsafe fn CfGetSyncRootInfoByHandle<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetSyncRootInfoByHandle(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4552,7 +4552,7 @@ pub unsafe fn CfGetSyncRootInfoByPath<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetSyncRootInfoByPath(
                 filepath: super::super::Foundation::PWSTR,
@@ -4583,7 +4583,7 @@ pub unsafe fn CfGetTransferKey<
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetTransferKey(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4605,7 +4605,7 @@ pub unsafe fn CfGetWin32HandleFromProtectedHandle<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfGetWin32HandleFromProtectedHandle(
                 protectedhandle: super::super::Foundation::HANDLE,
@@ -4631,7 +4631,7 @@ pub unsafe fn CfHydratePlaceholder<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfHydratePlaceholder(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4663,7 +4663,7 @@ pub unsafe fn CfOpenFileWithOplock<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfOpenFileWithOplock(
                 filepath: super::super::Foundation::PWSTR,
@@ -4691,7 +4691,7 @@ pub unsafe fn CfQuerySyncProviderStatus<
 ) -> ::windows::runtime::Result<CF_SYNC_PROVIDER_STATUS> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfQuerySyncProviderStatus(
                 connectionkey: CF_CONNECTION_KEY,
@@ -4715,7 +4715,7 @@ pub unsafe fn CfReferenceProtectedHandle<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfReferenceProtectedHandle(
                 protectedhandle: super::super::Foundation::HANDLE,
@@ -4740,7 +4740,7 @@ pub unsafe fn CfRegisterSyncRoot<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfRegisterSyncRoot(
                 syncrootpath: super::super::Foundation::PWSTR,
@@ -4769,7 +4769,7 @@ pub unsafe fn CfReleaseProtectedHandle<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE);
         }
@@ -4788,7 +4788,7 @@ pub unsafe fn CfReleaseTransferKey<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfReleaseTransferKey(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4814,7 +4814,7 @@ pub unsafe fn CfReportProviderProgress<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfReportProviderProgress(
                 connectionkey: CF_CONNECTION_KEY,
@@ -4847,7 +4847,7 @@ pub unsafe fn CfReportProviderProgress2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfReportProviderProgress2(
                 connectionkey: CF_CONNECTION_KEY,
@@ -4881,7 +4881,7 @@ pub unsafe fn CfReportSyncStatus<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfReportSyncStatus(
                 syncrootpath: super::super::Foundation::PWSTR,
@@ -4908,7 +4908,7 @@ pub unsafe fn CfRevertPlaceholder<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfRevertPlaceholder(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4936,7 +4936,7 @@ pub unsafe fn CfSetCorrelationVector<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfSetCorrelationVector(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4964,7 +4964,7 @@ pub unsafe fn CfSetInSyncState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfSetInSyncState(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4996,7 +4996,7 @@ pub unsafe fn CfSetPinState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfSetPinState(
                 filehandle: super::super::Foundation::HANDLE,
@@ -5025,7 +5025,7 @@ pub unsafe fn CfUnregisterSyncRoot<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfUnregisterSyncRoot(
                 syncrootpath: super::super::Foundation::PWSTR,
@@ -5057,7 +5057,7 @@ pub unsafe fn CfUpdatePlaceholder<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfUpdatePlaceholder(
                 filehandle: super::super::Foundation::HANDLE,
@@ -5096,7 +5096,7 @@ pub unsafe fn CfUpdateSyncProviderStatus<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cldapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CfUpdateSyncProviderStatus(
                 connectionkey: CF_CONNECTION_KEY,

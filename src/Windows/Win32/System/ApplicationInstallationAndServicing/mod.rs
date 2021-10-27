@@ -818,7 +818,7 @@ pub unsafe fn ActivateActCtx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ActivateActCtx(
                 hactctx: super::super::Foundation::HANDLE,
@@ -842,7 +842,7 @@ pub unsafe fn AddRefActCtx<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddRefActCtx(hactctx: super::super::Foundation::HANDLE);
         }
@@ -865,7 +865,7 @@ pub unsafe fn ApplyDeltaA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyDeltaA(
                 applyflags: i64,
@@ -897,7 +897,7 @@ pub unsafe fn ApplyDeltaB<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyDeltaB(
                 applyflags: i64,
@@ -931,7 +931,7 @@ pub unsafe fn ApplyDeltaGetReverseB<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyDeltaGetReverseB(
                 applyflags: i64,
@@ -968,7 +968,7 @@ pub unsafe fn ApplyDeltaProvidedB<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyDeltaProvidedB(
                 applyflags: i64,
@@ -1003,7 +1003,7 @@ pub unsafe fn ApplyDeltaW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyDeltaW(
                 applyflags: i64,
@@ -1036,7 +1036,7 @@ pub unsafe fn ApplyPatchToFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileA(
                 patchfilename: super::super::Foundation::PSTR,
@@ -1071,7 +1071,7 @@ pub unsafe fn ApplyPatchToFileByBuffers(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileByBuffers(
                 patchfilemapped: *const u8,
@@ -1118,7 +1118,7 @@ pub unsafe fn ApplyPatchToFileByHandles<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileByHandles(
                 patchfilehandle: super::super::Foundation::HANDLE,
@@ -1153,7 +1153,7 @@ pub unsafe fn ApplyPatchToFileByHandlesEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileByHandlesEx(
                 patchfilehandle: super::super::Foundation::HANDLE,
@@ -1192,7 +1192,7 @@ pub unsafe fn ApplyPatchToFileExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileExA(
                 patchfilename: super::super::Foundation::PSTR,
@@ -1231,7 +1231,7 @@ pub unsafe fn ApplyPatchToFileExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileExW(
                 patchfilename: super::super::Foundation::PWSTR,
@@ -1268,7 +1268,7 @@ pub unsafe fn ApplyPatchToFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPatchToFileW(
                 patchfilename: super::super::Foundation::PWSTR,
@@ -1358,7 +1358,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_ASM_NAME_OBJ_FLAGS {
 pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE;
         }
@@ -1371,7 +1371,7 @@ pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation
 pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE;
         }
@@ -1404,7 +1404,7 @@ pub unsafe fn CreateDeltaA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDeltaA(
                 filetypeset: i64,
@@ -1460,7 +1460,7 @@ pub unsafe fn CreateDeltaB<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDeltaB(
                 filetypeset: i64,
@@ -1517,7 +1517,7 @@ pub unsafe fn CreateDeltaW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDeltaW(
                 filetypeset: i64,
@@ -1565,7 +1565,7 @@ pub unsafe fn CreatePatchFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePatchFileA(
                 oldfilename: super::super::Foundation::PSTR,
@@ -1601,7 +1601,7 @@ pub unsafe fn CreatePatchFileByHandles<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePatchFileByHandles(
                 oldfilehandle: super::super::Foundation::HANDLE,
@@ -1639,7 +1639,7 @@ pub unsafe fn CreatePatchFileByHandlesEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePatchFileByHandlesEx(
                 oldfilecount: u32,
@@ -1683,7 +1683,7 @@ pub unsafe fn CreatePatchFileExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePatchFileExA(
                 oldfilecount: u32,
@@ -1727,7 +1727,7 @@ pub unsafe fn CreatePatchFileExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePatchFileExW(
                 oldfilecount: u32,
@@ -1769,7 +1769,7 @@ pub unsafe fn CreatePatchFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePatchFileW(
                 oldfilename: super::super::Foundation::PWSTR,
@@ -1962,7 +1962,7 @@ unsafe impl ::windows::runtime::Abi for DELTA_OUTPUT {
 pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::Foundation::BOOL;
         }
@@ -1978,7 +1978,7 @@ pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::F
 pub unsafe fn DeltaFree(lpmemory: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeltaFree(lpmemory: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2000,7 +2000,7 @@ pub unsafe fn DeltaNormalizeProvidedB<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeltaNormalizeProvidedB(
                 filetypeset: i64,
@@ -2213,7 +2213,7 @@ pub unsafe fn ExtractPatchHeaderToFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtractPatchHeaderToFileA(
                 patchfilename: super::super::Foundation::PSTR,
@@ -2239,7 +2239,7 @@ pub unsafe fn ExtractPatchHeaderToFileByHandles<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtractPatchHeaderToFileByHandles(
                 patchfilehandle: super::super::Foundation::HANDLE,
@@ -2265,7 +2265,7 @@ pub unsafe fn ExtractPatchHeaderToFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatchc")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtractPatchHeaderToFileW(
                 patchfilename: super::super::Foundation::PWSTR,
@@ -2361,7 +2361,7 @@ pub unsafe fn FindActCtxSectionGuid(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindActCtxSectionGuid(
                 dwflags: u32,
@@ -2398,7 +2398,7 @@ pub unsafe fn FindActCtxSectionStringA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindActCtxSectionStringA(
                 dwflags: u32,
@@ -2435,7 +2435,7 @@ pub unsafe fn FindActCtxSectionStringW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindActCtxSectionStringW(
                 dwflags: u32,
@@ -2462,7 +2462,7 @@ pub unsafe fn GetCurrentActCtx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentActCtx(
                 lphactctx: *mut super::super::Foundation::HANDLE,
@@ -2483,7 +2483,7 @@ pub unsafe fn GetDeltaInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeltaInfoA(
                 lpdeltaname: super::super::Foundation::PSTR,
@@ -2505,7 +2505,7 @@ pub unsafe fn GetDeltaInfoB<'a, Param0: ::windows::runtime::IntoParam<'a, DELTA_
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeltaInfoB(
                 delta: DELTA_INPUT,
@@ -2530,7 +2530,7 @@ pub unsafe fn GetDeltaInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeltaInfoW(
                 lpdeltaname: super::super::Foundation::PWSTR,
@@ -2557,7 +2557,7 @@ pub unsafe fn GetDeltaSignatureA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeltaSignatureA(
                 filetypeset: i64,
@@ -2585,7 +2585,7 @@ pub unsafe fn GetDeltaSignatureB<'a, Param2: ::windows::runtime::IntoParam<'a, D
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeltaSignatureB(
                 filetypeset: i64,
@@ -2616,7 +2616,7 @@ pub unsafe fn GetDeltaSignatureW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msdelta")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeltaSignatureW(
                 filetypeset: i64,
@@ -2652,7 +2652,7 @@ pub unsafe fn GetFilePatchSignatureA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureA(
                 filename: super::super::Foundation::PSTR,
@@ -2696,7 +2696,7 @@ pub unsafe fn GetFilePatchSignatureByBuffer(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureByBuffer(
                 filebufferwritable: *mut u8,
@@ -2744,7 +2744,7 @@ pub unsafe fn GetFilePatchSignatureByHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureByHandle(
                 filehandle: super::super::Foundation::HANDLE,
@@ -2790,7 +2790,7 @@ pub unsafe fn GetFilePatchSignatureW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureW(
                 filename: super::super::Foundation::PWSTR,
@@ -12367,7 +12367,7 @@ pub unsafe fn MsiAdvertiseProductA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiAdvertiseProductA(
                 szpackagepath: super::super::Foundation::PSTR,
@@ -12402,7 +12402,7 @@ pub unsafe fn MsiAdvertiseProductExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiAdvertiseProductExA(
                 szpackagepath: super::super::Foundation::PSTR,
@@ -12441,7 +12441,7 @@ pub unsafe fn MsiAdvertiseProductExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiAdvertiseProductExW(
                 szpackagepath: super::super::Foundation::PWSTR,
@@ -12478,7 +12478,7 @@ pub unsafe fn MsiAdvertiseProductW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiAdvertiseProductW(
                 szpackagepath: super::super::Foundation::PWSTR,
@@ -12510,7 +12510,7 @@ pub unsafe fn MsiAdvertiseScriptA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiAdvertiseScriptA(
                 szscriptfile: super::super::Foundation::PSTR,
@@ -12542,7 +12542,7 @@ pub unsafe fn MsiAdvertiseScriptW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiAdvertiseScriptW(
                 szscriptfile: super::super::Foundation::PWSTR,
@@ -12574,7 +12574,7 @@ pub unsafe fn MsiApplyMultiplePatchesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiApplyMultiplePatchesA(
                 szpatchpackages: super::super::Foundation::PSTR,
@@ -12604,7 +12604,7 @@ pub unsafe fn MsiApplyMultiplePatchesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiApplyMultiplePatchesW(
                 szpatchpackages: super::super::Foundation::PWSTR,
@@ -12635,7 +12635,7 @@ pub unsafe fn MsiApplyPatchA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiApplyPatchA(
                 szpatchpackage: super::super::Foundation::PSTR,
@@ -12668,7 +12668,7 @@ pub unsafe fn MsiApplyPatchW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiApplyPatchW(
                 szpatchpackage: super::super::Foundation::PWSTR,
@@ -12699,7 +12699,7 @@ pub unsafe fn MsiBeginTransactionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiBeginTransactionA(
                 szname: super::super::Foundation::PSTR,
@@ -12730,7 +12730,7 @@ pub unsafe fn MsiBeginTransactionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiBeginTransactionW(
                 szname: super::super::Foundation::PWSTR,
@@ -12752,7 +12752,7 @@ pub unsafe fn MsiBeginTransactionW<
 pub unsafe fn MsiCloseAllHandles() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiCloseAllHandles() -> u32;
         }
@@ -12766,7 +12766,7 @@ pub unsafe fn MsiCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiCloseHandle(hany: MSIHANDLE) -> u32;
         }
@@ -12784,7 +12784,7 @@ pub unsafe fn MsiCollectUserInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiCollectUserInfoA(szproduct: super::super::Foundation::PSTR) -> u32;
         }
@@ -12802,7 +12802,7 @@ pub unsafe fn MsiCollectUserInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiCollectUserInfoW(szproduct: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12823,7 +12823,7 @@ pub unsafe fn MsiConfigureFeatureA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiConfigureFeatureA(
                 szproduct: super::super::Foundation::PSTR,
@@ -12852,7 +12852,7 @@ pub unsafe fn MsiConfigureFeatureW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiConfigureFeatureW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -12880,7 +12880,7 @@ pub unsafe fn MsiConfigureProductA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiConfigureProductA(
                 szproduct: super::super::Foundation::PSTR,
@@ -12910,7 +12910,7 @@ pub unsafe fn MsiConfigureProductExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiConfigureProductExA(
                 szproduct: super::super::Foundation::PSTR,
@@ -12942,7 +12942,7 @@ pub unsafe fn MsiConfigureProductExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiConfigureProductExW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -12972,7 +12972,7 @@ pub unsafe fn MsiConfigureProductW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiConfigureProductW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -12992,7 +12992,7 @@ pub unsafe fn MsiConfigureProductW<
 pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiCreateRecord(cparams: u32) -> MSIHANDLE;
         }
@@ -13016,7 +13016,7 @@ pub unsafe fn MsiCreateTransformSummaryInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiCreateTransformSummaryInfoA(
                 hdatabase: MSIHANDLE,
@@ -13052,7 +13052,7 @@ pub unsafe fn MsiCreateTransformSummaryInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiCreateTransformSummaryInfoW(
                 hdatabase: MSIHANDLE,
@@ -13085,7 +13085,7 @@ pub unsafe fn MsiDatabaseApplyTransformA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseApplyTransformA(
                 hdatabase: MSIHANDLE,
@@ -13114,7 +13114,7 @@ pub unsafe fn MsiDatabaseApplyTransformW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseApplyTransformW(
                 hdatabase: MSIHANDLE,
@@ -13136,7 +13136,7 @@ pub unsafe fn MsiDatabaseCommit<'a, Param0: ::windows::runtime::IntoParam<'a, MS
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseCommit(hdatabase: MSIHANDLE) -> u32;
         }
@@ -13160,7 +13160,7 @@ pub unsafe fn MsiDatabaseExportA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseExportA(
                 hdatabase: MSIHANDLE,
@@ -13194,7 +13194,7 @@ pub unsafe fn MsiDatabaseExportW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseExportW(
                 hdatabase: MSIHANDLE,
@@ -13228,7 +13228,7 @@ pub unsafe fn MsiDatabaseGenerateTransformA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseGenerateTransformA(
                 hdatabase: MSIHANDLE,
@@ -13264,7 +13264,7 @@ pub unsafe fn MsiDatabaseGenerateTransformW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseGenerateTransformW(
                 hdatabase: MSIHANDLE,
@@ -13297,7 +13297,7 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseGetPrimaryKeysA(
                 hdatabase: MSIHANDLE,
@@ -13326,7 +13326,7 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseGetPrimaryKeysW(
                 hdatabase: MSIHANDLE,
@@ -13356,7 +13356,7 @@ pub unsafe fn MsiDatabaseImportA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseImportA(
                 hdatabase: MSIHANDLE,
@@ -13386,7 +13386,7 @@ pub unsafe fn MsiDatabaseImportW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseImportW(
                 hdatabase: MSIHANDLE,
@@ -13414,7 +13414,7 @@ pub unsafe fn MsiDatabaseIsTablePersistentA<
 ) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseIsTablePersistentA(
                 hdatabase: MSIHANDLE,
@@ -13440,7 +13440,7 @@ pub unsafe fn MsiDatabaseIsTablePersistentW<
 ) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseIsTablePersistentW(
                 hdatabase: MSIHANDLE,
@@ -13468,7 +13468,7 @@ pub unsafe fn MsiDatabaseMergeA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseMergeA(
                 hdatabase: MSIHANDLE,
@@ -13498,7 +13498,7 @@ pub unsafe fn MsiDatabaseMergeW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseMergeW(
                 hdatabase: MSIHANDLE,
@@ -13527,7 +13527,7 @@ pub unsafe fn MsiDatabaseOpenViewA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseOpenViewA(
                 hdatabase: MSIHANDLE,
@@ -13556,7 +13556,7 @@ pub unsafe fn MsiDatabaseOpenViewW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDatabaseOpenViewW(
                 hdatabase: MSIHANDLE,
@@ -13584,7 +13584,7 @@ pub unsafe fn MsiDetermineApplicablePatchesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDetermineApplicablePatchesA(
                 szproductpackagepath: super::super::Foundation::PSTR,
@@ -13612,7 +13612,7 @@ pub unsafe fn MsiDetermineApplicablePatchesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDetermineApplicablePatchesW(
                 szproductpackagepath: super::super::Foundation::PWSTR,
@@ -13643,7 +13643,7 @@ pub unsafe fn MsiDeterminePatchSequenceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDeterminePatchSequenceA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -13678,7 +13678,7 @@ pub unsafe fn MsiDeterminePatchSequenceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDeterminePatchSequenceW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -13710,7 +13710,7 @@ pub unsafe fn MsiDoActionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDoActionA(hinstall: MSIHANDLE, szaction: super::super::Foundation::PSTR) -> u32;
         }
@@ -13733,7 +13733,7 @@ pub unsafe fn MsiDoActionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiDoActionW(hinstall: MSIHANDLE, szaction: super::super::Foundation::PWSTR) -> u32;
         }
@@ -13756,7 +13756,7 @@ pub unsafe fn MsiEnableLogA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnableLogA(
                 dwlogmode: INSTALLOGMODE,
@@ -13784,7 +13784,7 @@ pub unsafe fn MsiEnableLogW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnableLogW(
                 dwlogmode: INSTALLOGMODE,
@@ -13807,7 +13807,7 @@ pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::runtime::IntoParam<'a, M
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnableUIPreview(hdatabase: MSIHANDLE, phpreview: *mut MSIHANDLE) -> u32;
         }
@@ -13822,7 +13822,7 @@ pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::runtime::IntoParam<'a, M
 pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32;
         }
@@ -13842,7 +13842,7 @@ pub unsafe fn MsiEnumClientsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumClientsA(
                 szcomponent: super::super::Foundation::PSTR,
@@ -13876,7 +13876,7 @@ pub unsafe fn MsiEnumClientsExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumClientsExA(
                 szcomponent: super::super::Foundation::PSTR,
@@ -13920,7 +13920,7 @@ pub unsafe fn MsiEnumClientsExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumClientsExW(
                 szcomponent: super::super::Foundation::PWSTR,
@@ -13958,7 +13958,7 @@ pub unsafe fn MsiEnumClientsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumClientsW(
                 szcomponent: super::super::Foundation::PWSTR,
@@ -13992,7 +13992,7 @@ pub unsafe fn MsiEnumComponentCostsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentCostsA(
                 hinstall: MSIHANDLE,
@@ -14036,7 +14036,7 @@ pub unsafe fn MsiEnumComponentCostsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentCostsW(
                 hinstall: MSIHANDLE,
@@ -14077,7 +14077,7 @@ pub unsafe fn MsiEnumComponentQualifiersA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentQualifiersA(
                 szcomponent: super::super::Foundation::PSTR,
@@ -14114,7 +14114,7 @@ pub unsafe fn MsiEnumComponentQualifiersW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentQualifiersW(
                 szcomponent: super::super::Foundation::PWSTR,
@@ -14144,7 +14144,7 @@ pub unsafe fn MsiEnumComponentsA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentsA(
                 icomponentindex: u32,
@@ -14174,7 +14174,7 @@ pub unsafe fn MsiEnumComponentsExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentsExA(
                 szusersid: super::super::Foundation::PSTR,
@@ -14214,7 +14214,7 @@ pub unsafe fn MsiEnumComponentsExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentsExW(
                 szusersid: super::super::Foundation::PWSTR,
@@ -14246,7 +14246,7 @@ pub unsafe fn MsiEnumComponentsW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumComponentsW(
                 icomponentindex: u32,
@@ -14273,7 +14273,7 @@ pub unsafe fn MsiEnumFeaturesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumFeaturesA(
                 szproduct: super::super::Foundation::PSTR,
@@ -14304,7 +14304,7 @@ pub unsafe fn MsiEnumFeaturesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumFeaturesW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -14336,7 +14336,7 @@ pub unsafe fn MsiEnumPatchesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumPatchesA(
                 szproduct: super::super::Foundation::PSTR,
@@ -14376,7 +14376,7 @@ pub unsafe fn MsiEnumPatchesExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumPatchesExA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -14426,7 +14426,7 @@ pub unsafe fn MsiEnumPatchesExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumPatchesExW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -14470,7 +14470,7 @@ pub unsafe fn MsiEnumPatchesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumPatchesW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -14498,7 +14498,7 @@ pub unsafe fn MsiEnumProductsA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumProductsA(
                 iproductindex: u32,
@@ -14530,7 +14530,7 @@ pub unsafe fn MsiEnumProductsExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumProductsExA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -14574,7 +14574,7 @@ pub unsafe fn MsiEnumProductsExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumProductsExW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -14608,7 +14608,7 @@ pub unsafe fn MsiEnumProductsW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumProductsW(
                 iproductindex: u32,
@@ -14635,7 +14635,7 @@ pub unsafe fn MsiEnumRelatedProductsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumRelatedProductsA(
                 lpupgradecode: super::super::Foundation::PSTR,
@@ -14666,7 +14666,7 @@ pub unsafe fn MsiEnumRelatedProductsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEnumRelatedProductsW(
                 lpupgradecode: super::super::Foundation::PWSTR,
@@ -14696,7 +14696,7 @@ pub unsafe fn MsiEvaluateConditionA<
 ) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEvaluateConditionA(
                 hinstall: MSIHANDLE,
@@ -14722,7 +14722,7 @@ pub unsafe fn MsiEvaluateConditionW<
 ) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiEvaluateConditionW(
                 hinstall: MSIHANDLE,
@@ -14749,7 +14749,7 @@ pub unsafe fn MsiExtractPatchXMLDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiExtractPatchXMLDataA(
                 szpatchpath: super::super::Foundation::PSTR,
@@ -14780,7 +14780,7 @@ pub unsafe fn MsiExtractPatchXMLDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiExtractPatchXMLDataW(
                 szpatchpath: super::super::Foundation::PWSTR,
@@ -14812,7 +14812,7 @@ pub unsafe fn MsiFormatRecordA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiFormatRecordA(
                 hinstall: MSIHANDLE,
@@ -14844,7 +14844,7 @@ pub unsafe fn MsiFormatRecordW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiFormatRecordW(
                 hinstall: MSIHANDLE,
@@ -14868,7 +14868,7 @@ pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> MSIHANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetActiveDatabase(hinstall: MSIHANDLE) -> MSIHANDLE;
         }
@@ -14890,7 +14890,7 @@ pub unsafe fn MsiGetComponentPathA<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetComponentPathA(
                 szproduct: super::super::Foundation::PSTR,
@@ -14925,7 +14925,7 @@ pub unsafe fn MsiGetComponentPathExA<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetComponentPathExA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -14964,7 +14964,7 @@ pub unsafe fn MsiGetComponentPathExW<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetComponentPathExW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -15000,7 +15000,7 @@ pub unsafe fn MsiGetComponentPathW<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetComponentPathW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -15032,7 +15032,7 @@ pub unsafe fn MsiGetComponentStateA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetComponentStateA(
                 hinstall: MSIHANDLE,
@@ -15064,7 +15064,7 @@ pub unsafe fn MsiGetComponentStateW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetComponentStateW(
                 hinstall: MSIHANDLE,
@@ -15088,7 +15088,7 @@ pub unsafe fn MsiGetDatabaseState<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> MSIDBSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetDatabaseState(hdatabase: MSIHANDLE) -> MSIDBSTATE;
         }
@@ -15111,7 +15111,7 @@ pub unsafe fn MsiGetFeatureCostA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureCostA(
                 hinstall: MSIHANDLE,
@@ -15146,7 +15146,7 @@ pub unsafe fn MsiGetFeatureCostW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureCostW(
                 hinstall: MSIHANDLE,
@@ -15183,7 +15183,7 @@ pub unsafe fn MsiGetFeatureInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureInfoA(
                 hproduct: MSIHANDLE,
@@ -15224,7 +15224,7 @@ pub unsafe fn MsiGetFeatureInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureInfoW(
                 hproduct: MSIHANDLE,
@@ -15262,7 +15262,7 @@ pub unsafe fn MsiGetFeatureStateA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureStateA(
                 hinstall: MSIHANDLE,
@@ -15294,7 +15294,7 @@ pub unsafe fn MsiGetFeatureStateW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureStateW(
                 hinstall: MSIHANDLE,
@@ -15326,7 +15326,7 @@ pub unsafe fn MsiGetFeatureUsageA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureUsageA(
                 szproduct: super::super::Foundation::PSTR,
@@ -15358,7 +15358,7 @@ pub unsafe fn MsiGetFeatureUsageW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureUsageW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -15389,7 +15389,7 @@ pub unsafe fn MsiGetFeatureValidStatesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureValidStatesA(
                 hinstall: MSIHANDLE,
@@ -15418,7 +15418,7 @@ pub unsafe fn MsiGetFeatureValidStatesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFeatureValidStatesW(
                 hinstall: MSIHANDLE,
@@ -15446,7 +15446,7 @@ pub unsafe fn MsiGetFileHashA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFileHashA(
                 szfilepath: super::super::Foundation::PSTR,
@@ -15474,7 +15474,7 @@ pub unsafe fn MsiGetFileHashW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFileHashW(
                 szfilepath: super::super::Foundation::PWSTR,
@@ -15507,7 +15507,7 @@ pub unsafe fn MsiGetFileSignatureInformationA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFileSignatureInformationA(
                 szsignedobjectpath: super::super::Foundation::PSTR,
@@ -15545,7 +15545,7 @@ pub unsafe fn MsiGetFileSignatureInformationW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFileSignatureInformationW(
                 szsignedobjectpath: super::super::Foundation::PWSTR,
@@ -15580,7 +15580,7 @@ pub unsafe fn MsiGetFileVersionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFileVersionA(
                 szfilepath: super::super::Foundation::PSTR,
@@ -15614,7 +15614,7 @@ pub unsafe fn MsiGetFileVersionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetFileVersionW(
                 szfilepath: super::super::Foundation::PWSTR,
@@ -15640,7 +15640,7 @@ pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHA
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetLanguage(hinstall: MSIHANDLE) -> u16;
         }
@@ -15652,7 +15652,7 @@ pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHA
 pub unsafe fn MsiGetLastErrorRecord() -> MSIHANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetLastErrorRecord() -> MSIHANDLE;
         }
@@ -15668,7 +15668,7 @@ pub unsafe fn MsiGetMode<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetMode(
                 hinstall: MSIHANDLE,
@@ -15696,7 +15696,7 @@ pub unsafe fn MsiGetPatchFileListA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPatchFileListA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -15728,7 +15728,7 @@ pub unsafe fn MsiGetPatchFileListW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPatchFileListW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -15760,7 +15760,7 @@ pub unsafe fn MsiGetPatchInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPatchInfoA(
                 szpatch: super::super::Foundation::PSTR,
@@ -15797,7 +15797,7 @@ pub unsafe fn MsiGetPatchInfoExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPatchInfoExA(
                 szpatchcode: super::super::Foundation::PSTR,
@@ -15840,7 +15840,7 @@ pub unsafe fn MsiGetPatchInfoExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPatchInfoExW(
                 szpatchcode: super::super::Foundation::PWSTR,
@@ -15878,7 +15878,7 @@ pub unsafe fn MsiGetPatchInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPatchInfoW(
                 szpatch: super::super::Foundation::PWSTR,
@@ -15907,7 +15907,7 @@ pub unsafe fn MsiGetProductCodeA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductCodeA(
                 szcomponent: super::super::Foundation::PSTR,
@@ -15932,7 +15932,7 @@ pub unsafe fn MsiGetProductCodeW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductCodeW(
                 szcomponent: super::super::Foundation::PWSTR,
@@ -15960,7 +15960,7 @@ pub unsafe fn MsiGetProductInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductInfoA(
                 szproduct: super::super::Foundation::PSTR,
@@ -15995,7 +15995,7 @@ pub unsafe fn MsiGetProductInfoExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductInfoExA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -16034,7 +16034,7 @@ pub unsafe fn MsiGetProductInfoExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductInfoExW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -16073,7 +16073,7 @@ pub unsafe fn MsiGetProductInfoFromScriptA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductInfoFromScriptA(
                 szscriptfile: super::super::Foundation::PSTR,
@@ -16116,7 +16116,7 @@ pub unsafe fn MsiGetProductInfoFromScriptW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductInfoFromScriptW(
                 szscriptfile: super::super::Foundation::PWSTR,
@@ -16156,7 +16156,7 @@ pub unsafe fn MsiGetProductInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductInfoW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -16188,7 +16188,7 @@ pub unsafe fn MsiGetProductPropertyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductPropertyA(
                 hproduct: MSIHANDLE,
@@ -16220,7 +16220,7 @@ pub unsafe fn MsiGetProductPropertyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetProductPropertyW(
                 hproduct: MSIHANDLE,
@@ -16252,7 +16252,7 @@ pub unsafe fn MsiGetPropertyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPropertyA(
                 hinstall: MSIHANDLE,
@@ -16284,7 +16284,7 @@ pub unsafe fn MsiGetPropertyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetPropertyW(
                 hinstall: MSIHANDLE,
@@ -16315,7 +16315,7 @@ pub unsafe fn MsiGetShortcutTargetA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetShortcutTargetA(
                 szshortcutpath: super::super::Foundation::PSTR,
@@ -16346,7 +16346,7 @@ pub unsafe fn MsiGetShortcutTargetW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetShortcutTargetW(
                 szshortcutpath: super::super::Foundation::PWSTR,
@@ -16378,7 +16378,7 @@ pub unsafe fn MsiGetSourcePathA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetSourcePathA(
                 hinstall: MSIHANDLE,
@@ -16410,7 +16410,7 @@ pub unsafe fn MsiGetSourcePathW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetSourcePathW(
                 hinstall: MSIHANDLE,
@@ -16442,7 +16442,7 @@ pub unsafe fn MsiGetSummaryInformationA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetSummaryInformationA(
                 hdatabase: MSIHANDLE,
@@ -16474,7 +16474,7 @@ pub unsafe fn MsiGetSummaryInformationW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetSummaryInformationW(
                 hdatabase: MSIHANDLE,
@@ -16506,7 +16506,7 @@ pub unsafe fn MsiGetTargetPathA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetTargetPathA(
                 hinstall: MSIHANDLE,
@@ -16538,7 +16538,7 @@ pub unsafe fn MsiGetTargetPathW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetTargetPathW(
                 hinstall: MSIHANDLE,
@@ -16572,7 +16572,7 @@ pub unsafe fn MsiGetUserInfoA<
 ) -> USERINFOSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetUserInfoA(
                 szproduct: super::super::Foundation::PSTR,
@@ -16612,7 +16612,7 @@ pub unsafe fn MsiGetUserInfoW<
 ) -> USERINFOSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiGetUserInfoW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -16649,7 +16649,7 @@ pub unsafe fn MsiInstallMissingComponentA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiInstallMissingComponentA(
                 szproduct: super::super::Foundation::PSTR,
@@ -16678,7 +16678,7 @@ pub unsafe fn MsiInstallMissingComponentW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiInstallMissingComponentW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -16706,7 +16706,7 @@ pub unsafe fn MsiInstallMissingFileA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiInstallMissingFileA(
                 szproduct: super::super::Foundation::PSTR,
@@ -16732,7 +16732,7 @@ pub unsafe fn MsiInstallMissingFileW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiInstallMissingFileW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -16758,7 +16758,7 @@ pub unsafe fn MsiInstallProductA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiInstallProductA(
                 szpackagepath: super::super::Foundation::PSTR,
@@ -16784,7 +16784,7 @@ pub unsafe fn MsiInstallProductW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiInstallProductW(
                 szpackagepath: super::super::Foundation::PWSTR,
@@ -16809,7 +16809,7 @@ pub unsafe fn MsiIsProductElevatedA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiIsProductElevatedA(
                 szproduct: super::super::Foundation::PSTR,
@@ -16834,7 +16834,7 @@ pub unsafe fn MsiIsProductElevatedW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiIsProductElevatedW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -16857,7 +16857,7 @@ pub unsafe fn MsiJoinTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, M
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiJoinTransaction(
                 htransactionhandle: MSIHANDLE,
@@ -16885,7 +16885,7 @@ pub unsafe fn MsiLocateComponentA<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiLocateComponentA(
                 szcomponent: super::super::Foundation::PSTR,
@@ -16913,7 +16913,7 @@ pub unsafe fn MsiLocateComponentW<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiLocateComponentW(
                 szcomponent: super::super::Foundation::PWSTR,
@@ -16941,7 +16941,7 @@ pub unsafe fn MsiNotifySidChangeA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiNotifySidChangeA(
                 poldsid: super::super::Foundation::PSTR,
@@ -16967,7 +16967,7 @@ pub unsafe fn MsiNotifySidChangeW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiNotifySidChangeW(
                 poldsid: super::super::Foundation::PWSTR,
@@ -16994,7 +16994,7 @@ pub unsafe fn MsiOpenDatabaseA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenDatabaseA(
                 szdatabasepath: super::super::Foundation::PSTR,
@@ -17023,7 +17023,7 @@ pub unsafe fn MsiOpenDatabaseW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenDatabaseW(
                 szdatabasepath: super::super::Foundation::PWSTR,
@@ -17050,7 +17050,7 @@ pub unsafe fn MsiOpenPackageA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenPackageA(
                 szpackagepath: super::super::Foundation::PSTR,
@@ -17076,7 +17076,7 @@ pub unsafe fn MsiOpenPackageExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenPackageExA(
                 szpackagepath: super::super::Foundation::PSTR,
@@ -17104,7 +17104,7 @@ pub unsafe fn MsiOpenPackageExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenPackageExW(
                 szpackagepath: super::super::Foundation::PWSTR,
@@ -17131,7 +17131,7 @@ pub unsafe fn MsiOpenPackageW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenPackageW(
                 szpackagepath: super::super::Foundation::PWSTR,
@@ -17156,7 +17156,7 @@ pub unsafe fn MsiOpenProductA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenProductA(
                 szproduct: super::super::Foundation::PSTR,
@@ -17181,7 +17181,7 @@ pub unsafe fn MsiOpenProductW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiOpenProductW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -17209,7 +17209,7 @@ pub unsafe fn MsiPreviewBillboardA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiPreviewBillboardA(
                 hpreview: MSIHANDLE,
@@ -17239,7 +17239,7 @@ pub unsafe fn MsiPreviewBillboardW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiPreviewBillboardW(
                 hpreview: MSIHANDLE,
@@ -17267,7 +17267,7 @@ pub unsafe fn MsiPreviewDialogA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiPreviewDialogA(
                 hpreview: MSIHANDLE,
@@ -17293,7 +17293,7 @@ pub unsafe fn MsiPreviewDialogW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiPreviewDialogW(
                 hpreview: MSIHANDLE,
@@ -17325,7 +17325,7 @@ pub unsafe fn MsiProcessAdvertiseScriptA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProcessAdvertiseScriptA(
                 szscriptfile: super::super::Foundation::PSTR,
@@ -17363,7 +17363,7 @@ pub unsafe fn MsiProcessAdvertiseScriptW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProcessAdvertiseScriptW(
                 szscriptfile: super::super::Foundation::PWSTR,
@@ -17395,7 +17395,7 @@ pub unsafe fn MsiProcessMessage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProcessMessage(
                 hinstall: MSIHANDLE,
@@ -17427,7 +17427,7 @@ pub unsafe fn MsiProvideAssemblyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideAssemblyA(
                 szassemblyname: super::super::Foundation::PSTR,
@@ -17465,7 +17465,7 @@ pub unsafe fn MsiProvideAssemblyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideAssemblyW(
                 szassemblyname: super::super::Foundation::PWSTR,
@@ -17504,7 +17504,7 @@ pub unsafe fn MsiProvideComponentA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideComponentA(
                 szproduct: super::super::Foundation::PSTR,
@@ -17543,7 +17543,7 @@ pub unsafe fn MsiProvideComponentW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideComponentW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -17580,7 +17580,7 @@ pub unsafe fn MsiProvideQualifiedComponentA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideQualifiedComponentA(
                 szcategory: super::super::Foundation::PSTR,
@@ -17619,7 +17619,7 @@ pub unsafe fn MsiProvideQualifiedComponentExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideQualifiedComponentExA(
                 szcategory: super::super::Foundation::PSTR,
@@ -17664,7 +17664,7 @@ pub unsafe fn MsiProvideQualifiedComponentExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideQualifiedComponentExW(
                 szcategory: super::super::Foundation::PWSTR,
@@ -17705,7 +17705,7 @@ pub unsafe fn MsiProvideQualifiedComponentW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiProvideQualifiedComponentW(
                 szcategory: super::super::Foundation::PWSTR,
@@ -17741,7 +17741,7 @@ pub unsafe fn MsiQueryComponentStateA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryComponentStateA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -17777,7 +17777,7 @@ pub unsafe fn MsiQueryComponentStateW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryComponentStateW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -17809,7 +17809,7 @@ pub unsafe fn MsiQueryFeatureStateA<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryFeatureStateA(
                 szproduct: super::super::Foundation::PSTR,
@@ -17839,7 +17839,7 @@ pub unsafe fn MsiQueryFeatureStateExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryFeatureStateExA(
                 szproductcode: super::super::Foundation::PSTR,
@@ -17875,7 +17875,7 @@ pub unsafe fn MsiQueryFeatureStateExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryFeatureStateExW(
                 szproductcode: super::super::Foundation::PWSTR,
@@ -17907,7 +17907,7 @@ pub unsafe fn MsiQueryFeatureStateW<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryFeatureStateW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -17931,7 +17931,7 @@ pub unsafe fn MsiQueryProductStateA<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryProductStateA(szproduct: super::super::Foundation::PSTR) -> INSTALLSTATE;
         }
@@ -17949,7 +17949,7 @@ pub unsafe fn MsiQueryProductStateW<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiQueryProductStateW(szproduct: super::super::Foundation::PWSTR) -> INSTALLSTATE;
         }
@@ -17963,7 +17963,7 @@ pub unsafe fn MsiRecordClearData<'a, Param0: ::windows::runtime::IntoParam<'a, M
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordClearData(hrecord: MSIHANDLE) -> u32;
         }
@@ -17978,7 +17978,7 @@ pub unsafe fn MsiRecordDataSize<'a, Param0: ::windows::runtime::IntoParam<'a, MS
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordDataSize(hrecord: MSIHANDLE, ifield: u32) -> u32;
         }
@@ -17995,7 +17995,7 @@ pub unsafe fn MsiRecordGetFieldCount<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordGetFieldCount(hrecord: MSIHANDLE) -> u32;
         }
@@ -18010,7 +18010,7 @@ pub unsafe fn MsiRecordGetInteger<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordGetInteger(hrecord: MSIHANDLE, ifield: u32) -> i32;
         }
@@ -18031,7 +18031,7 @@ pub unsafe fn MsiRecordGetStringA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordGetStringA(
                 hrecord: MSIHANDLE,
@@ -18059,7 +18059,7 @@ pub unsafe fn MsiRecordGetStringW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordGetStringW(
                 hrecord: MSIHANDLE,
@@ -18085,7 +18085,7 @@ pub unsafe fn MsiRecordIsNull<'a, Param0: ::windows::runtime::IntoParam<'a, MSIH
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordIsNull(hrecord: MSIHANDLE, ifield: u32) -> super::super::Foundation::BOOL;
         }
@@ -18106,7 +18106,7 @@ pub unsafe fn MsiRecordReadStream<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordReadStream(
                 hrecord: MSIHANDLE,
@@ -18132,7 +18132,7 @@ pub unsafe fn MsiRecordSetInteger<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordSetInteger(hrecord: MSIHANDLE, ifield: u32, ivalue: i32) -> u32;
         }
@@ -18157,7 +18157,7 @@ pub unsafe fn MsiRecordSetStreamA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordSetStreamA(
                 hrecord: MSIHANDLE,
@@ -18186,7 +18186,7 @@ pub unsafe fn MsiRecordSetStreamW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordSetStreamW(
                 hrecord: MSIHANDLE,
@@ -18215,7 +18215,7 @@ pub unsafe fn MsiRecordSetStringA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordSetStringA(
                 hrecord: MSIHANDLE,
@@ -18244,7 +18244,7 @@ pub unsafe fn MsiRecordSetStringW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRecordSetStringW(
                 hrecord: MSIHANDLE,
@@ -18273,7 +18273,7 @@ pub unsafe fn MsiReinstallFeatureA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiReinstallFeatureA(
                 szproduct: super::super::Foundation::PSTR,
@@ -18302,7 +18302,7 @@ pub unsafe fn MsiReinstallFeatureW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiReinstallFeatureW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -18329,7 +18329,7 @@ pub unsafe fn MsiReinstallProductA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiReinstallProductA(
                 szproduct: super::super::Foundation::PSTR,
@@ -18354,7 +18354,7 @@ pub unsafe fn MsiReinstallProductW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiReinstallProductW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -18383,7 +18383,7 @@ pub unsafe fn MsiRemovePatchesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRemovePatchesA(
                 szpatchlist: super::super::Foundation::PSTR,
@@ -18416,7 +18416,7 @@ pub unsafe fn MsiRemovePatchesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiRemovePatchesW(
                 szpatchlist: super::super::Foundation::PWSTR,
@@ -18447,7 +18447,7 @@ pub unsafe fn MsiSequenceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSequenceA(
                 hinstall: MSIHANDLE,
@@ -18476,7 +18476,7 @@ pub unsafe fn MsiSequenceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSequenceW(
                 hinstall: MSIHANDLE,
@@ -18505,7 +18505,7 @@ pub unsafe fn MsiSetComponentStateA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetComponentStateA(
                 hinstall: MSIHANDLE,
@@ -18534,7 +18534,7 @@ pub unsafe fn MsiSetComponentStateW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetComponentStateW(
                 hinstall: MSIHANDLE,
@@ -18559,7 +18559,7 @@ pub unsafe fn MsiSetExternalUIA(
 ) -> ::std::option::Option<INSTALLUI_HANDLERA> {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetExternalUIA(
                 puihandler: ::windows::runtime::RawPtr,
@@ -18584,7 +18584,7 @@ pub unsafe fn MsiSetExternalUIRecord(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetExternalUIRecord(
                 puihandler: ::windows::runtime::RawPtr,
@@ -18611,7 +18611,7 @@ pub unsafe fn MsiSetExternalUIW(
 ) -> ::std::option::Option<INSTALLUI_HANDLERW> {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetExternalUIW(
                 puihandler: ::windows::runtime::RawPtr,
@@ -18640,7 +18640,7 @@ pub unsafe fn MsiSetFeatureAttributesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetFeatureAttributesA(
                 hinstall: MSIHANDLE,
@@ -18669,7 +18669,7 @@ pub unsafe fn MsiSetFeatureAttributesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetFeatureAttributesW(
                 hinstall: MSIHANDLE,
@@ -18698,7 +18698,7 @@ pub unsafe fn MsiSetFeatureStateA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetFeatureStateA(
                 hinstall: MSIHANDLE,
@@ -18727,7 +18727,7 @@ pub unsafe fn MsiSetFeatureStateW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetFeatureStateW(
                 hinstall: MSIHANDLE,
@@ -18750,7 +18750,7 @@ pub unsafe fn MsiSetInstallLevel<'a, Param0: ::windows::runtime::IntoParam<'a, M
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetInstallLevel(hinstall: MSIHANDLE, iinstalllevel: i32) -> u32;
         }
@@ -18769,7 +18769,7 @@ pub unsafe fn MsiSetInternalUI(
 ) -> INSTALLUILEVEL {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetInternalUI(
                 dwuilevel: INSTALLUILEVEL,
@@ -18796,7 +18796,7 @@ pub unsafe fn MsiSetMode<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetMode(
                 hinstall: MSIHANDLE,
@@ -18826,7 +18826,7 @@ pub unsafe fn MsiSetPropertyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetPropertyA(
                 hinstall: MSIHANDLE,
@@ -18856,7 +18856,7 @@ pub unsafe fn MsiSetPropertyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetPropertyW(
                 hinstall: MSIHANDLE,
@@ -18886,7 +18886,7 @@ pub unsafe fn MsiSetTargetPathA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetTargetPathA(
                 hinstall: MSIHANDLE,
@@ -18916,7 +18916,7 @@ pub unsafe fn MsiSetTargetPathW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSetTargetPathW(
                 hinstall: MSIHANDLE,
@@ -18951,7 +18951,7 @@ pub unsafe fn MsiSourceListAddMediaDiskA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListAddMediaDiskA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -18994,7 +18994,7 @@ pub unsafe fn MsiSourceListAddMediaDiskW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListAddMediaDiskW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19033,7 +19033,7 @@ pub unsafe fn MsiSourceListAddSourceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListAddSourceA(
                 szproduct: super::super::Foundation::PSTR,
@@ -19068,7 +19068,7 @@ pub unsafe fn MsiSourceListAddSourceExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListAddSourceExA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19107,7 +19107,7 @@ pub unsafe fn MsiSourceListAddSourceExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListAddSourceExW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19144,7 +19144,7 @@ pub unsafe fn MsiSourceListAddSourceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListAddSourceW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -19175,7 +19175,7 @@ pub unsafe fn MsiSourceListClearAllA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearAllA(
                 szproduct: super::super::Foundation::PSTR,
@@ -19205,7 +19205,7 @@ pub unsafe fn MsiSourceListClearAllExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearAllExA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19237,7 +19237,7 @@ pub unsafe fn MsiSourceListClearAllExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearAllExW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19268,7 +19268,7 @@ pub unsafe fn MsiSourceListClearAllW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearAllW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -19299,7 +19299,7 @@ pub unsafe fn MsiSourceListClearMediaDiskA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearMediaDiskA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19334,7 +19334,7 @@ pub unsafe fn MsiSourceListClearMediaDiskW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearMediaDiskW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19370,7 +19370,7 @@ pub unsafe fn MsiSourceListClearSourceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearSourceA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19406,7 +19406,7 @@ pub unsafe fn MsiSourceListClearSourceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListClearSourceW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19446,7 +19446,7 @@ pub unsafe fn MsiSourceListEnumMediaDisksA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListEnumMediaDisksA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19496,7 +19496,7 @@ pub unsafe fn MsiSourceListEnumMediaDisksW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListEnumMediaDisksW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19543,7 +19543,7 @@ pub unsafe fn MsiSourceListEnumSourcesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListEnumSourcesA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19584,7 +19584,7 @@ pub unsafe fn MsiSourceListEnumSourcesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListEnumSourcesW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19621,7 +19621,7 @@ pub unsafe fn MsiSourceListForceResolutionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListForceResolutionA(
                 szproduct: super::super::Foundation::PSTR,
@@ -19651,7 +19651,7 @@ pub unsafe fn MsiSourceListForceResolutionExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListForceResolutionExA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19683,7 +19683,7 @@ pub unsafe fn MsiSourceListForceResolutionExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListForceResolutionExW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19714,7 +19714,7 @@ pub unsafe fn MsiSourceListForceResolutionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListForceResolutionW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -19748,7 +19748,7 @@ pub unsafe fn MsiSourceListGetInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListGetInfoA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19790,7 +19790,7 @@ pub unsafe fn MsiSourceListGetInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListGetInfoW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19832,7 +19832,7 @@ pub unsafe fn MsiSourceListSetInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListSetInfoA(
                 szproductcodeorpatchcode: super::super::Foundation::PSTR,
@@ -19872,7 +19872,7 @@ pub unsafe fn MsiSourceListSetInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSourceListSetInfoW(
                 szproductcodeorpatchcode: super::super::Foundation::PWSTR,
@@ -19910,7 +19910,7 @@ pub unsafe fn MsiSummaryInfoGetPropertyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSummaryInfoGetPropertyA(
                 hsummaryinfo: MSIHANDLE,
@@ -19944,7 +19944,7 @@ pub unsafe fn MsiSummaryInfoGetPropertyCount<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSummaryInfoGetPropertyCount(
                 hsummaryinfo: MSIHANDLE,
@@ -19974,7 +19974,7 @@ pub unsafe fn MsiSummaryInfoGetPropertyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSummaryInfoGetPropertyW(
                 hsummaryinfo: MSIHANDLE,
@@ -20004,7 +20004,7 @@ pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSummaryInfoPersist(hsummaryinfo: MSIHANDLE) -> u32;
         }
@@ -20028,7 +20028,7 @@ pub unsafe fn MsiSummaryInfoSetPropertyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSummaryInfoSetPropertyA(
                 hsummaryinfo: MSIHANDLE,
@@ -20066,7 +20066,7 @@ pub unsafe fn MsiSummaryInfoSetPropertyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiSummaryInfoSetPropertyW(
                 hsummaryinfo: MSIHANDLE,
@@ -20100,7 +20100,7 @@ pub unsafe fn MsiUseFeatureA<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiUseFeatureA(
                 szproduct: super::super::Foundation::PSTR,
@@ -20128,7 +20128,7 @@ pub unsafe fn MsiUseFeatureExA<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiUseFeatureExA(
                 szproduct: super::super::Foundation::PSTR,
@@ -20160,7 +20160,7 @@ pub unsafe fn MsiUseFeatureExW<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiUseFeatureExW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -20190,7 +20190,7 @@ pub unsafe fn MsiUseFeatureW<
 ) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiUseFeatureW(
                 szproduct: super::super::Foundation::PWSTR,
@@ -20210,7 +20210,7 @@ pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::windows::runtime::IntoParam<'a, M
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiVerifyDiskSpace(hinstall: MSIHANDLE) -> u32;
         }
@@ -20228,7 +20228,7 @@ pub unsafe fn MsiVerifyPackageA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiVerifyPackageA(szpackagepath: super::super::Foundation::PSTR) -> u32;
         }
@@ -20246,7 +20246,7 @@ pub unsafe fn MsiVerifyPackageW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiVerifyPackageW(szpackagepath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -20260,7 +20260,7 @@ pub unsafe fn MsiViewClose<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHAND
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiViewClose(hview: MSIHANDLE) -> u32;
         }
@@ -20279,7 +20279,7 @@ pub unsafe fn MsiViewExecute<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiViewExecute(hview: MSIHANDLE, hrecord: MSIHANDLE) -> u32;
         }
@@ -20297,7 +20297,7 @@ pub unsafe fn MsiViewFetch<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHAND
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiViewFetch(hview: MSIHANDLE, phrecord: *mut MSIHANDLE) -> u32;
         }
@@ -20316,7 +20316,7 @@ pub unsafe fn MsiViewGetColumnInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiViewGetColumnInfo(
                 hview: MSIHANDLE,
@@ -20341,7 +20341,7 @@ pub unsafe fn MsiViewGetErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, MSI
 ) -> MSIDBERROR {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiViewGetErrorA(
                 hview: MSIHANDLE,
@@ -20366,7 +20366,7 @@ pub unsafe fn MsiViewGetErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, MSI
 ) -> MSIDBERROR {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiViewGetErrorW(
                 hview: MSIHANDLE,
@@ -20394,7 +20394,7 @@ pub unsafe fn MsiViewModify<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsiViewModify(hview: MSIHANDLE, emodifymode: MSIMODIFY, hrecord: MSIHANDLE) -> u32;
         }
@@ -20428,7 +20428,7 @@ pub unsafe fn NormalizeFileForPatchSignature(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn NormalizeFileForPatchSignature(
                 filebuffer: *mut ::std::ffi::c_void,
@@ -22087,7 +22087,7 @@ pub unsafe fn QueryActCtxSettingsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryActCtxSettingsW(
                 dwflags: u32,
@@ -22127,7 +22127,7 @@ pub unsafe fn QueryActCtxW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryActCtxW(
                 dwflags: u32,
@@ -22214,7 +22214,7 @@ pub unsafe fn ReleaseActCtx<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseActCtx(hactctx: super::super::Foundation::HANDLE);
         }
@@ -22305,7 +22305,7 @@ pub unsafe fn SfcGetNextProtectedFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SfcGetNextProtectedFile(
                 rpchandle: super::super::Foundation::HANDLE,
@@ -22331,7 +22331,7 @@ pub unsafe fn SfcIsFileProtected<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SfcIsFileProtected(
                 rpchandle: super::super::Foundation::HANDLE,
@@ -22358,7 +22358,7 @@ pub unsafe fn SfcIsKeyProtected<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SfcIsKeyProtected(
                 keyhandle: super::Registry::HKEY,
@@ -22387,7 +22387,7 @@ pub unsafe fn SfpVerifyFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sfc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SfpVerifyFile(
                 pszfilename: super::super::Foundation::PSTR,
@@ -22528,7 +22528,7 @@ pub unsafe fn TestApplyPatchToFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn TestApplyPatchToFileA(
                 patchfilename: super::super::Foundation::PSTR,
@@ -22556,7 +22556,7 @@ pub unsafe fn TestApplyPatchToFileByBuffers(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn TestApplyPatchToFileByBuffers(
                 patchfilebuffer: *const u8,
@@ -22591,7 +22591,7 @@ pub unsafe fn TestApplyPatchToFileByHandles<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn TestApplyPatchToFileByHandles(
                 patchfilehandle: super::super::Foundation::HANDLE,
@@ -22620,7 +22620,7 @@ pub unsafe fn TestApplyPatchToFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mspatcha")]
+        #[link(name = "windows")]
         extern "system" {
             fn TestApplyPatchToFileW(
                 patchfilename: super::super::Foundation::PWSTR,
@@ -22688,7 +22688,7 @@ pub unsafe fn ZombifyActCtx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ZombifyActCtx(
                 hactctx: super::super::Foundation::HANDLE,

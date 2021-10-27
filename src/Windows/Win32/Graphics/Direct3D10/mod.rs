@@ -25,7 +25,7 @@ pub unsafe fn D3D10CompileEffectFromMemory<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CompileEffectFromMemory(
                 pdata: *const ::std::ffi::c_void,
@@ -77,7 +77,7 @@ pub unsafe fn D3D10CompileShader<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CompileShader(
                 psrcdata: super::super::Foundation::PSTR,
@@ -115,7 +115,7 @@ pub unsafe fn D3D10CreateBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateBlob(
                 numbytes: usize,
@@ -144,7 +144,7 @@ pub unsafe fn D3D10CreateDevice<
 ) -> ::windows::runtime::Result<ID3D10Device> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateDevice(
                 padapter: ::windows::runtime::RawPtr,
@@ -184,7 +184,7 @@ pub unsafe fn D3D10CreateDevice1<
 ) -> ::windows::runtime::Result<ID3D10Device1> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10_1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateDevice1(
                 padapter: ::windows::runtime::RawPtr,
@@ -228,7 +228,7 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateDeviceAndSwapChain(
                 padapter: ::windows::runtime::RawPtr,
@@ -274,7 +274,7 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain1<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10_1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateDeviceAndSwapChain1(
                 padapter: ::windows::runtime::RawPtr,
@@ -317,7 +317,7 @@ pub unsafe fn D3D10CreateEffectFromMemory<
 ) -> ::windows::runtime::Result<ID3D10Effect> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateEffectFromMemory(
                 pdata: *const ::std::ffi::c_void,
@@ -353,7 +353,7 @@ pub unsafe fn D3D10CreateEffectPoolFromMemory<
 ) -> ::windows::runtime::Result<ID3D10EffectPool> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateEffectPoolFromMemory(
                 pdata: *const ::std::ffi::c_void,
@@ -382,7 +382,7 @@ pub unsafe fn D3D10CreateStateBlock<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<ID3D10StateBlock> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateStateBlock(
                 pdevice: ::windows::runtime::RawPtr,
@@ -412,7 +412,7 @@ pub unsafe fn D3D10DisassembleEffect<
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10DisassembleEffect(
                 peffect: ::windows::runtime::RawPtr,
@@ -445,7 +445,7 @@ pub unsafe fn D3D10DisassembleShader<
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10DisassembleShader(
                 pshader: *const ::std::ffi::c_void,
@@ -478,7 +478,7 @@ pub unsafe fn D3D10GetGeometryShaderProfile<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10GetGeometryShaderProfile(
                 pdevice: ::windows::runtime::RawPtr,
@@ -496,7 +496,7 @@ pub unsafe fn D3D10GetInputAndOutputSignatureBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10GetInputAndOutputSignatureBlob(
                 pshaderbytecode: *const ::std::ffi::c_void,
@@ -523,7 +523,7 @@ pub unsafe fn D3D10GetInputSignatureBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10GetInputSignatureBlob(
                 pshaderbytecode: *const ::std::ffi::c_void,
@@ -550,7 +550,7 @@ pub unsafe fn D3D10GetOutputSignatureBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10GetOutputSignatureBlob(
                 pshaderbytecode: *const ::std::ffi::c_void,
@@ -579,7 +579,7 @@ pub unsafe fn D3D10GetPixelShaderProfile<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10GetPixelShaderProfile(
                 pdevice: ::windows::runtime::RawPtr,
@@ -597,7 +597,7 @@ pub unsafe fn D3D10GetShaderDebugInfo(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10GetShaderDebugInfo(
                 pshaderbytecode: *const ::std::ffi::c_void,
@@ -626,7 +626,7 @@ pub unsafe fn D3D10GetVertexShaderProfile<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10GetVertexShaderProfile(
                 pdevice: ::windows::runtime::RawPtr,
@@ -654,7 +654,7 @@ pub unsafe fn D3D10PreprocessShader<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10PreprocessShader(
                 psrcdata: super::super::Foundation::PSTR,
@@ -686,7 +686,7 @@ pub unsafe fn D3D10ReflectShader(
 ) -> ::windows::runtime::Result<ID3D10ShaderReflection> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10ReflectShader(
                 pshaderbytecode: *const ::std::ffi::c_void,
@@ -712,7 +712,7 @@ pub unsafe fn D3D10StateBlockMaskDifference(
 ) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskDifference(
                 pa: *const D3D10_STATE_BLOCK_MASK,
@@ -736,7 +736,7 @@ pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::runtime::Result<D3D1
 {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskDisableAll(
                 pmask: *mut D3D10_STATE_BLOCK_MASK,
@@ -757,7 +757,7 @@ pub unsafe fn D3D10StateBlockMaskDisableCapture(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskDisableCapture(
                 pmask: *mut D3D10_STATE_BLOCK_MASK,
@@ -780,7 +780,7 @@ pub unsafe fn D3D10StateBlockMaskDisableCapture(
 pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskEnableAll(
                 pmask: *mut D3D10_STATE_BLOCK_MASK,
@@ -801,7 +801,7 @@ pub unsafe fn D3D10StateBlockMaskEnableCapture(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskEnableCapture(
                 pmask: *mut D3D10_STATE_BLOCK_MASK,
@@ -829,7 +829,7 @@ pub unsafe fn D3D10StateBlockMaskGetSetting(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskGetSetting(
                 pmask: *const D3D10_STATE_BLOCK_MASK,
@@ -852,7 +852,7 @@ pub unsafe fn D3D10StateBlockMaskIntersect(
 ) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskIntersect(
                 pa: *const D3D10_STATE_BLOCK_MASK,
@@ -878,7 +878,7 @@ pub unsafe fn D3D10StateBlockMaskUnion(
 ) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d10")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D10StateBlockMaskUnion(
                 pa: *const D3D10_STATE_BLOCK_MASK,

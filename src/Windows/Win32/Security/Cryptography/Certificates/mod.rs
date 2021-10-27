@@ -2619,7 +2619,7 @@ pub const CX509SCEPEnrollmentHelper: ::windows::runtime::GUID =
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupClose(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -2631,7 +2631,7 @@ pub unsafe fn CertSrvBackupClose(hbc: *mut ::std::ffi::c_void) -> ::windows::run
 pub unsafe fn CertSrvBackupEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -2643,7 +2643,7 @@ pub unsafe fn CertSrvBackupEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runti
 pub unsafe fn CertSrvBackupFree(pv: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupFree(pv: *mut ::std::ffi::c_void);
         }
@@ -2660,7 +2660,7 @@ pub unsafe fn CertSrvBackupGetBackupLogsW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupGetBackupLogsW(
                 hbc: *const ::std::ffi::c_void,
@@ -2686,7 +2686,7 @@ pub unsafe fn CertSrvBackupGetDatabaseNamesW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupGetDatabaseNamesW(
                 hbc: *const ::std::ffi::c_void,
@@ -2712,7 +2712,7 @@ pub unsafe fn CertSrvBackupGetDynamicFileListW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupGetDynamicFileListW(
                 hbc: *const ::std::ffi::c_void,
@@ -2742,7 +2742,7 @@ pub unsafe fn CertSrvBackupOpenFileW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupOpenFileW(
                 hbc: *mut ::std::ffi::c_void,
@@ -2774,7 +2774,7 @@ pub unsafe fn CertSrvBackupPrepareW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupPrepareW(
                 pwszservername: super::super::super::Foundation::PWSTR,
@@ -2802,7 +2802,7 @@ pub unsafe fn CertSrvBackupRead(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupRead(
                 hbc: *mut ::std::ffi::c_void,
@@ -2827,7 +2827,7 @@ pub unsafe fn CertSrvBackupTruncateLogs(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvBackupTruncateLogs(
                 hbc: *mut ::std::ffi::c_void,
@@ -2848,7 +2848,7 @@ pub unsafe fn CertSrvIsServerOnlineW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvIsServerOnlineW(
                 pwszservername: super::super::super::Foundation::PWSTR,
@@ -2867,7 +2867,7 @@ pub unsafe fn CertSrvIsServerOnlineW<
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvRestoreEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -2884,7 +2884,7 @@ pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvRestoreGetDatabaseLocationsW(
                 hbc: *const ::std::ffi::c_void,
@@ -2913,7 +2913,7 @@ pub unsafe fn CertSrvRestorePrepareW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvRestorePrepareW(
                 pwszservername: super::super::super::Foundation::PWSTR,
@@ -2937,7 +2937,7 @@ pub unsafe fn CertSrvRestoreRegisterComplete(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvRestoreRegisterComplete(
                 hbc: *mut ::std::ffi::c_void,
@@ -2971,7 +2971,7 @@ pub unsafe fn CertSrvRestoreRegisterThroughFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvRestoreRegisterThroughFile(
                 hbc: *mut ::std::ffi::c_void,
@@ -3017,7 +3017,7 @@ pub unsafe fn CertSrvRestoreRegisterW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvRestoreRegisterW(
                 hbc: *mut ::std::ffi::c_void,
@@ -3057,7 +3057,7 @@ pub unsafe fn CertSrvServerControlW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certadm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CertSrvServerControlW(
                 pwszservername: super::super::super::Foundation::PWSTR,
@@ -78741,7 +78741,7 @@ pub unsafe fn PstAcquirePrivateKey(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstAcquirePrivateKey(
                 pcert: *const super::Core::CERT_CONTEXT,
@@ -78764,7 +78764,7 @@ pub unsafe fn PstGetCertificateChain(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstGetCertificateChain(
                 pcert: *const super::Core::CERT_CONTEXT,
@@ -78800,7 +78800,7 @@ pub unsafe fn PstGetCertificates<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstGetCertificates(
                 ptargetname: *const super::super::super::System::Kernel::UNICODE_STRING,
@@ -78838,7 +78838,7 @@ pub unsafe fn PstGetTrustAnchors(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstGetTrustAnchors(
                 ptargetname: *const super::super::super::System::Kernel::UNICODE_STRING,
@@ -78873,7 +78873,7 @@ pub unsafe fn PstGetTrustAnchorsEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstGetTrustAnchorsEx(
                 ptargetname: *const super::super::super::System::Kernel::UNICODE_STRING,
@@ -78906,7 +78906,7 @@ pub unsafe fn PstGetUserNameForCertificate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstGetUserNameForCertificate(
                 pcertcontext: *const super::Core::CERT_CONTEXT,
@@ -78934,7 +78934,7 @@ pub unsafe fn PstMapCertificate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstMapCertificate(
                 pcert: *const super::Core::CERT_CONTEXT,
@@ -78970,7 +78970,7 @@ pub unsafe fn PstValidate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "certpoleng")]
+        #[link(name = "windows")]
         extern "system" {
             fn PstValidate(
                 ptargetname: *const super::super::super::System::Kernel::UNICODE_STRING,

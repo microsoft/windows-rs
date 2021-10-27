@@ -42,7 +42,7 @@ pub unsafe fn DRMAcquireAdvisories<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMAcquireAdvisories(
                 hlicensestorage: u32,
@@ -77,7 +77,7 @@ pub unsafe fn DRMAcquireIssuanceLicenseTemplate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMAcquireIssuanceLicenseTemplate(
                 hclient: u32,
@@ -121,7 +121,7 @@ pub unsafe fn DRMAcquireLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMAcquireLicense(
                 hsession: u32,
@@ -161,7 +161,7 @@ pub unsafe fn DRMActivate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMActivate(
                 hclient: u32,
@@ -196,7 +196,7 @@ pub unsafe fn DRMAddLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMAddLicense(
                 hlicensestorage: u32,
@@ -221,7 +221,7 @@ pub unsafe fn DRMAddRightWithUser(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMAddRightWithUser(
                 hissuancelicense: u32,
@@ -252,7 +252,7 @@ pub unsafe fn DRMAttest<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMAttest(
                 henablingprincipal: u32,
@@ -353,7 +353,7 @@ pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
 pub unsafe fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::runtime::HRESULT;
         }
@@ -365,7 +365,7 @@ pub unsafe fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::runtime::Re
 pub unsafe fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::runtime::HRESULT;
         }
@@ -377,7 +377,7 @@ pub unsafe fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::runtime::Re
 pub unsafe fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::runtime::HRESULT;
         }
@@ -389,7 +389,7 @@ pub unsafe fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::runtime::Result
 pub unsafe fn DRMCloseHandle(handle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCloseHandle(handle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -401,7 +401,7 @@ pub unsafe fn DRMCloseHandle(handle: u32) -> ::windows::runtime::Result<()> {
 pub unsafe fn DRMClosePubHandle(hpub: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMClosePubHandle(hpub: u32) -> ::windows::runtime::HRESULT;
         }
@@ -413,7 +413,7 @@ pub unsafe fn DRMClosePubHandle(hpub: u32) -> ::windows::runtime::Result<()> {
 pub unsafe fn DRMCloseQueryHandle(hquery: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCloseQueryHandle(hquery: u32) -> ::windows::runtime::HRESULT;
         }
@@ -425,7 +425,7 @@ pub unsafe fn DRMCloseQueryHandle(hquery: u32) -> ::windows::runtime::Result<()>
 pub unsafe fn DRMCloseSession(hsession: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCloseSession(hsession: u32) -> ::windows::runtime::HRESULT;
         }
@@ -443,7 +443,7 @@ pub unsafe fn DRMConstructCertificateChain(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMConstructCertificateChain(
                 ccertificates: u32,
@@ -476,7 +476,7 @@ pub unsafe fn DRMCreateBoundLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateBoundLicense(
                 henv: u32,
@@ -512,7 +512,7 @@ pub unsafe fn DRMCreateClientSession<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateClientSession(
                 pfncallback: ::windows::runtime::RawPtr,
@@ -548,7 +548,7 @@ pub unsafe fn DRMCreateEnablingBitsDecryptor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateEnablingBitsDecryptor(
                 hboundlicense: u32,
@@ -584,7 +584,7 @@ pub unsafe fn DRMCreateEnablingBitsEncryptor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateEnablingBitsEncryptor(
                 hboundlicense: u32,
@@ -621,7 +621,7 @@ pub unsafe fn DRMCreateEnablingPrincipal<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateEnablingPrincipal(
                 henv: u32,
@@ -663,7 +663,7 @@ pub unsafe fn DRMCreateIssuanceLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateIssuanceLicense(
                 psttimefrom: *mut super::super::Foundation::SYSTEMTIME,
@@ -705,7 +705,7 @@ pub unsafe fn DRMCreateLicenseStorageSession<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateLicenseStorageSession(
                 henv: u32,
@@ -744,7 +744,7 @@ pub unsafe fn DRMCreateRight<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateRight(
                 wszrightname: super::super::Foundation::PWSTR,
@@ -784,7 +784,7 @@ pub unsafe fn DRMCreateUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMCreateUser(
                 wszusername: super::super::Foundation::PWSTR,
@@ -817,7 +817,7 @@ pub unsafe fn DRMDecode<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDecode(
                 wszalgid: super::super::Foundation::PWSTR,
@@ -849,7 +849,7 @@ pub unsafe fn DRMDeconstructCertificateChain<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDeconstructCertificateChain(
                 wszchain: super::super::Foundation::PWSTR,
@@ -879,7 +879,7 @@ pub unsafe fn DRMDecrypt(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDecrypt(
                 hcryptoprovider: u32,
@@ -913,7 +913,7 @@ pub unsafe fn DRMDeleteLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDeleteLicense(
                 hsession: u32,
@@ -935,7 +935,7 @@ pub unsafe fn DRMDuplicateEnvironmentHandle(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDuplicateEnvironmentHandle(
                 htocopy: u32,
@@ -954,7 +954,7 @@ pub unsafe fn DRMDuplicateEnvironmentHandle(
 pub unsafe fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -973,7 +973,7 @@ pub unsafe fn DRMDuplicatePubHandle(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDuplicatePubHandle(
                 hpubin: u32,
@@ -995,7 +995,7 @@ pub unsafe fn DRMDuplicateSession(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMDuplicateSession(
                 hsessionin: u32,
@@ -1050,7 +1050,7 @@ pub unsafe fn DRMEncode<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMEncode(
                 wszalgid: super::super::Foundation::PWSTR,
@@ -1082,7 +1082,7 @@ pub unsafe fn DRMEncrypt(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMEncrypt(
                 hcryptoprovider: u32,
@@ -1117,7 +1117,7 @@ pub unsafe fn DRMEnumerateLicense(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMEnumerateLicense(
                 hsession: u32,
@@ -1173,7 +1173,7 @@ pub unsafe fn DRMGetApplicationSpecificData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetApplicationSpecificData(
                 hissuancelicense: u32,
@@ -1211,7 +1211,7 @@ pub unsafe fn DRMGetBoundLicenseAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetBoundLicenseAttribute(
                 hqueryroot: u32,
@@ -1246,7 +1246,7 @@ pub unsafe fn DRMGetBoundLicenseAttributeCount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetBoundLicenseAttributeCount(
                 hqueryroot: u32,
@@ -1276,7 +1276,7 @@ pub unsafe fn DRMGetBoundLicenseObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetBoundLicenseObject(
                 hqueryroot: u32,
@@ -1307,7 +1307,7 @@ pub unsafe fn DRMGetBoundLicenseObjectCount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetBoundLicenseObjectCount(
                 hqueryroot: u32,
@@ -1335,7 +1335,7 @@ pub unsafe fn DRMGetCertificateChainCount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetCertificateChainCount(
                 wszchain: super::super::Foundation::PWSTR,
@@ -1356,7 +1356,7 @@ pub unsafe fn DRMGetClientVersion(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetClientVersion(
                 pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO,
@@ -1380,7 +1380,7 @@ pub unsafe fn DRMGetEnvironmentInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetEnvironmentInfo(
                 handle: u32,
@@ -1415,7 +1415,7 @@ pub unsafe fn DRMGetInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetInfo(
                 handle: u32,
@@ -1443,7 +1443,7 @@ pub unsafe fn DRMGetIntervalTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetIntervalTime(
                 hissuancelicense: u32,
@@ -1474,7 +1474,7 @@ pub unsafe fn DRMGetIssuanceLicenseInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetIssuanceLicenseInfo(
                 hissuancelicense: u32,
@@ -1514,7 +1514,7 @@ pub unsafe fn DRMGetIssuanceLicenseTemplate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetIssuanceLicenseTemplate(
                 hissuancelicense: u32,
@@ -1550,7 +1550,7 @@ pub unsafe fn DRMGetMetaData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetMetaData(
                 hissuancelicense: u32,
@@ -1600,7 +1600,7 @@ pub unsafe fn DRMGetNameAndDescription(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetNameAndDescription(
                 hissuancelicense: u32,
@@ -1634,7 +1634,7 @@ pub unsafe fn DRMGetOwnerLicense(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetOwnerLicense(
                 hissuancelicense: u32,
@@ -1663,7 +1663,7 @@ pub unsafe fn DRMGetProcAddress<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetProcAddress(
                 hlibrary: u32,
@@ -1698,7 +1698,7 @@ pub unsafe fn DRMGetRevocationPoint(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetRevocationPoint(
                 hissuancelicense: u32,
@@ -1745,7 +1745,7 @@ pub unsafe fn DRMGetRightExtendedInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetRightExtendedInfo(
                 hright: u32,
@@ -1779,7 +1779,7 @@ pub unsafe fn DRMGetRightInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetRightInfo(
                 hright: u32,
@@ -1811,7 +1811,7 @@ pub unsafe fn DRMGetSecurityProvider(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetSecurityProvider(
                 uflags: u32,
@@ -1847,7 +1847,7 @@ pub unsafe fn DRMGetServiceLocation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetServiceLocation(
                 hclient: u32,
@@ -1891,7 +1891,7 @@ pub unsafe fn DRMGetSignedIssuanceLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetSignedIssuanceLicense(
                 henv: u32,
@@ -1942,7 +1942,7 @@ pub unsafe fn DRMGetSignedIssuanceLicenseEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetSignedIssuanceLicenseEx(
                 henv: u32,
@@ -1984,7 +1984,7 @@ pub unsafe fn DRMGetTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetTime(
                 henv: u32,
@@ -2016,7 +2016,7 @@ pub unsafe fn DRMGetUnboundLicenseAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUnboundLicenseAttribute(
                 hqueryroot: u32,
@@ -2051,7 +2051,7 @@ pub unsafe fn DRMGetUnboundLicenseAttributeCount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUnboundLicenseAttributeCount(
                 hqueryroot: u32,
@@ -2081,7 +2081,7 @@ pub unsafe fn DRMGetUnboundLicenseObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUnboundLicenseObject(
                 hqueryroot: u32,
@@ -2112,7 +2112,7 @@ pub unsafe fn DRMGetUnboundLicenseObjectCount<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUnboundLicenseObjectCount(
                 hqueryroot: u32,
@@ -2151,7 +2151,7 @@ pub unsafe fn DRMGetUsagePolicy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUsagePolicy(
                 hissuancelicense: u32,
@@ -2207,7 +2207,7 @@ pub unsafe fn DRMGetUserInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUserInfo(
                 huser: u32,
@@ -2241,7 +2241,7 @@ pub unsafe fn DRMGetUserRights(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUserRights(
                 hissuancelicense: u32,
@@ -2268,7 +2268,7 @@ pub unsafe fn DRMGetUsers(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMGetUsers(
                 hissuancelicense: u32,
@@ -2347,7 +2347,7 @@ pub unsafe fn DRMInitEnvironment<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMInitEnvironment(
                 esecurityprovidertype: DRMSECURITYPROVIDERTYPE,
@@ -2381,7 +2381,7 @@ pub unsafe fn DRMIsActivated(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMIsActivated(
                 hclient: u32,
@@ -2409,7 +2409,7 @@ pub unsafe fn DRMIsWindowProtected<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMIsWindowProtected(
                 hwnd: super::super::Foundation::HWND,
@@ -2436,7 +2436,7 @@ pub unsafe fn DRMLoadLibrary<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMLoadLibrary(
                 henv: u32,
@@ -2469,7 +2469,7 @@ pub unsafe fn DRMParseUnboundLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMParseUnboundLicense(
                 wszcertificate: super::super::Foundation::PWSTR,
@@ -2495,7 +2495,7 @@ pub unsafe fn DRMRegisterContent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMRegisterContent(
                 fregister: super::super::Foundation::BOOL,
@@ -2516,7 +2516,7 @@ pub unsafe fn DRMRegisterProtectedWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMRegisterProtectedWindow(
                 henv: u32,
@@ -2538,7 +2538,7 @@ pub unsafe fn DRMRegisterRevocationList<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMRegisterRevocationList(
                 henv: u32,
@@ -2557,7 +2557,7 @@ pub unsafe fn DRMRegisterRevocationList<
 pub unsafe fn DRMRepair() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMRepair() -> ::windows::runtime::HRESULT;
         }
@@ -2622,7 +2622,7 @@ pub unsafe fn DRMSetApplicationSpecificData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMSetApplicationSpecificData(
                 hissuancelicense: u32,
@@ -2649,7 +2649,7 @@ pub unsafe fn DRMSetGlobalOptions(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMSetGlobalOptions(
                 eglobaloptions: DRMGLOBALOPTIONS,
@@ -2673,7 +2673,7 @@ pub unsafe fn DRMSetIntervalTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32)
                 -> ::windows::runtime::HRESULT;
@@ -2707,7 +2707,7 @@ pub unsafe fn DRMSetMetaData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMSetMetaData(
                 hissuancelicense: u32,
@@ -2748,7 +2748,7 @@ pub unsafe fn DRMSetNameAndDescription<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMSetNameAndDescription(
                 hissuancelicense: u32,
@@ -2791,7 +2791,7 @@ pub unsafe fn DRMSetRevocationPoint<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMSetRevocationPoint(
                 hissuancelicense: u32,
@@ -2844,7 +2844,7 @@ pub unsafe fn DRMSetUsagePolicy<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMSetUsagePolicy(
                 hissuancelicense: u32,
@@ -2915,7 +2915,7 @@ pub unsafe fn DRMVerify<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "msdrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DRMVerify(
                 wszdata: super::super::Foundation::PWSTR,

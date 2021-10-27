@@ -6836,7 +6836,7 @@ pub unsafe fn WSManCloseCommand(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManCloseCommand(
                 commandhandle: *mut WSMAN_COMMAND,
@@ -6856,7 +6856,7 @@ pub unsafe fn WSManCloseCommand(
 pub unsafe fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: u32) -> u32;
         }
@@ -6871,7 +6871,7 @@ pub unsafe fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: 
 pub unsafe fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32;
         }
@@ -6891,7 +6891,7 @@ pub unsafe fn WSManCloseShell(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManCloseShell(
                 shellhandle: *mut WSMAN_SHELL,
@@ -6925,7 +6925,7 @@ pub unsafe fn WSManConnectShell<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManConnectShell(
                 session: *mut WSMAN_SESSION,
@@ -6967,7 +6967,7 @@ pub unsafe fn WSManConnectShellCommand<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManConnectShellCommand(
                 shell: *mut WSMAN_SHELL,
@@ -7006,7 +7006,7 @@ pub unsafe fn WSManCreateSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManCreateSession(
                 apihandle: *const WSMAN_API,
@@ -7045,7 +7045,7 @@ pub unsafe fn WSManCreateShell<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManCreateShell(
                 session: *mut WSMAN_SESSION,
@@ -7090,7 +7090,7 @@ pub unsafe fn WSManCreateShellEx<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManCreateShellEx(
                 session: *mut WSMAN_SESSION,
@@ -7145,7 +7145,7 @@ unsafe impl ::windows::runtime::Abi for WSManDataType {
 pub unsafe fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32;
         }
@@ -7166,7 +7166,7 @@ pub unsafe fn WSManDisconnectShell(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManDisconnectShell(
                 shell: *mut WSMAN_SHELL,
@@ -7228,7 +7228,7 @@ pub unsafe fn WSManGetErrorMessage<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManGetErrorMessage(
                 apihandle: *const WSMAN_API,
@@ -7260,7 +7260,7 @@ pub unsafe fn WSManGetSessionOptionAsDword(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManGetSessionOptionAsDword(
                 session: *const WSMAN_SESSION,
@@ -7287,7 +7287,7 @@ pub unsafe fn WSManGetSessionOptionAsString(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManGetSessionOptionAsString(
                 session: *const WSMAN_SESSION,
@@ -7311,7 +7311,7 @@ pub unsafe fn WSManGetSessionOptionAsString(
 pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32;
         }
@@ -7342,7 +7342,7 @@ pub unsafe fn WSManPluginAuthzOperationComplete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginAuthzOperationComplete(
                 senderdetails: *const WSMAN_SENDER_DETAILS,
@@ -7376,7 +7376,7 @@ pub unsafe fn WSManPluginAuthzQueryQuotaComplete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginAuthzQueryQuotaComplete(
                 senderdetails: *const WSMAN_SENDER_DETAILS,
@@ -7414,7 +7414,7 @@ pub unsafe fn WSManPluginAuthzUserComplete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginAuthzUserComplete(
                 senderdetails: *const WSMAN_SENDER_DETAILS,
@@ -7443,7 +7443,7 @@ pub unsafe fn WSManPluginAuthzUserComplete<
 pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32;
         }
@@ -7462,7 +7462,7 @@ pub unsafe fn WSManPluginGetConfiguration(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginGetConfiguration(
                 plugincontext: *const ::std::ffi::c_void,
@@ -7487,7 +7487,7 @@ pub unsafe fn WSManPluginGetOperationParameters(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginGetOperationParameters(
                 requestdetails: *const WSMAN_PLUGIN_REQUEST,
@@ -7516,7 +7516,7 @@ pub unsafe fn WSManPluginOperationComplete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginOperationComplete(
                 requestdetails: *const WSMAN_PLUGIN_REQUEST,
@@ -7550,7 +7550,7 @@ pub unsafe fn WSManPluginReceiveResult<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginReceiveResult(
                 requestdetails: *const WSMAN_PLUGIN_REQUEST,
@@ -7579,7 +7579,7 @@ pub unsafe fn WSManPluginReportCompletion(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginReportCompletion(
                 plugincontext: *const ::std::ffi::c_void,
@@ -7602,7 +7602,7 @@ pub unsafe fn WSManPluginReportContext(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManPluginReportContext(
                 requestdetails: *const WSMAN_PLUGIN_REQUEST,
@@ -7702,7 +7702,7 @@ pub unsafe fn WSManReceiveShellOutput(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManReceiveShellOutput(
                 shell: *mut WSMAN_SHELL,
@@ -7733,7 +7733,7 @@ pub unsafe fn WSManReconnectShell(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManReconnectShell(
                 shell: *mut WSMAN_SHELL,
@@ -7758,7 +7758,7 @@ pub unsafe fn WSManReconnectShellCommand(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManReconnectShellCommand(
                 commandhandle: *mut WSMAN_COMMAND,
@@ -7790,7 +7790,7 @@ pub unsafe fn WSManRunShellCommand<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManRunShellCommand(
                 shell: *mut WSMAN_SHELL,
@@ -7832,7 +7832,7 @@ pub unsafe fn WSManRunShellCommandEx<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManRunShellCommandEx(
                 shell: *mut WSMAN_SHELL,
@@ -7876,7 +7876,7 @@ pub unsafe fn WSManSendShellInput<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManSendShellInput(
                 shell: *const WSMAN_SHELL,
@@ -7993,7 +7993,7 @@ pub unsafe fn WSManSetSessionOption(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManSetSessionOption(
                 session: *const WSMAN_SESSION,
@@ -8048,7 +8048,7 @@ pub unsafe fn WSManSignalShell<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsmsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSManSignalShell(
                 shell: *const WSMAN_SHELL,

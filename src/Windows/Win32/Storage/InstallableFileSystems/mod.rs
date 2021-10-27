@@ -570,7 +570,7 @@ pub unsafe fn FilterAttach<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterAttach(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -609,7 +609,7 @@ pub unsafe fn FilterAttachAtAltitude<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterAttachAtAltitude(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -638,7 +638,7 @@ pub unsafe fn FilterClose<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterClose(hfilter: HFILTER) -> ::windows::runtime::HRESULT;
         }
@@ -660,7 +660,7 @@ pub unsafe fn FilterConnectCommunicationPort<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterConnectCommunicationPort(
                 lpportname: super::super::Foundation::PWSTR,
@@ -695,7 +695,7 @@ pub unsafe fn FilterCreate<
 ) -> ::windows::runtime::Result<HFILTER> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterCreate(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -721,7 +721,7 @@ pub unsafe fn FilterDetach<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterDetach(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -748,7 +748,7 @@ pub unsafe fn FilterFindClose<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterFindClose(
                 hfilterfind: super::super::Foundation::HANDLE,
@@ -768,7 +768,7 @@ pub unsafe fn FilterFindFirst(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterFindFirst(
                 dwinformationclass: FILTER_INFORMATION_CLASS,
@@ -822,7 +822,7 @@ pub unsafe fn FilterFindNext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterFindNext(
                 hfilterfind: super::super::Foundation::HANDLE,
@@ -855,7 +855,7 @@ pub unsafe fn FilterGetDosName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterGetDosName(
                 lpvolumename: super::super::Foundation::PWSTR,
@@ -882,7 +882,7 @@ pub unsafe fn FilterGetInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterGetInformation(
                 hfilter: HFILTER,
@@ -916,7 +916,7 @@ pub unsafe fn FilterGetMessage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterGetMessage(
                 hport: super::super::Foundation::HANDLE,
@@ -944,7 +944,7 @@ pub unsafe fn FilterInstanceClose<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterInstanceClose(hinstance: HFILTER_INSTANCE) -> ::windows::runtime::HRESULT;
         }
@@ -966,7 +966,7 @@ pub unsafe fn FilterInstanceCreate<
 ) -> ::windows::runtime::Result<HFILTER_INSTANCE> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterInstanceCreate(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -996,7 +996,7 @@ pub unsafe fn FilterInstanceFindClose<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterInstanceFindClose(
                 hfilterinstancefind: super::super::Foundation::HANDLE,
@@ -1021,7 +1021,7 @@ pub unsafe fn FilterInstanceFindFirst<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterInstanceFindFirst(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -1077,7 +1077,7 @@ pub unsafe fn FilterInstanceFindNext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterInstanceFindNext(
                 hfilterinstancefind: super::super::Foundation::HANDLE,
@@ -1111,7 +1111,7 @@ pub unsafe fn FilterInstanceGetInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterInstanceGetInformation(
                 hinstance: HFILTER_INSTANCE,
@@ -1142,7 +1142,7 @@ pub unsafe fn FilterLoad<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterLoad(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -1164,7 +1164,7 @@ pub unsafe fn FilterReplyMessage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterReplyMessage(
                 hport: super::super::Foundation::HANDLE,
@@ -1196,7 +1196,7 @@ pub unsafe fn FilterSendMessage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterSendMessage(
                 hport: super::super::Foundation::HANDLE,
@@ -1229,7 +1229,7 @@ pub unsafe fn FilterUnload<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterUnload(
                 lpfiltername: super::super::Foundation::PWSTR,
@@ -1249,7 +1249,7 @@ pub unsafe fn FilterVolumeFindClose<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterVolumeFindClose(
                 hvolumefind: super::super::Foundation::HANDLE,
@@ -1269,7 +1269,7 @@ pub unsafe fn FilterVolumeFindFirst(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterVolumeFindFirst(
                 dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS,
@@ -1323,7 +1323,7 @@ pub unsafe fn FilterVolumeFindNext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterVolumeFindNext(
                 hvolumefind: super::super::Foundation::HANDLE,
@@ -1354,7 +1354,7 @@ pub unsafe fn FilterVolumeInstanceFindClose<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterVolumeInstanceFindClose(
                 hvolumeinstancefind: super::super::Foundation::HANDLE,
@@ -1379,7 +1379,7 @@ pub unsafe fn FilterVolumeInstanceFindFirst<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterVolumeInstanceFindFirst(
                 lpvolumename: super::super::Foundation::PWSTR,
@@ -1435,7 +1435,7 @@ pub unsafe fn FilterVolumeInstanceFindNext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fltlib")]
+        #[link(name = "windows")]
         extern "system" {
             fn FilterVolumeInstanceFindNext(
                 hvolumeinstancefind: super::super::Foundation::HANDLE,

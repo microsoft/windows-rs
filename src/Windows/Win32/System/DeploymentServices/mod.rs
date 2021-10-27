@@ -9738,7 +9738,7 @@ pub unsafe fn PxeAsyncRecvDone<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeAsyncRecvDone(
                 hclientrequest: super::super::Foundation::HANDLE,
@@ -9763,7 +9763,7 @@ pub unsafe fn PxeDhcpAppendOption(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpAppendOption(
                 preplypacket: *mut ::std::ffi::c_void,
@@ -9795,7 +9795,7 @@ pub unsafe fn PxeDhcpAppendOptionRaw(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpAppendOptionRaw(
                 preplypacket: *mut ::std::ffi::c_void,
@@ -9826,7 +9826,7 @@ pub unsafe fn PxeDhcpGetOptionValue(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpGetOptionValue(
                 ppacket: *const ::std::ffi::c_void,
@@ -9859,7 +9859,7 @@ pub unsafe fn PxeDhcpGetVendorOptionValue(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpGetVendorOptionValue(
                 ppacket: *const ::std::ffi::c_void,
@@ -9891,7 +9891,7 @@ pub unsafe fn PxeDhcpInitialize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpInitialize(
                 precvpacket: *const ::std::ffi::c_void,
@@ -9924,7 +9924,7 @@ pub unsafe fn PxeDhcpIsValid<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpIsValid(
                 ppacket: *const ::std::ffi::c_void,
@@ -9953,7 +9953,7 @@ pub unsafe fn PxeDhcpv6AppendOption(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6AppendOption(
                 preply: *mut ::std::ffi::c_void,
@@ -9985,7 +9985,7 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6AppendOptionRaw(
                 preply: *mut ::std::ffi::c_void,
@@ -10017,7 +10017,7 @@ pub unsafe fn PxeDhcpv6CreateRelayRepl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6CreateRelayRepl(
                 prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE,
@@ -10052,7 +10052,7 @@ pub unsafe fn PxeDhcpv6GetOptionValue(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6GetOptionValue(
                 ppacket: *const ::std::ffi::c_void,
@@ -10086,7 +10086,7 @@ pub unsafe fn PxeDhcpv6GetVendorOptionValue(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6GetVendorOptionValue(
                 ppacket: *const ::std::ffi::c_void,
@@ -10120,7 +10120,7 @@ pub unsafe fn PxeDhcpv6Initialize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6Initialize(
                 prequest: *const ::std::ffi::c_void,
@@ -10153,7 +10153,7 @@ pub unsafe fn PxeDhcpv6IsValid<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6IsValid(
                 ppacket: *const ::std::ffi::c_void,
@@ -10183,7 +10183,7 @@ pub unsafe fn PxeDhcpv6ParseRelayForw(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeDhcpv6ParseRelayForw(
                 prelayforwpacket: *const ::std::ffi::c_void,
@@ -10215,7 +10215,7 @@ pub unsafe fn PxeGetServerInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeGetServerInfo(
                 uinfotype: u32,
@@ -10240,7 +10240,7 @@ pub unsafe fn PxeGetServerInfoEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeGetServerInfoEx(
                 uinfotype: u32,
@@ -10271,7 +10271,7 @@ pub unsafe fn PxePacketAllocate<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxePacketAllocate(
                 hprovider: super::super::Foundation::HANDLE,
@@ -10300,7 +10300,7 @@ pub unsafe fn PxePacketFree<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxePacketFree(
                 hprovider: super::super::Foundation::HANDLE,
@@ -10326,7 +10326,7 @@ pub unsafe fn PxeProviderEnumClose<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderEnumClose(henum: super::super::Foundation::HANDLE) -> u32;
         }
@@ -10339,7 +10339,7 @@ pub unsafe fn PxeProviderEnumClose<
 pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -10358,7 +10358,7 @@ pub unsafe fn PxeProviderEnumNext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderEnumNext(
                 henum: super::super::Foundation::HANDLE,
@@ -10377,7 +10377,7 @@ pub unsafe fn PxeProviderEnumNext<
 pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
         }
@@ -10396,7 +10396,7 @@ pub unsafe fn PxeProviderQueryIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderQueryIndex(
                 pszprovidername: super::super::Foundation::PWSTR,
@@ -10426,7 +10426,7 @@ pub unsafe fn PxeProviderRegister<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderRegister(
                 pszprovidername: super::super::Foundation::PWSTR,
@@ -10459,7 +10459,7 @@ pub unsafe fn PxeProviderSetAttribute<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderSetAttribute(
                 hprovider: super::super::Foundation::HANDLE,
@@ -10487,7 +10487,7 @@ pub unsafe fn PxeProviderUnRegister<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeProviderUnRegister(pszprovidername: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10508,7 +10508,7 @@ pub unsafe fn PxeRegisterCallback<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeRegisterCallback(
                 hprovider: super::super::Foundation::HANDLE,
@@ -10539,7 +10539,7 @@ pub unsafe fn PxeSendReply<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeSendReply(
                 hclientrequest: super::super::Foundation::HANDLE,
@@ -10570,7 +10570,7 @@ pub unsafe fn PxeTrace<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeTrace(
                 hprovider: super::super::Foundation::HANDLE,
@@ -10600,7 +10600,7 @@ pub unsafe fn PxeTraceV<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdspxe")]
+        #[link(name = "windows")]
         extern "system" {
             fn PxeTraceV(
                 hprovider: super::super::Foundation::HANDLE,
@@ -11581,7 +11581,7 @@ pub unsafe fn WdsBpAddOption<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdsbp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsBpAddOption(
                 hhandle: super::super::Foundation::HANDLE,
@@ -11609,7 +11609,7 @@ pub unsafe fn WdsBpCloseHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdsbp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsBpCloseHandle(hhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -11630,7 +11630,7 @@ pub unsafe fn WdsBpGetOptionBuffer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdsbp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsBpGetOptionBuffer(
                 hhandle: super::super::Foundation::HANDLE,
@@ -11656,7 +11656,7 @@ pub unsafe fn WdsBpInitialize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdsbp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsBpInitialize(
                 bpackettype: u8,
@@ -11680,7 +11680,7 @@ pub unsafe fn WdsBpParseInitialize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdsbp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsBpParseInitialize(
                 ppacket: *const ::std::ffi::c_void,
@@ -11708,7 +11708,7 @@ pub unsafe fn WdsBpParseInitializev6(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdsbp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsBpParseInitializev6(
                 ppacket: *const ::std::ffi::c_void,
@@ -11740,7 +11740,7 @@ pub unsafe fn WdsBpQueryOption<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdsbp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsBpQueryOption(
                 hhandle: super::super::Foundation::HANDLE,
@@ -11771,7 +11771,7 @@ pub unsafe fn WdsCliAuthorizeSession<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliAuthorizeSession(
                 hsession: super::super::Foundation::HANDLE,
@@ -11792,7 +11792,7 @@ pub unsafe fn WdsCliCancelTransfer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliCancelTransfer(
                 htransfer: super::super::Foundation::HANDLE,
@@ -11812,7 +11812,7 @@ pub unsafe fn WdsCliClose<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliClose(handle: super::super::Foundation::HANDLE)
                 -> ::windows::runtime::HRESULT;
@@ -11832,7 +11832,7 @@ pub unsafe fn WdsCliCreateSession<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliCreateSession(
                 pwszserver: super::super::Foundation::PWSTR,
@@ -11861,7 +11861,7 @@ pub unsafe fn WdsCliFindFirstImage<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliFindFirstImage(
                 hsession: super::super::Foundation::HANDLE,
@@ -11885,7 +11885,7 @@ pub unsafe fn WdsCliFindNextImage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliFindNextImage(
                 handle: super::super::Foundation::HANDLE,
@@ -11905,7 +11905,7 @@ pub unsafe fn WdsCliFreeStringArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliFreeStringArray(
                 ppwszarray: *mut super::super::Foundation::PWSTR,
@@ -11930,7 +11930,7 @@ pub unsafe fn WdsCliGetDriverQueryXml<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetDriverQueryXml(
                 pwszwindirpath: super::super::Foundation::PWSTR,
@@ -11954,7 +11954,7 @@ pub unsafe fn WdsCliGetEnumerationFlags<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetEnumerationFlags(
                 handle: super::super::Foundation::HANDLE,
@@ -11977,7 +11977,7 @@ pub unsafe fn WdsCliGetImageArchitecture<
 ) -> ::windows::runtime::Result<CPU_ARCHITECTURE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageArchitecture(
                 hifh: super::super::Foundation::HANDLE,
@@ -12000,7 +12000,7 @@ pub unsafe fn WdsCliGetImageDescription<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageDescription(
                 hifh: super::super::Foundation::HANDLE,
@@ -12026,7 +12026,7 @@ pub unsafe fn WdsCliGetImageFiles<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageFiles(
                 hifh: super::super::Foundation::HANDLE,
@@ -12053,7 +12053,7 @@ pub unsafe fn WdsCliGetImageGroup<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageGroup(
                 hifh: super::super::Foundation::HANDLE,
@@ -12077,7 +12077,7 @@ pub unsafe fn WdsCliGetImageHalName<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageHalName(
                 hifh: super::super::Foundation::HANDLE,
@@ -12101,7 +12101,7 @@ pub unsafe fn WdsCliGetImageHandleFromFindHandle<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageHandleFromFindHandle(
                 findhandle: super::super::Foundation::HANDLE,
@@ -12125,7 +12125,7 @@ pub unsafe fn WdsCliGetImageHandleFromTransferHandle<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageHandleFromTransferHandle(
                 htransfer: super::super::Foundation::HANDLE,
@@ -12149,7 +12149,7 @@ pub unsafe fn WdsCliGetImageIndex<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageIndex(
                 hifh: super::super::Foundation::HANDLE,
@@ -12171,7 +12171,7 @@ pub unsafe fn WdsCliGetImageLanguage<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageLanguage(
                 hifh: super::super::Foundation::HANDLE,
@@ -12197,7 +12197,7 @@ pub unsafe fn WdsCliGetImageLanguages<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageLanguages(
                 hifh: super::super::Foundation::HANDLE,
@@ -12224,7 +12224,7 @@ pub unsafe fn WdsCliGetImageLastModifiedTime<
 ) -> ::windows::runtime::Result<*mut super::super::Foundation::SYSTEMTIME> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageLastModifiedTime(
                 hifh: super::super::Foundation::HANDLE,
@@ -12247,7 +12247,7 @@ pub unsafe fn WdsCliGetImageName<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageName(
                 hifh: super::super::Foundation::HANDLE,
@@ -12271,7 +12271,7 @@ pub unsafe fn WdsCliGetImageNamespace<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageNamespace(
                 hifh: super::super::Foundation::HANDLE,
@@ -12298,7 +12298,7 @@ pub unsafe fn WdsCliGetImageParameter<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageParameter(
                 hifh: super::super::Foundation::HANDLE,
@@ -12327,7 +12327,7 @@ pub unsafe fn WdsCliGetImagePath<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImagePath(
                 hifh: super::super::Foundation::HANDLE,
@@ -12351,7 +12351,7 @@ pub unsafe fn WdsCliGetImageSize<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageSize(
                 hifh: super::super::Foundation::HANDLE,
@@ -12373,7 +12373,7 @@ pub unsafe fn WdsCliGetImageType<
 ) -> ::windows::runtime::Result<WDS_CLI_IMAGE_TYPE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageType(
                 hifh: super::super::Foundation::HANDLE,
@@ -12397,7 +12397,7 @@ pub unsafe fn WdsCliGetImageVersion<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetImageVersion(
                 hifh: super::super::Foundation::HANDLE,
@@ -12421,7 +12421,7 @@ pub unsafe fn WdsCliGetTransferSize<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliGetTransferSize(
                 hifh: super::super::Foundation::HANDLE,
@@ -12448,7 +12448,7 @@ pub unsafe fn WdsCliInitializeLog<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliInitializeLog(
                 hsession: super::super::Foundation::HANDLE,
@@ -12479,7 +12479,7 @@ pub unsafe fn WdsCliLog<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliLog(
                 hsession: super::super::Foundation::HANDLE,
@@ -12509,7 +12509,7 @@ pub unsafe fn WdsCliObtainDriverPackages<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliObtainDriverPackages(
                 himage: super::super::Foundation::HANDLE,
@@ -12543,7 +12543,7 @@ pub unsafe fn WdsCliObtainDriverPackagesEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliObtainDriverPackagesEx(
                 hsession: super::super::Foundation::HANDLE,
@@ -12571,7 +12571,7 @@ pub unsafe fn WdsCliRegisterTrace(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliRegisterTrace(pfn: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -12583,7 +12583,7 @@ pub unsafe fn WdsCliRegisterTrace(
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32);
         }
@@ -12613,7 +12613,7 @@ pub unsafe fn WdsCliTransferFile<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliTransferFile(
                 pwszserver: super::super::Foundation::PWSTR,
@@ -12660,7 +12660,7 @@ pub unsafe fn WdsCliTransferImage<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliTransferImage(
                 himage: super::super::Foundation::HANDLE,
@@ -12697,7 +12697,7 @@ pub unsafe fn WdsCliWaitForTransfer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsclientapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsCliWaitForTransfer(
                 htransfer: super::super::Foundation::HANDLE,
@@ -12723,7 +12723,7 @@ pub const WdsTransportClient: ::windows::runtime::GUID = ::windows::runtime::GUI
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32;
         }
@@ -12743,7 +12743,7 @@ pub unsafe fn WdsTransportClientCancelSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientCancelSession(
                 hsessionkey: super::super::Foundation::HANDLE,
@@ -12766,7 +12766,7 @@ pub unsafe fn WdsTransportClientCancelSessionEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientCancelSessionEx(
                 hsessionkey: super::super::Foundation::HANDLE,
@@ -12790,7 +12790,7 @@ pub unsafe fn WdsTransportClientCloseSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientCloseSession(hsessionkey: super::super::Foundation::HANDLE)
                 -> u32;
@@ -12813,7 +12813,7 @@ pub unsafe fn WdsTransportClientCompleteReceive<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientCompleteReceive(
                 hsessionkey: super::super::Foundation::HANDLE,
@@ -12833,7 +12833,7 @@ pub unsafe fn WdsTransportClientCompleteReceive<
 pub unsafe fn WdsTransportClientInitialize() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientInitialize() -> u32;
         }
@@ -12850,7 +12850,7 @@ pub unsafe fn WdsTransportClientInitializeSession(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientInitializeSession(
                 psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST,
@@ -12878,7 +12878,7 @@ pub unsafe fn WdsTransportClientQueryStatus<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientQueryStatus(
                 hsessionkey: super::super::Foundation::HANDLE,
@@ -12906,7 +12906,7 @@ pub unsafe fn WdsTransportClientRegisterCallback<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientRegisterCallback(
                 hsessionkey: super::super::Foundation::HANDLE,
@@ -12926,7 +12926,7 @@ pub unsafe fn WdsTransportClientRegisterCallback<
 pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32;
         }
@@ -12940,7 +12940,7 @@ pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::std::ffi::c_voi
 pub unsafe fn WdsTransportClientShutdown() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientShutdown() -> u32;
         }
@@ -12958,7 +12958,7 @@ pub unsafe fn WdsTransportClientStartSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientStartSession(hsessionkey: super::super::Foundation::HANDLE)
                 -> u32;
@@ -12980,7 +12980,7 @@ pub unsafe fn WdsTransportClientWaitForCompletion<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wdstptc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportClientWaitForCompletion(
                 hsessionkey: super::super::Foundation::HANDLE,
@@ -13098,7 +13098,7 @@ pub unsafe fn WdsTransportServerAllocateBuffer<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "wdsmc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportServerAllocateBuffer(
                 hprovider: super::super::Foundation::HANDLE,
@@ -13125,7 +13125,7 @@ pub unsafe fn WdsTransportServerCompleteRead<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsmc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportServerCompleteRead(
                 hprovider: super::super::Foundation::HANDLE,
@@ -13155,7 +13155,7 @@ pub unsafe fn WdsTransportServerFreeBuffer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsmc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportServerFreeBuffer(
                 hprovider: super::super::Foundation::HANDLE,
@@ -13182,7 +13182,7 @@ pub unsafe fn WdsTransportServerRegisterCallback<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsmc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportServerRegisterCallback(
                 hprovider: super::super::Foundation::HANDLE,
@@ -13212,7 +13212,7 @@ pub unsafe fn WdsTransportServerTrace<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsmc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportServerTrace(
                 hprovider: super::super::Foundation::HANDLE,
@@ -13243,7 +13243,7 @@ pub unsafe fn WdsTransportServerTraceV<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wdsmc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WdsTransportServerTraceV(
                 hprovider: super::super::Foundation::HANDLE,

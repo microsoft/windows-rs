@@ -1440,7 +1440,7 @@ pub unsafe fn NetDfsAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsAdd(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -1477,7 +1477,7 @@ pub unsafe fn NetDfsAddFtRoot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsAddFtRoot(
                 servername: super::super::Foundation::PWSTR,
@@ -1513,7 +1513,7 @@ pub unsafe fn NetDfsAddRootTarget<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsAddRootTarget(
                 pdfspath: super::super::Foundation::PWSTR,
@@ -1548,7 +1548,7 @@ pub unsafe fn NetDfsAddStdRoot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsAddStdRoot(
                 servername: super::super::Foundation::PWSTR,
@@ -1581,7 +1581,7 @@ pub unsafe fn NetDfsEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsEnum(
                 dfsname: super::super::Foundation::PWSTR,
@@ -1619,7 +1619,7 @@ pub unsafe fn NetDfsGetClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsGetClientInfo(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -1652,7 +1652,7 @@ pub unsafe fn NetDfsGetFtContainerSecurity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsGetFtContainerSecurity(
                 domainname: super::super::Foundation::PWSTR,
@@ -1686,7 +1686,7 @@ pub unsafe fn NetDfsGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsGetInfo(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -1719,7 +1719,7 @@ pub unsafe fn NetDfsGetSecurity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsGetSecurity(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -1750,7 +1750,7 @@ pub unsafe fn NetDfsGetStdContainerSecurity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsGetStdContainerSecurity(
                 machinename: super::super::Foundation::PWSTR,
@@ -1780,7 +1780,7 @@ pub unsafe fn NetDfsGetSupportedNamespaceVersion<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsGetSupportedNamespaceVersion(
                 origin: DFS_NAMESPACE_VERSION_ORIGIN,
@@ -1809,7 +1809,7 @@ pub unsafe fn NetDfsMove<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsMove(
                 olddfsentrypath: super::super::Foundation::PWSTR,
@@ -1839,7 +1839,7 @@ pub unsafe fn NetDfsRemove<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsRemove(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -1870,7 +1870,7 @@ pub unsafe fn NetDfsRemoveFtRoot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsRemoveFtRoot(
                 servername: super::super::Foundation::PWSTR,
@@ -1905,7 +1905,7 @@ pub unsafe fn NetDfsRemoveFtRootForced<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsRemoveFtRootForced(
                 domainname: super::super::Foundation::PWSTR,
@@ -1938,7 +1938,7 @@ pub unsafe fn NetDfsRemoveRootTarget<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsRemoveRootTarget(
                 pdfspath: super::super::Foundation::PWSTR,
@@ -1967,7 +1967,7 @@ pub unsafe fn NetDfsRemoveStdRoot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsRemoveStdRoot(
                 servername: super::super::Foundation::PWSTR,
@@ -1999,7 +1999,7 @@ pub unsafe fn NetDfsSetClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsSetClientInfo(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -2031,7 +2031,7 @@ pub unsafe fn NetDfsSetFtContainerSecurity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsSetFtContainerSecurity(
                 domainname: super::super::Foundation::PWSTR,
@@ -2063,7 +2063,7 @@ pub unsafe fn NetDfsSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsSetInfo(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -2095,7 +2095,7 @@ pub unsafe fn NetDfsSetSecurity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsSetSecurity(
                 dfsentrypath: super::super::Foundation::PWSTR,
@@ -2123,7 +2123,7 @@ pub unsafe fn NetDfsSetStdContainerSecurity<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetDfsSetStdContainerSecurity(
                 machinename: super::super::Foundation::PWSTR,

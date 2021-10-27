@@ -11,7 +11,7 @@
 pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL;
         }

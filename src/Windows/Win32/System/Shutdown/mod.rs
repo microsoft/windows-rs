@@ -16,7 +16,7 @@ pub unsafe fn AbortSystemShutdownA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AbortSystemShutdownA(
                 lpmachinename: super::super::Foundation::PSTR,
@@ -36,7 +36,7 @@ pub unsafe fn AbortSystemShutdownW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AbortSystemShutdownW(
                 lpmachinename: super::super::Foundation::PWSTR,
@@ -57,7 +57,7 @@ pub unsafe fn CheckForHiberboot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckForHiberboot(
                 phiberboot: *mut super::super::Foundation::BOOLEAN,
@@ -132,7 +132,7 @@ pub unsafe fn ExitWindowsEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExitWindowsEx(
                 uflags: EXIT_WINDOWS_FLAGS,
@@ -161,7 +161,7 @@ pub unsafe fn InitiateShutdownA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitiateShutdownA(
                 lpmachinename: super::super::Foundation::PSTR,
@@ -196,7 +196,7 @@ pub unsafe fn InitiateShutdownW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitiateShutdownW(
                 lpmachinename: super::super::Foundation::PWSTR,
@@ -233,7 +233,7 @@ pub unsafe fn InitiateSystemShutdownA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitiateSystemShutdownA(
                 lpmachinename: super::super::Foundation::PSTR,
@@ -271,7 +271,7 @@ pub unsafe fn InitiateSystemShutdownExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitiateSystemShutdownExA(
                 lpmachinename: super::super::Foundation::PSTR,
@@ -311,7 +311,7 @@ pub unsafe fn InitiateSystemShutdownExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitiateSystemShutdownExW(
                 lpmachinename: super::super::Foundation::PWSTR,
@@ -350,7 +350,7 @@ pub unsafe fn InitiateSystemShutdownW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitiateSystemShutdownW(
                 lpmachinename: super::super::Foundation::PWSTR,
@@ -375,7 +375,7 @@ pub unsafe fn InitiateSystemShutdownW<
 pub unsafe fn LockWorkStation() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LockWorkStation() -> super::super::Foundation::BOOL;
         }
@@ -571,7 +571,7 @@ pub unsafe fn ShutdownBlockReasonCreate<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShutdownBlockReasonCreate(
                 hwnd: super::super::Foundation::HWND,
@@ -595,7 +595,7 @@ pub unsafe fn ShutdownBlockReasonDestroy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShutdownBlockReasonDestroy(
                 hwnd: super::super::Foundation::HWND,
@@ -617,7 +617,7 @@ pub unsafe fn ShutdownBlockReasonQuery<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShutdownBlockReasonQuery(
                 hwnd: super::super::Foundation::HWND,

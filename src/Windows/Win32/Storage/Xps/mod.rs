@@ -23,7 +23,7 @@ pub unsafe fn AbortDoc<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }
@@ -261,7 +261,7 @@ pub unsafe fn DeviceCapabilitiesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeviceCapabilitiesA(
                 pdevice: super::super::Foundation::PSTR,
@@ -296,7 +296,7 @@ pub unsafe fn DeviceCapabilitiesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeviceCapabilitiesW(
                 pdevice: super::super::Foundation::PWSTR,
@@ -326,7 +326,7 @@ pub unsafe fn EndDoc<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }
@@ -344,7 +344,7 @@ pub unsafe fn EndPage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }
@@ -367,7 +367,7 @@ pub unsafe fn Escape<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Escape(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -403,7 +403,7 @@ pub unsafe fn ExtEscape<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtEscape(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -20341,7 +20341,7 @@ pub unsafe fn PrintWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -20368,7 +20368,7 @@ pub unsafe fn SetAbortProc<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetAbortProc(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -20393,7 +20393,7 @@ pub unsafe fn StartDocA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartDocA(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32;
         }
@@ -20415,7 +20415,7 @@ pub unsafe fn StartDocW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartDocW(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32;
         }
@@ -20436,7 +20436,7 @@ pub unsafe fn StartPage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
         }

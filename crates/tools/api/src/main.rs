@@ -66,7 +66,6 @@ members = [
 exclude = ["crates/tests/component"]
 
 [package.metadata.docs.rs]
-all-features = true
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 

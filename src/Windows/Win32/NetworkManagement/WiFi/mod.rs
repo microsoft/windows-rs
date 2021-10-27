@@ -13203,7 +13203,7 @@ pub unsafe fn WFDCancelOpenSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WFDCancelOpenSession(hsessionhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -13221,7 +13221,7 @@ pub unsafe fn WFDCloseHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WFDCloseHandle(hclienthandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -13239,7 +13239,7 @@ pub unsafe fn WFDCloseSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WFDCloseSession(hsessionhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -13256,7 +13256,7 @@ pub unsafe fn WFDOpenHandle(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WFDOpenHandle(
                 dwclientversion: u32,
@@ -13285,7 +13285,7 @@ pub unsafe fn WFDOpenLegacySession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WFDOpenLegacySession(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -13359,7 +13359,7 @@ pub unsafe fn WFDStartOpenSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WFDStartOpenSession(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -13383,7 +13383,7 @@ pub unsafe fn WFDStartOpenSession<
 pub unsafe fn WFDUpdateDeviceVisibility(pdeviceaddress: *const *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WFDUpdateDeviceVisibility(pdeviceaddress: *const *const u8) -> u32;
         }
@@ -16120,7 +16120,7 @@ unsafe impl ::windows::runtime::Abi for WL_DISPLAY_PAGES {
 pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::std::ffi::c_void;
         }
@@ -16139,7 +16139,7 @@ pub unsafe fn WlanCloseHandle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanCloseHandle(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16166,7 +16166,7 @@ pub unsafe fn WlanConnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanConnect(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16197,7 +16197,7 @@ pub unsafe fn WlanConnect2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanConnect2(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16229,7 +16229,7 @@ pub unsafe fn WlanDeleteProfile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanDeleteProfile(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16265,7 +16265,7 @@ pub unsafe fn WlanDeviceServiceCommand<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanDeviceServiceCommand(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16305,7 +16305,7 @@ pub unsafe fn WlanDisconnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanDisconnect(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16333,7 +16333,7 @@ pub unsafe fn WlanEnumInterfaces<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanEnumInterfaces(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16365,7 +16365,7 @@ pub unsafe fn WlanExtractPsdIEDataList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanExtractPsdIEDataList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16391,7 +16391,7 @@ pub unsafe fn WlanExtractPsdIEDataList<
 pub unsafe fn WlanFreeMemory(pmemory: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanFreeMemory(pmemory: *const ::std::ffi::c_void);
         }
@@ -16413,7 +16413,7 @@ pub unsafe fn WlanGetAvailableNetworkList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetAvailableNetworkList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16447,7 +16447,7 @@ pub unsafe fn WlanGetAvailableNetworkList2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetAvailableNetworkList2(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16480,7 +16480,7 @@ pub unsafe fn WlanGetFilterList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetFilterList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16511,7 +16511,7 @@ pub unsafe fn WlanGetInterfaceCapability<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetInterfaceCapability(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16546,7 +16546,7 @@ pub unsafe fn WlanGetNetworkBssList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetNetworkBssList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16587,7 +16587,7 @@ pub unsafe fn WlanGetProfile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetProfile(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16627,7 +16627,7 @@ pub unsafe fn WlanGetProfileCustomUserData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetProfileCustomUserData(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16662,7 +16662,7 @@ pub unsafe fn WlanGetProfileList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetProfileList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16694,7 +16694,7 @@ pub unsafe fn WlanGetSecuritySettings<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetSecuritySettings(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16726,7 +16726,7 @@ pub unsafe fn WlanGetSupportedDeviceServices<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanGetSupportedDeviceServices(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16754,7 +16754,7 @@ pub unsafe fn WlanHostedNetworkForceStart<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkForceStart(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16782,7 +16782,7 @@ pub unsafe fn WlanHostedNetworkForceStop<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkForceStop(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16810,7 +16810,7 @@ pub unsafe fn WlanHostedNetworkInitSettings<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkInitSettings(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16841,7 +16841,7 @@ pub unsafe fn WlanHostedNetworkQueryProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkQueryProperty(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16879,7 +16879,7 @@ pub unsafe fn WlanHostedNetworkQuerySecondaryKey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkQuerySecondaryKey(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16915,7 +16915,7 @@ pub unsafe fn WlanHostedNetworkQueryStatus<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkQueryStatus(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16943,7 +16943,7 @@ pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkRefreshSecuritySettings(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -16974,7 +16974,7 @@ pub unsafe fn WlanHostedNetworkSetProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkSetProperty(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17014,7 +17014,7 @@ pub unsafe fn WlanHostedNetworkSetSecondaryKey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkSetSecondaryKey(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17050,7 +17050,7 @@ pub unsafe fn WlanHostedNetworkStartUsing<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkStartUsing(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17078,7 +17078,7 @@ pub unsafe fn WlanHostedNetworkStopUsing<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanHostedNetworkStopUsing(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17111,7 +17111,7 @@ pub unsafe fn WlanIhvControl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanIhvControl(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17147,7 +17147,7 @@ pub unsafe fn WlanOpenHandle(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanOpenHandle(
                 dwclientversion: u32,
@@ -17180,7 +17180,7 @@ pub unsafe fn WlanQueryAutoConfigParameter<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanQueryAutoConfigParameter(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17218,7 +17218,7 @@ pub unsafe fn WlanQueryInterface<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanQueryInterface(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17255,7 +17255,7 @@ pub unsafe fn WlanReasonCodeToString<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanReasonCodeToString(
                 dwreasoncode: u32,
@@ -17284,7 +17284,7 @@ pub unsafe fn WlanRegisterDeviceServiceNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanRegisterDeviceServiceNotification(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17315,7 +17315,7 @@ pub unsafe fn WlanRegisterNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanRegisterNotification(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17352,7 +17352,7 @@ pub unsafe fn WlanRegisterVirtualStationNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanRegisterVirtualStationNotification(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17384,7 +17384,7 @@ pub unsafe fn WlanRenameProfile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanRenameProfile(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17423,7 +17423,7 @@ pub unsafe fn WlanSaveTemporaryProfile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSaveTemporaryProfile(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17461,7 +17461,7 @@ pub unsafe fn WlanScan<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanScan(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17495,7 +17495,7 @@ pub unsafe fn WlanSetAutoConfigParameter<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetAutoConfigParameter(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17528,7 +17528,7 @@ pub unsafe fn WlanSetFilterList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetFilterList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17561,7 +17561,7 @@ pub unsafe fn WlanSetInterface<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetInterface(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17603,7 +17603,7 @@ pub unsafe fn WlanSetProfile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfile(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17645,7 +17645,7 @@ pub unsafe fn WlanSetProfileCustomUserData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfileCustomUserData(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17692,7 +17692,7 @@ pub unsafe fn WlanSetProfileEapUserData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfileEapUserData(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17735,7 +17735,7 @@ pub unsafe fn WlanSetProfileEapXmlUserData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfileEapXmlUserData(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17771,7 +17771,7 @@ pub unsafe fn WlanSetProfileList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfileList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17806,7 +17806,7 @@ pub unsafe fn WlanSetProfilePosition<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetProfilePosition(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17840,7 +17840,7 @@ pub unsafe fn WlanSetPsdIEDataList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetPsdIEDataList(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17871,7 +17871,7 @@ pub unsafe fn WlanSetSecuritySettings<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanSetSecuritySettings(
                 hclienthandle: super::super::Foundation::HANDLE,
@@ -17904,7 +17904,7 @@ pub unsafe fn WlanUIEditProfile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wlanui")]
+        #[link(name = "windows")]
         extern "system" {
             fn WlanUIEditProfile(
                 dwclientversion: u32,

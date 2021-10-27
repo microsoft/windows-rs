@@ -16,7 +16,7 @@ pub unsafe fn EnableMouseInPointer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableMouseInPointer(
                 fenable: super::super::Foundation::BOOL,
@@ -34,7 +34,7 @@ pub unsafe fn GetPointerCursorId(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerCursorId(
                 pointerid: u32,
@@ -57,7 +57,7 @@ pub unsafe fn GetPointerFrameInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerFrameInfo(
                 pointerid: u32,
@@ -83,7 +83,7 @@ pub unsafe fn GetPointerFrameInfoHistory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerFrameInfoHistory(
                 pointerid: u32,
@@ -110,7 +110,7 @@ pub unsafe fn GetPointerFramePenInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerFramePenInfo(
                 pointerid: u32,
@@ -136,7 +136,7 @@ pub unsafe fn GetPointerFramePenInfoHistory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerFramePenInfoHistory(
                 pointerid: u32,
@@ -163,7 +163,7 @@ pub unsafe fn GetPointerFrameTouchInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerFrameTouchInfo(
                 pointerid: u32,
@@ -189,7 +189,7 @@ pub unsafe fn GetPointerFrameTouchInfoHistory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerFrameTouchInfoHistory(
                 pointerid: u32,
@@ -215,7 +215,7 @@ pub unsafe fn GetPointerInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerInfo(
                 pointerid: u32,
@@ -238,7 +238,7 @@ pub unsafe fn GetPointerInfoHistory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerInfoHistory(
                 pointerid: u32,
@@ -263,7 +263,7 @@ pub unsafe fn GetPointerInputTransform(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerInputTransform(
                 pointerid: u32,
@@ -287,7 +287,7 @@ pub unsafe fn GetPointerPenInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerPenInfo(
                 pointerid: u32,
@@ -310,7 +310,7 @@ pub unsafe fn GetPointerPenInfoHistory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerPenInfoHistory(
                 pointerid: u32,
@@ -334,7 +334,7 @@ pub unsafe fn GetPointerTouchInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerTouchInfo(
                 pointerid: u32,
@@ -357,7 +357,7 @@ pub unsafe fn GetPointerTouchInfoHistory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerTouchInfoHistory(
                 pointerid: u32,
@@ -381,7 +381,7 @@ pub unsafe fn GetPointerType(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerType(
                 pointerid: u32,
@@ -399,7 +399,7 @@ pub unsafe fn GetPointerType(
 pub unsafe fn GetUnpredictedMessagePos() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUnpredictedMessagePos() -> u32;
         }
@@ -528,7 +528,7 @@ unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0_0 {
 pub unsafe fn IsMouseInPointerEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsMouseInPointerEnabled() -> super::super::Foundation::BOOL;
         }
@@ -833,7 +833,7 @@ unsafe impl ::windows::runtime::Abi for POINTER_TOUCH_INFO {
 pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SkipPointerFrameMessages(pointerid: u32) -> super::super::Foundation::BOOL;
         }

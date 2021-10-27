@@ -11,7 +11,7 @@
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
     #[cfg(windows)]
     {
-        #[link(name = "ondemandconnroutehelper")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE);
         }
@@ -36,7 +36,7 @@ pub unsafe fn GetInterfaceContextTableForHostName<
 ) -> ::windows::runtime::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
     #[cfg(windows)]
     {
-        #[link(name = "ondemandconnroutehelper")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInterfaceContextTableForHostName(
                 hostname: super::super::Foundation::PWSTR,
@@ -154,7 +154,7 @@ pub unsafe fn OnDemandGetRoutingHint<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "ondemandconnroutehelper")]
+        #[link(name = "windows")]
         extern "system" {
             fn OnDemandGetRoutingHint(
                 destinationhostname: super::super::Foundation::PWSTR,
@@ -175,7 +175,7 @@ pub unsafe fn OnDemandRegisterNotification(
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "ondemandconnroutehelper")]
+        #[link(name = "windows")]
         extern "system" {
             fn OnDemandRegisterNotification(
                 callback: ::windows::runtime::RawPtr,
@@ -204,7 +204,7 @@ pub unsafe fn OnDemandUnRegisterNotification<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ondemandconnroutehelper")]
+        #[link(name = "windows")]
         extern "system" {
             fn OnDemandUnRegisterNotification(
                 registrationhandle: super::super::Foundation::HANDLE,
@@ -639,7 +639,7 @@ unsafe impl ::windows::runtime::Abi for WCM_USAGE_DATA {
 pub unsafe fn WcmFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "wcmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcmFreeMemory(pmemory: *mut ::std::ffi::c_void);
         }
@@ -654,7 +654,7 @@ pub unsafe fn WcmGetProfileList(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wcmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcmGetProfileList(
                 preserved: *mut ::std::ffi::c_void,
@@ -683,7 +683,7 @@ pub unsafe fn WcmQueryProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wcmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcmQueryProperty(
                 pinterface: *const ::windows::runtime::GUID,
@@ -718,7 +718,7 @@ pub unsafe fn WcmSetProfileList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wcmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcmSetProfileList(
                 pprofilelist: *const WCM_PROFILE_INFO_LIST,
@@ -751,7 +751,7 @@ pub unsafe fn WcmSetProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wcmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WcmSetProperty(
                 pinterface: *const ::windows::runtime::GUID,

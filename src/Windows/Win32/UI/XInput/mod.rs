@@ -333,7 +333,7 @@ pub unsafe fn XInputEnable<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "xinputuap")]
+        #[link(name = "windows")]
         extern "system" {
             fn XInputEnable(enable: super::super::Foundation::BOOL);
         }
@@ -352,7 +352,7 @@ pub unsafe fn XInputGetAudioDeviceIds(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "xinputuap")]
+        #[link(name = "windows")]
         extern "system" {
             fn XInputGetAudioDeviceIds(
                 dwuserindex: u32,
@@ -380,7 +380,7 @@ pub unsafe fn XInputGetBatteryInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "xinputuap")]
+        #[link(name = "windows")]
         extern "system" {
             fn XInputGetBatteryInformation(
                 dwuserindex: u32,
@@ -404,7 +404,7 @@ pub unsafe fn XInputGetCapabilities(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "xinputuap")]
+        #[link(name = "windows")]
         extern "system" {
             fn XInputGetCapabilities(
                 dwuserindex: u32,
@@ -428,7 +428,7 @@ pub unsafe fn XInputGetKeystroke(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "xinputuap")]
+        #[link(name = "windows")]
         extern "system" {
             fn XInputGetKeystroke(
                 dwuserindex: u32,
@@ -448,7 +448,7 @@ pub unsafe fn XInputGetKeystroke(
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "xinputuap")]
+        #[link(name = "windows")]
         extern "system" {
             fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
         }
@@ -463,7 +463,7 @@ pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32
 pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "xinputuap")]
+        #[link(name = "windows")]
         extern "system" {
             fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
         }

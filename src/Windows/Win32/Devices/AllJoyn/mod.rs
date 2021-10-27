@@ -53,7 +53,7 @@ pub unsafe fn AllJoynAcceptBusConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynAcceptBusConnection(
                 serverbushandle: super::super::Foundation::HANDLE,
@@ -77,7 +77,7 @@ pub unsafe fn AllJoynCloseBusHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynCloseBusHandle(
                 bushandle: super::super::Foundation::HANDLE,
@@ -97,7 +97,7 @@ pub unsafe fn AllJoynConnectToBus<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynConnectToBus(
                 connectionspec: super::super::Foundation::PWSTR,
@@ -116,7 +116,7 @@ pub unsafe fn AllJoynCreateBus(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynCreateBus(
                 outbuffersize: u32,
@@ -145,7 +145,7 @@ pub unsafe fn AllJoynEnumEvents<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynEnumEvents(
                 connectedbushandle: super::super::Foundation::HANDLE,
@@ -174,7 +174,7 @@ pub unsafe fn AllJoynEventSelect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynEventSelect(
                 connectedbushandle: super::super::Foundation::HANDLE,
@@ -204,7 +204,7 @@ pub unsafe fn AllJoynReceiveFromBus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynReceiveFromBus(
                 connectedbushandle: super::super::Foundation::HANDLE,
@@ -238,7 +238,7 @@ pub unsafe fn AllJoynSendToBus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllJoynSendToBus(
                 connectedbushandle: super::super::Foundation::HANDLE,
@@ -264,7 +264,7 @@ pub const QCC_FALSE: u32 = 0u32;
 pub unsafe fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR;
         }
@@ -777,7 +777,7 @@ pub unsafe fn alljoyn_aboutdata_create<
 ) -> alljoyn_aboutdata {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_create(
                 defaultlanguage: super::super::Foundation::PSTR,
@@ -791,7 +791,7 @@ pub unsafe fn alljoyn_aboutdata_create<
 pub unsafe fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata;
         }
@@ -811,7 +811,7 @@ pub unsafe fn alljoyn_aboutdata_create_full<
 ) -> alljoyn_aboutdata {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_create_full(
                 arg: alljoyn_msgarg,
@@ -839,7 +839,7 @@ pub unsafe fn alljoyn_aboutdata_createfrommsgarg<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_createfrommsgarg(
                 data: alljoyn_aboutdata,
@@ -867,7 +867,7 @@ pub unsafe fn alljoyn_aboutdata_createfromxml<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_createfromxml(
                 data: alljoyn_aboutdata,
@@ -890,7 +890,7 @@ pub unsafe fn alljoyn_aboutdata_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_destroy(data: alljoyn_aboutdata);
         }
@@ -912,7 +912,7 @@ pub unsafe fn alljoyn_aboutdata_getaboutdata<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getaboutdata(
                 data: alljoyn_aboutdata,
@@ -938,7 +938,7 @@ pub unsafe fn alljoyn_aboutdata_getajsoftwareversion<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getajsoftwareversion(
                 data: alljoyn_aboutdata,
@@ -963,7 +963,7 @@ pub unsafe fn alljoyn_aboutdata_getannouncedaboutdata<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getannouncedaboutdata(
                 data: alljoyn_aboutdata,
@@ -988,7 +988,7 @@ pub unsafe fn alljoyn_aboutdata_getappid<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getappid(
                 data: alljoyn_aboutdata,
@@ -1017,7 +1017,7 @@ pub unsafe fn alljoyn_aboutdata_getappname<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getappname(
                 data: alljoyn_aboutdata,
@@ -1043,7 +1043,7 @@ pub unsafe fn alljoyn_aboutdata_getdateofmanufacture<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getdateofmanufacture(
                 data: alljoyn_aboutdata,
@@ -1067,7 +1067,7 @@ pub unsafe fn alljoyn_aboutdata_getdefaultlanguage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getdefaultlanguage(
                 data: alljoyn_aboutdata,
@@ -1094,7 +1094,7 @@ pub unsafe fn alljoyn_aboutdata_getdescription<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getdescription(
                 data: alljoyn_aboutdata,
@@ -1120,7 +1120,7 @@ pub unsafe fn alljoyn_aboutdata_getdeviceid<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getdeviceid(
                 data: alljoyn_aboutdata,
@@ -1147,7 +1147,7 @@ pub unsafe fn alljoyn_aboutdata_getdevicename<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getdevicename(
                 data: alljoyn_aboutdata,
@@ -1178,7 +1178,7 @@ pub unsafe fn alljoyn_aboutdata_getfield<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getfield(
                 data: alljoyn_aboutdata,
@@ -1207,7 +1207,7 @@ pub unsafe fn alljoyn_aboutdata_getfields<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getfields(
                 data: alljoyn_aboutdata,
@@ -1235,7 +1235,7 @@ pub unsafe fn alljoyn_aboutdata_getfieldsignature<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getfieldsignature(
                 data: alljoyn_aboutdata,
@@ -1259,7 +1259,7 @@ pub unsafe fn alljoyn_aboutdata_gethardwareversion<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_gethardwareversion(
                 data: alljoyn_aboutdata,
@@ -1286,7 +1286,7 @@ pub unsafe fn alljoyn_aboutdata_getmanufacturer<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getmanufacturer(
                 data: alljoyn_aboutdata,
@@ -1312,7 +1312,7 @@ pub unsafe fn alljoyn_aboutdata_getmodelnumber<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getmodelnumber(
                 data: alljoyn_aboutdata,
@@ -1336,7 +1336,7 @@ pub unsafe fn alljoyn_aboutdata_getsoftwareversion<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getsoftwareversion(
                 data: alljoyn_aboutdata,
@@ -1361,7 +1361,7 @@ pub unsafe fn alljoyn_aboutdata_getsupportedlanguages<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getsupportedlanguages(
                 data: alljoyn_aboutdata,
@@ -1387,7 +1387,7 @@ pub unsafe fn alljoyn_aboutdata_getsupporturl<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_getsupporturl(
                 data: alljoyn_aboutdata,
@@ -1413,7 +1413,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldannounced<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_isfieldannounced(
                 data: alljoyn_aboutdata,
@@ -1439,7 +1439,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldlocalized<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_isfieldlocalized(
                 data: alljoyn_aboutdata,
@@ -1465,7 +1465,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldrequired<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_isfieldrequired(
                 data: alljoyn_aboutdata,
@@ -1491,7 +1491,7 @@ pub unsafe fn alljoyn_aboutdata_isvalid<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_isvalid(
                 data: alljoyn_aboutdata,
@@ -1516,7 +1516,7 @@ pub unsafe fn alljoyn_aboutdata_setappid<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setappid(
                 data: alljoyn_aboutdata,
@@ -1544,7 +1544,7 @@ pub unsafe fn alljoyn_aboutdata_setappid_fromstring<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setappid_fromstring(
                 data: alljoyn_aboutdata,
@@ -1572,7 +1572,7 @@ pub unsafe fn alljoyn_aboutdata_setappname<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setappname(
                 data: alljoyn_aboutdata,
@@ -1600,7 +1600,7 @@ pub unsafe fn alljoyn_aboutdata_setdateofmanufacture<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setdateofmanufacture(
                 data: alljoyn_aboutdata,
@@ -1626,7 +1626,7 @@ pub unsafe fn alljoyn_aboutdata_setdefaultlanguage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setdefaultlanguage(
                 data: alljoyn_aboutdata,
@@ -1654,7 +1654,7 @@ pub unsafe fn alljoyn_aboutdata_setdescription<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setdescription(
                 data: alljoyn_aboutdata,
@@ -1682,7 +1682,7 @@ pub unsafe fn alljoyn_aboutdata_setdeviceid<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setdeviceid(
                 data: alljoyn_aboutdata,
@@ -1710,7 +1710,7 @@ pub unsafe fn alljoyn_aboutdata_setdevicename<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setdevicename(
                 data: alljoyn_aboutdata,
@@ -1742,7 +1742,7 @@ pub unsafe fn alljoyn_aboutdata_setfield<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setfield(
                 data: alljoyn_aboutdata,
@@ -1772,7 +1772,7 @@ pub unsafe fn alljoyn_aboutdata_sethardwareversion<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_sethardwareversion(
                 data: alljoyn_aboutdata,
@@ -1800,7 +1800,7 @@ pub unsafe fn alljoyn_aboutdata_setmanufacturer<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setmanufacturer(
                 data: alljoyn_aboutdata,
@@ -1828,7 +1828,7 @@ pub unsafe fn alljoyn_aboutdata_setmodelnumber<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setmodelnumber(
                 data: alljoyn_aboutdata,
@@ -1854,7 +1854,7 @@ pub unsafe fn alljoyn_aboutdata_setsoftwareversion<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setsoftwareversion(
                 data: alljoyn_aboutdata,
@@ -1880,7 +1880,7 @@ pub unsafe fn alljoyn_aboutdata_setsupportedlanguage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setsupportedlanguage(
                 data: alljoyn_aboutdata,
@@ -1906,7 +1906,7 @@ pub unsafe fn alljoyn_aboutdata_setsupporturl<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdata_setsupporturl(
                 data: alljoyn_aboutdata,
@@ -1991,7 +1991,7 @@ pub unsafe fn alljoyn_aboutdatalistener_create(
 ) -> alljoyn_aboutdatalistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdatalistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<alljoyn_aboutdatalistener_callbacks>,
@@ -2014,7 +2014,7 @@ pub unsafe fn alljoyn_aboutdatalistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener);
         }
@@ -2039,7 +2039,7 @@ pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = unsafe extern "sy
 pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle);
         }
@@ -2051,7 +2051,7 @@ pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
 pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle;
         }
@@ -2063,7 +2063,7 @@ pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
 pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle);
         }
@@ -2079,7 +2079,7 @@ pub unsafe fn alljoyn_abouticon_getcontent(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_getcontent(
                 icon: *mut _alljoyn_abouticon_handle,
@@ -2103,7 +2103,7 @@ pub unsafe fn alljoyn_abouticon_geturl(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_geturl(
                 icon: *mut _alljoyn_abouticon_handle,
@@ -2133,7 +2133,7 @@ pub unsafe fn alljoyn_abouticon_setcontent<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_setcontent(
                 icon: *mut _alljoyn_abouticon_handle,
@@ -2163,7 +2163,7 @@ pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_setcontent_frommsgarg(
                 icon: *mut _alljoyn_abouticon_handle,
@@ -2190,7 +2190,7 @@ pub unsafe fn alljoyn_abouticon_seturl<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticon_seturl(
                 icon: *mut _alljoyn_abouticon_handle,
@@ -2216,7 +2216,7 @@ pub unsafe fn alljoyn_abouticonobj_create<
 ) -> *mut _alljoyn_abouticonobj_handle {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticonobj_create(
                 bus: alljoyn_busattachment,
@@ -2234,7 +2234,7 @@ pub unsafe fn alljoyn_abouticonobj_create<
 pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle);
         }
@@ -2255,7 +2255,7 @@ pub unsafe fn alljoyn_abouticonproxy_create<
 ) -> *mut _alljoyn_abouticonproxy_handle {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticonproxy_create(
                 bus: alljoyn_busattachment,
@@ -2275,7 +2275,7 @@ pub unsafe fn alljoyn_abouticonproxy_create<
 pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle);
         }
@@ -2290,7 +2290,7 @@ pub unsafe fn alljoyn_abouticonproxy_geticon(
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticonproxy_geticon(
                 proxy: *mut _alljoyn_abouticonproxy_handle,
@@ -2311,7 +2311,7 @@ pub unsafe fn alljoyn_abouticonproxy_getversion(
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_abouticonproxy_getversion(
                 proxy: *mut _alljoyn_abouticonproxy_handle,
@@ -2386,7 +2386,7 @@ pub unsafe fn alljoyn_aboutlistener_create(
 ) -> alljoyn_aboutlistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutlistener_create(
                 callback: *const ::std::mem::ManuallyDrop<alljoyn_aboutlistener_callback>,
@@ -2409,7 +2409,7 @@ pub unsafe fn alljoyn_aboutlistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener);
         }
@@ -2448,7 +2448,7 @@ pub unsafe fn alljoyn_aboutobj_announce<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobj_announce(
                 obj: alljoyn_aboutobj,
@@ -2476,7 +2476,7 @@ pub unsafe fn alljoyn_aboutobj_announce_using_datalistener<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobj_announce_using_datalistener(
                 obj: alljoyn_aboutobj,
@@ -2502,7 +2502,7 @@ pub unsafe fn alljoyn_aboutobj_create<
 ) -> alljoyn_aboutobj {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobj_create(
                 bus: alljoyn_busattachment,
@@ -2525,7 +2525,7 @@ pub unsafe fn alljoyn_aboutobj_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobj_destroy(obj: alljoyn_aboutobj);
         }
@@ -2542,7 +2542,7 @@ pub unsafe fn alljoyn_aboutobj_unannounce<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobj_unannounce(obj: alljoyn_aboutobj) -> QStatus;
         }
@@ -2578,7 +2578,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_clear<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_clear(description: alljoyn_aboutobjectdescription);
         }
@@ -2592,7 +2592,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_clear<
 pub unsafe fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdescription {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdescription;
         }
@@ -2609,7 +2609,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_create_full<
 ) -> alljoyn_aboutobjectdescription {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_create_full(
                 arg: alljoyn_msgarg,
@@ -2632,7 +2632,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_createfrommsgarg<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_createfrommsgarg(
                 description: alljoyn_aboutobjectdescription,
@@ -2655,7 +2655,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_destroy(description: alljoyn_aboutobjectdescription);
         }
@@ -2679,7 +2679,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getinterfacepaths<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getinterfacepaths(
                 description: alljoyn_aboutobjectdescription,
@@ -2711,7 +2711,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getinterfaces(
                 description: alljoyn_aboutobjectdescription,
@@ -2740,7 +2740,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getmsgarg(
                 description: alljoyn_aboutobjectdescription,
@@ -2765,7 +2765,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getpaths<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_getpaths(
                 description: alljoyn_aboutobjectdescription,
@@ -2793,7 +2793,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_hasinterface(
                 description: alljoyn_aboutobjectdescription,
@@ -2821,7 +2821,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_hasinterfaceatpath<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_hasinterfaceatpath(
                 description: alljoyn_aboutobjectdescription,
@@ -2849,7 +2849,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_haspath<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutobjectdescription_haspath(
                 description: alljoyn_aboutobjectdescription,
@@ -2895,7 +2895,7 @@ pub unsafe fn alljoyn_aboutproxy_create<
 ) -> alljoyn_aboutproxy {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutproxy_create(
                 bus: alljoyn_busattachment,
@@ -2920,7 +2920,7 @@ pub unsafe fn alljoyn_aboutproxy_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutproxy_destroy(proxy: alljoyn_aboutproxy);
         }
@@ -2942,7 +2942,7 @@ pub unsafe fn alljoyn_aboutproxy_getaboutdata<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutproxy_getaboutdata(
                 proxy: alljoyn_aboutproxy,
@@ -2969,7 +2969,7 @@ pub unsafe fn alljoyn_aboutproxy_getobjectdescription<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutproxy_getobjectdescription(
                 proxy: alljoyn_aboutproxy,
@@ -2993,7 +2993,7 @@ pub unsafe fn alljoyn_aboutproxy_getversion<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_aboutproxy_getversion(
                 proxy: alljoyn_aboutproxy,
@@ -3083,7 +3083,7 @@ pub unsafe fn alljoyn_applicationstatelistener_create(
 ) -> alljoyn_applicationstatelistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_applicationstatelistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<
@@ -3108,7 +3108,7 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_applicationstatelistener_destroy(listener: alljoyn_applicationstatelistener);
         }
@@ -3202,7 +3202,7 @@ pub unsafe fn alljoyn_authlistener_create(
 ) -> alljoyn_authlistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_authlistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<alljoyn_authlistener_callbacks>,
@@ -3225,7 +3225,7 @@ pub unsafe fn alljoyn_authlistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_authlistener_destroy(listener: alljoyn_authlistener);
         }
@@ -3267,7 +3267,7 @@ pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_authlistener_requestcredentialsresponse(
                 listener: alljoyn_authlistener,
@@ -3301,7 +3301,7 @@ pub unsafe fn alljoyn_authlistener_setsharedsecret<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_authlistener_setsharedsecret(
                 listener: alljoyn_authlistener,
@@ -3344,7 +3344,7 @@ pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_authlistener_verifycredentialsresponse(
                 listener: alljoyn_authlistener,
@@ -3414,7 +3414,7 @@ pub unsafe fn alljoyn_authlistenerasync_create(
 ) -> alljoyn_authlistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_authlistenerasync_create(
                 callbacks: *const ::std::mem::ManuallyDrop<alljoyn_authlistenerasync_callbacks>,
@@ -3437,7 +3437,7 @@ pub unsafe fn alljoyn_authlistenerasync_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener);
         }
@@ -3480,7 +3480,7 @@ pub unsafe fn alljoyn_autopinger_adddestination<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_adddestination(
                 autopinger: alljoyn_autopinger,
@@ -3511,7 +3511,7 @@ pub unsafe fn alljoyn_autopinger_addpinggroup<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_addpinggroup(
                 autopinger: alljoyn_autopinger,
@@ -3538,7 +3538,7 @@ pub unsafe fn alljoyn_autopinger_create<
 ) -> alljoyn_autopinger {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_create(bus: alljoyn_busattachment) -> alljoyn_autopinger;
         }
@@ -3567,7 +3567,7 @@ pub unsafe fn alljoyn_autopinger_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_destroy(autopinger: alljoyn_autopinger);
         }
@@ -3584,7 +3584,7 @@ pub unsafe fn alljoyn_autopinger_pause<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_pause(autopinger: alljoyn_autopinger);
         }
@@ -3607,7 +3607,7 @@ pub unsafe fn alljoyn_autopinger_removedestination<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_removedestination(
                 autopinger: alljoyn_autopinger,
@@ -3637,7 +3637,7 @@ pub unsafe fn alljoyn_autopinger_removepinggroup<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_removepinggroup(
                 autopinger: alljoyn_autopinger,
@@ -3660,7 +3660,7 @@ pub unsafe fn alljoyn_autopinger_resume<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_resume(autopinger: alljoyn_autopinger);
         }
@@ -3681,7 +3681,7 @@ pub unsafe fn alljoyn_autopinger_setpinginterval<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_autopinger_setpinginterval(
                 autopinger: alljoyn_autopinger,
@@ -3732,7 +3732,7 @@ pub unsafe fn alljoyn_busattachment_addlogonentry<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_addlogonentry(
                 bus: alljoyn_busattachment,
@@ -3762,7 +3762,7 @@ pub unsafe fn alljoyn_busattachment_addmatch<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_addmatch(
                 bus: alljoyn_busattachment,
@@ -3789,7 +3789,7 @@ pub unsafe fn alljoyn_busattachment_advertisename<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_advertisename(
                 bus: alljoyn_busattachment,
@@ -3819,7 +3819,7 @@ pub unsafe fn alljoyn_busattachment_bindsessionport<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_bindsessionport(
                 bus: alljoyn_busattachment,
@@ -3850,7 +3850,7 @@ pub unsafe fn alljoyn_busattachment_canceladvertisename<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_canceladvertisename(
                 bus: alljoyn_busattachment,
@@ -3878,7 +3878,7 @@ pub unsafe fn alljoyn_busattachment_cancelfindadvertisedname<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_cancelfindadvertisedname(
                 bus: alljoyn_busattachment,
@@ -3905,7 +3905,7 @@ pub unsafe fn alljoyn_busattachment_cancelfindadvertisednamebytransport<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_cancelfindadvertisednamebytransport(
                 bus: alljoyn_busattachment,
@@ -3933,7 +3933,7 @@ pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interface<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_cancelwhoimplements_interface(
                 bus: alljoyn_busattachment,
@@ -3958,7 +3958,7 @@ pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_cancelwhoimplements_interfaces(
                 bus: alljoyn_busattachment,
@@ -3986,7 +3986,7 @@ pub unsafe fn alljoyn_busattachment_clearkeys<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_clearkeys(
                 bus: alljoyn_busattachment,
@@ -4009,7 +4009,7 @@ pub unsafe fn alljoyn_busattachment_clearkeystore<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_clearkeystore(bus: alljoyn_busattachment);
         }
@@ -4029,7 +4029,7 @@ pub unsafe fn alljoyn_busattachment_connect<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_connect(
                 bus: alljoyn_busattachment,
@@ -4054,7 +4054,7 @@ pub unsafe fn alljoyn_busattachment_create<
 ) -> alljoyn_busattachment {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_create(
                 applicationname: super::super::Foundation::PSTR,
@@ -4080,7 +4080,7 @@ pub unsafe fn alljoyn_busattachment_create_concurrency<
 ) -> alljoyn_busattachment {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_create_concurrency(
                 applicationname: super::super::Foundation::PSTR,
@@ -4109,7 +4109,7 @@ pub unsafe fn alljoyn_busattachment_createinterface<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_createinterface(
                 bus: alljoyn_busattachment,
@@ -4139,7 +4139,7 @@ pub unsafe fn alljoyn_busattachment_createinterface_secure<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_createinterface_secure(
                 bus: alljoyn_busattachment,
@@ -4169,7 +4169,7 @@ pub unsafe fn alljoyn_busattachment_createinterfacesfromxml<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_createinterfacesfromxml(
                 bus: alljoyn_busattachment,
@@ -4193,7 +4193,7 @@ pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_deletedefaultkeystore(
                 applicationname: super::super::Foundation::PSTR,
@@ -4216,7 +4216,7 @@ pub unsafe fn alljoyn_busattachment_deleteinterface<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_deleteinterface(
                 bus: alljoyn_busattachment,
@@ -4239,7 +4239,7 @@ pub unsafe fn alljoyn_busattachment_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_destroy(bus: alljoyn_busattachment);
         }
@@ -4259,7 +4259,7 @@ pub unsafe fn alljoyn_busattachment_disconnect<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_disconnect(
                 bus: alljoyn_busattachment,
@@ -4282,7 +4282,7 @@ pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_enableconcurrentcallbacks(bus: alljoyn_busattachment);
         }
@@ -4309,7 +4309,7 @@ pub unsafe fn alljoyn_busattachment_enablepeersecurity<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_enablepeersecurity(
                 bus: alljoyn_busattachment,
@@ -4348,7 +4348,7 @@ pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfiguratio
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(
                 bus: alljoyn_busattachment,
@@ -4384,7 +4384,7 @@ pub unsafe fn alljoyn_busattachment_findadvertisedname<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_findadvertisedname(
                 bus: alljoyn_busattachment,
@@ -4411,7 +4411,7 @@ pub unsafe fn alljoyn_busattachment_findadvertisednamebytransport<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_findadvertisednamebytransport(
                 bus: alljoyn_busattachment,
@@ -4436,7 +4436,7 @@ pub unsafe fn alljoyn_busattachment_getalljoyndebugobj<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getalljoyndebugobj(
                 bus: alljoyn_busattachment,
@@ -4457,7 +4457,7 @@ pub unsafe fn alljoyn_busattachment_getalljoynproxyobj<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getalljoynproxyobj(
                 bus: alljoyn_busattachment,
@@ -4478,7 +4478,7 @@ pub unsafe fn alljoyn_busattachment_getconcurrency<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getconcurrency(bus: alljoyn_busattachment) -> u32;
         }
@@ -4496,7 +4496,7 @@ pub unsafe fn alljoyn_busattachment_getconnectspec<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getconnectspec(
                 bus: alljoyn_busattachment,
@@ -4515,7 +4515,7 @@ pub unsafe fn alljoyn_busattachment_getdbusproxyobj<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getdbusproxyobj(
                 bus: alljoyn_busattachment,
@@ -4537,7 +4537,7 @@ pub unsafe fn alljoyn_busattachment_getglobalguidstring<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getglobalguidstring(
                 bus: alljoyn_busattachment,
@@ -4561,7 +4561,7 @@ pub unsafe fn alljoyn_busattachment_getinterface<
 ) -> alljoyn_interfacedescription {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getinterface(
                 bus: alljoyn_busattachment,
@@ -4586,7 +4586,7 @@ pub unsafe fn alljoyn_busattachment_getinterfaces<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getinterfaces(
                 bus: alljoyn_busattachment,
@@ -4615,7 +4615,7 @@ pub unsafe fn alljoyn_busattachment_getkeyexpiration<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getkeyexpiration(
                 bus: alljoyn_busattachment,
@@ -4646,7 +4646,7 @@ pub unsafe fn alljoyn_busattachment_getpeerguid<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getpeerguid(
                 bus: alljoyn_busattachment,
@@ -4673,7 +4673,7 @@ pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<
 ) -> alljoyn_permissionconfigurator {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getpermissionconfigurator(
                 bus: alljoyn_busattachment,
@@ -4689,7 +4689,7 @@ pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<
 pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_gettimestamp() -> u32;
         }
@@ -4707,7 +4707,7 @@ pub unsafe fn alljoyn_busattachment_getuniquename<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_getuniquename(
                 bus: alljoyn_busattachment,
@@ -4726,7 +4726,7 @@ pub unsafe fn alljoyn_busattachment_isconnected<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_isconnected(bus: alljoyn_busattachment) -> i32;
         }
@@ -4743,7 +4743,7 @@ pub unsafe fn alljoyn_busattachment_ispeersecurityenabled<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_ispeersecurityenabled(bus: alljoyn_busattachment) -> i32;
         }
@@ -4762,7 +4762,7 @@ pub unsafe fn alljoyn_busattachment_isstarted<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_isstarted(bus: alljoyn_busattachment) -> i32;
         }
@@ -4779,7 +4779,7 @@ pub unsafe fn alljoyn_busattachment_isstopping<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_isstopping(bus: alljoyn_busattachment) -> i32;
         }
@@ -4796,7 +4796,7 @@ pub unsafe fn alljoyn_busattachment_join<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_join(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -4822,7 +4822,7 @@ pub unsafe fn alljoyn_busattachment_joinsession<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_joinsession(
                 bus: alljoyn_busattachment,
@@ -4863,7 +4863,7 @@ pub unsafe fn alljoyn_busattachment_joinsessionasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_joinsessionasync(
                 bus: alljoyn_busattachment,
@@ -4903,7 +4903,7 @@ pub unsafe fn alljoyn_busattachment_leavesession<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_leavesession(
                 bus: alljoyn_busattachment,
@@ -4930,7 +4930,7 @@ pub unsafe fn alljoyn_busattachment_namehasowner<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_namehasowner(
                 bus: alljoyn_busattachment,
@@ -4959,7 +4959,7 @@ pub unsafe fn alljoyn_busattachment_ping<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_ping(
                 bus: alljoyn_busattachment,
@@ -4986,7 +4986,7 @@ pub unsafe fn alljoyn_busattachment_registeraboutlistener<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registeraboutlistener(
                 bus: alljoyn_busattachment,
@@ -5011,7 +5011,7 @@ pub unsafe fn alljoyn_busattachment_registerapplicationstatelistener<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registerapplicationstatelistener(
                 bus: alljoyn_busattachment,
@@ -5036,7 +5036,7 @@ pub unsafe fn alljoyn_busattachment_registerbuslistener<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registerbuslistener(
                 bus: alljoyn_busattachment,
@@ -5061,7 +5061,7 @@ pub unsafe fn alljoyn_busattachment_registerbusobject<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registerbusobject(
                 bus: alljoyn_busattachment,
@@ -5086,7 +5086,7 @@ pub unsafe fn alljoyn_busattachment_registerbusobject_secure<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registerbusobject_secure(
                 bus: alljoyn_busattachment,
@@ -5111,7 +5111,7 @@ pub unsafe fn alljoyn_busattachment_registerkeystorelistener<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registerkeystorelistener(
                 bus: alljoyn_busattachment,
@@ -5140,7 +5140,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandler<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registersignalhandler(
                 bus: alljoyn_busattachment,
@@ -5173,7 +5173,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_registersignalhandlerwithrule(
                 bus: alljoyn_busattachment,
@@ -5203,7 +5203,7 @@ pub unsafe fn alljoyn_busattachment_releasename<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_releasename(
                 bus: alljoyn_busattachment,
@@ -5226,7 +5226,7 @@ pub unsafe fn alljoyn_busattachment_reloadkeystore<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_reloadkeystore(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -5246,7 +5246,7 @@ pub unsafe fn alljoyn_busattachment_removematch<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_removematch(
                 bus: alljoyn_busattachment,
@@ -5273,7 +5273,7 @@ pub unsafe fn alljoyn_busattachment_removesessionmember<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_removesessionmember(
                 bus: alljoyn_busattachment,
@@ -5302,7 +5302,7 @@ pub unsafe fn alljoyn_busattachment_requestname<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_requestname(
                 bus: alljoyn_busattachment,
@@ -5331,7 +5331,7 @@ pub unsafe fn alljoyn_busattachment_secureconnection<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_secureconnection(
                 bus: alljoyn_busattachment,
@@ -5360,7 +5360,7 @@ pub unsafe fn alljoyn_busattachment_secureconnectionasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_secureconnectionasync(
                 bus: alljoyn_busattachment,
@@ -5389,7 +5389,7 @@ pub unsafe fn alljoyn_busattachment_setdaemondebug<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_setdaemondebug(
                 bus: alljoyn_busattachment,
@@ -5418,7 +5418,7 @@ pub unsafe fn alljoyn_busattachment_setkeyexpiration<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_setkeyexpiration(
                 bus: alljoyn_busattachment,
@@ -5445,7 +5445,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeout<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_setlinktimeout(
                 bus: alljoyn_busattachment,
@@ -5474,7 +5474,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_setlinktimeoutasync(
                 bus: alljoyn_busattachment,
@@ -5508,7 +5508,7 @@ pub unsafe fn alljoyn_busattachment_setsessionlistener<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_setsessionlistener(
                 bus: alljoyn_busattachment,
@@ -5533,7 +5533,7 @@ pub unsafe fn alljoyn_busattachment_start<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_start(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -5550,7 +5550,7 @@ pub unsafe fn alljoyn_busattachment_stop<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_stop(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -5568,7 +5568,7 @@ pub unsafe fn alljoyn_busattachment_unbindsessionport<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unbindsessionport(
                 bus: alljoyn_busattachment,
@@ -5593,7 +5593,7 @@ pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregisteraboutlistener(
                 bus: alljoyn_busattachment,
@@ -5616,7 +5616,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregisterallaboutlisteners(bus: alljoyn_busattachment);
         }
@@ -5635,7 +5635,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallhandlers<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregisterallhandlers(bus: alljoyn_busattachment) -> QStatus;
         }
@@ -5656,7 +5656,7 @@ pub unsafe fn alljoyn_busattachment_unregisterapplicationstatelistener<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregisterapplicationstatelistener(
                 bus: alljoyn_busattachment,
@@ -5681,7 +5681,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbuslistener<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregisterbuslistener(
                 bus: alljoyn_busattachment,
@@ -5706,7 +5706,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbusobject<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregisterbusobject(
                 bus: alljoyn_busattachment,
@@ -5735,7 +5735,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandler<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregistersignalhandler(
                 bus: alljoyn_busattachment,
@@ -5768,7 +5768,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_unregistersignalhandlerwithrule(
                 bus: alljoyn_busattachment,
@@ -5798,7 +5798,7 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interface<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_whoimplements_interface(
                 bus: alljoyn_busattachment,
@@ -5823,7 +5823,7 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busattachment_whoimplements_interfaces(
                 bus: alljoyn_busattachment,
@@ -5930,7 +5930,7 @@ pub unsafe fn alljoyn_buslistener_create(
 ) -> alljoyn_buslistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_buslistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<alljoyn_buslistener_callbacks>,
@@ -5953,7 +5953,7 @@ pub unsafe fn alljoyn_buslistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_buslistener_destroy(listener: alljoyn_buslistener);
         }
@@ -6016,7 +6016,7 @@ pub unsafe fn alljoyn_busobject_addinterface<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_addinterface(
                 bus: alljoyn_busobject,
@@ -6041,7 +6041,7 @@ pub unsafe fn alljoyn_busobject_addinterface_announced<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_addinterface_announced(
                 bus: alljoyn_busobject,
@@ -6069,7 +6069,7 @@ pub unsafe fn alljoyn_busobject_addmethodhandler<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_addmethodhandler(
                 bus: alljoyn_busobject,
@@ -6099,7 +6099,7 @@ pub unsafe fn alljoyn_busobject_addmethodhandlers<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_addmethodhandlers(
                 bus: alljoyn_busobject,
@@ -6167,7 +6167,7 @@ pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_cancelsessionlessmessage(
                 bus: alljoyn_busobject,
@@ -6191,7 +6191,7 @@ pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_cancelsessionlessmessage_serial(
                 bus: alljoyn_busobject,
@@ -6218,7 +6218,7 @@ pub unsafe fn alljoyn_busobject_create<
 ) -> alljoyn_busobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_create(
                 path: super::super::Foundation::PSTR,
@@ -6245,7 +6245,7 @@ pub unsafe fn alljoyn_busobject_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_destroy(bus: alljoyn_busobject);
         }
@@ -6268,7 +6268,7 @@ pub unsafe fn alljoyn_busobject_emitpropertieschanged<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_emitpropertieschanged(
                 bus: alljoyn_busobject,
@@ -6305,7 +6305,7 @@ pub unsafe fn alljoyn_busobject_emitpropertychanged<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_emitpropertychanged(
                 bus: alljoyn_busobject,
@@ -6336,7 +6336,7 @@ pub unsafe fn alljoyn_busobject_getannouncedinterfacenames<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_getannouncedinterfacenames(
                 bus: alljoyn_busobject,
@@ -6361,7 +6361,7 @@ pub unsafe fn alljoyn_busobject_getbusattachment<
 ) -> alljoyn_busattachment {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_getbusattachment(bus: alljoyn_busobject) -> alljoyn_busattachment;
         }
@@ -6382,7 +6382,7 @@ pub unsafe fn alljoyn_busobject_getname<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_getname(
                 bus: alljoyn_busobject,
@@ -6408,7 +6408,7 @@ pub unsafe fn alljoyn_busobject_getpath<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_getpath(bus: alljoyn_busobject) -> super::super::Foundation::PSTR;
         }
@@ -6425,7 +6425,7 @@ pub unsafe fn alljoyn_busobject_issecure<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_issecure(bus: alljoyn_busobject) -> i32;
         }
@@ -6484,7 +6484,7 @@ pub unsafe fn alljoyn_busobject_methodreply_args<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_methodreply_args(
                 bus: alljoyn_busobject,
@@ -6518,7 +6518,7 @@ pub unsafe fn alljoyn_busobject_methodreply_err<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_methodreply_err(
                 bus: alljoyn_busobject,
@@ -6548,7 +6548,7 @@ pub unsafe fn alljoyn_busobject_methodreply_status<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_methodreply_status(
                 bus: alljoyn_busobject,
@@ -6592,7 +6592,7 @@ pub unsafe fn alljoyn_busobject_setannounceflag<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_setannounceflag(
                 bus: alljoyn_busobject,
@@ -6630,7 +6630,7 @@ pub unsafe fn alljoyn_busobject_signal<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_busobject_signal(
                 bus: alljoyn_busobject,
@@ -6801,7 +6801,7 @@ pub unsafe fn alljoyn_credentials_clear<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_clear(cred: alljoyn_credentials);
         }
@@ -6813,7 +6813,7 @@ pub unsafe fn alljoyn_credentials_clear<
 pub unsafe fn alljoyn_credentials_create() -> alljoyn_credentials {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_create() -> alljoyn_credentials;
         }
@@ -6830,7 +6830,7 @@ pub unsafe fn alljoyn_credentials_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_destroy(cred: alljoyn_credentials);
         }
@@ -6848,7 +6848,7 @@ pub unsafe fn alljoyn_credentials_getcertchain<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_getcertchain(
                 cred: alljoyn_credentials,
@@ -6867,7 +6867,7 @@ pub unsafe fn alljoyn_credentials_getexpiration<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_getexpiration(cred: alljoyn_credentials) -> u32;
         }
@@ -6885,7 +6885,7 @@ pub unsafe fn alljoyn_credentials_getlogonentry<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_getlogonentry(
                 cred: alljoyn_credentials,
@@ -6905,7 +6905,7 @@ pub unsafe fn alljoyn_credentials_getpassword<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_getpassword(
                 cred: alljoyn_credentials,
@@ -6925,7 +6925,7 @@ pub unsafe fn alljoyn_credentials_getprivateKey<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_getprivateKey(
                 cred: alljoyn_credentials,
@@ -6945,7 +6945,7 @@ pub unsafe fn alljoyn_credentials_getusername<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_getusername(
                 cred: alljoyn_credentials,
@@ -6965,7 +6965,7 @@ pub unsafe fn alljoyn_credentials_isset<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_isset(cred: alljoyn_credentials, creds: u16) -> i32;
         }
@@ -6988,7 +6988,7 @@ pub unsafe fn alljoyn_credentials_setcertchain<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_setcertchain(
                 cred: alljoyn_credentials,
@@ -7012,7 +7012,7 @@ pub unsafe fn alljoyn_credentials_setexpiration<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: u32);
         }
@@ -7035,7 +7035,7 @@ pub unsafe fn alljoyn_credentials_setlogonentry<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_setlogonentry(
                 cred: alljoyn_credentials,
@@ -7061,7 +7061,7 @@ pub unsafe fn alljoyn_credentials_setpassword<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_setpassword(
                 cred: alljoyn_credentials,
@@ -7087,7 +7087,7 @@ pub unsafe fn alljoyn_credentials_setprivatekey<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_setprivatekey(
                 cred: alljoyn_credentials,
@@ -7113,7 +7113,7 @@ pub unsafe fn alljoyn_credentials_setusername<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_credentials_setusername(
                 cred: alljoyn_credentials,
@@ -7132,7 +7132,7 @@ pub unsafe fn alljoyn_credentials_setusername<
 pub unsafe fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR;
         }
@@ -7144,7 +7144,7 @@ pub unsafe fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR {
 pub unsafe fn alljoyn_getnumericversion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_getnumericversion() -> u32;
         }
@@ -7157,7 +7157,7 @@ pub unsafe fn alljoyn_getnumericversion() -> u32 {
 pub unsafe fn alljoyn_getversion() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_getversion() -> super::super::Foundation::PSTR;
         }
@@ -7169,7 +7169,7 @@ pub unsafe fn alljoyn_getversion() -> super::super::Foundation::PSTR {
 pub unsafe fn alljoyn_init() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_init() -> QStatus;
         }
@@ -7205,7 +7205,7 @@ pub unsafe fn alljoyn_interfacedescription_activate<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_activate(iface: alljoyn_interfacedescription);
         }
@@ -7229,7 +7229,7 @@ pub unsafe fn alljoyn_interfacedescription_addannotation<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addannotation(
                 iface: alljoyn_interfacedescription,
@@ -7263,7 +7263,7 @@ pub unsafe fn alljoyn_interfacedescription_addargannotation<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addargannotation(
                 iface: alljoyn_interfacedescription,
@@ -7303,7 +7303,7 @@ pub unsafe fn alljoyn_interfacedescription_addmember<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addmember(
                 iface: alljoyn_interfacedescription,
@@ -7343,7 +7343,7 @@ pub unsafe fn alljoyn_interfacedescription_addmemberannotation<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addmemberannotation(
                 iface: alljoyn_interfacedescription,
@@ -7382,7 +7382,7 @@ pub unsafe fn alljoyn_interfacedescription_addmethod<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addmethod(
                 iface: alljoyn_interfacedescription,
@@ -7421,7 +7421,7 @@ pub unsafe fn alljoyn_interfacedescription_addproperty<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addproperty(
                 iface: alljoyn_interfacedescription,
@@ -7455,7 +7455,7 @@ pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addpropertyannotation(
                 iface: alljoyn_interfacedescription,
@@ -7492,7 +7492,7 @@ pub unsafe fn alljoyn_interfacedescription_addsignal<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_addsignal(
                 iface: alljoyn_interfacedescription,
@@ -7525,7 +7525,7 @@ pub unsafe fn alljoyn_interfacedescription_eql<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_eql(
                 one: alljoyn_interfacedescription,
@@ -7554,7 +7554,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotation<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getannotation(
                 iface: alljoyn_interfacedescription,
@@ -7589,7 +7589,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationatindex<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getannotationatindex(
                 iface: alljoyn_interfacedescription,
@@ -7620,7 +7620,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationscount<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getannotationscount(
                 iface: alljoyn_interfacedescription,
@@ -7651,7 +7651,7 @@ pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getargdescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -7688,7 +7688,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionforlanguage<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -7717,7 +7717,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptionlanguages(
                 iface: alljoyn_interfacedescription,
@@ -7746,7 +7746,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptionlanguages2(
                 iface: alljoyn_interfacedescription,
@@ -7772,7 +7772,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<
 ) -> ::std::option::Option<alljoyn_interfacedescription_translation_callback_ptr> {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getdescriptiontranslationcallback(
                 iface: alljoyn_interfacedescription,
@@ -7799,7 +7799,7 @@ pub unsafe fn alljoyn_interfacedescription_getmember<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getmember(
                 iface: alljoyn_interfacedescription,
@@ -7832,7 +7832,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberannotation<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getmemberannotation(
                 iface: alljoyn_interfacedescription,
@@ -7871,7 +7871,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getmemberargannotation(
                 iface: alljoyn_interfacedescription,
@@ -7910,7 +7910,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberdescriptionforlanguage<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getmemberdescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -7944,7 +7944,7 @@ pub unsafe fn alljoyn_interfacedescription_getmembers<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getmembers(
                 iface: alljoyn_interfacedescription,
@@ -7973,7 +7973,7 @@ pub unsafe fn alljoyn_interfacedescription_getmethod<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getmethod(
                 iface: alljoyn_interfacedescription,
@@ -7999,7 +7999,7 @@ pub unsafe fn alljoyn_interfacedescription_getname<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getname(
                 iface: alljoyn_interfacedescription,
@@ -8023,7 +8023,7 @@ pub unsafe fn alljoyn_interfacedescription_getproperties<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getproperties(
                 iface: alljoyn_interfacedescription,
@@ -8052,7 +8052,7 @@ pub unsafe fn alljoyn_interfacedescription_getproperty<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getproperty(
                 iface: alljoyn_interfacedescription,
@@ -8085,7 +8085,7 @@ pub unsafe fn alljoyn_interfacedescription_getpropertyannotation<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getpropertyannotation(
                 iface: alljoyn_interfacedescription,
@@ -8122,7 +8122,7 @@ pub unsafe fn alljoyn_interfacedescription_getpropertydescriptionforlanguage<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getpropertydescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -8153,7 +8153,7 @@ pub unsafe fn alljoyn_interfacedescription_getsecuritypolicy<
 ) -> alljoyn_interfacedescription_securitypolicy {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getsecuritypolicy(
                 iface: alljoyn_interfacedescription,
@@ -8178,7 +8178,7 @@ pub unsafe fn alljoyn_interfacedescription_getsignal<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_getsignal(
                 iface: alljoyn_interfacedescription,
@@ -8203,7 +8203,7 @@ pub unsafe fn alljoyn_interfacedescription_hasdescription<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_hasdescription(
                 iface: alljoyn_interfacedescription,
@@ -8231,7 +8231,7 @@ pub unsafe fn alljoyn_interfacedescription_hasmember<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_hasmember(
                 iface: alljoyn_interfacedescription,
@@ -8258,7 +8258,7 @@ pub unsafe fn alljoyn_interfacedescription_hasproperties<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_hasproperties(
                 iface: alljoyn_interfacedescription,
@@ -8282,7 +8282,7 @@ pub unsafe fn alljoyn_interfacedescription_hasproperty<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_hasproperty(
                 iface: alljoyn_interfacedescription,
@@ -8310,7 +8310,7 @@ pub unsafe fn alljoyn_interfacedescription_introspect<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_introspect(
                 iface: alljoyn_interfacedescription,
@@ -8337,7 +8337,7 @@ pub unsafe fn alljoyn_interfacedescription_issecure<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_issecure(iface: alljoyn_interfacedescription) -> i32;
         }
@@ -8412,7 +8412,7 @@ pub unsafe fn alljoyn_interfacedescription_member_eql<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_member_eql(
                 one: alljoyn_interfacedescription_member,
@@ -8441,7 +8441,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotation<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotation(
                 member: alljoyn_interfacedescription_member,
@@ -8476,7 +8476,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotationatindex(
                 member: alljoyn_interfacedescription_member,
@@ -8508,7 +8508,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationscount<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotationscount(
                 member: alljoyn_interfacedescription_member,
@@ -8537,7 +8537,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotation<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotation(
                 member: alljoyn_interfacedescription_member,
@@ -8576,7 +8576,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotationatindex(
                 member: alljoyn_interfacedescription_member,
@@ -8612,7 +8612,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotationscount(
                 member: alljoyn_interfacedescription_member,
@@ -8682,7 +8682,7 @@ pub unsafe fn alljoyn_interfacedescription_property_eql<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_property_eql(
                 one: alljoyn_interfacedescription_property,
@@ -8711,7 +8711,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotation<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotation(
                 property: alljoyn_interfacedescription_property,
@@ -8746,7 +8746,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotationatindex(
                 property: alljoyn_interfacedescription_property,
@@ -8778,7 +8778,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationscount<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotationscount(
                 property: alljoyn_interfacedescription_property,
@@ -8831,7 +8831,7 @@ pub unsafe fn alljoyn_interfacedescription_setargdescription<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setargdescription(
                 iface: alljoyn_interfacedescription,
@@ -8867,7 +8867,7 @@ pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setargdescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -8899,7 +8899,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescription<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescription(
                 iface: alljoyn_interfacedescription,
@@ -8927,7 +8927,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionforlanguage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -8955,7 +8955,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptionlanguage(
                 iface: alljoyn_interfacedescription,
@@ -8982,7 +8982,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptiontranslationcallback(
                 iface: alljoyn_interfacedescription,
@@ -9012,7 +9012,7 @@ pub unsafe fn alljoyn_interfacedescription_setmemberdescription<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setmemberdescription(
                 iface: alljoyn_interfacedescription,
@@ -9044,7 +9044,7 @@ pub unsafe fn alljoyn_interfacedescription_setmemberdescriptionforlanguage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setmemberdescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -9078,7 +9078,7 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescription<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setpropertydescription(
                 iface: alljoyn_interfacedescription,
@@ -9110,7 +9110,7 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_interfacedescription_setpropertydescriptionforlanguage(
                 iface: alljoyn_interfacedescription,
@@ -9215,7 +9215,7 @@ pub unsafe fn alljoyn_keystorelistener_create(
 ) -> alljoyn_keystorelistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_keystorelistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<alljoyn_keystorelistener_callbacks>,
@@ -9238,7 +9238,7 @@ pub unsafe fn alljoyn_keystorelistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener);
         }
@@ -9263,7 +9263,7 @@ pub unsafe fn alljoyn_keystorelistener_getkeys<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_keystorelistener_getkeys(
                 listener: alljoyn_keystorelistener,
@@ -9302,7 +9302,7 @@ pub unsafe fn alljoyn_keystorelistener_putkeys<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_keystorelistener_putkeys(
                 listener: alljoyn_keystorelistener,
@@ -9373,7 +9373,7 @@ pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(
 ) -> alljoyn_keystorelistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_keystorelistener_with_synchronization_create(
                 callbacks: *const ::std::mem::ManuallyDrop<
@@ -9447,7 +9447,7 @@ pub unsafe fn alljoyn_message_create<
 ) -> alljoyn_message {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_create(bus: alljoyn_busattachment) -> alljoyn_message;
         }
@@ -9468,7 +9468,7 @@ pub unsafe fn alljoyn_message_description<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_description(
                 msg: alljoyn_message,
@@ -9493,7 +9493,7 @@ pub unsafe fn alljoyn_message_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_destroy(msg: alljoyn_message);
         }
@@ -9512,7 +9512,7 @@ pub unsafe fn alljoyn_message_eql<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_eql(one: alljoyn_message, other: alljoyn_message) -> i32;
         }
@@ -9533,7 +9533,7 @@ pub unsafe fn alljoyn_message_getarg<
 ) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getarg(msg: alljoyn_message, argn: usize) -> alljoyn_msgarg;
         }
@@ -9555,7 +9555,7 @@ pub unsafe fn alljoyn_message_getargs<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getargs(
                 msg: alljoyn_message,
@@ -9581,7 +9581,7 @@ pub unsafe fn alljoyn_message_getauthmechanism<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getauthmechanism(
                 msg: alljoyn_message,
@@ -9600,7 +9600,7 @@ pub unsafe fn alljoyn_message_getcallserial<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getcallserial(msg: alljoyn_message) -> u32;
         }
@@ -9617,7 +9617,7 @@ pub unsafe fn alljoyn_message_getcompressiontoken<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getcompressiontoken(msg: alljoyn_message) -> u32;
         }
@@ -9635,7 +9635,7 @@ pub unsafe fn alljoyn_message_getdestination<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getdestination(
                 msg: alljoyn_message,
@@ -9658,7 +9658,7 @@ pub unsafe fn alljoyn_message_geterrorname<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_geterrorname(
                 msg: alljoyn_message,
@@ -9683,7 +9683,7 @@ pub unsafe fn alljoyn_message_getflags<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getflags(msg: alljoyn_message) -> u8;
         }
@@ -9701,7 +9701,7 @@ pub unsafe fn alljoyn_message_getinterface<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getinterface(msg: alljoyn_message)
                 -> super::super::Foundation::PSTR;
@@ -9720,7 +9720,7 @@ pub unsafe fn alljoyn_message_getmembername<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getmembername(
                 msg: alljoyn_message,
@@ -9740,7 +9740,7 @@ pub unsafe fn alljoyn_message_getobjectpath<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getobjectpath(
                 msg: alljoyn_message,
@@ -9760,7 +9760,7 @@ pub unsafe fn alljoyn_message_getreceiveendpointname<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getreceiveendpointname(
                 msg: alljoyn_message,
@@ -9781,7 +9781,7 @@ pub unsafe fn alljoyn_message_getreplyserial<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getreplyserial(msg: alljoyn_message) -> u32;
         }
@@ -9799,7 +9799,7 @@ pub unsafe fn alljoyn_message_getsender<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getsender(msg: alljoyn_message) -> super::super::Foundation::PSTR;
         }
@@ -9816,7 +9816,7 @@ pub unsafe fn alljoyn_message_getsessionid<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getsessionid(msg: alljoyn_message) -> u32;
         }
@@ -9834,7 +9834,7 @@ pub unsafe fn alljoyn_message_getsignature<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_getsignature(msg: alljoyn_message)
                 -> super::super::Foundation::PSTR;
@@ -9852,7 +9852,7 @@ pub unsafe fn alljoyn_message_gettimestamp<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_gettimestamp(msg: alljoyn_message) -> u32;
         }
@@ -9869,7 +9869,7 @@ pub unsafe fn alljoyn_message_gettype<
 ) -> alljoyn_messagetype {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_gettype(msg: alljoyn_message) -> alljoyn_messagetype;
         }
@@ -9886,7 +9886,7 @@ pub unsafe fn alljoyn_message_isbroadcastsignal<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_isbroadcastsignal(msg: alljoyn_message) -> i32;
         }
@@ -9903,7 +9903,7 @@ pub unsafe fn alljoyn_message_isencrypted<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_isencrypted(msg: alljoyn_message) -> i32;
         }
@@ -9921,7 +9921,7 @@ pub unsafe fn alljoyn_message_isexpired<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_isexpired(msg: alljoyn_message, tillexpirems: *mut u32) -> i32;
         }
@@ -9941,7 +9941,7 @@ pub unsafe fn alljoyn_message_isglobalbroadcast<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_isglobalbroadcast(msg: alljoyn_message) -> i32;
         }
@@ -9958,7 +9958,7 @@ pub unsafe fn alljoyn_message_issessionless<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_issessionless(msg: alljoyn_message) -> i32;
         }
@@ -9975,7 +9975,7 @@ pub unsafe fn alljoyn_message_isunreliable<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_isunreliable(msg: alljoyn_message) -> i32;
         }
@@ -9995,7 +9995,7 @@ pub unsafe fn alljoyn_message_parseargs<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_parseargs(
                 msg: alljoyn_message,
@@ -10013,7 +10013,7 @@ pub unsafe fn alljoyn_message_parseargs<
 pub unsafe fn alljoyn_message_setendianess(endian: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_setendianess(endian: i8);
         }
@@ -10034,7 +10034,7 @@ pub unsafe fn alljoyn_message_tostring<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_message_tostring(
                 msg: alljoyn_message,
@@ -10111,7 +10111,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_msgarg {
 pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg;
         }
@@ -10129,7 +10129,7 @@ pub unsafe fn alljoyn_msgarg_array_element<
 ) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_array_element(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
         }
@@ -10153,7 +10153,7 @@ pub unsafe fn alljoyn_msgarg_array_get<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_array_get(
                 args: alljoyn_msgarg,
@@ -10182,7 +10182,7 @@ pub unsafe fn alljoyn_msgarg_array_set<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_array_set(
                 args: alljoyn_msgarg,
@@ -10212,7 +10212,7 @@ pub unsafe fn alljoyn_msgarg_array_set_offset<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_array_set_offset(
                 args: alljoyn_msgarg,
@@ -10244,7 +10244,7 @@ pub unsafe fn alljoyn_msgarg_array_signature<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_array_signature(
                 values: alljoyn_msgarg,
@@ -10277,7 +10277,7 @@ pub unsafe fn alljoyn_msgarg_array_tostring<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_array_tostring(
                 args: alljoyn_msgarg,
@@ -10306,7 +10306,7 @@ pub unsafe fn alljoyn_msgarg_clear<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_clear(arg: alljoyn_msgarg);
         }
@@ -10325,7 +10325,7 @@ pub unsafe fn alljoyn_msgarg_clone<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_clone(destination: alljoyn_msgarg, source: alljoyn_msgarg);
         }
@@ -10342,7 +10342,7 @@ pub unsafe fn alljoyn_msgarg_copy<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_copy(source: alljoyn_msgarg) -> alljoyn_msgarg;
         }
@@ -10354,7 +10354,7 @@ pub unsafe fn alljoyn_msgarg_copy<'a, Param0: ::windows::runtime::IntoParam<'a, 
 pub unsafe fn alljoyn_msgarg_create() -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_create() -> alljoyn_msgarg;
         }
@@ -10372,7 +10372,7 @@ pub unsafe fn alljoyn_msgarg_create_and_set<
 ) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_create_and_set(
                 signature: super::super::Foundation::PSTR,
@@ -10391,7 +10391,7 @@ pub unsafe fn alljoyn_msgarg_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_destroy(arg: alljoyn_msgarg);
         }
@@ -10410,7 +10410,7 @@ pub unsafe fn alljoyn_msgarg_equal<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_equal(lhv: alljoyn_msgarg, rhv: alljoyn_msgarg) -> i32;
         }
@@ -10433,7 +10433,7 @@ pub unsafe fn alljoyn_msgarg_get<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get(
                 arg: alljoyn_msgarg,
@@ -10458,7 +10458,7 @@ pub unsafe fn alljoyn_msgarg_get_array_element<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_array_element(
                 arg: alljoyn_msgarg,
@@ -10485,7 +10485,7 @@ pub unsafe fn alljoyn_msgarg_get_array_elementsignature<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_array_elementsignature(
                 arg: alljoyn_msgarg,
@@ -10508,7 +10508,7 @@ pub unsafe fn alljoyn_msgarg_get_array_numberofelements<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_array_numberofelements(arg: alljoyn_msgarg) -> usize;
         }
@@ -10528,7 +10528,7 @@ pub unsafe fn alljoyn_msgarg_get_bool<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_bool(arg: alljoyn_msgarg, b: *mut i32) -> QStatus;
         }
@@ -10550,7 +10550,7 @@ pub unsafe fn alljoyn_msgarg_get_bool_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_bool_array(
                 arg: alljoyn_msgarg,
@@ -10576,7 +10576,7 @@ pub unsafe fn alljoyn_msgarg_get_double<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_double(arg: alljoyn_msgarg, d: *mut f64) -> QStatus;
         }
@@ -10598,7 +10598,7 @@ pub unsafe fn alljoyn_msgarg_get_double_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_double_array(
                 arg: alljoyn_msgarg,
@@ -10624,7 +10624,7 @@ pub unsafe fn alljoyn_msgarg_get_int16<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_int16(arg: alljoyn_msgarg, n: *mut i16) -> QStatus;
         }
@@ -10646,7 +10646,7 @@ pub unsafe fn alljoyn_msgarg_get_int16_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_int16_array(
                 arg: alljoyn_msgarg,
@@ -10672,7 +10672,7 @@ pub unsafe fn alljoyn_msgarg_get_int32<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_int32(arg: alljoyn_msgarg, i: *mut i32) -> QStatus;
         }
@@ -10694,7 +10694,7 @@ pub unsafe fn alljoyn_msgarg_get_int32_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_int32_array(
                 arg: alljoyn_msgarg,
@@ -10720,7 +10720,7 @@ pub unsafe fn alljoyn_msgarg_get_int64<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_int64(arg: alljoyn_msgarg, x: *mut i64) -> QStatus;
         }
@@ -10742,7 +10742,7 @@ pub unsafe fn alljoyn_msgarg_get_int64_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_int64_array(
                 arg: alljoyn_msgarg,
@@ -10768,7 +10768,7 @@ pub unsafe fn alljoyn_msgarg_get_objectpath<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_objectpath(arg: alljoyn_msgarg, o: *mut *mut i8) -> QStatus;
         }
@@ -10789,7 +10789,7 @@ pub unsafe fn alljoyn_msgarg_get_signature<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_signature(arg: alljoyn_msgarg, g: *mut *mut i8) -> QStatus;
         }
@@ -10810,7 +10810,7 @@ pub unsafe fn alljoyn_msgarg_get_string<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_string(arg: alljoyn_msgarg, s: *mut *mut i8) -> QStatus;
         }
@@ -10831,7 +10831,7 @@ pub unsafe fn alljoyn_msgarg_get_uint16<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint16(arg: alljoyn_msgarg, q: *mut u16) -> QStatus;
         }
@@ -10853,7 +10853,7 @@ pub unsafe fn alljoyn_msgarg_get_uint16_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint16_array(
                 arg: alljoyn_msgarg,
@@ -10879,7 +10879,7 @@ pub unsafe fn alljoyn_msgarg_get_uint32<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint32(arg: alljoyn_msgarg, u: *mut u32) -> QStatus;
         }
@@ -10901,7 +10901,7 @@ pub unsafe fn alljoyn_msgarg_get_uint32_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint32_array(
                 arg: alljoyn_msgarg,
@@ -10927,7 +10927,7 @@ pub unsafe fn alljoyn_msgarg_get_uint64<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint64(arg: alljoyn_msgarg, t: *mut u64) -> QStatus;
         }
@@ -10949,7 +10949,7 @@ pub unsafe fn alljoyn_msgarg_get_uint64_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint64_array(
                 arg: alljoyn_msgarg,
@@ -10975,7 +10975,7 @@ pub unsafe fn alljoyn_msgarg_get_uint8<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint8(arg: alljoyn_msgarg, y: *mut u8) -> QStatus;
         }
@@ -10997,7 +10997,7 @@ pub unsafe fn alljoyn_msgarg_get_uint8_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_uint8_array(
                 arg: alljoyn_msgarg,
@@ -11024,7 +11024,7 @@ pub unsafe fn alljoyn_msgarg_get_variant<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_variant(arg: alljoyn_msgarg, v: alljoyn_msgarg) -> QStatus;
         }
@@ -11049,7 +11049,7 @@ pub unsafe fn alljoyn_msgarg_get_variant_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_get_variant_array(
                 arg: alljoyn_msgarg,
@@ -11079,7 +11079,7 @@ pub unsafe fn alljoyn_msgarg_getdictelement<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_getdictelement(
                 arg: alljoyn_msgarg,
@@ -11102,7 +11102,7 @@ pub unsafe fn alljoyn_msgarg_getkey<
 ) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_getkey(arg: alljoyn_msgarg) -> alljoyn_msgarg;
         }
@@ -11120,7 +11120,7 @@ pub unsafe fn alljoyn_msgarg_getmember<
 ) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_getmember(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg;
         }
@@ -11140,7 +11140,7 @@ pub unsafe fn alljoyn_msgarg_getnummembers<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_getnummembers(arg: alljoyn_msgarg) -> usize;
         }
@@ -11157,7 +11157,7 @@ pub unsafe fn alljoyn_msgarg_gettype<
 ) -> alljoyn_typeid {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_gettype(arg: alljoyn_msgarg) -> alljoyn_typeid;
         }
@@ -11174,7 +11174,7 @@ pub unsafe fn alljoyn_msgarg_getvalue<
 ) -> alljoyn_msgarg {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_getvalue(arg: alljoyn_msgarg) -> alljoyn_msgarg;
         }
@@ -11194,7 +11194,7 @@ pub unsafe fn alljoyn_msgarg_hassignature<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_hassignature(
                 arg: alljoyn_msgarg,
@@ -11220,7 +11220,7 @@ pub unsafe fn alljoyn_msgarg_set<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set(
                 arg: alljoyn_msgarg,
@@ -11246,7 +11246,7 @@ pub unsafe fn alljoyn_msgarg_set_and_stabilize<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_and_stabilize(
                 arg: alljoyn_msgarg,
@@ -11270,7 +11270,7 @@ pub unsafe fn alljoyn_msgarg_set_bool<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_bool(arg: alljoyn_msgarg, b: i32) -> QStatus;
         }
@@ -11292,7 +11292,7 @@ pub unsafe fn alljoyn_msgarg_set_bool_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_bool_array(
                 arg: alljoyn_msgarg,
@@ -11318,7 +11318,7 @@ pub unsafe fn alljoyn_msgarg_set_double<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_double(arg: alljoyn_msgarg, d: f64) -> QStatus;
         }
@@ -11340,7 +11340,7 @@ pub unsafe fn alljoyn_msgarg_set_double_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_double_array(
                 arg: alljoyn_msgarg,
@@ -11366,7 +11366,7 @@ pub unsafe fn alljoyn_msgarg_set_int16<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_int16(arg: alljoyn_msgarg, n: i16) -> QStatus;
         }
@@ -11388,7 +11388,7 @@ pub unsafe fn alljoyn_msgarg_set_int16_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_int16_array(
                 arg: alljoyn_msgarg,
@@ -11414,7 +11414,7 @@ pub unsafe fn alljoyn_msgarg_set_int32<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_int32(arg: alljoyn_msgarg, i: i32) -> QStatus;
         }
@@ -11436,7 +11436,7 @@ pub unsafe fn alljoyn_msgarg_set_int32_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_int32_array(
                 arg: alljoyn_msgarg,
@@ -11462,7 +11462,7 @@ pub unsafe fn alljoyn_msgarg_set_int64<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_int64(arg: alljoyn_msgarg, x: i64) -> QStatus;
         }
@@ -11484,7 +11484,7 @@ pub unsafe fn alljoyn_msgarg_set_int64_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_int64_array(
                 arg: alljoyn_msgarg,
@@ -11512,7 +11512,7 @@ pub unsafe fn alljoyn_msgarg_set_objectpath<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_objectpath(
                 arg: alljoyn_msgarg,
@@ -11537,7 +11537,7 @@ pub unsafe fn alljoyn_msgarg_set_objectpath_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_objectpath_array(
                 arg: alljoyn_msgarg,
@@ -11565,7 +11565,7 @@ pub unsafe fn alljoyn_msgarg_set_signature<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_signature(
                 arg: alljoyn_msgarg,
@@ -11590,7 +11590,7 @@ pub unsafe fn alljoyn_msgarg_set_signature_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_signature_array(
                 arg: alljoyn_msgarg,
@@ -11618,7 +11618,7 @@ pub unsafe fn alljoyn_msgarg_set_string<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_string(
                 arg: alljoyn_msgarg,
@@ -11643,7 +11643,7 @@ pub unsafe fn alljoyn_msgarg_set_string_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_string_array(
                 arg: alljoyn_msgarg,
@@ -11669,7 +11669,7 @@ pub unsafe fn alljoyn_msgarg_set_uint16<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint16(arg: alljoyn_msgarg, q: u16) -> QStatus;
         }
@@ -11691,7 +11691,7 @@ pub unsafe fn alljoyn_msgarg_set_uint16_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint16_array(
                 arg: alljoyn_msgarg,
@@ -11717,7 +11717,7 @@ pub unsafe fn alljoyn_msgarg_set_uint32<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint32(arg: alljoyn_msgarg, u: u32) -> QStatus;
         }
@@ -11739,7 +11739,7 @@ pub unsafe fn alljoyn_msgarg_set_uint32_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint32_array(
                 arg: alljoyn_msgarg,
@@ -11765,7 +11765,7 @@ pub unsafe fn alljoyn_msgarg_set_uint64<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint64(arg: alljoyn_msgarg, t: u64) -> QStatus;
         }
@@ -11787,7 +11787,7 @@ pub unsafe fn alljoyn_msgarg_set_uint64_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint64_array(
                 arg: alljoyn_msgarg,
@@ -11813,7 +11813,7 @@ pub unsafe fn alljoyn_msgarg_set_uint8<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint8(arg: alljoyn_msgarg, y: u8) -> QStatus;
         }
@@ -11835,7 +11835,7 @@ pub unsafe fn alljoyn_msgarg_set_uint8_array<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_set_uint8_array(
                 arg: alljoyn_msgarg,
@@ -11864,7 +11864,7 @@ pub unsafe fn alljoyn_msgarg_setdictentry<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_setdictentry(
                 arg: alljoyn_msgarg,
@@ -11892,7 +11892,7 @@ pub unsafe fn alljoyn_msgarg_setstruct<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_setstruct(
                 arg: alljoyn_msgarg,
@@ -11921,7 +11921,7 @@ pub unsafe fn alljoyn_msgarg_signature<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_signature(
                 arg: alljoyn_msgarg,
@@ -11946,7 +11946,7 @@ pub unsafe fn alljoyn_msgarg_stabilize<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_stabilize(arg: alljoyn_msgarg);
         }
@@ -11968,7 +11968,7 @@ pub unsafe fn alljoyn_msgarg_tostring<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_msgarg_tostring(
                 arg: alljoyn_msgarg,
@@ -12016,7 +12016,7 @@ pub unsafe fn alljoyn_observer_create<
 ) -> alljoyn_observer {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_create(
                 bus: alljoyn_busattachment,
@@ -12041,7 +12041,7 @@ pub unsafe fn alljoyn_observer_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_destroy(observer: alljoyn_observer);
         }
@@ -12063,7 +12063,7 @@ pub unsafe fn alljoyn_observer_get<
 ) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_get(
                 observer: alljoyn_observer,
@@ -12088,7 +12088,7 @@ pub unsafe fn alljoyn_observer_getfirst<
 ) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_getfirst(observer: alljoyn_observer) -> alljoyn_proxybusobject_ref;
         }
@@ -12107,7 +12107,7 @@ pub unsafe fn alljoyn_observer_getnext<
 ) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_getnext(
                 observer: alljoyn_observer,
@@ -12141,7 +12141,7 @@ pub unsafe fn alljoyn_observer_registerlistener<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_registerlistener(
                 observer: alljoyn_observer,
@@ -12166,7 +12166,7 @@ pub unsafe fn alljoyn_observer_unregisteralllisteners<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_unregisteralllisteners(observer: alljoyn_observer);
         }
@@ -12187,7 +12187,7 @@ pub unsafe fn alljoyn_observer_unregisterlistener<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observer_unregisterlistener(
                 observer: alljoyn_observer,
@@ -12256,7 +12256,7 @@ pub unsafe fn alljoyn_observerlistener_create(
 ) -> alljoyn_observerlistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observerlistener_create(
                 callback: *const ::std::mem::ManuallyDrop<alljoyn_observerlistener_callback>,
@@ -12279,7 +12279,7 @@ pub unsafe fn alljoyn_observerlistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_observerlistener_destroy(listener: alljoyn_observerlistener);
         }
@@ -12301,7 +12301,7 @@ pub unsafe fn alljoyn_passwordmanager_setcredentials<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_passwordmanager_setcredentials(
                 authmechanism: super::super::Foundation::PSTR,
@@ -12379,7 +12379,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_create(
 ) -> alljoyn_permissionconfigurationlistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurationlistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<
@@ -12404,7 +12404,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurationlistener_destroy(
                 listener: alljoyn_permissionconfigurationlistener,
@@ -12447,7 +12447,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_permissionconfigurator {
 pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8);
         }
@@ -12463,7 +12463,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateid_cleanup(
                 certificateid: *mut alljoyn_certificateid,
@@ -12481,7 +12481,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateidarray_cleanup(
                 certificateidarray: *mut alljoyn_certificateidarray,
@@ -12509,7 +12509,7 @@ pub unsafe fn alljoyn_permissionconfigurator_claim<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_claim(
                 configurator: alljoyn_permissionconfigurator,
@@ -12544,7 +12544,7 @@ pub unsafe fn alljoyn_permissionconfigurator_endmanagement<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_endmanagement(
                 configurator: alljoyn_permissionconfigurator,
@@ -12566,7 +12566,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getapplicationstate<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getapplicationstate(
                 configurator: alljoyn_permissionconfigurator,
@@ -12590,7 +12590,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilities<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getclaimcapabilities(
                 configurator: alljoyn_permissionconfigurator,
@@ -12614,7 +12614,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(
                 configurator: alljoyn_permissionconfigurator,
@@ -12634,7 +12634,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<
 pub unsafe fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u16;
         }
@@ -12652,7 +12652,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getdefaultpolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getdefaultpolicy(
                 configurator: alljoyn_permissionconfigurator,
@@ -12676,7 +12676,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getidentity<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getidentity(
                 configurator: alljoyn_permissionconfigurator,
@@ -12700,7 +12700,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getidentitycertificateid<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getidentitycertificateid(
                 configurator: alljoyn_permissionconfigurator,
@@ -12724,7 +12724,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmanifests<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getmanifests(
                 configurator: alljoyn_permissionconfigurator,
@@ -12748,7 +12748,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmanifesttemplate<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getmanifesttemplate(
                 configurator: alljoyn_permissionconfigurator,
@@ -12772,7 +12772,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmembershipsummaries<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getmembershipsummaries(
                 configurator: alljoyn_permissionconfigurator,
@@ -12796,7 +12796,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getpolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getpolicy(
                 configurator: alljoyn_permissionconfigurator,
@@ -12820,7 +12820,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getpublickey<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_getpublickey(
                 configurator: alljoyn_permissionconfigurator,
@@ -12846,7 +12846,7 @@ pub unsafe fn alljoyn_permissionconfigurator_installmanifests<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_installmanifests(
                 configurator: alljoyn_permissionconfigurator,
@@ -12874,7 +12874,7 @@ pub unsafe fn alljoyn_permissionconfigurator_installmembership<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_installmembership(
                 configurator: alljoyn_permissionconfigurator,
@@ -12894,7 +12894,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_manifestarray_cleanup(
                 manifestarray: *mut alljoyn_manifestarray,
@@ -12912,7 +12912,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_manifesttemplate_destroy(
                 manifesttemplatexml: *mut i8,
@@ -12928,7 +12928,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(
 pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8);
         }
@@ -12942,7 +12942,7 @@ pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) 
 pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8);
         }
@@ -12966,7 +12966,7 @@ pub unsafe fn alljoyn_permissionconfigurator_removemembership<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_removemembership(
                 configurator: alljoyn_permissionconfigurator,
@@ -12997,7 +12997,7 @@ pub unsafe fn alljoyn_permissionconfigurator_reset<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_reset(
                 configurator: alljoyn_permissionconfigurator,
@@ -13018,7 +13018,7 @@ pub unsafe fn alljoyn_permissionconfigurator_resetpolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_resetpolicy(
                 configurator: alljoyn_permissionconfigurator,
@@ -13040,7 +13040,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setapplicationstate<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setapplicationstate(
                 configurator: alljoyn_permissionconfigurator,
@@ -13064,7 +13064,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilities<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setclaimcapabilities(
                 configurator: alljoyn_permissionconfigurator,
@@ -13088,7 +13088,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(
                 configurator: alljoyn_permissionconfigurator,
@@ -13114,7 +13114,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml(
                 configurator: alljoyn_permissionconfigurator,
@@ -13137,7 +13137,7 @@ pub unsafe fn alljoyn_permissionconfigurator_startmanagement<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_startmanagement(
                 configurator: alljoyn_permissionconfigurator,
@@ -13161,7 +13161,7 @@ pub unsafe fn alljoyn_permissionconfigurator_updateidentity<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_updateidentity(
                 configurator: alljoyn_permissionconfigurator,
@@ -13189,7 +13189,7 @@ pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_permissionconfigurator_updatepolicy(
                 configurator: alljoyn_permissionconfigurator,
@@ -13266,7 +13266,7 @@ pub unsafe fn alljoyn_pinglistener_create(
 ) -> alljoyn_pinglistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_pinglistener_create(
                 callback: *const ::std::mem::ManuallyDrop<alljoyn_pinglistener_callback>,
@@ -13289,7 +13289,7 @@ pub unsafe fn alljoyn_pinglistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener);
         }
@@ -13327,7 +13327,7 @@ pub unsafe fn alljoyn_proxybusobject_addchild<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_addchild(
                 proxyobj: alljoyn_proxybusobject,
@@ -13352,7 +13352,7 @@ pub unsafe fn alljoyn_proxybusobject_addinterface<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_addinterface(
                 proxyobj: alljoyn_proxybusobject,
@@ -13378,7 +13378,7 @@ pub unsafe fn alljoyn_proxybusobject_addinterface_by_name<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_addinterface_by_name(
                 proxyobj: alljoyn_proxybusobject,
@@ -13401,7 +13401,7 @@ pub unsafe fn alljoyn_proxybusobject_copy<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_copy(
                 source: alljoyn_proxybusobject,
@@ -13426,7 +13426,7 @@ pub unsafe fn alljoyn_proxybusobject_create<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_create(
                 bus: alljoyn_busattachment,
@@ -13459,7 +13459,7 @@ pub unsafe fn alljoyn_proxybusobject_create_secure<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_create_secure(
                 bus: alljoyn_busattachment,
@@ -13486,7 +13486,7 @@ pub unsafe fn alljoyn_proxybusobject_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_destroy(proxyobj: alljoyn_proxybusobject);
         }
@@ -13503,7 +13503,7 @@ pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_enablepropertycaching(proxyobj: alljoyn_proxybusobject);
         }
@@ -13527,7 +13527,7 @@ pub unsafe fn alljoyn_proxybusobject_getallproperties<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getallproperties(
                 proxyobj: alljoyn_proxybusobject,
@@ -13558,7 +13558,7 @@ pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getallpropertiesasync(
                 proxyobj: alljoyn_proxybusobject,
@@ -13590,7 +13590,7 @@ pub unsafe fn alljoyn_proxybusobject_getchild<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getchild(
                 proxyobj: alljoyn_proxybusobject,
@@ -13615,7 +13615,7 @@ pub unsafe fn alljoyn_proxybusobject_getchildren<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getchildren(
                 proxyobj: alljoyn_proxybusobject,
@@ -13643,7 +13643,7 @@ pub unsafe fn alljoyn_proxybusobject_getinterface<
 ) -> alljoyn_interfacedescription {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getinterface(
                 proxyobj: alljoyn_proxybusobject,
@@ -13668,7 +13668,7 @@ pub unsafe fn alljoyn_proxybusobject_getinterfaces<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getinterfaces(
                 proxyobj: alljoyn_proxybusobject,
@@ -13694,7 +13694,7 @@ pub unsafe fn alljoyn_proxybusobject_getpath<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getpath(
                 proxyobj: alljoyn_proxybusobject,
@@ -13720,7 +13720,7 @@ pub unsafe fn alljoyn_proxybusobject_getproperty<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getproperty(
                 proxyobj: alljoyn_proxybusobject,
@@ -13755,7 +13755,7 @@ pub unsafe fn alljoyn_proxybusobject_getpropertyasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getpropertyasync(
                 proxyobj: alljoyn_proxybusobject,
@@ -13787,7 +13787,7 @@ pub unsafe fn alljoyn_proxybusobject_getservicename<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getservicename(
                 proxyobj: alljoyn_proxybusobject,
@@ -13808,7 +13808,7 @@ pub unsafe fn alljoyn_proxybusobject_getsessionid<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getsessionid(proxyobj: alljoyn_proxybusobject) -> u32;
         }
@@ -13828,7 +13828,7 @@ pub unsafe fn alljoyn_proxybusobject_getuniquename<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_getuniquename(
                 proxyobj: alljoyn_proxybusobject,
@@ -13852,7 +13852,7 @@ pub unsafe fn alljoyn_proxybusobject_implementsinterface<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_implementsinterface(
                 proxyobj: alljoyn_proxybusobject,
@@ -13875,7 +13875,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_introspectremoteobject(
                 proxyobj: alljoyn_proxybusobject,
@@ -13898,7 +13898,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_introspectremoteobjectasync(
                 proxyobj: alljoyn_proxybusobject,
@@ -13923,7 +13923,7 @@ pub unsafe fn alljoyn_proxybusobject_issecure<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_issecure(proxyobj: alljoyn_proxybusobject) -> i32;
         }
@@ -13940,7 +13940,7 @@ pub unsafe fn alljoyn_proxybusobject_isvalid<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_isvalid(proxyobj: alljoyn_proxybusobject) -> i32;
         }
@@ -13999,7 +13999,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall(
                 proxyobj: alljoyn_proxybusobject,
@@ -14044,7 +14044,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_member<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall_member(
                 proxyobj: alljoyn_proxybusobject,
@@ -14084,7 +14084,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_member_noreply<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall_member_noreply(
                 proxyobj: alljoyn_proxybusobject,
@@ -14122,7 +14122,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcall_noreply(
                 proxyobj: alljoyn_proxybusobject,
@@ -14165,7 +14165,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcallasync(
                 proxyobj: alljoyn_proxybusobject,
@@ -14212,7 +14212,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcallasync_member(
                 proxyobj: alljoyn_proxybusobject,
@@ -14252,7 +14252,7 @@ pub unsafe fn alljoyn_proxybusobject_parsexml<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_parsexml(
                 proxyobj: alljoyn_proxybusobject,
@@ -14296,7 +14296,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_create<
 ) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_create(
                 proxy: alljoyn_proxybusobject,
@@ -14315,7 +14315,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_decref<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_decref(r#ref: alljoyn_proxybusobject_ref);
         }
@@ -14332,7 +14332,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_get<
 ) -> alljoyn_proxybusobject {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_get(
                 r#ref: alljoyn_proxybusobject_ref,
@@ -14351,7 +14351,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_incref<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_ref_incref(r#ref: alljoyn_proxybusobject_ref);
         }
@@ -14375,7 +14375,7 @@ pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_registerpropertieschangedlistener(
                 proxyobj: alljoyn_proxybusobject,
@@ -14409,7 +14409,7 @@ pub unsafe fn alljoyn_proxybusobject_removechild<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_removechild(
                 proxyobj: alljoyn_proxybusobject,
@@ -14433,7 +14433,7 @@ pub unsafe fn alljoyn_proxybusobject_secureconnection<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_secureconnection(
                 proxyobj: alljoyn_proxybusobject,
@@ -14457,7 +14457,7 @@ pub unsafe fn alljoyn_proxybusobject_secureconnectionasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_secureconnectionasync(
                 proxyobj: alljoyn_proxybusobject,
@@ -14487,7 +14487,7 @@ pub unsafe fn alljoyn_proxybusobject_setproperty<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_setproperty(
                 proxyobj: alljoyn_proxybusobject,
@@ -14524,7 +14524,7 @@ pub unsafe fn alljoyn_proxybusobject_setpropertyasync<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_setpropertyasync(
                 proxyobj: alljoyn_proxybusobject,
@@ -14561,7 +14561,7 @@ pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_unregisterpropertieschangedlistener(
                 proxyobj: alljoyn_proxybusobject,
@@ -14581,7 +14581,7 @@ pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<
 pub unsafe fn alljoyn_routerinit() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_routerinit() -> QStatus;
         }
@@ -14593,7 +14593,7 @@ pub unsafe fn alljoyn_routerinit() -> QStatus {
 pub unsafe fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus;
         }
@@ -14607,7 +14607,7 @@ pub unsafe fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus {
 pub unsafe fn alljoyn_routershutdown() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_routershutdown() -> QStatus;
         }
@@ -14650,7 +14650,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_claim<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_claim(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14685,7 +14685,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_computemanifestdigest(
                 unsignedmanifestxml: *mut i8,
@@ -14714,7 +14714,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_create<
 ) -> alljoyn_securityapplicationproxy {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_create(
                 bus: alljoyn_busattachment,
@@ -14739,7 +14739,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityapplicationproxy);
         }
@@ -14753,7 +14753,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_destroy<
 pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8);
         }
@@ -14767,7 +14767,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
 pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8);
         }
@@ -14786,7 +14786,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_endmanagement<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_endmanagement(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14808,7 +14808,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getapplicationstate<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getapplicationstate(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14832,7 +14832,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilities<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getclaimcapabilities(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14856,7 +14856,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinf
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14882,7 +14882,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getdefaultpolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getdefaultpolicy(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14906,7 +14906,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_geteccpublickey<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_geteccpublickey(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14930,7 +14930,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getmanifesttemplate(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14948,7 +14948,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<
 pub unsafe fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionport() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionport() -> u16;
         }
@@ -14966,7 +14966,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getpolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_getpolicy(
                 proxy: alljoyn_securityapplicationproxy,
@@ -14990,7 +14990,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_installmembership<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_installmembership(
                 proxy: alljoyn_securityapplicationproxy,
@@ -15008,7 +15008,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_installmembership<
 pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8);
         }
@@ -15024,7 +15024,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(
                 manifesttemplatexml: *mut i8,
@@ -15040,7 +15040,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(
 pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8);
         }
@@ -15059,7 +15059,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_reset<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_reset(
                 proxy: alljoyn_securityapplicationproxy,
@@ -15080,7 +15080,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_resetpolicy(
                 proxy: alljoyn_securityapplicationproxy,
@@ -15102,7 +15102,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_setmanifestsignature(
                 unsignedmanifestxml: *mut i8,
@@ -15131,7 +15131,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_signmanifest(
                 unsignedmanifestxml: *mut i8,
@@ -15158,7 +15158,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_startmanagement<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_startmanagement(
                 proxy: alljoyn_securityapplicationproxy,
@@ -15182,7 +15182,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_updateidentity<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_updateidentity(
                 proxy: alljoyn_securityapplicationproxy,
@@ -15210,7 +15210,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<
 ) -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_securityapplicationproxy_updatepolicy(
                 proxy: alljoyn_securityapplicationproxy,
@@ -15292,7 +15292,7 @@ pub unsafe fn alljoyn_sessionlistener_create(
 ) -> alljoyn_sessionlistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionlistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<alljoyn_sessionlistener_callbacks>,
@@ -15315,7 +15315,7 @@ pub unsafe fn alljoyn_sessionlistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionlistener_destroy(listener: alljoyn_sessionlistener);
         }
@@ -15400,7 +15400,7 @@ pub unsafe fn alljoyn_sessionopts_cmp<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_cmp(one: alljoyn_sessionopts, other: alljoyn_sessionopts)
                 -> i32;
@@ -15421,7 +15421,7 @@ pub unsafe fn alljoyn_sessionopts_create(
 ) -> alljoyn_sessionopts {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_create(
                 traffic: u8,
@@ -15448,7 +15448,7 @@ pub unsafe fn alljoyn_sessionopts_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_destroy(opts: alljoyn_sessionopts);
         }
@@ -15465,7 +15465,7 @@ pub unsafe fn alljoyn_sessionopts_get_multipoint<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_get_multipoint(opts: alljoyn_sessionopts) -> i32;
         }
@@ -15482,7 +15482,7 @@ pub unsafe fn alljoyn_sessionopts_get_proximity<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_get_proximity(opts: alljoyn_sessionopts) -> u8;
         }
@@ -15499,7 +15499,7 @@ pub unsafe fn alljoyn_sessionopts_get_traffic<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_get_traffic(opts: alljoyn_sessionopts) -> u8;
         }
@@ -15516,7 +15516,7 @@ pub unsafe fn alljoyn_sessionopts_get_transports<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_get_transports(opts: alljoyn_sessionopts) -> u16;
         }
@@ -15535,7 +15535,7 @@ pub unsafe fn alljoyn_sessionopts_iscompatible<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_iscompatible(
                 one: alljoyn_sessionopts,
@@ -15559,7 +15559,7 @@ pub unsafe fn alljoyn_sessionopts_set_multipoint<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: i32);
         }
@@ -15580,7 +15580,7 @@ pub unsafe fn alljoyn_sessionopts_set_proximity<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: u8);
         }
@@ -15601,7 +15601,7 @@ pub unsafe fn alljoyn_sessionopts_set_traffic<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: u8);
         }
@@ -15622,7 +15622,7 @@ pub unsafe fn alljoyn_sessionopts_set_transports<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: u16);
         }
@@ -15705,7 +15705,7 @@ pub unsafe fn alljoyn_sessionportlistener_create(
 ) -> alljoyn_sessionportlistener {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionportlistener_create(
                 callbacks: *const ::std::mem::ManuallyDrop<alljoyn_sessionportlistener_callbacks>,
@@ -15728,7 +15728,7 @@ pub unsafe fn alljoyn_sessionportlistener_destroy<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener);
         }
@@ -15749,7 +15749,7 @@ pub type alljoyn_sessionportlistener_sessionjoined_ptr = unsafe extern "system" 
 pub unsafe fn alljoyn_shutdown() -> QStatus {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_shutdown() -> QStatus;
         }
@@ -15812,7 +15812,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_typeid {
 pub unsafe fn alljoyn_unity_deferred_callbacks_process() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_unity_deferred_callbacks_process() -> i32;
         }
@@ -15824,7 +15824,7 @@ pub unsafe fn alljoyn_unity_deferred_callbacks_process() -> i32 {
 pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "msajapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32);
         }

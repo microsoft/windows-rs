@@ -35179,7 +35179,7 @@ pub const OCC_INVALID: u32 = 4294967295u32;
 pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ODBCGetTryWaitValue() -> u32;
         }
@@ -35192,7 +35192,7 @@ pub unsafe fn ODBCGetTryWaitValue() -> u32 {
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL;
         }
@@ -37354,7 +37354,7 @@ pub unsafe fn SQLAllocConnect(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLAllocConnect(
                 environmenthandle: *mut ::std::ffi::c_void,
@@ -37372,7 +37372,7 @@ pub unsafe fn SQLAllocConnect(
 pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLAllocEnv(environmenthandle: *mut *mut ::std::ffi::c_void) -> i16;
         }
@@ -37388,7 +37388,7 @@ pub unsafe fn SQLAllocHandle(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLAllocHandle(
                 handletype: i16,
@@ -37412,7 +37412,7 @@ pub unsafe fn SQLAllocHandleStd(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLAllocHandleStd(
                 fhandletype: i16,
@@ -37435,7 +37435,7 @@ pub unsafe fn SQLAllocStmt(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLAllocStmt(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -37467,7 +37467,7 @@ pub unsafe fn SQLBindCol(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLBindCol(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -37502,7 +37502,7 @@ pub unsafe fn SQLBindParam(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLBindParam(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -37543,7 +37543,7 @@ pub unsafe fn SQLBindParameter(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLBindParameter(
                 hstmt: *mut ::std::ffi::c_void,
@@ -37584,7 +37584,7 @@ pub unsafe fn SQLBrowseConnect(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLBrowseConnect(
                 hdbc: *mut ::std::ffi::c_void,
@@ -37617,7 +37617,7 @@ pub unsafe fn SQLBrowseConnectA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLBrowseConnectA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -37650,7 +37650,7 @@ pub unsafe fn SQLBrowseConnectW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLBrowseConnectW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -37676,7 +37676,7 @@ pub unsafe fn SQLBrowseConnectW(
 pub unsafe fn SQLBulkOperations(statementhandle: *mut ::std::ffi::c_void, operation: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLBulkOperations(statementhandle: *mut ::std::ffi::c_void, operation: i16) -> i16;
         }
@@ -37692,7 +37692,7 @@ pub const SQLCHARACTER: u32 = 47u32;
 pub unsafe fn SQLCancel(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLCancel(statementhandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -37704,7 +37704,7 @@ pub unsafe fn SQLCancel(statementhandle: *mut ::std::ffi::c_void) -> i16 {
 pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -37719,7 +37719,7 @@ pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::std::ffi::c_v
 pub unsafe fn SQLCloseCursor(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLCloseCursor(statementhandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -37737,7 +37737,7 @@ pub unsafe fn SQLCloseEnumServers<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLCloseEnumServers(henumhandle: super::super::Foundation::HANDLE) -> i16;
         }
@@ -37757,7 +37757,7 @@ pub unsafe fn SQLColAttribute(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColAttribute(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -37793,7 +37793,7 @@ pub unsafe fn SQLColAttributeA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColAttributeA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -37829,7 +37829,7 @@ pub unsafe fn SQLColAttributeW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColAttributeW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -37865,7 +37865,7 @@ pub unsafe fn SQLColAttributes(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColAttributes(
                 hstmt: *mut ::std::ffi::c_void,
@@ -37901,7 +37901,7 @@ pub unsafe fn SQLColAttributesA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColAttributesA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -37937,7 +37937,7 @@ pub unsafe fn SQLColAttributesW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColAttributesW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -37975,7 +37975,7 @@ pub unsafe fn SQLColumnPrivileges(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColumnPrivileges(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38017,7 +38017,7 @@ pub unsafe fn SQLColumnPrivilegesA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColumnPrivilegesA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38059,7 +38059,7 @@ pub unsafe fn SQLColumnPrivilegesW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColumnPrivilegesW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38101,7 +38101,7 @@ pub unsafe fn SQLColumns(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColumns(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -38143,7 +38143,7 @@ pub unsafe fn SQLColumnsA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColumnsA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38185,7 +38185,7 @@ pub unsafe fn SQLColumnsW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLColumnsW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38221,7 +38221,7 @@ pub unsafe fn SQLCompleteAsync(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLCompleteAsync(
                 handletype: i16,
@@ -38249,7 +38249,7 @@ pub unsafe fn SQLConnect(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLConnect(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -38285,7 +38285,7 @@ pub unsafe fn SQLConnectA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLConnectA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -38321,7 +38321,7 @@ pub unsafe fn SQLConnectW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLConnectW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -38352,7 +38352,7 @@ pub unsafe fn SQLCopyDesc(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLCopyDesc(
                 sourcedeschandle: *mut ::std::ffi::c_void,
@@ -38384,7 +38384,7 @@ pub unsafe fn SQLDataSources(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDataSources(
                 environmenthandle: *mut ::std::ffi::c_void,
@@ -38423,7 +38423,7 @@ pub unsafe fn SQLDataSourcesA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDataSourcesA(
                 henv: *mut ::std::ffi::c_void,
@@ -38462,7 +38462,7 @@ pub unsafe fn SQLDataSourcesW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDataSourcesW(
                 henv: *mut ::std::ffi::c_void,
@@ -38502,7 +38502,7 @@ pub unsafe fn SQLDescribeCol(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDescribeCol(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -38544,7 +38544,7 @@ pub unsafe fn SQLDescribeColA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDescribeColA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38586,7 +38586,7 @@ pub unsafe fn SQLDescribeColW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDescribeColW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38625,7 +38625,7 @@ pub unsafe fn SQLDescribeParam(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDescribeParam(
                 hstmt: *mut ::std::ffi::c_void,
@@ -38651,7 +38651,7 @@ pub unsafe fn SQLDescribeParam(
 pub unsafe fn SQLDisconnect(connectionhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDisconnect(connectionhandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -38672,7 +38672,7 @@ pub unsafe fn SQLDriverConnect(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDriverConnect(
                 hdbc: *mut ::std::ffi::c_void,
@@ -38711,7 +38711,7 @@ pub unsafe fn SQLDriverConnectA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDriverConnectA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -38750,7 +38750,7 @@ pub unsafe fn SQLDriverConnectW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDriverConnectW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -38789,7 +38789,7 @@ pub unsafe fn SQLDrivers(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDrivers(
                 henv: *mut ::std::ffi::c_void,
@@ -38828,7 +38828,7 @@ pub unsafe fn SQLDriversA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDriversA(
                 henv: *mut ::std::ffi::c_void,
@@ -38867,7 +38867,7 @@ pub unsafe fn SQLDriversW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLDriversW(
                 henv: *mut ::std::ffi::c_void,
@@ -38901,7 +38901,7 @@ pub unsafe fn SQLEndTran(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLEndTran(
                 handletype: i16,
@@ -38930,7 +38930,7 @@ pub unsafe fn SQLError(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLError(
                 environmenthandle: *mut ::std::ffi::c_void,
@@ -38969,7 +38969,7 @@ pub unsafe fn SQLErrorA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLErrorA(
                 henv: *mut ::std::ffi::c_void,
@@ -39008,7 +39008,7 @@ pub unsafe fn SQLErrorW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLErrorW(
                 henv: *mut ::std::ffi::c_void,
@@ -39042,7 +39042,7 @@ pub unsafe fn SQLExecDirect(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLExecDirect(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -39066,7 +39066,7 @@ pub unsafe fn SQLExecDirectA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLExecDirectA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39090,7 +39090,7 @@ pub unsafe fn SQLExecDirectW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLExecDirectW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39110,7 +39110,7 @@ pub unsafe fn SQLExecDirectW(
 pub unsafe fn SQLExecute(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLExecute(statementhandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -39128,7 +39128,7 @@ pub unsafe fn SQLExtendedFetch(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLExtendedFetch(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39155,7 +39155,7 @@ pub const SQLFLTN: u32 = 109u32;
 pub unsafe fn SQLFetch(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLFetch(statementhandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -39171,7 +39171,7 @@ pub unsafe fn SQLFetchScroll(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLFetchScroll(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -39205,7 +39205,7 @@ pub unsafe fn SQLForeignKeys(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLForeignKeys(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39259,7 +39259,7 @@ pub unsafe fn SQLForeignKeysA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLForeignKeysA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39313,7 +39313,7 @@ pub unsafe fn SQLForeignKeysW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLForeignKeysW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39353,7 +39353,7 @@ pub unsafe fn SQLForeignKeysW(
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLFreeConnect(connectionhandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -39365,7 +39365,7 @@ pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::std::ffi::c_void) -> i16 {
 pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLFreeEnv(environmenthandle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -39377,7 +39377,7 @@ pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::std::ffi::c_void) -> i16 {
 pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLFreeHandle(handletype: i16, handle: *mut ::std::ffi::c_void) -> i16;
         }
@@ -39392,7 +39392,7 @@ pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::std::ffi::c_void) ->
 pub unsafe fn SQLFreeStmt(statementhandle: *mut ::std::ffi::c_void, option: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLFreeStmt(statementhandle: *mut ::std::ffi::c_void, option: u16) -> i16;
         }
@@ -39413,7 +39413,7 @@ pub unsafe fn SQLGetConnectAttr(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetConnectAttr(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -39443,7 +39443,7 @@ pub unsafe fn SQLGetConnectAttrA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetConnectAttrA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -39473,7 +39473,7 @@ pub unsafe fn SQLGetConnectAttrW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetConnectAttrW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -39501,7 +39501,7 @@ pub unsafe fn SQLGetConnectOption(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetConnectOption(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -39525,7 +39525,7 @@ pub unsafe fn SQLGetConnectOptionA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetConnectOptionA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -39549,7 +39549,7 @@ pub unsafe fn SQLGetConnectOptionW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetConnectOptionW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -39574,7 +39574,7 @@ pub unsafe fn SQLGetCursorName(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetCursorName(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -39601,7 +39601,7 @@ pub unsafe fn SQLGetCursorNameA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetCursorNameA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39628,7 +39628,7 @@ pub unsafe fn SQLGetCursorNameW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetCursorNameW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -39657,7 +39657,7 @@ pub unsafe fn SQLGetData(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetData(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -39690,7 +39690,7 @@ pub unsafe fn SQLGetDescField(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDescField(
                 descriptorhandle: *mut ::std::ffi::c_void,
@@ -39723,7 +39723,7 @@ pub unsafe fn SQLGetDescFieldA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDescFieldA(
                 hdesc: *mut ::std::ffi::c_void,
@@ -39756,7 +39756,7 @@ pub unsafe fn SQLGetDescFieldW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDescFieldW(
                 hdesc: *mut ::std::ffi::c_void,
@@ -39794,7 +39794,7 @@ pub unsafe fn SQLGetDescRec(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDescRec(
                 descriptorhandle: *mut ::std::ffi::c_void,
@@ -39842,7 +39842,7 @@ pub unsafe fn SQLGetDescRecA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDescRecA(
                 hdesc: *mut ::std::ffi::c_void,
@@ -39890,7 +39890,7 @@ pub unsafe fn SQLGetDescRecW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDescRecW(
                 hdesc: *mut ::std::ffi::c_void,
@@ -39934,7 +39934,7 @@ pub unsafe fn SQLGetDiagField(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDiagField(
                 handletype: i16,
@@ -39970,7 +39970,7 @@ pub unsafe fn SQLGetDiagFieldA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDiagFieldA(
                 fhandletype: i16,
@@ -40006,7 +40006,7 @@ pub unsafe fn SQLGetDiagFieldW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDiagFieldW(
                 fhandletype: i16,
@@ -40043,7 +40043,7 @@ pub unsafe fn SQLGetDiagRec(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDiagRec(
                 handletype: i16,
@@ -40082,7 +40082,7 @@ pub unsafe fn SQLGetDiagRecA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDiagRecA(
                 fhandletype: i16,
@@ -40121,7 +40121,7 @@ pub unsafe fn SQLGetDiagRecW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetDiagRecW(
                 fhandletype: i16,
@@ -40157,7 +40157,7 @@ pub unsafe fn SQLGetEnvAttr(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetEnvAttr(
                 environmenthandle: *mut ::std::ffi::c_void,
@@ -40185,7 +40185,7 @@ pub unsafe fn SQLGetFunctions(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetFunctions(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -40211,7 +40211,7 @@ pub unsafe fn SQLGetInfo(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetInfo(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -40241,7 +40241,7 @@ pub unsafe fn SQLGetInfoA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetInfoA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -40271,7 +40271,7 @@ pub unsafe fn SQLGetInfoW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetInfoW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -40303,7 +40303,7 @@ pub unsafe fn SQLGetNextEnumeration<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetNextEnumeration(
                 henumhandle: super::super::Foundation::HANDLE,
@@ -40329,7 +40329,7 @@ pub unsafe fn SQLGetStmtAttr(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetStmtAttr(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -40359,7 +40359,7 @@ pub unsafe fn SQLGetStmtAttrA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetStmtAttrA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -40389,7 +40389,7 @@ pub unsafe fn SQLGetStmtAttrW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetStmtAttrW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -40417,7 +40417,7 @@ pub unsafe fn SQLGetStmtOption(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetStmtOption(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -40437,7 +40437,7 @@ pub unsafe fn SQLGetStmtOption(
 pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetTypeInfo(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16;
         }
@@ -40452,7 +40452,7 @@ pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::std::ffi::c_void, datatype:
 pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetTypeInfoA(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16;
         }
@@ -40467,7 +40467,7 @@ pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::std::ffi::c_void, datatype
 pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLGetTypeInfoW(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16;
         }
@@ -40528,7 +40528,7 @@ pub unsafe fn SQLInitEnumServers<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLInitEnumServers(
                 pwchservername: super::super::Foundation::PWSTR,
@@ -40554,7 +40554,7 @@ pub unsafe fn SQLLinkedCatalogsA<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLLinkedCatalogsA(
                 param0: *mut ::std::ffi::c_void,
@@ -40582,7 +40582,7 @@ pub unsafe fn SQLLinkedCatalogsW<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLLinkedCatalogsW(
                 param0: *mut ::std::ffi::c_void,
@@ -40602,7 +40602,7 @@ pub unsafe fn SQLLinkedCatalogsW<
 pub unsafe fn SQLLinkedServers(param0: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLLinkedServers(param0: *mut ::std::ffi::c_void) -> i16;
         }
@@ -40617,7 +40617,7 @@ pub const SQLMONEYN: u32 = 110u32;
 pub unsafe fn SQLMoreResults(hstmt: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLMoreResults(hstmt: *mut ::std::ffi::c_void) -> i16;
         }
@@ -40641,7 +40641,7 @@ pub unsafe fn SQLNativeSql(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLNativeSql(
                 hdbc: *mut ::std::ffi::c_void,
@@ -40674,7 +40674,7 @@ pub unsafe fn SQLNativeSqlA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLNativeSqlA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -40707,7 +40707,7 @@ pub unsafe fn SQLNativeSqlW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLNativeSqlW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -40733,7 +40733,7 @@ pub unsafe fn SQLNativeSqlW(
 pub unsafe fn SQLNumParams(hstmt: *mut ::std::ffi::c_void, pcpar: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLNumParams(hstmt: *mut ::std::ffi::c_void, pcpar: *mut i16) -> i16;
         }
@@ -40751,7 +40751,7 @@ pub unsafe fn SQLNumResultCols(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLNumResultCols(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -40772,7 +40772,7 @@ pub unsafe fn SQLParamData(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLParamData(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -40790,7 +40790,7 @@ pub unsafe fn SQLParamData(
 pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: *mut u64) -> i16;
         }
@@ -40810,7 +40810,7 @@ pub unsafe fn SQLPrepare(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLPrepare(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -40834,7 +40834,7 @@ pub unsafe fn SQLPrepareA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLPrepareA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -40858,7 +40858,7 @@ pub unsafe fn SQLPrepareW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLPrepareW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -40886,7 +40886,7 @@ pub unsafe fn SQLPrimaryKeys(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLPrimaryKeys(
                 hstmt: *mut ::std::ffi::c_void,
@@ -40922,7 +40922,7 @@ pub unsafe fn SQLPrimaryKeysA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLPrimaryKeysA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -40958,7 +40958,7 @@ pub unsafe fn SQLPrimaryKeysW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLPrimaryKeysW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -40996,7 +40996,7 @@ pub unsafe fn SQLProcedureColumns(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLProcedureColumns(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41038,7 +41038,7 @@ pub unsafe fn SQLProcedureColumnsA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLProcedureColumnsA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41080,7 +41080,7 @@ pub unsafe fn SQLProcedureColumnsW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLProcedureColumnsW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41120,7 +41120,7 @@ pub unsafe fn SQLProcedures(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLProcedures(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41156,7 +41156,7 @@ pub unsafe fn SQLProceduresA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLProceduresA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41192,7 +41192,7 @@ pub unsafe fn SQLProceduresW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLProceduresW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41224,7 +41224,7 @@ pub unsafe fn SQLPutData(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLPutData(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -41244,7 +41244,7 @@ pub unsafe fn SQLPutData(
 pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i64) -> i16;
         }
@@ -41264,7 +41264,7 @@ pub unsafe fn SQLSetConnectAttr(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetConnectAttr(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -41291,7 +41291,7 @@ pub unsafe fn SQLSetConnectAttrA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetConnectAttrA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -41318,7 +41318,7 @@ pub unsafe fn SQLSetConnectAttrW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetConnectAttrW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -41344,7 +41344,7 @@ pub unsafe fn SQLSetConnectOption(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetConnectOption(
                 connectionhandle: *mut ::std::ffi::c_void,
@@ -41368,7 +41368,7 @@ pub unsafe fn SQLSetConnectOptionA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetConnectOptionA(
                 hdbc: *mut ::std::ffi::c_void,
@@ -41392,7 +41392,7 @@ pub unsafe fn SQLSetConnectOptionW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetConnectOptionW(
                 hdbc: *mut ::std::ffi::c_void,
@@ -41416,7 +41416,7 @@ pub unsafe fn SQLSetCursorName(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetCursorName(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -41440,7 +41440,7 @@ pub unsafe fn SQLSetCursorNameA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetCursorNameA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41464,7 +41464,7 @@ pub unsafe fn SQLSetCursorNameW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetCursorNameW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41490,7 +41490,7 @@ pub unsafe fn SQLSetDescField(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetDescField(
                 descriptorhandle: *mut ::std::ffi::c_void,
@@ -41520,7 +41520,7 @@ pub unsafe fn SQLSetDescFieldW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetDescFieldW(
                 descriptorhandle: *mut ::std::ffi::c_void,
@@ -41555,7 +41555,7 @@ pub unsafe fn SQLSetDescRec(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetDescRec(
                 descriptorhandle: *mut ::std::ffi::c_void,
@@ -41594,7 +41594,7 @@ pub unsafe fn SQLSetEnvAttr(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetEnvAttr(
                 environmenthandle: *mut ::std::ffi::c_void,
@@ -41625,7 +41625,7 @@ pub unsafe fn SQLSetParam(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetParam(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -41660,7 +41660,7 @@ pub unsafe fn SQLSetPos(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetPos(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41687,7 +41687,7 @@ pub unsafe fn SQLSetScrollOptions(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetScrollOptions(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41714,7 +41714,7 @@ pub unsafe fn SQLSetStmtAttr(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetStmtAttr(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -41741,7 +41741,7 @@ pub unsafe fn SQLSetStmtAttrW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetStmtAttrW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41767,7 +41767,7 @@ pub unsafe fn SQLSetStmtOption(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSetStmtOption(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -41798,7 +41798,7 @@ pub unsafe fn SQLSpecialColumns(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSpecialColumns(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -41843,7 +41843,7 @@ pub unsafe fn SQLSpecialColumnsA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSpecialColumnsA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41888,7 +41888,7 @@ pub unsafe fn SQLSpecialColumnsW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLSpecialColumnsW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -41932,7 +41932,7 @@ pub unsafe fn SQLStatistics(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLStatistics(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -41974,7 +41974,7 @@ pub unsafe fn SQLStatisticsA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLStatisticsA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -42016,7 +42016,7 @@ pub unsafe fn SQLStatisticsW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLStatisticsW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -42057,7 +42057,7 @@ pub unsafe fn SQLTablePrivileges(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLTablePrivileges(
                 hstmt: *mut ::std::ffi::c_void,
@@ -42093,7 +42093,7 @@ pub unsafe fn SQLTablePrivilegesA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLTablePrivilegesA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -42129,7 +42129,7 @@ pub unsafe fn SQLTablePrivilegesW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLTablePrivilegesW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -42167,7 +42167,7 @@ pub unsafe fn SQLTables(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLTables(
                 statementhandle: *mut ::std::ffi::c_void,
@@ -42209,7 +42209,7 @@ pub unsafe fn SQLTablesA(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLTablesA(
                 hstmt: *mut ::std::ffi::c_void,
@@ -42251,7 +42251,7 @@ pub unsafe fn SQLTablesW(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLTablesW(
                 hstmt: *mut ::std::ffi::c_void,
@@ -42287,7 +42287,7 @@ pub unsafe fn SQLTransact(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbc32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SQLTransact(
                 environmenthandle: *mut ::std::ffi::c_void,
@@ -45077,7 +45077,7 @@ pub const _MAPI_W_NO_SERVICE: i32 = 262659i32;
 pub unsafe fn bcp_batch(param0: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_batch(param0: *mut ::std::ffi::c_void) -> i32;
         }
@@ -45098,7 +45098,7 @@ pub unsafe fn bcp_bind(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_bind(
                 param0: *mut ::std::ffi::c_void,
@@ -45137,7 +45137,7 @@ pub unsafe fn bcp_colfmt(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_colfmt(
                 param0: *mut ::std::ffi::c_void,
@@ -45167,7 +45167,7 @@ pub unsafe fn bcp_colfmt(
 pub unsafe fn bcp_collen(param0: *mut ::std::ffi::c_void, param1: i32, param2: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_collen(param0: *mut ::std::ffi::c_void, param1: i32, param2: i32) -> i16;
         }
@@ -45183,7 +45183,7 @@ pub unsafe fn bcp_collen(param0: *mut ::std::ffi::c_void, param1: i32, param2: i
 pub unsafe fn bcp_colptr(param0: *mut ::std::ffi::c_void, param1: *mut u8, param2: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_colptr(param0: *mut ::std::ffi::c_void, param1: *mut u8, param2: i32) -> i16;
         }
@@ -45199,7 +45199,7 @@ pub unsafe fn bcp_colptr(param0: *mut ::std::ffi::c_void, param1: *mut u8, param
 pub unsafe fn bcp_columns(param0: *mut ::std::ffi::c_void, param1: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_columns(param0: *mut ::std::ffi::c_void, param1: i32) -> i16;
         }
@@ -45218,7 +45218,7 @@ pub unsafe fn bcp_control(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_control(
                 param0: *mut ::std::ffi::c_void,
@@ -45238,7 +45238,7 @@ pub unsafe fn bcp_control(
 pub unsafe fn bcp_done(param0: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_done(param0: *mut ::std::ffi::c_void) -> i32;
         }
@@ -45250,7 +45250,7 @@ pub unsafe fn bcp_done(param0: *mut ::std::ffi::c_void) -> i32 {
 pub unsafe fn bcp_exec(param0: *mut ::std::ffi::c_void, param1: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_exec(param0: *mut ::std::ffi::c_void, param1: *mut i32) -> i16;
         }
@@ -45272,7 +45272,7 @@ pub unsafe fn bcp_getcolfmt(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_getcolfmt(
                 param0: *mut ::std::ffi::c_void,
@@ -45310,7 +45310,7 @@ pub unsafe fn bcp_initA<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_initA(
                 param0: *mut ::std::ffi::c_void,
@@ -45346,7 +45346,7 @@ pub unsafe fn bcp_initW<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_initW(
                 param0: *mut ::std::ffi::c_void,
@@ -45370,7 +45370,7 @@ pub unsafe fn bcp_initW<
 pub unsafe fn bcp_moretext(param0: *mut ::std::ffi::c_void, param1: i32, param2: *mut u8) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_moretext(param0: *mut ::std::ffi::c_void, param1: i32, param2: *mut u8) -> i16;
         }
@@ -45393,7 +45393,7 @@ pub unsafe fn bcp_readfmtA<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_readfmtA(
                 param0: *mut ::std::ffi::c_void,
@@ -45418,7 +45418,7 @@ pub unsafe fn bcp_readfmtW<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_readfmtW(
                 param0: *mut ::std::ffi::c_void,
@@ -45436,7 +45436,7 @@ pub unsafe fn bcp_readfmtW<
 pub unsafe fn bcp_sendrow(param0: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_sendrow(param0: *mut ::std::ffi::c_void) -> i16;
         }
@@ -45454,7 +45454,7 @@ pub unsafe fn bcp_setcolfmt(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_setcolfmt(
                 param0: *mut ::std::ffi::c_void,
@@ -45485,7 +45485,7 @@ pub unsafe fn bcp_writefmtA<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_writefmtA(
                 param0: *mut ::std::ffi::c_void,
@@ -45510,7 +45510,7 @@ pub unsafe fn bcp_writefmtW<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn bcp_writefmtW(
                 param0: *mut ::std::ffi::c_void,
@@ -45619,7 +45619,7 @@ unsafe impl ::windows::runtime::Abi for dbmoney {
 pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR;
         }
@@ -45632,7 +45632,7 @@ pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
 pub unsafe fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "odbcbcp")]
+        #[link(name = "windows")]
         extern "system" {
             fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR;
         }

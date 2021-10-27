@@ -421,7 +421,7 @@ pub unsafe fn HcsAttachLayerStorageFilter<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsAttachLayerStorageFilter(
                 layerpath: super::super::Foundation::PWSTR,
@@ -438,7 +438,7 @@ pub unsafe fn HcsCancelOperation<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCancelOperation(operation: HCS_OPERATION) -> ::windows::runtime::HRESULT;
         }
@@ -452,7 +452,7 @@ pub unsafe fn HcsCloseComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCloseComputeSystem(computesystem: HCS_SYSTEM);
         }
@@ -466,7 +466,7 @@ pub unsafe fn HcsCloseOperation<'a, Param0: ::windows::runtime::IntoParam<'a, HC
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCloseOperation(operation: HCS_OPERATION);
         }
@@ -480,7 +480,7 @@ pub unsafe fn HcsCloseProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCloseProcess(process: HCS_PROCESS);
         }
@@ -502,7 +502,7 @@ pub unsafe fn HcsCrashComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCrashComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -534,7 +534,7 @@ pub unsafe fn HcsCreateComputeSystem<
 ) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCreateComputeSystem(
                 id: super::super::Foundation::PWSTR,
@@ -573,7 +573,7 @@ pub unsafe fn HcsCreateComputeSystemInNamespace<
 ) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCreateComputeSystemInNamespace(
                 idnamespace: super::super::Foundation::PWSTR,
@@ -607,7 +607,7 @@ pub unsafe fn HcsCreateEmptyGuestStateFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCreateEmptyGuestStateFile(
                 gueststatefilepath: super::super::Foundation::PWSTR,
@@ -627,7 +627,7 @@ pub unsafe fn HcsCreateEmptyRuntimeStateFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCreateEmptyRuntimeStateFile(
                 runtimestatefilepath: super::super::Foundation::PWSTR,
@@ -644,7 +644,7 @@ pub unsafe fn HcsCreateOperation(
 ) -> HCS_OPERATION {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCreateOperation(
                 context: *const ::std::ffi::c_void,
@@ -673,7 +673,7 @@ pub unsafe fn HcsCreateProcess<
 ) -> ::windows::runtime::Result<HCS_PROCESS> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsCreateProcess(
                 computesystem: HCS_SYSTEM,
@@ -705,7 +705,7 @@ pub unsafe fn HcsDestroyLayer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsDestroyLayer(
                 layerpath: super::super::Foundation::PWSTR,
@@ -725,7 +725,7 @@ pub unsafe fn HcsDetachLayerStorageFilter<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsDetachLayerStorageFilter(
                 layerpath: super::super::Foundation::PWSTR,
@@ -747,7 +747,7 @@ pub unsafe fn HcsEnumerateComputeSystems<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsEnumerateComputeSystems(
                 query: super::super::Foundation::PWSTR,
@@ -772,7 +772,7 @@ pub unsafe fn HcsEnumerateComputeSystemsInNamespace<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsEnumerateComputeSystemsInNamespace(
                 idnamespace: super::super::Foundation::PWSTR,
@@ -805,7 +805,7 @@ pub unsafe fn HcsExportLayer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsExportLayer(
                 layerpath: super::super::Foundation::PWSTR,
@@ -840,7 +840,7 @@ pub unsafe fn HcsExportLegacyWritableLayer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsExportLegacyWritableLayer(
                 writablelayermountpath: super::super::Foundation::PWSTR,
@@ -869,7 +869,7 @@ pub unsafe fn HcsFormatWritableLayerVhd<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsFormatWritableLayerVhd(
                 vhdhandle: super::super::Foundation::HANDLE,
@@ -888,7 +888,7 @@ pub unsafe fn HcsGetComputeSystemFromOperation<
 ) -> HCS_SYSTEM {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetComputeSystemFromOperation(operation: HCS_OPERATION) -> HCS_SYSTEM;
         }
@@ -912,7 +912,7 @@ pub unsafe fn HcsGetComputeSystemProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetComputeSystemProperties(
                 computesystem: HCS_SYSTEM,
@@ -939,7 +939,7 @@ pub unsafe fn HcsGetLayerVhdMountPath<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetLayerVhdMountPath(
                 vhdhandle: super::super::Foundation::HANDLE,
@@ -962,7 +962,7 @@ pub unsafe fn HcsGetOperationContext<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetOperationContext(operation: HCS_OPERATION) -> *mut ::std::ffi::c_void;
         }
@@ -976,7 +976,7 @@ pub unsafe fn HcsGetOperationId<'a, Param0: ::windows::runtime::IntoParam<'a, HC
 ) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetOperationId(operation: HCS_OPERATION) -> u64;
         }
@@ -994,7 +994,7 @@ pub unsafe fn HcsGetOperationResult<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetOperationResult(
                 operation: HCS_OPERATION,
@@ -1020,7 +1020,7 @@ pub unsafe fn HcsGetOperationResultAndProcessInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetOperationResultAndProcessInfo(
                 operation: HCS_OPERATION,
@@ -1043,7 +1043,7 @@ pub unsafe fn HcsGetOperationType<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> HCS_OPERATION_TYPE {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetOperationType(operation: HCS_OPERATION) -> HCS_OPERATION_TYPE;
         }
@@ -1060,7 +1060,7 @@ pub unsafe fn HcsGetProcessFromOperation<
 ) -> HCS_PROCESS {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetProcessFromOperation(operation: HCS_OPERATION) -> HCS_PROCESS;
         }
@@ -1079,7 +1079,7 @@ pub unsafe fn HcsGetProcessInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetProcessInfo(
                 process: HCS_PROCESS,
@@ -1104,7 +1104,7 @@ pub unsafe fn HcsGetProcessProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetProcessProperties(
                 process: HCS_PROCESS,
@@ -1131,7 +1131,7 @@ pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetProcessorCompatibilityFromSavedState(
                 runtimefilename: super::super::Foundation::PWSTR,
@@ -1158,7 +1158,7 @@ pub unsafe fn HcsGetServiceProperties<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGetServiceProperties(
                 propertyquery: super::super::Foundation::PWSTR,
@@ -1184,7 +1184,7 @@ pub unsafe fn HcsGrantVmAccess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGrantVmAccess(
                 vmid: super::super::Foundation::PWSTR,
@@ -1205,7 +1205,7 @@ pub unsafe fn HcsGrantVmGroupAccess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsGrantVmGroupAccess(
                 filepath: super::super::Foundation::PWSTR,
@@ -1229,7 +1229,7 @@ pub unsafe fn HcsImportLayer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsImportLayer(
                 layerpath: super::super::Foundation::PWSTR,
@@ -1262,7 +1262,7 @@ pub unsafe fn HcsInitializeLegacyWritableLayer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsInitializeLegacyWritableLayer(
                 writablelayermountpath: super::super::Foundation::PWSTR,
@@ -1295,7 +1295,7 @@ pub unsafe fn HcsInitializeWritableLayer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsInitializeWritableLayer(
                 writablelayerpath: super::super::Foundation::PWSTR,
@@ -1328,7 +1328,7 @@ pub unsafe fn HcsModifyComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsModifyComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -1361,7 +1361,7 @@ pub unsafe fn HcsModifyProcess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsModifyProcess(
                 process: HCS_PROCESS,
@@ -1388,7 +1388,7 @@ pub unsafe fn HcsModifyServiceSettings<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsModifyServiceSettings(
                 settings: super::super::Foundation::PWSTR,
@@ -1413,7 +1413,7 @@ pub unsafe fn HcsOpenComputeSystem<
 ) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsOpenComputeSystem(
                 id: super::super::Foundation::PWSTR,
@@ -1444,7 +1444,7 @@ pub unsafe fn HcsOpenComputeSystemInNamespace<
 ) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsOpenComputeSystemInNamespace(
                 idnamespace: super::super::Foundation::PWSTR,
@@ -1472,7 +1472,7 @@ pub unsafe fn HcsOpenProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_S
 ) -> ::windows::runtime::Result<HCS_PROCESS> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsOpenProcess(
                 computesystem: HCS_SYSTEM,
@@ -1506,7 +1506,7 @@ pub unsafe fn HcsPauseComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsPauseComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -1537,7 +1537,7 @@ pub unsafe fn HcsResumeComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsResumeComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -1566,7 +1566,7 @@ pub unsafe fn HcsRevokeVmAccess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsRevokeVmAccess(
                 vmid: super::super::Foundation::PWSTR,
@@ -1587,7 +1587,7 @@ pub unsafe fn HcsRevokeVmGroupAccess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsRevokeVmGroupAccess(
                 filepath: super::super::Foundation::PWSTR,
@@ -1611,7 +1611,7 @@ pub unsafe fn HcsSaveComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSaveComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -1641,7 +1641,7 @@ pub unsafe fn HcsSetComputeSystemCallback<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSetComputeSystemCallback(
                 computesystem: HCS_SYSTEM,
@@ -1671,7 +1671,7 @@ pub unsafe fn HcsSetOperationCallback<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSetOperationCallback(
                 operation: HCS_OPERATION,
@@ -1698,7 +1698,7 @@ pub unsafe fn HcsSetOperationContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSetOperationContext(
                 operation: HCS_OPERATION,
@@ -1719,7 +1719,7 @@ pub unsafe fn HcsSetProcessCallback<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSetProcessCallback(
                 process: HCS_PROCESS,
@@ -1752,7 +1752,7 @@ pub unsafe fn HcsSetupBaseOSLayer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSetupBaseOSLayer(
                 layerpath: super::super::Foundation::PWSTR,
@@ -1783,7 +1783,7 @@ pub unsafe fn HcsSetupBaseOSVolume<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computestorage")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSetupBaseOSVolume(
                 layerpath: super::super::Foundation::PWSTR,
@@ -1814,7 +1814,7 @@ pub unsafe fn HcsShutDownComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsShutDownComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -1845,7 +1845,7 @@ pub unsafe fn HcsSignalProcess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSignalProcess(
                 process: HCS_PROCESS,
@@ -1876,7 +1876,7 @@ pub unsafe fn HcsStartComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsStartComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -1903,7 +1903,7 @@ pub unsafe fn HcsSubmitWerReport<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsSubmitWerReport(
                 settings: super::super::Foundation::PWSTR,
@@ -1927,7 +1927,7 @@ pub unsafe fn HcsTerminateComputeSystem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsTerminateComputeSystem(
                 computesystem: HCS_SYSTEM,
@@ -1958,7 +1958,7 @@ pub unsafe fn HcsTerminateProcess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsTerminateProcess(
                 process: HCS_PROCESS,
@@ -1986,7 +1986,7 @@ pub unsafe fn HcsWaitForComputeSystemExit<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsWaitForComputeSystemExit(
                 computesystem: HCS_SYSTEM,
@@ -2016,7 +2016,7 @@ pub unsafe fn HcsWaitForOperationResult<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsWaitForOperationResult(
                 operation: HCS_OPERATION,
@@ -2048,7 +2048,7 @@ pub unsafe fn HcsWaitForOperationResultAndProcessInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsWaitForOperationResultAndProcessInfo(
                 operation: HCS_OPERATION,
@@ -2075,7 +2075,7 @@ pub unsafe fn HcsWaitForProcessExit<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computecore")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcsWaitForProcessExit(
                 computesystem: HCS_PROCESS,

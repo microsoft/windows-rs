@@ -287,7 +287,7 @@ pub unsafe fn FhServiceBlockBackup<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fhsvcctl")]
+        #[link(name = "windows")]
         extern "system" {
             fn FhServiceBlockBackup(
                 pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE,
@@ -310,7 +310,7 @@ pub unsafe fn FhServiceClosePipe<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fhsvcctl")]
+        #[link(name = "windows")]
         extern "system" {
             fn FhServiceClosePipe(
                 pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE,
@@ -333,7 +333,7 @@ pub unsafe fn FhServiceOpenPipe<
 ) -> ::windows::runtime::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "fhsvcctl")]
+        #[link(name = "windows")]
         extern "system" {
             fn FhServiceOpenPipe(
                 startserviceifstopped: super::super::Foundation::BOOL,
@@ -359,7 +359,7 @@ pub unsafe fn FhServiceReloadConfiguration<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fhsvcctl")]
+        #[link(name = "windows")]
         extern "system" {
             fn FhServiceReloadConfiguration(
                 pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE,
@@ -387,7 +387,7 @@ pub unsafe fn FhServiceStartBackup<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fhsvcctl")]
+        #[link(name = "windows")]
         extern "system" {
             fn FhServiceStartBackup(
                 pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE,
@@ -416,7 +416,7 @@ pub unsafe fn FhServiceStopBackup<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fhsvcctl")]
+        #[link(name = "windows")]
         extern "system" {
             fn FhServiceStopBackup(
                 pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE,
@@ -440,7 +440,7 @@ pub unsafe fn FhServiceUnblockBackup<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "fhsvcctl")]
+        #[link(name = "windows")]
         extern "system" {
             fn FhServiceUnblockBackup(
                 pipe: super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE,

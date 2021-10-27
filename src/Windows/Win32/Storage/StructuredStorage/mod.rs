@@ -928,7 +928,7 @@ pub const CWCSTORAGENAME: u32 = 32u32;
 pub unsafe fn CoBuildVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoBuildVersion() -> u32;
         }
@@ -947,7 +947,7 @@ pub unsafe fn CreateILockBytesOnHGlobal<
 ) -> ::windows::runtime::Result<ILockBytes> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateILockBytesOnHGlobal(
                 hglobal: isize,
@@ -979,7 +979,7 @@ pub unsafe fn CreateStdProgressIndicator<
 ) -> ::windows::runtime::Result<super::super::System::Com::IBindStatusCallback> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStdProgressIndicator(
                 hwndparent: super::super::Foundation::HWND,
@@ -1010,7 +1010,7 @@ pub unsafe fn CreateStreamOnHGlobal<
 ) -> ::windows::runtime::Result<IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStreamOnHGlobal(
                 hglobal: isize,
@@ -1036,7 +1036,7 @@ pub unsafe fn DcomChannelSetHResult(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DcomChannelSetHResult(
                 pvreserved: *const ::std::ffi::c_void,
@@ -1061,7 +1061,7 @@ pub unsafe fn FmtIdToPropStgName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FmtIdToPropStgName(
                 pfmtid: *const ::windows::runtime::GUID,
@@ -1089,7 +1089,7 @@ pub unsafe fn FreePropVariantArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreePropVariantArray(
                 cvariants: u32,
@@ -1110,7 +1110,7 @@ pub unsafe fn GetConvertStg<'a, Param0: ::windows::runtime::IntoParam<'a, IStora
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetConvertStg(pstg: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -1127,7 +1127,7 @@ pub unsafe fn GetHGlobalFromILockBytes<
 ) -> ::windows::runtime::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetHGlobalFromILockBytes(
                 plkbyt: ::windows::runtime::RawPtr,
@@ -1146,7 +1146,7 @@ pub unsafe fn GetHGlobalFromStream<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetHGlobalFromStream(
                 pstm: ::windows::runtime::RawPtr,
@@ -8610,7 +8610,7 @@ pub unsafe fn JetAddColumnA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetAddColumnA(
                 sesid: JET_SESID,
@@ -8650,7 +8650,7 @@ pub unsafe fn JetAddColumnW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetAddColumnW(
                 sesid: JET_SESID,
@@ -8683,7 +8683,7 @@ pub unsafe fn JetAttachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetAttachDatabase2A(
                 sesid: JET_SESID,
@@ -8710,7 +8710,7 @@ pub unsafe fn JetAttachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetAttachDatabase2W(
                 sesid: JET_SESID,
@@ -8736,7 +8736,7 @@ pub unsafe fn JetAttachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetAttachDatabaseA(sesid: JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
         }
@@ -8756,7 +8756,7 @@ pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetAttachDatabaseW(sesid: JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
         }
@@ -8776,7 +8776,7 @@ pub unsafe fn JetBackupA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBackupA(
                 szbackuppath: *const i8,
@@ -8801,7 +8801,7 @@ pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBackupInstanceA(
                 instance: JET_INSTANCE,
@@ -8828,7 +8828,7 @@ pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBackupInstanceW(
                 instance: JET_INSTANCE,
@@ -8854,7 +8854,7 @@ pub unsafe fn JetBackupW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBackupW(
                 szbackuppath: *const u16,
@@ -8874,7 +8874,7 @@ pub unsafe fn JetBackupW(
 pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBeginExternalBackup(grbit: u32) -> i32;
         }
@@ -8892,7 +8892,7 @@ pub unsafe fn JetBeginExternalBackupInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBeginExternalBackupInstance(instance: JET_INSTANCE, grbit: u32) -> i32;
         }
@@ -8912,7 +8912,7 @@ pub unsafe fn JetBeginSessionA<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBeginSessionA(
                 instance: JET_INSTANCE,
@@ -8939,7 +8939,7 @@ pub unsafe fn JetBeginSessionW<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBeginSessionW(
                 instance: JET_INSTANCE,
@@ -8963,7 +8963,7 @@ pub unsafe fn JetBeginTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBeginTransaction(sesid: JET_SESID) -> i32;
         }
@@ -8978,7 +8978,7 @@ pub unsafe fn JetBeginTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBeginTransaction2(sesid: JET_SESID, grbit: u32) -> i32;
         }
@@ -8997,7 +8997,7 @@ pub unsafe fn JetBeginTransaction3<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetBeginTransaction3(sesid: JET_SESID, trxid: i64, grbit: u32) -> i32;
         }
@@ -9017,7 +9017,7 @@ pub unsafe fn JetCloseDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCloseDatabase(sesid: JET_SESID, dbid: u32, grbit: u32) -> i32;
         }
@@ -9035,7 +9035,7 @@ pub unsafe fn JetCloseFile<'a, Param0: ::windows::runtime::IntoParam<'a, JET_HAN
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCloseFile(hffile: JET_HANDLE) -> i32;
         }
@@ -9054,7 +9054,7 @@ pub unsafe fn JetCloseFileInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCloseFileInstance(instance: JET_INSTANCE, hffile: JET_HANDLE) -> i32;
         }
@@ -9076,7 +9076,7 @@ pub unsafe fn JetCloseTable<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCloseTable(sesid: JET_SESID, tableid: JET_TABLEID) -> i32;
         }
@@ -9094,7 +9094,7 @@ pub unsafe fn JetCommitTransaction<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCommitTransaction(sesid: JET_SESID, grbit: u32) -> i32;
         }
@@ -9115,7 +9115,7 @@ pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCommitTransaction2(
                 sesid: JET_SESID,
@@ -9145,7 +9145,7 @@ pub unsafe fn JetCompactA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESI
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCompactA(
                 sesid: JET_SESID,
@@ -9179,7 +9179,7 @@ pub unsafe fn JetCompactW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESI
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCompactW(
                 sesid: JET_SESID,
@@ -9212,7 +9212,7 @@ pub unsafe fn JetComputeStats<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetComputeStats(sesid: JET_SESID, tableid: JET_TABLEID) -> i32;
         }
@@ -9227,7 +9227,7 @@ pub unsafe fn JetComputeStats<
 pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetConfigureProcessForCrashDump(grbit: u32) -> i32;
         }
@@ -9247,7 +9247,7 @@ pub unsafe fn JetCreateDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateDatabase2A(
                 sesid: JET_SESID,
@@ -9277,7 +9277,7 @@ pub unsafe fn JetCreateDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateDatabase2W(
                 sesid: JET_SESID,
@@ -9307,7 +9307,7 @@ pub unsafe fn JetCreateDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateDatabaseA(
                 sesid: JET_SESID,
@@ -9337,7 +9337,7 @@ pub unsafe fn JetCreateDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateDatabaseW(
                 sesid: JET_SESID,
@@ -9371,7 +9371,7 @@ pub unsafe fn JetCreateIndex2A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndex2A(
                 sesid: JET_SESID,
@@ -9403,7 +9403,7 @@ pub unsafe fn JetCreateIndex2W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndex2W(
                 sesid: JET_SESID,
@@ -9435,7 +9435,7 @@ pub unsafe fn JetCreateIndex3A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndex3A(
                 sesid: JET_SESID,
@@ -9467,7 +9467,7 @@ pub unsafe fn JetCreateIndex3W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndex3W(
                 sesid: JET_SESID,
@@ -9499,7 +9499,7 @@ pub unsafe fn JetCreateIndex4A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndex4A(
                 sesid: JET_SESID,
@@ -9531,7 +9531,7 @@ pub unsafe fn JetCreateIndex4W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndex4W(
                 sesid: JET_SESID,
@@ -9567,7 +9567,7 @@ pub unsafe fn JetCreateIndexA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndexA(
                 sesid: JET_SESID,
@@ -9609,7 +9609,7 @@ pub unsafe fn JetCreateIndexW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateIndexW(
                 sesid: JET_SESID,
@@ -9642,7 +9642,7 @@ pub unsafe fn JetCreateInstance2A(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateInstance2A(
                 pinstance: *mut JET_INSTANCE,
@@ -9669,7 +9669,7 @@ pub unsafe fn JetCreateInstance2W(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateInstance2W(
                 pinstance: *mut JET_INSTANCE,
@@ -9691,7 +9691,7 @@ pub unsafe fn JetCreateInstance2W(
 pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: *const i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: *const i8) -> i32;
         }
@@ -9706,7 +9706,7 @@ pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: *
 pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: *const u16) -> i32;
         }
@@ -9728,7 +9728,7 @@ pub unsafe fn JetCreateTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableA(
                 sesid: JET_SESID,
@@ -9762,7 +9762,7 @@ pub unsafe fn JetCreateTableColumnIndex2A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndex2A(
                 sesid: JET_SESID,
@@ -9790,7 +9790,7 @@ pub unsafe fn JetCreateTableColumnIndex2W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndex2W(
                 sesid: JET_SESID,
@@ -9818,7 +9818,7 @@ pub unsafe fn JetCreateTableColumnIndex3A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndex3A(
                 sesid: JET_SESID,
@@ -9846,7 +9846,7 @@ pub unsafe fn JetCreateTableColumnIndex3W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndex3W(
                 sesid: JET_SESID,
@@ -9874,7 +9874,7 @@ pub unsafe fn JetCreateTableColumnIndex4A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndex4A(
                 sesid: JET_SESID,
@@ -9902,7 +9902,7 @@ pub unsafe fn JetCreateTableColumnIndex4W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndex4W(
                 sesid: JET_SESID,
@@ -9930,7 +9930,7 @@ pub unsafe fn JetCreateTableColumnIndexA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndexA(
                 sesid: JET_SESID,
@@ -9958,7 +9958,7 @@ pub unsafe fn JetCreateTableColumnIndexW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableColumnIndexW(
                 sesid: JET_SESID,
@@ -9985,7 +9985,7 @@ pub unsafe fn JetCreateTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetCreateTableW(
                 sesid: JET_SESID,
@@ -10019,7 +10019,7 @@ pub unsafe fn JetDefragment2A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDefragment2A(
                 sesid: JET_SESID,
@@ -10055,7 +10055,7 @@ pub unsafe fn JetDefragment2W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDefragment2W(
                 sesid: JET_SESID,
@@ -10092,7 +10092,7 @@ pub unsafe fn JetDefragment3A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDefragment3A(
                 sesid: JET_SESID,
@@ -10131,7 +10131,7 @@ pub unsafe fn JetDefragment3W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDefragment3W(
                 sesid: JET_SESID,
@@ -10168,7 +10168,7 @@ pub unsafe fn JetDefragmentA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_S
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDefragmentA(
                 sesid: JET_SESID,
@@ -10201,7 +10201,7 @@ pub unsafe fn JetDefragmentW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_S
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDefragmentW(
                 sesid: JET_SESID,
@@ -10234,7 +10234,7 @@ pub unsafe fn JetDelete<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDelete(sesid: JET_SESID, tableid: JET_TABLEID) -> i32;
         }
@@ -10258,7 +10258,7 @@ pub unsafe fn JetDeleteColumn2A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteColumn2A(
                 sesid: JET_SESID,
@@ -10289,7 +10289,7 @@ pub unsafe fn JetDeleteColumn2W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteColumn2W(
                 sesid: JET_SESID,
@@ -10319,7 +10319,7 @@ pub unsafe fn JetDeleteColumnA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteColumnA(
                 sesid: JET_SESID,
@@ -10347,7 +10347,7 @@ pub unsafe fn JetDeleteColumnW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteColumnW(
                 sesid: JET_SESID,
@@ -10375,7 +10375,7 @@ pub unsafe fn JetDeleteIndexA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteIndexA(
                 sesid: JET_SESID,
@@ -10403,7 +10403,7 @@ pub unsafe fn JetDeleteIndexW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteIndexW(
                 sesid: JET_SESID,
@@ -10427,7 +10427,7 @@ pub unsafe fn JetDeleteTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteTableA(sesid: JET_SESID, dbid: u32, sztablename: *const i8) -> i32;
         }
@@ -10447,7 +10447,7 @@ pub unsafe fn JetDeleteTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDeleteTableW(sesid: JET_SESID, dbid: u32, sztablename: *const u16) -> i32;
         }
@@ -10467,7 +10467,7 @@ pub unsafe fn JetDetachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDetachDatabase2A(sesid: JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
         }
@@ -10487,7 +10487,7 @@ pub unsafe fn JetDetachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDetachDatabase2W(sesid: JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
         }
@@ -10506,7 +10506,7 @@ pub unsafe fn JetDetachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDetachDatabaseA(sesid: JET_SESID, szfilename: *const i8) -> i32;
         }
@@ -10524,7 +10524,7 @@ pub unsafe fn JetDetachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDetachDatabaseW(sesid: JET_SESID, szfilename: *const u16) -> i32;
         }
@@ -10548,7 +10548,7 @@ pub unsafe fn JetDupCursor<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDupCursor(
                 sesid: JET_SESID,
@@ -10573,7 +10573,7 @@ pub unsafe fn JetDupSession<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetDupSession(sesid: JET_SESID, psesid: *mut JET_SESID) -> i32;
         }
@@ -10593,7 +10593,7 @@ pub unsafe fn JetEnableMultiInstanceA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEnableMultiInstanceA(
                 psetsysparam: *const JET_SETSYSPARAM_A,
@@ -10618,7 +10618,7 @@ pub unsafe fn JetEnableMultiInstanceW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEnableMultiInstanceW(
                 psetsysparam: *const JET_SETSYSPARAM_W,
@@ -10638,7 +10638,7 @@ pub unsafe fn JetEnableMultiInstanceW(
 pub unsafe fn JetEndExternalBackup() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEndExternalBackup() -> i32;
         }
@@ -10655,7 +10655,7 @@ pub unsafe fn JetEndExternalBackupInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEndExternalBackupInstance(instance: JET_INSTANCE) -> i32;
         }
@@ -10673,7 +10673,7 @@ pub unsafe fn JetEndExternalBackupInstance2<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEndExternalBackupInstance2(instance: JET_INSTANCE, grbit: u32) -> i32;
         }
@@ -10691,7 +10691,7 @@ pub unsafe fn JetEndSession<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEndSession(sesid: JET_SESID, grbit: u32) -> i32;
         }
@@ -10721,7 +10721,7 @@ pub unsafe fn JetEnumerateColumns<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEnumerateColumns(
                 sesid: JET_SESID,
@@ -10769,7 +10769,7 @@ pub unsafe fn JetEscrowUpdate<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetEscrowUpdate(
                 sesid: JET_SESID,
@@ -10813,7 +10813,7 @@ pub unsafe fn JetExternalRestore2A(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestore2A(
                 szcheckpointfilepath: *const i8,
@@ -10859,7 +10859,7 @@ pub unsafe fn JetExternalRestore2W(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestore2W(
                 szcheckpointfilepath: *const u16,
@@ -10903,7 +10903,7 @@ pub unsafe fn JetExternalRestoreA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestoreA(
                 szcheckpointfilepath: *const i8,
@@ -10943,7 +10943,7 @@ pub unsafe fn JetExternalRestoreW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetExternalRestoreW(
                 szcheckpointfilepath: *const u16,
@@ -10979,7 +10979,7 @@ pub unsafe fn JetFreeBuffer<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetFreeBuffer(pbbuf: super::super::Foundation::PSTR) -> i32;
         }
@@ -10991,7 +10991,7 @@ pub unsafe fn JetFreeBuffer<
 pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
@@ -11015,7 +11015,7 @@ pub unsafe fn JetGetAttachInfoInstanceA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetAttachInfoInstanceA(
                 instance: JET_INSTANCE,
@@ -11045,7 +11045,7 @@ pub unsafe fn JetGetAttachInfoInstanceW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetAttachInfoInstanceW(
                 instance: JET_INSTANCE,
@@ -11067,7 +11067,7 @@ pub unsafe fn JetGetAttachInfoInstanceW<
 pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
@@ -11093,7 +11093,7 @@ pub unsafe fn JetGetBookmark<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetBookmark(
                 sesid: JET_SESID,
@@ -11125,7 +11125,7 @@ pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetColumnInfoA(
                 sesid: JET_SESID,
@@ -11161,7 +11161,7 @@ pub unsafe fn JetGetColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetColumnInfoW(
                 sesid: JET_SESID,
@@ -11198,7 +11198,7 @@ pub unsafe fn JetGetCurrentIndexA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetCurrentIndexA(
                 sesid: JET_SESID,
@@ -11229,7 +11229,7 @@ pub unsafe fn JetGetCurrentIndexW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetCurrentIndexW(
                 sesid: JET_SESID,
@@ -11261,7 +11261,7 @@ pub unsafe fn JetGetCursorInfo<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetCursorInfo(
                 sesid: JET_SESID,
@@ -11290,7 +11290,7 @@ pub unsafe fn JetGetDatabaseFileInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetDatabaseFileInfoA(
                 szdatabasename: *const i8,
@@ -11317,7 +11317,7 @@ pub unsafe fn JetGetDatabaseFileInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetDatabaseFileInfoW(
                 szdatabasename: *const u16,
@@ -11345,7 +11345,7 @@ pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetDatabaseInfoA(
                 sesid: JET_SESID,
@@ -11375,7 +11375,7 @@ pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetDatabaseInfoW(
                 sesid: JET_SESID,
@@ -11405,7 +11405,7 @@ pub unsafe fn JetGetErrorInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetErrorInfoW(
                 pvcontext: *const ::std::ffi::c_void,
@@ -11437,7 +11437,7 @@ pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetIndexInfoA(
                 sesid: JET_SESID,
@@ -11473,7 +11473,7 @@ pub unsafe fn JetGetIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetIndexInfoW(
                 sesid: JET_SESID,
@@ -11505,7 +11505,7 @@ pub unsafe fn JetGetInstanceInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetInstanceInfoA(
                 pcinstanceinfo: *mut u32,
@@ -11527,7 +11527,7 @@ pub unsafe fn JetGetInstanceInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetInstanceInfoW(
                 pcinstanceinfo: *mut u32,
@@ -11553,7 +11553,7 @@ pub unsafe fn JetGetInstanceMiscInfo<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetInstanceMiscInfo(
                 instance: JET_INSTANCE,
@@ -11584,7 +11584,7 @@ pub unsafe fn JetGetLS<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLS(
                 sesid: JET_SESID,
@@ -11614,7 +11614,7 @@ pub unsafe fn JetGetLock<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLock(sesid: JET_SESID, tableid: JET_TABLEID, grbit: u32) -> i32;
         }
@@ -11630,7 +11630,7 @@ pub unsafe fn JetGetLock<
 pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
@@ -11656,7 +11656,7 @@ pub unsafe fn JetGetLogInfoInstance2A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLogInfoInstance2A(
                 instance: JET_INSTANCE,
@@ -11689,7 +11689,7 @@ pub unsafe fn JetGetLogInfoInstance2W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLogInfoInstance2W(
                 instance: JET_INSTANCE,
@@ -11721,7 +11721,7 @@ pub unsafe fn JetGetLogInfoInstanceA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLogInfoInstanceA(
                 instance: JET_INSTANCE,
@@ -11751,7 +11751,7 @@ pub unsafe fn JetGetLogInfoInstanceW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLogInfoInstanceW(
                 instance: JET_INSTANCE,
@@ -11773,7 +11773,7 @@ pub unsafe fn JetGetLogInfoInstanceW<
 pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
         }
@@ -11798,7 +11798,7 @@ pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetObjectInfoA(
                 sesid: JET_SESID,
@@ -11837,7 +11837,7 @@ pub unsafe fn JetGetObjectInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetObjectInfoW(
                 sesid: JET_SESID,
@@ -11876,7 +11876,7 @@ pub unsafe fn JetGetRecordPosition<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetRecordPosition(
                 sesid: JET_SESID,
@@ -11907,7 +11907,7 @@ pub unsafe fn JetGetRecordSize<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetRecordSize(
                 sesid: JET_SESID,
@@ -11938,7 +11938,7 @@ pub unsafe fn JetGetRecordSize2<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetRecordSize2(
                 sesid: JET_SESID,
@@ -11974,7 +11974,7 @@ pub unsafe fn JetGetSecondaryIndexBookmark<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetSecondaryIndexBookmark(
                 sesid: JET_SESID,
@@ -12012,7 +12012,7 @@ pub unsafe fn JetGetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetSessionParameter(
                 sesid: JET_SESID,
@@ -12047,7 +12047,7 @@ pub unsafe fn JetGetSystemParameterA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetSystemParameterA(
                 instance: JET_INSTANCE,
@@ -12084,7 +12084,7 @@ pub unsafe fn JetGetSystemParameterW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetSystemParameterW(
                 instance: JET_INSTANCE,
@@ -12121,7 +12121,7 @@ pub unsafe fn JetGetTableColumnInfoA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTableColumnInfoA(
                 sesid: JET_SESID,
@@ -12158,7 +12158,7 @@ pub unsafe fn JetGetTableColumnInfoW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTableColumnInfoW(
                 sesid: JET_SESID,
@@ -12195,7 +12195,7 @@ pub unsafe fn JetGetTableIndexInfoA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTableIndexInfoA(
                 sesid: JET_SESID,
@@ -12232,7 +12232,7 @@ pub unsafe fn JetGetTableIndexInfoW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTableIndexInfoW(
                 sesid: JET_SESID,
@@ -12268,7 +12268,7 @@ pub unsafe fn JetGetTableInfoA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTableInfoA(
                 sesid: JET_SESID,
@@ -12302,7 +12302,7 @@ pub unsafe fn JetGetTableInfoW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTableInfoW(
                 sesid: JET_SESID,
@@ -12326,7 +12326,7 @@ pub unsafe fn JetGetTableInfoW<
 pub unsafe fn JetGetThreadStats(pvresult: *mut ::std::ffi::c_void, cbmax: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetThreadStats(pvresult: *mut ::std::ffi::c_void, cbmax: u32) -> i32;
         }
@@ -12349,7 +12349,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTruncateLogInfoInstanceA(
                 instance: JET_INSTANCE,
@@ -12379,7 +12379,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetTruncateLogInfoInstanceW(
                 instance: JET_INSTANCE,
@@ -12404,7 +12404,7 @@ pub unsafe fn JetGetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGetVersion(sesid: JET_SESID, pwversion: *mut u32) -> i32;
         }
@@ -12428,7 +12428,7 @@ pub unsafe fn JetGotoBookmark<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGotoBookmark(
                 sesid: JET_SESID,
@@ -12458,7 +12458,7 @@ pub unsafe fn JetGotoPosition<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGotoPosition(
                 sesid: JET_SESID,
@@ -12490,7 +12490,7 @@ pub unsafe fn JetGotoSecondaryIndexBookmark<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGotoSecondaryIndexBookmark(
                 sesid: JET_SESID,
@@ -12523,7 +12523,7 @@ pub unsafe fn JetGrowDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetGrowDatabase(sesid: JET_SESID, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32;
         }
@@ -12543,7 +12543,7 @@ pub unsafe fn JetIdle<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetIdle(sesid: JET_SESID, grbit: u32) -> i32;
         }
@@ -12567,7 +12567,7 @@ pub unsafe fn JetIndexRecordCount<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetIndexRecordCount(
                 sesid: JET_SESID,
@@ -12589,7 +12589,7 @@ pub unsafe fn JetIndexRecordCount<
 pub unsafe fn JetInit(pinstance: *mut JET_INSTANCE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetInit(pinstance: *mut JET_INSTANCE) -> i32;
         }
@@ -12601,7 +12601,7 @@ pub unsafe fn JetInit(pinstance: *mut JET_INSTANCE) -> i32 {
 pub unsafe fn JetInit2(pinstance: *mut JET_INSTANCE, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetInit2(pinstance: *mut JET_INSTANCE, grbit: u32) -> i32;
         }
@@ -12621,7 +12621,7 @@ pub unsafe fn JetInit3A(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetInit3A(
                 pinstance: *mut JET_INSTANCE,
@@ -12646,7 +12646,7 @@ pub unsafe fn JetInit3W(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetInit3W(
                 pinstance: *mut JET_INSTANCE,
@@ -12672,7 +12672,7 @@ pub unsafe fn JetIntersectIndexes<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetIntersectIndexes(
                 sesid: JET_SESID,
@@ -12706,7 +12706,7 @@ pub unsafe fn JetMakeKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetMakeKey(
                 sesid: JET_SESID,
@@ -12739,7 +12739,7 @@ pub unsafe fn JetMove<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetMove(sesid: JET_SESID, tableid: JET_TABLEID, crow: i32, grbit: u32) -> i32;
         }
@@ -12759,7 +12759,7 @@ pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::windows::runtime::IntoParam<'a, J
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotAbort(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
@@ -12777,7 +12777,7 @@ pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotEnd(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
@@ -12798,7 +12798,7 @@ pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotFreezeA(
                 snapid: JET_OSSNAPID,
@@ -12826,7 +12826,7 @@ pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotFreezeW(
                 snapid: JET_OSSNAPID,
@@ -12857,7 +12857,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotGetFreezeInfoA(
                 snapid: JET_OSSNAPID,
@@ -12888,7 +12888,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotGetFreezeInfoW(
                 snapid: JET_OSSNAPID,
@@ -12910,7 +12910,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoW<
 pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i32;
         }
@@ -12933,7 +12933,7 @@ pub unsafe fn JetOSSnapshotPrepareInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotPrepareInstance(
                 snapid: JET_OSSNAPID,
@@ -12956,7 +12956,7 @@ pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotThaw(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
@@ -12977,7 +12977,7 @@ pub unsafe fn JetOSSnapshotTruncateLog<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotTruncateLog(snapid: JET_OSSNAPID, grbit: u32) -> i32;
         }
@@ -13000,7 +13000,7 @@ pub unsafe fn JetOSSnapshotTruncateLogInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOSSnapshotTruncateLogInstance(
                 snapid: JET_OSSNAPID,
@@ -13026,7 +13026,7 @@ pub unsafe fn JetOpenDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenDatabaseA(
                 sesid: JET_SESID,
@@ -13056,7 +13056,7 @@ pub unsafe fn JetOpenDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenDatabaseW(
                 sesid: JET_SESID,
@@ -13085,7 +13085,7 @@ pub unsafe fn JetOpenFileA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenFileA(
                 szfilename: *const i8,
@@ -13113,7 +13113,7 @@ pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenFileInstanceA(
                 instance: JET_INSTANCE,
@@ -13143,7 +13143,7 @@ pub unsafe fn JetOpenFileInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenFileInstanceW(
                 instance: JET_INSTANCE,
@@ -13172,7 +13172,7 @@ pub unsafe fn JetOpenFileW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenFileW(
                 szfilename: *const u16,
@@ -13202,7 +13202,7 @@ pub unsafe fn JetOpenTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenTableA(
                 sesid: JET_SESID,
@@ -13238,7 +13238,7 @@ pub unsafe fn JetOpenTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenTableW(
                 sesid: JET_SESID,
@@ -13273,7 +13273,7 @@ pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::runtime::IntoParam<'a, JET
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenTempTable(
                 sesid: JET_SESID,
@@ -13307,7 +13307,7 @@ pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenTempTable2(
                 sesid: JET_SESID,
@@ -13343,7 +13343,7 @@ pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenTempTable3(
                 sesid: JET_SESID,
@@ -13374,7 +13374,7 @@ pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenTemporaryTable(
                 sesid: JET_SESID,
@@ -13396,7 +13396,7 @@ pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetOpenTemporaryTable2(
                 sesid: JET_SESID,
@@ -13422,7 +13422,7 @@ pub unsafe fn JetPrepareUpdate<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetPrepareUpdate(sesid: JET_SESID, tableid: JET_TABLEID, prep: u32) -> i32;
         }
@@ -13451,7 +13451,7 @@ pub unsafe fn JetPrereadIndexRanges<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetPrereadIndexRanges(
                 sesid: JET_SESID,
@@ -13493,7 +13493,7 @@ pub unsafe fn JetPrereadKeys<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetPrereadKeys(
                 sesid: JET_SESID,
@@ -13526,7 +13526,7 @@ pub unsafe fn JetReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, JET_HAND
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetReadFile(
                 hffile: JET_HANDLE,
@@ -13558,7 +13558,7 @@ pub unsafe fn JetReadFileInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetReadFileInstance(
                 instance: JET_INSTANCE,
@@ -13593,7 +13593,7 @@ pub unsafe fn JetRegisterCallback<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRegisterCallback(
                 sesid: JET_SESID,
@@ -13629,7 +13629,7 @@ pub unsafe fn JetRenameColumnA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRenameColumnA(
                 sesid: JET_SESID,
@@ -13663,7 +13663,7 @@ pub unsafe fn JetRenameColumnW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRenameColumnW(
                 sesid: JET_SESID,
@@ -13692,7 +13692,7 @@ pub unsafe fn JetRenameTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRenameTableA(
                 sesid: JET_SESID,
@@ -13719,7 +13719,7 @@ pub unsafe fn JetRenameTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRenameTableW(
                 sesid: JET_SESID,
@@ -13743,7 +13743,7 @@ pub unsafe fn JetResetSessionContext<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetResetSessionContext(sesid: JET_SESID) -> i32;
         }
@@ -13763,7 +13763,7 @@ pub unsafe fn JetResetTableSequential<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetResetTableSequential(sesid: JET_SESID, tableid: JET_TABLEID, grbit: u32) -> i32;
         }
@@ -13785,7 +13785,7 @@ pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetResizeDatabase(
                 sesid: JET_SESID,
@@ -13813,7 +13813,7 @@ pub unsafe fn JetRestore2A(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRestore2A(
                 sz: *const i8,
@@ -13837,7 +13837,7 @@ pub unsafe fn JetRestore2W(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRestore2W(
                 sz: *const u16,
@@ -13857,7 +13857,7 @@ pub unsafe fn JetRestore2W(
 pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRestoreA(szsource: *const i8, pfn: ::windows::runtime::RawPtr) -> i32;
         }
@@ -13877,7 +13877,7 @@ pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRestoreInstanceA(
                 instance: JET_INSTANCE,
@@ -13904,7 +13904,7 @@ pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRestoreInstanceW(
                 instance: JET_INSTANCE,
@@ -13926,7 +13926,7 @@ pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 pub unsafe fn JetRestoreW(szsource: *const u16, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRestoreW(szsource: *const u16, pfn: ::windows::runtime::RawPtr) -> i32;
         }
@@ -13954,7 +13954,7 @@ pub unsafe fn JetRetrieveColumn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRetrieveColumn(
                 sesid: JET_SESID,
@@ -13993,7 +13993,7 @@ pub unsafe fn JetRetrieveColumns<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRetrieveColumns(
                 sesid: JET_SESID,
@@ -14026,7 +14026,7 @@ pub unsafe fn JetRetrieveKey<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRetrieveKey(
                 sesid: JET_SESID,
@@ -14055,7 +14055,7 @@ pub unsafe fn JetRollback<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESI
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetRollback(sesid: JET_SESID, grbit: u32) -> i32;
         }
@@ -14078,7 +14078,7 @@ pub unsafe fn JetSeek<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSeek(sesid: JET_SESID, tableid: JET_TABLEID, grbit: u32) -> i32;
         }
@@ -14106,7 +14106,7 @@ pub unsafe fn JetSetColumn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetColumn(
                 sesid: JET_SESID,
@@ -14145,7 +14145,7 @@ pub unsafe fn JetSetColumnDefaultValueA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetColumnDefaultValueA(
                 sesid: JET_SESID,
@@ -14184,7 +14184,7 @@ pub unsafe fn JetSetColumnDefaultValueW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetColumnDefaultValueW(
                 sesid: JET_SESID,
@@ -14221,7 +14221,7 @@ pub unsafe fn JetSetColumns<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetColumns(
                 sesid: JET_SESID,
@@ -14252,7 +14252,7 @@ pub unsafe fn JetSetCurrentIndex2A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndex2A(
                 sesid: JET_SESID,
@@ -14283,7 +14283,7 @@ pub unsafe fn JetSetCurrentIndex2W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndex2W(
                 sesid: JET_SESID,
@@ -14315,7 +14315,7 @@ pub unsafe fn JetSetCurrentIndex3A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndex3A(
                 sesid: JET_SESID,
@@ -14349,7 +14349,7 @@ pub unsafe fn JetSetCurrentIndex3W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndex3W(
                 sesid: JET_SESID,
@@ -14384,7 +14384,7 @@ pub unsafe fn JetSetCurrentIndex4A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndex4A(
                 sesid: JET_SESID,
@@ -14421,7 +14421,7 @@ pub unsafe fn JetSetCurrentIndex4W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndex4W(
                 sesid: JET_SESID,
@@ -14455,7 +14455,7 @@ pub unsafe fn JetSetCurrentIndexA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndexA(
                 sesid: JET_SESID,
@@ -14483,7 +14483,7 @@ pub unsafe fn JetSetCurrentIndexW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCurrentIndexW(
                 sesid: JET_SESID,
@@ -14513,7 +14513,7 @@ pub unsafe fn JetSetCursorFilter<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetCursorFilter(
                 sesid: JET_SESID,
@@ -14542,7 +14542,7 @@ pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetDatabaseSizeA(
                 sesid: JET_SESID,
@@ -14569,7 +14569,7 @@ pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetDatabaseSizeW(
                 sesid: JET_SESID,
@@ -14599,7 +14599,7 @@ pub unsafe fn JetSetIndexRange<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetIndexRange(sesid: JET_SESID, tableidsrc: JET_TABLEID, grbit: u32) -> i32;
         }
@@ -14625,7 +14625,7 @@ pub unsafe fn JetSetLS<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetLS(sesid: JET_SESID, tableid: JET_TABLEID, ls: JET_LS, grbit: u32) -> i32;
         }
@@ -14649,7 +14649,7 @@ pub unsafe fn JetSetSessionContext<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetSessionContext(sesid: JET_SESID, ulcontext: JET_API_PTR) -> i32;
         }
@@ -14669,7 +14669,7 @@ pub unsafe fn JetSetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetSessionParameter(
                 sesid: JET_SESID,
@@ -14701,7 +14701,7 @@ pub unsafe fn JetSetSystemParameterA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetSystemParameterA(
                 pinstance: *mut JET_INSTANCE,
@@ -14735,7 +14735,7 @@ pub unsafe fn JetSetSystemParameterW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetSystemParameterW(
                 pinstance: *mut JET_INSTANCE,
@@ -14767,7 +14767,7 @@ pub unsafe fn JetSetTableSequential<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetSetTableSequential(sesid: JET_SESID, tableid: JET_TABLEID, grbit: u32) -> i32;
         }
@@ -14783,7 +14783,7 @@ pub unsafe fn JetSetTableSequential<
 pub unsafe fn JetStopBackup() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetStopBackup() -> i32;
         }
@@ -14797,7 +14797,7 @@ pub unsafe fn JetStopBackupInstance<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetStopBackupInstance(instance: JET_INSTANCE) -> i32;
         }
@@ -14809,7 +14809,7 @@ pub unsafe fn JetStopBackupInstance<'a, Param0: ::windows::runtime::IntoParam<'a
 pub unsafe fn JetStopService() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetStopService() -> i32;
         }
@@ -14826,7 +14826,7 @@ pub unsafe fn JetStopServiceInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetStopServiceInstance(instance: JET_INSTANCE) -> i32;
         }
@@ -14844,7 +14844,7 @@ pub unsafe fn JetStopServiceInstance2<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetStopServiceInstance2(instance: JET_INSTANCE, grbit: u32) -> i32;
         }
@@ -14861,7 +14861,7 @@ pub unsafe fn JetTerm<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetTerm(instance: JET_INSTANCE) -> i32;
         }
@@ -14876,7 +14876,7 @@ pub unsafe fn JetTerm2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANC
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetTerm2(instance: JET_INSTANCE, grbit: u32) -> i32;
         }
@@ -14891,7 +14891,7 @@ pub unsafe fn JetTerm2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANC
 pub unsafe fn JetTruncateLog() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetTruncateLog() -> i32;
         }
@@ -14908,7 +14908,7 @@ pub unsafe fn JetTruncateLogInstance<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetTruncateLogInstance(instance: JET_INSTANCE) -> i32;
         }
@@ -14930,7 +14930,7 @@ pub unsafe fn JetUnregisterCallback<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetUnregisterCallback(
                 sesid: JET_SESID,
@@ -14962,7 +14962,7 @@ pub unsafe fn JetUpdate<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetUpdate(
                 sesid: JET_SESID,
@@ -14997,7 +14997,7 @@ pub unsafe fn JetUpdate2<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "esent")]
+        #[link(name = "windows")]
         extern "system" {
             fn JetUpdate2(
                 sesid: JET_SESID,
@@ -15053,7 +15053,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAM<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleConvertIStorageToOLESTREAM(
                 pstg: ::windows::runtime::RawPtr,
@@ -15085,7 +15085,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAMEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleConvertIStorageToOLESTREAMEx(
                 pstg: ::windows::runtime::RawPtr,
@@ -15122,7 +15122,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleConvertOLESTREAMToIStorage(
                 lpolestream: *mut super::super::System::Com::OLESTREAM,
@@ -15159,7 +15159,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorageEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleConvertOLESTREAMToIStorageEx(
                 polestm: *mut super::super::System::Com::OLESTREAM,
@@ -15742,7 +15742,7 @@ pub unsafe fn PropStgNameToFmtId<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropStgNameToFmtId(
                 oszname: super::super::Foundation::PWSTR,
@@ -15766,7 +15766,7 @@ pub unsafe fn PropStgNameToFmtId<
 pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantClear(
                 pvar: *mut ::std::mem::ManuallyDrop<PROPVARIANT>,
@@ -15789,7 +15789,7 @@ pub unsafe fn PropVariantCopy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantCopy(
                 pvardest: *mut ::std::mem::ManuallyDrop<PROPVARIANT>,
@@ -15810,7 +15810,7 @@ pub unsafe fn ReadClassStg<'a, Param0: ::windows::runtime::IntoParam<'a, IStorag
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadClassStg(
                 pstg: ::windows::runtime::RawPtr,
@@ -15830,7 +15830,7 @@ pub unsafe fn ReadClassStm<'a, Param0: ::windows::runtime::IntoParam<'a, IStream
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadClassStm(
                 pstm: ::windows::runtime::RawPtr,
@@ -15853,7 +15853,7 @@ pub unsafe fn ReadFmtUserTypeStg<'a, Param0: ::windows::runtime::IntoParam<'a, I
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadFmtUserTypeStg(
                 pstg: ::windows::runtime::RawPtr,
@@ -16317,7 +16317,7 @@ pub unsafe fn SetConvertStg<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetConvertStg(
                 pstg: ::windows::runtime::RawPtr,
@@ -16343,7 +16343,7 @@ pub unsafe fn StgConvertPropertyToVariant(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgConvertPropertyToVariant(
                 pprop: *const SERIALIZEDPROPERTYVALUE,
@@ -16382,7 +16382,7 @@ pub unsafe fn StgConvertVariantToProperty<
 ) -> *mut SERIALIZEDPROPERTYVALUE {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgConvertVariantToProperty(
                 pvar: *const ::std::mem::ManuallyDrop<PROPVARIANT>,
@@ -16418,7 +16418,7 @@ pub unsafe fn StgCreateDocfile<
 ) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgCreateDocfile(
                 pwcsname: super::super::Foundation::PWSTR,
@@ -16449,7 +16449,7 @@ pub unsafe fn StgCreateDocfileOnILockBytes<
 ) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgCreateDocfileOnILockBytes(
                 plkbyt: ::windows::runtime::RawPtr,
@@ -16476,7 +16476,7 @@ pub unsafe fn StgCreatePropSetStg<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<IPropertySetStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgCreatePropSetStg(
                 pstorage: ::windows::runtime::RawPtr,
@@ -16508,7 +16508,7 @@ pub unsafe fn StgCreatePropStg<
 ) -> ::windows::runtime::Result<IPropertyStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgCreatePropStg(
                 punk: ::windows::runtime::RawPtr,
@@ -16549,7 +16549,7 @@ pub unsafe fn StgCreateStorageEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgCreateStorageEx(
                 pwcsname: super::super::Foundation::PWSTR,
@@ -16589,7 +16589,7 @@ pub unsafe fn StgDeserializePropVariant(
 ) -> ::windows::runtime::Result<PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgDeserializePropVariant(
                 pprop: *const SERIALIZEDPROPERTYVALUE,
@@ -16617,7 +16617,7 @@ pub unsafe fn StgGetIFillLockBytesOnFile<
 ) -> ::windows::runtime::Result<IFillLockBytes> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgGetIFillLockBytesOnFile(
                 pwcsname: super::super::Foundation::PWSTR,
@@ -16639,7 +16639,7 @@ pub unsafe fn StgGetIFillLockBytesOnILockBytes<
 ) -> ::windows::runtime::Result<IFillLockBytes> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgGetIFillLockBytesOnILockBytes(
                 pilb: ::windows::runtime::RawPtr,
@@ -16662,7 +16662,7 @@ pub unsafe fn StgIsStorageFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgIsStorageFile(
                 pwcsname: super::super::Foundation::PWSTR,
@@ -16678,7 +16678,7 @@ pub unsafe fn StgIsStorageILockBytes<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgIsStorageILockBytes(
                 plkbyt: ::windows::runtime::RawPtr,
@@ -16699,7 +16699,7 @@ pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<
 ) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgOpenAsyncDocfileOnIFillLockBytes(
                 pflb: ::windows::runtime::RawPtr,
@@ -16731,7 +16731,7 @@ pub unsafe fn StgOpenLayoutDocfile<
 ) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "dflayout")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgOpenLayoutDocfile(
                 pwcsdfname: super::super::Foundation::PWSTR,
@@ -16763,7 +16763,7 @@ pub unsafe fn StgOpenPropStg<
 ) -> ::windows::runtime::Result<IPropertyStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgOpenPropStg(
                 punk: ::windows::runtime::RawPtr,
@@ -16800,7 +16800,7 @@ pub unsafe fn StgOpenStorage<
 ) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgOpenStorage(
                 pwcsname: super::super::Foundation::PWSTR,
@@ -16841,7 +16841,7 @@ pub unsafe fn StgOpenStorageEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgOpenStorageEx(
                 pwcsname: super::super::Foundation::PWSTR,
@@ -16882,7 +16882,7 @@ pub unsafe fn StgOpenStorageOnILockBytes<
 ) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgOpenStorageOnILockBytes(
                 plkbyt: ::windows::runtime::RawPtr,
@@ -16915,7 +16915,7 @@ pub unsafe fn StgPropertyLengthAsVariant(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgPropertyLengthAsVariant(
                 pprop: *const SERIALIZEDPROPERTYVALUE,
@@ -16947,7 +16947,7 @@ pub unsafe fn StgSerializePropVariant(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgSerializePropVariant(
                 ppropvar: *const ::std::mem::ManuallyDrop<PROPVARIANT>,
@@ -16977,7 +16977,7 @@ pub unsafe fn StgSetTimes<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StgSetTimes(
                 lpszname: super::super::Foundation::PWSTR,
@@ -17077,7 +17077,7 @@ pub unsafe fn WriteClassStg<'a, Param0: ::windows::runtime::IntoParam<'a, IStora
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteClassStg(
                 pstg: ::windows::runtime::RawPtr,
@@ -17095,7 +17095,7 @@ pub unsafe fn WriteClassStm<'a, Param0: ::windows::runtime::IntoParam<'a, IStrea
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteClassStm(
                 pstm: ::windows::runtime::RawPtr,
@@ -17119,7 +17119,7 @@ pub unsafe fn WriteFmtUserTypeStg<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteFmtUserTypeStg(
                 pstg: ::windows::runtime::RawPtr,

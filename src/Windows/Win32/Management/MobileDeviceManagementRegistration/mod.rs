@@ -16,7 +16,7 @@ pub unsafe fn ApplyLocalManagementSyncML<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmlocalmanagement")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyLocalManagementSyncML(
                 syncmlrequest: super::super::Foundation::PWSTR,
@@ -45,7 +45,7 @@ pub unsafe fn DiscoverManagementService<
 ) -> ::windows::runtime::Result<*mut MANAGEMENT_SERVICE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiscoverManagementService(
                 pszupn: super::super::Foundation::PWSTR,
@@ -71,7 +71,7 @@ pub unsafe fn DiscoverManagementServiceEx<
 ) -> ::windows::runtime::Result<*mut MANAGEMENT_SERVICE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiscoverManagementServiceEx(
                 pszupn: super::super::Foundation::PWSTR,
@@ -102,7 +102,7 @@ pub unsafe fn GetDeviceManagementConfigInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeviceManagementConfigInfo(
                 providerid: super::super::Foundation::PWSTR,
@@ -126,7 +126,7 @@ pub unsafe fn GetDeviceRegistrationInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeviceRegistrationInfo(
                 deviceinformationclass: REGISTRATION_INFORMATION_CLASS,
@@ -149,7 +149,7 @@ pub unsafe fn GetManagementAppHyperlink(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetManagementAppHyperlink(
                 cchhyperlink: u32,
@@ -173,7 +173,7 @@ pub unsafe fn IsDeviceRegisteredWithManagement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDeviceRegisteredWithManagement(
                 pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL,
@@ -196,7 +196,7 @@ pub unsafe fn IsManagementRegistrationAllowed(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsManagementRegistrationAllowed(
                 pfismanagementregistrationallowed: *mut super::super::Foundation::BOOL,
@@ -215,7 +215,7 @@ pub unsafe fn IsMdmUxWithoutAadAllowed(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsMdmUxWithoutAadAllowed(
                 isenrollmentallowed: *mut super::super::Foundation::BOOL,
@@ -461,7 +461,7 @@ pub unsafe fn RegisterDeviceWithLocalManagement(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmlocalmanagement")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDeviceWithLocalManagement(
                 alreadyregistered: *mut super::super::Foundation::BOOL,
@@ -488,7 +488,7 @@ pub unsafe fn RegisterDeviceWithManagement<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDeviceWithManagement(
                 pszupn: super::super::Foundation::PWSTR,
@@ -515,7 +515,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDeviceWithManagementUsingAADCredentials(
                 usertoken: super::super::Foundation::HANDLE,
@@ -530,7 +530,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windows::runtime::HRESULT;
         }
@@ -548,7 +548,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDeviceWithManagementUsingAADDeviceCredentials2(
                 mdmapplicationid: super::super::Foundation::PWSTR,
@@ -571,7 +571,7 @@ pub unsafe fn SetDeviceManagementConfigInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDeviceManagementConfigInfo(
                 providerid: super::super::Foundation::PWSTR,
@@ -596,7 +596,7 @@ pub unsafe fn SetManagedExternally<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetManagedExternally(
                 ismanagedexternally: super::super::Foundation::BOOL,
@@ -610,7 +610,7 @@ pub unsafe fn SetManagedExternally<
 pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmlocalmanagement")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterDeviceWithLocalManagement() -> ::windows::runtime::HRESULT;
         }
@@ -628,7 +628,7 @@ pub unsafe fn UnregisterDeviceWithManagement<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mdmregistration")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterDeviceWithManagement(
                 enrollmentid: super::super::Foundation::PWSTR,

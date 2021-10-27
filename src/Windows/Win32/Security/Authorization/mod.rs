@@ -2224,7 +2224,7 @@ pub unsafe fn AuthzAccessCheck<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzAccessCheck(
                 flags: AUTHZ_ACCESS_CHECK_FLAGS,
@@ -2267,7 +2267,7 @@ pub unsafe fn AuthzAddSidsToContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzAddSidsToContext(
                 hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2304,7 +2304,7 @@ pub unsafe fn AuthzCachedAccessCheck<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzCachedAccessCheck(
                 flags: u32,
@@ -2334,7 +2334,7 @@ pub unsafe fn AuthzEnumerateSecurityEventSources(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzEnumerateSecurityEventSources(
                 dwflags: u32,
@@ -2368,7 +2368,7 @@ pub unsafe fn AuthzEvaluateSacl<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzEvaluateSacl(
                 authzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2400,7 +2400,7 @@ pub unsafe fn AuthzFreeAuditEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzFreeAuditEvent(
                 hauditevent: AUTHZ_AUDIT_EVENT_HANDLE,
@@ -2415,7 +2415,7 @@ pub unsafe fn AuthzFreeAuditEvent<
 pub unsafe fn AuthzFreeCentralAccessPolicyCache() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzFreeCentralAccessPolicyCache() -> super::super::Foundation::BOOL;
         }
@@ -2433,7 +2433,7 @@ pub unsafe fn AuthzFreeContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzFreeContext(
                 hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2453,7 +2453,7 @@ pub unsafe fn AuthzFreeHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzFreeHandle(
                 haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE,
@@ -2473,7 +2473,7 @@ pub unsafe fn AuthzFreeResourceManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzFreeResourceManager(
                 hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE,
@@ -2499,7 +2499,7 @@ pub unsafe fn AuthzGetInformationFromContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzGetInformationFromContext(
                 hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2532,7 +2532,7 @@ pub unsafe fn AuthzInitializeCompoundContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeCompoundContext(
                 usercontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2564,7 +2564,7 @@ pub unsafe fn AuthzInitializeContextFromAuthzContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeContextFromAuthzContext(
                 flags: u32,
@@ -2604,7 +2604,7 @@ pub unsafe fn AuthzInitializeContextFromSid<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeContextFromSid(
                 flags: u32,
@@ -2646,7 +2646,7 @@ pub unsafe fn AuthzInitializeContextFromToken<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeContextFromToken(
                 flags: u32,
@@ -2691,7 +2691,7 @@ pub unsafe fn AuthzInitializeObjectAccessAuditEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeObjectAccessAuditEvent(
                 flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS,
@@ -2740,7 +2740,7 @@ pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeObjectAccessAuditEvent2(
                 flags: u32,
@@ -2776,7 +2776,7 @@ pub unsafe fn AuthzInitializeRemoteResourceManager(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeRemoteResourceManager(
                 prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT,
@@ -2805,7 +2805,7 @@ pub unsafe fn AuthzInitializeResourceManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeResourceManager(
                 flags: u32,
@@ -2836,7 +2836,7 @@ pub unsafe fn AuthzInitializeResourceManagerEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInitializeResourceManagerEx(
                 flags: AUTHZ_RESOURCE_MANAGER_FLAGS,
@@ -2860,7 +2860,7 @@ pub unsafe fn AuthzInstallSecurityEventSource(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzInstallSecurityEventSource(
                 dwflags: u32,
@@ -2887,7 +2887,7 @@ pub unsafe fn AuthzModifyClaims<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzModifyClaims(
                 hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2917,7 +2917,7 @@ pub unsafe fn AuthzModifySecurityAttributes<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzModifySecurityAttributes(
                 hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2946,7 +2946,7 @@ pub unsafe fn AuthzModifySids<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzModifySids(
                 hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -2982,7 +2982,7 @@ pub unsafe fn AuthzOpenObjectAudit<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzOpenObjectAudit(
                 flags: u32,
@@ -3019,7 +3019,7 @@ pub unsafe fn AuthzRegisterCapChangeNotification(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzRegisterCapChangeNotification(
                 phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__,
@@ -3047,7 +3047,7 @@ pub unsafe fn AuthzRegisterSecurityEventSource<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzRegisterSecurityEventSource(
                 dwflags: u32,
@@ -3078,7 +3078,7 @@ pub unsafe fn AuthzReportSecurityEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzReportSecurityEvent(
                 dwflags: u32,
@@ -3113,7 +3113,7 @@ pub unsafe fn AuthzReportSecurityEventFromParams<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzReportSecurityEventFromParams(
                 dwflags: u32,
@@ -3147,7 +3147,7 @@ pub unsafe fn AuthzSetAppContainerInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzSetAppContainerInformation(
                 hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE,
@@ -3176,7 +3176,7 @@ pub unsafe fn AuthzUninstallSecurityEventSource<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzUninstallSecurityEventSource(
                 dwflags: u32,
@@ -3197,7 +3197,7 @@ pub unsafe fn AuthzUnregisterCapChangeNotification(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzUnregisterCapChangeNotification(
                 hcapchangesubscription: *const AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__,
@@ -3217,7 +3217,7 @@ pub unsafe fn AuthzUnregisterSecurityEventSource(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "authz")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuthzUnregisterSecurityEventSource(
                 dwflags: u32,
@@ -3263,7 +3263,7 @@ pub unsafe fn BuildExplicitAccessWithNameA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildExplicitAccessWithNameA(
                 pexplicitaccess: *mut EXPLICIT_ACCESS_A,
@@ -3297,7 +3297,7 @@ pub unsafe fn BuildExplicitAccessWithNameW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildExplicitAccessWithNameW(
                 pexplicitaccess: *mut EXPLICIT_ACCESS_W,
@@ -3332,7 +3332,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildImpersonateExplicitAccessWithNameA(
                 pexplicitaccess: *mut EXPLICIT_ACCESS_A,
@@ -3369,7 +3369,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildImpersonateExplicitAccessWithNameW(
                 pexplicitaccess: *mut EXPLICIT_ACCESS_W,
@@ -3399,7 +3399,7 @@ pub unsafe fn BuildImpersonateTrusteeA(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildImpersonateTrusteeA(
                 ptrustee: *mut TRUSTEE_A,
@@ -3421,7 +3421,7 @@ pub unsafe fn BuildImpersonateTrusteeW(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildImpersonateTrusteeW(
                 ptrustee: *mut TRUSTEE_W,
@@ -3450,7 +3450,7 @@ pub unsafe fn BuildSecurityDescriptorA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildSecurityDescriptorA(
                 powner: *const TRUSTEE_A,
@@ -3493,7 +3493,7 @@ pub unsafe fn BuildSecurityDescriptorW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildSecurityDescriptorW(
                 powner: *const TRUSTEE_W,
@@ -3532,7 +3532,7 @@ pub unsafe fn BuildTrusteeWithNameA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithNameA(
                 ptrustee: *mut TRUSTEE_A,
@@ -3557,7 +3557,7 @@ pub unsafe fn BuildTrusteeWithNameW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithNameW(
                 ptrustee: *mut TRUSTEE_W,
@@ -3588,7 +3588,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithObjectsAndNameA(
                 ptrustee: *mut TRUSTEE_A,
@@ -3627,7 +3627,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithObjectsAndNameW(
                 ptrustee: *mut TRUSTEE_W,
@@ -3663,7 +3663,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithObjectsAndSidA(
                 ptrustee: *mut TRUSTEE_A,
@@ -3697,7 +3697,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithObjectsAndSidW(
                 ptrustee: *mut TRUSTEE_W,
@@ -3728,7 +3728,7 @@ pub unsafe fn BuildTrusteeWithSidA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithSidA(ptrustee: *mut TRUSTEE_A, psid: super::super::Foundation::PSID);
         }
@@ -3750,7 +3750,7 @@ pub unsafe fn BuildTrusteeWithSidW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildTrusteeWithSidW(ptrustee: *mut TRUSTEE_W, psid: super::super::Foundation::PSID);
         }
@@ -3772,7 +3772,7 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertSecurityDescriptorToStringSecurityDescriptorA(
                 securitydescriptor: *const super::SECURITY_DESCRIPTOR,
@@ -3803,7 +3803,7 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertSecurityDescriptorToStringSecurityDescriptorW(
                 securitydescriptor: *const super::SECURITY_DESCRIPTOR,
@@ -3834,7 +3834,7 @@ pub unsafe fn ConvertSidToStringSidA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertSidToStringSidA(
                 sid: super::super::Foundation::PSID,
@@ -3859,7 +3859,7 @@ pub unsafe fn ConvertSidToStringSidW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertSidToStringSidW(
                 sid: super::super::Foundation::PSID,
@@ -3886,7 +3886,7 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertStringSecurityDescriptorToSecurityDescriptorA(
                 stringsecuritydescriptor: super::super::Foundation::PSTR,
@@ -3917,7 +3917,7 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertStringSecurityDescriptorToSecurityDescriptorW(
                 stringsecuritydescriptor: super::super::Foundation::PWSTR,
@@ -3946,7 +3946,7 @@ pub unsafe fn ConvertStringSidToSidA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertStringSidToSidA(
                 stringsid: super::super::Foundation::PSTR,
@@ -3971,7 +3971,7 @@ pub unsafe fn ConvertStringSidToSidW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertStringSidToSidW(
                 stringsid: super::super::Foundation::PWSTR,
@@ -3995,7 +3995,7 @@ pub unsafe fn CreateSecurityPage<
 ) -> super::super::UI::Controls::HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "aclui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSecurityPage(
                 psi: ::windows::runtime::RawPtr,
@@ -4154,7 +4154,7 @@ pub unsafe fn EditSecurity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "aclui")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditSecurity(
                 hwndowner: super::super::Foundation::HWND,
@@ -4181,7 +4181,7 @@ pub unsafe fn EditSecurityAdvanced<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "aclui")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditSecurityAdvanced(
                 hwndowner: super::super::Foundation::HWND,
@@ -4243,7 +4243,7 @@ pub unsafe fn FreeInheritedFromArray(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeInheritedFromArray(
                 pinheritarray: *const INHERITED_FROMW,
@@ -4269,7 +4269,7 @@ pub unsafe fn GetAuditedPermissionsFromAclA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAuditedPermissionsFromAclA(
                 pacl: *const super::ACL,
@@ -4297,7 +4297,7 @@ pub unsafe fn GetAuditedPermissionsFromAclW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAuditedPermissionsFromAclW(
                 pacl: *const super::ACL,
@@ -4324,7 +4324,7 @@ pub unsafe fn GetEffectiveRightsFromAclA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEffectiveRightsFromAclA(
                 pacl: *const super::ACL,
@@ -4349,7 +4349,7 @@ pub unsafe fn GetEffectiveRightsFromAclW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEffectiveRightsFromAclW(
                 pacl: *const super::ACL,
@@ -4374,7 +4374,7 @@ pub unsafe fn GetExplicitEntriesFromAclA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExplicitEntriesFromAclA(
                 pacl: *const super::ACL,
@@ -4399,7 +4399,7 @@ pub unsafe fn GetExplicitEntriesFromAclW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExplicitEntriesFromAclW(
                 pacl: *const super::ACL,
@@ -4435,7 +4435,7 @@ pub unsafe fn GetInheritanceSourceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInheritanceSourceA(
                 pobjectname: super::super::Foundation::PSTR,
@@ -4485,7 +4485,7 @@ pub unsafe fn GetInheritanceSourceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInheritanceSourceW(
                 pobjectname: super::super::Foundation::PWSTR,
@@ -4520,7 +4520,7 @@ pub unsafe fn GetInheritanceSourceW<
 pub unsafe fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A;
         }
@@ -4535,7 +4535,7 @@ pub unsafe fn GetMultipleTrusteeOperationA(
 ) -> MULTIPLE_TRUSTEE_OPERATION {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMultipleTrusteeOperationA(
                 ptrustee: *const TRUSTEE_A,
@@ -4554,7 +4554,7 @@ pub unsafe fn GetMultipleTrusteeOperationW(
 ) -> MULTIPLE_TRUSTEE_OPERATION {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMultipleTrusteeOperationW(
                 ptrustee: *const TRUSTEE_W,
@@ -4571,7 +4571,7 @@ pub unsafe fn GetMultipleTrusteeOperationW(
 pub unsafe fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W;
         }
@@ -4596,7 +4596,7 @@ pub unsafe fn GetNamedSecurityInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedSecurityInfoA(
                 pobjectname: super::super::Foundation::PSTR,
@@ -4639,7 +4639,7 @@ pub unsafe fn GetNamedSecurityInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedSecurityInfoW(
                 pobjectname: super::super::Foundation::PWSTR,
@@ -4682,7 +4682,7 @@ pub unsafe fn GetSecurityInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSecurityInfo(
                 handle: super::super::Foundation::HANDLE,
@@ -4713,7 +4713,7 @@ pub unsafe fn GetSecurityInfo<
 pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM;
         }
@@ -4726,7 +4726,7 @@ pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
 pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM;
         }
@@ -4739,7 +4739,7 @@ pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
 pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Foundation::PSTR;
         }
@@ -4752,7 +4752,7 @@ pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Found
 pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Foundation::PWSTR;
         }
@@ -4765,7 +4765,7 @@ pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Found
 pub unsafe fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE;
         }
@@ -4778,7 +4778,7 @@ pub unsafe fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE {
 pub unsafe fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE;
         }
@@ -35263,7 +35263,7 @@ pub unsafe fn LookupSecurityDescriptorPartsA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupSecurityDescriptorPartsA(
                 ppowner: *mut *mut TRUSTEE_A,
@@ -35300,7 +35300,7 @@ pub unsafe fn LookupSecurityDescriptorPartsW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupSecurityDescriptorPartsW(
                 ppowner: *mut *mut TRUSTEE_W,
@@ -36105,7 +36105,7 @@ pub unsafe fn SetEntriesInAclA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEntriesInAclA(
                 ccountofexplicitentries: u32,
@@ -36133,7 +36133,7 @@ pub unsafe fn SetEntriesInAclW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEntriesInAclW(
                 ccountofexplicitentries: u32,
@@ -36169,7 +36169,7 @@ pub unsafe fn SetNamedSecurityInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetNamedSecurityInfoA(
                 pobjectname: super::super::Foundation::PSTR,
@@ -36211,7 +36211,7 @@ pub unsafe fn SetNamedSecurityInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetNamedSecurityInfoW(
                 pobjectname: super::super::Foundation::PWSTR,
@@ -36253,7 +36253,7 @@ pub unsafe fn SetSecurityInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSecurityInfo(
                 handle: super::super::Foundation::HANDLE,
@@ -36589,7 +36589,7 @@ pub unsafe fn TreeResetNamedSecurityInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TreeResetNamedSecurityInfoA(
                 pobjectname: super::super::Foundation::PSTR,
@@ -36644,7 +36644,7 @@ pub unsafe fn TreeResetNamedSecurityInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TreeResetNamedSecurityInfoW(
                 pobjectname: super::super::Foundation::PWSTR,
@@ -36698,7 +36698,7 @@ pub unsafe fn TreeSetNamedSecurityInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TreeSetNamedSecurityInfoA(
                 pobjectname: super::super::Foundation::PSTR,
@@ -36752,7 +36752,7 @@ pub unsafe fn TreeSetNamedSecurityInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TreeSetNamedSecurityInfoW(
                 pobjectname: super::super::Foundation::PWSTR,

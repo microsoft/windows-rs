@@ -1081,7 +1081,7 @@ pub unsafe fn CredDeleteA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredDeleteA(
                 targetname: super::super::Foundation::PSTR,
@@ -1109,7 +1109,7 @@ pub unsafe fn CredDeleteW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredDeleteW(
                 targetname: super::super::Foundation::PWSTR,
@@ -1138,7 +1138,7 @@ pub unsafe fn CredEnumerateA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredEnumerateA(
                 filter: super::super::Foundation::PSTR,
@@ -1169,7 +1169,7 @@ pub unsafe fn CredEnumerateW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredEnumerateW(
                 filter: super::super::Foundation::PWSTR,
@@ -1200,7 +1200,7 @@ pub unsafe fn CredFindBestCredentialA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredFindBestCredentialA(
                 targetname: super::super::Foundation::PSTR,
@@ -1231,7 +1231,7 @@ pub unsafe fn CredFindBestCredentialW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredFindBestCredentialW(
                 targetname: super::super::Foundation::PWSTR,
@@ -1253,7 +1253,7 @@ pub unsafe fn CredFindBestCredentialW<
 pub unsafe fn CredFree(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredFree(buffer: *const ::std::ffi::c_void);
         }
@@ -1269,7 +1269,7 @@ pub unsafe fn CredGetSessionTypes(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredGetSessionTypes(
                 maximumpersistcount: u32,
@@ -1295,7 +1295,7 @@ pub unsafe fn CredGetTargetInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredGetTargetInfoA(
                 targetname: super::super::Foundation::PSTR,
@@ -1323,7 +1323,7 @@ pub unsafe fn CredGetTargetInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredGetTargetInfoW(
                 targetname: super::super::Foundation::PWSTR,
@@ -1349,7 +1349,7 @@ pub unsafe fn CredIsMarshaledCredentialA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredIsMarshaledCredentialA(
                 marshaledcredential: super::super::Foundation::PSTR,
@@ -1371,7 +1371,7 @@ pub unsafe fn CredIsMarshaledCredentialW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredIsMarshaledCredentialW(
                 marshaledcredential: super::super::Foundation::PWSTR,
@@ -1394,7 +1394,7 @@ pub unsafe fn CredIsProtectedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredIsProtectedA(
                 pszprotectedcredentials: super::super::Foundation::PSTR,
@@ -1419,7 +1419,7 @@ pub unsafe fn CredIsProtectedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredIsProtectedW(
                 pszprotectedcredentials: super::super::Foundation::PWSTR,
@@ -1442,7 +1442,7 @@ pub unsafe fn CredMarshalCredentialA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredMarshalCredentialA(
                 credtype: CRED_MARSHAL_TYPE,
@@ -1467,7 +1467,7 @@ pub unsafe fn CredMarshalCredentialW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredMarshalCredentialW(
                 credtype: CRED_MARSHAL_TYPE,
@@ -1498,7 +1498,7 @@ pub unsafe fn CredPackAuthenticationBufferA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredPackAuthenticationBufferA(
                 dwflags: CRED_PACK_FLAGS,
@@ -1533,7 +1533,7 @@ pub unsafe fn CredPackAuthenticationBufferW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredPackAuthenticationBufferW(
                 dwflags: CRED_PACK_FLAGS,
@@ -1569,7 +1569,7 @@ pub unsafe fn CredProtectA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredProtectA(
                 fasself: super::super::Foundation::BOOL,
@@ -1607,7 +1607,7 @@ pub unsafe fn CredProtectW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredProtectW(
                 fasself: super::super::Foundation::BOOL,
@@ -1642,7 +1642,7 @@ pub unsafe fn CredReadA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredReadA(
                 targetname: super::super::Foundation::PSTR,
@@ -1670,7 +1670,7 @@ pub unsafe fn CredReadDomainCredentialsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredReadDomainCredentialsA(
                 targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
@@ -1698,7 +1698,7 @@ pub unsafe fn CredReadDomainCredentialsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredReadDomainCredentialsW(
                 targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
@@ -1729,7 +1729,7 @@ pub unsafe fn CredReadW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredReadW(
                 targetname: super::super::Foundation::PWSTR,
@@ -1761,7 +1761,7 @@ pub unsafe fn CredRenameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredRenameA(
                 oldtargetname: super::super::Foundation::PSTR,
@@ -1793,7 +1793,7 @@ pub unsafe fn CredRenameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredRenameW(
                 oldtargetname: super::super::Foundation::PWSTR,
@@ -1831,7 +1831,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUICmdLinePromptForCredentialsA(
                 psztargetname: super::super::Foundation::PSTR,
@@ -1879,7 +1879,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUICmdLinePromptForCredentialsW(
                 psztargetname: super::super::Foundation::PWSTR,
@@ -1919,7 +1919,7 @@ pub unsafe fn CredUIConfirmCredentialsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIConfirmCredentialsA(
                 psztargetname: super::super::Foundation::PSTR,
@@ -1945,7 +1945,7 @@ pub unsafe fn CredUIConfirmCredentialsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIConfirmCredentialsW(
                 psztargetname: super::super::Foundation::PWSTR,
@@ -1973,7 +1973,7 @@ pub unsafe fn CredUIParseUserNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIParseUserNameA(
                 username: super::super::Foundation::PSTR,
@@ -2007,7 +2007,7 @@ pub unsafe fn CredUIParseUserNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIParseUserNameW(
                 username: super::super::Foundation::PWSTR,
@@ -2048,7 +2048,7 @@ pub unsafe fn CredUIPromptForCredentialsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIPromptForCredentialsA(
                 puiinfo: *const CREDUI_INFOA,
@@ -2099,7 +2099,7 @@ pub unsafe fn CredUIPromptForCredentialsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIPromptForCredentialsW(
                 puiinfo: *const CREDUI_INFOW,
@@ -2144,7 +2144,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIPromptForWindowsCredentialsA(
                 puiinfo: *const CREDUI_INFOA,
@@ -2187,7 +2187,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIPromptForWindowsCredentialsW(
                 puiinfo: *const CREDUI_INFOW,
@@ -2226,7 +2226,7 @@ pub unsafe fn CredUIReadSSOCredW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIReadSSOCredW(
                 pszrealm: super::super::Foundation::PWSTR,
@@ -2256,7 +2256,7 @@ pub unsafe fn CredUIStoreSSOCredW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUIStoreSSOCredW(
                 pszrealm: super::super::Foundation::PWSTR,
@@ -2289,7 +2289,7 @@ pub unsafe fn CredUnPackAuthenticationBufferA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUnPackAuthenticationBufferA(
                 dwflags: CRED_PACK_FLAGS,
@@ -2332,7 +2332,7 @@ pub unsafe fn CredUnPackAuthenticationBufferW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUnPackAuthenticationBufferW(
                 dwflags: CRED_PACK_FLAGS,
@@ -2372,7 +2372,7 @@ pub unsafe fn CredUnmarshalCredentialA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUnmarshalCredentialA(
                 marshaledcredential: super::super::Foundation::PSTR,
@@ -2400,7 +2400,7 @@ pub unsafe fn CredUnmarshalCredentialW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUnmarshalCredentialW(
                 marshaledcredential: super::super::Foundation::PWSTR,
@@ -2431,7 +2431,7 @@ pub unsafe fn CredUnprotectA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUnprotectA(
                 fasself: super::super::Foundation::BOOL,
@@ -2466,7 +2466,7 @@ pub unsafe fn CredUnprotectW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUnprotectW(
                 fasself: super::super::Foundation::BOOL,
@@ -2494,7 +2494,7 @@ pub unsafe fn CredWriteA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredWriteA(
                 credential: *const CREDENTIALA,
@@ -2517,7 +2517,7 @@ pub unsafe fn CredWriteDomainCredentialsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredWriteDomainCredentialsA(
                 targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
@@ -2542,7 +2542,7 @@ pub unsafe fn CredWriteDomainCredentialsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredWriteDomainCredentialsW(
                 targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
@@ -2566,7 +2566,7 @@ pub unsafe fn CredWriteW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredWriteW(
                 credential: *const CREDENTIALW,
@@ -2592,7 +2592,7 @@ pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID =
 pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "scarddlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOpenCardNameA(param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAMEA>) -> i32;
         }
@@ -2605,7 +2605,7 @@ pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
 pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "scarddlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOpenCardNameW(param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAMEW>) -> i32;
         }
@@ -2619,7 +2619,7 @@ pub unsafe fn KeyCredentialManagerFreeInformation(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "keycredmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn KeyCredentialManagerFreeInformation(
                 keycredentialmanagerinfo: *const KeyCredentialManagerInfo,
@@ -2636,7 +2636,7 @@ pub unsafe fn KeyCredentialManagerGetInformation(
 ) -> ::windows::runtime::Result<*mut KeyCredentialManagerInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "keycredmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn KeyCredentialManagerGetInformation(
                 keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo,
@@ -2658,7 +2658,7 @@ pub unsafe fn KeyCredentialManagerGetOperationErrorStates(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "keycredmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn KeyCredentialManagerGetOperationErrorStates(
                 keycredentialmanageroperationtype: KeyCredentialManagerOperationType,
@@ -2802,7 +2802,7 @@ pub unsafe fn KeyCredentialManagerShowUIOperation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "keycredmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn KeyCredentialManagerShowUIOperation(
                 hwndowner: super::super::Foundation::HWND,
@@ -3992,7 +3992,7 @@ pub const SC_DLG_NO_UI: u32 = 2u32;
 pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE;
         }
@@ -4013,7 +4013,7 @@ pub unsafe fn SCardAddReaderToGroupA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardAddReaderToGroupA(
                 hcontext: usize,
@@ -4042,7 +4042,7 @@ pub unsafe fn SCardAddReaderToGroupW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardAddReaderToGroupW(
                 hcontext: usize,
@@ -4062,7 +4062,7 @@ pub unsafe fn SCardAddReaderToGroupW<
 pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardAudit(hcontext: usize, dwevent: u32) -> i32;
         }
@@ -4077,7 +4077,7 @@ pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
 pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardBeginTransaction(hcard: usize) -> i32;
         }
@@ -4089,7 +4089,7 @@ pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
 pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardCancel(hcontext: usize) -> i32;
         }
@@ -4112,7 +4112,7 @@ pub unsafe fn SCardConnectA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardConnectA(
                 hcontext: usize,
@@ -4149,7 +4149,7 @@ pub unsafe fn SCardConnectW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardConnectW(
                 hcontext: usize,
@@ -4183,7 +4183,7 @@ pub unsafe fn SCardControl(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardControl(
                 hcard: usize,
@@ -4211,7 +4211,7 @@ pub unsafe fn SCardControl(
 pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32;
         }
@@ -4226,7 +4226,7 @@ pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
 pub unsafe fn SCardDlgExtendedError() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "scarddlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardDlgExtendedError() -> i32;
         }
@@ -4238,7 +4238,7 @@ pub unsafe fn SCardDlgExtendedError() -> i32 {
 pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32;
         }
@@ -4258,7 +4258,7 @@ pub unsafe fn SCardEstablishContext(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardEstablishContext(
                 dwscope: SCARD_SCOPE,
@@ -4287,7 +4287,7 @@ pub unsafe fn SCardForgetCardTypeA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardForgetCardTypeA(
                 hcontext: usize,
@@ -4312,7 +4312,7 @@ pub unsafe fn SCardForgetCardTypeW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardForgetCardTypeW(
                 hcontext: usize,
@@ -4337,7 +4337,7 @@ pub unsafe fn SCardForgetReaderA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardForgetReaderA(
                 hcontext: usize,
@@ -4362,7 +4362,7 @@ pub unsafe fn SCardForgetReaderGroupA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardForgetReaderGroupA(
                 hcontext: usize,
@@ -4387,7 +4387,7 @@ pub unsafe fn SCardForgetReaderGroupW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardForgetReaderGroupW(
                 hcontext: usize,
@@ -4412,7 +4412,7 @@ pub unsafe fn SCardForgetReaderW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardForgetReaderW(
                 hcontext: usize,
@@ -4430,7 +4430,7 @@ pub unsafe fn SCardForgetReaderW<
 pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void) -> i32;
         }
@@ -4450,7 +4450,7 @@ pub unsafe fn SCardGetAttrib(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetAttrib(
                 hcard: usize,
@@ -4482,7 +4482,7 @@ pub unsafe fn SCardGetCardTypeProviderNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetCardTypeProviderNameA(
                 hcontext: usize,
@@ -4516,7 +4516,7 @@ pub unsafe fn SCardGetCardTypeProviderNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetCardTypeProviderNameW(
                 hcontext: usize,
@@ -4548,7 +4548,7 @@ pub unsafe fn SCardGetDeviceTypeIdA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetDeviceTypeIdA(
                 hcontext: usize,
@@ -4576,7 +4576,7 @@ pub unsafe fn SCardGetDeviceTypeIdW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetDeviceTypeIdW(
                 hcontext: usize,
@@ -4604,7 +4604,7 @@ pub unsafe fn SCardGetProviderIdA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetProviderIdA(
                 hcontext: usize,
@@ -4632,7 +4632,7 @@ pub unsafe fn SCardGetProviderIdW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetProviderIdW(
                 hcontext: usize,
@@ -4661,7 +4661,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetReaderDeviceInstanceIdA(
                 hcontext: usize,
@@ -4692,7 +4692,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetReaderDeviceInstanceIdW(
                 hcontext: usize,
@@ -4723,7 +4723,7 @@ pub unsafe fn SCardGetReaderIconA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetReaderIconA(
                 hcontext: usize,
@@ -4754,7 +4754,7 @@ pub unsafe fn SCardGetReaderIconW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetReaderIconW(
                 hcontext: usize,
@@ -4782,7 +4782,7 @@ pub unsafe fn SCardGetStatusChangeA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetStatusChangeA(
                 hcontext: usize,
@@ -4810,7 +4810,7 @@ pub unsafe fn SCardGetStatusChangeW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetStatusChangeW(
                 hcontext: usize,
@@ -4832,7 +4832,7 @@ pub unsafe fn SCardGetStatusChangeW(
 pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> i32;
         }
@@ -4860,7 +4860,7 @@ pub unsafe fn SCardIntroduceCardTypeA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardIntroduceCardTypeA(
                 hcontext: usize,
@@ -4903,7 +4903,7 @@ pub unsafe fn SCardIntroduceCardTypeW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardIntroduceCardTypeW(
                 hcontext: usize,
@@ -4942,7 +4942,7 @@ pub unsafe fn SCardIntroduceReaderA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardIntroduceReaderA(
                 hcontext: usize,
@@ -4969,7 +4969,7 @@ pub unsafe fn SCardIntroduceReaderGroupA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardIntroduceReaderGroupA(
                 hcontext: usize,
@@ -4994,7 +4994,7 @@ pub unsafe fn SCardIntroduceReaderGroupW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardIntroduceReaderGroupW(
                 hcontext: usize,
@@ -5021,7 +5021,7 @@ pub unsafe fn SCardIntroduceReaderW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardIntroduceReaderW(
                 hcontext: usize,
@@ -5041,7 +5041,7 @@ pub unsafe fn SCardIntroduceReaderW<
 pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardIsValidContext(hcontext: usize) -> i32;
         }
@@ -5061,7 +5061,7 @@ pub unsafe fn SCardListCardsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListCardsA(
                 hcontext: usize,
@@ -5095,7 +5095,7 @@ pub unsafe fn SCardListCardsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListCardsW(
                 hcontext: usize,
@@ -5130,7 +5130,7 @@ pub unsafe fn SCardListInterfacesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListInterfacesA(
                 hcontext: usize,
@@ -5161,7 +5161,7 @@ pub unsafe fn SCardListInterfacesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListInterfacesW(
                 hcontext: usize,
@@ -5188,7 +5188,7 @@ pub unsafe fn SCardListReaderGroupsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListReaderGroupsA(
                 hcontext: usize,
@@ -5213,7 +5213,7 @@ pub unsafe fn SCardListReaderGroupsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListReaderGroupsW(
                 hcontext: usize,
@@ -5242,7 +5242,7 @@ pub unsafe fn SCardListReadersA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListReadersA(
                 hcontext: usize,
@@ -5273,7 +5273,7 @@ pub unsafe fn SCardListReadersW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListReadersW(
                 hcontext: usize,
@@ -5304,7 +5304,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListReadersWithDeviceInstanceIdA(
                 hcontext: usize,
@@ -5335,7 +5335,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardListReadersWithDeviceInstanceIdW(
                 hcontext: usize,
@@ -5366,7 +5366,7 @@ pub unsafe fn SCardLocateCardsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardLocateCardsA(
                 hcontext: usize,
@@ -5395,7 +5395,7 @@ pub unsafe fn SCardLocateCardsByATRA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardLocateCardsByATRA(
                 hcontext: usize,
@@ -5426,7 +5426,7 @@ pub unsafe fn SCardLocateCardsByATRW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardLocateCardsByATRW(
                 hcontext: usize,
@@ -5459,7 +5459,7 @@ pub unsafe fn SCardLocateCardsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardLocateCardsW(
                 hcontext: usize,
@@ -5492,7 +5492,7 @@ pub unsafe fn SCardReadCacheA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardReadCacheA(
                 hcontext: usize,
@@ -5529,7 +5529,7 @@ pub unsafe fn SCardReadCacheW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardReadCacheW(
                 hcontext: usize,
@@ -5561,7 +5561,7 @@ pub unsafe fn SCardReconnect(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardReconnect(
                 hcard: usize,
@@ -5585,7 +5585,7 @@ pub unsafe fn SCardReconnect(
 pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardReleaseContext(hcontext: usize) -> i32;
         }
@@ -5597,7 +5597,7 @@ pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
 pub unsafe fn SCardReleaseStartedEvent() {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardReleaseStartedEvent();
         }
@@ -5618,7 +5618,7 @@ pub unsafe fn SCardRemoveReaderFromGroupA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardRemoveReaderFromGroupA(
                 hcontext: usize,
@@ -5647,7 +5647,7 @@ pub unsafe fn SCardRemoveReaderFromGroupW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardRemoveReaderFromGroupW(
                 hcontext: usize,
@@ -5672,7 +5672,7 @@ pub unsafe fn SCardSetAttrib(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardSetAttrib(
                 hcard: usize,
@@ -5704,7 +5704,7 @@ pub unsafe fn SCardSetCardTypeProviderNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardSetCardTypeProviderNameA(
                 hcontext: usize,
@@ -5736,7 +5736,7 @@ pub unsafe fn SCardSetCardTypeProviderNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardSetCardTypeProviderNameW(
                 hcontext: usize,
@@ -5764,7 +5764,7 @@ pub unsafe fn SCardState(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardState(
                 hcard: usize,
@@ -5797,7 +5797,7 @@ pub unsafe fn SCardStatusA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardStatusA(
                 hcard: usize,
@@ -5834,7 +5834,7 @@ pub unsafe fn SCardStatusW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardStatusW(
                 hcard: usize,
@@ -5870,7 +5870,7 @@ pub unsafe fn SCardTransmit(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardTransmit(
                 hcard: usize,
@@ -5899,7 +5899,7 @@ pub unsafe fn SCardTransmit(
 pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "scarddlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardUIDlgSelectCardA(
                 param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAME_EXA>,
@@ -5914,7 +5914,7 @@ pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
 pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "scarddlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardUIDlgSelectCardW(
                 param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAME_EXW>,
@@ -5939,7 +5939,7 @@ pub unsafe fn SCardWriteCacheA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardWriteCacheA(
                 hcontext: usize,
@@ -5976,7 +5976,7 @@ pub unsafe fn SCardWriteCacheW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winscard")]
+        #[link(name = "windows")]
         extern "system" {
             fn SCardWriteCacheW(
                 hcontext: usize,

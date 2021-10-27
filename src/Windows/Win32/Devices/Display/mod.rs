@@ -920,7 +920,7 @@ pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CapabilitiesRequestAndCapabilitiesReply(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1161,7 +1161,7 @@ pub unsafe fn DegaussMonitor<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn DegaussMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -1179,7 +1179,7 @@ pub unsafe fn DestroyPhysicalMonitor<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyPhysicalMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -1195,7 +1195,7 @@ pub unsafe fn DestroyPhysicalMonitors(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyPhysicalMonitors(
                 dwphysicalmonitorarraysize: u32,
@@ -1742,7 +1742,7 @@ pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID =
 pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL;
         }
@@ -1761,7 +1761,7 @@ pub unsafe fn GetCapabilitiesStringLength<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCapabilitiesStringLength(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1782,7 +1782,7 @@ pub unsafe fn GetDisplayAutoRotationPreferences(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDisplayAutoRotationPreferences(
                 porientation: *mut ORIENTATION_PREFERENCE,
@@ -1807,7 +1807,7 @@ pub unsafe fn GetMonitorBrightness<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorBrightness(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1837,7 +1837,7 @@ pub unsafe fn GetMonitorCapabilities<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorCapabilities(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1864,7 +1864,7 @@ pub unsafe fn GetMonitorColorTemperature<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorColorTemperature(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1891,7 +1891,7 @@ pub unsafe fn GetMonitorContrast<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorContrast(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1923,7 +1923,7 @@ pub unsafe fn GetMonitorDisplayAreaPosition<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorDisplayAreaPosition(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1957,7 +1957,7 @@ pub unsafe fn GetMonitorDisplayAreaSize<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorDisplayAreaSize(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -1991,7 +1991,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueDrive<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorRedGreenOrBlueDrive(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -2025,7 +2025,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueGain<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorRedGreenOrBlueGain(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -2056,7 +2056,7 @@ pub unsafe fn GetMonitorTechnologyType<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorTechnologyType(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -2081,7 +2081,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumberOfPhysicalMonitorsFromHMONITOR(
                 hmonitor: super::super::Graphics::Gdi::HMONITOR,
@@ -2105,7 +2105,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(
                 pdirect3ddevice9: ::windows::runtime::RawPtr,
@@ -2133,7 +2133,7 @@ pub unsafe fn GetPhysicalMonitorsFromHMONITOR<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPhysicalMonitorsFromHMONITOR(
                 hmonitor: super::super::Graphics::Gdi::HMONITOR,
@@ -2161,7 +2161,7 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPhysicalMonitorsFromIDirect3DDevice9(
                 pdirect3ddevice9: ::windows::runtime::RawPtr,
@@ -2189,7 +2189,7 @@ pub unsafe fn GetTimingReport<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTimingReport(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -2217,7 +2217,7 @@ pub unsafe fn GetVCPFeatureAndVCPFeatureReply<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVCPFeatureAndVCPFeatureReply(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -3908,7 +3908,7 @@ pub unsafe fn RestoreMonitorFactoryColorDefaults<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestoreMonitorFactoryColorDefaults(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -3930,7 +3930,7 @@ pub unsafe fn RestoreMonitorFactoryDefaults<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestoreMonitorFactoryDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -4098,7 +4098,7 @@ pub unsafe fn SaveCurrentMonitorSettings<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaveCurrentMonitorSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -4116,7 +4116,7 @@ pub unsafe fn SaveCurrentSettings<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaveCurrentSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -4131,7 +4131,7 @@ pub unsafe fn SetDisplayAutoRotationPreferences(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDisplayAutoRotationPreferences(
                 orientation: ORIENTATION_PREFERENCE,
@@ -4154,7 +4154,7 @@ pub unsafe fn SetMonitorBrightness<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMonitorBrightness(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -4179,7 +4179,7 @@ pub unsafe fn SetMonitorColorTemperature<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMonitorColorTemperature(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -4204,7 +4204,7 @@ pub unsafe fn SetMonitorContrast<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMonitorContrast(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -4230,7 +4230,7 @@ pub unsafe fn SetMonitorDisplayAreaPosition<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMonitorDisplayAreaPosition(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -4258,7 +4258,7 @@ pub unsafe fn SetMonitorDisplayAreaSize<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMonitorDisplayAreaSize(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -4286,7 +4286,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueDrive<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMonitorRedGreenOrBlueDrive(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -4314,7 +4314,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueGain<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMonitorRedGreenOrBlueGain(
                 hmonitor: super::super::Foundation::HANDLE,
@@ -4342,7 +4342,7 @@ pub unsafe fn SetVCPFeature<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dxva2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetVCPFeature(
                 hmonitor: super::super::Foundation::HANDLE,

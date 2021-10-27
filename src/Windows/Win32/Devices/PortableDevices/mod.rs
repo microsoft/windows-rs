@@ -88,7 +88,7 @@ pub unsafe fn DMProcessConfigXMLFiltered<
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "dmprocessxmlfiltered")]
+        #[link(name = "windows")]
         extern "system" {
             fn DMProcessConfigXMLFiltered(
                 pszxmlin: super::super::Foundation::PWSTR,

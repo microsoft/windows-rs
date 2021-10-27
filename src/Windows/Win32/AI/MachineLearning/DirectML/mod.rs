@@ -19,7 +19,7 @@ pub unsafe fn DMLCreateDevice<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "directml")]
+        #[link(name = "windows")]
         extern "system" {
             fn DMLCreateDevice(
                 d3d12device: ::windows::runtime::RawPtr,
@@ -52,7 +52,7 @@ pub unsafe fn DMLCreateDevice1<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "directml")]
+        #[link(name = "windows")]
         extern "system" {
             fn DMLCreateDevice1(
                 d3d12device: ::windows::runtime::RawPtr,

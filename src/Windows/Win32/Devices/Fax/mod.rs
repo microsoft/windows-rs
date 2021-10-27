@@ -17,7 +17,7 @@ pub const CLSID_Sti: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
 pub unsafe fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "fxsutility")]
+        #[link(name = "windows")]
         extern "system" {
             fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL;
         }
@@ -2830,7 +2830,7 @@ pub unsafe fn FaxAbort<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxAbort(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -2855,7 +2855,7 @@ pub unsafe fn FaxAccessCheck<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxAccessCheck(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -2941,7 +2941,7 @@ pub unsafe fn FaxClose<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxClose(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -2959,7 +2959,7 @@ pub unsafe fn FaxCompleteJobParamsA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxCompleteJobParamsA(
                 jobparams: *mut *mut FAX_JOB_PARAMA,
@@ -2981,7 +2981,7 @@ pub unsafe fn FaxCompleteJobParamsW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxCompleteJobParamsW(
                 jobparams: *mut *mut FAX_JOB_PARAMW,
@@ -3012,7 +3012,7 @@ pub unsafe fn FaxConnectFaxServerA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxConnectFaxServerA(
                 machinename: super::super::Foundation::PSTR,
@@ -3037,7 +3037,7 @@ pub unsafe fn FaxConnectFaxServerW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxConnectFaxServerW(
                 machinename: super::super::Foundation::PWSTR,
@@ -3101,7 +3101,7 @@ pub unsafe fn FaxEnableRoutingMethodA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnableRoutingMethodA(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3131,7 +3131,7 @@ pub unsafe fn FaxEnableRoutingMethodW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnableRoutingMethodW(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3159,7 +3159,7 @@ pub unsafe fn FaxEnumGlobalRoutingInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumGlobalRoutingInfoA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3187,7 +3187,7 @@ pub unsafe fn FaxEnumGlobalRoutingInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumGlobalRoutingInfoW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3215,7 +3215,7 @@ pub unsafe fn FaxEnumJobsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumJobsA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3243,7 +3243,7 @@ pub unsafe fn FaxEnumJobsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumJobsW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3271,7 +3271,7 @@ pub unsafe fn FaxEnumPortsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumPortsA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3299,7 +3299,7 @@ pub unsafe fn FaxEnumPortsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumPortsW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3327,7 +3327,7 @@ pub unsafe fn FaxEnumRoutingMethodsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumRoutingMethodsA(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3355,7 +3355,7 @@ pub unsafe fn FaxEnumRoutingMethodsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxEnumRoutingMethodsW(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3387,7 +3387,7 @@ pub const FaxFolders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_
 pub unsafe fn FaxFreeBuffer(buffer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxFreeBuffer(buffer: *mut ::std::ffi::c_void);
         }
@@ -3406,7 +3406,7 @@ pub unsafe fn FaxGetConfigurationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetConfigurationA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3431,7 +3431,7 @@ pub unsafe fn FaxGetConfigurationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetConfigurationW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3456,7 +3456,7 @@ pub unsafe fn FaxGetDeviceStatusA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetDeviceStatusA(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3481,7 +3481,7 @@ pub unsafe fn FaxGetDeviceStatusW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetDeviceStatusW(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3507,7 +3507,7 @@ pub unsafe fn FaxGetJobA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetJobA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3535,7 +3535,7 @@ pub unsafe fn FaxGetJobW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetJobW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3563,7 +3563,7 @@ pub unsafe fn FaxGetLoggingCategoriesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetLoggingCategoriesA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3591,7 +3591,7 @@ pub unsafe fn FaxGetLoggingCategoriesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetLoggingCategoriesW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3622,7 +3622,7 @@ pub unsafe fn FaxGetPageData<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetPageData(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3655,7 +3655,7 @@ pub unsafe fn FaxGetPortA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetPortA(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3680,7 +3680,7 @@ pub unsafe fn FaxGetPortW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetPortW(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3708,7 +3708,7 @@ pub unsafe fn FaxGetRoutingInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetRoutingInfoA(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3740,7 +3740,7 @@ pub unsafe fn FaxGetRoutingInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxGetRoutingInfoW(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -3844,7 +3844,7 @@ pub unsafe fn FaxInitializeEventQueue<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxInitializeEventQueue(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3889,7 +3889,7 @@ pub unsafe fn FaxOpenPort<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxOpenPort(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -3987,7 +3987,7 @@ pub unsafe fn FaxPrintCoverPageA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxPrintCoverPageA(
                 faxcontextinfo: *const FAX_CONTEXT_INFOA,
@@ -4009,7 +4009,7 @@ pub unsafe fn FaxPrintCoverPageW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxPrintCoverPageW(
                 faxcontextinfo: *const FAX_CONTEXT_INFOW,
@@ -4059,7 +4059,7 @@ pub unsafe fn FaxRegisterRoutingExtensionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxRegisterRoutingExtensionW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4097,7 +4097,7 @@ pub unsafe fn FaxRegisterServiceProviderW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxRegisterServiceProviderW(
                 deviceprovider: super::super::Foundation::PWSTR,
@@ -4142,7 +4142,7 @@ pub unsafe fn FaxSendDocumentA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSendDocumentA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4177,7 +4177,7 @@ pub unsafe fn FaxSendDocumentForBroadcastA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSendDocumentForBroadcastA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4212,7 +4212,7 @@ pub unsafe fn FaxSendDocumentForBroadcastW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSendDocumentForBroadcastW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4247,7 +4247,7 @@ pub unsafe fn FaxSendDocumentW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSendDocumentW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4290,7 +4290,7 @@ pub unsafe fn FaxSetConfigurationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetConfigurationA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4315,7 +4315,7 @@ pub unsafe fn FaxSetConfigurationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetConfigurationW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4340,7 +4340,7 @@ pub unsafe fn FaxSetGlobalRoutingInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetGlobalRoutingInfoA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4365,7 +4365,7 @@ pub unsafe fn FaxSetGlobalRoutingInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetGlobalRoutingInfoW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4392,7 +4392,7 @@ pub unsafe fn FaxSetJobA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetJobA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4423,7 +4423,7 @@ pub unsafe fn FaxSetJobW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetJobW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4453,7 +4453,7 @@ pub unsafe fn FaxSetLoggingCategoriesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetLoggingCategoriesA(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4481,7 +4481,7 @@ pub unsafe fn FaxSetLoggingCategoriesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetLoggingCategoriesW(
                 faxhandle: super::super::Foundation::HANDLE,
@@ -4508,7 +4508,7 @@ pub unsafe fn FaxSetPortA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetPortA(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -4533,7 +4533,7 @@ pub unsafe fn FaxSetPortW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetPortW(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -4561,7 +4561,7 @@ pub unsafe fn FaxSetRoutingInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetRoutingInfoA(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -4593,7 +4593,7 @@ pub unsafe fn FaxSetRoutingInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxSetRoutingInfoW(
                 faxporthandle: super::super::Foundation::HANDLE,
@@ -4628,7 +4628,7 @@ pub unsafe fn FaxStartPrintJobA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxStartPrintJobA(
                 printername: super::super::Foundation::PSTR,
@@ -4659,7 +4659,7 @@ pub unsafe fn FaxStartPrintJobW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxStartPrintJobW(
                 printername: super::super::Foundation::PWSTR,
@@ -4687,7 +4687,7 @@ pub unsafe fn FaxUnregisterServiceProviderW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winfax")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaxUnregisterServiceProviderW(
                 deviceprovider: super::super::Foundation::PWSTR,
@@ -29373,7 +29373,7 @@ pub unsafe fn SendToFaxRecipient<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fxsutility")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendToFaxRecipient(
                 sndmode: SendToMode,
@@ -29421,7 +29421,7 @@ pub unsafe fn StiCreateInstanceW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sti")]
+        #[link(name = "windows")]
         extern "system" {
             fn StiCreateInstanceW(
                 hinst: super::super::Foundation::HINSTANCE,

@@ -13,7 +13,7 @@ pub unsafe fn AddSecureMemoryCacheCallback(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddSecureMemoryCacheCallback(
                 pfncallback: ::windows::runtime::RawPtr,
@@ -37,7 +37,7 @@ pub unsafe fn AllocateUserPhysicalPages<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocateUserPhysicalPages(
                 hprocess: super::super::Foundation::HANDLE,
@@ -67,7 +67,7 @@ pub unsafe fn AllocateUserPhysicalPages2<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-8")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocateUserPhysicalPages2(
                 objecthandle: super::super::Foundation::HANDLE,
@@ -100,7 +100,7 @@ pub unsafe fn AllocateUserPhysicalPagesNuma<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocateUserPhysicalPagesNuma(
                 hprocess: super::super::Foundation::HANDLE,
@@ -141,7 +141,7 @@ pub unsafe fn CreateFileMapping2<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-7")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileMapping2(
                 file: super::super::Foundation::HANDLE,
@@ -185,7 +185,7 @@ pub unsafe fn CreateFileMappingA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileMappingA(
                 hfile: super::super::Foundation::HANDLE,
@@ -222,7 +222,7 @@ pub unsafe fn CreateFileMappingFromApp<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileMappingFromApp(
                 hfile: super::super::Foundation::HANDLE,
@@ -259,7 +259,7 @@ pub unsafe fn CreateFileMappingNumaA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileMappingNumaA(
                 hfile: super::super::Foundation::HANDLE,
@@ -300,7 +300,7 @@ pub unsafe fn CreateFileMappingNumaW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileMappingNumaW(
                 hfile: super::super::Foundation::HANDLE,
@@ -340,7 +340,7 @@ pub unsafe fn CreateFileMappingW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileMappingW(
                 hfile: super::super::Foundation::HANDLE,
@@ -369,7 +369,7 @@ pub unsafe fn CreateMemoryResourceNotification(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMemoryResourceNotification(
                 notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE,
@@ -385,7 +385,7 @@ pub unsafe fn CreateMemoryResourceNotification(
 pub unsafe fn DiscardVirtualMemory(virtualaddress: *mut ::std::ffi::c_void, size: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DiscardVirtualMemory(virtualaddress: *mut ::std::ffi::c_void, size: usize) -> u32;
         }
@@ -463,7 +463,7 @@ pub unsafe fn FlushViewOfFile(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushViewOfFile(
                 lpbaseaddress: *const ::std::ffi::c_void,
@@ -489,7 +489,7 @@ pub unsafe fn FreeUserPhysicalPages<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeUserPhysicalPages(
                 hprocess: super::super::Foundation::HANDLE,
@@ -561,7 +561,7 @@ impl ::std::ops::Not for GLOBAL_ALLOC_FLAGS {
 pub unsafe fn GetLargePageMinimum() -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLargePageMinimum() -> usize;
         }
@@ -576,7 +576,7 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMemoryErrorHandlingCapabilities(
                 capabilities: *mut u32,
@@ -592,7 +592,7 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(
 pub unsafe fn GetProcessHeap() -> HeapHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessHeap() -> HeapHandle;
         }
@@ -604,7 +604,7 @@ pub unsafe fn GetProcessHeap() -> HeapHandle {
 pub unsafe fn GetProcessHeaps(numberofheaps: u32, processheaps: *mut HeapHandle) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessHeaps(numberofheaps: u32, processheaps: *mut HeapHandle) -> u32;
         }
@@ -628,7 +628,7 @@ pub unsafe fn GetProcessWorkingSetSizeEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessWorkingSetSizeEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -655,7 +655,7 @@ pub unsafe fn GetSystemFileCacheSize(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemFileCacheSize(
                 lpminimumfilecachesize: *mut usize,
@@ -682,7 +682,7 @@ pub unsafe fn GetWriteWatch(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWriteWatch(
                 dwflags: u32,
@@ -708,7 +708,7 @@ pub unsafe fn GetWriteWatch(
 pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize;
         }
@@ -723,7 +723,7 @@ pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize {
 pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalFlags(hmem: isize) -> u32;
         }
@@ -735,7 +735,7 @@ pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
 pub unsafe fn GlobalFree(hmem: isize) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalFree(hmem: isize) -> isize;
         }
@@ -747,7 +747,7 @@ pub unsafe fn GlobalFree(hmem: isize) -> isize {
 pub unsafe fn GlobalHandle(pmem: *const ::std::ffi::c_void) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalHandle(pmem: *const ::std::ffi::c_void) -> isize;
         }
@@ -759,7 +759,7 @@ pub unsafe fn GlobalHandle(pmem: *const ::std::ffi::c_void) -> isize {
 pub unsafe fn GlobalLock(hmem: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalLock(hmem: isize) -> *mut ::std::ffi::c_void;
         }
@@ -771,7 +771,7 @@ pub unsafe fn GlobalLock(hmem: isize) -> *mut ::std::ffi::c_void {
 pub unsafe fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize;
         }
@@ -787,7 +787,7 @@ pub unsafe fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize {
 pub unsafe fn GlobalSize(hmem: isize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalSize(hmem: isize) -> usize;
         }
@@ -800,7 +800,7 @@ pub unsafe fn GlobalSize(hmem: isize) -> usize {
 pub unsafe fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL;
         }
@@ -920,7 +920,7 @@ pub unsafe fn HeapAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapAlloc(
                 hheap: HeapHandle,
@@ -943,7 +943,7 @@ pub unsafe fn HeapCompact<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHand
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapCompact(hheap: HeapHandle, dwflags: HEAP_FLAGS) -> usize;
         }
@@ -962,7 +962,7 @@ pub unsafe fn HeapCreate(
 ) -> HeapHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapCreate(
                 floptions: HEAP_FLAGS,
@@ -985,7 +985,7 @@ pub unsafe fn HeapDestroy<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHand
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapDestroy(hheap: HeapHandle) -> super::super::Foundation::BOOL;
         }
@@ -1002,7 +1002,7 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapFree(
                 hheap: HeapHandle,
@@ -1044,7 +1044,7 @@ pub unsafe fn HeapLock<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapLock(hheap: HeapHandle) -> super::super::Foundation::BOOL;
         }
@@ -1063,7 +1063,7 @@ pub unsafe fn HeapQueryInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapQueryInformation(
                 heaphandle: HeapHandle,
@@ -1092,7 +1092,7 @@ pub unsafe fn HeapReAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHand
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapReAlloc(
                 hheap: HeapHandle,
@@ -1120,7 +1120,7 @@ pub unsafe fn HeapSetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapSetInformation(
                 heaphandle: HeapHandle,
@@ -1146,7 +1146,7 @@ pub unsafe fn HeapSize<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapSize(
                 hheap: HeapHandle,
@@ -1174,7 +1174,7 @@ pub unsafe fn HeapSummary<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapSummary(
                 hheap: super::super::Foundation::HANDLE,
@@ -1197,7 +1197,7 @@ pub unsafe fn HeapUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandl
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapUnlock(hheap: HeapHandle) -> super::super::Foundation::BOOL;
         }
@@ -1214,7 +1214,7 @@ pub unsafe fn HeapValidate<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHan
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapValidate(
                 hheap: HeapHandle,
@@ -1238,7 +1238,7 @@ pub unsafe fn HeapWalk<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HeapWalk(
                 hheap: HeapHandle,
@@ -1259,7 +1259,7 @@ pub unsafe fn IsBadCodePtr(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsBadCodePtr(lpfn: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
         }
@@ -1275,7 +1275,7 @@ pub unsafe fn IsBadReadPtr(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsBadReadPtr(
                 lp: *const ::std::ffi::c_void,
@@ -1300,7 +1300,7 @@ pub unsafe fn IsBadStringPtrA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsBadStringPtrA(
                 lpsz: super::super::Foundation::PSTR,
@@ -1325,7 +1325,7 @@ pub unsafe fn IsBadStringPtrW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsBadStringPtrW(
                 lpsz: super::super::Foundation::PWSTR,
@@ -1347,7 +1347,7 @@ pub unsafe fn IsBadWritePtr(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsBadWritePtr(
                 lp: *const ::std::ffi::c_void,
@@ -1419,7 +1419,7 @@ impl ::std::ops::Not for LOCAL_ALLOC_FLAGS {
 pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize;
         }
@@ -1434,7 +1434,7 @@ pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
 pub unsafe fn LocalFlags(hmem: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalFlags(hmem: isize) -> u32;
         }
@@ -1446,7 +1446,7 @@ pub unsafe fn LocalFlags(hmem: isize) -> u32 {
 pub unsafe fn LocalFree(hmem: isize) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalFree(hmem: isize) -> isize;
         }
@@ -1458,7 +1458,7 @@ pub unsafe fn LocalFree(hmem: isize) -> isize {
 pub unsafe fn LocalHandle(pmem: *const ::std::ffi::c_void) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalHandle(pmem: *const ::std::ffi::c_void) -> isize;
         }
@@ -1470,7 +1470,7 @@ pub unsafe fn LocalHandle(pmem: *const ::std::ffi::c_void) -> isize {
 pub unsafe fn LocalLock(hmem: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalLock(hmem: isize) -> *mut ::std::ffi::c_void;
         }
@@ -1482,7 +1482,7 @@ pub unsafe fn LocalLock(hmem: isize) -> *mut ::std::ffi::c_void {
 pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize;
         }
@@ -1498,7 +1498,7 @@ pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
 pub unsafe fn LocalSize(hmem: isize) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalSize(hmem: isize) -> usize;
         }
@@ -1511,7 +1511,7 @@ pub unsafe fn LocalSize(hmem: isize) -> usize {
 pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL;
         }
@@ -1699,7 +1699,7 @@ pub unsafe fn MapUserPhysicalPages(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapUserPhysicalPages(
                 virtualaddress: *const ::std::ffi::c_void,
@@ -1724,7 +1724,7 @@ pub unsafe fn MapUserPhysicalPagesScatter(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapUserPhysicalPagesScatter(
                 virtualaddresses: *const *const ::std::ffi::c_void,
@@ -1754,7 +1754,7 @@ pub unsafe fn MapViewOfFile<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapViewOfFile(
                 hfilemappingobject: super::super::Foundation::HANDLE,
@@ -1793,7 +1793,7 @@ pub unsafe fn MapViewOfFile3<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-6")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapViewOfFile3(
                 filemapping: super::super::Foundation::HANDLE,
@@ -1840,7 +1840,7 @@ pub unsafe fn MapViewOfFile3FromApp<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-6")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapViewOfFile3FromApp(
                 filemapping: super::super::Foundation::HANDLE,
@@ -1883,7 +1883,7 @@ pub unsafe fn MapViewOfFileEx<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapViewOfFileEx(
                 hfilemappingobject: super::super::Foundation::HANDLE,
@@ -1921,7 +1921,7 @@ pub unsafe fn MapViewOfFileExNuma<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapViewOfFileExNuma(
                 hfilemappingobject: super::super::Foundation::HANDLE,
@@ -1958,7 +1958,7 @@ pub unsafe fn MapViewOfFileFromApp<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapViewOfFileFromApp(
                 hfilemappingobject: super::super::Foundation::HANDLE,
@@ -1994,7 +1994,7 @@ pub unsafe fn MapViewOfFileNuma2<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-5")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapViewOfFileNuma2(
                 filemappinghandle: super::super::Foundation::HANDLE,
@@ -2051,7 +2051,7 @@ pub unsafe fn OfferVirtualMemory(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfferVirtualMemory(
                 virtualaddress: *mut ::std::ffi::c_void,
@@ -2081,7 +2081,7 @@ pub unsafe fn OpenDedicatedMemoryPartition<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-8")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenDedicatedMemoryPartition(
                 partition: super::super::Foundation::HANDLE,
@@ -2112,7 +2112,7 @@ pub unsafe fn OpenFileMappingA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenFileMappingA(
                 dwdesiredaccess: u32,
@@ -2141,7 +2141,7 @@ pub unsafe fn OpenFileMappingFromApp<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenFileMappingFromApp(
                 desiredaccess: u32,
@@ -2170,7 +2170,7 @@ pub unsafe fn OpenFileMappingW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenFileMappingW(
                 dwdesiredaccess: u32,
@@ -2342,7 +2342,7 @@ pub unsafe fn PrefetchVirtualMemory<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrefetchVirtualMemory(
                 hprocess: super::super::Foundation::HANDLE,
@@ -2371,7 +2371,7 @@ pub unsafe fn QueryMemoryResourceNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryMemoryResourceNotification(
                 resourcenotificationhandle: super::super::Foundation::HANDLE,
@@ -2398,7 +2398,7 @@ pub unsafe fn QueryPartitionInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-8")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryPartitionInformation(
                 partition: super::super::Foundation::HANDLE,
@@ -2431,7 +2431,7 @@ pub unsafe fn QueryVirtualMemoryInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryVirtualMemoryInformation(
                 process: super::super::Foundation::HANDLE,
@@ -2457,7 +2457,7 @@ pub unsafe fn QueryVirtualMemoryInformation<
 pub unsafe fn ReclaimVirtualMemory(virtualaddress: *const ::std::ffi::c_void, size: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReclaimVirtualMemory(virtualaddress: *const ::std::ffi::c_void, size: usize) -> u32;
         }
@@ -2474,7 +2474,7 @@ pub unsafe fn RegisterBadMemoryNotification(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterBadMemoryNotification(
                 callback: ::windows::runtime::RawPtr,
@@ -2493,7 +2493,7 @@ pub unsafe fn RemoveSecureMemoryCacheCallback(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveSecureMemoryCacheCallback(
                 pfncallback: ::windows::runtime::RawPtr,
@@ -2512,7 +2512,7 @@ pub unsafe fn ResetWriteWatch(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetWriteWatch(
                 lpbaseaddress: *const ::std::ffi::c_void,
@@ -2540,7 +2540,7 @@ pub unsafe fn SetProcessValidCallTargets<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessValidCallTargets(
                 hprocess: super::super::Foundation::HANDLE,
@@ -2577,7 +2577,7 @@ pub unsafe fn SetProcessValidCallTargetsForMappedView<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-7")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessValidCallTargetsForMappedView(
                 process: super::super::Foundation::HANDLE,
@@ -2614,7 +2614,7 @@ pub unsafe fn SetProcessWorkingSetSizeEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessWorkingSetSizeEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -2641,7 +2641,7 @@ pub unsafe fn SetSystemFileCacheSize(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSystemFileCacheSize(
                 minimumfilecachesize: usize,
@@ -2714,7 +2714,7 @@ pub unsafe fn UnmapViewOfFile(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnmapViewOfFile(
                 lpbaseaddress: *const ::std::ffi::c_void,
@@ -2736,7 +2736,7 @@ pub unsafe fn UnmapViewOfFile2<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-5")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnmapViewOfFile2(
                 process: super::super::Foundation::HANDLE,
@@ -2760,7 +2760,7 @@ pub unsafe fn UnmapViewOfFileEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnmapViewOfFileEx(
                 baseaddress: *const ::std::ffi::c_void,
@@ -2781,7 +2781,7 @@ pub unsafe fn UnregisterBadMemoryNotification(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterBadMemoryNotification(
                 registrationhandle: *const ::std::ffi::c_void,
@@ -2906,7 +2906,7 @@ pub unsafe fn VirtualAlloc(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualAlloc(
                 lpaddress: *const ::std::ffi::c_void,
@@ -2940,7 +2940,7 @@ pub unsafe fn VirtualAlloc2<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-6")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualAlloc2(
                 process: super::super::Foundation::HANDLE,
@@ -2980,7 +2980,7 @@ pub unsafe fn VirtualAlloc2FromApp<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-6")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualAlloc2FromApp(
                 process: super::super::Foundation::HANDLE,
@@ -3018,7 +3018,7 @@ pub unsafe fn VirtualAllocEx<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualAllocEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3053,7 +3053,7 @@ pub unsafe fn VirtualAllocExNuma<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualAllocExNuma(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3084,7 +3084,7 @@ pub unsafe fn VirtualAllocFromApp(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualAllocFromApp(
                 baseaddress: *const ::std::ffi::c_void,
@@ -3111,7 +3111,7 @@ pub unsafe fn VirtualFree(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualFree(
                 lpaddress: *mut ::std::ffi::c_void,
@@ -3140,7 +3140,7 @@ pub unsafe fn VirtualFreeEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualFreeEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3166,7 +3166,7 @@ pub unsafe fn VirtualLock(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualLock(
                 lpaddress: *const ::std::ffi::c_void,
@@ -3190,7 +3190,7 @@ pub unsafe fn VirtualProtect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualProtect(
                 lpaddress: *const ::std::ffi::c_void,
@@ -3222,7 +3222,7 @@ pub unsafe fn VirtualProtectEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualProtectEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3252,7 +3252,7 @@ pub unsafe fn VirtualProtectFromApp(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualProtectFromApp(
                 address: *const ::std::ffi::c_void,
@@ -3278,7 +3278,7 @@ pub unsafe fn VirtualQuery(
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualQuery(
                 lpaddress: *const ::std::ffi::c_void,
@@ -3307,7 +3307,7 @@ pub unsafe fn VirtualQueryEx<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualQueryEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3333,7 +3333,7 @@ pub unsafe fn VirtualUnlock(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualUnlock(
                 lpaddress: *const ::std::ffi::c_void,
@@ -3359,7 +3359,7 @@ pub unsafe fn VirtualUnlockEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-memory-l1-1-5")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualUnlockEx(
                 process: super::super::Foundation::HANDLE,

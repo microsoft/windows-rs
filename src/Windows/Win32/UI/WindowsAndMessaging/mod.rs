@@ -243,7 +243,7 @@ pub unsafe fn AdjustWindowRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdjustWindowRect(
                 lprect: *mut super::super::Foundation::RECT,
@@ -272,7 +272,7 @@ pub unsafe fn AdjustWindowRectEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdjustWindowRectEx(
                 lprect: *mut super::super::Foundation::RECT,
@@ -295,7 +295,7 @@ pub unsafe fn AdjustWindowRectEx<
 pub unsafe fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Foundation::BOOL;
         }
@@ -315,7 +315,7 @@ pub unsafe fn AnimateWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AnimateWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -336,7 +336,7 @@ pub unsafe fn AnimateWindow<
 pub unsafe fn AnyPopup() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AnyPopup() -> super::super::Foundation::BOOL;
         }
@@ -358,7 +358,7 @@ pub unsafe fn AppendMenuA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppendMenuA(
                 hmenu: HMENU,
@@ -390,7 +390,7 @@ pub unsafe fn AppendMenuW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppendMenuW(
                 hmenu: HMENU,
@@ -418,7 +418,7 @@ pub unsafe fn ArrangeIconicWindows<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ArrangeIconicWindows(hwnd: super::super::Foundation::HWND) -> u32;
         }
@@ -667,7 +667,7 @@ pub const BS_VCENTER: i32 = 3072i32;
 pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginDeferWindowPos(nnumwindows: i32) -> isize;
         }
@@ -685,7 +685,7 @@ pub unsafe fn BringWindowToTop<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BringWindowToTop(
                 hwnd: super::super::Foundation::HWND,
@@ -710,7 +710,7 @@ pub unsafe fn BroadcastSystemMessageA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BroadcastSystemMessageA(
                 flags: u32,
@@ -750,7 +750,7 @@ pub unsafe fn BroadcastSystemMessageExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BroadcastSystemMessageExA(
                 flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
@@ -792,7 +792,7 @@ pub unsafe fn BroadcastSystemMessageExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BroadcastSystemMessageExW(
                 flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
@@ -829,7 +829,7 @@ pub unsafe fn BroadcastSystemMessageW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BroadcastSystemMessageW(
                 flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
@@ -2202,7 +2202,7 @@ pub unsafe fn CalculatePopupWindowPosition(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CalculatePopupWindowPosition(
                 anchorpoint: *const super::super::Foundation::POINT,
@@ -2227,7 +2227,7 @@ pub unsafe fn CalculatePopupWindowPosition(
 pub unsafe fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL;
         }
@@ -2243,7 +2243,7 @@ pub unsafe fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Fou
 pub unsafe fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL;
         }
@@ -2269,7 +2269,7 @@ pub unsafe fn CallNextHookEx<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallNextHookEx(
                 hhk: HHOOK,
@@ -2303,7 +2303,7 @@ pub unsafe fn CallWindowProcA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallWindowProcA(
                 lpprevwndfunc: ::windows::runtime::RawPtr,
@@ -2339,7 +2339,7 @@ pub unsafe fn CallWindowProcW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallWindowProcW(
                 lpprevwndfunc: ::windows::runtime::RawPtr,
@@ -2364,7 +2364,7 @@ pub unsafe fn CallWindowProcW<
 pub unsafe fn CancelShutdown() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelShutdown() -> super::super::Foundation::BOOL;
         }
@@ -2386,7 +2386,7 @@ pub unsafe fn CascadeWindows<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CascadeWindows(
                 hwndparent: super::super::Foundation::HWND,
@@ -2421,7 +2421,7 @@ pub unsafe fn ChangeMenuA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeMenuA(
                 hmenu: HMENU,
@@ -2456,7 +2456,7 @@ pub unsafe fn ChangeMenuW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeMenuW(
                 hmenu: HMENU,
@@ -2484,7 +2484,7 @@ pub unsafe fn ChangeWindowMessageFilter(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeWindowMessageFilter(
                 message: u32,
@@ -2511,7 +2511,7 @@ pub unsafe fn ChangeWindowMessageFilterEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeWindowMessageFilterEx(
                 hwnd: super::super::Foundation::HWND,
@@ -2539,7 +2539,7 @@ pub unsafe fn CharLowerA<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharLowerA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -2558,7 +2558,7 @@ pub unsafe fn CharLowerBuffA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharLowerBuffA(lpsz: super::super::Foundation::PSTR, cchlength: u32) -> u32;
         }
@@ -2580,7 +2580,7 @@ pub unsafe fn CharLowerBuffW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharLowerBuffW(lpsz: super::super::Foundation::PWSTR, cchlength: u32) -> u32;
         }
@@ -2601,7 +2601,7 @@ pub unsafe fn CharLowerW<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharLowerW(lpsz: super::super::Foundation::PWSTR)
                 -> super::super::Foundation::PWSTR;
@@ -2620,7 +2620,7 @@ pub unsafe fn CharNextA<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharNextA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -2640,7 +2640,7 @@ pub unsafe fn CharNextExA<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharNextExA(
                 codepage: u16,
@@ -2666,7 +2666,7 @@ pub unsafe fn CharNextW<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharNextW(lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -2686,7 +2686,7 @@ pub unsafe fn CharPrevA<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharPrevA(
                 lpszstart: super::super::Foundation::PSTR,
@@ -2714,7 +2714,7 @@ pub unsafe fn CharPrevExA<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharPrevExA(
                 codepage: u16,
@@ -2744,7 +2744,7 @@ pub unsafe fn CharPrevW<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharPrevW(
                 lpszstart: super::super::Foundation::PWSTR,
@@ -2769,7 +2769,7 @@ pub unsafe fn CharToOemA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharToOemA(
                 psrc: super::super::Foundation::PSTR,
@@ -2795,7 +2795,7 @@ pub unsafe fn CharToOemBuffA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharToOemBuffA(
                 lpszsrc: super::super::Foundation::PSTR,
@@ -2823,7 +2823,7 @@ pub unsafe fn CharToOemBuffW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharToOemBuffW(
                 lpszsrc: super::super::Foundation::PWSTR,
@@ -2850,7 +2850,7 @@ pub unsafe fn CharToOemW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharToOemW(
                 psrc: super::super::Foundation::PWSTR,
@@ -2874,7 +2874,7 @@ pub unsafe fn CharUpperA<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharUpperA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -2893,7 +2893,7 @@ pub unsafe fn CharUpperBuffA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharUpperBuffA(lpsz: super::super::Foundation::PSTR, cchlength: u32) -> u32;
         }
@@ -2915,7 +2915,7 @@ pub unsafe fn CharUpperBuffW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharUpperBuffW(lpsz: super::super::Foundation::PWSTR, cchlength: u32) -> u32;
         }
@@ -2936,7 +2936,7 @@ pub unsafe fn CharUpperW<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CharUpperW(lpsz: super::super::Foundation::PWSTR)
                 -> super::super::Foundation::PWSTR;
@@ -2953,7 +2953,7 @@ pub unsafe fn CheckMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckMenuItem(hmenu: HMENU, uidcheckitem: u32, ucheck: u32) -> u32;
         }
@@ -2976,7 +2976,7 @@ pub unsafe fn CheckMenuRadioItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckMenuRadioItem(
                 hmenu: HMENU,
@@ -3008,7 +3008,7 @@ pub unsafe fn ChildWindowFromPoint<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChildWindowFromPoint(
                 hwndparent: super::super::Foundation::HWND,
@@ -3035,7 +3035,7 @@ pub unsafe fn ChildWindowFromPointEx<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChildWindowFromPointEx(
                 hwnd: super::super::Foundation::HWND,
@@ -3056,7 +3056,7 @@ pub unsafe fn ChildWindowFromPointEx<
 pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChooseColorA(
                 param0: *mut ::std::mem::ManuallyDrop<CHOOSECOLORA>,
@@ -3071,7 +3071,7 @@ pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::Foundatio
 pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChooseColorW(
                 param0: *mut ::std::mem::ManuallyDrop<CHOOSECOLORW>,
@@ -3090,7 +3090,7 @@ pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::Foundatio
 pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChooseFontA(
                 param0: *mut ::std::mem::ManuallyDrop<CHOOSEFONTA>,
@@ -3105,7 +3105,7 @@ pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::Foundation:
 pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChooseFontW(
                 param0: *mut ::std::mem::ManuallyDrop<CHOOSEFONTW>,
@@ -3122,7 +3122,7 @@ pub unsafe fn ClipCursor(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClipCursor(
                 lprect: *const super::super::Foundation::RECT,
@@ -3142,7 +3142,7 @@ pub unsafe fn CloseWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -3154,7 +3154,7 @@ pub unsafe fn CloseWindow<
 pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommDlgExtendedError() -> COMMON_DLG_ERRORS;
         }
@@ -3170,7 +3170,7 @@ pub unsafe fn CopyAcceleratorTableA<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyAcceleratorTableA(
                 haccelsrc: HACCEL,
@@ -3194,7 +3194,7 @@ pub unsafe fn CopyAcceleratorTableW<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyAcceleratorTableW(
                 haccelsrc: HACCEL,
@@ -3216,7 +3216,7 @@ pub unsafe fn CopyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(
 ) -> HICON {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyIcon(hicon: HICON) -> HICON;
         }
@@ -3238,7 +3238,7 @@ pub unsafe fn CopyImage<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyImage(
                 h: super::super::Foundation::HANDLE,
@@ -3262,7 +3262,7 @@ pub unsafe fn CopyImage<
 pub unsafe fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACCEL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACCEL;
         }
@@ -3277,7 +3277,7 @@ pub unsafe fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACC
 pub unsafe fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> HACCEL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> HACCEL;
         }
@@ -3302,7 +3302,7 @@ pub unsafe fn CreateCaret<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCaret(
                 hwnd: super::super::Foundation::HWND,
@@ -3336,7 +3336,7 @@ pub unsafe fn CreateCursor<
 ) -> HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCursor(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -3376,7 +3376,7 @@ pub unsafe fn CreateDialogIndirectParamA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDialogIndirectParamA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -3412,7 +3412,7 @@ pub unsafe fn CreateDialogIndirectParamW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDialogIndirectParamW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -3449,7 +3449,7 @@ pub unsafe fn CreateDialogParamA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDialogParamA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -3486,7 +3486,7 @@ pub unsafe fn CreateDialogParamW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDialogParamW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -3522,7 +3522,7 @@ pub unsafe fn CreateIcon<
 ) -> HICON {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIcon(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -3559,7 +3559,7 @@ pub unsafe fn CreateIconFromResource<
 ) -> HICON {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIconFromResource(
                 presbits: *const u8,
@@ -3593,7 +3593,7 @@ pub unsafe fn CreateIconFromResourceEx<
 ) -> HICON {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIconFromResourceEx(
                 presbits: *const u8,
@@ -3622,7 +3622,7 @@ pub unsafe fn CreateIconFromResourceEx<
 pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON;
         }
@@ -3653,7 +3653,7 @@ pub unsafe fn CreateMDIWindowA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMDIWindowA(
                 lpclassname: super::super::Foundation::PSTR,
@@ -3706,7 +3706,7 @@ pub unsafe fn CreateMDIWindowW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMDIWindowW(
                 lpclassname: super::super::Foundation::PWSTR,
@@ -3740,7 +3740,7 @@ pub unsafe fn CreateMDIWindowW<
 pub unsafe fn CreateMenu() -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMenu() -> HMENU;
         }
@@ -3752,7 +3752,7 @@ pub unsafe fn CreateMenu() -> HMENU {
 pub unsafe fn CreatePopupMenu() -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePopupMenu() -> HMENU;
         }
@@ -3773,7 +3773,7 @@ pub unsafe fn CreateResourceIndexer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateResourceIndexer(
                 projectroot: super::super::Foundation::PWSTR,
@@ -3815,7 +3815,7 @@ pub unsafe fn CreateWindowExA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWindowExA(
                 dwexstyle: WINDOW_EX_STYLE,
@@ -3874,7 +3874,7 @@ pub unsafe fn CreateWindowExW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWindowExW(
                 dwexstyle: WINDOW_EX_STYLE,
@@ -4240,7 +4240,7 @@ pub unsafe fn DefDlgProcA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefDlgProcA(
                 hdlg: super::super::Foundation::HWND,
@@ -4273,7 +4273,7 @@ pub unsafe fn DefDlgProcW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefDlgProcW(
                 hdlg: super::super::Foundation::HWND,
@@ -4308,7 +4308,7 @@ pub unsafe fn DefFrameProcA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefFrameProcA(
                 hwnd: super::super::Foundation::HWND,
@@ -4345,7 +4345,7 @@ pub unsafe fn DefFrameProcW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefFrameProcW(
                 hwnd: super::super::Foundation::HWND,
@@ -4380,7 +4380,7 @@ pub unsafe fn DefMDIChildProcA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefMDIChildProcA(
                 hwnd: super::super::Foundation::HWND,
@@ -4413,7 +4413,7 @@ pub unsafe fn DefMDIChildProcW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefMDIChildProcW(
                 hwnd: super::super::Foundation::HWND,
@@ -4446,7 +4446,7 @@ pub unsafe fn DefWindowProcA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefWindowProcA(
                 hwnd: super::super::Foundation::HWND,
@@ -4479,7 +4479,7 @@ pub unsafe fn DefWindowProcW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefWindowProcW(
                 hwnd: super::super::Foundation::HWND,
@@ -4515,7 +4515,7 @@ pub unsafe fn DeferWindowPos<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeferWindowPos(
                 hwinposinfo: isize,
@@ -4550,7 +4550,7 @@ pub unsafe fn DeleteMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteMenu(
                 hmenu: HMENU,
@@ -4576,7 +4576,7 @@ pub unsafe fn DeregisterShellHookWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeregisterShellHookWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -4593,7 +4593,7 @@ pub unsafe fn DestroyAcceleratorTable<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyAcceleratorTable(haccel: HACCEL) -> super::super::Foundation::BOOL;
         }
@@ -4606,7 +4606,7 @@ pub unsafe fn DestroyAcceleratorTable<'a, Param0: ::windows::runtime::IntoParam<
 pub unsafe fn DestroyCaret() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyCaret() -> super::super::Foundation::BOOL;
         }
@@ -4621,7 +4621,7 @@ pub unsafe fn DestroyCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSO
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyCursor(hcursor: HCURSOR) -> super::super::Foundation::BOOL;
         }
@@ -4636,7 +4636,7 @@ pub unsafe fn DestroyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyIcon(hicon: HICON) -> super::super::Foundation::BOOL;
         }
@@ -4656,7 +4656,7 @@ pub unsafe fn DestroyIndexedResults<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyIndexedResults(
                 resourceuri: super::super::Foundation::PWSTR,
@@ -4679,7 +4679,7 @@ pub unsafe fn DestroyMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
         }
@@ -4691,7 +4691,7 @@ pub unsafe fn DestroyMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyResourceIndexer(resourceindexer: *const ::std::ffi::c_void);
         }
@@ -4711,7 +4711,7 @@ pub unsafe fn DestroyWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -4737,7 +4737,7 @@ pub unsafe fn DialogBoxIndirectParamA<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DialogBoxIndirectParamA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -4773,7 +4773,7 @@ pub unsafe fn DialogBoxIndirectParamW<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DialogBoxIndirectParamW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -4810,7 +4810,7 @@ pub unsafe fn DialogBoxParamA<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DialogBoxParamA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -4847,7 +4847,7 @@ pub unsafe fn DialogBoxParamW<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DialogBoxParamW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -4871,7 +4871,7 @@ pub unsafe fn DialogBoxParamW<
 pub unsafe fn DisableProcessWindowsGhosting() {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisableProcessWindowsGhosting();
         }
@@ -4884,7 +4884,7 @@ pub unsafe fn DisableProcessWindowsGhosting() {
 pub unsafe fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::LRESULT;
         }
@@ -4897,7 +4897,7 @@ pub unsafe fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::L
 pub unsafe fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::LRESULT;
         }
@@ -4921,7 +4921,7 @@ pub unsafe fn DragObject<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DragObject(
                 hwndparent: super::super::Foundation::HWND,
@@ -4955,7 +4955,7 @@ pub unsafe fn DrawIcon<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawIcon(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4993,7 +4993,7 @@ pub unsafe fn DrawIconEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawIconEx(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -5031,7 +5031,7 @@ pub unsafe fn DrawMenuBar<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawMenuBar(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -5250,7 +5250,7 @@ pub unsafe fn EnableMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableMenuItem(
                 hmenu: HMENU,
@@ -5271,7 +5271,7 @@ pub unsafe fn EnableMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
 pub unsafe fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL;
         }
@@ -5290,7 +5290,7 @@ pub unsafe fn EndDialog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndDialog(
                 hdlg: super::super::Foundation::HWND,
@@ -5309,7 +5309,7 @@ pub unsafe fn EndDialog<
 pub unsafe fn EndMenu() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndMenu() -> super::super::Foundation::BOOL;
         }
@@ -5330,7 +5330,7 @@ pub unsafe fn EnumChildWindows<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumChildWindows(
                 hwndparent: super::super::Foundation::HWND,
@@ -5357,7 +5357,7 @@ pub unsafe fn EnumPropsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPropsA(
                 hwnd: super::super::Foundation::HWND,
@@ -5384,7 +5384,7 @@ pub unsafe fn EnumPropsExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPropsExA(
                 hwnd: super::super::Foundation::HWND,
@@ -5413,7 +5413,7 @@ pub unsafe fn EnumPropsExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPropsExW(
                 hwnd: super::super::Foundation::HWND,
@@ -5440,7 +5440,7 @@ pub unsafe fn EnumPropsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPropsW(
                 hwnd: super::super::Foundation::HWND,
@@ -5466,7 +5466,7 @@ pub unsafe fn EnumThreadWindows<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumThreadWindows(
                 dwthreadid: u32,
@@ -5493,7 +5493,7 @@ pub unsafe fn EnumWindows<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumWindows(
                 lpenumfunc: ::windows::runtime::RawPtr,
@@ -5881,7 +5881,7 @@ pub const FVIRTKEY: u32 = 1u32;
 pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindTextA(
                 param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEA>,
@@ -5896,7 +5896,7 @@ pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::Foundation::
 pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindTextW(
                 param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEW>,
@@ -5918,7 +5918,7 @@ pub unsafe fn FindWindowA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindWindowA(
                 lpclassname: super::super::Foundation::PSTR,
@@ -5948,7 +5948,7 @@ pub unsafe fn FindWindowExA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindWindowExA(
                 hwndparent: super::super::Foundation::HWND,
@@ -5982,7 +5982,7 @@ pub unsafe fn FindWindowExW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindWindowExW(
                 hwndparent: super::super::Foundation::HWND,
@@ -6012,7 +6012,7 @@ pub unsafe fn FindWindowW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindWindowW(
                 lpclassname: super::super::Foundation::PWSTR,
@@ -6038,7 +6038,7 @@ pub unsafe fn FlashWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlashWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -6057,7 +6057,7 @@ pub unsafe fn FlashWindow<
 pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation::BOOL;
         }
@@ -6447,7 +6447,7 @@ pub unsafe fn GetAltTabInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAltTabInfoA(
                 hwnd: super::super::Foundation::HWND,
@@ -6481,7 +6481,7 @@ pub unsafe fn GetAltTabInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAltTabInfoW(
                 hwnd: super::super::Foundation::HWND,
@@ -6512,7 +6512,7 @@ pub unsafe fn GetAncestor<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAncestor(
                 hwnd: super::super::Foundation::HWND,
@@ -6530,7 +6530,7 @@ pub unsafe fn GetAncestor<
 pub unsafe fn GetCaretBlinkTime() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCaretBlinkTime() -> u32;
         }
@@ -6545,7 +6545,7 @@ pub unsafe fn GetCaretPos(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCaretPos(
                 lppoint: *mut super::super::Foundation::POINT,
@@ -6568,7 +6568,7 @@ pub unsafe fn GetClassInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassInfoA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -6597,7 +6597,7 @@ pub unsafe fn GetClassInfoExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassInfoExA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -6626,7 +6626,7 @@ pub unsafe fn GetClassInfoExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassInfoExW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -6655,7 +6655,7 @@ pub unsafe fn GetClassInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassInfoW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -6682,7 +6682,7 @@ pub unsafe fn GetClassLongA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassLongA(
                 hwnd: super::super::Foundation::HWND,
@@ -6707,7 +6707,7 @@ pub unsafe fn GetClassLongPtrA<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassLongPtrA(
                 hwnd: super::super::Foundation::HWND,
@@ -6732,7 +6732,7 @@ pub unsafe fn GetClassLongPtrW<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassLongPtrW(
                 hwnd: super::super::Foundation::HWND,
@@ -6757,7 +6757,7 @@ pub unsafe fn GetClassLongW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassLongW(
                 hwnd: super::super::Foundation::HWND,
@@ -6783,7 +6783,7 @@ pub unsafe fn GetClassNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassNameA(
                 hwnd: super::super::Foundation::HWND,
@@ -6811,7 +6811,7 @@ pub unsafe fn GetClassNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassNameW(
                 hwnd: super::super::Foundation::HWND,
@@ -6838,7 +6838,7 @@ pub unsafe fn GetClassWord<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32) -> u16;
         }
@@ -6860,7 +6860,7 @@ pub unsafe fn GetClientRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClientRect(
                 hwnd: super::super::Foundation::HWND,
@@ -6881,7 +6881,7 @@ pub unsafe fn GetClipCursor(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClipCursor(
                 lprect: *mut super::super::Foundation::RECT,
@@ -6895,7 +6895,7 @@ pub unsafe fn GetClipCursor(
 pub unsafe fn GetCursor() -> HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCursor() -> HCURSOR;
         }
@@ -6908,7 +6908,7 @@ pub unsafe fn GetCursor() -> HCURSOR {
 pub unsafe fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::BOOL;
         }
@@ -6923,7 +6923,7 @@ pub unsafe fn GetCursorPos(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCursorPos(
                 lppoint: *mut super::super::Foundation::POINT,
@@ -6938,7 +6938,7 @@ pub unsafe fn GetCursorPos(
 pub unsafe fn GetDesktopWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDesktopWindow() -> super::super::Foundation::HWND;
         }
@@ -6950,7 +6950,7 @@ pub unsafe fn GetDesktopWindow() -> super::super::Foundation::HWND {
 pub unsafe fn GetDialogBaseUnits() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDialogBaseUnits() -> i32;
         }
@@ -6968,7 +6968,7 @@ pub unsafe fn GetDlgCtrlID<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDlgCtrlID(hwnd: super::super::Foundation::HWND) -> i32;
         }
@@ -6987,7 +6987,7 @@ pub unsafe fn GetDlgItem<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDlgItem(
                 hdlg: super::super::Foundation::HWND,
@@ -7015,7 +7015,7 @@ pub unsafe fn GetDlgItemInt<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDlgItemInt(
                 hdlg: super::super::Foundation::HWND,
@@ -7046,7 +7046,7 @@ pub unsafe fn GetDlgItemTextA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDlgItemTextA(
                 hdlg: super::super::Foundation::HWND,
@@ -7077,7 +7077,7 @@ pub unsafe fn GetDlgItemTextW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDlgItemTextW(
                 hdlg: super::super::Foundation::HWND,
@@ -7105,7 +7105,7 @@ pub unsafe fn GetDpiAwarenessContextForProcess<
 ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDpiAwarenessContextForProcess(
                 hprocess: super::super::Foundation::HANDLE,
@@ -7129,7 +7129,7 @@ pub unsafe fn GetFileTitleA<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileTitleA(
                 param0: super::super::Foundation::PSTR,
@@ -7157,7 +7157,7 @@ pub unsafe fn GetFileTitleW<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileTitleW(
                 param0: super::super::Foundation::PWSTR,
@@ -7178,7 +7178,7 @@ pub unsafe fn GetFileTitleW<
 pub unsafe fn GetForegroundWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetForegroundWindow() -> super::super::Foundation::HWND;
         }
@@ -7194,7 +7194,7 @@ pub unsafe fn GetGUIThreadInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGUIThreadInfo(
                 idthread: u32,
@@ -7216,7 +7216,7 @@ pub unsafe fn GetIconInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIconInfo(
                 hicon: HICON,
@@ -7242,7 +7242,7 @@ pub unsafe fn GetIconInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, HICON
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIconInfoExA(
                 hicon: HICON,
@@ -7264,7 +7264,7 @@ pub unsafe fn GetIconInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, HICON
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIconInfoExW(
                 hicon: HICON,
@@ -7283,7 +7283,7 @@ pub unsafe fn GetIconInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, HICON
 pub unsafe fn GetInputState() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInputState() -> super::super::Foundation::BOOL;
         }
@@ -7301,7 +7301,7 @@ pub unsafe fn GetLastActivePopup<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLastActivePopup(
                 hwnd: super::super::Foundation::HWND,
@@ -7324,7 +7324,7 @@ pub unsafe fn GetLayeredWindowAttributes<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLayeredWindowAttributes(
                 hwnd: super::super::Foundation::HWND,
@@ -7352,7 +7352,7 @@ pub unsafe fn GetMenu<
 ) -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenu(hwnd: super::super::Foundation::HWND) -> HMENU;
         }
@@ -7373,7 +7373,7 @@ pub unsafe fn GetMenuBarInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuBarInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -7395,7 +7395,7 @@ pub unsafe fn GetMenuBarInfo<
 pub unsafe fn GetMenuCheckMarkDimensions() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuCheckMarkDimensions() -> i32;
         }
@@ -7411,7 +7411,7 @@ pub unsafe fn GetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuDefaultItem(
                 hmenu: HMENU,
@@ -7435,7 +7435,7 @@ pub unsafe fn GetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuInfo(param0: HMENU, param1: *mut MENUINFO) -> super::super::Foundation::BOOL;
         }
@@ -7452,7 +7452,7 @@ pub unsafe fn GetMenuItemCount<'a, Param0: ::windows::runtime::IntoParam<'a, HME
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuItemCount(hmenu: HMENU) -> i32;
         }
@@ -7467,7 +7467,7 @@ pub unsafe fn GetMenuItemID<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuItemID(hmenu: HMENU, npos: i32) -> u32;
         }
@@ -7492,7 +7492,7 @@ pub unsafe fn GetMenuItemInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuItemInfoA(
                 hmenu: HMENU,
@@ -7524,7 +7524,7 @@ pub unsafe fn GetMenuItemInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuItemInfoW(
                 hmenu: HMENU,
@@ -7556,7 +7556,7 @@ pub unsafe fn GetMenuItemRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuItemRect(
                 hwnd: super::super::Foundation::HWND,
@@ -7582,7 +7582,7 @@ pub unsafe fn GetMenuState<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuState(hmenu: HMENU, uid: u32, uflags: MENU_ITEM_FLAGS) -> u32;
         }
@@ -7605,7 +7605,7 @@ pub unsafe fn GetMenuStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuStringA(
                 hmenu: HMENU,
@@ -7636,7 +7636,7 @@ pub unsafe fn GetMenuStringW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMenuStringW(
                 hmenu: HMENU,
@@ -7669,7 +7669,7 @@ pub unsafe fn GetMessageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMessageA(
                 lpmsg: *mut MSG,
@@ -7692,7 +7692,7 @@ pub unsafe fn GetMessageA<
 pub unsafe fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM;
         }
@@ -7704,7 +7704,7 @@ pub unsafe fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM {
 pub unsafe fn GetMessagePos() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMessagePos() -> u32;
         }
@@ -7716,7 +7716,7 @@ pub unsafe fn GetMessagePos() -> u32 {
 pub unsafe fn GetMessageTime() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMessageTime() -> i32;
         }
@@ -7737,7 +7737,7 @@ pub unsafe fn GetMessageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMessageW(
                 lpmsg: *mut MSG,
@@ -7769,7 +7769,7 @@ pub unsafe fn GetNextDlgGroupItem<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNextDlgGroupItem(
                 hdlg: super::super::Foundation::HWND,
@@ -7799,7 +7799,7 @@ pub unsafe fn GetNextDlgTabItem<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNextDlgTabItem(
                 hdlg: super::super::Foundation::HWND,
@@ -7820,7 +7820,7 @@ pub unsafe fn GetNextDlgTabItem<
 pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOpenFileNameA(
                 param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEA>,
@@ -7835,7 +7835,7 @@ pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::Foun
 pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOpenFileNameW(
                 param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEW>,
@@ -7855,7 +7855,7 @@ pub unsafe fn GetParent<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetParent(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
@@ -7870,7 +7870,7 @@ pub unsafe fn GetPhysicalCursorPos(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPhysicalCursorPos(
                 lppoint: *mut super::super::Foundation::POINT,
@@ -7887,7 +7887,7 @@ pub unsafe fn GetProcessDefaultLayout(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessDefaultLayout(
                 pdwdefaultlayout: *mut u32,
@@ -7911,7 +7911,7 @@ pub unsafe fn GetPropA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPropA(
                 hwnd: super::super::Foundation::HWND,
@@ -7937,7 +7937,7 @@ pub unsafe fn GetPropW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPropW(
                 hwnd: super::super::Foundation::HWND,
@@ -7955,7 +7955,7 @@ pub unsafe fn GetPropW<
 pub unsafe fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32;
         }
@@ -7968,7 +7968,7 @@ pub unsafe fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32 {
 pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSaveFileNameA(
                 param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEA>,
@@ -7983,7 +7983,7 @@ pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::Foun
 pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSaveFileNameW(
                 param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEW>,
@@ -7998,7 +7998,7 @@ pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::Foun
 pub unsafe fn GetShellWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetShellWindow() -> super::super::Foundation::HWND;
         }
@@ -8013,7 +8013,7 @@ pub unsafe fn GetSubMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 ) -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSubMenu(hmenu: HMENU, npos: i32) -> HMENU;
         }
@@ -8028,7 +8028,7 @@ pub unsafe fn GetSubMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32;
         }
@@ -8048,7 +8048,7 @@ pub unsafe fn GetSystemMenu<
 ) -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemMenu(
                 hwnd: super::super::Foundation::HWND,
@@ -8066,7 +8066,7 @@ pub unsafe fn GetSystemMenu<
 pub unsafe fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32;
         }
@@ -8085,7 +8085,7 @@ pub unsafe fn GetTitleBarInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTitleBarInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -8109,7 +8109,7 @@ pub unsafe fn GetTopWindow<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTopWindow(hwnd: super::super::Foundation::HWND)
                 -> super::super::Foundation::HWND;
@@ -8129,7 +8129,7 @@ pub unsafe fn GetWindow<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -8154,7 +8154,7 @@ pub unsafe fn GetWindowDisplayAffinity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowDisplayAffinity(
                 hwnd: super::super::Foundation::HWND,
@@ -8179,7 +8179,7 @@ pub unsafe fn GetWindowInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -8204,7 +8204,7 @@ pub unsafe fn GetWindowLongA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowLongA(
                 hwnd: super::super::Foundation::HWND,
@@ -8229,7 +8229,7 @@ pub unsafe fn GetWindowLongPtrA<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowLongPtrA(
                 hwnd: super::super::Foundation::HWND,
@@ -8254,7 +8254,7 @@ pub unsafe fn GetWindowLongPtrW<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowLongPtrW(
                 hwnd: super::super::Foundation::HWND,
@@ -8279,7 +8279,7 @@ pub unsafe fn GetWindowLongW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowLongW(
                 hwnd: super::super::Foundation::HWND,
@@ -8305,7 +8305,7 @@ pub unsafe fn GetWindowModuleFileNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowModuleFileNameA(
                 hwnd: super::super::Foundation::HWND,
@@ -8333,7 +8333,7 @@ pub unsafe fn GetWindowModuleFileNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowModuleFileNameW(
                 hwnd: super::super::Foundation::HWND,
@@ -8360,7 +8360,7 @@ pub unsafe fn GetWindowPlacement<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowPlacement(
                 hwnd: super::super::Foundation::HWND,
@@ -8385,7 +8385,7 @@ pub unsafe fn GetWindowRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowRect(
                 hwnd: super::super::Foundation::HWND,
@@ -8411,7 +8411,7 @@ pub unsafe fn GetWindowTextA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowTextA(
                 hwnd: super::super::Foundation::HWND,
@@ -8437,7 +8437,7 @@ pub unsafe fn GetWindowTextLengthA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowTextLengthA(hwnd: super::super::Foundation::HWND) -> i32;
         }
@@ -8455,7 +8455,7 @@ pub unsafe fn GetWindowTextLengthW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowTextLengthW(hwnd: super::super::Foundation::HWND) -> i32;
         }
@@ -8475,7 +8475,7 @@ pub unsafe fn GetWindowTextW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowTextW(
                 hwnd: super::super::Foundation::HWND,
@@ -8502,7 +8502,7 @@ pub unsafe fn GetWindowThreadProcessId<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowThreadProcessId(
                 hwnd: super::super::Foundation::HWND,
@@ -8527,7 +8527,7 @@ pub unsafe fn GetWindowWord<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowWord(hwnd: super::super::Foundation::HWND, nindex: i32) -> u16;
         }
@@ -8855,7 +8855,7 @@ pub unsafe fn HideCaret<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HideCaret(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -8877,7 +8877,7 @@ pub unsafe fn HiliteMenuItem<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HiliteMenuItem(
                 hwnd: super::super::Foundation::HWND,
@@ -9526,7 +9526,7 @@ pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
 pub unsafe fn InSendMessage() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InSendMessage() -> super::super::Foundation::BOOL;
         }
@@ -9538,7 +9538,7 @@ pub unsafe fn InSendMessage() -> super::super::Foundation::BOOL {
 pub unsafe fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32;
         }
@@ -9560,7 +9560,7 @@ pub unsafe fn IndexFilePath<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn IndexFilePath(
                 resourceindexer: *const ::std::ffi::c_void,
@@ -9630,7 +9630,7 @@ pub unsafe fn InheritWindowMonitor<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InheritWindowMonitor(
                 hwnd: super::super::Foundation::HWND,
@@ -9659,7 +9659,7 @@ pub unsafe fn InsertMenuA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InsertMenuA(
                 hmenu: HMENU,
@@ -9693,7 +9693,7 @@ pub unsafe fn InsertMenuItemA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InsertMenuItemA(
                 hmenu: HMENU,
@@ -9725,7 +9725,7 @@ pub unsafe fn InsertMenuItemW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InsertMenuItemW(
                 hmenu: HMENU,
@@ -9758,7 +9758,7 @@ pub unsafe fn InsertMenuW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InsertMenuW(
                 hmenu: HMENU,
@@ -9790,7 +9790,7 @@ pub unsafe fn InternalGetWindowText<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InternalGetWindowText(
                 hwnd: super::super::Foundation::HWND,
@@ -9816,7 +9816,7 @@ pub unsafe fn IsCharAlphaA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharAlphaA(
                 ch: super::super::System::SystemServices::CHAR,
@@ -9836,7 +9836,7 @@ pub unsafe fn IsCharAlphaNumericA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharAlphaNumericA(
                 ch: super::super::System::SystemServices::CHAR,
@@ -9851,7 +9851,7 @@ pub unsafe fn IsCharAlphaNumericA<
 pub unsafe fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL;
         }
@@ -9864,7 +9864,7 @@ pub unsafe fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL {
 pub unsafe fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL;
         }
@@ -9882,7 +9882,7 @@ pub unsafe fn IsCharLowerA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharLowerA(
                 ch: super::super::System::SystemServices::CHAR,
@@ -9902,7 +9902,7 @@ pub unsafe fn IsCharUpperA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharUpperA(
                 ch: super::super::System::SystemServices::CHAR,
@@ -9917,7 +9917,7 @@ pub unsafe fn IsCharUpperA<
 pub unsafe fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL;
         }
@@ -9937,7 +9937,7 @@ pub unsafe fn IsChild<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsChild(
                 hwndparent: super::super::Foundation::HWND,
@@ -9962,7 +9962,7 @@ pub unsafe fn IsDialogMessageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDialogMessageA(
                 hdlg: super::super::Foundation::HWND,
@@ -9987,7 +9987,7 @@ pub unsafe fn IsDialogMessageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDialogMessageW(
                 hdlg: super::super::Foundation::HWND,
@@ -10011,7 +10011,7 @@ pub unsafe fn IsGUIThread<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsGUIThread(
                 bconvert: super::super::Foundation::BOOL,
@@ -10031,7 +10031,7 @@ pub unsafe fn IsHungAppWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsHungAppWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -10051,7 +10051,7 @@ pub unsafe fn IsIconic<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsIconic(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -10066,7 +10066,7 @@ pub unsafe fn IsMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
         }
@@ -10079,7 +10079,7 @@ pub unsafe fn IsMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 pub unsafe fn IsProcessDPIAware() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsProcessDPIAware() -> super::super::Foundation::BOOL;
         }
@@ -10097,7 +10097,7 @@ pub unsafe fn IsWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -10115,7 +10115,7 @@ pub unsafe fn IsWindowUnicode<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWindowUnicode(
                 hwnd: super::super::Foundation::HWND,
@@ -10135,7 +10135,7 @@ pub unsafe fn IsWindowVisible<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWindowVisible(
                 hwnd: super::super::Foundation::HWND,
@@ -10150,7 +10150,7 @@ pub unsafe fn IsWindowVisible<
 pub unsafe fn IsWow64Message() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWow64Message() -> super::super::Foundation::BOOL;
         }
@@ -10168,7 +10168,7 @@ pub unsafe fn IsZoomed<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsZoomed(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -10286,7 +10286,7 @@ pub unsafe fn KillTimer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn KillTimer(
                 hwnd: super::super::Foundation::HWND,
@@ -10490,7 +10490,7 @@ pub unsafe fn LoadAcceleratorsA<
 ) -> HACCEL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadAcceleratorsA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10516,7 +10516,7 @@ pub unsafe fn LoadAcceleratorsW<
 ) -> HACCEL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadAcceleratorsW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10542,7 +10542,7 @@ pub unsafe fn LoadCursorA<
 ) -> HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadCursorA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10566,7 +10566,7 @@ pub unsafe fn LoadCursorFromFileA<
 ) -> HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadCursorFromFileA(lpfilename: super::super::Foundation::PSTR) -> HCURSOR;
         }
@@ -10584,7 +10584,7 @@ pub unsafe fn LoadCursorFromFileW<
 ) -> HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadCursorFromFileW(lpfilename: super::super::Foundation::PWSTR) -> HCURSOR;
         }
@@ -10604,7 +10604,7 @@ pub unsafe fn LoadCursorW<
 ) -> HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadCursorW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10630,7 +10630,7 @@ pub unsafe fn LoadIconA<
 ) -> HICON {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadIconA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10656,7 +10656,7 @@ pub unsafe fn LoadIconW<
 ) -> HICON {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadIconW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10686,7 +10686,7 @@ pub unsafe fn LoadImageA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadImageA(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -10724,7 +10724,7 @@ pub unsafe fn LoadImageW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadImageW(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -10758,7 +10758,7 @@ pub unsafe fn LoadMenuA<
 ) -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadMenuA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10776,7 +10776,7 @@ pub unsafe fn LoadMenuA<
 pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadMenuIndirectA(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU;
         }
@@ -10788,7 +10788,7 @@ pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::std::ffi::c_void) -> HM
 pub unsafe fn LoadMenuIndirectW(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadMenuIndirectW(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU;
         }
@@ -10808,7 +10808,7 @@ pub unsafe fn LoadMenuW<
 ) -> HMENU {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadMenuW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10835,7 +10835,7 @@ pub unsafe fn LoadStringA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadStringA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10866,7 +10866,7 @@ pub unsafe fn LoadStringW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadStringW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -10891,7 +10891,7 @@ pub unsafe fn LockSetForegroundWindow(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LockSetForegroundWindow(
                 ulockcode: FOREGROUND_WINDOW_LOCK_CODE,
@@ -10912,7 +10912,7 @@ pub unsafe fn LogicalToPhysicalPoint<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogicalToPhysicalPoint(
                 hwnd: super::super::Foundation::HWND,
@@ -10937,7 +10937,7 @@ pub unsafe fn LookupIconIdFromDirectory<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupIconIdFromDirectory(
                 presbits: *const u8,
@@ -10965,7 +10965,7 @@ pub unsafe fn LookupIconIdFromDirectoryEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupIconIdFromDirectoryEx(
                 presbits: *const u8,
@@ -12680,7 +12680,7 @@ pub unsafe fn MapDialogRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapDialogRect(
                 hdlg: super::super::Foundation::HWND,
@@ -12708,7 +12708,7 @@ pub unsafe fn MenuItemFromPoint<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MenuItemFromPoint(
                 hwnd: super::super::Foundation::HWND,
@@ -12739,7 +12739,7 @@ pub unsafe fn MessageBoxA<
 ) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MessageBoxA(
                 hwnd: super::super::Foundation::HWND,
@@ -12773,7 +12773,7 @@ pub unsafe fn MessageBoxExA<
 ) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MessageBoxExA(
                 hwnd: super::super::Foundation::HWND,
@@ -12809,7 +12809,7 @@ pub unsafe fn MessageBoxExW<
 ) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MessageBoxExW(
                 hwnd: super::super::Foundation::HWND,
@@ -12834,7 +12834,7 @@ pub unsafe fn MessageBoxExW<
 pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MessageBoxIndirectA(
                 lpmbp: *const ::std::mem::ManuallyDrop<MSGBOXPARAMSA>,
@@ -12849,7 +12849,7 @@ pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RES
 pub unsafe fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MessageBoxIndirectW(
                 lpmbp: *const ::std::mem::ManuallyDrop<MSGBOXPARAMSW>,
@@ -12874,7 +12874,7 @@ pub unsafe fn MessageBoxW<
 ) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MessageBoxW(
                 hwnd: super::super::Foundation::HWND,
@@ -12907,7 +12907,7 @@ pub unsafe fn ModifyMenuA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ModifyMenuA(
                 hmnu: HMENU,
@@ -12942,7 +12942,7 @@ pub unsafe fn ModifyMenuW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ModifyMenuW(
                 hmnu: HMENU,
@@ -12978,7 +12978,7 @@ pub unsafe fn MoveWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -13013,7 +13013,7 @@ pub unsafe fn MrmCreateConfig<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateConfig(
                 platformversion: MrmPlatformVersion,
@@ -13043,7 +13043,7 @@ pub unsafe fn MrmCreateConfigInMemory<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateConfigInMemory(
                 platformversion: MrmPlatformVersion,
@@ -13076,7 +13076,7 @@ pub unsafe fn MrmCreateResourceFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceFile(
                 indexer: MrmResourceIndexerHandle,
@@ -13108,7 +13108,7 @@ pub unsafe fn MrmCreateResourceFileInMemory<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceFileInMemory(
                 indexer: MrmResourceIndexerHandle,
@@ -13144,7 +13144,7 @@ pub unsafe fn MrmCreateResourceFileWithChecksum<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceFileWithChecksum(
                 indexer: MrmResourceIndexerHandle,
@@ -13181,7 +13181,7 @@ pub unsafe fn MrmCreateResourceIndexer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceIndexer(
                 packagefamilyname: super::super::Foundation::PWSTR,
@@ -13218,7 +13218,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousPriData(
                 projectroot: super::super::Foundation::PWSTR,
@@ -13257,7 +13257,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousPriFile(
                 projectroot: super::super::Foundation::PWSTR,
@@ -13294,7 +13294,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousSchemaData(
                 projectroot: super::super::Foundation::PWSTR,
@@ -13333,7 +13333,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceIndexerFromPreviousSchemaFile(
                 projectroot: super::super::Foundation::PWSTR,
@@ -13371,7 +13371,7 @@ pub unsafe fn MrmCreateResourceIndexerWithFlags<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmCreateResourceIndexerWithFlags(
                 packagefamilyname: super::super::Foundation::PWSTR,
@@ -13403,7 +13403,7 @@ pub unsafe fn MrmDestroyIndexerAndMessages<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmDestroyIndexerAndMessages(
                 indexer: MrmResourceIndexerHandle,
@@ -13425,7 +13425,7 @@ pub unsafe fn MrmDumpPriDataInMemory(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmDumpPriDataInMemory(
                 inputpridata: *const u8,
@@ -13465,7 +13465,7 @@ pub unsafe fn MrmDumpPriFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmDumpPriFile(
                 indexfilename: super::super::Foundation::PWSTR,
@@ -13499,7 +13499,7 @@ pub unsafe fn MrmDumpPriFileInMemory<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmDumpPriFileInMemory(
                 indexfilename: super::super::Foundation::PWSTR,
@@ -13546,7 +13546,7 @@ unsafe impl ::windows::runtime::Abi for MrmDumpType {
 pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::HRESULT;
         }
@@ -13564,7 +13564,7 @@ pub unsafe fn MrmGetPriFileContentChecksum<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmGetPriFileContentChecksum(
                 prifile: super::super::Foundation::PWSTR,
@@ -13593,7 +13593,7 @@ pub unsafe fn MrmIndexEmbeddedData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmIndexEmbeddedData(
                 indexer: MrmResourceIndexerHandle,
@@ -13630,7 +13630,7 @@ pub unsafe fn MrmIndexFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmIndexFile(
                 indexer: MrmResourceIndexerHandle,
@@ -13661,7 +13661,7 @@ pub unsafe fn MrmIndexFileAutoQualifiers<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmIndexFileAutoQualifiers(
                 indexer: MrmResourceIndexerHandle,
@@ -13684,7 +13684,7 @@ pub unsafe fn MrmIndexResourceContainerAutoQualifiers<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmIndexResourceContainerAutoQualifiers(
                 indexer: MrmResourceIndexerHandle,
@@ -13715,7 +13715,7 @@ pub unsafe fn MrmIndexString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmIndexString(
                 indexer: MrmResourceIndexerHandle,
@@ -13813,7 +13813,7 @@ pub unsafe fn MrmPeekResourceIndexerMessages<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mrmsupport")]
+        #[link(name = "windows")]
         extern "system" {
             fn MrmPeekResourceIndexerMessages(
                 handle: MrmResourceIndexerHandle,
@@ -14932,7 +14932,7 @@ pub unsafe fn OemToCharA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OemToCharA(
                 psrc: super::super::Foundation::PSTR,
@@ -14958,7 +14958,7 @@ pub unsafe fn OemToCharBuffA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OemToCharBuffA(
                 lpszsrc: super::super::Foundation::PSTR,
@@ -14986,7 +14986,7 @@ pub unsafe fn OemToCharBuffW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OemToCharBuffW(
                 lpszsrc: super::super::Foundation::PSTR,
@@ -15013,7 +15013,7 @@ pub unsafe fn OemToCharW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OemToCharW(
                 psrc: super::super::Foundation::PSTR,
@@ -15037,7 +15037,7 @@ pub unsafe fn OpenIcon<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenIcon(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -15976,7 +15976,7 @@ pub const PW_RENDERFULLCONTENT: u32 = 2u32;
 pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PageSetupDlgA(
                 param0: *mut ::std::mem::ManuallyDrop<PAGESETUPDLGA>,
@@ -15991,7 +15991,7 @@ pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::Foundat
 pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PageSetupDlgW(
                 param0: *mut ::std::mem::ManuallyDrop<PAGESETUPDLGW>,
@@ -16015,7 +16015,7 @@ pub unsafe fn PeekMessageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeekMessageA(
                 lpmsg: *mut MSG,
@@ -16049,7 +16049,7 @@ pub unsafe fn PeekMessageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeekMessageW(
                 lpmsg: *mut MSG,
@@ -16080,7 +16080,7 @@ pub unsafe fn PhysicalToLogicalPoint<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PhysicalToLogicalPoint(
                 hwnd: super::super::Foundation::HWND,
@@ -16109,7 +16109,7 @@ pub unsafe fn PostMessageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PostMessageA(
                 hwnd: super::super::Foundation::HWND,
@@ -16142,7 +16142,7 @@ pub unsafe fn PostMessageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PostMessageW(
                 hwnd: super::super::Foundation::HWND,
@@ -16164,7 +16164,7 @@ pub unsafe fn PostMessageW<
 pub unsafe fn PostQuitMessage(nexitcode: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PostQuitMessage(nexitcode: i32);
         }
@@ -16186,7 +16186,7 @@ pub unsafe fn PostThreadMessageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PostThreadMessageA(
                 idthread: u32,
@@ -16218,7 +16218,7 @@ pub unsafe fn PostThreadMessageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PostThreadMessageW(
                 idthread: u32,
@@ -16241,7 +16241,7 @@ pub unsafe fn PostThreadMessageW<
 pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintDlgA(
                 ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGA>,
@@ -16260,7 +16260,7 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::Foundation::BOOL {
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintDlgExA(
                 ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGEXA>,
@@ -16279,7 +16279,7 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::runtime::Result<(
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintDlgExW(
                 ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGEXW>,
@@ -16294,7 +16294,7 @@ pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::runtime::Result<(
 pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintDlgW(
                 ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGW>,
@@ -16321,7 +16321,7 @@ pub unsafe fn PrivateExtractIconsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrivateExtractIconsA(
                 szfilename: super::super::Foundation::PSTR,
@@ -16364,7 +16364,7 @@ pub unsafe fn PrivateExtractIconsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrivateExtractIconsW(
                 szfilename: super::super::Foundation::PWSTR,
@@ -16533,7 +16533,7 @@ pub unsafe fn RealChildWindowFromPoint<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RealChildWindowFromPoint(
                 hwndparent: super::super::Foundation::HWND,
@@ -16559,7 +16559,7 @@ pub unsafe fn RealGetWindowClassA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RealGetWindowClassA(
                 hwnd: super::super::Foundation::HWND,
@@ -16587,7 +16587,7 @@ pub unsafe fn RealGetWindowClassW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RealGetWindowClassW(
                 hwnd: super::super::Foundation::HWND,
@@ -16608,7 +16608,7 @@ pub unsafe fn RealGetWindowClassW<
 pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterClassA(lpwndclass: *const ::std::mem::ManuallyDrop<WNDCLASSA>) -> u16;
         }
@@ -16621,7 +16621,7 @@ pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
 pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterClassExA(param0: *const ::std::mem::ManuallyDrop<WNDCLASSEXA>) -> u16;
         }
@@ -16634,7 +16634,7 @@ pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
 pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterClassExW(param0: *const ::std::mem::ManuallyDrop<WNDCLASSEXW>) -> u16;
         }
@@ -16647,7 +16647,7 @@ pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
 pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterClassW(lpwndclass: *const ::std::mem::ManuallyDrop<WNDCLASSW>) -> u16;
         }
@@ -16665,7 +16665,7 @@ pub unsafe fn RegisterShellHookWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterShellHookWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -16685,7 +16685,7 @@ pub unsafe fn RegisterWindowMessageA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterWindowMessageA(lpstring: super::super::Foundation::PSTR) -> u32;
         }
@@ -16703,7 +16703,7 @@ pub unsafe fn RegisterWindowMessageW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterWindowMessageW(lpstring: super::super::Foundation::PWSTR) -> u32;
         }
@@ -16720,7 +16720,7 @@ pub unsafe fn RemoveMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveMenu(
                 hmenu: HMENU,
@@ -16748,7 +16748,7 @@ pub unsafe fn RemovePropA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemovePropA(
                 hwnd: super::super::Foundation::HWND,
@@ -16774,7 +16774,7 @@ pub unsafe fn RemovePropW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemovePropW(
                 hwnd: super::super::Foundation::HWND,
@@ -16793,7 +16793,7 @@ pub unsafe fn RemovePropW<
 pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplaceTextA(
                 param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEA>,
@@ -16808,7 +16808,7 @@ pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::Foundatio
 pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comdlg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplaceTextW(
                 param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEW>,
@@ -16828,7 +16828,7 @@ pub unsafe fn ReplyMessage<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplyMessage(
                 lresult: super::super::Foundation::LRESULT,
@@ -18088,7 +18088,7 @@ pub unsafe fn SendDlgItemMessageA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendDlgItemMessageA(
                 hdlg: super::super::Foundation::HWND,
@@ -18124,7 +18124,7 @@ pub unsafe fn SendDlgItemMessageW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendDlgItemMessageW(
                 hdlg: super::super::Foundation::HWND,
@@ -18157,7 +18157,7 @@ pub unsafe fn SendMessageA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendMessageA(
                 hwnd: super::super::Foundation::HWND,
@@ -18192,7 +18192,7 @@ pub unsafe fn SendMessageCallbackA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendMessageCallbackA(
                 hwnd: super::super::Foundation::HWND,
@@ -18231,7 +18231,7 @@ pub unsafe fn SendMessageCallbackW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendMessageCallbackW(
                 hwnd: super::super::Foundation::HWND,
@@ -18271,7 +18271,7 @@ pub unsafe fn SendMessageTimeoutA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendMessageTimeoutA(
                 hwnd: super::super::Foundation::HWND,
@@ -18313,7 +18313,7 @@ pub unsafe fn SendMessageTimeoutW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendMessageTimeoutW(
                 hwnd: super::super::Foundation::HWND,
@@ -18350,7 +18350,7 @@ pub unsafe fn SendMessageW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendMessageW(
                 hwnd: super::super::Foundation::HWND,
@@ -18383,7 +18383,7 @@ pub unsafe fn SendNotifyMessageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendNotifyMessageA(
                 hwnd: super::super::Foundation::HWND,
@@ -18416,7 +18416,7 @@ pub unsafe fn SendNotifyMessageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendNotifyMessageW(
                 hwnd: super::super::Foundation::HWND,
@@ -18439,7 +18439,7 @@ pub unsafe fn SendNotifyMessageW<
 pub unsafe fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOOL;
         }
@@ -18452,7 +18452,7 @@ pub unsafe fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOO
 pub unsafe fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -18475,7 +18475,7 @@ pub unsafe fn SetClassLongA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClassLongA(
                 hwnd: super::super::Foundation::HWND,
@@ -18503,7 +18503,7 @@ pub unsafe fn SetClassLongPtrA<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClassLongPtrA(
                 hwnd: super::super::Foundation::HWND,
@@ -18531,7 +18531,7 @@ pub unsafe fn SetClassLongPtrW<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClassLongPtrW(
                 hwnd: super::super::Foundation::HWND,
@@ -18559,7 +18559,7 @@ pub unsafe fn SetClassLongW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClassLongW(
                 hwnd: super::super::Foundation::HWND,
@@ -18587,7 +18587,7 @@ pub unsafe fn SetClassWord<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetClassWord(
                 hwnd: super::super::Foundation::HWND,
@@ -18617,7 +18617,7 @@ pub unsafe fn SetCoalescableTimer<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCoalescableTimer(
                 hwnd: super::super::Foundation::HWND,
@@ -18643,7 +18643,7 @@ pub unsafe fn SetCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSOR>>(
 ) -> HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCursor(hcursor: HCURSOR) -> HCURSOR;
         }
@@ -18656,7 +18656,7 @@ pub unsafe fn SetCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSOR>>(
 pub unsafe fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -18671,7 +18671,7 @@ pub unsafe fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
 pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDebugErrorLevel(dwlevel: u32);
         }
@@ -18693,7 +18693,7 @@ pub unsafe fn SetDlgItemInt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDlgItemInt(
                 hdlg: super::super::Foundation::HWND,
@@ -18724,7 +18724,7 @@ pub unsafe fn SetDlgItemTextA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDlgItemTextA(
                 hdlg: super::super::Foundation::HWND,
@@ -18753,7 +18753,7 @@ pub unsafe fn SetDlgItemTextW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDlgItemTextW(
                 hdlg: super::super::Foundation::HWND,
@@ -18779,7 +18779,7 @@ pub unsafe fn SetForegroundWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetForegroundWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -18802,7 +18802,7 @@ pub unsafe fn SetLayeredWindowAttributes<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLayeredWindowAttributes(
                 hwnd: super::super::Foundation::HWND,
@@ -18832,7 +18832,7 @@ pub unsafe fn SetMenu<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMenu(
                 hwnd: super::super::Foundation::HWND,
@@ -18852,7 +18852,7 @@ pub unsafe fn SetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMenuDefaultItem(
                 hmenu: HMENU,
@@ -18876,7 +18876,7 @@ pub unsafe fn SetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMenuInfo(
                 param0: HMENU,
@@ -18906,7 +18906,7 @@ pub unsafe fn SetMenuItemBitmaps<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMenuItemBitmaps(
                 hmenu: HMENU,
@@ -18940,7 +18940,7 @@ pub unsafe fn SetMenuItemInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMenuItemInfoA(
                 hmenu: HMENU,
@@ -18972,7 +18972,7 @@ pub unsafe fn SetMenuItemInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMenuItemInfoW(
                 hmenu: HMENU,
@@ -19000,7 +19000,7 @@ pub unsafe fn SetMessageExtraInfo<
 ) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMessageExtraInfo(
                 lparam: super::super::Foundation::LPARAM,
@@ -19015,7 +19015,7 @@ pub unsafe fn SetMessageExtraInfo<
 pub unsafe fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BOOL;
         }
@@ -19035,7 +19035,7 @@ pub unsafe fn SetParent<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetParent(
                 hwndchild: super::super::Foundation::HWND,
@@ -19054,7 +19054,7 @@ pub unsafe fn SetParent<
 pub unsafe fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -19070,7 +19070,7 @@ pub unsafe fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::
 pub unsafe fn SetProcessDPIAware() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDPIAware() -> super::super::Foundation::BOOL;
         }
@@ -19083,7 +19083,7 @@ pub unsafe fn SetProcessDPIAware() -> super::super::Foundation::BOOL {
 pub unsafe fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Foundation::BOOL;
         }
@@ -19107,7 +19107,7 @@ pub unsafe fn SetPropA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPropA(
                 hwnd: super::super::Foundation::HWND,
@@ -19137,7 +19137,7 @@ pub unsafe fn SetPropW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPropW(
                 hwnd: super::super::Foundation::HWND,
@@ -19162,7 +19162,7 @@ pub unsafe fn SetSysColors(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSysColors(
                 celements: i32,
@@ -19186,7 +19186,7 @@ pub unsafe fn SetSystemCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCUR
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSystemCursor(
                 hcur: HCURSOR,
@@ -19213,7 +19213,7 @@ pub unsafe fn SetTimer<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTimer(
                 hwnd: super::super::Foundation::HWND,
@@ -19242,7 +19242,7 @@ pub unsafe fn SetWindowDisplayAffinity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowDisplayAffinity(
                 hwnd: super::super::Foundation::HWND,
@@ -19268,7 +19268,7 @@ pub unsafe fn SetWindowLongA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowLongA(
                 hwnd: super::super::Foundation::HWND,
@@ -19296,7 +19296,7 @@ pub unsafe fn SetWindowLongPtrA<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowLongPtrA(
                 hwnd: super::super::Foundation::HWND,
@@ -19324,7 +19324,7 @@ pub unsafe fn SetWindowLongPtrW<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowLongPtrW(
                 hwnd: super::super::Foundation::HWND,
@@ -19352,7 +19352,7 @@ pub unsafe fn SetWindowLongW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowLongW(
                 hwnd: super::super::Foundation::HWND,
@@ -19379,7 +19379,7 @@ pub unsafe fn SetWindowPlacement<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowPlacement(
                 hwnd: super::super::Foundation::HWND,
@@ -19410,7 +19410,7 @@ pub unsafe fn SetWindowPos<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowPos(
                 hwnd: super::super::Foundation::HWND,
@@ -19446,7 +19446,7 @@ pub unsafe fn SetWindowTextA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowTextA(
                 hwnd: super::super::Foundation::HWND,
@@ -19472,7 +19472,7 @@ pub unsafe fn SetWindowTextW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowTextW(
                 hwnd: super::super::Foundation::HWND,
@@ -19498,7 +19498,7 @@ pub unsafe fn SetWindowWord<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowWord(
                 hwnd: super::super::Foundation::HWND,
@@ -19522,7 +19522,7 @@ pub unsafe fn SetWindowsHookA(
 ) -> HHOOK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookA(
                 nfiltertype: i32,
@@ -19549,7 +19549,7 @@ pub unsafe fn SetWindowsHookExA<
 ) -> HHOOK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookExA(
                 idhook: WINDOWS_HOOK_ID,
@@ -19580,7 +19580,7 @@ pub unsafe fn SetWindowsHookExW<
 ) -> HHOOK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookExW(
                 idhook: WINDOWS_HOOK_ID,
@@ -19606,7 +19606,7 @@ pub unsafe fn SetWindowsHookW(
 ) -> HHOOK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowsHookW(
                 nfiltertype: i32,
@@ -19630,7 +19630,7 @@ pub unsafe fn ShowCaret<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowCaret(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -19648,7 +19648,7 @@ pub unsafe fn ShowCursor<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowCursor(bshow: super::super::Foundation::BOOL) -> i32;
         }
@@ -19668,7 +19668,7 @@ pub unsafe fn ShowOwnedPopups<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowOwnedPopups(
                 hwnd: super::super::Foundation::HWND,
@@ -19693,7 +19693,7 @@ pub unsafe fn ShowWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -19718,7 +19718,7 @@ pub unsafe fn ShowWindowAsync<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowWindowAsync(
                 hwnd: super::super::Foundation::HWND,
@@ -19737,7 +19737,7 @@ pub unsafe fn ShowWindowAsync<
 pub unsafe fn SoundSentry() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SoundSentry() -> super::super::Foundation::BOOL;
         }
@@ -19757,7 +19757,7 @@ pub unsafe fn SwitchToThisWindow<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwitchToThisWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -19781,7 +19781,7 @@ pub unsafe fn SystemParametersInfoA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemParametersInfoA(
                 uiaction: SYSTEM_PARAMETERS_INFO_ACTION,
@@ -19809,7 +19809,7 @@ pub unsafe fn SystemParametersInfoW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemParametersInfoW(
                 uiaction: SYSTEM_PARAMETERS_INFO_ACTION,
@@ -20116,7 +20116,7 @@ pub unsafe fn TileWindows<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TileWindows(
                 hwndparent: super::super::Foundation::HWND,
@@ -20190,7 +20190,7 @@ pub unsafe fn TrackPopupMenu<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TrackPopupMenu(
                 hmenu: HMENU,
@@ -20230,7 +20230,7 @@ pub unsafe fn TrackPopupMenuEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TrackPopupMenuEx(
                 hmenu: HMENU,
@@ -20265,7 +20265,7 @@ pub unsafe fn TranslateAcceleratorA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateAcceleratorA(
                 hwnd: super::super::Foundation::HWND,
@@ -20294,7 +20294,7 @@ pub unsafe fn TranslateAcceleratorW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateAcceleratorW(
                 hwnd: super::super::Foundation::HWND,
@@ -20321,7 +20321,7 @@ pub unsafe fn TranslateMDISysAccel<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateMDISysAccel(
                 hwndclient: super::super::Foundation::HWND,
@@ -20340,7 +20340,7 @@ pub unsafe fn TranslateMDISysAccel<
 pub unsafe fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::BOOL;
         }
@@ -20480,7 +20480,7 @@ pub unsafe fn UnhookWindowsHook(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnhookWindowsHook(
                 ncode: i32,
@@ -20501,7 +20501,7 @@ pub unsafe fn UnhookWindowsHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnhookWindowsHookEx(hhk: HHOOK) -> super::super::Foundation::BOOL;
         }
@@ -20521,7 +20521,7 @@ pub unsafe fn UnregisterClassA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterClassA(
                 lpclassname: super::super::Foundation::PSTR,
@@ -20547,7 +20547,7 @@ pub unsafe fn UnregisterClassW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterClassW(
                 lpclassname: super::super::Foundation::PWSTR,
@@ -20581,7 +20581,7 @@ pub unsafe fn UpdateLayeredWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateLayeredWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -20620,7 +20620,7 @@ pub unsafe fn UpdateLayeredWindowIndirect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateLayeredWindowIndirect(
                 hwnd: super::super::Foundation::HWND,
@@ -21814,7 +21814,7 @@ pub const WVR_VREDRAW: u32 = 512u32;
 pub unsafe fn WaitMessage() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitMessage() -> super::super::Foundation::BOOL;
         }
@@ -21832,7 +21832,7 @@ pub unsafe fn WindowFromPhysicalPoint<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowFromPhysicalPoint(
                 point: super::super::Foundation::POINT,
@@ -21852,7 +21852,7 @@ pub unsafe fn WindowFromPoint<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowFromPoint(
                 point: super::super::Foundation::POINT,
@@ -21890,7 +21890,7 @@ pub unsafe fn wsprintfA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn wsprintfA(
                 param0: super::super::Foundation::PSTR,
@@ -21915,7 +21915,7 @@ pub unsafe fn wsprintfW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn wsprintfW(
                 param0: super::super::Foundation::PWSTR,
@@ -21941,7 +21941,7 @@ pub unsafe fn wvsprintfA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn wvsprintfA(
                 param0: super::super::Foundation::PSTR,
@@ -21969,7 +21969,7 @@ pub unsafe fn wvsprintfW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn wvsprintfW(
                 param0: super::super::Foundation::PWSTR,

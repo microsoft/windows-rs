@@ -72,7 +72,7 @@ pub unsafe fn WslConfigureDistribution<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-wsl-api-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WslConfigureDistribution(
                 distributionname: super::super::Foundation::PWSTR,
@@ -104,7 +104,7 @@ pub unsafe fn WslGetDistributionConfiguration<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-wsl-api-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WslGetDistributionConfiguration(
                 distributionname: super::super::Foundation::PWSTR,
@@ -137,7 +137,7 @@ pub unsafe fn WslIsDistributionRegistered<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-wsl-api-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WslIsDistributionRegistered(
                 distributionname: super::super::Foundation::PWSTR,
@@ -169,7 +169,7 @@ pub unsafe fn WslLaunch<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-wsl-api-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WslLaunch(
                 distributionname: super::super::Foundation::PWSTR,
@@ -210,7 +210,7 @@ pub unsafe fn WslLaunchInteractive<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-wsl-api-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WslLaunchInteractive(
                 distributionname: super::super::Foundation::PWSTR,
@@ -242,7 +242,7 @@ pub unsafe fn WslRegisterDistribution<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-wsl-api-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WslRegisterDistribution(
                 distributionname: super::super::Foundation::PWSTR,
@@ -267,7 +267,7 @@ pub unsafe fn WslUnregisterDistribution<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-wsl-api-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WslUnregisterDistribution(
                 distributionname: super::super::Foundation::PWSTR,

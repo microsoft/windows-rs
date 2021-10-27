@@ -48,7 +48,7 @@ unsafe impl ::windows::runtime::Abi for APP_MEMORY_INFORMATION {
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AcquireSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_SRWLOCK);
         }
@@ -61,7 +61,7 @@ pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_S
 pub unsafe fn AcquireSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AcquireSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWLOCK);
         }
@@ -80,7 +80,7 @@ pub unsafe fn AddIntegrityLabelToBoundaryDescriptor<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddIntegrityLabelToBoundaryDescriptor(
                 boundarydescriptor: *mut super::super::Foundation::HANDLE,
@@ -105,7 +105,7 @@ pub unsafe fn AddSIDToBoundaryDescriptor<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddSIDToBoundaryDescriptor(
                 boundarydescriptor: *mut super::super::Foundation::HANDLE,
@@ -131,7 +131,7 @@ pub unsafe fn AttachThreadInput<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AttachThreadInput(
                 idattach: u32,
@@ -275,7 +275,7 @@ pub unsafe fn CallbackMayRunLong(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallbackMayRunLong(
                 pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
@@ -290,7 +290,7 @@ pub unsafe fn CallbackMayRunLong(
 pub unsafe fn CancelThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelThreadpoolIo(pio: *mut super::SystemServices::TP_IO);
         }
@@ -308,7 +308,7 @@ pub unsafe fn CancelWaitableTimer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelWaitableTimer(
                 htimer: super::super::Foundation::HANDLE,
@@ -332,7 +332,7 @@ pub unsafe fn ChangeTimerQueueTimer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeTimerQueueTimer(
                 timerqueue: super::super::Foundation::HANDLE,
@@ -361,7 +361,7 @@ pub unsafe fn ClosePrivateNamespace<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClosePrivateNamespace(
                 handle: NamespaceHandle,
@@ -381,7 +381,7 @@ pub unsafe fn CloseThreadpool<'a, Param0: ::windows::runtime::IntoParam<'a, PTP_
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThreadpool(ptpp: PTP_POOL);
         }
@@ -393,7 +393,7 @@ pub unsafe fn CloseThreadpool<'a, Param0: ::windows::runtime::IntoParam<'a, PTP_
 pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThreadpoolCleanupGroup(ptpcg: isize);
         }
@@ -413,7 +413,7 @@ pub unsafe fn CloseThreadpoolCleanupGroupMembers<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThreadpoolCleanupGroupMembers(
                 ptpcg: isize,
@@ -434,7 +434,7 @@ pub unsafe fn CloseThreadpoolCleanupGroupMembers<
 pub unsafe fn CloseThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThreadpoolIo(pio: *mut super::SystemServices::TP_IO);
         }
@@ -447,7 +447,7 @@ pub unsafe fn CloseThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
 pub unsafe fn CloseThreadpoolTimer(pti: *mut super::SystemServices::TP_TIMER) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThreadpoolTimer(pti: *mut super::SystemServices::TP_TIMER);
         }
@@ -460,7 +460,7 @@ pub unsafe fn CloseThreadpoolTimer(pti: *mut super::SystemServices::TP_TIMER) {
 pub unsafe fn CloseThreadpoolWait(pwa: *mut super::SystemServices::TP_WAIT) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThreadpoolWait(pwa: *mut super::SystemServices::TP_WAIT);
         }
@@ -473,7 +473,7 @@ pub unsafe fn CloseThreadpoolWait(pwa: *mut super::SystemServices::TP_WAIT) {
 pub unsafe fn CloseThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK);
         }
@@ -486,7 +486,7 @@ pub unsafe fn CloseThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK) {
 pub unsafe fn ConvertFiberToThread() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertFiberToThread() -> super::super::Foundation::BOOL;
         }
@@ -500,7 +500,7 @@ pub unsafe fn ConvertThreadToFiber(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertThreadToFiber(
                 lpparameter: *const ::std::ffi::c_void,
@@ -517,7 +517,7 @@ pub unsafe fn ConvertThreadToFiberEx(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertThreadToFiberEx(
                 lpparameter: *const ::std::ffi::c_void,
@@ -542,7 +542,7 @@ pub unsafe fn CreateBoundaryDescriptorA<
 ) -> BoundaryDescriptorHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateBoundaryDescriptorA(
                 name: super::super::Foundation::PSTR,
@@ -567,7 +567,7 @@ pub unsafe fn CreateBoundaryDescriptorW<
 ) -> BoundaryDescriptorHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateBoundaryDescriptorW(
                 name: super::super::Foundation::PWSTR,
@@ -596,7 +596,7 @@ pub unsafe fn CreateEventA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEventA(
                 lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -627,7 +627,7 @@ pub unsafe fn CreateEventExA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEventExA(
                 lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -658,7 +658,7 @@ pub unsafe fn CreateEventExW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEventExW(
                 lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -691,7 +691,7 @@ pub unsafe fn CreateEventW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEventW(
                 lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -718,7 +718,7 @@ pub unsafe fn CreateFiber(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFiber(
                 dwstacksize: usize,
@@ -745,7 +745,7 @@ pub unsafe fn CreateFiberEx(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFiberEx(
                 dwstackcommitsize: usize,
@@ -778,7 +778,7 @@ pub unsafe fn CreateMutexA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMutexA(
                 lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -807,7 +807,7 @@ pub unsafe fn CreateMutexExA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMutexExA(
                 lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -838,7 +838,7 @@ pub unsafe fn CreateMutexExW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMutexExW(
                 lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -869,7 +869,7 @@ pub unsafe fn CreateMutexW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMutexW(
                 lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -897,7 +897,7 @@ pub unsafe fn CreatePrivateNamespaceA<
 ) -> NamespaceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePrivateNamespaceA(
                 lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -925,7 +925,7 @@ pub unsafe fn CreatePrivateNamespaceW<
 ) -> NamespaceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePrivateNamespaceW(
                 lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -963,7 +963,7 @@ pub unsafe fn CreateProcessA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProcessA(
                 lpapplicationname: super::super::Foundation::PSTR,
@@ -1017,7 +1017,7 @@ pub unsafe fn CreateProcessAsUserA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProcessAsUserA(
                 htoken: super::super::Foundation::HANDLE,
@@ -1073,7 +1073,7 @@ pub unsafe fn CreateProcessAsUserW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProcessAsUserW(
                 htoken: super::super::Foundation::HANDLE,
@@ -1127,7 +1127,7 @@ pub unsafe fn CreateProcessW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProcessW(
                 lpapplicationname: super::super::Foundation::PWSTR,
@@ -1182,7 +1182,7 @@ pub unsafe fn CreateProcessWithLogonW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProcessWithLogonW(
                 lpusername: super::super::Foundation::PWSTR,
@@ -1235,7 +1235,7 @@ pub unsafe fn CreateProcessWithTokenW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProcessWithTokenW(
                 htoken: super::super::Foundation::HANDLE,
@@ -1283,7 +1283,7 @@ pub unsafe fn CreateRemoteThread<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRemoteThread(
                 hprocess: super::super::Foundation::HANDLE,
@@ -1329,7 +1329,7 @@ pub unsafe fn CreateRemoteThreadEx<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRemoteThreadEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -1368,7 +1368,7 @@ pub unsafe fn CreateSemaphoreA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSemaphoreA(
                 lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1401,7 +1401,7 @@ pub unsafe fn CreateSemaphoreExA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSemaphoreExA(
                 lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1438,7 +1438,7 @@ pub unsafe fn CreateSemaphoreExW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSemaphoreExW(
                 lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1473,7 +1473,7 @@ pub unsafe fn CreateSemaphoreW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSemaphoreW(
                 lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1507,7 +1507,7 @@ pub unsafe fn CreateThread(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateThread(
                 lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1533,7 +1533,7 @@ pub unsafe fn CreateThread(
 pub unsafe fn CreateThreadpool(reserved: *mut ::std::ffi::c_void) -> PTP_POOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateThreadpool(reserved: *mut ::std::ffi::c_void) -> PTP_POOL;
         }
@@ -1545,7 +1545,7 @@ pub unsafe fn CreateThreadpool(reserved: *mut ::std::ffi::c_void) -> PTP_POOL {
 pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateThreadpoolCleanupGroup() -> isize;
         }
@@ -1566,7 +1566,7 @@ pub unsafe fn CreateThreadpoolIo<
 ) -> *mut super::SystemServices::TP_IO {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateThreadpoolIo(
                 fl: super::super::Foundation::HANDLE,
@@ -1595,7 +1595,7 @@ pub unsafe fn CreateThreadpoolTimer(
 ) -> *mut super::SystemServices::TP_TIMER {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateThreadpoolTimer(
                 pfnti: ::windows::runtime::RawPtr,
@@ -1622,7 +1622,7 @@ pub unsafe fn CreateThreadpoolWait(
 ) -> *mut super::SystemServices::TP_WAIT {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateThreadpoolWait(
                 pfnwa: ::windows::runtime::RawPtr,
@@ -1649,7 +1649,7 @@ pub unsafe fn CreateThreadpoolWork(
 ) -> *mut super::SystemServices::TP_WORK {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateThreadpoolWork(
                 pfnwk: ::windows::runtime::RawPtr,
@@ -1672,7 +1672,7 @@ pub unsafe fn CreateThreadpoolWork(
 pub unsafe fn CreateTimerQueue() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTimerQueue() -> super::super::Foundation::HANDLE;
         }
@@ -1696,7 +1696,7 @@ pub unsafe fn CreateTimerQueueTimer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTimerQueueTimer(
                 phnewtimer: *mut super::super::Foundation::HANDLE,
@@ -1727,7 +1727,7 @@ pub unsafe fn CreateUmsCompletionList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateUmsCompletionList(
                 umscompletionlist: *mut *mut ::std::ffi::c_void,
@@ -1746,7 +1746,7 @@ pub unsafe fn CreateUmsThreadContext(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateUmsThreadContext(
                 lpumsthread: *mut *mut ::std::ffi::c_void,
@@ -1769,7 +1769,7 @@ pub unsafe fn CreateWaitableTimerExW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWaitableTimerExW(
                 lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1800,7 +1800,7 @@ pub unsafe fn CreateWaitableTimerW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWaitableTimerW(
                 lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1825,7 +1825,7 @@ pub unsafe fn DeleteBoundaryDescriptor<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle);
         }
@@ -1846,7 +1846,7 @@ pub unsafe fn DeleteCriticalSection(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteCriticalSection(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -1862,7 +1862,7 @@ pub unsafe fn DeleteCriticalSection(
 pub unsafe fn DeleteFiber(lpfiber: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFiber(lpfiber: *const ::std::ffi::c_void);
         }
@@ -1879,7 +1879,7 @@ pub unsafe fn DeleteProcThreadAttributeList<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST);
         }
@@ -1896,7 +1896,7 @@ pub unsafe fn DeleteSynchronizationBarrier(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteSynchronizationBarrier(
                 lpbarrier: *mut super::SystemServices::RTL_BARRIER,
@@ -1918,7 +1918,7 @@ pub unsafe fn DeleteTimerQueue<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteTimerQueue(
                 timerqueue: super::super::Foundation::HANDLE,
@@ -1940,7 +1940,7 @@ pub unsafe fn DeleteTimerQueueEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteTimerQueueEx(
                 timerqueue: super::super::Foundation::HANDLE,
@@ -1968,7 +1968,7 @@ pub unsafe fn DeleteTimerQueueTimer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteTimerQueueTimer(
                 timerqueue: super::super::Foundation::HANDLE,
@@ -1991,7 +1991,7 @@ pub unsafe fn DeleteUmsCompletionList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteUmsCompletionList(
                 umscompletionlist: *const ::std::ffi::c_void,
@@ -2010,7 +2010,7 @@ pub unsafe fn DeleteUmsThreadContext(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteUmsThreadContext(
                 umsthread: *const ::std::ffi::c_void,
@@ -2029,7 +2029,7 @@ pub unsafe fn DequeueUmsCompletionListItems(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DequeueUmsCompletionListItems(
                 umscompletionlist: *const ::std::ffi::c_void,
@@ -2052,7 +2052,7 @@ pub unsafe fn DisassociateCurrentThreadFromCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisassociateCurrentThreadFromCallback(
                 pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
@@ -2075,7 +2075,7 @@ pub unsafe fn EnterCriticalSection(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnterCriticalSection(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -2095,7 +2095,7 @@ pub unsafe fn EnterSynchronizationBarrier(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnterSynchronizationBarrier(
                 lpbarrier: *mut super::SystemServices::RTL_BARRIER,
@@ -2116,7 +2116,7 @@ pub unsafe fn EnterUmsSchedulingMode(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnterUmsSchedulingMode(
                 schedulerstartupinfo: *const ::std::mem::ManuallyDrop<UMS_SCHEDULER_STARTUP_INFO>,
@@ -2135,7 +2135,7 @@ pub unsafe fn ExecuteUmsThread(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExecuteUmsThread(
                 umsthread: *mut ::std::ffi::c_void,
@@ -2149,7 +2149,7 @@ pub unsafe fn ExecuteUmsThread(
 pub unsafe fn ExitProcess(uexitcode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExitProcess(uexitcode: u32);
         }
@@ -2161,7 +2161,7 @@ pub unsafe fn ExitProcess(uexitcode: u32) {
 pub unsafe fn ExitThread(dwexitcode: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExitThread(dwexitcode: u32);
         }
@@ -2176,7 +2176,7 @@ pub unsafe fn FlsAlloc(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlsAlloc(lpcallback: ::windows::runtime::RawPtr) -> u32;
         }
@@ -2189,7 +2189,7 @@ pub unsafe fn FlsAlloc(
 pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL;
         }
@@ -2201,7 +2201,7 @@ pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlsGetValue(dwflsindex: u32) -> *mut ::std::ffi::c_void;
         }
@@ -2217,7 +2217,7 @@ pub unsafe fn FlsSetValue(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlsSetValue(
                 dwflsindex: u32,
@@ -2235,7 +2235,7 @@ pub unsafe fn FlsSetValue(
 pub unsafe fn FlushProcessWriteBuffers() {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushProcessWriteBuffers();
         }
@@ -2254,7 +2254,7 @@ pub unsafe fn FreeLibraryWhenCallbackReturns<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeLibraryWhenCallbackReturns(
                 pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
@@ -2323,7 +2323,7 @@ impl ::std::ops::Not for GET_GUI_RESOURCES_FLAGS {
 pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetActiveProcessorCount(groupnumber: u16) -> u32;
         }
@@ -2335,7 +2335,7 @@ pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
 pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetActiveProcessorGroupCount() -> u16;
         }
@@ -2348,7 +2348,7 @@ pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
 pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentProcess() -> super::super::Foundation::HANDLE;
         }
@@ -2360,7 +2360,7 @@ pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
 pub unsafe fn GetCurrentProcessId() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentProcessId() -> u32;
         }
@@ -2372,7 +2372,7 @@ pub unsafe fn GetCurrentProcessId() -> u32 {
 pub unsafe fn GetCurrentProcessorNumber() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentProcessorNumber() -> u32;
         }
@@ -2385,7 +2385,7 @@ pub unsafe fn GetCurrentProcessorNumber() -> u32 {
 pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER);
         }
@@ -2400,7 +2400,7 @@ pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCES
 pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentThread() -> super::super::Foundation::HANDLE;
         }
@@ -2412,7 +2412,7 @@ pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
 pub unsafe fn GetCurrentThreadId() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentThreadId() -> u32;
         }
@@ -2424,7 +2424,7 @@ pub unsafe fn GetCurrentThreadId() -> u32 {
 pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize);
         }
@@ -2439,7 +2439,7 @@ pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut 
 pub unsafe fn GetCurrentUmsThread() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentUmsThread() -> *mut ::std::ffi::c_void;
         }
@@ -2458,7 +2458,7 @@ pub unsafe fn GetExitCodeProcess<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExitCodeProcess(
                 hprocess: super::super::Foundation::HANDLE,
@@ -2483,7 +2483,7 @@ pub unsafe fn GetExitCodeThread<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExitCodeThread(
                 hthread: super::super::Foundation::HANDLE,
@@ -2508,7 +2508,7 @@ pub unsafe fn GetGuiResources<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGuiResources(
                 hprocess: super::super::Foundation::HANDLE,
@@ -2528,7 +2528,7 @@ pub unsafe fn GetMachineTypeAttributes(
 ) -> ::windows::runtime::Result<MACHINE_ATTRIBUTES> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMachineTypeAttributes(
                 machine: u16,
@@ -2546,7 +2546,7 @@ pub unsafe fn GetMachineTypeAttributes(
 pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMaximumProcessorCount(groupnumber: u16) -> u32;
         }
@@ -2558,7 +2558,7 @@ pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
 pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMaximumProcessorGroupCount() -> u16;
         }
@@ -2570,7 +2570,7 @@ pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
 pub unsafe fn GetNextUmsListItem(umscontext: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNextUmsListItem(umscontext: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
         }
@@ -2586,7 +2586,7 @@ pub unsafe fn GetNumaAvailableMemoryNode(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaAvailableMemoryNode(
                 node: u8,
@@ -2608,7 +2608,7 @@ pub unsafe fn GetNumaAvailableMemoryNodeEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaAvailableMemoryNodeEx(
                 node: u16,
@@ -2629,7 +2629,7 @@ pub unsafe fn GetNumaHighestNodeNumber(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaHighestNodeNumber(
                 highestnodenumber: *mut u32,
@@ -2652,7 +2652,7 @@ pub unsafe fn GetNumaNodeNumberFromHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaNodeNumberFromHandle(
                 hfile: super::super::Foundation::HANDLE,
@@ -2674,7 +2674,7 @@ pub unsafe fn GetNumaNodeProcessorMask(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaNodeProcessorMask(
                 node: u8,
@@ -2698,7 +2698,7 @@ pub unsafe fn GetNumaNodeProcessorMask2(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaNodeProcessorMask2(
                 nodenumber: u16,
@@ -2724,7 +2724,7 @@ pub unsafe fn GetNumaNodeProcessorMaskEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaNodeProcessorMaskEx(
                 node: u16,
@@ -2746,7 +2746,7 @@ pub unsafe fn GetNumaProcessorNode(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaProcessorNode(
                 processor: u8,
@@ -2768,7 +2768,7 @@ pub unsafe fn GetNumaProcessorNodeEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaProcessorNodeEx(
                 processor: *const super::Kernel::PROCESSOR_NUMBER,
@@ -2790,7 +2790,7 @@ pub unsafe fn GetNumaProximityNode(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaProximityNode(
                 proximityid: u32,
@@ -2812,7 +2812,7 @@ pub unsafe fn GetNumaProximityNodeEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumaProximityNodeEx(
                 proximityid: u32,
@@ -2836,7 +2836,7 @@ pub unsafe fn GetPriorityClass<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPriorityClass(hprocess: super::super::Foundation::HANDLE) -> u32;
         }
@@ -2856,7 +2856,7 @@ pub unsafe fn GetProcessAffinityMask<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessAffinityMask(
                 hprocess: super::super::Foundation::HANDLE,
@@ -2884,7 +2884,7 @@ pub unsafe fn GetProcessDEPPolicy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessDEPPolicy(
                 hprocess: super::super::Foundation::HANDLE,
@@ -2913,7 +2913,7 @@ pub unsafe fn GetProcessDefaultCpuSetMasks<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessDefaultCpuSetMasks(
                 process: super::super::Foundation::HANDLE,
@@ -2944,7 +2944,7 @@ pub unsafe fn GetProcessDefaultCpuSets<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessDefaultCpuSets(
                 process: super::super::Foundation::HANDLE,
@@ -2974,7 +2974,7 @@ pub unsafe fn GetProcessGroupAffinity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessGroupAffinity(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3001,7 +3001,7 @@ pub unsafe fn GetProcessHandleCount<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessHandleCount(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3025,7 +3025,7 @@ pub unsafe fn GetProcessId<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessId(process: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3043,7 +3043,7 @@ pub unsafe fn GetProcessIdOfThread<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessIdOfThread(thread: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3064,7 +3064,7 @@ pub unsafe fn GetProcessInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessInformation(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3093,7 +3093,7 @@ pub unsafe fn GetProcessIoCounters<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessIoCounters(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3120,7 +3120,7 @@ pub unsafe fn GetProcessMitigationPolicy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessMitigationPolicy(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3149,7 +3149,7 @@ pub unsafe fn GetProcessPriorityBoost<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessPriorityBoost(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3171,7 +3171,7 @@ pub unsafe fn GetProcessShutdownParameters(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessShutdownParameters(
                 lpdwlevel: *mut u32,
@@ -3199,7 +3199,7 @@ pub unsafe fn GetProcessTimes<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessTimes(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3223,7 +3223,7 @@ pub unsafe fn GetProcessTimes<
 pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessVersion(processid: u32) -> u32;
         }
@@ -3243,7 +3243,7 @@ pub unsafe fn GetProcessWorkingSetSize<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessWorkingSetSize(
                 hprocess: super::super::Foundation::HANDLE,
@@ -3264,7 +3264,7 @@ pub unsafe fn GetProcessWorkingSetSize<
 pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW);
         }
@@ -3286,7 +3286,7 @@ pub unsafe fn GetSystemCpuSetInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemCpuSetInformation(
                 information: *mut super::SystemServices::SYSTEM_CPU_SET_INFORMATION,
@@ -3315,7 +3315,7 @@ pub unsafe fn GetSystemTimes(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemTimes(
                 lpidletime: *mut super::super::Foundation::FILETIME,
@@ -3341,7 +3341,7 @@ pub unsafe fn GetThreadDescription<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadDescription(
                 hthread: super::super::Foundation::HANDLE,
@@ -3366,7 +3366,7 @@ pub unsafe fn GetThreadGroupAffinity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadGroupAffinity(
                 hthread: super::super::Foundation::HANDLE,
@@ -3391,7 +3391,7 @@ pub unsafe fn GetThreadIOPendingFlag<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadIOPendingFlag(
                 hthread: super::super::Foundation::HANDLE,
@@ -3415,7 +3415,7 @@ pub unsafe fn GetThreadId<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadId(thread: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3434,7 +3434,7 @@ pub unsafe fn GetThreadIdealProcessorEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadIdealProcessorEx(
                 hthread: super::super::Foundation::HANDLE,
@@ -3461,7 +3461,7 @@ pub unsafe fn GetThreadInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadInformation(
                 hthread: super::super::Foundation::HANDLE,
@@ -3489,7 +3489,7 @@ pub unsafe fn GetThreadPriority<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadPriority(hthread: super::super::Foundation::HANDLE) -> i32;
         }
@@ -3508,7 +3508,7 @@ pub unsafe fn GetThreadPriorityBoost<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadPriorityBoost(
                 hthread: super::super::Foundation::HANDLE,
@@ -3535,7 +3535,7 @@ pub unsafe fn GetThreadSelectedCpuSetMasks<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadSelectedCpuSetMasks(
                 thread: super::super::Foundation::HANDLE,
@@ -3566,7 +3566,7 @@ pub unsafe fn GetThreadSelectedCpuSets<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadSelectedCpuSets(
                 thread: super::super::Foundation::HANDLE,
@@ -3598,7 +3598,7 @@ pub unsafe fn GetThreadTimes<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadTimes(
                 hthread: super::super::Foundation::HANDLE,
@@ -3626,7 +3626,7 @@ pub unsafe fn GetUmsCompletionListEvent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUmsCompletionListEvent(
                 umscompletionlist: *const ::std::ffi::c_void,
@@ -3651,7 +3651,7 @@ pub unsafe fn GetUmsSystemThreadInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUmsSystemThreadInformation(
                 threadhandle: super::super::Foundation::HANDLE,
@@ -3679,7 +3679,7 @@ pub unsafe fn InitOnceBeginInitialize(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitOnceBeginInitialize(
                 lpinitonce: *mut super::SystemServices::RTL_RUN_ONCE,
@@ -3706,7 +3706,7 @@ pub unsafe fn InitOnceComplete(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitOnceComplete(
                 lpinitonce: *mut super::SystemServices::RTL_RUN_ONCE,
@@ -3732,7 +3732,7 @@ pub unsafe fn InitOnceExecuteOnce(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitOnceExecuteOnce(
                 initonce: *mut super::SystemServices::RTL_RUN_ONCE,
@@ -3755,7 +3755,7 @@ pub unsafe fn InitOnceExecuteOnce(
 pub unsafe fn InitOnceInitialize(initonce: *mut super::SystemServices::RTL_RUN_ONCE) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitOnceInitialize(initonce: *mut super::SystemServices::RTL_RUN_ONCE);
         }
@@ -3770,7 +3770,7 @@ pub unsafe fn InitializeConditionVariable(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeConditionVariable(
                 conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
@@ -3793,7 +3793,7 @@ pub unsafe fn InitializeCriticalSection(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeCriticalSection(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -3817,7 +3817,7 @@ pub unsafe fn InitializeCriticalSectionAndSpinCount(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeCriticalSectionAndSpinCount(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -3844,7 +3844,7 @@ pub unsafe fn InitializeCriticalSectionEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeCriticalSectionEx(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -3870,7 +3870,7 @@ pub unsafe fn InitializeProcThreadAttributeList(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeProcThreadAttributeList(
                 lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST,
@@ -3893,7 +3893,7 @@ pub unsafe fn InitializeProcThreadAttributeList(
 pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER);
         }
@@ -3906,7 +3906,7 @@ pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
 pub unsafe fn InitializeSRWLock(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeSRWLock(srwlock: *mut super::SystemServices::RTL_SRWLOCK);
         }
@@ -3923,7 +3923,7 @@ pub unsafe fn InitializeSynchronizationBarrier(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeSynchronizationBarrier(
                 lpbarrier: *mut super::SystemServices::RTL_BARRIER,
@@ -3946,7 +3946,7 @@ pub unsafe fn InterlockedFlushSList(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InterlockedFlushSList(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -3963,7 +3963,7 @@ pub unsafe fn InterlockedPopEntrySList(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InterlockedPopEntrySList(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -3981,7 +3981,7 @@ pub unsafe fn InterlockedPushEntrySList(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InterlockedPushEntrySList(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -4005,7 +4005,7 @@ pub unsafe fn InterlockedPushListSListEx(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InterlockedPushListSListEx(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -4033,7 +4033,7 @@ pub unsafe fn IsImmersiveProcess<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsImmersiveProcess(
                 hprocess: super::super::Foundation::HANDLE,
@@ -4054,7 +4054,7 @@ pub unsafe fn IsProcessCritical<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsProcessCritical(
                 hprocess: super::super::Foundation::HANDLE,
@@ -4075,7 +4075,7 @@ pub unsafe fn IsProcessorFeaturePresent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsProcessorFeaturePresent(
                 processorfeature: PROCESSOR_FEATURE_ID,
@@ -4092,7 +4092,7 @@ pub unsafe fn IsProcessorFeaturePresent(
 pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsThreadAFiber() -> super::super::Foundation::BOOL;
         }
@@ -4107,7 +4107,7 @@ pub unsafe fn IsThreadpoolTimerSet(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsThreadpoolTimerSet(
                 pti: *mut super::SystemServices::TP_TIMER,
@@ -4128,7 +4128,7 @@ pub unsafe fn IsWow64Process<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWow64Process(
                 hprocess: super::super::Foundation::HANDLE,
@@ -4154,7 +4154,7 @@ pub unsafe fn IsWow64Process2<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWow64Process2(
                 hprocess: super::super::Foundation::HANDLE,
@@ -4200,7 +4200,7 @@ pub unsafe fn LeaveCriticalSection(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LeaveCriticalSection(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -4224,7 +4224,7 @@ pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LeaveCriticalSectionWhenCallbackReturns(
                 pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
@@ -4438,7 +4438,7 @@ pub unsafe fn MsgWaitForMultipleObjects<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsgWaitForMultipleObjects(
                 ncount: u32,
@@ -4469,7 +4469,7 @@ pub unsafe fn MsgWaitForMultipleObjectsEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MsgWaitForMultipleObjectsEx(
                 ncount: u32,
@@ -4522,7 +4522,7 @@ pub unsafe fn NtQueryInformationProcess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtQueryInformationProcess(
                 processhandle: super::super::Foundation::HANDLE,
@@ -4557,7 +4557,7 @@ pub unsafe fn NtQueryInformationThread<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtQueryInformationThread(
                 threadhandle: super::super::Foundation::HANDLE,
@@ -4591,7 +4591,7 @@ pub unsafe fn OpenEventA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenEventA(
                 dwdesiredaccess: u32,
@@ -4620,7 +4620,7 @@ pub unsafe fn OpenEventW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenEventW(
                 dwdesiredaccess: u32,
@@ -4649,7 +4649,7 @@ pub unsafe fn OpenMutexW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenMutexW(
                 dwdesiredaccess: u32,
@@ -4676,7 +4676,7 @@ pub unsafe fn OpenPrivateNamespaceA<
 ) -> NamespaceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPrivateNamespaceA(
                 lpboundarydescriptor: *const ::std::ffi::c_void,
@@ -4701,7 +4701,7 @@ pub unsafe fn OpenPrivateNamespaceW<
 ) -> NamespaceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPrivateNamespaceW(
                 lpboundarydescriptor: *const ::std::ffi::c_void,
@@ -4727,7 +4727,7 @@ pub unsafe fn OpenProcess<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenProcess(
                 dwdesiredaccess: PROCESS_ACCESS_RIGHTS,
@@ -4755,7 +4755,7 @@ pub unsafe fn OpenProcessToken<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenProcessToken(
                 processhandle: super::super::Foundation::HANDLE,
@@ -4784,7 +4784,7 @@ pub unsafe fn OpenSemaphoreW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenSemaphoreW(
                 dwdesiredaccess: u32,
@@ -4812,7 +4812,7 @@ pub unsafe fn OpenThread<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenThread(
                 dwdesiredaccess: THREAD_ACCESS_RIGHTS,
@@ -4842,7 +4842,7 @@ pub unsafe fn OpenThreadToken<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenThreadToken(
                 threadhandle: super::super::Foundation::HANDLE,
@@ -4873,7 +4873,7 @@ pub unsafe fn OpenWaitableTimerW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenWaitableTimerW(
                 dwdesiredaccess: u32,
@@ -5901,7 +5901,7 @@ pub unsafe fn PulseEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PulseEvent(
                 hevent: super::super::Foundation::HANDLE,
@@ -5937,7 +5937,7 @@ unsafe impl ::windows::runtime::Abi for QUEUE_USER_APC_FLAGS {
 pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16;
         }
@@ -5958,7 +5958,7 @@ pub unsafe fn QueryFullProcessImageNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryFullProcessImageNameA(
                 hprocess: super::super::Foundation::HANDLE,
@@ -5989,7 +5989,7 @@ pub unsafe fn QueryFullProcessImageNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryFullProcessImageNameW(
                 hprocess: super::super::Foundation::HANDLE,
@@ -6018,7 +6018,7 @@ pub unsafe fn QueryProcessAffinityUpdateMode<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryProcessAffinityUpdateMode(
                 hprocess: super::super::Foundation::HANDLE,
@@ -6040,7 +6040,7 @@ pub unsafe fn QueryProtectedPolicy(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryProtectedPolicy(
                 policyguid: *const ::windows::runtime::GUID,
@@ -6065,7 +6065,7 @@ pub unsafe fn QueryThreadpoolStackInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryThreadpoolStackInformation(
                 ptpp: PTP_POOL,
@@ -6090,7 +6090,7 @@ pub unsafe fn QueryUmsThreadInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryUmsThreadInformation(
                 umsthread: *const ::std::ffi::c_void,
@@ -6122,7 +6122,7 @@ pub unsafe fn QueueUserAPC<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueueUserAPC(
                 pfnapc: ::windows::runtime::RawPtr,
@@ -6151,7 +6151,7 @@ pub unsafe fn QueueUserAPC2<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueueUserAPC2(
                 apcroutine: ::windows::runtime::RawPtr,
@@ -6178,7 +6178,7 @@ pub unsafe fn QueueUserWorkItem(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueueUserWorkItem(
                 function: ::windows::runtime::RawPtr,
@@ -6253,7 +6253,7 @@ pub unsafe fn RegisterWaitForSingleObject<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterWaitForSingleObject(
                 phnewwaitobject: *mut super::super::Foundation::HANDLE,
@@ -6285,7 +6285,7 @@ pub unsafe fn ReleaseMutex<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseMutex(
                 hmutex: super::super::Foundation::HANDLE,
@@ -6306,7 +6306,7 @@ pub unsafe fn ReleaseMutexWhenCallbackReturns<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseMutexWhenCallbackReturns(
                 pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
@@ -6325,7 +6325,7 @@ pub unsafe fn ReleaseMutexWhenCallbackReturns<
 pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_SRWLOCK);
         }
@@ -6338,7 +6338,7 @@ pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_S
 pub unsafe fn ReleaseSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWLOCK);
         }
@@ -6358,7 +6358,7 @@ pub unsafe fn ReleaseSemaphore<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseSemaphore(
                 hsemaphore: super::super::Foundation::HANDLE,
@@ -6386,7 +6386,7 @@ pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseSemaphoreWhenCallbackReturns(
                 pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
@@ -6412,7 +6412,7 @@ pub unsafe fn ResetEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetEvent(
                 hevent: super::super::Foundation::HANDLE,
@@ -6432,7 +6432,7 @@ pub unsafe fn ResumeThread<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResumeThread(hthread: super::super::Foundation::HANDLE) -> u32;
         }
@@ -6762,7 +6762,7 @@ pub unsafe fn SetCriticalSectionSpinCount(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCriticalSectionSpinCount(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -6786,7 +6786,7 @@ pub unsafe fn SetEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEvent(hevent: super::super::Foundation::HANDLE)
                 -> super::super::Foundation::BOOL;
@@ -6806,7 +6806,7 @@ pub unsafe fn SetEventWhenCallbackReturns<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEventWhenCallbackReturns(
                 pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
@@ -6831,7 +6831,7 @@ pub unsafe fn SetPriorityClass<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPriorityClass(
                 hprocess: super::super::Foundation::HANDLE,
@@ -6856,7 +6856,7 @@ pub unsafe fn SetProcessAffinityMask<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessAffinityMask(
                 hprocess: super::super::Foundation::HANDLE,
@@ -6881,7 +6881,7 @@ pub unsafe fn SetProcessAffinityUpdateMode<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessAffinityUpdateMode(
                 hprocess: super::super::Foundation::HANDLE,
@@ -6900,7 +6900,7 @@ pub unsafe fn SetProcessAffinityUpdateMode<
 pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL;
         }
@@ -6920,7 +6920,7 @@ pub unsafe fn SetProcessDefaultCpuSetMasks<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDefaultCpuSetMasks(
                 process: super::super::Foundation::HANDLE,
@@ -6948,7 +6948,7 @@ pub unsafe fn SetProcessDefaultCpuSets<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDefaultCpuSets(
                 process: super::super::Foundation::HANDLE,
@@ -6976,7 +6976,7 @@ pub unsafe fn SetProcessDynamicEHContinuationTargets<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDynamicEHContinuationTargets(
                 process: super::super::Foundation::HANDLE,
@@ -7004,7 +7004,7 @@ pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDynamicEnforcedCetCompatibleRanges(
                 process: super::super::Foundation::HANDLE,
@@ -7033,7 +7033,7 @@ pub unsafe fn SetProcessInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessInformation(
                 hprocess: super::super::Foundation::HANDLE,
@@ -7060,7 +7060,7 @@ pub unsafe fn SetProcessMitigationPolicy(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessMitigationPolicy(
                 mitigationpolicy: super::SystemServices::PROCESS_MITIGATION_POLICY,
@@ -7088,7 +7088,7 @@ pub unsafe fn SetProcessPriorityBoost<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessPriorityBoost(
                 hprocess: super::super::Foundation::HANDLE,
@@ -7112,7 +7112,7 @@ pub unsafe fn SetProcessRestrictionExemption<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessRestrictionExemption(
                 fenableexemption: super::super::Foundation::BOOL,
@@ -7132,7 +7132,7 @@ pub unsafe fn SetProcessShutdownParameters(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessShutdownParameters(
                 dwlevel: u32,
@@ -7158,7 +7158,7 @@ pub unsafe fn SetProcessWorkingSetSize<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessWorkingSetSize(
                 hprocess: super::super::Foundation::HANDLE,
@@ -7183,7 +7183,7 @@ pub unsafe fn SetProtectedPolicy(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProtectedPolicy(
                 policyguid: *const ::windows::runtime::GUID,
@@ -7210,7 +7210,7 @@ pub unsafe fn SetThreadAffinityMask<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadAffinityMask(
                 hthread: super::super::Foundation::HANDLE,
@@ -7236,7 +7236,7 @@ pub unsafe fn SetThreadDescription<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadDescription(
                 hthread: super::super::Foundation::HANDLE,
@@ -7263,7 +7263,7 @@ pub unsafe fn SetThreadGroupAffinity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadGroupAffinity(
                 hthread: super::super::Foundation::HANDLE,
@@ -7290,7 +7290,7 @@ pub unsafe fn SetThreadIdealProcessor<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadIdealProcessor(
                 hthread: super::super::Foundation::HANDLE,
@@ -7316,7 +7316,7 @@ pub unsafe fn SetThreadIdealProcessorEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadIdealProcessorEx(
                 hthread: super::super::Foundation::HANDLE,
@@ -7345,7 +7345,7 @@ pub unsafe fn SetThreadInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadInformation(
                 hthread: super::super::Foundation::HANDLE,
@@ -7374,7 +7374,7 @@ pub unsafe fn SetThreadPriority<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadPriority(
                 hthread: super::super::Foundation::HANDLE,
@@ -7400,7 +7400,7 @@ pub unsafe fn SetThreadPriorityBoost<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadPriorityBoost(
                 hthread: super::super::Foundation::HANDLE,
@@ -7426,7 +7426,7 @@ pub unsafe fn SetThreadSelectedCpuSetMasks<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadSelectedCpuSetMasks(
                 thread: super::super::Foundation::HANDLE,
@@ -7454,7 +7454,7 @@ pub unsafe fn SetThreadSelectedCpuSets<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadSelectedCpuSets(
                 thread: super::super::Foundation::HANDLE,
@@ -7477,7 +7477,7 @@ pub unsafe fn SetThreadStackGuarantee(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadStackGuarantee(
                 stacksizeinbytes: *mut u32,
@@ -7500,7 +7500,7 @@ pub unsafe fn SetThreadToken<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadToken(
                 thread: *const super::super::Foundation::HANDLE,
@@ -7525,7 +7525,7 @@ pub unsafe fn SetThreadpoolStackInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadpoolStackInformation(
                 ptpp: PTP_POOL,
@@ -7549,7 +7549,7 @@ pub unsafe fn SetThreadpoolThreadMaximum<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: u32);
         }
@@ -7571,7 +7571,7 @@ pub unsafe fn SetThreadpoolThreadMinimum<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadpoolThreadMinimum(
                 ptpp: PTP_POOL,
@@ -7595,7 +7595,7 @@ pub unsafe fn SetThreadpoolTimer(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadpoolTimer(
                 pti: *mut super::SystemServices::TP_TIMER,
@@ -7623,7 +7623,7 @@ pub unsafe fn SetThreadpoolTimerEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadpoolTimerEx(
                 pti: *mut super::SystemServices::TP_TIMER,
@@ -7653,7 +7653,7 @@ pub unsafe fn SetThreadpoolWait<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadpoolWait(
                 pwa: *mut super::SystemServices::TP_WAIT,
@@ -7682,7 +7682,7 @@ pub unsafe fn SetThreadpoolWaitEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadpoolWaitEx(
                 pwa: *mut super::SystemServices::TP_WAIT,
@@ -7710,7 +7710,7 @@ pub unsafe fn SetUmsThreadInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUmsThreadInformation(
                 umsthread: *const ::std::ffi::c_void,
@@ -7744,7 +7744,7 @@ pub unsafe fn SetWaitableTimer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWaitableTimer(
                 htimer: super::super::Foundation::HANDLE,
@@ -7782,7 +7782,7 @@ pub unsafe fn SetWaitableTimerEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWaitableTimerEx(
                 htimer: super::super::Foundation::HANDLE,
@@ -7810,7 +7810,7 @@ pub unsafe fn SetWaitableTimerEx<
 pub unsafe fn Sleep(dwmilliseconds: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Sleep(dwmilliseconds: u32);
         }
@@ -7831,7 +7831,7 @@ pub unsafe fn SleepConditionVariableCS(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SleepConditionVariableCS(
                 conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
@@ -7857,7 +7857,7 @@ pub unsafe fn SleepConditionVariableSRW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SleepConditionVariableSRW(
                 conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
@@ -7886,7 +7886,7 @@ pub unsafe fn SleepEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SleepEx(dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
         }
@@ -7902,7 +7902,7 @@ pub unsafe fn SleepEx<
 pub unsafe fn StartThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartThreadpoolIo(pio: *mut super::SystemServices::TP_IO);
         }
@@ -7915,7 +7915,7 @@ pub unsafe fn StartThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
 pub unsafe fn SubmitThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SubmitThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK);
         }
@@ -7933,7 +7933,7 @@ pub unsafe fn SuspendThread<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
         }
@@ -7945,7 +7945,7 @@ pub unsafe fn SuspendThread<
 pub unsafe fn SwitchToFiber(lpfiber: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwitchToFiber(lpfiber: *const ::std::ffi::c_void);
         }
@@ -7958,7 +7958,7 @@ pub unsafe fn SwitchToFiber(lpfiber: *const ::std::ffi::c_void) {
 pub unsafe fn SwitchToThread() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwitchToThread() -> super::super::Foundation::BOOL;
         }
@@ -8205,7 +8205,7 @@ pub unsafe fn TerminateProcess<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TerminateProcess(
                 hprocess: super::super::Foundation::HANDLE,
@@ -8230,7 +8230,7 @@ pub unsafe fn TerminateThread<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TerminateThread(
                 hthread: super::super::Foundation::HANDLE,
@@ -8267,7 +8267,7 @@ unsafe impl ::windows::runtime::Abi for TimerQueueHandle {
 pub unsafe fn TlsAlloc() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TlsAlloc() -> u32;
         }
@@ -8280,7 +8280,7 @@ pub unsafe fn TlsAlloc() -> u32 {
 pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL;
         }
@@ -8292,7 +8292,7 @@ pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TlsGetValue(dwtlsindex: u32) -> *mut ::std::ffi::c_void;
         }
@@ -8308,7 +8308,7 @@ pub unsafe fn TlsSetValue(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TlsSetValue(
                 dwtlsindex: u32,
@@ -8329,7 +8329,7 @@ pub unsafe fn TryAcquireSRWLockExclusive(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TryAcquireSRWLockExclusive(
                 srwlock: *mut super::SystemServices::RTL_SRWLOCK,
@@ -8346,7 +8346,7 @@ pub unsafe fn TryAcquireSRWLockShared(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TryAcquireSRWLockShared(
                 srwlock: *mut super::SystemServices::RTL_SRWLOCK,
@@ -8367,7 +8367,7 @@ pub unsafe fn TryEnterCriticalSection(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TryEnterCriticalSection(
                 lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -8388,7 +8388,7 @@ pub unsafe fn TrySubmitThreadpoolCallback(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TrySubmitThreadpoolCallback(
                 pfns: ::windows::runtime::RawPtr,
@@ -8528,7 +8528,7 @@ pub unsafe fn UmsThreadYield(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UmsThreadYield(
                 schedulerparam: *const ::std::ffi::c_void,
@@ -8548,7 +8548,7 @@ pub unsafe fn UnregisterWait<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterWait(
                 waithandle: super::super::Foundation::HANDLE,
@@ -8570,7 +8570,7 @@ pub unsafe fn UnregisterWaitEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterWaitEx(
                 waithandle: super::super::Foundation::HANDLE,
@@ -8600,7 +8600,7 @@ pub unsafe fn UpdateProcThreadAttribute<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateProcThreadAttribute(
                 lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST,
@@ -8694,7 +8694,7 @@ pub unsafe fn WaitForInputIdle<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForInputIdle(
                 hprocess: super::super::Foundation::HANDLE,
@@ -8721,7 +8721,7 @@ pub unsafe fn WaitForMultipleObjects<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForMultipleObjects(
                 ncount: u32,
@@ -8754,7 +8754,7 @@ pub unsafe fn WaitForMultipleObjectsEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForMultipleObjectsEx(
                 ncount: u32,
@@ -8785,7 +8785,7 @@ pub unsafe fn WaitForSingleObject<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForSingleObject(
                 hhandle: super::super::Foundation::HANDLE,
@@ -8812,7 +8812,7 @@ pub unsafe fn WaitForSingleObjectEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForSingleObjectEx(
                 hhandle: super::super::Foundation::HANDLE,
@@ -8839,7 +8839,7 @@ pub unsafe fn WaitForThreadpoolIoCallbacks<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForThreadpoolIoCallbacks(
                 pio: *mut super::SystemServices::TP_IO,
@@ -8864,7 +8864,7 @@ pub unsafe fn WaitForThreadpoolTimerCallbacks<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForThreadpoolTimerCallbacks(
                 pti: *mut super::SystemServices::TP_TIMER,
@@ -8889,7 +8889,7 @@ pub unsafe fn WaitForThreadpoolWaitCallbacks<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForThreadpoolWaitCallbacks(
                 pwa: *mut super::SystemServices::TP_WAIT,
@@ -8914,7 +8914,7 @@ pub unsafe fn WaitForThreadpoolWorkCallbacks<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForThreadpoolWorkCallbacks(
                 pwk: *mut super::SystemServices::TP_WORK,
@@ -8938,7 +8938,7 @@ pub unsafe fn WaitOnAddress(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitOnAddress(
                 address: *const ::std::ffi::c_void,
@@ -8963,7 +8963,7 @@ pub unsafe fn WakeAllConditionVariable(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WakeAllConditionVariable(
                 conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
@@ -8979,7 +8979,7 @@ pub unsafe fn WakeAllConditionVariable(
 pub unsafe fn WakeByAddressAll(address: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn WakeByAddressAll(address: *const ::std::ffi::c_void);
         }
@@ -8991,7 +8991,7 @@ pub unsafe fn WakeByAddressAll(address: *const ::std::ffi::c_void) {
 pub unsafe fn WakeByAddressSingle(address: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn WakeByAddressSingle(address: *const ::std::ffi::c_void);
         }
@@ -9006,7 +9006,7 @@ pub unsafe fn WakeConditionVariable(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WakeConditionVariable(
                 conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
@@ -9029,7 +9029,7 @@ pub unsafe fn WinExec<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinExec(lpcmdline: super::super::Foundation::PSTR, ucmdshow: u32) -> u32;
         }
@@ -9044,7 +9044,7 @@ pub unsafe fn WinExec<
 pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-wow64-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
         }
@@ -9064,7 +9064,7 @@ pub unsafe fn Wow64SuspendThread<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
         }

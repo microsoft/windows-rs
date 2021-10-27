@@ -117,7 +117,7 @@ pub type LPMAPISENDMAILW = unsafe extern "system" fn(
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MAPIFreeBuffer(pv: *mut ::std::ffi::c_void) -> u32;
         }

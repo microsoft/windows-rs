@@ -691,7 +691,7 @@ pub unsafe fn ActivatePackageVirtualizationContext(
 ) -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ActivatePackageVirtualizationContext(
                 context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__,
@@ -718,7 +718,7 @@ pub unsafe fn AddPackageDependency<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPackageDependency(
                 packagedependencyid: super::super::super::Foundation::PWSTR,
@@ -819,7 +819,7 @@ pub unsafe fn AppPolicyGetClrCompat<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetClrCompat(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -844,7 +844,7 @@ pub unsafe fn AppPolicyGetCreateFileAccess<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetCreateFileAccess(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -869,7 +869,7 @@ pub unsafe fn AppPolicyGetLifecycleManagement<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetLifecycleManagement(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -894,7 +894,7 @@ pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetMediaFoundationCodecLoading(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -919,7 +919,7 @@ pub unsafe fn AppPolicyGetProcessTerminationMethod<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetProcessTerminationMethod(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -944,7 +944,7 @@ pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetShowDeveloperDiagnostic(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -969,7 +969,7 @@ pub unsafe fn AppPolicyGetThreadInitializationType<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetThreadInitializationType(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -994,7 +994,7 @@ pub unsafe fn AppPolicyGetWindowingModel<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppPolicyGetWindowingModel(
                 processtoken: super::super::super::Foundation::HANDLE,
@@ -1190,7 +1190,7 @@ pub unsafe fn CheckIsMSIXPackage<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckIsMSIXPackage(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -1208,7 +1208,7 @@ pub unsafe fn CheckIsMSIXPackage<
 pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> i32;
         }
@@ -1253,7 +1253,7 @@ pub unsafe fn CreatePackageVirtualizationContext<
 ) -> ::windows::runtime::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePackageVirtualizationContext(
                 packagefamilyname: super::super::super::Foundation::PWSTR,
@@ -1293,7 +1293,7 @@ unsafe impl ::windows::runtime::Abi for DX_FEATURE_LEVEL {
 pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeactivatePackageVirtualizationContext(cookie: usize);
         }
@@ -1313,7 +1313,7 @@ pub unsafe fn DeletePackageDependency<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePackageDependency(
                 packagedependencyid: super::super::super::Foundation::PWSTR,
@@ -1329,7 +1329,7 @@ pub unsafe fn DuplicatePackageVirtualizationContext(
 ) -> ::windows::runtime::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DuplicatePackageVirtualizationContext(
                 sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__,
@@ -1358,7 +1358,7 @@ pub unsafe fn FindPackagesByPackageFamily<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindPackagesByPackageFamily(
                 packagefamilyname: super::super::super::Foundation::PWSTR,
@@ -1396,7 +1396,7 @@ pub unsafe fn FormatApplicationUserModelId<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FormatApplicationUserModelId(
                 packagefamilyname: super::super::super::Foundation::PWSTR,
@@ -1426,7 +1426,7 @@ pub unsafe fn GetApplicationUserModelId<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetApplicationUserModelId(
                 hprocess: super::super::super::Foundation::HANDLE,
@@ -1454,7 +1454,7 @@ pub unsafe fn GetApplicationUserModelIdFromToken<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetApplicationUserModelIdFromToken(
                 token: super::super::super::Foundation::HANDLE,
@@ -1478,7 +1478,7 @@ pub unsafe fn GetCurrentApplicationUserModelId(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentApplicationUserModelId(
                 applicationusermodelidlength: *mut u32,
@@ -1500,7 +1500,7 @@ pub unsafe fn GetCurrentPackageFamilyName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackageFamilyName(
                 packagefamilynamelength: *mut u32,
@@ -1522,7 +1522,7 @@ pub unsafe fn GetCurrentPackageFullName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackageFullName(
                 packagefullnamelength: *mut u32,
@@ -1540,7 +1540,7 @@ pub unsafe fn GetCurrentPackageFullName(
 pub unsafe fn GetCurrentPackageId(bufferlength: *mut u32, buffer: *mut u8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackageId(bufferlength: *mut u32, buffer: *mut u8) -> i32;
         }
@@ -1560,7 +1560,7 @@ pub unsafe fn GetCurrentPackageInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackageInfo(
                 flags: u32,
@@ -1588,7 +1588,7 @@ pub unsafe fn GetCurrentPackageInfo2(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackageInfo2(
                 flags: u32,
@@ -1616,7 +1616,7 @@ pub unsafe fn GetCurrentPackagePath(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackagePath(
                 pathlength: *mut u32,
@@ -1639,7 +1639,7 @@ pub unsafe fn GetCurrentPackagePath2(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackagePath2(
                 packagepathtype: PackagePathType,
@@ -1660,7 +1660,7 @@ pub unsafe fn GetCurrentPackageVirtualizationContext(
 ) -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPackageVirtualizationContext(
             ) -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__;
@@ -1676,7 +1676,7 @@ pub unsafe fn GetIdForPackageDependencyContext(
 ) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIdForPackageDependencyContext(
                 packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__,
@@ -1702,7 +1702,7 @@ pub unsafe fn GetPackageApplicationIds(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageApplicationIds(
                 packageinforeference: *const _PACKAGE_INFO_REFERENCE,
@@ -1732,7 +1732,7 @@ pub unsafe fn GetPackageFamilyName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageFamilyName(
                 hprocess: super::super::super::Foundation::HANDLE,
@@ -1760,7 +1760,7 @@ pub unsafe fn GetPackageFamilyNameFromToken<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageFamilyNameFromToken(
                 token: super::super::super::Foundation::HANDLE,
@@ -1788,7 +1788,7 @@ pub unsafe fn GetPackageFullName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageFullName(
                 hprocess: super::super::super::Foundation::HANDLE,
@@ -1816,7 +1816,7 @@ pub unsafe fn GetPackageFullNameFromToken<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageFullNameFromToken(
                 token: super::super::super::Foundation::HANDLE,
@@ -1844,7 +1844,7 @@ pub unsafe fn GetPackageId<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageId(
                 hprocess: super::super::super::Foundation::HANDLE,
@@ -1870,7 +1870,7 @@ pub unsafe fn GetPackageInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageInfo(
                 packageinforeference: *const _PACKAGE_INFO_REFERENCE,
@@ -1901,7 +1901,7 @@ pub unsafe fn GetPackageInfo2(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackageInfo2(
                 packageinforeference: *const _PACKAGE_INFO_REFERENCE,
@@ -1933,7 +1933,7 @@ pub unsafe fn GetPackagePath(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackagePath(
                 packageid: *const PACKAGE_ID,
@@ -1963,7 +1963,7 @@ pub unsafe fn GetPackagePathByFullName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackagePathByFullName(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -1992,7 +1992,7 @@ pub unsafe fn GetPackagePathByFullName2<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackagePathByFullName2(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -2024,7 +2024,7 @@ pub unsafe fn GetPackagesByPackageFamily<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPackagesByPackageFamily(
                 packagefamilyname: super::super::super::Foundation::PWSTR,
@@ -2056,7 +2056,7 @@ pub unsafe fn GetProcessesInVirtualizationContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessesInVirtualizationContext(
                 packagefamilyname: super::super::super::Foundation::PWSTR,
@@ -2083,7 +2083,7 @@ pub unsafe fn GetResolvedPackageFullNameForPackageDependency<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetResolvedPackageFullNameForPackageDependency(
                 packagedependencyid: super::super::super::Foundation::PWSTR,
@@ -2111,7 +2111,7 @@ pub unsafe fn GetStagedPackageOrigin<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStagedPackageOrigin(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -2137,7 +2137,7 @@ pub unsafe fn GetStagedPackagePathByFullName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStagedPackagePathByFullName(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -2166,7 +2166,7 @@ pub unsafe fn GetStagedPackagePathByFullName2<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStagedPackagePathByFullName2(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -12307,7 +12307,7 @@ pub unsafe fn OpenPackageInfoByFullName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPackageInfoByFullName(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -12337,7 +12337,7 @@ pub unsafe fn OpenPackageInfoByFullNameForUser<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPackageInfoByFullNameForUser(
                 usersid: super::super::super::Foundation::PSID,
@@ -12648,7 +12648,7 @@ pub unsafe fn PackageFamilyNameFromFullName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PackageFamilyNameFromFullName(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -12673,7 +12673,7 @@ pub unsafe fn PackageFamilyNameFromId(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PackageFamilyNameFromId(
                 packageid: *const PACKAGE_ID,
@@ -12698,7 +12698,7 @@ pub unsafe fn PackageFullNameFromId(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PackageFullNameFromId(
                 packageid: *const PACKAGE_ID,
@@ -12727,7 +12727,7 @@ pub unsafe fn PackageIdFromFullName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PackageIdFromFullName(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -12759,7 +12759,7 @@ pub unsafe fn PackageNameAndPublisherIdFromFamilyName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PackageNameAndPublisherIdFromFamilyName(
                 packagefamilyname: super::super::super::Foundation::PWSTR,
@@ -12844,7 +12844,7 @@ pub unsafe fn ParseApplicationUserModelId<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ParseApplicationUserModelId(
                 applicationusermodelid: super::super::super::Foundation::PWSTR,
@@ -12870,7 +12870,7 @@ pub unsafe fn ReleasePackageVirtualizationContext(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleasePackageVirtualizationContext(
                 context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__,
@@ -12888,7 +12888,7 @@ pub unsafe fn RemovePackageDependency(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemovePackageDependency(
                 packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__,
@@ -12917,7 +12917,7 @@ pub unsafe fn TryCreatePackageDependency<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TryCreatePackageDependency(
                 user: super::super::super::Foundation::PSID,
@@ -12956,7 +12956,7 @@ pub unsafe fn VerifyApplicationUserModelId<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyApplicationUserModelId(
                 applicationusermodelid: super::super::super::Foundation::PWSTR,
@@ -12978,7 +12978,7 @@ pub unsafe fn VerifyPackageFamilyName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyPackageFamilyName(
                 packagefamilyname: super::super::super::Foundation::PWSTR,
@@ -13000,7 +13000,7 @@ pub unsafe fn VerifyPackageFullName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyPackageFullName(
                 packagefullname: super::super::super::Foundation::PWSTR,
@@ -13015,7 +13015,7 @@ pub unsafe fn VerifyPackageFullName<
 pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyPackageId(packageid: *const PACKAGE_ID) -> i32;
         }
@@ -13033,7 +13033,7 @@ pub unsafe fn VerifyPackageRelativeApplicationId<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-appmodel-runtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyPackageRelativeApplicationId(
                 packagerelativeapplicationid: super::super::super::Foundation::PWSTR,

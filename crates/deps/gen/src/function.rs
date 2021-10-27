@@ -13,17 +13,21 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 
     let abi_return_type = gen_win32_return_sig(&signature, gen);
 
-    let link = def
-        .impl_map()
-        .expect("Function")
-        .scope()
-        .name()
-        .to_lowercase();
-
     let link_attr = match def.static_lib() {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
         None => {
-            quote! { #[link(name = #link)] }
+            if gen.relative.starts_with("Windows.") {
+                quote! { #[link(name = "windows")] }
+            } else {
+                let link = def
+                    .impl_map()
+                    .expect("Function")
+                    .scope()
+                    .name()
+                    .to_lowercase();
+
+                quote! { #[link(name = #link)] }
+            }
         }
     };
 

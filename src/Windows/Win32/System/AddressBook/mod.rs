@@ -188,7 +188,7 @@ pub unsafe fn BuildDisplayTable<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildDisplayTable(
                 lpallocatebuffer: ::windows::runtime::RawPtr,
@@ -237,7 +237,7 @@ pub unsafe fn ChangeIdleRoutine(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeIdleRoutine(
                 ftg: *mut ::std::ffi::c_void,
@@ -272,7 +272,7 @@ pub unsafe fn CreateIProp(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIProp(
                 lpinterface: *mut ::windows::runtime::GUID,
@@ -308,7 +308,7 @@ pub unsafe fn CreateTable(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rtm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTable(
                 lpinterface: *mut ::windows::runtime::GUID,
@@ -859,7 +859,7 @@ unsafe impl ::windows::runtime::Abi for DTPAGE_0 {
 pub unsafe fn DeinitMapiUtil() {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeinitMapiUtil();
         }
@@ -871,7 +871,7 @@ pub unsafe fn DeinitMapiUtil() {
 pub unsafe fn DeregisterIdleRoutine(ftg: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeregisterIdleRoutine(ftg: *mut ::std::ffi::c_void);
         }
@@ -1162,7 +1162,7 @@ pub unsafe fn EnableIdleRoutine<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableIdleRoutine(
                 ftg: *mut ::std::ffi::c_void,
@@ -1185,7 +1185,7 @@ pub unsafe fn FEqualNames(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FEqualNames(
                 lpname1: *mut MAPINAMEID,
@@ -1309,7 +1309,7 @@ pub unsafe fn FPropCompareProp(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FPropCompareProp(
                 lpspropvalue1: *mut SPropValue,
@@ -1334,7 +1334,7 @@ pub unsafe fn FPropContainsProp(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FPropContainsProp(
                 lpspropvaluedst: *mut SPropValue,
@@ -1358,7 +1358,7 @@ pub unsafe fn FPropExists<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPro
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FPropExists(
                 lpmapiprop: ::windows::runtime::RawPtr,
@@ -1377,7 +1377,7 @@ pub unsafe fn FPropExists<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPro
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreePadrlist(lpadrlist: *mut ADRLIST);
         }
@@ -1390,7 +1390,7 @@ pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeProws(lprows: *mut SRowSet);
         }
@@ -1410,7 +1410,7 @@ pub unsafe fn FtAddFt<
 ) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FtAddFt(
                 ftaddend1: super::super::Foundation::FILETIME,
@@ -1435,7 +1435,7 @@ pub unsafe fn FtMulDw<
 ) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FtMulDw(
                 ftmultiplier: u32,
@@ -1457,7 +1457,7 @@ pub unsafe fn FtMulDwDw(
 ) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FtMulDwDw(
                 ftmultiplicand: u32,
@@ -1481,7 +1481,7 @@ pub unsafe fn FtNegFt<
 ) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FtNegFt(
                 ft: super::super::Foundation::FILETIME,
@@ -1503,7 +1503,7 @@ pub unsafe fn FtSubFt<
 ) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FtSubFt(
                 ftminuend: super::super::Foundation::FILETIME,
@@ -1528,7 +1528,7 @@ pub unsafe fn FtgRegisterIdleRoutine(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FtgRegisterIdleRoutine(
                 lpfnidle: ::windows::runtime::RawPtr,
@@ -1579,7 +1579,7 @@ pub unsafe fn HrAddColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITa
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrAddColumns(
                 lptbl: ::windows::runtime::RawPtr,
@@ -1608,7 +1608,7 @@ pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrAddColumnsEx(
                 lptbl: ::windows::runtime::RawPtr,
@@ -1638,7 +1638,7 @@ pub unsafe fn HrAllocAdviseSink(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrAllocAdviseSink(
                 lpfncallback: ::windows::runtime::RawPtr,
@@ -1659,7 +1659,7 @@ pub unsafe fn HrAllocAdviseSink(
 pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrDispatchNotifications(ulflags: u32) -> ::windows::runtime::HRESULT;
         }
@@ -1676,7 +1676,7 @@ pub unsafe fn HrGetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPr
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrGetOneProp(
                 lpmapiprop: ::windows::runtime::RawPtr,
@@ -1706,7 +1706,7 @@ pub unsafe fn HrIStorageFromStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrIStorageFromStream(
                 lpunkin: ::windows::runtime::RawPtr,
@@ -1737,7 +1737,7 @@ pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrQueryAllRows(
                 lptable: ::windows::runtime::RawPtr,
@@ -1768,7 +1768,7 @@ pub unsafe fn HrSetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPr
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrSetOneProp(
                 lpmapiprop: ::windows::runtime::RawPtr,
@@ -1788,7 +1788,7 @@ pub unsafe fn HrThisThreadAdviseSink<
 ) -> ::windows::runtime::Result<IMAPIAdviseSink> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HrThisThreadAdviseSink(
                 lpadvisesink: ::windows::runtime::RawPtr,
@@ -10370,7 +10370,7 @@ pub unsafe fn LPropCompareProp(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPropCompareProp(
                 lpspropvaluea: *mut SPropValue,
@@ -10393,7 +10393,7 @@ pub unsafe fn LpValFindProp(
 ) -> *mut SPropValue {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LpValFindProp(
                 ulproptag: u32,
@@ -10413,7 +10413,7 @@ pub unsafe fn LpValFindProp(
 pub unsafe fn MAPIDeinitIdle() {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MAPIDeinitIdle();
         }
@@ -10466,7 +10466,7 @@ unsafe impl ::windows::runtime::Abi for MAPIERROR {
 pub unsafe fn MAPIGetDefaultMalloc() -> ::std::option::Option<super::Com::IMalloc> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MAPIGetDefaultMalloc() -> ::std::option::Option<super::Com::IMalloc>;
         }
@@ -10478,7 +10478,7 @@ pub unsafe fn MAPIGetDefaultMalloc() -> ::std::option::Option<super::Com::IMallo
 pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MAPIInitIdle(lpvreserved: *mut ::std::ffi::c_void) -> i32;
         }
@@ -10823,7 +10823,7 @@ pub unsafe fn OpenStreamOnFile(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenStreamOnFile(
                 lpallocatebuffer: ::windows::runtime::RawPtr,
@@ -10865,7 +10865,7 @@ pub unsafe fn PpropFindProp(
 ) -> *mut SPropValue {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PpropFindProp(
                 lpproparray: *mut SPropValue,
@@ -10891,7 +10891,7 @@ pub unsafe fn PropCopyMore(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropCopyMore(
                 lpspropvaluedest: *mut SPropValue,
@@ -10918,7 +10918,7 @@ pub unsafe fn RTFSync<'a, Param0: ::windows::runtime::IntoParam<'a, IMessage>>(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RTFSync(
                 lpmessage: ::windows::runtime::RawPtr,
@@ -12157,7 +12157,7 @@ pub unsafe fn ScCopyNotifications(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScCopyNotifications(
                 cnotification: i32,
@@ -12185,7 +12185,7 @@ pub unsafe fn ScCopyProps(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScCopyProps(
                 cvalues: i32,
@@ -12212,7 +12212,7 @@ pub unsafe fn ScCountNotifications(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScCountNotifications(
                 cnotifications: i32,
@@ -12233,7 +12233,7 @@ pub unsafe fn ScCountNotifications(
 pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32;
         }
@@ -12254,7 +12254,7 @@ pub unsafe fn ScCreateConversationIndex(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScCreateConversationIndex(
                 cbparent: u32,
@@ -12282,7 +12282,7 @@ pub unsafe fn ScDupPropset(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScDupPropset(
                 cvalues: i32,
@@ -12304,7 +12304,7 @@ pub unsafe fn ScDupPropset(
 pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScInitMapiUtil(ulflags: u32) -> i32;
         }
@@ -12325,7 +12325,7 @@ pub unsafe fn ScLocalPathFromUNC<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScLocalPathFromUNC(
                 lpszunc: super::super::Foundation::PSTR,
@@ -12352,7 +12352,7 @@ pub unsafe fn ScRelocNotifications(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScRelocNotifications(
                 cnotification: i32,
@@ -12383,7 +12383,7 @@ pub unsafe fn ScRelocProps(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScRelocProps(
                 cvalues: i32,
@@ -12416,7 +12416,7 @@ pub unsafe fn ScUNCFromLocalPath<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScUNCFromLocalPath(
                 lpszlocal: super::super::Foundation::PSTR,
@@ -12436,7 +12436,7 @@ pub unsafe fn ScUNCFromLocalPath<
 pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8;
         }
@@ -12451,7 +12451,7 @@ pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
 pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8;
         }
@@ -12466,7 +12466,7 @@ pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
 pub unsafe fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8;
         }
@@ -12523,7 +12523,7 @@ pub const TAD_ALL_ROWS: u32 = 1u32;
 pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UFromSz(lpsz: *mut i8) -> u32;
         }
@@ -12537,7 +12537,7 @@ pub const UI_SERVICE: u32 = 2u32;
 pub unsafe fn UlAddRef(lpunk: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UlAddRef(lpunk: *mut ::std::ffi::c_void) -> u32;
         }
@@ -12550,7 +12550,7 @@ pub unsafe fn UlAddRef(lpunk: *mut ::std::ffi::c_void) -> u32 {
 pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32;
         }
@@ -12562,7 +12562,7 @@ pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
 pub unsafe fn UlRelease(lpunk: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UlRelease(lpunk: *mut ::std::ffi::c_void) -> u32;
         }
@@ -12747,7 +12747,7 @@ pub unsafe fn WrapCompressedRTFStream<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WrapCompressedRTFStream(
                 lpcompressedrtfstream: ::windows::runtime::RawPtr,
@@ -12776,7 +12776,7 @@ pub unsafe fn WrapStoreEntryID(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WrapStoreEntryID(
                 ulflags: u32,

@@ -702,7 +702,7 @@ pub unsafe fn CallNtPowerInformation(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallNtPowerInformation(
                 informationlevel: super::SystemServices::POWER_INFORMATION_LEVEL,
@@ -727,7 +727,7 @@ pub unsafe fn CallNtPowerInformation(
 pub unsafe fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN;
         }
@@ -779,7 +779,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
 pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -792,7 +792,7 @@ pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
 pub unsafe fn DevicePowerClose() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevicePowerClose() -> super::super::Foundation::BOOLEAN;
         }
@@ -811,7 +811,7 @@ pub unsafe fn DevicePowerEnumDevices(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevicePowerEnumDevices(
                 queryindex: u32,
@@ -836,7 +836,7 @@ pub unsafe fn DevicePowerEnumDevices(
 pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -856,7 +856,7 @@ pub unsafe fn DevicePowerSetDeviceState<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevicePowerSetDeviceState(
                 devicedescription: super::super::Foundation::PWSTR,
@@ -1224,7 +1224,7 @@ pub unsafe fn EnumPwrSchemes<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPwrSchemes(
                 lpfn: ::windows::runtime::RawPtr,
@@ -1465,7 +1465,7 @@ pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows::runtime::GUID =
 pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN;
         }
@@ -1481,7 +1481,7 @@ pub unsafe fn GetCurrentPowerPolicies(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPowerPolicies(
                 pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY,
@@ -1506,7 +1506,7 @@ pub unsafe fn GetDevicePowerState<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDevicePowerState(
                 hdevice: super::super::Foundation::HANDLE,
@@ -1527,7 +1527,7 @@ pub unsafe fn GetPwrCapabilities(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPwrCapabilities(
                 lpspc: *mut SYSTEM_POWER_CAPABILITIES,
@@ -1545,7 +1545,7 @@ pub unsafe fn GetPwrDiskSpindownRange(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPwrDiskSpindownRange(
                 puimax: *mut u32,
@@ -1566,7 +1566,7 @@ pub unsafe fn GetSystemPowerStatus(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemPowerStatus(
                 lpsystempowerstatus: *mut SYSTEM_POWER_STATUS,
@@ -1632,7 +1632,7 @@ pub unsafe fn IsAdminOverrideActive(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsAdminOverrideActive(
                 papp: *const ADMINISTRATOR_POWER_POLICY,
@@ -1647,7 +1647,7 @@ pub unsafe fn IsAdminOverrideActive(
 pub unsafe fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN;
         }
@@ -1660,7 +1660,7 @@ pub unsafe fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN {
 pub unsafe fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN;
         }
@@ -1673,7 +1673,7 @@ pub unsafe fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN {
 pub unsafe fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN;
         }
@@ -1686,7 +1686,7 @@ pub unsafe fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN {
 pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL;
         }
@@ -2405,7 +2405,7 @@ pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerCanRestoreIndividualDefaultPowerScheme(
                 schemeguid: *const ::windows::runtime::GUID,
@@ -2428,7 +2428,7 @@ pub unsafe fn PowerClearRequest<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerClearRequest(
                 powerrequest: super::super::Foundation::HANDLE,
@@ -2455,7 +2455,7 @@ pub unsafe fn PowerCreatePossibleSetting<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerCreatePossibleSetting(
                 rootsystempowerkey: super::Registry::HKEY,
@@ -2480,7 +2480,7 @@ pub unsafe fn PowerCreateRequest(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerCreateRequest(
                 context: *const super::SystemServices::REASON_CONTEXT,
@@ -2502,7 +2502,7 @@ pub unsafe fn PowerCreateSetting<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerCreateSetting(
                 rootsystempowerkey: super::Registry::HKEY,
@@ -2529,7 +2529,7 @@ pub unsafe fn PowerDeleteScheme<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerDeleteScheme(
                 rootpowerkey: super::Registry::HKEY,
@@ -2547,7 +2547,7 @@ pub unsafe fn PowerDeleteScheme<
 pub unsafe fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE;
         }
@@ -2561,7 +2561,7 @@ pub unsafe fn PowerDeterminePlatformRoleEx(
 ) -> POWER_PLATFORM_ROLE {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerDeterminePlatformRoleEx(
                 version: POWER_PLATFORM_ROLE_VERSION,
@@ -2583,7 +2583,7 @@ pub unsafe fn PowerDuplicateScheme<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerDuplicateScheme(
                 rootpowerkey: super::Registry::HKEY,
@@ -2615,7 +2615,7 @@ pub unsafe fn PowerEnumerate<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerEnumerate(
                 rootpowerkey: super::Registry::HKEY,
@@ -2650,7 +2650,7 @@ pub unsafe fn PowerGetActiveScheme<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerGetActiveScheme(
                 userrootpowerkey: super::Registry::HKEY,
@@ -2677,7 +2677,7 @@ pub unsafe fn PowerImportPowerScheme<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerImportPowerScheme(
                 rootpowerkey: super::Registry::HKEY,
@@ -2701,7 +2701,7 @@ pub unsafe fn PowerIsSettingRangeDefined(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerIsSettingRangeDefined(
                 subkeyguid: *const ::windows::runtime::GUID,
@@ -2727,7 +2727,7 @@ pub unsafe fn PowerOpenSystemPowerKey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerOpenSystemPowerKey(
                 phsystempowerkey: *mut super::Registry::HKEY,
@@ -2755,7 +2755,7 @@ pub unsafe fn PowerOpenUserPowerKey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerOpenUserPowerKey(
                 phuserpowerkey: *mut super::Registry::HKEY,
@@ -2785,7 +2785,7 @@ pub unsafe fn PowerReadACDefaultIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadACDefaultIndex(
                 rootpowerkey: super::Registry::HKEY,
@@ -2821,7 +2821,7 @@ pub unsafe fn PowerReadACValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadACValue(
                 rootpowerkey: super::Registry::HKEY,
@@ -2859,7 +2859,7 @@ pub unsafe fn PowerReadACValueIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadACValueIndex(
                 rootpowerkey: super::Registry::HKEY,
@@ -2893,7 +2893,7 @@ pub unsafe fn PowerReadDCDefaultIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadDCDefaultIndex(
                 rootpowerkey: super::Registry::HKEY,
@@ -2929,7 +2929,7 @@ pub unsafe fn PowerReadDCValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadDCValue(
                 rootpowerkey: super::Registry::HKEY,
@@ -2967,7 +2967,7 @@ pub unsafe fn PowerReadDCValueIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadDCValueIndex(
                 rootpowerkey: super::Registry::HKEY,
@@ -3002,7 +3002,7 @@ pub unsafe fn PowerReadDescription<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadDescription(
                 rootpowerkey: super::Registry::HKEY,
@@ -3039,7 +3039,7 @@ pub unsafe fn PowerReadFriendlyName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadFriendlyName(
                 rootpowerkey: super::Registry::HKEY,
@@ -3076,7 +3076,7 @@ pub unsafe fn PowerReadIconResourceSpecifier<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadIconResourceSpecifier(
                 rootpowerkey: super::Registry::HKEY,
@@ -3113,7 +3113,7 @@ pub unsafe fn PowerReadPossibleDescription<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadPossibleDescription(
                 rootpowerkey: super::Registry::HKEY,
@@ -3150,7 +3150,7 @@ pub unsafe fn PowerReadPossibleFriendlyName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadPossibleFriendlyName(
                 rootpowerkey: super::Registry::HKEY,
@@ -3188,7 +3188,7 @@ pub unsafe fn PowerReadPossibleValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadPossibleValue(
                 rootpowerkey: super::Registry::HKEY,
@@ -3219,7 +3219,7 @@ pub unsafe fn PowerReadSettingAttributes(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadSettingAttributes(
                 subgroupguid: *const ::windows::runtime::GUID,
@@ -3246,7 +3246,7 @@ pub unsafe fn PowerReadValueIncrement<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadValueIncrement(
                 rootpowerkey: super::Registry::HKEY,
@@ -3277,7 +3277,7 @@ pub unsafe fn PowerReadValueMax<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadValueMax(
                 rootpowerkey: super::Registry::HKEY,
@@ -3308,7 +3308,7 @@ pub unsafe fn PowerReadValueMin<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadValueMin(
                 rootpowerkey: super::Registry::HKEY,
@@ -3340,7 +3340,7 @@ pub unsafe fn PowerReadValueUnitsSpecifier<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReadValueUnitsSpecifier(
                 rootpowerkey: super::Registry::HKEY,
@@ -3369,7 +3369,7 @@ pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerRegisterForEffectivePowerModeNotifications(
                 version: u32,
@@ -3400,7 +3400,7 @@ pub unsafe fn PowerRegisterSuspendResumeNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerRegisterSuspendResumeNotification(
                 flags: u32,
@@ -3423,7 +3423,7 @@ pub unsafe fn PowerRemovePowerSetting(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerRemovePowerSetting(
                 powersettingsubkeyguid: *const ::windows::runtime::GUID,
@@ -3441,7 +3441,7 @@ pub unsafe fn PowerRemovePowerSetting(
 pub unsafe fn PowerReplaceDefaultPowerSchemes() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReplaceDefaultPowerSchemes() -> u32;
         }
@@ -3454,7 +3454,7 @@ pub unsafe fn PowerReplaceDefaultPowerSchemes() -> u32 {
 pub unsafe fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32;
         }
@@ -3466,7 +3466,7 @@ pub unsafe fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32 {
 pub unsafe fn PowerRestoreDefaultPowerSchemes() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerRestoreDefaultPowerSchemes() -> u32;
         }
@@ -3480,7 +3480,7 @@ pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerRestoreIndividualDefaultPowerScheme(
                 schemeguid: *const ::windows::runtime::GUID,
@@ -3503,7 +3503,7 @@ pub unsafe fn PowerSetActiveScheme<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerSetActiveScheme(
                 userrootpowerkey: super::Registry::HKEY,
@@ -3528,7 +3528,7 @@ pub unsafe fn PowerSetRequest<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerSetRequest(
                 powerrequest: super::super::Foundation::HANDLE,
@@ -3549,7 +3549,7 @@ pub unsafe fn PowerSettingAccessCheck(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerSettingAccessCheck(
                 accessflags: POWER_DATA_ACCESSOR,
@@ -3572,7 +3572,7 @@ pub unsafe fn PowerSettingAccessCheckEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerSettingAccessCheckEx(
                 accessflags: POWER_DATA_ACCESSOR,
@@ -3601,7 +3601,7 @@ pub unsafe fn PowerSettingRegisterNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerSettingRegisterNotification(
                 settingguid: *const ::windows::runtime::GUID,
@@ -3628,7 +3628,7 @@ pub unsafe fn PowerSettingUnregisterNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerSettingUnregisterNotification(registrationhandle: HPOWERNOTIFY) -> u32;
         }
@@ -3644,7 +3644,7 @@ pub unsafe fn PowerUnregisterFromEffectivePowerModeNotifications(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerUnregisterFromEffectivePowerModeNotifications(
                 registrationhandle: *const ::std::ffi::c_void,
@@ -3666,7 +3666,7 @@ pub unsafe fn PowerUnregisterSuspendResumeNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerUnregisterSuspendResumeNotification(registrationhandle: HPOWERNOTIFY) -> u32;
         }
@@ -3690,7 +3690,7 @@ pub unsafe fn PowerWriteACDefaultIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteACDefaultIndex(
                 rootsystempowerkey: super::Registry::HKEY,
@@ -3724,7 +3724,7 @@ pub unsafe fn PowerWriteACValueIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteACValueIndex(
                 rootpowerkey: super::Registry::HKEY,
@@ -3758,7 +3758,7 @@ pub unsafe fn PowerWriteDCDefaultIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteDCDefaultIndex(
                 rootsystempowerkey: super::Registry::HKEY,
@@ -3792,7 +3792,7 @@ pub unsafe fn PowerWriteDCValueIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteDCValueIndex(
                 rootpowerkey: super::Registry::HKEY,
@@ -3827,7 +3827,7 @@ pub unsafe fn PowerWriteDescription<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteDescription(
                 rootpowerkey: super::Registry::HKEY,
@@ -3864,7 +3864,7 @@ pub unsafe fn PowerWriteFriendlyName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteFriendlyName(
                 rootpowerkey: super::Registry::HKEY,
@@ -3901,7 +3901,7 @@ pub unsafe fn PowerWriteIconResourceSpecifier<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteIconResourceSpecifier(
                 rootpowerkey: super::Registry::HKEY,
@@ -3938,7 +3938,7 @@ pub unsafe fn PowerWritePossibleDescription<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWritePossibleDescription(
                 rootpowerkey: super::Registry::HKEY,
@@ -3975,7 +3975,7 @@ pub unsafe fn PowerWritePossibleFriendlyName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWritePossibleFriendlyName(
                 rootpowerkey: super::Registry::HKEY,
@@ -4013,7 +4013,7 @@ pub unsafe fn PowerWritePossibleValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWritePossibleValue(
                 rootpowerkey: super::Registry::HKEY,
@@ -4045,7 +4045,7 @@ pub unsafe fn PowerWriteSettingAttributes(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteSettingAttributes(
                 subgroupguid: *const ::windows::runtime::GUID,
@@ -4074,7 +4074,7 @@ pub unsafe fn PowerWriteValueIncrement<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteValueIncrement(
                 rootpowerkey: super::Registry::HKEY,
@@ -4105,7 +4105,7 @@ pub unsafe fn PowerWriteValueMax<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteValueMax(
                 rootpowerkey: super::Registry::HKEY,
@@ -4136,7 +4136,7 @@ pub unsafe fn PowerWriteValueMin<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteValueMin(
                 rootpowerkey: super::Registry::HKEY,
@@ -4168,7 +4168,7 @@ pub unsafe fn PowerWriteValueUnitsSpecifier<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn PowerWriteValueUnitsSpecifier(
                 rootpowerkey: super::Registry::HKEY,
@@ -4195,7 +4195,7 @@ pub unsafe fn ReadGlobalPwrPolicy(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadGlobalPwrPolicy(
                 pglobalpowerpolicy: *const GLOBAL_POWER_POLICY,
@@ -4215,7 +4215,7 @@ pub unsafe fn ReadProcessorPwrScheme(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadProcessorPwrScheme(
                 uiid: u32,
@@ -4237,7 +4237,7 @@ pub unsafe fn ReadPwrScheme(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadPwrScheme(
                 uiid: u32,
@@ -4263,7 +4263,7 @@ pub unsafe fn RegisterPowerSettingNotification<
 ) -> HPOWERNOTIFY {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterPowerSettingNotification(
                 hrecipient: super::super::Foundation::HANDLE,
@@ -4290,7 +4290,7 @@ pub unsafe fn RegisterSuspendResumeNotification<
 ) -> HPOWERNOTIFY {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterSuspendResumeNotification(
                 hrecipient: super::super::Foundation::HANDLE,
@@ -4309,7 +4309,7 @@ pub unsafe fn RegisterSuspendResumeNotification<
 pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
         }
@@ -4793,7 +4793,7 @@ pub unsafe fn SetActivePwrScheme(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetActivePwrScheme(
                 uiid: u32,
@@ -4823,7 +4823,7 @@ pub unsafe fn SetSuspendState<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSuspendState(
                 bhibernate: super::super::Foundation::BOOLEAN,
@@ -4851,7 +4851,7 @@ pub unsafe fn SetSystemPowerState<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSystemPowerState(
                 fsuspend: super::super::Foundation::BOOL,
@@ -4869,7 +4869,7 @@ pub unsafe fn SetSystemPowerState<
 pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
         }
@@ -5216,7 +5216,7 @@ pub unsafe fn UnregisterPowerSettingNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterPowerSettingNotification(
                 handle: HPOWERNOTIFY,
@@ -5238,7 +5238,7 @@ pub unsafe fn UnregisterSuspendResumeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterSuspendResumeNotification(
                 handle: HPOWERNOTIFY,
@@ -5258,7 +5258,7 @@ pub unsafe fn ValidatePowerPolicies(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn ValidatePowerPolicies(
                 pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY,
@@ -5309,7 +5309,7 @@ pub unsafe fn WriteGlobalPwrPolicy(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteGlobalPwrPolicy(
                 pglobalpowerpolicy: *const GLOBAL_POWER_POLICY,
@@ -5329,7 +5329,7 @@ pub unsafe fn WriteProcessorPwrScheme(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteProcessorPwrScheme(
                 uiid: u32,
@@ -5357,7 +5357,7 @@ pub unsafe fn WritePwrScheme<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "powrprof")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePwrScheme(
                 puiid: *const u32,
