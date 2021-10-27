@@ -14,9 +14,9 @@ fn main() {
 
     let output = unsafe { std::str::from_utf8_unchecked(&output.stdout) };
 
-    let platform = if output.find("mingw64").is_some() {
+    let platform = if output.contains("mingw64") {
         "x86_64_gnu"
-    } else if output.find("mingw32").is_some() {
+    } else if output.contains("mingw32") {
         "i686_gnu"
     } else {
         println!("mingw not found");
