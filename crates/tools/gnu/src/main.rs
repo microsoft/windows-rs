@@ -5,11 +5,23 @@ use std::io::prelude::*;
 fn main() {
     let mut cmd = std::process::Command::new("where");
     cmd.arg("dlltool.exe");
+    let output = cmd.output().unwrap();
 
-    if !cmd.output().unwrap().status.success() {
+    if !output.status.success() {
         println!("dlltool.exe not found");
         return;
     }
+
+    let output = unsafe { std::str::from_utf8_unchecked(&output.stdout) };
+
+    let platform = if output.find("mingw64").is_some() {
+        "x86_64_gnu"
+    } else if output.find("mingw32").is_some() {
+        "i686_gnu"
+    } else {
+        println!("mingw not found");
+        return;
+    };
 
     let reader = TypeReader::get_mut();
 
@@ -18,19 +30,50 @@ fn main() {
     load_functions(root, &mut libraries);
 
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.push("crates\\targets");
+    output.push(format!("crates\\targets\\{}\\lib", platform));
 
-    let lib = output.join("i686_gnu\\lib");
-    let _ = std::fs::remove_dir_all(&lib);
-    std::fs::create_dir_all(&lib).unwrap();
+    let _ = std::fs::remove_dir_all(&output);
+    std::fs::create_dir_all(&output).unwrap();
 
-    let lib = output.join("x86_64_gnu\\lib");
-    let _ = std::fs::remove_dir_all(&lib);
-    std::fs::create_dir_all(&lib).unwrap();
+    let def_path = output.join("windows.def");
+    let mut def = std::fs::File::create(&def_path).unwrap();
 
     for (library, functions) in &libraries {
-        build_library(&output, library, functions);
+        def.write_all(
+            format!(
+                r#"
+LIBRARY {}
+EXPORTS
+"#,
+                library
+            )
+            .as_bytes(),
+        )
+        .unwrap();
+
+        if platform == "i686_gnu" {
+            for (function, params) in functions {
+                def.write_all(format!("{}@{}\n", function, params).as_bytes())
+                    .unwrap();
+            }
+        } else {
+            for function in functions.keys() {
+                def.write_all(format!("{}\n", function).as_bytes()).unwrap();
+            }
+        }
     }
+
+    drop(def);
+
+    let mut cmd = std::process::Command::new("dlltool");
+    cmd.current_dir(&output);
+    cmd.arg("-d");
+    cmd.arg("windows.def");
+    cmd.arg("-l");
+    cmd.arg("libwindows.a");
+    cmd.output().unwrap();
+
+    std::fs::remove_file(def_path).unwrap();
 }
 
 fn load_functions(
@@ -67,78 +110,4 @@ fn load_function(
             .or_default()
             .insert(def.name(), params);
     }
-}
-
-fn build_library(
-    output: &std::path::Path,
-    library: &str,
-    functions: &BTreeMap<&'static str, usize>,
-) {
-    println!("{}", library);
-
-    // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
-
-    let def_path = output.join(format!("{}.def", library));
-    let mut def = std::fs::File::create(&def_path).unwrap();
-
-    def.write_all(
-        format!(
-            r#"
-LIBRARY {}
-EXPORTS
-"#,
-            library
-        )
-        .as_bytes(),
-    )
-    .unwrap();
-
-    for (function, params) in functions {
-        def.write_all(format!("{}@{}\n", function, params).as_bytes())
-            .unwrap();
-    }
-
-    drop(def);
-
-    let mut cmd = std::process::Command::new("dlltool");
-    cmd.current_dir(&output);
-    cmd.arg("-m");
-    cmd.arg("i386");
-    cmd.arg("-d");
-    cmd.arg(format!("{}.def", library));
-    cmd.arg("-l");
-    cmd.arg(format!("i686_gnu\\lib\\lib{}.a", library));
-    cmd.output().unwrap();
-
-    let mut def = std::fs::File::create(&def_path).unwrap();
-
-    def.write_all(
-        format!(
-            r#"
-LIBRARY {}
-EXPORTS
-"#,
-            library
-        )
-        .as_bytes(),
-    )
-    .unwrap();
-
-    for function in functions.keys() {
-        def.write_all(format!("{}\n", function).as_bytes()).unwrap();
-    }
-
-    drop(def);
-
-    let mut cmd = std::process::Command::new("dlltool");
-    cmd.current_dir(&output);
-    cmd.arg("-m");
-    cmd.arg("i386:x86-64");
-    cmd.arg("-d");
-    cmd.arg(format!("{}.def", library));
-    cmd.arg("-l");
-    cmd.arg(format!("x86_64_gnu\\lib\\lib{}.a", library));
-    cmd.output().unwrap();
-
-    std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
 }
