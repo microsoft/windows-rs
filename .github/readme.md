@@ -12,7 +12,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-git = "https://github.com/microsoft/windows-rs"
+version = "0.22.1"
 features = [
     "Data_Xml_Dom",
     "Win32_Foundation",

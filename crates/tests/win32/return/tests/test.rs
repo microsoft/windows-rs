@@ -20,6 +20,19 @@ fn functions() -> Result<()> {
                 }
         );
 
+        assert!(
+            ReturnStructWithParams(1, 2)
+                == ReturnType {
+                    a: 123,
+                    b: 456,
+                    c: 789
+                }
+        );
+
+        assert!(ReturnSmallStruct() == SmallStruct { a: 123 });
+
+        assert!(ReturnSmallStructWithParams(1, 2) == SmallStruct { a: 123 });
+
         let mut check = 0;
         ReturnVoid(&mut check);
         assert!(check == 123);
@@ -64,6 +77,19 @@ fn members() -> Result<()> {
                     c: 789
                 }
         );
+
+        assert!(
+            object.ReturnStructWithParams(1, 2)
+                == ReturnType {
+                    a: 123,
+                    b: 456,
+                    c: 789
+                }
+        );
+
+        assert!(object.ReturnSmallStruct() == SmallStruct { a: 123 });
+
+        assert!(object.ReturnSmallStructWithParams(1, 2) == SmallStruct { a: 123 });
 
         let mut check = 0;
         object.ReturnVoid(&mut check);

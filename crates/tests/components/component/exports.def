@@ -12,3 +12,6 @@ ReturnVoid
 ReturnHresult
 ReturnNtstatus
 ReturnOutValue
+ReturnSmallStruct
+ReturnSmallStructWithParams
+ReturnStructWithParams
