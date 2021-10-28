@@ -4,7 +4,7 @@ use std::io::prelude::*;
 fn main() {
     let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.push("src\\Windows");
+    output.push("src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
@@ -44,7 +44,7 @@ fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
         r#"
 [package]
 name = "windows"
-version = "0.22.1"
+version = "0.23.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -56,13 +56,14 @@ exclude = [".github", ".windows", "docs", "tests"]
 
 [workspace]
 members = [
-    "crates/deps/*", 
-    "crates/targets/*", 
-    "crates/tools/*", 
-    "crates/tests/legacy/*", 
-    "crates/tests/metadata/*", 
-    "crates/tests/winrt/*", 
-    "crates/tests/win32/*"]
+    "crates/deps/*",
+    "crates/targets/*",
+    "crates/tools/*",
+    "crates/tests/legacy/*",
+    "crates/tests/metadata/*",
+    "crates/tests/winrt/*",
+    "crates/tests/win32/*"
+]
 exclude = ["crates/tests/component"]
 
 [package.metadata.docs.rs]
@@ -70,15 +71,15 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies]
-windows_macros = { path = "crates/deps/macros",  version = "0.22.1", optional = true }
-windows_reader = { path = "crates/deps/reader", version = "0.22.1", optional = true }
-windows_gen = { path = "crates/deps/gen",  version = "0.22.1", optional = true }
+windows_macros = { path = "crates/deps/macros",  version = "0.23.0", optional = true }
+windows_reader = { path = "crates/deps/reader", version = "0.23.0", optional = true }
+windows_gen = { path = "crates/deps/gen",  version = "0.23.0", optional = true }
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.22.1" }
+windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.23.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.22.1" }
+windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.23.0" }
 
 [features]
 default = []
@@ -136,7 +137,7 @@ fn collect_trees<'a>(
         .for_each(|tree| collect_trees(output, root, tree, trees));
 
     let mut path = std::path::PathBuf::from(output);
-    path.push(tree.namespace.replace('.', "\\"));
+    path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
 }
 
@@ -144,7 +145,7 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 
-    path.push(tree.namespace.replace('.', "\\"));
+    path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
     let tokens = gen::gen_source_file(root, tree);
