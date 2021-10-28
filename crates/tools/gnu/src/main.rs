@@ -25,7 +25,7 @@ fn main() {
     };
 
     println!("Platform: {}", platform);
-    
+
     let reader = TypeReader::get_mut();
 
     let mut libraries = BTreeMap::<String, BTreeMap<&'static str, usize>>::new();
@@ -42,12 +42,11 @@ fn main() {
         build_library(&output, library, functions, platform);
     }
 
-    build_mri(&output, &libraries.keys().collect());
-    
+    build_mri(&output, &libraries);
+
     for library in libraries.keys() {
         std::fs::remove_file(output.join(format!("lib{}.a", library))).unwrap();
     }
-
 }
 
 fn load_functions(
@@ -90,7 +89,7 @@ fn build_library(
     output: &std::path::Path,
     library: &str,
     functions: &BTreeMap<&'static str, usize>,
-    platform: &str
+    platform: &str,
 ) {
     println!("{}", library);
 
@@ -116,8 +115,7 @@ EXPORTS
             def.write_all(format!("{}@{}\n", function, params).as_bytes())
                 .unwrap();
         } else {
-            def.write_all(format!("{}\n", function).as_bytes())
-                .unwrap();
+            def.write_all(format!("{}\n", function).as_bytes()).unwrap();
         }
     }
 
@@ -125,7 +123,7 @@ EXPORTS
 
     let mut cmd = std::process::Command::new("dlltool");
     cmd.current_dir(&output);
-    
+
     if platform.eq("i686_gnu") {
         cmd.arg("-k");
     }
@@ -141,7 +139,7 @@ EXPORTS
 
 fn build_mri(
     output: &std::path::Path,
-    libraries: &Vec<&String>
+    libraries: &BTreeMap<String, BTreeMap<&'static str, usize>>,
 ) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();
@@ -149,8 +147,9 @@ fn build_mri(
 
     mri.write_all(b"CREATE libwindows.a\n").unwrap();
 
-    for library in libraries {
-        mri.write_all(format!("ADDLIB lib{}.a\n", library).as_bytes()).unwrap();
+    for library in libraries.keys() {
+        mri.write_all(format!("ADDLIB lib{}.a\n", library).as_bytes())
+            .unwrap();
     }
 
     mri.write_all(b"SAVE\nEND\n").unwrap();
