@@ -66,8 +66,7 @@ impl ImplementMacro {
                         &input.ident,
                         format!(
                             "`{}.{}` is not a class or interface",
-                            namespace,
-                            input.ident.to_string()
+                            namespace, input.ident
                         ),
                     ));
                 }
