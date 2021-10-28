@@ -6,52 +6,35 @@ pub fn gen_bstr() -> TokenStream {
         #[derive(::std::cmp::Eq)]
         pub struct BSTR(pub *mut u16);
         impl BSTR {
-            /// Create an empty `BSTR`.
-            ///
-            /// This function does not allocate memory.
             pub fn new() -> Self {
                 Self(std::ptr::null_mut())
             }
 
-            /// Returns `true` if the string is empty.
             pub fn is_empty(&self) -> bool {
-                self.0.is_null()
+                self.len() == 0
             }
 
-            /// Returns the length of the string.
             pub fn len(&self) -> usize {
-                #[link(name = "oleaut32")]
-                extern "system" {
-                    fn SysStringLen(string: *mut u16) -> u32;
+                if self.0.is_null() {
+                    0
+                } else {
+                    unsafe { SysStringLen(self) as usize }
                 }
-
-                if self.is_empty() {
-                    return 0;
-                }
-
-                unsafe { SysStringLen(self.0) as usize }
             }
 
-            /// Create a `BSTR` from a slice of 16-bit characters.
             pub fn from_wide(value: &[u16]) -> Self {
-                #[link(name = "oleaut32")]
-                extern "system" {
-                    fn SysAllocStringLen(string: *const u16, len: u32) -> *mut u16;
-                }
-
                 if value.len() == 0 {
                     return Self(::std::ptr::null_mut());
                 }
 
                 unsafe {
-                    Self(SysAllocStringLen(
-                        value.as_ptr(),
+                    SysAllocStringLen(
+                        PWSTR(value.as_ptr() as *mut _),
                         value.len() as u32,
-                    ))
+                    )
                 }
             }
 
-            /// Get the string as 16-bit characters.
             pub fn as_wide(&self) -> &[u16] {
                 if self.0.is_null() {
                     return &[];
@@ -145,13 +128,8 @@ pub fn gen_bstr() -> TokenStream {
         }
         impl ::std::ops::Drop for BSTR {
             fn drop(&mut self) {
-                #[link(name = "oleaut32")]
-                extern "system" {
-                    fn SysFreeString(string: *mut u16);
-                }
-
                 if !self.0.is_null() {
-                    unsafe { SysFreeString(self.0) }
+                    unsafe { SysFreeString(self as &Self) }
                 }
             }
         }
