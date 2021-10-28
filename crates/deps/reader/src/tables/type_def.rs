@@ -143,14 +143,22 @@ impl TypeDef {
                         _ => {}
                     });
             }
-            TypeKind::Struct => {
-                self.fields()
-                    .for_each(|f| f.include_definition(Some(self), TypeInclude::Minimal));
-
-                if let Some(dependency) = self.is_convertible_to() {
-                    dependency.include_definition(TypeInclude::Minimal);
+            TypeKind::Struct => match self.type_name() {
+                TypeName::BSTR => {
+                    let reader = TypeReader::get_mut();
+                    reader.include_type_name(TypeName::SysStringLen, include);
+                    reader.include_type_name(TypeName::SysAllocStringLen, include);
+                    reader.include_type_name(TypeName::SysFreeString, include);
                 }
-            }
+                _ => {
+                    self.fields()
+                        .for_each(|f| f.include_definition(Some(self), TypeInclude::Minimal));
+
+                    if let Some(dependency) = self.is_convertible_to() {
+                        dependency.include_definition(TypeInclude::Minimal);
+                    }
+                }
+            },
             TypeKind::Delegate => self.invoke_method().include_dependencies(),
             TypeKind::Enum => {}
         }
