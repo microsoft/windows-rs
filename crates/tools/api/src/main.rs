@@ -4,7 +4,7 @@ use std::io::prelude::*;
 fn main() {
     let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.push("src\\Windows");
+    output.push("src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
@@ -56,13 +56,14 @@ exclude = [".github", ".windows", "docs", "tests"]
 
 [workspace]
 members = [
-    "crates/deps/*", 
-    "crates/targets/*", 
-    "crates/tools/*", 
-    "crates/tests/legacy/*", 
-    "crates/tests/metadata/*", 
-    "crates/tests/winrt/*", 
-    "crates/tests/win32/*"]
+    "crates/deps/*",
+    "crates/targets/*",
+    "crates/tools/*",
+    "crates/tests/legacy/*",
+    "crates/tests/metadata/*",
+    "crates/tests/winrt/*",
+    "crates/tests/win32/*"
+]
 exclude = ["crates/tests/component"]
 
 [package.metadata.docs.rs]
@@ -136,7 +137,7 @@ fn collect_trees<'a>(
         .for_each(|tree| collect_trees(output, root, tree, trees));
 
     let mut path = std::path::PathBuf::from(output);
-    path.push(tree.namespace.replace('.', "\\"));
+    path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
 }
 
@@ -144,7 +145,7 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 
-    path.push(tree.namespace.replace('.', "\\"));
+    path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
     let tokens = gen::gen_source_file(root, tree);

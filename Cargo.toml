@@ -13,13 +13,14 @@ exclude = [".github", ".windows", "docs", "tests"]
 
 [workspace]
 members = [
-    "crates/deps/*", 
-    "crates/targets/*", 
-    "crates/tools/*", 
-    "crates/tests/legacy/*", 
-    "crates/tests/metadata/*", 
-    "crates/tests/winrt/*", 
-    "crates/tests/win32/*"]
+    "crates/deps/*",
+    "crates/targets/*",
+    "crates/tools/*",
+    "crates/tests/legacy/*",
+    "crates/tests/metadata/*",
+    "crates/tests/winrt/*",
+    "crates/tests/win32/*"
+]
 exclude = ["crates/tests/component"]
 
 [package.metadata.docs.rs]
