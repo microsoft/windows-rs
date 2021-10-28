@@ -6,13 +6,13 @@
 
 The `windows` crate lets you call any Windows API past, present, and future using code generated on the fly directly from the metadata describing the API and right into your Rust package where you can call them as if they were just another Rust module. The Rust language projection follows in the tradition established by [C++/WinRT](https://github.com/microsoft/cppwinrt) of building language projections for Windows using standard languages and compilers, providing a natural and idiomatic way for Rust developers to call Windows APIs.
 
-Looking for specific APIs? The default set of APIs are searchable and [documented here](https://microsoft.github.io/windows-docs-rs/). More examples [can be found here](https://github.com/microsoft/windows-samples-rs).
+Looking for specific APIs? The default set of APIs are searchable and [documented here](https://microsoft.github.io/windows-docs-rs/). More examples [can be found here](https://github.com/microsoft/windows-samples-rs). You can also find [the changelog here](https://github.com/microsoft/windows-rs/blob/master/.github/changelog.md).
 
 Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.22.1"
+version = "0.23.0"
 features = [
     "Data_Xml_Dom",
     "Win32_Foundation",

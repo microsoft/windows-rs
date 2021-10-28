@@ -1,3 +1,8 @@
+# 0.23
+
+- Pre-packaged libs are now merged
+- Other small improvements and fixes
+
 # 0.22
 
 - Pre-packaged APIs
