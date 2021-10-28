@@ -1,6 +1,6 @@
 [package]
 name = "windows_quote"
-version = "0.22.1"
+version = "0.23.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"

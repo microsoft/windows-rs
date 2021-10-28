@@ -5,5 +5,5 @@ edition = "2018"
 publish = false
 
 [dependencies]
-reader = { package = "windows_reader", path = "../../deps/reader", version = "0.22.1" }
-macros = { package = "windows_macros", path = "../../deps/macros", version = "0.22.1" }
+reader = { package = "windows_reader", path = "../../deps/reader", version = "0.23.0" }
+macros = { package = "windows_macros", path = "../../deps/macros", version = "0.23.0" }
