@@ -7,7 +7,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
-documentation = "https://docs.rs/windows"
+documentation = "https://microsoft.github.io/windows-docs-rs/"
 readme = ".github/readme.md"
 exclude = [".github", ".windows", "docs", "tests"]
 
