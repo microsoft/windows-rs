@@ -33,7 +33,7 @@ fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
         r#"
 [package]
 name = "windows"
-version = "0.22.1"
+version = "0.23.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -60,15 +60,15 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies]
-windows_macros = { path = "crates/deps/macros",  version = "0.22.1", optional = true }
-windows_reader = { path = "crates/deps/reader", version = "0.22.1", optional = true }
-windows_gen = { path = "crates/deps/gen",  version = "0.22.1", optional = true }
+windows_macros = { path = "crates/deps/macros",  version = "0.23.0", optional = true }
+windows_reader = { path = "crates/deps/reader", version = "0.23.0", optional = true }
+windows_gen = { path = "crates/deps/gen",  version = "0.23.0", optional = true }
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.22.1" }
+windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.23.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.22.1" }
+windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.23.0" }
 
 [features]
 default = []

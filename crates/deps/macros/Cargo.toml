@@ -1,6 +1,6 @@
 [package]
 name = "windows_macros"
-version = "0.22.1"
+version = "0.23.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -10,7 +10,7 @@ description = "Macros for the windows crate"
 proc-macro = true
 
 [dependencies]
-gen = { package = "windows_gen", path = "../gen", version = "0.22.1" }
-reader = { package = "windows_reader", path = "../reader", version = "0.22.1" }
+gen = { package = "windows_gen", path = "../gen", version = "0.23.0" }
+reader = { package = "windows_reader", path = "../reader", version = "0.23.0" }
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] }
-quote = { package = "windows_quote", path = "../quote", version = "0.22.1" }
+quote = { package = "windows_quote", path = "../quote", version = "0.23.0" }
