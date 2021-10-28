@@ -204,39 +204,25 @@ unsafe impl ::windows::runtime::Abi for BOOLEAN {
 #[derive(:: std :: cmp :: Eq)]
 pub struct BSTR(pub *mut u16);
 impl BSTR {
-    #[doc = r" Create an empty `BSTR`."]
-    #[doc = r""]
-    #[doc = r" This function does not allocate memory."]
     pub fn new() -> Self {
         Self(std::ptr::null_mut())
     }
-    #[doc = r" Returns `true` if the string is empty."]
     pub fn is_empty(&self) -> bool {
-        self.0.is_null()
+        self.len() == 0
     }
-    #[doc = r" Returns the length of the string."]
     pub fn len(&self) -> usize {
-        #[link(name = "oleaut32")]
-        extern "system" {
-            fn SysStringLen(string: *mut u16) -> u32;
+        if self.0.is_null() {
+            0
+        } else {
+            unsafe { SysStringLen(self) as usize }
         }
-        if self.is_empty() {
-            return 0;
-        }
-        unsafe { SysStringLen(self.0) as usize }
     }
-    #[doc = r" Create a `BSTR` from a slice of 16-bit characters."]
     pub fn from_wide(value: &[u16]) -> Self {
-        #[link(name = "oleaut32")]
-        extern "system" {
-            fn SysAllocStringLen(string: *const u16, len: u32) -> *mut u16;
-        }
         if value.len() == 0 {
             return Self(::std::ptr::null_mut());
         }
-        unsafe { Self(SysAllocStringLen(value.as_ptr(), value.len() as u32)) }
+        unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as *mut _), value.len() as u32) }
     }
-    #[doc = r" Get the string as 16-bit characters."]
     pub fn as_wide(&self) -> &[u16] {
         if self.0.is_null() {
             return &[];
@@ -323,12 +309,8 @@ impl ::std::cmp::PartialEq<BSTR> for &str {
 }
 impl ::std::ops::Drop for BSTR {
     fn drop(&mut self) {
-        #[link(name = "oleaut32")]
-        extern "system" {
-            fn SysFreeString(string: *mut u16);
-        }
         if !self.0.is_null() {
-            unsafe { SysFreeString(self.0) }
+            unsafe { SysFreeString(self as &Self) }
         }
     }
 }

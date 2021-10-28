@@ -3034,7 +3034,7 @@ pub mod Windows {
             ) -> BSTR {
                 #[cfg(windows)]
                 {
-                    #[link(name = "oleaut32")]
+                    #[link(name = "windows")]
                     extern "system" {
                         fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
                     }
@@ -3051,7 +3051,7 @@ pub mod Windows {
             ) {
                 #[cfg(windows)]
                 {
-                    #[link(name = "oleaut32")]
+                    #[link(name = "windows")]
                     extern "system" {
                         fn SysFreeString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
                     }
@@ -3065,7 +3065,7 @@ pub mod Windows {
             ) -> u32 {
                 #[cfg(windows)]
                 {
-                    #[link(name = "oleaut32")]
+                    #[link(name = "windows")]
                     extern "system" {
                         fn SysStringLen(pbstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
                     }
