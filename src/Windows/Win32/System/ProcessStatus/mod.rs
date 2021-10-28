@@ -107,7 +107,7 @@ pub unsafe fn K32EmptyWorkingSet<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32EmptyWorkingSet(
                 hprocess: super::super::Foundation::HANDLE,
@@ -126,7 +126,7 @@ pub unsafe fn K32EnumDeviceDrivers(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32EnumDeviceDrivers(
                 lpimagebase: *mut *mut ::std::ffi::c_void,
@@ -150,7 +150,7 @@ pub unsafe fn K32EnumPageFilesA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32EnumPageFilesA(
                 pcallbackroutine: ::windows::runtime::RawPtr,
@@ -172,7 +172,7 @@ pub unsafe fn K32EnumPageFilesW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32EnumPageFilesW(
                 pcallbackroutine: ::windows::runtime::RawPtr,
@@ -199,7 +199,7 @@ pub unsafe fn K32EnumProcessModules<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32EnumProcessModules(
                 hprocess: super::super::Foundation::HANDLE,
@@ -231,7 +231,7 @@ pub unsafe fn K32EnumProcessModulesEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32EnumProcessModulesEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -260,7 +260,7 @@ pub unsafe fn K32EnumProcesses(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32EnumProcesses(
                 lpidprocess: *mut u32,
@@ -285,7 +285,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetDeviceDriverBaseNameA(
                 imagebase: *const ::std::ffi::c_void,
@@ -310,7 +310,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetDeviceDriverBaseNameW(
                 imagebase: *const ::std::ffi::c_void,
@@ -335,7 +335,7 @@ pub unsafe fn K32GetDeviceDriverFileNameA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetDeviceDriverFileNameA(
                 imagebase: *const ::std::ffi::c_void,
@@ -360,7 +360,7 @@ pub unsafe fn K32GetDeviceDriverFileNameW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetDeviceDriverFileNameW(
                 imagebase: *const ::std::ffi::c_void,
@@ -389,7 +389,7 @@ pub unsafe fn K32GetMappedFileNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetMappedFileNameA(
                 hprocess: super::super::Foundation::HANDLE,
@@ -420,7 +420,7 @@ pub unsafe fn K32GetMappedFileNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetMappedFileNameW(
                 hprocess: super::super::Foundation::HANDLE,
@@ -452,7 +452,7 @@ pub unsafe fn K32GetModuleBaseNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetModuleBaseNameA(
                 hprocess: super::super::Foundation::HANDLE,
@@ -484,7 +484,7 @@ pub unsafe fn K32GetModuleBaseNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetModuleBaseNameW(
                 hprocess: super::super::Foundation::HANDLE,
@@ -516,7 +516,7 @@ pub unsafe fn K32GetModuleFileNameExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetModuleFileNameExA(
                 hprocess: super::super::Foundation::HANDLE,
@@ -548,7 +548,7 @@ pub unsafe fn K32GetModuleFileNameExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetModuleFileNameExW(
                 hprocess: super::super::Foundation::HANDLE,
@@ -580,7 +580,7 @@ pub unsafe fn K32GetModuleInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetModuleInformation(
                 hprocess: super::super::Foundation::HANDLE,
@@ -606,7 +606,7 @@ pub unsafe fn K32GetPerformanceInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetPerformanceInfo(
                 pperformanceinformation: *mut PERFORMANCE_INFORMATION,
@@ -632,7 +632,7 @@ pub unsafe fn K32GetProcessImageFileNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetProcessImageFileNameA(
                 hprocess: super::super::Foundation::HANDLE,
@@ -660,7 +660,7 @@ pub unsafe fn K32GetProcessImageFileNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetProcessImageFileNameW(
                 hprocess: super::super::Foundation::HANDLE,
@@ -688,7 +688,7 @@ pub unsafe fn K32GetProcessMemoryInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetProcessMemoryInfo(
                 process: super::super::Foundation::HANDLE,
@@ -716,7 +716,7 @@ pub unsafe fn K32GetWsChanges<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetWsChanges(
                 hprocess: super::super::Foundation::HANDLE,
@@ -744,7 +744,7 @@ pub unsafe fn K32GetWsChangesEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32GetWsChangesEx(
                 hprocess: super::super::Foundation::HANDLE,
@@ -770,7 +770,7 @@ pub unsafe fn K32InitializeProcessForWsWatch<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32InitializeProcessForWsWatch(
                 hprocess: super::super::Foundation::HANDLE,
@@ -792,7 +792,7 @@ pub unsafe fn K32QueryWorkingSet<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32QueryWorkingSet(
                 hprocess: super::super::Foundation::HANDLE,
@@ -820,7 +820,7 @@ pub unsafe fn K32QueryWorkingSetEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn K32QueryWorkingSetEx(
                 hprocess: super::super::Foundation::HANDLE,

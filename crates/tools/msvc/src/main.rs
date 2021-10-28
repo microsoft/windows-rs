@@ -24,14 +24,27 @@ fn main() {
     load_functions(root, &mut libraries);
 
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.push("crates\\targets");
-    output.push(platform);
-    output.push("lib");
+    output.push(format!("crates\\targets\\{}\\lib", platform));
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
     for (library, functions) in &libraries {
         build_library(&output, library, functions);
+    }
+
+    let mut cmd = std::process::Command::new("lib");
+    cmd.current_dir(&output);
+    cmd.arg("/nologo");
+    cmd.arg("/out:windows.lib");
+
+    for library in libraries.keys() {
+        cmd.arg(format!("{}.lib", library));
+    }
+
+    cmd.output().unwrap();
+
+    for library in libraries.keys() {
+        std::fs::remove_file(output.join(format!("{}.lib", library))).unwrap();
     }
 }
 

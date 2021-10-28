@@ -246,7 +246,7 @@ pub unsafe fn AcceptSecurityContext(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AcceptSecurityContext(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -293,7 +293,7 @@ pub unsafe fn AcquireCredentialsHandleA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AcquireCredentialsHandleA(
                 pszprincipal: super::super::super::super::Foundation::PSTR,
@@ -340,7 +340,7 @@ pub unsafe fn AcquireCredentialsHandleW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AcquireCredentialsHandleW(
                 pszprincipal: super::super::super::super::Foundation::PWSTR,
@@ -386,7 +386,7 @@ pub unsafe fn AddCredentialsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddCredentialsA(
                 hcredentials: *const super::super::super::Credentials::SecHandle,
@@ -430,7 +430,7 @@ pub unsafe fn AddCredentialsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddCredentialsW(
                 hcredentials: *const super::super::super::Credentials::SecHandle,
@@ -467,7 +467,7 @@ pub unsafe fn AddSecurityPackageA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddSecurityPackageA(
                 pszpackagename: super::super::super::super::Foundation::PSTR,
@@ -492,7 +492,7 @@ pub unsafe fn AddSecurityPackageW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddSecurityPackageW(
                 pszpackagename: super::super::super::super::Foundation::PWSTR,
@@ -514,7 +514,7 @@ pub unsafe fn ApplyControlToken(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyControlToken(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -541,7 +541,7 @@ pub unsafe fn AuditComputeEffectivePolicyBySid<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditComputeEffectivePolicyBySid(
                 psid: super::super::super::super::Foundation::PSID,
@@ -572,7 +572,7 @@ pub unsafe fn AuditComputeEffectivePolicyByToken<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditComputeEffectivePolicyByToken(
                 htokenhandle: super::super::super::super::Foundation::HANDLE,
@@ -598,7 +598,7 @@ pub unsafe fn AuditEnumerateCategories(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditEnumerateCategories(
                 ppauditcategoriesarray: *mut *mut ::windows::runtime::GUID,
@@ -619,7 +619,7 @@ pub unsafe fn AuditEnumeratePerUserPolicy(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditEnumeratePerUserPolicy(
                 ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY,
@@ -644,7 +644,7 @@ pub unsafe fn AuditEnumerateSubCategories<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditEnumerateSubCategories(
                 pauditcategoryguid: *const ::windows::runtime::GUID,
@@ -666,7 +666,7 @@ pub unsafe fn AuditEnumerateSubCategories<
 pub unsafe fn AuditFree(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditFree(buffer: *const ::std::ffi::c_void);
         }
@@ -682,7 +682,7 @@ pub unsafe fn AuditLookupCategoryGuidFromCategoryId(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditLookupCategoryGuidFromCategoryId(
                 auditcategoryid: POLICY_AUDIT_EVENT_TYPE,
@@ -704,7 +704,7 @@ pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditLookupCategoryIdFromCategoryGuid(
                 pauditcategoryguid: *const ::windows::runtime::GUID,
@@ -726,7 +726,7 @@ pub unsafe fn AuditLookupCategoryNameA(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditLookupCategoryNameA(
                 pauditcategoryguid: *const ::windows::runtime::GUID,
@@ -748,7 +748,7 @@ pub unsafe fn AuditLookupCategoryNameW(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditLookupCategoryNameW(
                 pauditcategoryguid: *const ::windows::runtime::GUID,
@@ -770,7 +770,7 @@ pub unsafe fn AuditLookupSubCategoryNameA(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditLookupSubCategoryNameA(
                 pauditsubcategoryguid: *const ::windows::runtime::GUID,
@@ -792,7 +792,7 @@ pub unsafe fn AuditLookupSubCategoryNameW(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditLookupSubCategoryNameW(
                 pauditsubcategoryguid: *const ::windows::runtime::GUID,
@@ -817,7 +817,7 @@ pub unsafe fn AuditQueryGlobalSaclA<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditQueryGlobalSaclA(
                 objecttypename: super::super::super::super::Foundation::PSTR,
@@ -842,7 +842,7 @@ pub unsafe fn AuditQueryGlobalSaclW<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditQueryGlobalSaclW(
                 objecttypename: super::super::super::super::Foundation::PWSTR,
@@ -869,7 +869,7 @@ pub unsafe fn AuditQueryPerUserPolicy<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditQueryPerUserPolicy(
                 psid: super::super::super::super::Foundation::PSID,
@@ -895,7 +895,7 @@ pub unsafe fn AuditQuerySecurity(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditQuerySecurity(
                 securityinformation: u32,
@@ -918,7 +918,7 @@ pub unsafe fn AuditQuerySystemPolicy(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditQuerySystemPolicy(
                 psubcategoryguids: *const ::windows::runtime::GUID,
@@ -945,7 +945,7 @@ pub unsafe fn AuditSetGlobalSaclA<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditSetGlobalSaclA(
                 objecttypename: super::super::super::super::Foundation::PSTR,
@@ -970,7 +970,7 @@ pub unsafe fn AuditSetGlobalSaclW<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditSetGlobalSaclW(
                 objecttypename: super::super::super::super::Foundation::PWSTR,
@@ -996,7 +996,7 @@ pub unsafe fn AuditSetPerUserPolicy<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditSetPerUserPolicy(
                 psid: super::super::super::super::Foundation::PSID,
@@ -1020,7 +1020,7 @@ pub unsafe fn AuditSetSecurity(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditSetSecurity(
                 securityinformation: u32,
@@ -1042,7 +1042,7 @@ pub unsafe fn AuditSetSystemPolicy(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AuditSetSystemPolicy(
                 pauditpolicy: *const AUDIT_POLICY_INFORMATION,
@@ -1742,7 +1742,7 @@ pub unsafe fn ChangeAccountPasswordA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeAccountPasswordA(
                 pszpackagename: *const i8,
@@ -1785,7 +1785,7 @@ pub unsafe fn ChangeAccountPasswordW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeAccountPasswordW(
                 pszpackagename: *const u16,
@@ -1819,7 +1819,7 @@ pub unsafe fn CompleteAuthToken(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompleteAuthToken(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -1845,7 +1845,7 @@ pub unsafe fn CredMarshalTargetInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredMarshalTargetInfo(
                 intargetinfo : * const super::super::super::Credentials:: CREDENTIAL_TARGET_INFORMATIONW,
@@ -1900,7 +1900,7 @@ pub unsafe fn CredUnmarshalTargetInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CredUnmarshalTargetInfo(
                 buffer: *const u16,
@@ -2058,7 +2058,7 @@ pub unsafe fn DecryptMessage(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DecryptMessage(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -2083,7 +2083,7 @@ pub unsafe fn DeleteSecurityContext(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteSecurityContext(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -2103,7 +2103,7 @@ pub unsafe fn DeleteSecurityPackageA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteSecurityPackageA(
                 pszpackagename: super::super::super::super::Foundation::PSTR,
@@ -2123,7 +2123,7 @@ pub unsafe fn DeleteSecurityPackageW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteSecurityPackageW(
                 pszpackagename: super::super::super::super::Foundation::PWSTR,
@@ -2285,7 +2285,7 @@ pub unsafe fn EncryptMessage(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EncryptMessage(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -2310,7 +2310,7 @@ pub unsafe fn EnumerateSecurityPackagesA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumerateSecurityPackagesA(
                 pcpackages: *mut u32,
@@ -2331,7 +2331,7 @@ pub unsafe fn EnumerateSecurityPackagesW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumerateSecurityPackagesW(
                 pcpackages: *mut u32,
@@ -2355,7 +2355,7 @@ pub unsafe fn ExportSecurityContext(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExportSecurityContext(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -2382,7 +2382,7 @@ pub type FREE_CREDENTIALS_HANDLE_FN =
 pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeContextBuffer(pvcontextbuffer: *mut ::std::ffi::c_void) -> i32;
         }
@@ -2397,7 +2397,7 @@ pub unsafe fn FreeCredentialsHandle(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeCredentialsHandle(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -2416,7 +2416,7 @@ pub unsafe fn GetComputerObjectNameA(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComputerObjectNameA(
                 nameformat: EXTENDED_NAME_FORMAT,
@@ -2441,7 +2441,7 @@ pub unsafe fn GetComputerObjectNameW(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComputerObjectNameW(
                 nameformat: EXTENDED_NAME_FORMAT,
@@ -2466,7 +2466,7 @@ pub unsafe fn GetUserNameExA(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserNameExA(
                 nameformat: EXTENDED_NAME_FORMAT,
@@ -2491,7 +2491,7 @@ pub unsafe fn GetUserNameExW(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserNameExW(
                 nameformat: EXTENDED_NAME_FORMAT,
@@ -2714,7 +2714,7 @@ pub unsafe fn ImpersonateSecurityContext(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImpersonateSecurityContext(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -2737,7 +2737,7 @@ pub unsafe fn ImportSecurityContextA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImportSecurityContextA(
                 pszpackage: super::super::super::super::Foundation::PSTR,
@@ -2768,7 +2768,7 @@ pub unsafe fn ImportSecurityContextW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImportSecurityContextW(
                 pszpackage: super::super::super::super::Foundation::PWSTR,
@@ -2791,7 +2791,7 @@ pub unsafe fn ImportSecurityContextW<
 pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA;
         }
@@ -2804,7 +2804,7 @@ pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
 pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW;
         }
@@ -2830,7 +2830,7 @@ pub unsafe fn InitializeSecurityContextA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeSecurityContextA(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -2882,7 +2882,7 @@ pub unsafe fn InitializeSecurityContextW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeSecurityContextW(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -8210,7 +8210,7 @@ pub unsafe fn LsaAddAccountRights<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaAddAccountRights(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8245,7 +8245,7 @@ pub unsafe fn LsaCallAuthenticationPackage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaCallAuthenticationPackage(
                 lsahandle: super::super::super::super::Foundation::HANDLE,
@@ -8275,7 +8275,7 @@ pub unsafe fn LsaCallAuthenticationPackage<
 pub unsafe fn LsaClose(objecthandle: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaClose(
                 objecthandle: *const ::std::ffi::c_void,
@@ -8292,7 +8292,7 @@ pub unsafe fn LsaConnectUntrusted(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaConnectUntrusted(
                 lsahandle: *mut super::super::super::super::Foundation::HANDLE,
@@ -8313,7 +8313,7 @@ pub unsafe fn LsaCreateTrustedDomainEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaCreateTrustedDomainEx(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8345,7 +8345,7 @@ pub unsafe fn LsaDeleteTrustedDomain<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaDeleteTrustedDomain(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8370,7 +8370,7 @@ pub unsafe fn LsaDeregisterLogonProcess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaDeregisterLogonProcess(
                 lsahandle: LsaHandle,
@@ -8393,7 +8393,7 @@ pub unsafe fn LsaEnumerateAccountRights<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaEnumerateAccountRights(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8422,7 +8422,7 @@ pub unsafe fn LsaEnumerateAccountsWithUserRight(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaEnumerateAccountsWithUserRight(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8449,7 +8449,7 @@ pub unsafe fn LsaEnumerateLogonSessions(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaEnumerateLogonSessions(
                 logonsessioncount: *mut u32,
@@ -8475,7 +8475,7 @@ pub unsafe fn LsaEnumerateTrustedDomains(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaEnumerateTrustedDomains(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8507,7 +8507,7 @@ pub unsafe fn LsaEnumerateTrustedDomainsEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaEnumerateTrustedDomainsEx(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8533,7 +8533,7 @@ pub unsafe fn LsaEnumerateTrustedDomainsEx(
 pub unsafe fn LsaFreeMemory(buffer: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaFreeMemory(
                 buffer: *const ::std::ffi::c_void,
@@ -8550,7 +8550,7 @@ pub unsafe fn LsaFreeReturnBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaFreeReturnBuffer(
                 buffer: *const ::std::ffi::c_void,
@@ -8569,7 +8569,7 @@ pub unsafe fn LsaGetAppliedCAPIDs(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaGetAppliedCAPIDs(
                 systemname: *const super::super::super::super::System::Kernel::UNICODE_STRING,
@@ -8598,7 +8598,7 @@ pub unsafe fn LsaGetLogonSessionData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaGetLogonSessionData(
                 logonid: *const super::super::super::super::System::SystemServices::LUID,
@@ -8659,7 +8659,7 @@ pub unsafe fn LsaLogonUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaLogonUser(
                 lsahandle: super::super::super::super::Foundation::HANDLE,
@@ -8710,7 +8710,7 @@ pub unsafe fn LsaLookupAuthenticationPackage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaLookupAuthenticationPackage(
                 lsahandle: super::super::super::super::Foundation::HANDLE,
@@ -8738,7 +8738,7 @@ pub unsafe fn LsaLookupNames(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaLookupNames(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8771,7 +8771,7 @@ pub unsafe fn LsaLookupNames2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaLookupNames2(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8805,7 +8805,7 @@ pub unsafe fn LsaLookupSids(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaLookupSids(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8838,7 +8838,7 @@ pub unsafe fn LsaLookupSids2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaLookupSids2(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8871,7 +8871,7 @@ pub unsafe fn LsaNtStatusToWinError<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaNtStatusToWinError(
                 status: super::super::super::super::Foundation::NTSTATUS,
@@ -8895,7 +8895,7 @@ pub unsafe fn LsaOpenPolicy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaOpenPolicy(
                 systemname: *const super::super::super::super::System::Kernel::UNICODE_STRING,
@@ -8924,7 +8924,7 @@ pub unsafe fn LsaOpenTrustedDomainByName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaOpenTrustedDomainByName(
                 policyhandle: *const ::std::ffi::c_void,
@@ -8953,7 +8953,7 @@ pub unsafe fn LsaQueryCAPs(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaQueryCAPs(
                 capids: *const super::super::super::super::Foundation::PSID,
@@ -8981,7 +8981,7 @@ pub unsafe fn LsaQueryDomainInformationPolicy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaQueryDomainInformationPolicy(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9007,7 +9007,7 @@ pub unsafe fn LsaQueryForestTrustInformation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaQueryForestTrustInformation(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9033,7 +9033,7 @@ pub unsafe fn LsaQueryInformationPolicy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaQueryInformationPolicy(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9063,7 +9063,7 @@ pub unsafe fn LsaQueryTrustedDomainInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaQueryTrustedDomainInfo(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9092,7 +9092,7 @@ pub unsafe fn LsaQueryTrustedDomainInfoByName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaQueryTrustedDomainInfoByName(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9120,7 +9120,7 @@ pub unsafe fn LsaRegisterLogonProcess(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaRegisterLogonProcess(
                 logonprocessname: *const super::super::super::super::System::Kernel::STRING,
@@ -9148,7 +9148,7 @@ pub unsafe fn LsaRegisterPolicyChangeNotification<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaRegisterPolicyChangeNotification(
                 informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS,
@@ -9178,7 +9178,7 @@ pub unsafe fn LsaRemoveAccountRights<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaRemoveAccountRights(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9208,7 +9208,7 @@ pub unsafe fn LsaRetrievePrivateData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaRetrievePrivateData(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9234,7 +9234,7 @@ pub unsafe fn LsaSetCAPs(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaSetCAPs(
                 capdns: *const super::super::super::super::System::Kernel::UNICODE_STRING,
@@ -9260,7 +9260,7 @@ pub unsafe fn LsaSetDomainInformationPolicy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaSetDomainInformationPolicy(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9291,7 +9291,7 @@ pub unsafe fn LsaSetForestTrustInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaSetForestTrustInformation(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9321,7 +9321,7 @@ pub unsafe fn LsaSetInformationPolicy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaSetInformationPolicy(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9348,7 +9348,7 @@ pub unsafe fn LsaSetTrustedDomainInfoByName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaSetTrustedDomainInfoByName(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9380,7 +9380,7 @@ pub unsafe fn LsaSetTrustedDomainInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaSetTrustedDomainInformation(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9408,7 +9408,7 @@ pub unsafe fn LsaStorePrivateData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaStorePrivateData(
                 policyhandle: *const ::std::ffi::c_void,
@@ -9436,7 +9436,7 @@ pub unsafe fn LsaUnregisterPolicyChangeNotification<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsaUnregisterPolicyChangeNotification(
                 informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS,
@@ -10896,7 +10896,7 @@ pub unsafe fn MakeSignature(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MakeSignature(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -13214,7 +13214,7 @@ pub unsafe fn QueryContextAttributesA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryContextAttributesA(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -13240,7 +13240,7 @@ pub unsafe fn QueryContextAttributesExA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "sspicli")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryContextAttributesExA(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -13268,7 +13268,7 @@ pub unsafe fn QueryContextAttributesExW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "sspicli")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryContextAttributesExW(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -13295,7 +13295,7 @@ pub unsafe fn QueryContextAttributesW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryContextAttributesW(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -13320,7 +13320,7 @@ pub unsafe fn QueryCredentialsAttributesA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryCredentialsAttributesA(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -13346,7 +13346,7 @@ pub unsafe fn QueryCredentialsAttributesExA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "sspicli")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryCredentialsAttributesExA(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -13374,7 +13374,7 @@ pub unsafe fn QueryCredentialsAttributesExW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "sspicli")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryCredentialsAttributesExW(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -13401,7 +13401,7 @@ pub unsafe fn QueryCredentialsAttributesW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryCredentialsAttributesW(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -13425,7 +13425,7 @@ pub unsafe fn QuerySecurityContextToken(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QuerySecurityContextToken(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -13450,7 +13450,7 @@ pub unsafe fn QuerySecurityPackageInfoA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QuerySecurityPackageInfoA(
                 pszpackagename: super::super::super::super::Foundation::PSTR,
@@ -13475,7 +13475,7 @@ pub unsafe fn QuerySecurityPackageInfoW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QuerySecurityPackageInfoW(
                 pszpackagename: super::super::super::super::Foundation::PWSTR,
@@ -13506,7 +13506,7 @@ pub unsafe fn RevertSecurityContext(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RevertSecurityContext(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -18199,7 +18199,7 @@ pub unsafe fn SLAcquireGenuineTicket<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slcext")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLAcquireGenuineTicket(
                 ppticketblob: *mut *mut ::std::ffi::c_void,
@@ -18236,7 +18236,7 @@ pub unsafe fn SLActivateProduct<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slcext")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLActivateProduct(
                 hslc: *const ::std::ffi::c_void,
@@ -18265,7 +18265,7 @@ pub unsafe fn SLActivateProduct<
 pub unsafe fn SLClose(hslc: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLClose(hslc: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -18287,7 +18287,7 @@ pub unsafe fn SLConsumeRight<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLConsumeRight(
                 hslc: *const ::std::ffi::c_void,
@@ -18375,7 +18375,7 @@ pub unsafe fn SLDepositOfflineConfirmationId<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLDepositOfflineConfirmationId(
                 hslc: *const ::std::ffi::c_void,
@@ -18409,7 +18409,7 @@ pub unsafe fn SLDepositOfflineConfirmationIdEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLDepositOfflineConfirmationIdEx(
                 hslc: *const ::std::ffi::c_void,
@@ -18442,7 +18442,7 @@ pub unsafe fn SLFireEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLFireEvent(
                 hslc: *const ::std::ffi::c_void,
@@ -18467,7 +18467,7 @@ pub unsafe fn SLGenerateOfflineInstallationId(
 ) -> ::windows::runtime::Result<super::super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGenerateOfflineInstallationId(
                 hslc: *const ::std::ffi::c_void,
@@ -18494,7 +18494,7 @@ pub unsafe fn SLGenerateOfflineInstallationIdEx(
 ) -> ::windows::runtime::Result<super::super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGenerateOfflineInstallationIdEx(
                 hslc: *const ::std::ffi::c_void,
@@ -18529,7 +18529,7 @@ pub unsafe fn SLGetApplicationInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetApplicationInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -18566,7 +18566,7 @@ pub unsafe fn SLGetGenuineInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetGenuineInformation(
                 pqueryid: *const ::windows::runtime::GUID,
@@ -18596,7 +18596,7 @@ pub unsafe fn SLGetInstalledProductKeyIds(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetInstalledProductKeyIds(
                 hslc: *const ::std::ffi::c_void,
@@ -18624,7 +18624,7 @@ pub unsafe fn SLGetLicense(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetLicense(
                 hslc: *const ::std::ffi::c_void,
@@ -18651,7 +18651,7 @@ pub unsafe fn SLGetLicenseFileId(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetLicenseFileId(
                 hslc: *const ::std::ffi::c_void,
@@ -18687,7 +18687,7 @@ pub unsafe fn SLGetLicenseInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetLicenseInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -18725,7 +18725,7 @@ pub unsafe fn SLGetLicensingStatusInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetLicensingStatusInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -18763,7 +18763,7 @@ pub unsafe fn SLGetPKeyId<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetPKeyId(
                 hslc: *const ::std::ffi::c_void,
@@ -18803,7 +18803,7 @@ pub unsafe fn SLGetPKeyInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetPKeyInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -18840,7 +18840,7 @@ pub unsafe fn SLGetPolicyInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetPolicyInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -18872,7 +18872,7 @@ pub unsafe fn SLGetPolicyInformationDWORD<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetPolicyInformationDWORD(
                 hslc: *const ::std::ffi::c_void,
@@ -18905,7 +18905,7 @@ pub unsafe fn SLGetProductSkuInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetProductSkuInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -18941,7 +18941,7 @@ pub unsafe fn SLGetReferralInformation<
 ) -> ::windows::runtime::Result<super::super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "slcext")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetReferralInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -18974,7 +18974,7 @@ pub unsafe fn SLGetSLIDList(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetSLIDList(
                 hslc: *const ::std::ffi::c_void,
@@ -19012,7 +19012,7 @@ pub unsafe fn SLGetServerStatus<
 ) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
     #[cfg(windows)]
     {
-        #[link(name = "slcext")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetServerStatus(
                 pwszserverurl: super::super::super::super::Foundation::PWSTR,
@@ -19049,7 +19049,7 @@ pub unsafe fn SLGetServiceInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetServiceInformation(
                 hslc: *const ::std::ffi::c_void,
@@ -19083,7 +19083,7 @@ pub unsafe fn SLGetWindowsInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetWindowsInformation(
                 pwszvaluename: super::super::super::super::Foundation::PWSTR,
@@ -19112,7 +19112,7 @@ pub unsafe fn SLGetWindowsInformationDWORD<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLGetWindowsInformationDWORD(
                 pwszvaluename: super::super::super::super::Foundation::PWSTR,
@@ -19161,7 +19161,7 @@ pub unsafe fn SLInstallLicense(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLInstallLicense(
                 hslc: *const ::std::ffi::c_void,
@@ -19197,7 +19197,7 @@ pub unsafe fn SLInstallProofOfPurchase<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLInstallProofOfPurchase(
                 hslc: *const ::std::ffi::c_void,
@@ -19230,7 +19230,7 @@ pub unsafe fn SLIsGenuineLocal(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slwga")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLIsGenuineLocal(
                 pappid: *const ::windows::runtime::GUID,
@@ -19275,7 +19275,7 @@ unsafe impl ::windows::runtime::Abi for SLLICENSINGSTATUS {
 pub unsafe fn SLOpen(phslc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLOpen(phslc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -19297,7 +19297,7 @@ pub unsafe fn SLQueryLicenseValueFromApp<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-slapi-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLQueryLicenseValueFromApp(
                 valuename: super::super::super::super::Foundation::PWSTR,
@@ -19356,7 +19356,7 @@ pub unsafe fn SLRegisterEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLRegisterEvent(
                 hslc: *const ::std::ffi::c_void,
@@ -19383,7 +19383,7 @@ pub unsafe fn SLSetCurrentProductKey(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLSetCurrentProductKey(
                 hslc: *const ::std::ffi::c_void,
@@ -19414,7 +19414,7 @@ pub unsafe fn SLSetGenuineInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLSetGenuineInformation(
                 pqueryid: *const ::windows::runtime::GUID,
@@ -19442,7 +19442,7 @@ pub unsafe fn SLUninstallLicense(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLUninstallLicense(
                 hslc: *const ::std::ffi::c_void,
@@ -19464,7 +19464,7 @@ pub unsafe fn SLUninstallProofOfPurchase(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLUninstallProofOfPurchase(
                 hslc: *const ::std::ffi::c_void,
@@ -19489,7 +19489,7 @@ pub unsafe fn SLUnregisterEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "slc")]
+        #[link(name = "windows")]
         extern "system" {
             fn SLUnregisterEvent(
                 hslc: *const ::std::ffi::c_void,
@@ -20739,7 +20739,7 @@ pub unsafe fn SaslAcceptSecurityContext(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslAcceptSecurityContext(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -20775,7 +20775,7 @@ pub unsafe fn SaslEnumerateProfilesA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslEnumerateProfilesA(
                 profilelist: *mut super::super::super::super::Foundation::PSTR,
@@ -20797,7 +20797,7 @@ pub unsafe fn SaslEnumerateProfilesW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslEnumerateProfilesW(
                 profilelist: *mut super::super::super::super::Foundation::PWSTR,
@@ -20822,7 +20822,7 @@ pub unsafe fn SaslGetContextOption(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslGetContextOption(
                 contexthandle: *const super::super::super::Credentials::SecHandle,
@@ -20853,7 +20853,7 @@ pub unsafe fn SaslGetProfilePackageA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslGetProfilePackageA(
                 profilename: super::super::super::super::Foundation::PSTR,
@@ -20878,7 +20878,7 @@ pub unsafe fn SaslGetProfilePackageW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslGetProfilePackageW(
                 profilename: super::super::super::super::Foundation::PWSTR,
@@ -20899,7 +20899,7 @@ pub unsafe fn SaslIdentifyPackageA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslIdentifyPackageA(
                 pinput: *const SecBufferDesc,
@@ -20920,7 +20920,7 @@ pub unsafe fn SaslIdentifyPackageW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslIdentifyPackageW(
                 pinput: *const SecBufferDesc,
@@ -20955,7 +20955,7 @@ pub unsafe fn SaslInitializeSecurityContextA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslInitializeSecurityContextA(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -21010,7 +21010,7 @@ pub unsafe fn SaslInitializeSecurityContextW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslInitializeSecurityContextW(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -21054,7 +21054,7 @@ pub unsafe fn SaslSetContextOption(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaslSetContextOption(
                 contexthandle: *const super::super::super::Credentials::SecHandle,
@@ -24123,7 +24123,7 @@ pub unsafe fn SetContextAttributesA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetContextAttributesA(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -24151,7 +24151,7 @@ pub unsafe fn SetContextAttributesW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetContextAttributesW(
                 phcontext: *const super::super::super::Credentials::SecHandle,
@@ -24179,7 +24179,7 @@ pub unsafe fn SetCredentialsAttributesA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCredentialsAttributesA(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -24207,7 +24207,7 @@ pub unsafe fn SetCredentialsAttributesW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCredentialsAttributesW(
                 phcredential: *const super::super::super::Credentials::SecHandle,
@@ -24615,7 +24615,7 @@ pub unsafe fn SslCrackCertificate(
 ) -> super::super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslCrackCertificate(
                 pbcertificate: *mut u8,
@@ -24644,7 +24644,7 @@ pub unsafe fn SslEmptyCacheA<
 ) -> super::super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslEmptyCacheA(
                 psztargetname: super::super::super::super::Foundation::PSTR,
@@ -24669,7 +24669,7 @@ pub unsafe fn SslEmptyCacheW<
 ) -> super::super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslEmptyCacheW(
                 psztargetname: super::super::super::super::Foundation::PWSTR,
@@ -24688,7 +24688,7 @@ pub unsafe fn SslEmptyCacheW<
 pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslFreeCertificate(pcertificate: *mut X509Certificate);
         }
@@ -24700,7 +24700,7 @@ pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
 pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32);
         }
@@ -24722,7 +24722,7 @@ pub unsafe fn SslGetExtensions(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslGetExtensions(
                 clienthello: *const u8,
@@ -24756,7 +24756,7 @@ pub type SslGetExtensionsFn = unsafe extern "system" fn(
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslGetMaximumKeySize(reserved: u32) -> u32;
         }
@@ -24774,7 +24774,7 @@ pub unsafe fn SslGetServerIdentity(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "schannel")]
+        #[link(name = "windows")]
         extern "system" {
             fn SslGetServerIdentity(
                 clienthello: *const u8,
@@ -24811,7 +24811,7 @@ pub unsafe fn SspiCompareAuthIdentities(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiCompareAuthIdentities(
                 authidentity1: *const ::std::ffi::c_void,
@@ -24836,7 +24836,7 @@ pub unsafe fn SspiCopyAuthIdentity(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiCopyAuthIdentity(
                 authdata: *const ::std::ffi::c_void,
@@ -24854,7 +24854,7 @@ pub unsafe fn SspiCopyAuthIdentity(
 pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::std::ffi::c_void) -> i32;
         }
@@ -24871,7 +24871,7 @@ pub unsafe fn SspiDecryptAuthIdentityEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "sspicli")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiDecryptAuthIdentityEx(
                 options: u32,
@@ -24895,7 +24895,7 @@ pub unsafe fn SspiEncodeAuthIdentityAsStrings(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiEncodeAuthIdentityAsStrings(
                 pauthidentity: *const ::std::ffi::c_void,
@@ -24928,7 +24928,7 @@ pub unsafe fn SspiEncodeStringsAsAuthIdentity<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiEncodeStringsAsAuthIdentity(
                 pszusername: super::super::super::super::Foundation::PWSTR,
@@ -24950,7 +24950,7 @@ pub unsafe fn SspiEncodeStringsAsAuthIdentity<
 pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiEncryptAuthIdentity(authdata: *mut ::std::ffi::c_void) -> i32;
         }
@@ -24962,7 +24962,7 @@ pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::std::ffi::c_void) -> i32 
 pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "sspicli")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::std::ffi::c_void) -> i32;
         }
@@ -24985,7 +24985,7 @@ pub unsafe fn SspiExcludePackage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiExcludePackage(
                 authidentity: *const ::std::ffi::c_void,
@@ -25005,7 +25005,7 @@ pub unsafe fn SspiExcludePackage<
 pub unsafe fn SspiFreeAuthIdentity(authdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiFreeAuthIdentity(authdata: *const ::std::ffi::c_void);
         }
@@ -25024,7 +25024,7 @@ pub unsafe fn SspiGetTargetHostName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiGetTargetHostName(
                 psztargetname: super::super::super::super::Foundation::PWSTR,
@@ -25045,7 +25045,7 @@ pub unsafe fn SspiIsAuthIdentityEncrypted(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiIsAuthIdentityEncrypted(
                 encryptedauthdata: *const ::std::ffi::c_void,
@@ -25064,7 +25064,7 @@ pub unsafe fn SspiIsPromptingNeeded(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiIsPromptingNeeded(
                 errororntstatus: u32,
@@ -25080,7 +25080,7 @@ pub unsafe fn SspiIsPromptingNeeded(
 pub unsafe fn SspiLocalFree(databuffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiLocalFree(databuffer: *const ::std::ffi::c_void);
         }
@@ -25096,7 +25096,7 @@ pub unsafe fn SspiMarshalAuthIdentity(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiMarshalAuthIdentity(
                 authidentity: *const ::std::ffi::c_void,
@@ -25125,7 +25125,7 @@ pub unsafe fn SspiPrepareForCredRead<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiPrepareForCredRead(
                 authidentity: *const ::std::ffi::c_void,
@@ -25159,7 +25159,7 @@ pub unsafe fn SspiPrepareForCredWrite<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiPrepareForCredWrite(
                 authidentity: *const ::std::ffi::c_void,
@@ -25201,7 +25201,7 @@ pub unsafe fn SspiPromptForCredentialsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiPromptForCredentialsA(
                 psztargetname: super::super::super::super::Foundation::PSTR,
@@ -25245,7 +25245,7 @@ pub unsafe fn SspiPromptForCredentialsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "credui")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiPromptForCredentialsW(
                 psztargetname: super::super::super::super::Foundation::PWSTR,
@@ -25283,7 +25283,7 @@ pub unsafe fn SspiUnmarshalAuthIdentity<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiUnmarshalAuthIdentity(
                 authidentitylength: u32,
@@ -25303,7 +25303,7 @@ pub unsafe fn SspiUnmarshalAuthIdentity<
 pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiValidateAuthIdentity(authdata: *const ::std::ffi::c_void) -> i32;
         }
@@ -25315,7 +25315,7 @@ pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::std::ffi::c_void) -> i
 pub unsafe fn SspiZeroAuthIdentity(authdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SspiZeroAuthIdentity(authdata: *const ::std::ffi::c_void);
         }
@@ -25331,7 +25331,7 @@ pub unsafe fn SystemFunction036(
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemFunction036(
                 randombuffer: *mut ::std::ffi::c_void,
@@ -25354,7 +25354,7 @@ pub unsafe fn SystemFunction040(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemFunction040(
                 memory: *mut ::std::ffi::c_void,
@@ -25380,7 +25380,7 @@ pub unsafe fn SystemFunction041(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemFunction041(
                 memory: *mut ::std::ffi::c_void,
@@ -26292,7 +26292,7 @@ pub const TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION: u32 = 128u32;
 pub unsafe fn TokenBindingDeleteAllBindings() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingDeleteAllBindings() -> i32;
         }
@@ -26310,7 +26310,7 @@ pub unsafe fn TokenBindingDeleteBinding<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingDeleteBinding(
                 targeturl: super::super::super::super::Foundation::PWSTR,
@@ -26339,7 +26339,7 @@ pub unsafe fn TokenBindingGenerateBinding<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGenerateBinding(
                 keytype: TOKENBINDING_KEY_PARAMETERS_TYPE,
@@ -26378,7 +26378,7 @@ pub unsafe fn TokenBindingGenerateID(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGenerateID(
                 keytype: TOKENBINDING_KEY_PARAMETERS_TYPE,
@@ -26408,7 +26408,7 @@ pub unsafe fn TokenBindingGenerateIDForUri<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGenerateIDForUri(
                 keytype: TOKENBINDING_KEY_PARAMETERS_TYPE,
@@ -26434,7 +26434,7 @@ pub unsafe fn TokenBindingGenerateMessage(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGenerateMessage(
                 tokenbindings: *const *const ::std::ffi::c_void,
@@ -26461,7 +26461,7 @@ pub unsafe fn TokenBindingGetHighestSupportedVersion(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGetHighestSupportedVersion(
                 majorversion: *mut u8,
@@ -26479,7 +26479,7 @@ pub unsafe fn TokenBindingGetHighestSupportedVersion(
 pub unsafe fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32;
         }
@@ -26493,7 +26493,7 @@ pub unsafe fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY
 pub unsafe fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32;
         }
@@ -26514,7 +26514,7 @@ pub unsafe fn TokenBindingVerifyMessage(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tokenbinding")]
+        #[link(name = "windows")]
         extern "system" {
             fn TokenBindingVerifyMessage(
                 tokenbindingmessage: *const ::std::ffi::c_void,
@@ -26550,7 +26550,7 @@ pub unsafe fn TranslateNameA<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateNameA(
                 lpaccountname: super::super::super::super::Foundation::PSTR,
@@ -26584,7 +26584,7 @@ pub unsafe fn TranslateNameW<
 ) -> super::super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateNameW(
                 lpaccountname: super::super::super::super::Foundation::PWSTR,
@@ -26761,7 +26761,7 @@ pub unsafe fn VerifySignature(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "secur32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifySignature(
                 phcontext: *const super::super::super::Credentials::SecHandle,

@@ -70,7 +70,7 @@ pub unsafe fn DnsHostnameToComputerNameExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsHostnameToComputerNameExW(
                 hostname: super::super::Foundation::PWSTR,
@@ -94,7 +94,7 @@ pub unsafe fn EnumSystemFirmwareTables(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemFirmwareTables(
                 firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER,
@@ -211,7 +211,7 @@ pub unsafe fn GetComputerNameExA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComputerNameExA(
                 nametype: COMPUTER_NAME_FORMAT,
@@ -236,7 +236,7 @@ pub unsafe fn GetComputerNameExW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComputerNameExW(
                 nametype: COMPUTER_NAME_FORMAT,
@@ -257,7 +257,7 @@ pub unsafe fn GetComputerNameExW(
 pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -269,7 +269,7 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
 pub unsafe fn GetIntegratedDisplaySize() -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-sysinfo-l1-2-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -283,7 +283,7 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows::runtime::Result<f64> {
 pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
         }
@@ -299,7 +299,7 @@ pub unsafe fn GetLogicalProcessorInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogicalProcessorInformation(
                 buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION,
@@ -326,7 +326,7 @@ pub unsafe fn GetLogicalProcessorInformationEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogicalProcessorInformationEx(
                 relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP,
@@ -347,7 +347,7 @@ pub unsafe fn GetLogicalProcessorInformationEx(
 pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
         }
@@ -362,7 +362,7 @@ pub unsafe fn GetOsManufacturingMode(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-sysinfo-l1-2-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOsManufacturingMode(
                 pbenabled: *mut super::super::Foundation::BOOL,
@@ -377,7 +377,7 @@ pub unsafe fn GetOsManufacturingMode(
 pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-sysinfo-l1-2-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -392,7 +392,7 @@ pub unsafe fn GetPhysicallyInstalledSystemMemory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPhysicallyInstalledSystemMemory(
                 totalmemoryinkilobytes: *mut u64,
@@ -413,7 +413,7 @@ pub unsafe fn GetProcessorSystemCycleTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessorSystemCycleTime(
                 group: u16,
@@ -440,7 +440,7 @@ pub unsafe fn GetProductInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProductInfo(
                 dwosmajorversion: u32,
@@ -464,7 +464,7 @@ pub unsafe fn GetProductInfo(
 pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE;
         }
@@ -477,7 +477,7 @@ pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
 pub unsafe fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
         }
@@ -493,7 +493,7 @@ pub unsafe fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usiz
 pub unsafe fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
         }
@@ -516,7 +516,7 @@ pub unsafe fn GetSystemFirmwareTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemFirmwareTable(
                 firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER,
@@ -539,7 +539,7 @@ pub unsafe fn GetSystemFirmwareTable<
 pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
         }
@@ -555,7 +555,7 @@ pub unsafe fn GetSystemLeapSecondInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemLeapSecondInformation(
                 enabled: *mut super::super::Foundation::BOOL,
@@ -574,7 +574,7 @@ pub unsafe fn GetSystemLeapSecondInformation(
 pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
         }
@@ -591,7 +591,7 @@ pub unsafe fn GetSystemTimeAdjustment(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemTimeAdjustment(
                 lptimeadjustment: *mut u32,
@@ -616,7 +616,7 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-sysinfo-l1-2-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemTimeAdjustmentPrecise(
                 lptimeadjustment: *mut u64,
@@ -639,7 +639,7 @@ pub unsafe fn GetSystemTimeAsFileTime(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemTimeAsFileTime(
                 lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME,
@@ -658,7 +658,7 @@ pub unsafe fn GetSystemTimePreciseAsFileTime(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemTimePreciseAsFileTime(
                 lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME,
@@ -678,7 +678,7 @@ pub unsafe fn GetSystemWindowsDirectoryA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemWindowsDirectoryA(
                 lpbuffer: super::super::Foundation::PSTR,
@@ -700,7 +700,7 @@ pub unsafe fn GetSystemWindowsDirectoryW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemWindowsDirectoryW(
                 lpbuffer: super::super::Foundation::PWSTR,
@@ -723,7 +723,7 @@ pub unsafe fn GetSystemWow64Directory2A(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-wow64-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemWow64Directory2A(
                 lpbuffer: super::super::Foundation::PSTR,
@@ -748,7 +748,7 @@ pub unsafe fn GetSystemWow64Directory2W(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-wow64-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemWow64Directory2W(
                 lpbuffer: super::super::Foundation::PWSTR,
@@ -772,7 +772,7 @@ pub unsafe fn GetSystemWow64DirectoryA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemWow64DirectoryA(
                 lpbuffer: super::super::Foundation::PSTR,
@@ -794,7 +794,7 @@ pub unsafe fn GetSystemWow64DirectoryW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemWow64DirectoryW(
                 lpbuffer: super::super::Foundation::PWSTR,
@@ -812,7 +812,7 @@ pub unsafe fn GetSystemWow64DirectoryW(
 pub unsafe fn GetTickCount() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTickCount() -> u32;
         }
@@ -824,7 +824,7 @@ pub unsafe fn GetTickCount() -> u32 {
 pub unsafe fn GetTickCount64() -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTickCount64() -> u64;
         }
@@ -836,7 +836,7 @@ pub unsafe fn GetTickCount64() -> u64 {
 pub unsafe fn GetVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVersion() -> u32;
         }
@@ -851,7 +851,7 @@ pub unsafe fn GetVersionExA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVersionExA(
                 lpversioninformation: *mut OSVERSIONINFOA,
@@ -868,7 +868,7 @@ pub unsafe fn GetVersionExW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVersionExW(
                 lpversioninformation: *mut OSVERSIONINFOW,
@@ -883,7 +883,7 @@ pub unsafe fn GetVersionExW(
 pub unsafe fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
         }
@@ -899,7 +899,7 @@ pub unsafe fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usi
 pub unsafe fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
         }
@@ -914,7 +914,7 @@ pub unsafe fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, us
 pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS);
         }
@@ -929,7 +929,7 @@ pub unsafe fn GlobalMemoryStatusEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalMemoryStatusEx(
                 lpbuffer: *mut MEMORYSTATUSEX,
@@ -946,7 +946,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsUserCetAvailableInEnvironment(
                 usercetenvironment: USER_CET_ENVIRONMENT,
@@ -965,7 +965,7 @@ pub unsafe fn IsWow64GuestMachineSupported(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWow64GuestMachineSupported(
                 wowguestmachine: u16,
@@ -1784,7 +1784,7 @@ pub unsafe fn SetComputerNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetComputerNameA(
                 lpcomputername: super::super::Foundation::PSTR,
@@ -1806,7 +1806,7 @@ pub unsafe fn SetComputerNameEx2W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetComputerNameEx2W(
                 nametype: COMPUTER_NAME_FORMAT,
@@ -1833,7 +1833,7 @@ pub unsafe fn SetComputerNameExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetComputerNameExA(
                 nametype: COMPUTER_NAME_FORMAT,
@@ -1858,7 +1858,7 @@ pub unsafe fn SetComputerNameExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetComputerNameExW(
                 nametype: COMPUTER_NAME_FORMAT,
@@ -1882,7 +1882,7 @@ pub unsafe fn SetComputerNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetComputerNameW(
                 lpcomputername: super::super::Foundation::PWSTR,
@@ -1899,7 +1899,7 @@ pub unsafe fn SetLocalTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLocalTime(
                 lpsystemtime: *const super::super::Foundation::SYSTEMTIME,
@@ -1916,7 +1916,7 @@ pub unsafe fn SetSystemTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSystemTime(
                 lpsystemtime: *const super::super::Foundation::SYSTEMTIME,
@@ -1937,7 +1937,7 @@ pub unsafe fn SetSystemTimeAdjustment<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSystemTimeAdjustment(
                 dwtimeadjustment: u32,
@@ -1962,7 +1962,7 @@ pub unsafe fn SetSystemTimeAdjustmentPrecise<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-sysinfo-l1-2-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSystemTimeAdjustmentPrecise(
                 dwtimeadjustment: u64,
@@ -2087,7 +2087,7 @@ impl ::std::ops::Not for VER_FLAGS {
 pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64;
         }
@@ -2108,7 +2108,7 @@ pub unsafe fn VerifyVersionInfoA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyVersionInfoA(
                 lpversioninformation: *mut OSVERSIONINFOEXA,
@@ -2133,7 +2133,7 @@ pub unsafe fn VerifyVersionInfoW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyVersionInfoW(
                 lpversioninformation: *mut OSVERSIONINFOEXW,

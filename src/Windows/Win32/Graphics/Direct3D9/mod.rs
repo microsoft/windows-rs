@@ -3812,7 +3812,7 @@ pub unsafe fn D3DPERF_BeginEvent<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPERF_BeginEvent(col: u32, wszname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -3827,7 +3827,7 @@ pub unsafe fn D3DPERF_BeginEvent<
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPERF_EndEvent() -> i32;
         }
@@ -3839,7 +3839,7 @@ pub unsafe fn D3DPERF_EndEvent() -> i32 {
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPERF_GetStatus() -> u32;
         }
@@ -3852,7 +3852,7 @@ pub unsafe fn D3DPERF_GetStatus() -> u32 {
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL;
         }
@@ -3871,7 +3871,7 @@ pub unsafe fn D3DPERF_SetMarker<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPERF_SetMarker(col: u32, wszname: super::super::Foundation::PWSTR);
         }
@@ -3886,7 +3886,7 @@ pub unsafe fn D3DPERF_SetMarker<
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPERF_SetOptions(dwoptions: u32);
         }
@@ -3905,7 +3905,7 @@ pub unsafe fn D3DPERF_SetRegion<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPERF_SetRegion(col: u32, wszname: super::super::Foundation::PWSTR);
         }
@@ -5909,7 +5909,7 @@ pub const D3D_SDK_VERSION: u32 = 32u32;
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3D9> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3D9>;
         }
@@ -5921,7 +5921,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::runtime::Result<IDirect3D9Ex> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn Direct3DCreate9Ex(
                 sdkversion: u32,

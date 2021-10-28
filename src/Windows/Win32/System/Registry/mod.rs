@@ -141,7 +141,7 @@ pub unsafe fn GetRegistryValueWithFallbackW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-state-helpers-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRegistryValueWithFallbackW(
                 hkeyprimary: HKEY,
@@ -696,7 +696,7 @@ pub unsafe fn RegCloseKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCloseKey(hkey: HKEY) -> super::super::Foundation::LSTATUS;
         }
@@ -717,7 +717,7 @@ pub unsafe fn RegConnectRegistryA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegConnectRegistryA(
                 lpmachinename: super::super::Foundation::PSTR,
@@ -747,7 +747,7 @@ pub unsafe fn RegConnectRegistryExA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegConnectRegistryExA(
                 lpmachinename: super::super::Foundation::PSTR,
@@ -779,7 +779,7 @@ pub unsafe fn RegConnectRegistryExW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegConnectRegistryExW(
                 lpmachinename: super::super::Foundation::PWSTR,
@@ -810,7 +810,7 @@ pub unsafe fn RegConnectRegistryW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegConnectRegistryW(
                 lpmachinename: super::super::Foundation::PWSTR,
@@ -840,7 +840,7 @@ pub unsafe fn RegCopyTreeA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCopyTreeA(
                 hkeysrc: HKEY,
@@ -870,7 +870,7 @@ pub unsafe fn RegCopyTreeW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCopyTreeW(
                 hkeysrc: HKEY,
@@ -899,7 +899,7 @@ pub unsafe fn RegCreateKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyA(
                 hkey: HKEY,
@@ -935,7 +935,7 @@ pub unsafe fn RegCreateKeyExA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyExA(
                 hkey: HKEY,
@@ -983,7 +983,7 @@ pub unsafe fn RegCreateKeyExW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyExW(
                 hkey: HKEY,
@@ -1034,7 +1034,7 @@ pub unsafe fn RegCreateKeyTransactedA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyTransactedA(
                 hkey: HKEY,
@@ -1089,7 +1089,7 @@ pub unsafe fn RegCreateKeyTransactedW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyTransactedW(
                 hkey: HKEY,
@@ -1134,7 +1134,7 @@ pub unsafe fn RegCreateKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegCreateKeyW(
                 hkey: HKEY,
@@ -1162,7 +1162,7 @@ pub unsafe fn RegDeleteKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyA(
                 hkey: HKEY,
@@ -1190,7 +1190,7 @@ pub unsafe fn RegDeleteKeyExA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyExA(
                 hkey: HKEY,
@@ -1222,7 +1222,7 @@ pub unsafe fn RegDeleteKeyExW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyExW(
                 hkey: HKEY,
@@ -1257,7 +1257,7 @@ pub unsafe fn RegDeleteKeyTransactedA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyTransactedA(
                 hkey: HKEY,
@@ -1296,7 +1296,7 @@ pub unsafe fn RegDeleteKeyTransactedW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyTransactedW(
                 hkey: HKEY,
@@ -1332,7 +1332,7 @@ pub unsafe fn RegDeleteKeyValueA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyValueA(
                 hkey: HKEY,
@@ -1362,7 +1362,7 @@ pub unsafe fn RegDeleteKeyValueW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyValueW(
                 hkey: HKEY,
@@ -1390,7 +1390,7 @@ pub unsafe fn RegDeleteKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteKeyW(
                 hkey: HKEY,
@@ -1416,7 +1416,7 @@ pub unsafe fn RegDeleteTreeA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteTreeA(
                 hkey: HKEY,
@@ -1442,7 +1442,7 @@ pub unsafe fn RegDeleteTreeW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteTreeW(
                 hkey: HKEY,
@@ -1468,7 +1468,7 @@ pub unsafe fn RegDeleteValueA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteValueA(
                 hkey: HKEY,
@@ -1494,7 +1494,7 @@ pub unsafe fn RegDeleteValueW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDeleteValueW(
                 hkey: HKEY,
@@ -1513,7 +1513,7 @@ pub unsafe fn RegDeleteValueW<
 pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDisablePredefinedCache() -> super::super::Foundation::LSTATUS;
         }
@@ -1526,7 +1526,7 @@ pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::LSTATUS {
 pub unsafe fn RegDisablePredefinedCacheEx() -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDisablePredefinedCacheEx() -> super::super::Foundation::LSTATUS;
         }
@@ -1540,7 +1540,7 @@ pub unsafe fn RegDisableReflectionKey<'a, Param0: ::windows::runtime::IntoParam<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegDisableReflectionKey(hbase: HKEY) -> i32;
         }
@@ -1554,7 +1554,7 @@ pub unsafe fn RegEnableReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegEnableReflectionKey(hbase: HKEY) -> i32;
         }
@@ -1572,7 +1572,7 @@ pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegEnumKeyA(
                 hkey: HKEY,
@@ -1604,7 +1604,7 @@ pub unsafe fn RegEnumKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegEnumKeyExA(
                 hkey: HKEY,
@@ -1644,7 +1644,7 @@ pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegEnumKeyExW(
                 hkey: HKEY,
@@ -1680,7 +1680,7 @@ pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegEnumKeyW(
                 hkey: HKEY,
@@ -1712,7 +1712,7 @@ pub unsafe fn RegEnumValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegEnumValueA(
                 hkey: HKEY,
@@ -1752,7 +1752,7 @@ pub unsafe fn RegEnumValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegEnumValueW(
                 hkey: HKEY,
@@ -1785,7 +1785,7 @@ pub unsafe fn RegFlushKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegFlushKey(hkey: HKEY) -> super::super::Foundation::LSTATUS;
         }
@@ -1803,7 +1803,7 @@ pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HK
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegGetKeySecurity(
                 hkey: HKEY,
@@ -1839,7 +1839,7 @@ pub unsafe fn RegGetValueA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegGetValueA(
                 hkey: HKEY,
@@ -1881,7 +1881,7 @@ pub unsafe fn RegGetValueW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegGetValueW(
                 hkey: HKEY,
@@ -1919,7 +1919,7 @@ pub unsafe fn RegLoadAppKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegLoadAppKeyA(
                 lpfile: super::super::Foundation::PSTR,
@@ -1953,7 +1953,7 @@ pub unsafe fn RegLoadAppKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegLoadAppKeyW(
                 lpfile: super::super::Foundation::PWSTR,
@@ -1987,7 +1987,7 @@ pub unsafe fn RegLoadKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegLoadKeyA(
                 hkey: HKEY,
@@ -2017,7 +2017,7 @@ pub unsafe fn RegLoadKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegLoadKeyW(
                 hkey: HKEY,
@@ -2051,7 +2051,7 @@ pub unsafe fn RegLoadMUIStringA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegLoadMUIStringA(
                 hkey: HKEY,
@@ -2093,7 +2093,7 @@ pub unsafe fn RegLoadMUIStringW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegLoadMUIStringW(
                 hkey: HKEY,
@@ -2134,7 +2134,7 @@ pub unsafe fn RegNotifyChangeKeyValue<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegNotifyChangeKeyValue(
                 hkey: HKEY,
@@ -2162,7 +2162,7 @@ pub unsafe fn RegOpenCurrentUser(
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenCurrentUser(
                 samdesired: u32,
@@ -2189,7 +2189,7 @@ pub unsafe fn RegOpenKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenKeyA(
                 hkey: HKEY,
@@ -2220,7 +2220,7 @@ pub unsafe fn RegOpenKeyExA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenKeyExA(
                 hkey: HKEY,
@@ -2255,7 +2255,7 @@ pub unsafe fn RegOpenKeyExW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenKeyExW(
                 hkey: HKEY,
@@ -2293,7 +2293,7 @@ pub unsafe fn RegOpenKeyTransactedA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenKeyTransactedA(
                 hkey: HKEY,
@@ -2335,7 +2335,7 @@ pub unsafe fn RegOpenKeyTransactedW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenKeyTransactedW(
                 hkey: HKEY,
@@ -2372,7 +2372,7 @@ pub unsafe fn RegOpenKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenKeyW(
                 hkey: HKEY,
@@ -2401,7 +2401,7 @@ pub unsafe fn RegOpenUserClassesRoot<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOpenUserClassesRoot(
                 htoken: super::super::Foundation::HANDLE,
@@ -2431,7 +2431,7 @@ pub unsafe fn RegOverridePredefKey<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegOverridePredefKey(
                 hkey: HKEY,
@@ -2463,7 +2463,7 @@ pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryInfoKeyA(
                 hkey: HKEY,
@@ -2515,7 +2515,7 @@ pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryInfoKeyW(
                 hkey: HKEY,
@@ -2560,7 +2560,7 @@ pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryMultipleValuesA(
                 hkey: HKEY,
@@ -2591,7 +2591,7 @@ pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryMultipleValuesW(
                 hkey: HKEY,
@@ -2619,7 +2619,7 @@ pub unsafe fn RegQueryReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryReflectionKey(
                 hbase: HKEY,
@@ -2647,7 +2647,7 @@ pub unsafe fn RegQueryValueA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryValueA(
                 hkey: HKEY,
@@ -2681,7 +2681,7 @@ pub unsafe fn RegQueryValueExA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryValueExA(
                 hkey: HKEY,
@@ -2719,7 +2719,7 @@ pub unsafe fn RegQueryValueExW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryValueExW(
                 hkey: HKEY,
@@ -2755,7 +2755,7 @@ pub unsafe fn RegQueryValueW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegQueryValueW(
                 hkey: HKEY,
@@ -2787,7 +2787,7 @@ pub unsafe fn RegRenameKey<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegRenameKey(
                 hkey: HKEY,
@@ -2819,7 +2819,7 @@ pub unsafe fn RegReplaceKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegReplaceKeyA(
                 hkey: HKEY,
@@ -2853,7 +2853,7 @@ pub unsafe fn RegReplaceKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegReplaceKeyW(
                 hkey: HKEY,
@@ -2884,7 +2884,7 @@ pub unsafe fn RegRestoreKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegRestoreKeyA(
                 hkey: HKEY,
@@ -2913,7 +2913,7 @@ pub unsafe fn RegRestoreKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegRestoreKeyW(
                 hkey: HKEY,
@@ -2942,7 +2942,7 @@ pub unsafe fn RegSaveKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveKeyA(
                 hkey: HKEY,
@@ -2972,7 +2972,7 @@ pub unsafe fn RegSaveKeyExA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveKeyExA(
                 hkey: HKEY,
@@ -3004,7 +3004,7 @@ pub unsafe fn RegSaveKeyExW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveKeyExW(
                 hkey: HKEY,
@@ -3035,7 +3035,7 @@ pub unsafe fn RegSaveKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveKeyW(
                 hkey: HKEY,
@@ -3060,7 +3060,7 @@ pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HK
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSetKeySecurity(
                 hkey: HKEY,
@@ -3093,7 +3093,7 @@ pub unsafe fn RegSetKeyValueA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSetKeyValueA(
                 hkey: HKEY,
@@ -3132,7 +3132,7 @@ pub unsafe fn RegSetKeyValueW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSetKeyValueW(
                 hkey: HKEY,
@@ -3170,7 +3170,7 @@ pub unsafe fn RegSetValueA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSetValueA(
                 hkey: HKEY,
@@ -3206,7 +3206,7 @@ pub unsafe fn RegSetValueExA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSetValueExA(
                 hkey: HKEY,
@@ -3244,7 +3244,7 @@ pub unsafe fn RegSetValueExW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSetValueExW(
                 hkey: HKEY,
@@ -3282,7 +3282,7 @@ pub unsafe fn RegSetValueW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSetValueW(
                 hkey: HKEY,
@@ -3314,7 +3314,7 @@ pub unsafe fn RegUnLoadKeyA<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegUnLoadKeyA(
                 hkey: HKEY,
@@ -3340,7 +3340,7 @@ pub unsafe fn RegUnLoadKeyW<
 ) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegUnLoadKeyW(
                 hkey: HKEY,

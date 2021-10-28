@@ -1276,7 +1276,7 @@ pub unsafe fn PrjAllocateAlignedBuffer<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjAllocateAlignedBuffer(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1299,7 +1299,7 @@ pub unsafe fn PrjClearNegativePathCache<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjClearNegativePathCache(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1327,7 +1327,7 @@ pub unsafe fn PrjCompleteCommand<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjCompleteCommand(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1359,7 +1359,7 @@ pub unsafe fn PrjDeleteFile<
 ) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjDeleteFile(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1390,7 +1390,7 @@ pub unsafe fn PrjDoesNameContainWildCards<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjDoesNameContainWildCards(
                 filename: super::super::Foundation::PWSTR,
@@ -1412,7 +1412,7 @@ pub unsafe fn PrjFileNameCompare<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjFileNameCompare(
                 filename1: super::super::Foundation::PWSTR,
@@ -1438,7 +1438,7 @@ pub unsafe fn PrjFileNameMatch<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjFileNameMatch(
                 filenametocheck: super::super::Foundation::PWSTR,
@@ -1465,7 +1465,7 @@ pub unsafe fn PrjFillDirEntryBuffer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjFillDirEntryBuffer(
                 filename: super::super::Foundation::PWSTR,
@@ -1496,7 +1496,7 @@ pub unsafe fn PrjFillDirEntryBuffer2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjFillDirEntryBuffer2(
                 direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
@@ -1519,7 +1519,7 @@ pub unsafe fn PrjFillDirEntryBuffer2<
 pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjFreeAlignedBuffer(buffer: *const ::std::ffi::c_void);
         }
@@ -1537,7 +1537,7 @@ pub unsafe fn PrjGetOnDiskFileState<
 ) -> ::windows::runtime::Result<PRJ_FILE_STATE> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjGetOnDiskFileState(
                 destinationfilename: super::super::Foundation::PWSTR,
@@ -1559,7 +1559,7 @@ pub unsafe fn PrjGetVirtualizationInstanceInfo<
 ) -> ::windows::runtime::Result<PRJ_VIRTUALIZATION_INSTANCE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjGetVirtualizationInstanceInfo(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1590,7 +1590,7 @@ pub unsafe fn PrjMarkDirectoryAsPlaceholder<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjMarkDirectoryAsPlaceholder(
                 rootpathname: super::super::Foundation::PWSTR,
@@ -1622,7 +1622,7 @@ pub unsafe fn PrjStartVirtualizing<
 ) -> ::windows::runtime::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjStartVirtualizing(
                 virtualizationrootpath: super::super::Foundation::PWSTR,
@@ -1654,7 +1654,7 @@ pub unsafe fn PrjStopVirtualizing<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjStopVirtualizing(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1681,7 +1681,7 @@ pub unsafe fn PrjUpdateFileIfNeeded<
 ) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjUpdateFileIfNeeded(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1719,7 +1719,7 @@ pub unsafe fn PrjWriteFileData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjWriteFileData(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1754,7 +1754,7 @@ pub unsafe fn PrjWritePlaceholderInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjWritePlaceholderInfo(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
@@ -1788,7 +1788,7 @@ pub unsafe fn PrjWritePlaceholderInfo2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "projectedfslib")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrjWritePlaceholderInfo2(
                 namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,

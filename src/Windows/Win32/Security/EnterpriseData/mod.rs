@@ -861,7 +861,7 @@ pub unsafe fn ProtectFileToEnterpriseIdentity<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "efswrt")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProtectFileToEnterpriseIdentity(
                 fileorfolderpath: super::super::Foundation::PWSTR,
@@ -925,7 +925,7 @@ pub unsafe fn SrpCloseThreadNetworkContext(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpCloseThreadNetworkContext(
                 threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT,
@@ -945,7 +945,7 @@ pub unsafe fn SrpCreateThreadNetworkContext<
 ) -> ::windows::runtime::Result<HTHREAD_NETWORK_CONTEXT> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpCreateThreadNetworkContext(
                 enterpriseid: super::super::Foundation::PWSTR,
@@ -963,7 +963,7 @@ pub unsafe fn SrpCreateThreadNetworkContext<
 pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpDisablePermissiveModeFileEncryption() -> ::windows::runtime::HRESULT;
         }
@@ -978,7 +978,7 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpDoesPolicyAllowAppExecution(
                 packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID,
@@ -1002,7 +1002,7 @@ pub unsafe fn SrpEnablePermissiveModeFileEncryption<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpEnablePermissiveModeFileEncryption(
                 enterpriseid: super::super::Foundation::PWSTR,
@@ -1025,7 +1025,7 @@ pub unsafe fn SrpGetEnterpriseIds<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpGetEnterpriseIds(
                 tokenhandle: super::super::Foundation::HANDLE,
@@ -1054,7 +1054,7 @@ pub unsafe fn SrpGetEnterprisePolicy<
 ) -> ::windows::runtime::Result<ENTERPRISE_DATA_POLICIES> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpGetEnterprisePolicy(
                 tokenhandle: super::super::Foundation::HANDLE,
@@ -1077,7 +1077,7 @@ pub unsafe fn SrpHostingInitialize(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpHostingInitialize(
                 version: SRPHOSTING_VERSION,
@@ -1100,7 +1100,7 @@ pub unsafe fn SrpHostingInitialize(
 pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
         }
@@ -1119,7 +1119,7 @@ pub unsafe fn SrpIsTokenService<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpIsTokenService(
                 tokenhandle: super::super::Foundation::HANDLE,
@@ -1146,7 +1146,7 @@ pub unsafe fn SrpSetTokenEnterpriseId<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "srpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SrpSetTokenEnterpriseId(
                 tokenhandle: super::super::Foundation::HANDLE,
@@ -1172,7 +1172,7 @@ pub unsafe fn UnprotectFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "efswrt")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnprotectFile(
                 fileorfolderpath: super::super::Foundation::PWSTR,

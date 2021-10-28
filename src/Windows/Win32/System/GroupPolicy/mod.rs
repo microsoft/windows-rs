@@ -33,7 +33,7 @@ unsafe impl ::windows::runtime::Abi for APPSTATE {
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "gpedit")]
+        #[link(name = "windows")]
         extern "system" {
             fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::runtime::HRESULT;
         }
@@ -71,7 +71,7 @@ pub unsafe fn CommandLineFromMsiDescriptor<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommandLineFromMsiDescriptor(
                 descriptor: super::super::Foundation::PWSTR,
@@ -101,7 +101,7 @@ pub unsafe fn CreateGPOLink<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "gpedit")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateGPOLink(
                 lpgpo: super::super::Foundation::PWSTR,
@@ -147,7 +147,7 @@ pub unsafe fn DeleteAllGPOLinks<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "gpedit")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteAllGPOLinks(
                 lpcontainer: super::super::Foundation::PWSTR,
@@ -169,7 +169,7 @@ pub unsafe fn DeleteGPOLink<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "gpedit")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteGPOLink(
                 lpgpo: super::super::Foundation::PWSTR,
@@ -190,7 +190,7 @@ pub unsafe fn EnterCriticalPolicySection<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnterCriticalPolicySection(
                 bmachine: super::super::Foundation::BOOL,
@@ -212,7 +212,7 @@ pub unsafe fn ExportRSoPData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "gpedit")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExportRSoPData(
                 lpnamespace: super::super::Foundation::PWSTR,
@@ -245,7 +245,7 @@ pub unsafe fn FreeGPOListA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeGPOListA(
                 pgpolist: *const GROUP_POLICY_OBJECTA,
@@ -262,7 +262,7 @@ pub unsafe fn FreeGPOListW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeGPOListW(
                 pgpolist: *const GROUP_POLICY_OBJECTW,
@@ -1082,7 +1082,7 @@ pub unsafe fn GenerateGPNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn GenerateGPNotification(
                 bmachine: super::super::Foundation::BOOL,
@@ -1113,7 +1113,7 @@ pub unsafe fn GetAppliedGPOListA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAppliedGPOListA(
                 dwflags: u32,
@@ -1148,7 +1148,7 @@ pub unsafe fn GetAppliedGPOListW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAppliedGPOListW(
                 dwflags: u32,
@@ -1186,7 +1186,7 @@ pub unsafe fn GetGPOListA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGPOListA(
                 htoken: super::super::Foundation::HANDLE,
@@ -1226,7 +1226,7 @@ pub unsafe fn GetGPOListW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGPOListW(
                 htoken: super::super::Foundation::HANDLE,
@@ -1260,7 +1260,7 @@ pub unsafe fn GetLocalManagedApplicationData<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLocalManagedApplicationData(
                 productcode: super::super::Foundation::PWSTR,
@@ -1288,7 +1288,7 @@ pub unsafe fn GetLocalManagedApplications<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLocalManagedApplications(
                 buserapps: super::super::Foundation::BOOL,
@@ -1312,7 +1312,7 @@ pub unsafe fn GetManagedApplicationCategories(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetManagedApplicationCategories(
                 dwreserved: u32,
@@ -1337,7 +1337,7 @@ pub unsafe fn GetManagedApplications(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetManagedApplications(
                 pcategory: *const ::windows::runtime::GUID,
@@ -19536,7 +19536,7 @@ pub unsafe fn ImportRSoPData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "gpedit")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImportRSoPData(
                 lpnamespace: super::super::Foundation::PWSTR,
@@ -19556,7 +19556,7 @@ pub unsafe fn ImportRSoPData<
 pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32;
         }
@@ -19625,7 +19625,7 @@ pub unsafe fn LeaveCriticalPolicySection<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn LeaveCriticalPolicySection(
                 hsection: super::super::Foundation::HANDLE,
@@ -19890,7 +19890,7 @@ pub unsafe fn ProcessGroupPolicyCompleted(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessGroupPolicyCompleted(
                 extensionid: *const ::windows::runtime::GUID,
@@ -19915,7 +19915,7 @@ pub unsafe fn ProcessGroupPolicyCompletedEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessGroupPolicyCompletedEx(
                 extensionid: *const ::windows::runtime::GUID,
@@ -20041,7 +20041,7 @@ pub unsafe fn RefreshPolicy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn RefreshPolicy(
                 bmachine: super::super::Foundation::BOOL,
@@ -20062,7 +20062,7 @@ pub unsafe fn RefreshPolicyEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn RefreshPolicyEx(
                 bmachine: super::super::Foundation::BOOL,
@@ -20088,7 +20088,7 @@ pub unsafe fn RegisterGPNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterGPNotification(
                 hevent: super::super::Foundation::HANDLE,
@@ -20126,7 +20126,7 @@ pub unsafe fn RsopAccessCheckByType<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn RsopAccessCheckByType(
                 psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
@@ -20173,7 +20173,7 @@ pub unsafe fn RsopFileAccessCheck<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn RsopFileAccessCheck(
                 pszfilename: super::super::Foundation::PWSTR,
@@ -20207,7 +20207,7 @@ pub unsafe fn RsopResetPolicySettingStatus<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn RsopResetPolicySettingStatus(
                 dwflags: u32,
@@ -20239,7 +20239,7 @@ pub unsafe fn RsopSetPolicySettingStatus<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn RsopSetPolicySettingStatus(
                 dwflags: u32,
@@ -20295,7 +20295,7 @@ pub unsafe fn UninstallApplication<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UninstallApplication(
                 productcode: super::super::Foundation::PWSTR,
@@ -20319,7 +20319,7 @@ pub unsafe fn UnregisterGPNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterGPNotification(
                 hevent: super::super::Foundation::HANDLE,

@@ -22,7 +22,7 @@ pub unsafe fn CallNamedPipeA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallNamedPipeA(
                 lpnamedpipename: super::super::Foundation::PSTR,
@@ -62,7 +62,7 @@ pub unsafe fn CallNamedPipeW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallNamedPipeW(
                 lpnamedpipename: super::super::Foundation::PWSTR,
@@ -97,7 +97,7 @@ pub unsafe fn ConnectNamedPipe<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConnectNamedPipe(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -132,7 +132,7 @@ pub unsafe fn CreateNamedPipeA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateNamedPipeA(
                 lpname: super::super::Foundation::PSTR,
@@ -179,7 +179,7 @@ pub unsafe fn CreateNamedPipeW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateNamedPipeW(
                 lpname: super::super::Foundation::PWSTR,
@@ -215,7 +215,7 @@ pub unsafe fn CreatePipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePipe(
                 hreadpipe: *mut super::super::Foundation::HANDLE,
@@ -243,7 +243,7 @@ pub unsafe fn DisconnectNamedPipe<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisconnectNamedPipe(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -265,7 +265,7 @@ pub unsafe fn GetNamedPipeClientComputerNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeClientComputerNameA(
                 pipe: super::super::Foundation::HANDLE,
@@ -293,7 +293,7 @@ pub unsafe fn GetNamedPipeClientComputerNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeClientComputerNameW(
                 pipe: super::super::Foundation::HANDLE,
@@ -320,7 +320,7 @@ pub unsafe fn GetNamedPipeClientProcessId<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeClientProcessId(
                 pipe: super::super::Foundation::HANDLE,
@@ -345,7 +345,7 @@ pub unsafe fn GetNamedPipeClientSessionId<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeClientSessionId(
                 pipe: super::super::Foundation::HANDLE,
@@ -375,7 +375,7 @@ pub unsafe fn GetNamedPipeHandleStateA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeHandleStateA(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -415,7 +415,7 @@ pub unsafe fn GetNamedPipeHandleStateW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeHandleStateW(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -453,7 +453,7 @@ pub unsafe fn GetNamedPipeInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeInfo(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -484,7 +484,7 @@ pub unsafe fn GetNamedPipeServerProcessId<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeServerProcessId(
                 pipe: super::super::Foundation::HANDLE,
@@ -509,7 +509,7 @@ pub unsafe fn GetNamedPipeServerSessionId<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeServerSessionId(
                 pipe: super::super::Foundation::HANDLE,
@@ -533,7 +533,7 @@ pub unsafe fn ImpersonateNamedPipeClient<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImpersonateNamedPipeClient(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -619,7 +619,7 @@ pub unsafe fn PeekNamedPipe<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeekNamedPipe(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -654,7 +654,7 @@ pub unsafe fn SetNamedPipeHandleState<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetNamedPipeHandleState(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -688,7 +688,7 @@ pub unsafe fn TransactNamedPipe<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TransactNamedPipe(
                 hnamedpipe: super::super::Foundation::HANDLE,
@@ -723,7 +723,7 @@ pub unsafe fn WaitNamedPipeA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitNamedPipeA(
                 lpnamedpipename: super::super::Foundation::PSTR,
@@ -748,7 +748,7 @@ pub unsafe fn WaitNamedPipeW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitNamedPipeW(
                 lpnamedpipename: super::super::Foundation::PWSTR,

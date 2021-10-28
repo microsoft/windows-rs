@@ -26323,7 +26323,7 @@ pub unsafe fn WMCreateBackupRestorer<
 ) -> ::windows::runtime::Result<IWMLicenseBackup> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateBackupRestorer(
                 pcallback: ::windows::runtime::RawPtr,
@@ -26340,7 +26340,7 @@ pub unsafe fn WMCreateBackupRestorer<
 pub unsafe fn WMCreateEditor() -> ::windows::runtime::Result<IWMMetadataEditor> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateEditor(
                 ppeditor: *mut ::windows::runtime::RawPtr,
@@ -26356,7 +26356,7 @@ pub unsafe fn WMCreateEditor() -> ::windows::runtime::Result<IWMMetadataEditor> 
 pub unsafe fn WMCreateIndexer() -> ::windows::runtime::Result<IWMIndexer> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateIndexer(
                 ppindexer: *mut ::windows::runtime::RawPtr,
@@ -26371,7 +26371,7 @@ pub unsafe fn WMCreateIndexer() -> ::windows::runtime::Result<IWMIndexer> {
 pub unsafe fn WMCreateProfileManager() -> ::windows::runtime::Result<IWMProfileManager> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateProfileManager(
                 ppprofilemanager: *mut ::windows::runtime::RawPtr,
@@ -26393,7 +26393,7 @@ pub unsafe fn WMCreateReader<
 ) -> ::windows::runtime::Result<IWMReader> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateReader(
                 punkcert: ::windows::runtime::RawPtr,
@@ -26421,7 +26421,7 @@ pub unsafe fn WMCreateSyncReader<
 ) -> ::windows::runtime::Result<IWMSyncReader> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateSyncReader(
                 punkcert: ::windows::runtime::RawPtr,
@@ -26448,7 +26448,7 @@ pub unsafe fn WMCreateWriter<
 ) -> ::windows::runtime::Result<IWMWriter> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateWriter(
                 punkcert: ::windows::runtime::RawPtr,
@@ -26464,7 +26464,7 @@ pub unsafe fn WMCreateWriter<
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::runtime::Result<IWMWriterFileSink> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateWriterFileSink(
                 ppsink: *mut ::windows::runtime::RawPtr,
@@ -26480,7 +26480,7 @@ pub unsafe fn WMCreateWriterFileSink() -> ::windows::runtime::Result<IWMWriterFi
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::runtime::Result<IWMWriterNetworkSink> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateWriterNetworkSink(
                 ppsink: *mut ::windows::runtime::RawPtr,
@@ -26496,7 +26496,7 @@ pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::runtime::Result<IWMWrite
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::runtime::Result<IWMWriterPushSink> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMCreateWriterPushSink(
                 ppsink: *mut ::windows::runtime::RawPtr,
@@ -26588,7 +26588,7 @@ pub unsafe fn WMIsContentProtected<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wmvcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WMIsContentProtected(
                 pwszfilename: super::super::Foundation::PWSTR,

@@ -14764,7 +14764,7 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(
                 wszservername: super::super::Foundation::PWSTR,
@@ -14787,7 +14787,7 @@ pub unsafe fn NetworkIsolationEnumAppContainers(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationEnumAppContainers(
                 flags: u32,
@@ -14810,7 +14810,7 @@ pub unsafe fn NetworkIsolationFreeAppContainers(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationFreeAppContainers(
                 ppublicappcs: *const INET_FIREWALL_APP_CONTAINER,
@@ -14830,7 +14830,7 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationGetAppContainerConfig(
                 pdwnumpublicappcs: *mut u32,
@@ -14854,7 +14854,7 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationRegisterForAppContainerChanges(
                 flags: u32,
@@ -14880,7 +14880,7 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationSetAppContainerConfig(
                 dwnumpublicappcs: u32,
@@ -14914,7 +14914,7 @@ pub unsafe fn NetworkIsolationSetupAppContainerBinaries<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationSetupAppContainerBinaries(
                 applicationcontainersid: super::super::Foundation::PSID,
@@ -14949,7 +14949,7 @@ pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-net-isolation-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetworkIsolationUnregisterForAppContainerChanges(
                 registrationobject: super::super::Foundation::HANDLE,

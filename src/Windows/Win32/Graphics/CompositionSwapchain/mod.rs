@@ -119,7 +119,7 @@ pub unsafe fn CreatePresentationFactory<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePresentationFactory(
                 d3ddevice: ::windows::runtime::RawPtr,

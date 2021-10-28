@@ -1239,7 +1239,7 @@ pub unsafe fn IsDestinationReachableA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sensapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDestinationReachableA(
                 lpszdestination: super::super::Foundation::PSTR,
@@ -1264,7 +1264,7 @@ pub unsafe fn IsDestinationReachableW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sensapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDestinationReachableW(
                 lpszdestination: super::super::Foundation::PWSTR,
@@ -1283,7 +1283,7 @@ pub unsafe fn IsDestinationReachableW<
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "sensapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
         }

@@ -16,7 +16,7 @@ pub unsafe fn DisableThreadProfiling<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisableThreadProfiling(
                 performancedatahandle: super::super::super::Foundation::HANDLE,
@@ -41,7 +41,7 @@ pub unsafe fn EnableThreadProfiling<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableThreadProfiling(
                 threadhandle: super::super::super::Foundation::HANDLE,
@@ -175,7 +175,7 @@ pub unsafe fn QueryThreadProfiling<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryThreadProfiling(
                 threadhandle: super::super::super::Foundation::HANDLE,
@@ -201,7 +201,7 @@ pub unsafe fn ReadThreadProfilingData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadThreadProfilingData(
                 performancedatahandle: super::super::super::Foundation::HANDLE,

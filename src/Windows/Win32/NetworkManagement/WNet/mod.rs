@@ -314,7 +314,7 @@ pub unsafe fn MultinetGetConnectionPerformanceA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn MultinetGetConnectionPerformanceA(
                 lpnetresource: *const NETRESOURCEA,
@@ -336,7 +336,7 @@ pub unsafe fn MultinetGetConnectionPerformanceW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn MultinetGetConnectionPerformanceW(
                 lpnetresource: *const NETRESOURCEW,
@@ -949,7 +949,7 @@ pub unsafe fn NPAddConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPAddConnection(
                 lpnetresource: *const NETRESOURCEW,
@@ -981,7 +981,7 @@ pub unsafe fn NPAddConnection3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPAddConnection3(
                 hwndowner: super::super::Foundation::HWND,
@@ -1017,7 +1017,7 @@ pub unsafe fn NPAddConnection4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPAddConnection4(
                 hwndowner: super::super::Foundation::HWND,
@@ -1053,7 +1053,7 @@ pub unsafe fn NPCancelConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPCancelConnection(
                 lpname: super::super::Foundation::PWSTR,
@@ -1080,7 +1080,7 @@ pub unsafe fn NPCancelConnection2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPCancelConnection2(
                 lpname: super::super::Foundation::PWSTR,
@@ -1106,7 +1106,7 @@ pub unsafe fn NPCloseEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPCloseEnum(henum: super::super::Foundation::HANDLE) -> u32;
         }
@@ -1177,7 +1177,7 @@ pub unsafe fn NPEnumResource<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPEnumResource(
                 henum: super::super::Foundation::HANDLE,
@@ -1209,7 +1209,7 @@ pub unsafe fn NPFormatNetworkName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPFormatNetworkName(
                 lpremotename: super::super::Foundation::PWSTR,
@@ -1233,7 +1233,7 @@ pub unsafe fn NPFormatNetworkName<
 pub unsafe fn NPGetCaps(ndex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetCaps(ndex: u32) -> u32;
         }
@@ -1253,7 +1253,7 @@ pub unsafe fn NPGetConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetConnection(
                 lplocalname: super::super::Foundation::PWSTR,
@@ -1282,7 +1282,7 @@ pub unsafe fn NPGetConnection3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetConnection3(
                 lplocalname: super::super::Foundation::PWSTR,
@@ -1311,7 +1311,7 @@ pub unsafe fn NPGetConnectionPerformance<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetConnectionPerformance(
                 lpremotename: super::super::Foundation::PWSTR,
@@ -1339,7 +1339,7 @@ pub unsafe fn NPGetPersistentUseOptionsForConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntlanman")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetPersistentUseOptionsForConnection(
                 lpremotepath: super::super::Foundation::PWSTR,
@@ -1369,7 +1369,7 @@ pub unsafe fn NPGetResourceInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetResourceInformation(
                 lpnetresource: *const NETRESOURCEW,
@@ -1396,7 +1396,7 @@ pub unsafe fn NPGetResourceParent(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetResourceParent(
                 lpnetresource: *const NETRESOURCEW,
@@ -1425,7 +1425,7 @@ pub unsafe fn NPGetUniversalName<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetUniversalName(
                 lplocalpath: super::super::Foundation::PWSTR,
@@ -1455,7 +1455,7 @@ pub unsafe fn NPGetUser<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPGetUser(
                 lpname: super::super::Foundation::PWSTR,
@@ -1482,7 +1482,7 @@ pub unsafe fn NPOpenEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn NPOpenEnum(
                 dwscope: u32,
@@ -2158,7 +2158,7 @@ pub unsafe fn WNetAddConnection2A<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnection2A(
                 lpnetresource: *const NETRESOURCEA,
@@ -2190,7 +2190,7 @@ pub unsafe fn WNetAddConnection2W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnection2W(
                 lpnetresource: *const NETRESOURCEW,
@@ -2224,7 +2224,7 @@ pub unsafe fn WNetAddConnection3A<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnection3A(
                 hwndowner: super::super::Foundation::HWND,
@@ -2260,7 +2260,7 @@ pub unsafe fn WNetAddConnection3W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnection3W(
                 hwndowner: super::super::Foundation::HWND,
@@ -2296,7 +2296,7 @@ pub unsafe fn WNetAddConnection4A<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnection4A(
                 hwndowner: super::super::Foundation::HWND,
@@ -2336,7 +2336,7 @@ pub unsafe fn WNetAddConnection4W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnection4W(
                 hwndowner: super::super::Foundation::HWND,
@@ -2374,7 +2374,7 @@ pub unsafe fn WNetAddConnectionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnectionA(
                 lpremotename: super::super::Foundation::PSTR,
@@ -2404,7 +2404,7 @@ pub unsafe fn WNetAddConnectionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetAddConnectionW(
                 lpremotename: super::super::Foundation::PWSTR,
@@ -2433,7 +2433,7 @@ pub unsafe fn WNetCancelConnection2A<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetCancelConnection2A(
                 lpname: super::super::Foundation::PSTR,
@@ -2462,7 +2462,7 @@ pub unsafe fn WNetCancelConnection2W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetCancelConnection2W(
                 lpname: super::super::Foundation::PWSTR,
@@ -2490,7 +2490,7 @@ pub unsafe fn WNetCancelConnectionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetCancelConnectionA(
                 lpname: super::super::Foundation::PSTR,
@@ -2516,7 +2516,7 @@ pub unsafe fn WNetCancelConnectionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetCancelConnectionW(
                 lpname: super::super::Foundation::PWSTR,
@@ -2540,7 +2540,7 @@ pub unsafe fn WNetCloseEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetCloseEnum(henum: super::super::Foundation::HANDLE) -> u32;
         }
@@ -2559,7 +2559,7 @@ pub unsafe fn WNetConnectionDialog<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetConnectionDialog(hwnd: super::super::Foundation::HWND, dwtype: u32) -> u32;
         }
@@ -2575,7 +2575,7 @@ pub unsafe fn WNetConnectionDialog<
 pub unsafe fn WNetConnectionDialog1A(lpconndlgstruct: *mut CONNECTDLGSTRUCTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetConnectionDialog1A(lpconndlgstruct: *mut CONNECTDLGSTRUCTA) -> u32;
         }
@@ -2590,7 +2590,7 @@ pub unsafe fn WNetConnectionDialog1A(lpconndlgstruct: *mut CONNECTDLGSTRUCTA) ->
 pub unsafe fn WNetConnectionDialog1W(lpconndlgstruct: *mut CONNECTDLGSTRUCTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetConnectionDialog1W(lpconndlgstruct: *mut CONNECTDLGSTRUCTW) -> u32;
         }
@@ -2611,7 +2611,7 @@ pub unsafe fn WNetDisconnectDialog<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetDisconnectDialog(hwnd: super::super::Foundation::HWND, dwtype: u32) -> u32;
         }
@@ -2627,7 +2627,7 @@ pub unsafe fn WNetDisconnectDialog<
 pub unsafe fn WNetDisconnectDialog1A(lpconndlgstruct: *const DISCDLGSTRUCTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetDisconnectDialog1A(lpconndlgstruct: *const DISCDLGSTRUCTA) -> u32;
         }
@@ -2642,7 +2642,7 @@ pub unsafe fn WNetDisconnectDialog1A(lpconndlgstruct: *const DISCDLGSTRUCTA) -> 
 pub unsafe fn WNetDisconnectDialog1W(lpconndlgstruct: *const DISCDLGSTRUCTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetDisconnectDialog1W(lpconndlgstruct: *const DISCDLGSTRUCTW) -> u32;
         }
@@ -2665,7 +2665,7 @@ pub unsafe fn WNetEnumResourceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetEnumResourceA(
                 henum: super::super::Foundation::HANDLE,
@@ -2696,7 +2696,7 @@ pub unsafe fn WNetEnumResourceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetEnumResourceW(
                 henum: super::super::Foundation::HANDLE,
@@ -2726,7 +2726,7 @@ pub unsafe fn WNetGetConnectionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetConnectionA(
                 lplocalname: super::super::Foundation::PSTR,
@@ -2754,7 +2754,7 @@ pub unsafe fn WNetGetConnectionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetConnectionW(
                 lplocalname: super::super::Foundation::PWSTR,
@@ -2781,7 +2781,7 @@ pub unsafe fn WNetGetLastErrorA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetLastErrorA(
                 lperror: *mut u32,
@@ -2812,7 +2812,7 @@ pub unsafe fn WNetGetLastErrorW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetLastErrorW(
                 lperror: *mut u32,
@@ -2843,7 +2843,7 @@ pub unsafe fn WNetGetNetworkInformationA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetNetworkInformationA(
                 lpprovider: super::super::Foundation::PSTR,
@@ -2868,7 +2868,7 @@ pub unsafe fn WNetGetNetworkInformationW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetNetworkInformationW(
                 lpprovider: super::super::Foundation::PWSTR,
@@ -2891,7 +2891,7 @@ pub unsafe fn WNetGetProviderNameA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetProviderNameA(
                 dwnettype: u32,
@@ -2916,7 +2916,7 @@ pub unsafe fn WNetGetProviderNameW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetProviderNameW(
                 dwnettype: u32,
@@ -2942,7 +2942,7 @@ pub unsafe fn WNetGetResourceInformationA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetResourceInformationA(
                 lpnetresource: *const NETRESOURCEA,
@@ -2970,7 +2970,7 @@ pub unsafe fn WNetGetResourceInformationW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetResourceInformationW(
                 lpnetresource: *const NETRESOURCEW,
@@ -2997,7 +2997,7 @@ pub unsafe fn WNetGetResourceParentA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetResourceParentA(
                 lpnetresource: *const NETRESOURCEA,
@@ -3022,7 +3022,7 @@ pub unsafe fn WNetGetResourceParentW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetResourceParentW(
                 lpnetresource: *const NETRESOURCEW,
@@ -3051,7 +3051,7 @@ pub unsafe fn WNetGetUniversalNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetUniversalNameA(
                 lplocalpath: super::super::Foundation::PSTR,
@@ -3082,7 +3082,7 @@ pub unsafe fn WNetGetUniversalNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetUniversalNameW(
                 lplocalpath: super::super::Foundation::PWSTR,
@@ -3112,7 +3112,7 @@ pub unsafe fn WNetGetUserA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetUserA(
                 lpname: super::super::Foundation::PSTR,
@@ -3140,7 +3140,7 @@ pub unsafe fn WNetGetUserW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetGetUserW(
                 lpname: super::super::Foundation::PWSTR,
@@ -3167,7 +3167,7 @@ pub unsafe fn WNetOpenEnumA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetOpenEnumA(
                 dwscope: NET_RESOURCE_SCOPE,
@@ -3198,7 +3198,7 @@ pub unsafe fn WNetOpenEnumW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetOpenEnumW(
                 dwscope: NET_RESOURCE_SCOPE,
@@ -3231,7 +3231,7 @@ pub unsafe fn WNetSetLastErrorA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetSetLastErrorA(
                 err: u32,
@@ -3260,7 +3260,7 @@ pub unsafe fn WNetSetLastErrorW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetSetLastErrorW(
                 err: u32,
@@ -3295,7 +3295,7 @@ pub unsafe fn WNetUseConnection4A<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetUseConnection4A(
                 hwndowner: super::super::Foundation::HWND,
@@ -3344,7 +3344,7 @@ pub unsafe fn WNetUseConnection4W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetUseConnection4W(
                 hwndowner: super::super::Foundation::HWND,
@@ -3393,7 +3393,7 @@ pub unsafe fn WNetUseConnectionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetUseConnectionA(
                 hwndowner: super::super::Foundation::HWND,
@@ -3438,7 +3438,7 @@ pub unsafe fn WNetUseConnectionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mpr")]
+        #[link(name = "windows")]
         extern "system" {
             fn WNetUseConnectionW(
                 hwndowner: super::super::Foundation::HWND,

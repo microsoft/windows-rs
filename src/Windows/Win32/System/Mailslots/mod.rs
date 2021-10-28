@@ -19,7 +19,7 @@ pub unsafe fn CreateMailslotA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMailslotA(
                 lpname: super::super::Foundation::PSTR,
@@ -50,7 +50,7 @@ pub unsafe fn CreateMailslotW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMailslotW(
                 lpname: super::super::Foundation::PWSTR,
@@ -82,7 +82,7 @@ pub unsafe fn GetMailslotInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMailslotInfo(
                 hmailslot: super::super::Foundation::HANDLE,
@@ -113,7 +113,7 @@ pub unsafe fn SetMailslotInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMailslotInfo(
                 hmailslot: super::super::Foundation::HANDLE,

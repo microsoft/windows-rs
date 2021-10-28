@@ -178,7 +178,7 @@ pub unsafe fn OperationEnd(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OperationEnd(
                 operationendparams: *const OPERATION_END_PARAMETERS,
@@ -195,7 +195,7 @@ pub unsafe fn OperationStart(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OperationStart(
                 operationstartparams: *const OPERATION_START_PARAMETERS,

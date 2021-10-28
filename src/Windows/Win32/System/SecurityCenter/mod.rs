@@ -1856,7 +1856,7 @@ pub unsafe fn WscGetAntiMalwareUri() -> ::windows::runtime::Result<super::super:
 {
     #[cfg(windows)]
     {
-        #[link(name = "wscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WscGetAntiMalwareUri(
                 ppszuri: *mut super::super::Foundation::PWSTR,
@@ -1875,7 +1875,7 @@ pub unsafe fn WscGetSecurityProviderHealth(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WscGetSecurityProviderHealth(
                 providers: u32,
@@ -1894,7 +1894,7 @@ pub unsafe fn WscGetSecurityProviderHealth(
 pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WscQueryAntiMalwareUri() -> ::windows::runtime::HRESULT;
         }
@@ -1912,7 +1912,7 @@ pub unsafe fn WscRegisterForChanges(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WscRegisterForChanges(
                 reserved: *mut ::std::ffi::c_void,
@@ -1935,7 +1935,7 @@ pub unsafe fn WscRegisterForChanges(
 pub unsafe fn WscRegisterForUserNotifications() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WscRegisterForUserNotifications() -> ::windows::runtime::HRESULT;
         }
@@ -1953,7 +1953,7 @@ pub unsafe fn WscUnRegisterChanges<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WscUnRegisterChanges(
                 hregistrationhandle: super::super::Foundation::HANDLE,

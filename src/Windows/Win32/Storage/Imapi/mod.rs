@@ -162,7 +162,7 @@ pub const CLSID_SmtpCat: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS);
         }
@@ -2468,7 +2468,7 @@ pub unsafe fn GetAttribIMsgOnIStg(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAttribIMsgOnIStg(
                 lpobject: *mut ::std::ffi::c_void,
@@ -22408,7 +22408,7 @@ pub type MSGCALLRELEASE =
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapStorageSCode(stgscode: i32) -> i32;
         }
@@ -22550,7 +22550,7 @@ pub unsafe fn OpenIMsgOnIStg<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenIMsgOnIStg(
                 lpmsgsess: *mut _MSGSESS,
@@ -22594,7 +22594,7 @@ pub unsafe fn OpenIMsgSession<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenIMsgSession(
                 lpmalloc: ::windows::runtime::RawPtr,
@@ -22731,7 +22731,7 @@ pub unsafe fn SetAttribIMsgOnIStg(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetAttribIMsgOnIStg(
                 lpobject: *mut ::std::ffi::c_void,

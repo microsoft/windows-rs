@@ -20,7 +20,7 @@ pub unsafe fn AdjustWindowRectExForDpi<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdjustWindowRectExForDpi(
                 lprect: *mut super::super::Foundation::RECT,
@@ -52,7 +52,7 @@ pub unsafe fn AreDpiAwarenessContextsEqual<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AreDpiAwarenessContextsEqual(
                 dpicontexta: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
@@ -246,7 +246,7 @@ pub unsafe fn EnableNonClientDpiScaling<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableNonClientDpiScaling(
                 hwnd: super::super::Foundation::HWND,
@@ -266,7 +266,7 @@ pub unsafe fn GetAwarenessFromDpiAwarenessContext<
 ) -> DPI_AWARENESS {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAwarenessFromDpiAwarenessContext(
                 value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
@@ -288,7 +288,7 @@ pub unsafe fn GetDialogControlDpiChangeBehavior<
 ) -> DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDialogControlDpiChangeBehavior(
                 hwnd: super::super::Foundation::HWND,
@@ -308,7 +308,7 @@ pub unsafe fn GetDialogDpiChangeBehavior<
 ) -> DIALOG_DPI_CHANGE_BEHAVIORS {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDialogDpiChangeBehavior(
                 hdlg: super::super::Foundation::HWND,
@@ -331,7 +331,7 @@ pub unsafe fn GetDpiForMonitor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-shcore-scaling-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDpiForMonitor(
                 hmonitor: super::super::Graphics::Gdi::HMONITOR,
@@ -354,7 +354,7 @@ pub unsafe fn GetDpiForMonitor<
 pub unsafe fn GetDpiForSystem() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDpiForSystem() -> u32;
         }
@@ -372,7 +372,7 @@ pub unsafe fn GetDpiForWindow<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDpiForWindow(hwnd: super::super::Foundation::HWND) -> u32;
         }
@@ -390,7 +390,7 @@ pub unsafe fn GetDpiFromDpiAwarenessContext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDpiFromDpiAwarenessContext(
                 value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
@@ -410,7 +410,7 @@ pub unsafe fn GetProcessDpiAwareness<
 ) -> ::windows::runtime::Result<PROCESS_DPI_AWARENESS> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-shcore-scaling-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessDpiAwareness(
                 hprocess: super::super::Foundation::HANDLE,
@@ -434,7 +434,7 @@ pub unsafe fn GetSystemDpiForProcess<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDpiForProcess(hprocess: super::super::Foundation::HANDLE) -> u32;
         }
@@ -446,7 +446,7 @@ pub unsafe fn GetSystemDpiForProcess<
 pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32;
         }
@@ -463,7 +463,7 @@ pub unsafe fn GetThreadDpiAwarenessContext(
 ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadDpiAwarenessContext(
             ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT;
@@ -476,7 +476,7 @@ pub unsafe fn GetThreadDpiAwarenessContext(
 pub unsafe fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR;
         }
@@ -494,7 +494,7 @@ pub unsafe fn GetWindowDpiAwarenessContext<
 ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowDpiAwarenessContext(
                 hwnd: super::super::Foundation::HWND,
@@ -514,7 +514,7 @@ pub unsafe fn GetWindowDpiHostingBehavior<
 ) -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowDpiHostingBehavior(
                 hwnd: super::super::Foundation::HWND,
@@ -534,7 +534,7 @@ pub unsafe fn IsValidDpiAwarenessContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidDpiAwarenessContext(
                 value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
@@ -555,7 +555,7 @@ pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogicalToPhysicalPointForPerMonitorDPI(
                 hwnd: super::super::Foundation::HWND,
@@ -605,7 +605,7 @@ pub unsafe fn OpenThemeDataForDpi<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenThemeDataForDpi(
                 hwnd: super::super::Foundation::HWND,
@@ -654,7 +654,7 @@ pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PhysicalToLogicalPointForPerMonitorDPI(
                 hwnd: super::super::Foundation::HWND,
@@ -680,7 +680,7 @@ pub unsafe fn SetDialogControlDpiChangeBehavior<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDialogControlDpiChangeBehavior(
                 hwnd: super::super::Foundation::HWND,
@@ -708,7 +708,7 @@ pub unsafe fn SetDialogDpiChangeBehavior<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDialogDpiChangeBehavior(
                 hdlg: super::super::Foundation::HWND,
@@ -730,7 +730,7 @@ pub unsafe fn SetProcessDpiAwareness(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-shcore-scaling-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::runtime::HRESULT;
         }
@@ -748,7 +748,7 @@ pub unsafe fn SetProcessDpiAwarenessContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessDpiAwarenessContext(
                 value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
@@ -768,7 +768,7 @@ pub unsafe fn SetThreadDpiAwarenessContext<
 ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadDpiAwarenessContext(
                 dpicontext: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
@@ -782,7 +782,7 @@ pub unsafe fn SetThreadDpiAwarenessContext<
 pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR;
         }
@@ -801,7 +801,7 @@ pub unsafe fn SystemParametersInfoForDpi(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemParametersInfoForDpi(
                 uiaction: u32,

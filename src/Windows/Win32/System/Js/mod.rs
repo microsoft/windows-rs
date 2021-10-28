@@ -11,7 +11,7 @@ pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 pub unsafe fn JsAddRef(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsAddRef(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> JsErrorCode;
         }
@@ -33,7 +33,7 @@ pub unsafe fn JsBoolToBoolean(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsBoolToBoolean(
                 value: u8,
@@ -54,7 +54,7 @@ pub unsafe fn JsBooleanToBool(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsBooleanToBool(
                 value: *const ::std::ffi::c_void,
@@ -77,7 +77,7 @@ pub unsafe fn JsCallFunction(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCallFunction(
                 function: *const ::std::ffi::c_void,
@@ -99,7 +99,7 @@ pub unsafe fn JsCallFunction(
 pub unsafe fn JsCollectGarbage(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCollectGarbage(runtime: *const ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -116,7 +116,7 @@ pub unsafe fn JsConstructObject(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsConstructObject(
                 function: *const ::std::ffi::c_void,
@@ -141,7 +141,7 @@ pub unsafe fn JsConvertValueToBoolean(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsConvertValueToBoolean(
                 value: *const ::std::ffi::c_void,
@@ -162,7 +162,7 @@ pub unsafe fn JsConvertValueToNumber(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsConvertValueToNumber(
                 value: *const ::std::ffi::c_void,
@@ -183,7 +183,7 @@ pub unsafe fn JsConvertValueToObject(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsConvertValueToObject(
                 value: *const ::std::ffi::c_void,
@@ -204,7 +204,7 @@ pub unsafe fn JsConvertValueToString(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsConvertValueToString(
                 value: *const ::std::ffi::c_void,
@@ -222,7 +222,7 @@ pub unsafe fn JsConvertValueToString(
 pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateArray(length: u32, result: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -245,7 +245,7 @@ pub unsafe fn JsCreateContext<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateContext(
                 runtime: *const ::std::ffi::c_void,
@@ -268,7 +268,7 @@ pub unsafe fn JsCreateError(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateError(
                 message: *const ::std::ffi::c_void,
@@ -290,7 +290,7 @@ pub unsafe fn JsCreateExternalObject(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateExternalObject(
                 data: *const ::std::ffi::c_void,
@@ -314,7 +314,7 @@ pub unsafe fn JsCreateFunction(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateFunction(
                 nativefunction: ::windows::runtime::RawPtr,
@@ -334,7 +334,7 @@ pub unsafe fn JsCreateFunction(
 pub unsafe fn JsCreateObject(object: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateObject(object: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -349,7 +349,7 @@ pub unsafe fn JsCreateRangeError(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateRangeError(
                 message: *const ::std::ffi::c_void,
@@ -370,7 +370,7 @@ pub unsafe fn JsCreateReferenceError(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateReferenceError(
                 message: *const ::std::ffi::c_void,
@@ -393,7 +393,7 @@ pub unsafe fn JsCreateRuntime(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateRuntime(
                 attributes: JsRuntimeAttributes,
@@ -418,7 +418,7 @@ pub unsafe fn JsCreateSyntaxError(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateSyntaxError(
                 message: *const ::std::ffi::c_void,
@@ -439,7 +439,7 @@ pub unsafe fn JsCreateTypeError(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateTypeError(
                 message: *const ::std::ffi::c_void,
@@ -460,7 +460,7 @@ pub unsafe fn JsCreateURIError(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsCreateURIError(
                 message: *const ::std::ffi::c_void,
@@ -483,7 +483,7 @@ pub unsafe fn JsDefineProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsDefineProperty(
                 object: *const ::std::ffi::c_void,
@@ -508,7 +508,7 @@ pub unsafe fn JsDeleteIndexedProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsDeleteIndexedProperty(
                 object: *const ::std::ffi::c_void,
@@ -531,7 +531,7 @@ pub unsafe fn JsDeleteProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsDeleteProperty(
                 object: *const ::std::ffi::c_void,
@@ -553,7 +553,7 @@ pub unsafe fn JsDeleteProperty(
 pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsDisableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -565,7 +565,7 @@ pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> J
 pub unsafe fn JsDisposeRuntime(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsDisposeRuntime(runtime: *const ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -580,7 +580,7 @@ pub unsafe fn JsDoubleToNumber(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsDoubleToNumber(
                 doublevalue: f64,
@@ -598,7 +598,7 @@ pub unsafe fn JsDoubleToNumber(
 pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsEnableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -615,7 +615,7 @@ pub unsafe fn JsEnumerateHeap(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsEnumerateHeap(enumerator: *mut ::windows::runtime::RawPtr) -> JsErrorCode;
         }
@@ -631,7 +631,7 @@ pub unsafe fn JsEquals(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsEquals(
                 object1: *const ::std::ffi::c_void,
@@ -728,7 +728,7 @@ pub type JsFinalizeCallback = unsafe extern "system" fn(data: *const ::std::ffi:
 pub unsafe fn JsGetAndClearException(exception: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetAndClearException(exception: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -740,7 +740,7 @@ pub unsafe fn JsGetAndClearException(exception: *mut *mut ::std::ffi::c_void) ->
 pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetCurrentContext(currentcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -755,7 +755,7 @@ pub unsafe fn JsGetExtensionAllowed(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetExtensionAllowed(
                 object: *const ::std::ffi::c_void,
@@ -776,7 +776,7 @@ pub unsafe fn JsGetExternalData(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetExternalData(
                 object: *const ::std::ffi::c_void,
@@ -794,7 +794,7 @@ pub unsafe fn JsGetExternalData(
 pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetFalseValue(falsevalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -806,7 +806,7 @@ pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::std::ffi::c_void) -> JsErr
 pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetGlobalObject(globalobject: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -822,7 +822,7 @@ pub unsafe fn JsGetIndexedProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetIndexedProperty(
                 object: *const ::std::ffi::c_void,
@@ -842,7 +842,7 @@ pub unsafe fn JsGetIndexedProperty(
 pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetNullValue(nullvalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -858,7 +858,7 @@ pub unsafe fn JsGetOwnPropertyDescriptor(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetOwnPropertyDescriptor(
                 object: *const ::std::ffi::c_void,
@@ -881,7 +881,7 @@ pub unsafe fn JsGetOwnPropertyNames(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetOwnPropertyNames(
                 object: *const ::std::ffi::c_void,
@@ -903,7 +903,7 @@ pub unsafe fn JsGetProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetProperty(
                 object: *const ::std::ffi::c_void,
@@ -930,7 +930,7 @@ pub unsafe fn JsGetPropertyIdFromName<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetPropertyIdFromName(
                 name: super::super::Foundation::PWSTR,
@@ -951,7 +951,7 @@ pub unsafe fn JsGetPropertyNameFromId(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetPropertyNameFromId(
                 propertyid: *const ::std::ffi::c_void,
@@ -972,7 +972,7 @@ pub unsafe fn JsGetPrototype(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetPrototype(
                 object: *const ::std::ffi::c_void,
@@ -993,7 +993,7 @@ pub unsafe fn JsGetRuntime(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetRuntime(
                 context: *const ::std::ffi::c_void,
@@ -1014,7 +1014,7 @@ pub unsafe fn JsGetRuntimeMemoryLimit(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetRuntimeMemoryLimit(
                 runtime: *const ::std::ffi::c_void,
@@ -1035,7 +1035,7 @@ pub unsafe fn JsGetRuntimeMemoryUsage(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetRuntimeMemoryUsage(
                 runtime: *const ::std::ffi::c_void,
@@ -1056,7 +1056,7 @@ pub unsafe fn JsGetStringLength(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetStringLength(
                 stringvalue: *const ::std::ffi::c_void,
@@ -1074,7 +1074,7 @@ pub unsafe fn JsGetStringLength(
 pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetTrueValue(truevalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -1086,7 +1086,7 @@ pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::std::ffi::c_void) -> JsError
 pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -1101,7 +1101,7 @@ pub unsafe fn JsGetValueType(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsGetValueType(
                 value: *const ::std::ffi::c_void,
@@ -1119,7 +1119,7 @@ pub unsafe fn JsGetValueType(
 pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsHasException(hasexception: *mut bool) -> JsErrorCode;
         }
@@ -1134,7 +1134,7 @@ pub unsafe fn JsHasExternalData(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsHasExternalData(
                 object: *const ::std::ffi::c_void,
@@ -1156,7 +1156,7 @@ pub unsafe fn JsHasIndexedProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsHasIndexedProperty(
                 object: *const ::std::ffi::c_void,
@@ -1180,7 +1180,7 @@ pub unsafe fn JsHasProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsHasProperty(
                 object: *const ::std::ffi::c_void,
@@ -1200,7 +1200,7 @@ pub unsafe fn JsHasProperty(
 pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsIdle(nextidletick: *mut u32) -> JsErrorCode;
         }
@@ -1212,7 +1212,7 @@ pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
 pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsIntToNumber(intvalue: i32, value: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -1227,7 +1227,7 @@ pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::std::ffi::c_void) 
 pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode;
         }
@@ -1244,7 +1244,7 @@ pub unsafe fn JsIsRuntimeExecutionDisabled(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsIsRuntimeExecutionDisabled(
                 runtime: *const ::std::ffi::c_void,
@@ -1299,7 +1299,7 @@ pub unsafe fn JsNumberToDouble(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsNumberToDouble(
                 value: *const ::std::ffi::c_void,
@@ -1327,7 +1327,7 @@ pub unsafe fn JsParseScript<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsParseScript(
                 script: super::super::Foundation::PWSTR,
@@ -1360,7 +1360,7 @@ pub unsafe fn JsParseSerializedScript<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsParseSerializedScript(
                 script: super::super::Foundation::PWSTR,
@@ -1392,7 +1392,7 @@ pub unsafe fn JsPointerToString<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsPointerToString(
                 stringvalue: super::super::Foundation::PWSTR,
@@ -1412,7 +1412,7 @@ pub unsafe fn JsPointerToString<
 pub unsafe fn JsPreventExtension(object: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsPreventExtension(object: *const ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -1424,7 +1424,7 @@ pub unsafe fn JsPreventExtension(object: *const ::std::ffi::c_void) -> JsErrorCo
 pub unsafe fn JsRelease(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsRelease(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> JsErrorCode;
         }
@@ -1449,7 +1449,7 @@ pub unsafe fn JsRunScript<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsRunScript(
                 script: super::super::Foundation::PWSTR,
@@ -1482,7 +1482,7 @@ pub unsafe fn JsRunSerializedScript<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsRunSerializedScript(
                 script: super::super::Foundation::PWSTR,
@@ -1562,7 +1562,7 @@ pub unsafe fn JsSerializeScript<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSerializeScript(
                 script: super::super::Foundation::PWSTR,
@@ -1582,7 +1582,7 @@ pub unsafe fn JsSerializeScript<
 pub unsafe fn JsSetCurrentContext(context: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetCurrentContext(context: *const ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -1594,7 +1594,7 @@ pub unsafe fn JsSetCurrentContext(context: *const ::std::ffi::c_void) -> JsError
 pub unsafe fn JsSetException(exception: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetException(exception: *const ::std::ffi::c_void) -> JsErrorCode;
         }
@@ -1609,7 +1609,7 @@ pub unsafe fn JsSetExternalData(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetExternalData(
                 object: *const ::std::ffi::c_void,
@@ -1631,7 +1631,7 @@ pub unsafe fn JsSetIndexedProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetIndexedProperty(
                 object: *const ::std::ffi::c_void,
@@ -1656,7 +1656,7 @@ pub unsafe fn JsSetProperty(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetProperty(
                 object: *const ::std::ffi::c_void,
@@ -1681,7 +1681,7 @@ pub unsafe fn JsSetPrototype(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetPrototype(
                 object: *const ::std::ffi::c_void,
@@ -1703,7 +1703,7 @@ pub unsafe fn JsSetRuntimeBeforeCollectCallback(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetRuntimeBeforeCollectCallback(
                 runtime: *const ::std::ffi::c_void,
@@ -1727,7 +1727,7 @@ pub unsafe fn JsSetRuntimeMemoryAllocationCallback(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetRuntimeMemoryAllocationCallback(
                 runtime: *const ::std::ffi::c_void,
@@ -1750,7 +1750,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsSetRuntimeMemoryLimit(
                 runtime: *const ::std::ffi::c_void,
@@ -1774,7 +1774,7 @@ pub unsafe fn JsStartDebugging<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsStartDebugging(debugapplication: ::windows::runtime::RawPtr) -> JsErrorCode;
         }
@@ -1794,7 +1794,7 @@ pub unsafe fn JsStartProfiling<
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsStartProfiling(
                 callback: ::windows::runtime::RawPtr,
@@ -1814,7 +1814,7 @@ pub unsafe fn JsStartProfiling<
 pub unsafe fn JsStopProfiling(reason: ::windows::runtime::HRESULT) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsStopProfiling(reason: ::windows::runtime::HRESULT) -> JsErrorCode;
         }
@@ -1830,7 +1830,7 @@ pub unsafe fn JsStrictEquals(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsStrictEquals(
                 object1: *const ::std::ffi::c_void,
@@ -1854,7 +1854,7 @@ pub unsafe fn JsStringToPointer(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsStringToPointer(
                 value: *const ::std::ffi::c_void,
@@ -1886,7 +1886,7 @@ pub unsafe fn JsValueToVariant(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsValueToVariant(
                 object: *const ::std::ffi::c_void,
@@ -1940,7 +1940,7 @@ pub unsafe fn JsVariantToValue(
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
-        #[link(name = "chakra")]
+        #[link(name = "windows")]
         extern "system" {
             fn JsVariantToValue(
                 variant: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,

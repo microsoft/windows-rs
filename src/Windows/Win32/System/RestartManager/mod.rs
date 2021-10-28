@@ -321,7 +321,7 @@ pub unsafe fn RmAddFilter<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmAddFilter(
                 dwsessionhandle: u32,
@@ -345,7 +345,7 @@ pub unsafe fn RmAddFilter<
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32;
         }
@@ -357,7 +357,7 @@ pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
 pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmEndSession(dwsessionhandle: u32) -> u32;
         }
@@ -374,7 +374,7 @@ pub unsafe fn RmGetFilterList(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmGetFilterList(
                 dwsessionhandle: u32,
@@ -403,7 +403,7 @@ pub unsafe fn RmGetList(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmGetList(
                 dwsessionhandle: u32,
@@ -434,7 +434,7 @@ pub unsafe fn RmJoinSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmJoinSession(
                 psessionhandle: *mut u32,
@@ -461,7 +461,7 @@ pub unsafe fn RmRegisterResources(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmRegisterResources(
                 dwsessionhandle: u32,
@@ -499,7 +499,7 @@ pub unsafe fn RmRemoveFilter<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmRemoveFilter(
                 dwsessionhandle: u32,
@@ -525,7 +525,7 @@ pub unsafe fn RmRestart(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmRestart(
                 dwsessionhandle: u32,
@@ -549,7 +549,7 @@ pub unsafe fn RmShutdown(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmShutdown(
                 dwsessionhandle: u32,
@@ -574,7 +574,7 @@ pub unsafe fn RmStartSession(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rstrtmgr")]
+        #[link(name = "windows")]
         extern "system" {
             fn RmStartSession(
                 psessionhandle: *mut u32,

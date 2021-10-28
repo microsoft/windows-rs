@@ -94,7 +94,7 @@ pub unsafe fn CollectionsListAllocateBufferAndSerialize(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListAllocateBufferAndSerialize(
                 sourcecollection: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -126,7 +126,7 @@ pub unsafe fn CollectionsListCopyAndMarshall(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListCopyAndMarshall(
                 target: *mut ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -154,7 +154,7 @@ pub unsafe fn CollectionsListDeserializeFromBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListDeserializeFromBuffer(
                 sourcebuffersizeinbytes: u32,
@@ -175,7 +175,7 @@ pub unsafe fn CollectionsListDeserializeFromBuffer(
 pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32;
         }
@@ -197,7 +197,7 @@ pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
 pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListGetMarshalledSize(
                 collection: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -223,7 +223,7 @@ pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListGetMarshalledSizeWithoutSerialization(
                 collection: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -247,7 +247,7 @@ pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(
 pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListGetSerializedSize(
                 collection: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -273,7 +273,7 @@ pub unsafe fn CollectionsListMarshall(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListMarshall(
                 target: *mut ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -299,7 +299,7 @@ pub unsafe fn CollectionsListSerializeToBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListSerializeToBuffer(
                 sourcecollection: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -331,7 +331,7 @@ pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListSortSubscribedActivitiesByConfidence(
                 thresholds: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -360,7 +360,7 @@ pub unsafe fn CollectionsListUpdateMarshalledPointer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn CollectionsListUpdateMarshalledPointer(
                 collection: *mut ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -410,7 +410,7 @@ pub unsafe fn EvaluateActivityThresholds(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvaluateActivityThresholds(
                 newsample: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -661,7 +661,7 @@ pub const GUID_SensorType_Temperature: ::windows::runtime::GUID =
 pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPerformanceTime(timems: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
@@ -1780,7 +1780,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromCLSIDArray(
                 members: *const ::windows::runtime::GUID,
@@ -1813,7 +1813,7 @@ pub unsafe fn InitPropVariantFromFloat(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromFloat(
                 fltval: f32,
@@ -1843,7 +1843,7 @@ pub unsafe fn IsCollectionListSame(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCollectionListSame(
                 lista: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -1866,7 +1866,7 @@ pub unsafe fn IsGUIDPresentInList(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsGUIDPresentInList(
                 guidarray: *const ::windows::runtime::GUID,
@@ -1897,7 +1897,7 @@ pub unsafe fn IsKeyPresentInCollectionList(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsKeyPresentInCollectionList(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -1922,7 +1922,7 @@ pub unsafe fn IsKeyPresentInPropertyList(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsKeyPresentInPropertyList(
                 plist: *const SENSOR_PROPERTY_LIST,
@@ -1954,7 +1954,7 @@ pub unsafe fn IsSensorSubscribed<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsSensorSubscribed(
                 subscriptionlist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2275,7 +2275,7 @@ pub unsafe fn PropKeyFindKeyGetBool(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetBool(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2308,7 +2308,7 @@ pub unsafe fn PropKeyFindKeyGetDouble(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetDouble(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2341,7 +2341,7 @@ pub unsafe fn PropKeyFindKeyGetFileTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetFileTime(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2374,7 +2374,7 @@ pub unsafe fn PropKeyFindKeyGetFloat(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetFloat(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2407,7 +2407,7 @@ pub unsafe fn PropKeyFindKeyGetGuid(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetGuid(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2440,7 +2440,7 @@ pub unsafe fn PropKeyFindKeyGetInt32(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetInt32(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2473,7 +2473,7 @@ pub unsafe fn PropKeyFindKeyGetInt64(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetInt64(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2507,7 +2507,7 @@ pub unsafe fn PropKeyFindKeyGetNthInt64(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetNthInt64(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2543,7 +2543,7 @@ pub unsafe fn PropKeyFindKeyGetNthUlong(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetNthUlong(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2579,7 +2579,7 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetNthUshort(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2618,7 +2618,7 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetPropVariant(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2655,7 +2655,7 @@ pub unsafe fn PropKeyFindKeyGetUlong(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetUlong(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2688,7 +2688,7 @@ pub unsafe fn PropKeyFindKeyGetUshort(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeyGetUshort(
                 plist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2725,7 +2725,7 @@ pub unsafe fn PropKeyFindKeySetPropVariant<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropKeyFindKeySetPropVariant(
                 plist: *mut ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
@@ -2763,7 +2763,7 @@ pub unsafe fn PropVariantGetInformation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetInformation(
                 propvariantvalue: *const ::std::mem::ManuallyDrop<
@@ -2797,7 +2797,7 @@ pub unsafe fn PropertiesListCopy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropertiesListCopy(
                 target: *mut SENSOR_PROPERTY_LIST,
@@ -2812,7 +2812,7 @@ pub unsafe fn PropertiesListCopy(
 pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32;
         }
@@ -3745,7 +3745,7 @@ pub unsafe fn SensorCollectionGetAt(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SensorCollectionGetAt(
                 index: u32,
@@ -3835,7 +3835,7 @@ pub unsafe fn SerializationBufferAllocate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SerializationBufferAllocate(
                 sizeinbytes: u32,
@@ -3854,7 +3854,7 @@ pub unsafe fn SerializationBufferAllocate(
 pub unsafe fn SerializationBufferFree(buffer: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "sensorsutilsv2")]
+        #[link(name = "windows")]
         extern "system" {
             fn SerializationBufferFree(buffer: *const u8);
         }

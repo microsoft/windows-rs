@@ -1358,7 +1358,7 @@ pub unsafe fn PssCaptureSnapshot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssCaptureSnapshot(
                 processhandle: super::super::super::Foundation::HANDLE,
@@ -1392,7 +1392,7 @@ pub unsafe fn PssDuplicateSnapshot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssDuplicateSnapshot(
                 sourceprocesshandle: super::super::super::Foundation::HANDLE,
@@ -1424,7 +1424,7 @@ pub unsafe fn PssFreeSnapshot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssFreeSnapshot(
                 processhandle: super::super::super::Foundation::HANDLE,
@@ -1447,7 +1447,7 @@ pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPS
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssQuerySnapshot(
                 snapshothandle: HPSS,
@@ -1472,7 +1472,7 @@ pub unsafe fn PssWalkMarkerCreate(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerCreate(
                 allocator: *const PSS_ALLOCATOR,
@@ -1492,7 +1492,7 @@ pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HP
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerFree(walkmarkerhandle: HPSSWALK) -> u32;
         }
@@ -1507,7 +1507,7 @@ pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: *mut usize) -> u32;
         }
@@ -1527,7 +1527,7 @@ pub unsafe fn PssWalkMarkerSeekToBeginning<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK) -> u32;
         }
@@ -1544,7 +1544,7 @@ pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32;
         }
@@ -1569,7 +1569,7 @@ pub unsafe fn PssWalkSnapshot<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PssWalkSnapshot(
                 snapshothandle: HPSS,

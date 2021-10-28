@@ -67,7 +67,7 @@ pub unsafe fn AddIPAddress(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddIPAddress(
                 address: u32,
@@ -97,7 +97,7 @@ pub unsafe fn CancelIPChangeNotify(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelIPChangeNotify(
                 notifyoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -119,7 +119,7 @@ pub unsafe fn CancelMibChangeNotify2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelMibChangeNotify2(
                 notificationhandle: super::super::Foundation::HANDLE,
@@ -136,7 +136,7 @@ pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CaptureInterfaceHardwareCrossTimestamp(
                 interfaceluid: *const NET_LUID_LH,
@@ -158,7 +158,7 @@ pub unsafe fn ConvertCompartmentGuidToId(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertCompartmentGuidToId(
                 compartmentguid: *const ::windows::runtime::GUID,
@@ -181,7 +181,7 @@ pub unsafe fn ConvertCompartmentIdToGuid(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertCompartmentIdToGuid(
                 compartmentid: u32,
@@ -207,7 +207,7 @@ pub unsafe fn ConvertInterfaceAliasToLuid<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceAliasToLuid(
                 interfacealias: super::super::Foundation::PWSTR,
@@ -230,7 +230,7 @@ pub unsafe fn ConvertInterfaceGuidToLuid(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceGuidToLuid(
                 interfaceguid: *const ::windows::runtime::GUID,
@@ -253,7 +253,7 @@ pub unsafe fn ConvertInterfaceIndexToLuid(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceIndexToLuid(
                 interfaceindex: u32,
@@ -277,7 +277,7 @@ pub unsafe fn ConvertInterfaceLuidToAlias(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceLuidToAlias(
                 interfaceluid: *const NET_LUID_LH,
@@ -302,7 +302,7 @@ pub unsafe fn ConvertInterfaceLuidToGuid(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceLuidToGuid(
                 interfaceluid: *const NET_LUID_LH,
@@ -325,7 +325,7 @@ pub unsafe fn ConvertInterfaceLuidToIndex(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceLuidToIndex(
                 interfaceluid: *const NET_LUID_LH,
@@ -349,7 +349,7 @@ pub unsafe fn ConvertInterfaceLuidToNameA(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceLuidToNameA(
                 interfaceluid: *const NET_LUID_LH,
@@ -375,7 +375,7 @@ pub unsafe fn ConvertInterfaceLuidToNameW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceLuidToNameW(
                 interfaceluid: *const NET_LUID_LH,
@@ -403,7 +403,7 @@ pub unsafe fn ConvertInterfaceNameToLuidA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceNameToLuidA(
                 interfacename: super::super::Foundation::PSTR,
@@ -429,7 +429,7 @@ pub unsafe fn ConvertInterfaceNameToLuidW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertInterfaceNameToLuidW(
                 interfacename: super::super::Foundation::PWSTR,
@@ -452,7 +452,7 @@ pub unsafe fn ConvertIpv4MaskToLength(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertIpv4MaskToLength(
                 mask: u32,
@@ -475,7 +475,7 @@ pub unsafe fn ConvertLengthToIpv4Mask(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertLengthToIpv4Mask(
                 masklength: u32,
@@ -501,7 +501,7 @@ pub unsafe fn CreateAnycastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAnycastIpAddressEntry(
                 row: *const MIB_ANYCASTIPADDRESS_ROW,
@@ -516,7 +516,7 @@ pub unsafe fn CreateAnycastIpAddressEntry(
 pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
         }
@@ -535,7 +535,7 @@ pub unsafe fn CreateIpForwardEntry2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIpForwardEntry2(
                 row: *const MIB_IPFORWARD_ROW2,
@@ -549,7 +549,7 @@ pub unsafe fn CreateIpForwardEntry2(
 pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
         }
@@ -566,7 +566,7 @@ pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
 pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
         }
@@ -582,7 +582,7 @@ pub unsafe fn CreatePersistentTcpPortReservation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePersistentTcpPortReservation(
                 startport: u16,
@@ -606,7 +606,7 @@ pub unsafe fn CreatePersistentUdpPortReservation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePersistentUdpPortReservation(
                 startport: u16,
@@ -626,7 +626,7 @@ pub unsafe fn CreatePersistentUdpPortReservation(
 pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
         }
@@ -651,7 +651,7 @@ pub unsafe fn CreateSortedAddressPairs(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSortedAddressPairs(
                 sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6,
@@ -687,7 +687,7 @@ pub unsafe fn CreateUnicastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateUnicastIpAddressEntry(
                 row: *const MIB_UNICASTIPADDRESS_ROW,
@@ -1142,7 +1142,7 @@ pub unsafe fn DeleteAnycastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteAnycastIpAddressEntry(
                 row: *const MIB_ANYCASTIPADDRESS_ROW,
@@ -1156,7 +1156,7 @@ pub unsafe fn DeleteAnycastIpAddressEntry(
 pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteIPAddress(ntecontext: u32) -> u32;
         }
@@ -1169,7 +1169,7 @@ pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
 pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
         }
@@ -1188,7 +1188,7 @@ pub unsafe fn DeleteIpForwardEntry2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteIpForwardEntry2(
                 row: *const MIB_IPFORWARD_ROW2,
@@ -1202,7 +1202,7 @@ pub unsafe fn DeleteIpForwardEntry2(
 pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
         }
@@ -1219,7 +1219,7 @@ pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
 pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
         }
@@ -1231,7 +1231,7 @@ pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtim
 pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32;
         }
@@ -1246,7 +1246,7 @@ pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: 
 pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32;
         }
@@ -1261,7 +1261,7 @@ pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: 
 pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
         }
@@ -1284,7 +1284,7 @@ pub unsafe fn DeleteUnicastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteUnicastIpAddressEntry(
                 row: *const MIB_UNICASTIPADDRESS_ROW,
@@ -1302,7 +1302,7 @@ pub unsafe fn DisableMediaSense(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisableMediaSense(
                 phandle: *mut super::super::Foundation::HANDLE,
@@ -1326,7 +1326,7 @@ pub unsafe fn EnableRouter(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableRouter(
                 phandle: *mut super::super::Foundation::HANDLE,
@@ -1405,7 +1405,7 @@ unsafe impl ::windows::runtime::Abi for FIXED_INFO_W2KSP1 {
 pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushIpNetTable(dwifindex: u32) -> u32;
         }
@@ -1418,7 +1418,7 @@ pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
 pub unsafe fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushIpNetTable2(
                 family: u16,
@@ -1438,7 +1438,7 @@ pub unsafe fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> ::windows::r
 pub unsafe fn FlushIpPathTable(family: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushIpPathTable(family: u16) -> super::super::Foundation::NTSTATUS;
         }
@@ -1451,7 +1451,7 @@ pub unsafe fn FlushIpPathTable(family: u16) -> ::windows::runtime::Result<()> {
 pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeDnsSettings(settings: *mut DNS_SETTINGS);
         }
@@ -1464,7 +1464,7 @@ pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
 pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS);
         }
@@ -1476,7 +1476,7 @@ pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
 pub unsafe fn FreeMibTable(memory: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeMibTable(memory: *const ::std::ffi::c_void);
         }
@@ -1585,7 +1585,7 @@ pub unsafe fn GetAdapterIndex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAdapterIndex(
                 adaptername: super::super::Foundation::PWSTR,
@@ -1603,7 +1603,7 @@ pub unsafe fn GetAdapterIndex<
 pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP;
         }
@@ -1626,7 +1626,7 @@ pub unsafe fn GetAdaptersAddresses(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAdaptersAddresses(
                 family: ADDRESS_FAMILY,
@@ -1651,7 +1651,7 @@ pub unsafe fn GetAdaptersAddresses(
 pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32;
         }
@@ -1673,7 +1673,7 @@ pub unsafe fn GetAnycastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAnycastIpAddressEntry(
                 row: *mut MIB_ANYCASTIPADDRESS_ROW,
@@ -1695,7 +1695,7 @@ pub unsafe fn GetAnycastIpAddressTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAnycastIpAddressTable(
                 family: u16,
@@ -1710,7 +1710,7 @@ pub unsafe fn GetAnycastIpAddressTable(
 pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32;
         }
@@ -1732,7 +1732,7 @@ pub unsafe fn GetBestInterfaceEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBestInterfaceEx(
                 pdestaddr: *const super::super::Networking::WinSock::SOCKADDR,
@@ -1755,7 +1755,7 @@ pub unsafe fn GetBestRoute(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBestRoute(
                 dwdestaddr: u32,
@@ -1788,7 +1788,7 @@ pub unsafe fn GetBestRoute2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBestRoute2(
                 interfaceluid: *const NET_LUID_LH,
@@ -1817,7 +1817,7 @@ pub unsafe fn GetBestRoute2(
 pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentThreadCompartmentId() -> u32;
         }
@@ -1832,7 +1832,7 @@ pub unsafe fn GetCurrentThreadCompartmentScope(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentThreadCompartmentScope(
                 compartmentscope: *mut u32,
@@ -1850,7 +1850,7 @@ pub unsafe fn GetCurrentThreadCompartmentScope(
 pub unsafe fn GetDefaultCompartmentId() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDefaultCompartmentId() -> u32;
         }
@@ -1863,7 +1863,7 @@ pub unsafe fn GetDefaultCompartmentId() -> u32 {
 pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::super::Foundation::NTSTATUS;
         }
@@ -1886,7 +1886,7 @@ pub unsafe fn GetExtendedTcpTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExtendedTcpTable(
                 ptcptable: *mut ::std::ffi::c_void,
@@ -1923,7 +1923,7 @@ pub unsafe fn GetExtendedUdpTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExtendedUdpTable(
                 pudptable: *mut ::std::ffi::c_void,
@@ -1949,7 +1949,7 @@ pub unsafe fn GetExtendedUdpTable<
 pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFriendlyIfIndex(ifindex: u32) -> u32;
         }
@@ -1961,7 +1961,7 @@ pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
 pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32;
         }
@@ -1973,7 +1973,7 @@ pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
 pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32;
         }
@@ -1988,7 +1988,7 @@ pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u3
 pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32;
         }
@@ -2001,7 +2001,7 @@ pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
 pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> super::super::Foundation::NTSTATUS;
         }
@@ -2017,7 +2017,7 @@ pub unsafe fn GetIfEntry2Ex(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIfEntry2Ex(
                 level: MIB_IF_ENTRY_LEVEL,
@@ -2035,7 +2035,7 @@ pub unsafe fn GetIfStackTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIfStackTable(
                 table: *mut *mut MIB_IFSTACK_TABLE,
@@ -2057,7 +2057,7 @@ pub unsafe fn GetIfTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIfTable(
                 piftable: *mut MIB_IFTABLE,
@@ -2078,7 +2078,7 @@ pub unsafe fn GetIfTable<
 pub unsafe fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::NTSTATUS;
         }
@@ -2094,7 +2094,7 @@ pub unsafe fn GetIfTable2Ex(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIfTable2Ex(
                 level: MIB_IF_TABLE_LEVEL,
@@ -2113,7 +2113,7 @@ pub unsafe fn GetInterfaceActiveTimestampCapabilities(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInterfaceActiveTimestampCapabilities(
                 interfaceluid: *const NET_LUID_LH,
@@ -2138,7 +2138,7 @@ pub unsafe fn GetInterfaceDnsSettings<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInterfaceDnsSettings(
                 interface: ::windows::runtime::GUID,
@@ -2157,7 +2157,7 @@ pub unsafe fn GetInterfaceDnsSettings<
 pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32;
         }
@@ -2176,7 +2176,7 @@ pub unsafe fn GetInterfaceSupportedTimestampCapabilities(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInterfaceSupportedTimestampCapabilities(
                 interfaceluid: *const NET_LUID_LH,
@@ -2197,7 +2197,7 @@ pub unsafe fn GetInvertedIfStackTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInvertedIfStackTable(
                 table: *mut *mut MIB_INVERTEDIFSTACK_TABLE,
@@ -2219,7 +2219,7 @@ pub unsafe fn GetIpAddrTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpAddrTable(
                 pipaddrtable: *mut MIB_IPADDRTABLE,
@@ -2244,7 +2244,7 @@ pub unsafe fn GetIpErrorString(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpErrorString(
                 errorcode: u32,
@@ -2269,7 +2269,7 @@ pub unsafe fn GetIpErrorString(
 pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpForwardEntry2(
                 row: *mut MIB_IPFORWARD_ROW2,
@@ -2291,7 +2291,7 @@ pub unsafe fn GetIpForwardTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpForwardTable(
                 pipforwardtable: *mut MIB_IPFORWARDTABLE,
@@ -2319,7 +2319,7 @@ pub unsafe fn GetIpForwardTable2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpForwardTable2(
                 family: u16,
@@ -2335,7 +2335,7 @@ pub unsafe fn GetIpForwardTable2(
 pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpInterfaceEntry(
                 row: *mut MIB_IPINTERFACE_ROW,
@@ -2353,7 +2353,7 @@ pub unsafe fn GetIpInterfaceTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpInterfaceTable(
                 family: u16,
@@ -2373,7 +2373,7 @@ pub unsafe fn GetIpInterfaceTable(
 pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
         }
@@ -2393,7 +2393,7 @@ pub unsafe fn GetIpNetTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpNetTable(
                 ipnettable: *mut MIB_IPNETTABLE,
@@ -2421,7 +2421,7 @@ pub unsafe fn GetIpNetTable2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpNetTable2(
                 family: u16,
@@ -2441,7 +2441,7 @@ pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpNetworkConnectionBandwidthEstimates(
                 interfaceindex: u32,
@@ -2467,7 +2467,7 @@ pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(
 pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> super::super::Foundation::NTSTATUS;
         }
@@ -2487,7 +2487,7 @@ pub unsafe fn GetIpPathTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpPathTable(
                 family: u16,
@@ -2502,7 +2502,7 @@ pub unsafe fn GetIpPathTable(
 pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32;
         }
@@ -2514,7 +2514,7 @@ pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
 pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS_FAMILY) -> u32;
         }
@@ -2535,7 +2535,7 @@ pub unsafe fn GetJobCompartmentId<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -2554,7 +2554,7 @@ pub unsafe fn GetMulticastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMulticastIpAddressEntry(
                 row: *mut MIB_MULTICASTIPADDRESS_ROW,
@@ -2576,7 +2576,7 @@ pub unsafe fn GetMulticastIpAddressTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMulticastIpAddressTable(
                 family: u16,
@@ -2594,7 +2594,7 @@ pub unsafe fn GetNetworkConnectivityHint(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNetworkConnectivityHint(
                 connectivityhint : * mut super::super::Networking::WinSock:: NL_NETWORK_CONNECTIVITY_HINT,
@@ -2612,7 +2612,7 @@ pub unsafe fn GetNetworkConnectivityHintForInterface(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNetworkConnectivityHintForInterface(
                 interfaceindex: u32,
@@ -2638,7 +2638,7 @@ pub unsafe fn GetNetworkInformation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNetworkInformation(
                 networkguid: *const ::windows::runtime::GUID,
@@ -2667,7 +2667,7 @@ pub unsafe fn GetNetworkParams(
 ) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNetworkParams(
                 pfixedinfo: *mut FIXED_INFO_W2KSP1,
@@ -2685,7 +2685,7 @@ pub unsafe fn GetNetworkParams(
 pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32;
         }
@@ -2703,7 +2703,7 @@ pub unsafe fn GetOwnerModuleFromPidAndInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOwnerModuleFromPidAndInfo(
                 ulpid: u32,
@@ -2732,7 +2732,7 @@ pub unsafe fn GetOwnerModuleFromTcp6Entry(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOwnerModuleFromTcp6Entry(
                 ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE,
@@ -2759,7 +2759,7 @@ pub unsafe fn GetOwnerModuleFromTcpEntry(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOwnerModuleFromTcpEntry(
                 ptcpentry: *const MIB_TCPROW_OWNER_MODULE,
@@ -2786,7 +2786,7 @@ pub unsafe fn GetOwnerModuleFromUdp6Entry(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOwnerModuleFromUdp6Entry(
                 pudpentry: *const MIB_UDP6ROW_OWNER_MODULE,
@@ -2813,7 +2813,7 @@ pub unsafe fn GetOwnerModuleFromUdpEntry(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOwnerModuleFromUdpEntry(
                 pudpentry: *const MIB_UDPROW_OWNER_MODULE,
@@ -2840,7 +2840,7 @@ pub unsafe fn GetPerAdapterInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPerAdapterInfo(
                 ifindex: u32,
@@ -2873,7 +2873,7 @@ pub unsafe fn GetPerTcp6ConnectionEStats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPerTcp6ConnectionEStats(
                 row: *const MIB_TCP6ROW,
@@ -2921,7 +2921,7 @@ pub unsafe fn GetPerTcpConnectionEStats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPerTcpConnectionEStats(
                 row: *const MIB_TCPROW_LH,
@@ -2963,7 +2963,7 @@ pub unsafe fn GetRTTAndHopCount(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRTTAndHopCount(
                 destipaddress: u32,
@@ -2985,7 +2985,7 @@ pub unsafe fn GetRTTAndHopCount(
 pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSessionCompartmentId(sessionid: u32) -> u32;
         }
@@ -3005,7 +3005,7 @@ pub unsafe fn GetTcp6Table<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTcp6Table(
                 tcptable: *mut MIB_TCP6TABLE,
@@ -3033,7 +3033,7 @@ pub unsafe fn GetTcp6Table2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTcp6Table2(
                 tcptable: *mut MIB_TCP6TABLE2,
@@ -3053,7 +3053,7 @@ pub unsafe fn GetTcp6Table2<
 pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32;
         }
@@ -3065,7 +3065,7 @@ pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
 pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRESS_FAMILY) -> u32;
         }
@@ -3080,7 +3080,7 @@ pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRE
 pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRESS_FAMILY) -> u32;
         }
@@ -3103,7 +3103,7 @@ pub unsafe fn GetTcpTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTcpTable(
                 tcptable: *mut MIB_TCPTABLE,
@@ -3131,7 +3131,7 @@ pub unsafe fn GetTcpTable2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTcpTable2(
                 tcptable: *mut MIB_TCPTABLE2,
@@ -3152,7 +3152,7 @@ pub unsafe fn GetTcpTable2<
 pub unsafe fn GetTeredoPort(port: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTeredoPort(port: *mut u16) -> super::super::Foundation::NTSTATUS;
         }
@@ -3172,7 +3172,7 @@ pub unsafe fn GetUdp6Table<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUdp6Table(
                 udp6table: *mut MIB_UDP6TABLE,
@@ -3192,7 +3192,7 @@ pub unsafe fn GetUdp6Table<
 pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32;
         }
@@ -3204,7 +3204,7 @@ pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
 pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_FAMILY) -> u32;
         }
@@ -3219,7 +3219,7 @@ pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_
 pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRESS_FAMILY) -> u32;
         }
@@ -3242,7 +3242,7 @@ pub unsafe fn GetUdpTable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUdpTable(
                 udptable: *mut MIB_UDPTABLE,
@@ -3265,7 +3265,7 @@ pub unsafe fn GetUniDirectionalAdapterInfo(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUniDirectionalAdapterInfo(
                 pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS,
@@ -3290,7 +3290,7 @@ pub unsafe fn GetUnicastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUnicastIpAddressEntry(
                 row: *mut MIB_UNICASTIPADDRESS_ROW,
@@ -3312,7 +3312,7 @@ pub unsafe fn GetUnicastIpAddressTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUnicastIpAddressTable(
                 family: u16,
@@ -5685,7 +5685,7 @@ pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
 pub unsafe fn Icmp6CreateFile() -> IcmpHandle {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn Icmp6CreateFile() -> IcmpHandle;
         }
@@ -5697,7 +5697,7 @@ pub unsafe fn Icmp6CreateFile() -> IcmpHandle {
 pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32;
         }
@@ -5734,7 +5734,7 @@ pub unsafe fn Icmp6SendEcho2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn Icmp6SendEcho2(
                 icmphandle: IcmpHandle,
@@ -5775,7 +5775,7 @@ pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, Icmp
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IcmpCloseHandle(icmphandle: IcmpHandle) -> super::super::Foundation::BOOL;
         }
@@ -5787,7 +5787,7 @@ pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, Icmp
 pub unsafe fn IcmpCreateFile() -> IcmpHandle {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IcmpCreateFile() -> IcmpHandle;
         }
@@ -5818,7 +5818,7 @@ unsafe impl ::windows::runtime::Abi for IcmpHandle {
 pub unsafe fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32;
         }
@@ -5842,7 +5842,7 @@ pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHan
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IcmpSendEcho(
                 icmphandle: IcmpHandle,
@@ -5892,7 +5892,7 @@ pub unsafe fn IcmpSendEcho2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IcmpSendEcho2(
                 icmphandle: IcmpHandle,
@@ -5949,7 +5949,7 @@ pub unsafe fn IcmpSendEcho2Ex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IcmpSendEcho2Ex(
                 icmphandle: IcmpHandle,
@@ -5992,7 +5992,7 @@ pub unsafe fn IcmpSendEcho2Ex<
 pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2);
         }
@@ -6005,7 +6005,7 @@ pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
 pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW);
         }
@@ -6022,7 +6022,7 @@ pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
 pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW);
         }
@@ -6034,7 +6034,7 @@ pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW
 pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
         }
@@ -6046,7 +6046,7 @@ pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 
 pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
         }
@@ -6068,7 +6068,7 @@ pub unsafe fn LookupPersistentTcpPortReservation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPersistentTcpPortReservation(
                 startport: u16,
@@ -6092,7 +6092,7 @@ pub unsafe fn LookupPersistentUdpPortReservation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn LookupPersistentUdpPortReservation(
                 startport: u16,
@@ -11421,7 +11421,7 @@ pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NhpAllocateAndGetInterfaceInfoFromStack(
                 pptable: *mut *mut ip_interface_name_info_w2ksp1,
@@ -11449,7 +11449,7 @@ pub unsafe fn NotifyAddrChange(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyAddrChange(
                 handle: *mut super::super::Foundation::HANDLE,
@@ -11477,7 +11477,7 @@ pub unsafe fn NotifyIpInterfaceChange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyIpInterfaceChange(
                 family: u16,
@@ -11511,7 +11511,7 @@ pub unsafe fn NotifyNetworkConnectivityHintChange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyNetworkConnectivityHintChange(
                 callback: ::windows::runtime::RawPtr,
@@ -11538,7 +11538,7 @@ pub unsafe fn NotifyRouteChange(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyRouteChange(
                 handle: *mut super::super::Foundation::HANDLE,
@@ -11570,7 +11570,7 @@ pub unsafe fn NotifyRouteChange2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyRouteChange2(
                 addressfamily: u16,
@@ -11606,7 +11606,7 @@ pub unsafe fn NotifyStableUnicastIpAddressTable(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyStableUnicastIpAddressTable(
                 family: u16,
@@ -11640,7 +11640,7 @@ pub unsafe fn NotifyTeredoPortChange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyTeredoPortChange(
                 callback: ::windows::runtime::RawPtr,
@@ -11677,7 +11677,7 @@ pub unsafe fn NotifyUnicastIpAddressChange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyUnicastIpAddressChange(
                 family: u16,
@@ -12076,7 +12076,7 @@ pub unsafe fn PfAddFiltersToInterface(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfAddFiltersToInterface(
                 ih: *mut ::std::ffi::c_void,
@@ -12105,7 +12105,7 @@ pub unsafe fn PfAddGlobalFilterToInterface(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfAddGlobalFilterToInterface(
                 pinterface: *mut ::std::ffi::c_void,
@@ -12127,7 +12127,7 @@ pub unsafe fn PfBindInterfaceToIPAddress(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfBindInterfaceToIPAddress(
                 pinterface: *mut ::std::ffi::c_void,
@@ -12152,7 +12152,7 @@ pub unsafe fn PfBindInterfaceToIndex(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfBindInterfaceToIndex(
                 pinterface: *mut ::std::ffi::c_void,
@@ -12186,7 +12186,7 @@ pub unsafe fn PfCreateInterface<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfCreateInterface(
                 dwname: u32,
@@ -12212,7 +12212,7 @@ pub unsafe fn PfCreateInterface<
 pub unsafe fn PfDeleteInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfDeleteInterface(pinterface: *mut ::std::ffi::c_void) -> u32;
         }
@@ -12224,7 +12224,7 @@ pub unsafe fn PfDeleteInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
 pub unsafe fn PfDeleteLog() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfDeleteLog() -> u32;
         }
@@ -12245,7 +12245,7 @@ pub unsafe fn PfGetInterfaceStatistics<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfGetInterfaceStatistics(
                 pinterface: *mut ::std::ffi::c_void,
@@ -12273,7 +12273,7 @@ pub unsafe fn PfMakeLog<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfMakeLog(hevent: super::super::Foundation::HANDLE) -> u32;
         }
@@ -12288,7 +12288,7 @@ pub unsafe fn PfRebindFilters(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfRebindFilters(
                 pinterface: *mut ::std::ffi::c_void,
@@ -12310,7 +12310,7 @@ pub unsafe fn PfRemoveFilterHandles(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfRemoveFilterHandles(
                 pinterface: *mut ::std::ffi::c_void,
@@ -12336,7 +12336,7 @@ pub unsafe fn PfRemoveFiltersFromInterface(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfRemoveFiltersFromInterface(
                 ih: *mut ::std::ffi::c_void,
@@ -12363,7 +12363,7 @@ pub unsafe fn PfRemoveGlobalFilterFromInterface(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfRemoveGlobalFilterFromInterface(
                 pinterface: *mut ::std::ffi::c_void,
@@ -12389,7 +12389,7 @@ pub unsafe fn PfSetLogBuffer(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfSetLogBuffer(
                 pbbuffer: *mut u8,
@@ -12423,7 +12423,7 @@ pub unsafe fn PfTestPacket(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfTestPacket(
                 pininterface: *mut ::std::ffi::c_void,
@@ -12447,7 +12447,7 @@ pub unsafe fn PfTestPacket(
 pub unsafe fn PfUnBindInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn PfUnBindInterface(pinterface: *mut ::std::ffi::c_void) -> u32;
         }
@@ -12467,7 +12467,7 @@ pub unsafe fn RegisterInterfaceTimestampConfigChange(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterInterfaceTimestampConfigChange(
                 callback: ::windows::runtime::RawPtr,
@@ -12495,7 +12495,7 @@ pub unsafe fn ResolveIpNetEntry2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResolveIpNetEntry2(
                 row: *mut MIB_IPNET_ROW2,
@@ -12522,7 +12522,7 @@ pub unsafe fn ResolveNeighbor(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResolveNeighbor(
                 networkaddress: *const super::super::Networking::WinSock::SOCKADDR,
@@ -12546,7 +12546,7 @@ pub unsafe fn RestoreMediaSense(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestoreMediaSense(
                 poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -12569,7 +12569,7 @@ pub unsafe fn SendARP(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendARP(
                 destip: u32,
@@ -12592,7 +12592,7 @@ pub unsafe fn SendARP(
 pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCurrentThreadCompartmentId(
                 compartmentid: u32,
@@ -12609,7 +12609,7 @@ pub unsafe fn SetCurrentThreadCompartmentScope(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCurrentThreadCompartmentScope(
                 compartmentscope: u32,
@@ -12624,7 +12624,7 @@ pub unsafe fn SetCurrentThreadCompartmentScope(
 pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDnsSettings(settings: *const DNS_SETTINGS) -> super::super::Foundation::NTSTATUS;
         }
@@ -12636,7 +12636,7 @@ pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> ::windows::runtim
 pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32;
         }
@@ -12655,7 +12655,7 @@ pub unsafe fn SetInterfaceDnsSettings<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetInterfaceDnsSettings(
                 interface: ::windows::runtime::GUID,
@@ -12675,7 +12675,7 @@ pub unsafe fn SetInterfaceDnsSettings<
 pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
         }
@@ -12694,7 +12694,7 @@ pub unsafe fn SetIpForwardEntry2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpForwardEntry2(
                 route: *const MIB_IPFORWARD_ROW2,
@@ -12709,7 +12709,7 @@ pub unsafe fn SetIpForwardEntry2(
 pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpInterfaceEntry(
                 row: *mut MIB_IPINTERFACE_ROW,
@@ -12723,7 +12723,7 @@ pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::r
 pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
         }
@@ -12740,7 +12740,7 @@ pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
 pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
         }
@@ -12752,7 +12752,7 @@ pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::
 pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32;
         }
@@ -12764,7 +12764,7 @@ pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
 pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32;
         }
@@ -12779,7 +12779,7 @@ pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) 
 pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIpTTL(nttl: u32) -> u32;
         }
@@ -12798,7 +12798,7 @@ pub unsafe fn SetJobCompartmentId<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetJobCompartmentId(
                 jobhandle: super::super::Foundation::HANDLE,
@@ -12825,7 +12825,7 @@ pub unsafe fn SetNetworkInformation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetNetworkInformation(
                 networkguid: *const ::windows::runtime::GUID,
@@ -12854,7 +12854,7 @@ pub unsafe fn SetPerTcp6ConnectionEStats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPerTcp6ConnectionEStats(
                 row: *const MIB_TCP6ROW,
@@ -12887,7 +12887,7 @@ pub unsafe fn SetPerTcpConnectionEStats(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPerTcpConnectionEStats(
                 row: *const MIB_TCPROW_LH,
@@ -12917,7 +12917,7 @@ pub unsafe fn SetSessionCompartmentId(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSessionCompartmentId(
                 sessionid: u32,
@@ -12936,7 +12936,7 @@ pub unsafe fn SetSessionCompartmentId(
 pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32;
         }
@@ -12955,7 +12955,7 @@ pub unsafe fn SetUnicastIpAddressEntry(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUnicastIpAddressEntry(
                 row: *const MIB_UNICASTIPADDRESS_ROW,
@@ -14116,7 +14116,7 @@ pub unsafe fn UnenableRouter(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnenableRouter(
                 poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -14139,7 +14139,7 @@ pub unsafe fn UnregisterInterfaceTimestampConfigChange<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE);
         }
@@ -14302,7 +14302,7 @@ pub unsafe fn if_indextoname(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn if_indextoname(
                 interfaceindex: u32,
@@ -14326,7 +14326,7 @@ pub unsafe fn if_nametoindex<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "iphlpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn if_nametoindex(interfacename: super::super::Foundation::PSTR) -> u32;
         }

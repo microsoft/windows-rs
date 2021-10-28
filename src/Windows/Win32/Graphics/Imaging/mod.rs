@@ -15967,7 +15967,7 @@ pub unsafe fn WICConvertBitmapSource<
 ) -> ::windows::runtime::Result<IWICBitmapSource> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICConvertBitmapSource(
                 dstformat: *const ::windows::runtime::GUID,
@@ -16000,7 +16000,7 @@ pub unsafe fn WICCreateBitmapFromSection<
 ) -> ::windows::runtime::Result<IWICBitmap> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICCreateBitmapFromSection(
                 width: u32,
@@ -16042,7 +16042,7 @@ pub unsafe fn WICCreateBitmapFromSectionEx<
 ) -> ::windows::runtime::Result<IWICBitmap> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICCreateBitmapFromSectionEx(
                 width: u32,
@@ -16251,7 +16251,7 @@ pub unsafe fn WICGetMetadataContentSize<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICGetMetadataContentSize(
                 guidcontainerformat: *const ::windows::runtime::GUID,
@@ -17179,7 +17179,7 @@ pub unsafe fn WICMapGuidToShortName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICMapGuidToShortName(
                 guid: *const ::windows::runtime::GUID,
@@ -17213,7 +17213,7 @@ pub unsafe fn WICMapSchemaToName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICMapSchemaToName(
                 guidmetadataformat: *const ::windows::runtime::GUID,
@@ -17244,7 +17244,7 @@ pub unsafe fn WICMapShortNameToGuid<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICMapShortNameToGuid(
                 wzname: super::super::Foundation::PWSTR,
@@ -17270,7 +17270,7 @@ pub unsafe fn WICMatchMetadataContent<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICMatchMetadataContent(
                 guidcontainerformat: *const ::windows::runtime::GUID,
@@ -18390,7 +18390,7 @@ pub unsafe fn WICSerializeMetadataContent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windowscodecs")]
+        #[link(name = "windows")]
         extern "system" {
             fn WICSerializeMetadataContent(
                 guidcontainerformat: *const ::windows::runtime::GUID,

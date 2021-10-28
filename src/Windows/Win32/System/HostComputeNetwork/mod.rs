@@ -180,7 +180,7 @@ pub unsafe fn HcnCloseEndpoint(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCloseEndpoint(endpoint: *const ::std::ffi::c_void)
                 -> ::windows::runtime::HRESULT;
@@ -195,7 +195,7 @@ pub unsafe fn HcnCloseGuestNetworkService(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCloseGuestNetworkService(
                 guestnetworkservice: *const ::std::ffi::c_void,
@@ -211,7 +211,7 @@ pub unsafe fn HcnCloseLoadBalancer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCloseLoadBalancer(
                 loadbalancer: *const ::std::ffi::c_void,
@@ -227,7 +227,7 @@ pub unsafe fn HcnCloseNamespace(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCloseNamespace(
                 namespace: *const ::std::ffi::c_void,
@@ -243,7 +243,7 @@ pub unsafe fn HcnCloseNetwork(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCloseNetwork(network: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -265,7 +265,7 @@ pub unsafe fn HcnCreateEndpoint<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCreateEndpoint(
                 network: *const ::std::ffi::c_void,
@@ -299,7 +299,7 @@ pub unsafe fn HcnCreateGuestNetworkService<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCreateGuestNetworkService(
                 id: *const ::windows::runtime::GUID,
@@ -331,7 +331,7 @@ pub unsafe fn HcnCreateLoadBalancer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCreateLoadBalancer(
                 id: *const ::windows::runtime::GUID,
@@ -363,7 +363,7 @@ pub unsafe fn HcnCreateNamespace<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCreateNamespace(
                 id: *const ::windows::runtime::GUID,
@@ -395,7 +395,7 @@ pub unsafe fn HcnCreateNetwork<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnCreateNetwork(
                 id: *const ::windows::runtime::GUID,
@@ -421,7 +421,7 @@ pub unsafe fn HcnDeleteEndpoint(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnDeleteEndpoint(
                 id: *const ::windows::runtime::GUID,
@@ -442,7 +442,7 @@ pub unsafe fn HcnDeleteGuestNetworkService(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnDeleteGuestNetworkService(
                 id: *const ::windows::runtime::GUID,
@@ -463,7 +463,7 @@ pub unsafe fn HcnDeleteLoadBalancer(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnDeleteLoadBalancer(
                 id: *const ::windows::runtime::GUID,
@@ -484,7 +484,7 @@ pub unsafe fn HcnDeleteNamespace(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnDeleteNamespace(
                 id: *const ::windows::runtime::GUID,
@@ -505,7 +505,7 @@ pub unsafe fn HcnDeleteNetwork(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnDeleteNetwork(
                 id: *const ::windows::runtime::GUID,
@@ -531,7 +531,7 @@ pub unsafe fn HcnEnumerateEndpoints<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnEnumerateEndpoints(
                 query: super::super::Foundation::PWSTR,
@@ -555,7 +555,7 @@ pub unsafe fn HcnEnumerateGuestNetworkPortReservations(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnEnumerateGuestNetworkPortReservations(
                 returncount: *mut u32,
@@ -582,7 +582,7 @@ pub unsafe fn HcnEnumerateLoadBalancers<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnEnumerateLoadBalancers(
                 query: super::super::Foundation::PWSTR,
@@ -611,7 +611,7 @@ pub unsafe fn HcnEnumerateNamespaces<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnEnumerateNamespaces(
                 query: super::super::Foundation::PWSTR,
@@ -640,7 +640,7 @@ pub unsafe fn HcnEnumerateNetworks<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnEnumerateNetworks(
                 query: super::super::Foundation::PWSTR,
@@ -661,7 +661,7 @@ pub unsafe fn HcnEnumerateNetworks<
 pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY) {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY);
         }
@@ -682,7 +682,7 @@ pub unsafe fn HcnModifyEndpoint<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnModifyEndpoint(
                 endpoint: *const ::std::ffi::c_void,
@@ -712,7 +712,7 @@ pub unsafe fn HcnModifyGuestNetworkService<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnModifyGuestNetworkService(
                 guestnetworkservice: *const ::std::ffi::c_void,
@@ -742,7 +742,7 @@ pub unsafe fn HcnModifyLoadBalancer<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnModifyLoadBalancer(
                 loadbalancer: *const ::std::ffi::c_void,
@@ -772,7 +772,7 @@ pub unsafe fn HcnModifyNamespace<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnModifyNamespace(
                 namespace: *const ::std::ffi::c_void,
@@ -802,7 +802,7 @@ pub unsafe fn HcnModifyNetwork<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnModifyNetwork(
                 network: *const ::std::ffi::c_void,
@@ -830,7 +830,7 @@ pub unsafe fn HcnOpenEndpoint(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnOpenEndpoint(
                 id: *const ::windows::runtime::GUID,
@@ -856,7 +856,7 @@ pub unsafe fn HcnOpenLoadBalancer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnOpenLoadBalancer(
                 id: *const ::windows::runtime::GUID,
@@ -882,7 +882,7 @@ pub unsafe fn HcnOpenNamespace(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnOpenNamespace(
                 id: *const ::windows::runtime::GUID,
@@ -908,7 +908,7 @@ pub unsafe fn HcnOpenNetwork(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnOpenNetwork(
                 id: *const ::windows::runtime::GUID,
@@ -938,7 +938,7 @@ pub unsafe fn HcnQueryEndpointProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnQueryEndpointProperties(
                 endpoint: *const ::std::ffi::c_void,
@@ -970,7 +970,7 @@ pub unsafe fn HcnQueryLoadBalancerProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnQueryLoadBalancerProperties(
                 loadbalancer: *const ::std::ffi::c_void,
@@ -1002,7 +1002,7 @@ pub unsafe fn HcnQueryNamespaceProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnQueryNamespaceProperties(
                 namespace: *const ::std::ffi::c_void,
@@ -1034,7 +1034,7 @@ pub unsafe fn HcnQueryNetworkProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnQueryNetworkProperties(
                 network: *const ::std::ffi::c_void,
@@ -1063,7 +1063,7 @@ pub unsafe fn HcnRegisterGuestNetworkServiceCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnRegisterGuestNetworkServiceCallback(
                 guestnetworkservice: *const ::std::ffi::c_void,
@@ -1091,7 +1091,7 @@ pub unsafe fn HcnRegisterServiceCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnRegisterServiceCallback(
                 callback: ::windows::runtime::RawPtr,
@@ -1118,7 +1118,7 @@ pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnReleaseGuestNetworkServicePortReservationHandle(
                 portreservationhandle: super::super::Foundation::HANDLE,
@@ -1139,7 +1139,7 @@ pub unsafe fn HcnReserveGuestNetworkServicePort(
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnReserveGuestNetworkServicePort(
                 guestnetworkservice: *const ::std::ffi::c_void,
@@ -1172,7 +1172,7 @@ pub unsafe fn HcnReserveGuestNetworkServicePortRange(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnReserveGuestNetworkServicePortRange(
                 guestnetworkservice: *const ::std::ffi::c_void,
@@ -1197,7 +1197,7 @@ pub unsafe fn HcnUnregisterGuestNetworkServiceCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnUnregisterGuestNetworkServiceCallback(
                 callbackhandle: *const ::std::ffi::c_void,
@@ -1213,7 +1213,7 @@ pub unsafe fn HcnUnregisterServiceCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "computenetwork")]
+        #[link(name = "windows")]
         extern "system" {
             fn HcnUnregisterServiceCallback(
                 callbackhandle: *const ::std::ffi::c_void,

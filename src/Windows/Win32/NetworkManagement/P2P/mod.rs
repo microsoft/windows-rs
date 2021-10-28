@@ -1019,7 +1019,7 @@ pub const DRT_S_RETRY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT
 pub unsafe fn DrtClose(hdrt: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtClose(hdrt: *const ::std::ffi::c_void);
         }
@@ -1033,7 +1033,7 @@ pub unsafe fn DrtContinueSearch(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtContinueSearch(
                 hsearchcontext: *const ::std::ffi::c_void,
@@ -1053,7 +1053,7 @@ pub unsafe fn DrtCreateDerivedKey(
 ) -> ::windows::runtime::Result<DRT_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtCreateDerivedKey(
                 plocalcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
@@ -1077,7 +1077,7 @@ pub unsafe fn DrtCreateDerivedKeySecurityProvider(
 ) -> ::windows::runtime::Result<*mut DRT_SECURITY_PROVIDER> {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtCreateDerivedKeySecurityProvider(
                 prootcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
@@ -1107,7 +1107,7 @@ pub unsafe fn DrtCreateDnsBootstrapResolver<
 ) -> ::windows::runtime::Result<*mut DRT_BOOTSTRAP_PROVIDER> {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtCreateDnsBootstrapResolver(
                 port: u16,
@@ -1136,7 +1136,7 @@ pub unsafe fn DrtCreateIpv6UdpTransport(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drttransport")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtCreateIpv6UdpTransport(
                 scope: DRT_SCOPE,
@@ -1162,7 +1162,7 @@ pub unsafe fn DrtCreateNullSecurityProvider(
 ) -> ::windows::runtime::Result<*mut DRT_SECURITY_PROVIDER> {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtCreateNullSecurityProvider(
                 ppsecurityprovider: *mut *mut DRT_SECURITY_PROVIDER,
@@ -1191,7 +1191,7 @@ pub unsafe fn DrtCreatePnrpBootstrapResolver<
 ) -> ::windows::runtime::Result<*mut DRT_BOOTSTRAP_PROVIDER> {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtCreatePnrpBootstrapResolver(
                 fpublish: super::super::Foundation::BOOL,
@@ -1218,7 +1218,7 @@ pub unsafe fn DrtCreatePnrpBootstrapResolver<
 pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER);
         }
@@ -1232,7 +1232,7 @@ pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_
 pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER);
         }
@@ -1248,7 +1248,7 @@ pub unsafe fn DrtDeleteIpv6UdpTransport(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drttransport")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtDeleteIpv6UdpTransport(
                 htransport: *const ::std::ffi::c_void,
@@ -1262,7 +1262,7 @@ pub unsafe fn DrtDeleteIpv6UdpTransport(
 pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER);
         }
@@ -1276,7 +1276,7 @@ pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURI
 pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
     #[cfg(windows)]
     {
-        #[link(name = "drtprov")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER);
         }
@@ -1292,7 +1292,7 @@ pub unsafe fn DrtEndSearch(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtEndSearch(
                 hsearchcontext: *const ::std::ffi::c_void,
@@ -1313,7 +1313,7 @@ pub unsafe fn DrtGetEventData(
 ) -> ::windows::runtime::Result<DRT_EVENT_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetEventData(
                 hdrt: *const ::std::ffi::c_void,
@@ -1337,7 +1337,7 @@ pub unsafe fn DrtGetEventDataSize(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetEventDataSize(
                 hdrt: *const ::std::ffi::c_void,
@@ -1358,7 +1358,7 @@ pub unsafe fn DrtGetInstanceName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetInstanceName(
                 hdrt: *const ::std::ffi::c_void,
@@ -1381,7 +1381,7 @@ pub unsafe fn DrtGetInstanceNameSize(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetInstanceNameSize(
                 hdrt: *const ::std::ffi::c_void,
@@ -1405,7 +1405,7 @@ pub unsafe fn DrtGetSearchPath(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetSearchPath(
                 hsearchcontext: *const ::std::ffi::c_void,
@@ -1428,7 +1428,7 @@ pub unsafe fn DrtGetSearchPathSize(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetSearchPathSize(
                 hsearchcontext: *const ::std::ffi::c_void,
@@ -1449,7 +1449,7 @@ pub unsafe fn DrtGetSearchResult(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetSearchResult(
                 hsearchcontext: *const ::std::ffi::c_void,
@@ -1472,7 +1472,7 @@ pub unsafe fn DrtGetSearchResultSize(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtGetSearchResultSize(
                 hsearchcontext: *const ::std::ffi::c_void,
@@ -1498,7 +1498,7 @@ pub unsafe fn DrtOpen<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtOpen(
                 psettings: *const DRT_SETTINGS,
@@ -1526,7 +1526,7 @@ pub unsafe fn DrtRegisterKey(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtRegisterKey(
                 hdrt: *const ::std::ffi::c_void,
@@ -1561,7 +1561,7 @@ pub unsafe fn DrtStartSearch<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtStartSearch(
                 hdrt: *const ::std::ffi::c_void,
@@ -1590,7 +1590,7 @@ pub unsafe fn DrtStartSearch<
 pub unsafe fn DrtUnregisterKey(hkeyregistration: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtUnregisterKey(hkeyregistration: *const ::std::ffi::c_void);
         }
@@ -1605,7 +1605,7 @@ pub unsafe fn DrtUpdateKey(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "drt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrtUpdateKey(
                 hkeyregistration: *const ::std::ffi::c_void,
@@ -5083,7 +5083,7 @@ pub unsafe fn PeerCollabAddContact<
 ) -> ::windows::runtime::Result<*mut PEER_CONTACT> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabAddContact(
                 pwzcontactdata: super::super::Foundation::PWSTR,
@@ -5110,7 +5110,7 @@ pub unsafe fn PeerCollabAsyncInviteContact<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabAsyncInviteContact(
                 pccontact: *const PEER_CONTACT,
@@ -5145,7 +5145,7 @@ pub unsafe fn PeerCollabAsyncInviteEndpoint<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabAsyncInviteEndpoint(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5176,7 +5176,7 @@ pub unsafe fn PeerCollabCancelInvitation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabCancelInvitation(
                 hinvitation: super::super::Foundation::HANDLE,
@@ -5196,7 +5196,7 @@ pub unsafe fn PeerCollabCloseHandle<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabCloseHandle(
                 hinvitation: super::super::Foundation::HANDLE,
@@ -5216,7 +5216,7 @@ pub unsafe fn PeerCollabDeleteContact<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabDeleteContact(
                 pwzpeername: super::super::Foundation::PWSTR,
@@ -5233,7 +5233,7 @@ pub unsafe fn PeerCollabDeleteEndpointData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabDeleteEndpointData(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5249,7 +5249,7 @@ pub unsafe fn PeerCollabDeleteObject(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabDeleteObject(
                 pobjectid: *const ::windows::runtime::GUID,
@@ -5266,7 +5266,7 @@ pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabEnumApplicationRegistrationInfo(
                 registrationtype: PEER_APPLICATION_REGISTRATION_TYPE,
@@ -5290,7 +5290,7 @@ pub unsafe fn PeerCollabEnumApplications(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabEnumApplications(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5313,7 +5313,7 @@ pub unsafe fn PeerCollabEnumContacts(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabEnumContacts(
                 phpeerenum: *mut *mut ::std::ffi::c_void,
@@ -5331,7 +5331,7 @@ pub unsafe fn PeerCollabEnumEndpoints(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabEnumEndpoints(
                 pccontact: *const PEER_CONTACT,
@@ -5355,7 +5355,7 @@ pub unsafe fn PeerCollabEnumObjects(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabEnumObjects(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5378,7 +5378,7 @@ pub unsafe fn PeerCollabEnumPeopleNearMe(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabEnumPeopleNearMe(
                 phpeerenum: *mut *mut ::std::ffi::c_void,
@@ -5398,7 +5398,7 @@ pub unsafe fn PeerCollabExportContact<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabExportContact(
                 pwzpeername: super::super::Foundation::PWSTR,
@@ -5418,7 +5418,7 @@ pub unsafe fn PeerCollabGetAppLaunchInfo() -> ::windows::runtime::Result<*mut PE
 {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetAppLaunchInfo(
                 pplaunchinfo: *mut *mut PEER_APP_LAUNCH_INFO,
@@ -5438,7 +5438,7 @@ pub unsafe fn PeerCollabGetApplicationRegistrationInfo(
 ) -> ::windows::runtime::Result<*mut PEER_APPLICATION_REGISTRATION_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetApplicationRegistrationInfo(
                 papplicationid: *const ::windows::runtime::GUID,
@@ -5466,7 +5466,7 @@ pub unsafe fn PeerCollabGetContact<
 ) -> ::windows::runtime::Result<*mut PEER_CONTACT> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetContact(
                 pwzpeername: super::super::Foundation::PWSTR,
@@ -5486,7 +5486,7 @@ pub unsafe fn PeerCollabGetEndpointName(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetEndpointName(
                 ppwzendpointname: *mut super::super::Foundation::PWSTR,
@@ -5506,7 +5506,7 @@ pub unsafe fn PeerCollabGetEventData(
 ) -> ::windows::runtime::Result<*mut PEER_COLLAB_EVENT_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetEventData(
                 hpeerevent: *const ::std::ffi::c_void,
@@ -5530,7 +5530,7 @@ pub unsafe fn PeerCollabGetInvitationResponse<
 ) -> ::windows::runtime::Result<*mut PEER_INVITATION_RESPONSE> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetInvitationResponse(
                 hinvitation: super::super::Foundation::HANDLE,
@@ -5551,7 +5551,7 @@ pub unsafe fn PeerCollabGetPresenceInfo(
 ) -> ::windows::runtime::Result<*mut PEER_PRESENCE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetPresenceInfo(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5569,7 +5569,7 @@ pub unsafe fn PeerCollabGetPresenceInfo(
 pub unsafe fn PeerCollabGetSigninOptions() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabGetSigninOptions(
                 pdwsigninoptions: *mut u32,
@@ -5589,7 +5589,7 @@ pub unsafe fn PeerCollabInviteContact(
 ) -> ::windows::runtime::Result<*mut PEER_INVITATION_RESPONSE> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabInviteContact(
                 pccontact: *const PEER_CONTACT,
@@ -5618,7 +5618,7 @@ pub unsafe fn PeerCollabInviteEndpoint(
 ) -> ::windows::runtime::Result<*mut PEER_INVITATION_RESPONSE> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabInviteEndpoint(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5647,7 +5647,7 @@ pub unsafe fn PeerCollabParseContact<
 ) -> ::windows::runtime::Result<*mut PEER_CONTACT> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabParseContact(
                 pwzcontactdata: super::super::Foundation::PWSTR,
@@ -5668,7 +5668,7 @@ pub unsafe fn PeerCollabQueryContactData(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabQueryContactData(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5689,7 +5689,7 @@ pub unsafe fn PeerCollabRefreshEndpointData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabRefreshEndpointData(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5707,7 +5707,7 @@ pub unsafe fn PeerCollabRegisterApplication(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabRegisterApplication(
                 pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO,
@@ -5735,7 +5735,7 @@ pub unsafe fn PeerCollabRegisterEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabRegisterEvent(
                 hevent: super::super::Foundation::HANDLE,
@@ -5764,7 +5764,7 @@ pub unsafe fn PeerCollabSetEndpointName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabSetEndpointName(
                 pwzendpointname: super::super::Foundation::PWSTR,
@@ -5778,7 +5778,7 @@ pub unsafe fn PeerCollabSetEndpointName<
 pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> ::windows::runtime::HRESULT;
         }
@@ -5793,7 +5793,7 @@ pub unsafe fn PeerCollabSetPresenceInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabSetPresenceInfo(
                 pcpresenceinfo: *const PEER_PRESENCE_INFO,
@@ -5807,7 +5807,7 @@ pub unsafe fn PeerCollabSetPresenceInfo(
 pub unsafe fn PeerCollabShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabShutdown() -> ::windows::runtime::HRESULT;
         }
@@ -5826,7 +5826,7 @@ pub unsafe fn PeerCollabSignin<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabSignin(
                 hwndparent: super::super::Foundation::HWND,
@@ -5845,7 +5845,7 @@ pub unsafe fn PeerCollabSignin<
 pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows::runtime::HRESULT;
         }
@@ -5857,7 +5857,7 @@ pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows::runtime::Res
 pub unsafe fn PeerCollabStartup(wversionrequested: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabStartup(wversionrequested: u16) -> ::windows::runtime::HRESULT;
         }
@@ -5872,7 +5872,7 @@ pub unsafe fn PeerCollabSubscribeEndpointData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabSubscribeEndpointData(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5889,7 +5889,7 @@ pub unsafe fn PeerCollabUnregisterApplication(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabUnregisterApplication(
                 papplicationid: *const ::windows::runtime::GUID,
@@ -5910,7 +5910,7 @@ pub unsafe fn PeerCollabUnregisterEvent(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabUnregisterEvent(
                 hpeerevent: *const ::std::ffi::c_void,
@@ -5927,7 +5927,7 @@ pub unsafe fn PeerCollabUnsubscribeEndpointData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabUnsubscribeEndpointData(
                 pcendpoint: *const PEER_ENDPOINT,
@@ -5944,7 +5944,7 @@ pub unsafe fn PeerCollabUpdateContact(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCollabUpdateContact(
                 pcontact: *const PEER_CONTACT,
@@ -5966,7 +5966,7 @@ pub unsafe fn PeerCreatePeerName<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerCreatePeerName(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -5996,7 +5996,7 @@ pub unsafe fn PeerDistClientAddContentInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientAddContentInformation(
                 hpeerdist: isize,
@@ -6027,7 +6027,7 @@ pub unsafe fn PeerDistClientAddData(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientAddData(
                 hpeerdist: isize,
@@ -6059,7 +6059,7 @@ pub unsafe fn PeerDistClientBlockRead(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientBlockRead(
                 hpeerdist: isize,
@@ -6090,7 +6090,7 @@ pub unsafe fn PeerDistClientCancelAsyncOperation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientCancelAsyncOperation(
                 hpeerdist: isize,
@@ -6110,7 +6110,7 @@ pub unsafe fn PeerDistClientCancelAsyncOperation(
 pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize) -> u32;
         }
@@ -6130,7 +6130,7 @@ pub unsafe fn PeerDistClientCompleteContentInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientCompleteContentInformation(
                 hpeerdist: isize,
@@ -6160,7 +6160,7 @@ pub unsafe fn PeerDistClientFlushContent<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientFlushContent(
                 hpeerdist: isize,
@@ -6190,7 +6190,7 @@ pub unsafe fn PeerDistClientGetInformationByHandle(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientGetInformationByHandle(
                 hpeerdist: isize,
@@ -6224,7 +6224,7 @@ pub unsafe fn PeerDistClientOpenContent<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientOpenContent(
                 hpeerdist: isize,
@@ -6256,7 +6256,7 @@ pub unsafe fn PeerDistClientStreamRead(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistClientStreamRead(
                 hpeerdist: isize,
@@ -6290,7 +6290,7 @@ pub unsafe fn PeerDistGetOverlappedResult<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistGetOverlappedResult(
                 lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -6310,7 +6310,7 @@ pub unsafe fn PeerDistGetOverlappedResult<
 pub unsafe fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32;
         }
@@ -6328,7 +6328,7 @@ pub unsafe fn PeerDistGetStatusEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistGetStatusEx(
                 hpeerdist: isize,
@@ -6356,7 +6356,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistRegisterForStatusChangeNotification(
                 hpeerdist: isize,
@@ -6390,7 +6390,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistRegisterForStatusChangeNotificationEx(
                 hpeerdist: isize,
@@ -6420,7 +6420,7 @@ pub unsafe fn PeerDistServerCancelAsyncOperation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerCancelAsyncOperation(
                 hpeerdist: isize,
@@ -6442,7 +6442,7 @@ pub unsafe fn PeerDistServerCancelAsyncOperation(
 pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentinfo: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentinfo: isize) -> u32;
         }
@@ -6457,7 +6457,7 @@ pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentin
 pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) -> u32;
         }
@@ -6485,7 +6485,7 @@ pub unsafe fn PeerDistServerOpenContentInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerOpenContentInformation(
                 hpeerdist: isize,
@@ -6529,7 +6529,7 @@ pub unsafe fn PeerDistServerOpenContentInformationEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerOpenContentInformationEx(
                 hpeerdist: isize,
@@ -6568,7 +6568,7 @@ pub unsafe fn PeerDistServerPublishAddToStream(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerPublishAddToStream(
                 hpeerdist: isize,
@@ -6597,7 +6597,7 @@ pub unsafe fn PeerDistServerPublishCompleteStream(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerPublishCompleteStream(
                 hpeerdist: isize,
@@ -6630,7 +6630,7 @@ pub unsafe fn PeerDistServerPublishStream<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerPublishStream(
                 hpeerdist: isize,
@@ -6667,7 +6667,7 @@ pub unsafe fn PeerDistServerRetrieveContentInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerRetrieveContentInformation(
                 hpeerdist: isize,
@@ -6695,7 +6695,7 @@ pub unsafe fn PeerDistServerUnpublish(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistServerUnpublish(
                 hpeerdist: isize,
@@ -6715,7 +6715,7 @@ pub unsafe fn PeerDistServerUnpublish(
 pub unsafe fn PeerDistShutdown(hpeerdist: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistShutdown(hpeerdist: isize) -> u32;
         }
@@ -6731,7 +6731,7 @@ pub unsafe fn PeerDistStartup(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistStartup(
                 dwversionrequested: u32,
@@ -6751,7 +6751,7 @@ pub unsafe fn PeerDistStartup(
 pub unsafe fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "peerdist")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) -> u32;
         }
@@ -6767,7 +6767,7 @@ pub unsafe fn PeerEndEnumeration(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerEndEnumeration(
                 hpeerenum: *const ::std::ffi::c_void,
@@ -6788,7 +6788,7 @@ pub unsafe fn PeerEnumGroups<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerEnumGroups(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -6809,7 +6809,7 @@ pub unsafe fn PeerEnumIdentities(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerEnumIdentities(
                 phpeerenum: *mut *mut ::std::ffi::c_void,
@@ -6823,7 +6823,7 @@ pub unsafe fn PeerEnumIdentities(
 pub unsafe fn PeerFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerFreeData(pvdata: *const ::std::ffi::c_void);
         }
@@ -6837,7 +6837,7 @@ pub unsafe fn PeerGetItemCount(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGetItemCount(
                 hpeerenum: *const ::std::ffi::c_void,
@@ -6857,7 +6857,7 @@ pub unsafe fn PeerGetNextItem(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGetNextItem(
                 hpeerenum: *const ::std::ffi::c_void,
@@ -6882,7 +6882,7 @@ pub unsafe fn PeerGraphAddRecord(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphAddRecord(
                 hgraph: *const ::std::ffi::c_void,
@@ -6905,7 +6905,7 @@ pub unsafe fn PeerGraphAddRecord(
 pub unsafe fn PeerGraphClose(hgraph: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphClose(hgraph: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -6920,7 +6920,7 @@ pub unsafe fn PeerGraphCloseDirectConnection(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphCloseDirectConnection(
                 hgraph: *const ::std::ffi::c_void,
@@ -6947,7 +6947,7 @@ pub unsafe fn PeerGraphConnect<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphConnect(
                 hgraph: *const ::std::ffi::c_void,
@@ -6980,7 +6980,7 @@ pub unsafe fn PeerGraphCreate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphCreate(
                 pgraphproperties: *const PEER_GRAPH_PROPERTIES,
@@ -7013,7 +7013,7 @@ pub unsafe fn PeerGraphDelete<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphDelete(
                 pwzgraphid: super::super::Foundation::PWSTR,
@@ -7042,7 +7042,7 @@ pub unsafe fn PeerGraphDeleteRecord<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphDeleteRecord(
                 hgraph: *const ::std::ffi::c_void,
@@ -7065,7 +7065,7 @@ pub unsafe fn PeerGraphEndEnumeration(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphEndEnumeration(
                 hpeerenum: *const ::std::ffi::c_void,
@@ -7083,7 +7083,7 @@ pub unsafe fn PeerGraphEnumConnections(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphEnumConnections(
                 hgraph: *const ::std::ffi::c_void,
@@ -7112,7 +7112,7 @@ pub unsafe fn PeerGraphEnumNodes<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphEnumNodes(
                 hgraph: *const ::std::ffi::c_void,
@@ -7142,7 +7142,7 @@ pub unsafe fn PeerGraphEnumRecords<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphEnumRecords(
                 hgraph: *const ::std::ffi::c_void,
@@ -7172,7 +7172,7 @@ pub unsafe fn PeerGraphExportDatabase<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphExportDatabase(
                 hgraph: *const ::std::ffi::c_void,
@@ -7191,7 +7191,7 @@ pub unsafe fn PeerGraphExportDatabase<
 pub unsafe fn PeerGraphFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphFreeData(pvdata: *const ::std::ffi::c_void);
         }
@@ -7206,7 +7206,7 @@ pub unsafe fn PeerGraphGetEventData(
 ) -> ::windows::runtime::Result<*mut PEER_GRAPH_EVENT_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphGetEventData(
                 hpeerevent: *const ::std::ffi::c_void,
@@ -7226,7 +7226,7 @@ pub unsafe fn PeerGraphGetItemCount(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphGetItemCount(
                 hpeerenum: *const ::std::ffi::c_void,
@@ -7247,7 +7247,7 @@ pub unsafe fn PeerGraphGetNextItem(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphGetNextItem(
                 hpeerenum: *const ::std::ffi::c_void,
@@ -7272,7 +7272,7 @@ pub unsafe fn PeerGraphGetNodeInfo(
 ) -> ::windows::runtime::Result<*mut PEER_NODE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphGetNodeInfo(
                 hgraph: *const ::std::ffi::c_void,
@@ -7298,7 +7298,7 @@ pub unsafe fn PeerGraphGetProperties(
 ) -> ::windows::runtime::Result<*mut PEER_GRAPH_PROPERTIES> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphGetProperties(
                 hgraph: *const ::std::ffi::c_void,
@@ -7320,7 +7320,7 @@ pub unsafe fn PeerGraphGetRecord(
 ) -> ::windows::runtime::Result<*mut PEER_RECORD> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphGetRecord(
                 hgraph: *const ::std::ffi::c_void,
@@ -7344,7 +7344,7 @@ pub unsafe fn PeerGraphGetStatus(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphGetStatus(
                 hgraph: *const ::std::ffi::c_void,
@@ -7367,7 +7367,7 @@ pub unsafe fn PeerGraphImportDatabase<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphImportDatabase(
                 hgraph: *const ::std::ffi::c_void,
@@ -7391,7 +7391,7 @@ pub unsafe fn PeerGraphListen(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphListen(
                 hgraph: *const ::std::ffi::c_void,
@@ -7428,7 +7428,7 @@ pub unsafe fn PeerGraphOpen<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphOpen(
                 pwzgraphid: super::super::Foundation::PWSTR,
@@ -7465,7 +7465,7 @@ pub unsafe fn PeerGraphOpenDirectConnection<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphOpenDirectConnection(
                 hgraph: *const ::std::ffi::c_void,
@@ -7493,7 +7493,7 @@ pub unsafe fn PeerGraphPeerTimeToUniversalTime(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphPeerTimeToUniversalTime(
                 hgraph: *const ::std::ffi::c_void,
@@ -7526,7 +7526,7 @@ pub unsafe fn PeerGraphRegisterEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphRegisterEvent(
                 hgraph: *const ::std::ffi::c_void,
@@ -7559,7 +7559,7 @@ pub unsafe fn PeerGraphSearchRecords<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphSearchRecords(
                 hgraph: *const ::std::ffi::c_void,
@@ -7586,7 +7586,7 @@ pub unsafe fn PeerGraphSendData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphSendData(
                 hgraph: *const ::std::ffi::c_void,
@@ -7618,7 +7618,7 @@ pub unsafe fn PeerGraphSetNodeAttributes<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphSetNodeAttributes(
                 hgraph: *const ::std::ffi::c_void,
@@ -7644,7 +7644,7 @@ pub unsafe fn PeerGraphSetPresence<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphSetPresence(
                 hgraph: *const ::std::ffi::c_void,
@@ -7663,7 +7663,7 @@ pub unsafe fn PeerGraphSetProperties(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphSetProperties(
                 hgraph: *const ::std::ffi::c_void,
@@ -7682,7 +7682,7 @@ pub unsafe fn PeerGraphSetProperties(
 pub unsafe fn PeerGraphShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphShutdown() -> ::windows::runtime::HRESULT;
         }
@@ -7696,7 +7696,7 @@ pub unsafe fn PeerGraphStartup(
 ) -> ::windows::runtime::Result<PEER_VERSION_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphStartup(
                 wversionrequested: u16,
@@ -7718,7 +7718,7 @@ pub unsafe fn PeerGraphUniversalTimeToPeerTime(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphUniversalTimeToPeerTime(
                 hgraph: *const ::std::ffi::c_void,
@@ -7743,7 +7743,7 @@ pub unsafe fn PeerGraphUnregisterEvent(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphUnregisterEvent(
                 hpeerevent: *const ::std::ffi::c_void,
@@ -7761,7 +7761,7 @@ pub unsafe fn PeerGraphUpdateRecord(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphUpdateRecord(
                 hgraph: *const ::std::ffi::c_void,
@@ -7784,7 +7784,7 @@ pub unsafe fn PeerGraphValidateDeferredRecords(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2pgraph")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGraphValidateDeferredRecords(
                 hgraph: *const ::std::ffi::c_void,
@@ -7809,7 +7809,7 @@ pub unsafe fn PeerGroupAddRecord(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupAddRecord(
                 hgroup: *const ::std::ffi::c_void,
@@ -7832,7 +7832,7 @@ pub unsafe fn PeerGroupAddRecord(
 pub unsafe fn PeerGroupClose(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupClose(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -7847,7 +7847,7 @@ pub unsafe fn PeerGroupCloseDirectConnection(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupCloseDirectConnection(
                 hgroup: *const ::std::ffi::c_void,
@@ -7868,7 +7868,7 @@ pub unsafe fn PeerGroupConnect(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupConnect(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -7885,7 +7885,7 @@ pub unsafe fn PeerGroupConnectByAddress(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupConnectByAddress(
                 hgroup: *const ::std::ffi::c_void,
@@ -7910,7 +7910,7 @@ pub unsafe fn PeerGroupCreate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupCreate(
                 pproperties: *const PEER_GROUP_PROPERTIES,
@@ -7939,7 +7939,7 @@ pub unsafe fn PeerGroupCreateInvitation<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupCreateInvitation(
                 hgroup: *const ::std::ffi::c_void,
@@ -7971,7 +7971,7 @@ pub unsafe fn PeerGroupCreatePasswordInvitation(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupCreatePasswordInvitation(
                 hgroup: *const ::std::ffi::c_void,
@@ -7997,7 +7997,7 @@ pub unsafe fn PeerGroupDelete<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupDelete(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8019,7 +8019,7 @@ pub unsafe fn PeerGroupDeleteRecord(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupDeleteRecord(
                 hgroup: *const ::std::ffi::c_void,
@@ -8042,7 +8042,7 @@ pub unsafe fn PeerGroupEnumConnections(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupEnumConnections(
                 hgroup: *const ::std::ffi::c_void,
@@ -8072,7 +8072,7 @@ pub unsafe fn PeerGroupEnumMembers<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupEnumMembers(
                 hgroup: *const ::std::ffi::c_void,
@@ -8099,7 +8099,7 @@ pub unsafe fn PeerGroupEnumRecords(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupEnumRecords(
                 hgroup: *const ::std::ffi::c_void,
@@ -8127,7 +8127,7 @@ pub unsafe fn PeerGroupExportConfig<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupExportConfig(
                 hgroup: *const ::std::ffi::c_void,
@@ -8157,7 +8157,7 @@ pub unsafe fn PeerGroupExportDatabase<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupExportDatabase(
                 hgroup: *const ::std::ffi::c_void,
@@ -8179,7 +8179,7 @@ pub unsafe fn PeerGroupGetEventData(
 ) -> ::windows::runtime::Result<*mut PEER_GROUP_EVENT_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupGetEventData(
                 hpeerevent: *const ::std::ffi::c_void,
@@ -8200,7 +8200,7 @@ pub unsafe fn PeerGroupGetProperties(
 ) -> ::windows::runtime::Result<*mut PEER_GROUP_PROPERTIES> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupGetProperties(
                 hgroup: *const ::std::ffi::c_void,
@@ -8222,7 +8222,7 @@ pub unsafe fn PeerGroupGetRecord(
 ) -> ::windows::runtime::Result<*mut PEER_RECORD> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupGetRecord(
                 hgroup: *const ::std::ffi::c_void,
@@ -8246,7 +8246,7 @@ pub unsafe fn PeerGroupGetStatus(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupGetStatus(
                 hgroup: *const ::std::ffi::c_void,
@@ -8274,7 +8274,7 @@ pub unsafe fn PeerGroupImportConfig<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupImportConfig(
                 pwzxml: super::super::Foundation::PWSTR,
@@ -8306,7 +8306,7 @@ pub unsafe fn PeerGroupImportDatabase<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupImportDatabase(
                 hgroup: *const ::std::ffi::c_void,
@@ -8337,7 +8337,7 @@ pub unsafe fn PeerGroupIssueCredentials<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupIssueCredentials(
                 hgroup: *const ::std::ffi::c_void,
@@ -8375,7 +8375,7 @@ pub unsafe fn PeerGroupJoin<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupJoin(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8409,7 +8409,7 @@ pub unsafe fn PeerGroupOpen<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupOpen(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8440,7 +8440,7 @@ pub unsafe fn PeerGroupOpenDirectConnection<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupOpenDirectConnection(
                 hgroup: *const ::std::ffi::c_void,
@@ -8473,7 +8473,7 @@ pub unsafe fn PeerGroupParseInvitation<
 ) -> ::windows::runtime::Result<*mut PEER_INVITATION_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupParseInvitation(
                 pwzinvitation: super::super::Foundation::PWSTR,
@@ -8504,7 +8504,7 @@ pub unsafe fn PeerGroupPasswordJoin<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupPasswordJoin(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8533,7 +8533,7 @@ pub unsafe fn PeerGroupPeerTimeToUniversalTime(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupPeerTimeToUniversalTime(
                 hgroup: *const ::std::ffi::c_void,
@@ -8566,7 +8566,7 @@ pub unsafe fn PeerGroupRegisterEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupRegisterEvent(
                 hgroup: *const ::std::ffi::c_void,
@@ -8594,7 +8594,7 @@ pub unsafe fn PeerGroupResumePasswordAuthentication(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupResumePasswordAuthentication(
                 hgroup: *const ::std::ffi::c_void,
@@ -8621,7 +8621,7 @@ pub unsafe fn PeerGroupSearchRecords<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupSearchRecords(
                 hgroup: *const ::std::ffi::c_void,
@@ -8648,7 +8648,7 @@ pub unsafe fn PeerGroupSendData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupSendData(
                 hgroup: *const ::std::ffi::c_void,
@@ -8677,7 +8677,7 @@ pub unsafe fn PeerGroupSetProperties(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupSetProperties(
                 hgroup: *const ::std::ffi::c_void,
@@ -8696,7 +8696,7 @@ pub unsafe fn PeerGroupSetProperties(
 pub unsafe fn PeerGroupShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupShutdown() -> ::windows::runtime::HRESULT;
         }
@@ -8710,7 +8710,7 @@ pub unsafe fn PeerGroupStartup(
 ) -> ::windows::runtime::Result<PEER_VERSION_DATA> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupStartup(
                 wversionrequested: u16,
@@ -8732,7 +8732,7 @@ pub unsafe fn PeerGroupUniversalTimeToPeerTime(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupUniversalTimeToPeerTime(
                 hgroup: *const ::std::ffi::c_void,
@@ -8757,7 +8757,7 @@ pub unsafe fn PeerGroupUnregisterEvent(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupUnregisterEvent(
                 hpeerevent: *const ::std::ffi::c_void,
@@ -8775,7 +8775,7 @@ pub unsafe fn PeerGroupUpdateRecord(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerGroupUpdateRecord(
                 hgroup: *const ::std::ffi::c_void,
@@ -8800,7 +8800,7 @@ pub unsafe fn PeerHostNameToPeerName<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerHostNameToPeerName(
                 pwzhostname: super::super::Foundation::PWSTR,
@@ -8827,7 +8827,7 @@ pub unsafe fn PeerIdentityCreate<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityCreate(
                 pwzclassifier: super::super::Foundation::PWSTR,
@@ -8858,7 +8858,7 @@ pub unsafe fn PeerIdentityDelete<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityDelete(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8880,7 +8880,7 @@ pub unsafe fn PeerIdentityExport<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityExport(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8909,7 +8909,7 @@ pub unsafe fn PeerIdentityGetCryptKey<
 ) -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityGetCryptKey(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8928,7 +8928,7 @@ pub unsafe fn PeerIdentityGetDefault() -> ::windows::runtime::Result<super::supe
 {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityGetDefault(
                 ppwzpeername: *mut super::super::Foundation::PWSTR,
@@ -8950,7 +8950,7 @@ pub unsafe fn PeerIdentityGetFriendlyName<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityGetFriendlyName(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -8974,7 +8974,7 @@ pub unsafe fn PeerIdentityGetXML<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityGetXML(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -9000,7 +9000,7 @@ pub unsafe fn PeerIdentityImport<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentityImport(
                 pwzimportxml: super::super::Foundation::PWSTR,
@@ -9031,7 +9031,7 @@ pub unsafe fn PeerIdentitySetFriendlyName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerIdentitySetFriendlyName(
                 pwzidentity: super::super::Foundation::PWSTR,
@@ -9056,7 +9056,7 @@ pub unsafe fn PeerNameToPeerHostName<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerNameToPeerHostName(
                 pwzpeername: super::super::Foundation::PWSTR,
@@ -9076,7 +9076,7 @@ pub unsafe fn PeerPnrpEndResolve(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpEndResolve(
                 hresolve: *const ::std::ffi::c_void,
@@ -9094,7 +9094,7 @@ pub unsafe fn PeerPnrpGetCloudInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpGetCloudInfo(
                 pcnumclouds: *mut u32,
@@ -9120,7 +9120,7 @@ pub unsafe fn PeerPnrpGetEndpoint(
 ) -> ::windows::runtime::Result<*mut PEER_PNRP_ENDPOINT_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpGetEndpoint(
                 hresolve: *const ::std::ffi::c_void,
@@ -9150,7 +9150,7 @@ pub unsafe fn PeerPnrpRegister<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpRegister(
                 pcwzpeername: super::super::Foundation::PWSTR,
@@ -9185,7 +9185,7 @@ pub unsafe fn PeerPnrpResolve<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpResolve(
                 pcwzpeername: super::super::Foundation::PWSTR,
@@ -9208,7 +9208,7 @@ pub unsafe fn PeerPnrpResolve<
 pub unsafe fn PeerPnrpShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpShutdown() -> ::windows::runtime::HRESULT;
         }
@@ -9232,7 +9232,7 @@ pub unsafe fn PeerPnrpStartResolve<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpStartResolve(
                 pcwzpeername: super::super::Foundation::PWSTR,
@@ -9257,7 +9257,7 @@ pub unsafe fn PeerPnrpStartResolve<
 pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpStartup(wversionrequested: u16) -> ::windows::runtime::HRESULT;
         }
@@ -9271,7 +9271,7 @@ pub unsafe fn PeerPnrpUnregister(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpUnregister(
                 hregistration: *const ::std::ffi::c_void,
@@ -9293,7 +9293,7 @@ pub unsafe fn PeerPnrpUpdateRegistration(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "p2p")]
+        #[link(name = "windows")]
         extern "system" {
             fn PeerPnrpUpdateRegistration(
                 hregistration: *const ::std::ffi::c_void,

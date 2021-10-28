@@ -1049,7 +1049,7 @@ pub unsafe fn AVIBuildFilterA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIBuildFilterA(
                 lpszfilter: super::super::Foundation::PSTR,
@@ -1078,7 +1078,7 @@ pub unsafe fn AVIBuildFilterW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIBuildFilterW(
                 lpszfilter: super::super::Foundation::PWSTR,
@@ -1161,7 +1161,7 @@ unsafe impl ::windows::runtime::Abi for AVICOMPRESSOPTIONS {
 pub unsafe fn AVIClearClipboard() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIClearClipboard() -> ::windows::runtime::HRESULT;
         }
@@ -1317,7 +1317,7 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFi
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileAddRef(pfile: ::windows::runtime::RawPtr) -> u32;
         }
@@ -1334,7 +1334,7 @@ pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileCreateStreamA(
                 pfile: ::windows::runtime::RawPtr,
@@ -1360,7 +1360,7 @@ pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileCreateStreamW(
                 pfile: ::windows::runtime::RawPtr,
@@ -1383,7 +1383,7 @@ pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileEndRecord(pfile: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -1395,7 +1395,7 @@ pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
 pub unsafe fn AVIFileExit() {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileExit();
         }
@@ -1412,7 +1412,7 @@ pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileGetStream(
                 pfile: ::windows::runtime::RawPtr,
@@ -1440,7 +1440,7 @@ pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileInfoA(
                 pfile: ::windows::runtime::RawPtr,
@@ -1465,7 +1465,7 @@ pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileInfoW(
                 pfile: ::windows::runtime::RawPtr,
@@ -1486,7 +1486,7 @@ pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
 pub unsafe fn AVIFileInit() {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileInit();
         }
@@ -1507,7 +1507,7 @@ pub unsafe fn AVIFileOpenA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileOpenA(
                 ppfile: *mut ::windows::runtime::RawPtr,
@@ -1539,7 +1539,7 @@ pub unsafe fn AVIFileOpenW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileOpenW(
                 ppfile: *mut ::windows::runtime::RawPtr,
@@ -1567,7 +1567,7 @@ pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileReadData(
                 pfile: ::windows::runtime::RawPtr,
@@ -1592,7 +1592,7 @@ pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIF
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileRelease(pfile: ::windows::runtime::RawPtr) -> u32;
         }
@@ -1609,7 +1609,7 @@ pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIFileWriteData(
                 pfile: ::windows::runtime::RawPtr,
@@ -1633,7 +1633,7 @@ pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIGetFromClipboard(
                 lppf: *mut ::windows::runtime::RawPtr,
@@ -1655,7 +1655,7 @@ pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIMakeCompressedStream(
                 ppscompressed: *mut ::windows::runtime::RawPtr,
@@ -1682,7 +1682,7 @@ pub unsafe fn AVIMakeFileFromStreams(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIMakeFileFromStreams(
                 ppfile: *mut ::windows::runtime::RawPtr,
@@ -1710,7 +1710,7 @@ pub unsafe fn AVIMakeStreamFromClipboard<
 ) -> ::windows::runtime::Result<IAVIStream> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIMakeStreamFromClipboard(
                 cfformat: u32,
@@ -1734,7 +1734,7 @@ pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIPutFileOnClipboard(pf: ::windows::runtime::RawPtr)
                 -> ::windows::runtime::HRESULT;
@@ -1936,7 +1936,7 @@ pub unsafe fn AVISaveA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVISaveA(
                 szfile: super::super::Foundation::PSTR,
@@ -1973,7 +1973,7 @@ pub unsafe fn AVISaveOptions<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVISaveOptions(
                 hwnd: super::super::Foundation::HWND,
@@ -2000,7 +2000,7 @@ pub unsafe fn AVISaveOptionsFree(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVISaveOptionsFree(
                 nstreams: i32,
@@ -2030,7 +2030,7 @@ pub unsafe fn AVISaveVA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVISaveVA(
                 szfile: super::super::Foundation::PSTR,
@@ -2068,7 +2068,7 @@ pub unsafe fn AVISaveVW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVISaveVW(
                 szfile: super::super::Foundation::PWSTR,
@@ -2107,7 +2107,7 @@ pub unsafe fn AVISaveW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVISaveW(
                 szfile: super::super::Foundation::PWSTR,
@@ -2136,7 +2136,7 @@ pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamAddRef(pavi: ::windows::runtime::RawPtr) -> u32;
         }
@@ -2153,7 +2153,7 @@ pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamBeginStreaming(
                 pavi: ::windows::runtime::RawPtr,
@@ -2181,7 +2181,7 @@ pub unsafe fn AVIStreamCreate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamCreate(
                 ppavi: *mut ::windows::runtime::RawPtr,
@@ -2206,7 +2206,7 @@ pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamEndStreaming(
                 pavi: ::windows::runtime::RawPtr,
@@ -2224,7 +2224,7 @@ pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamFindSample(pavi: ::windows::runtime::RawPtr, lpos: i32, lflags: i32)
                 -> i32;
@@ -2244,7 +2244,7 @@ pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IG
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamGetFrame(
                 pg: ::windows::runtime::RawPtr,
@@ -2264,7 +2264,7 @@ pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamGetFrameClose(
                 pg: ::windows::runtime::RawPtr,
@@ -2282,7 +2282,7 @@ pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::std::option::Option<IGetFrame> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamGetFrameOpen(
                 pavi: ::windows::runtime::RawPtr,
@@ -2305,7 +2305,7 @@ pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamInfoA(
                 pavi: ::windows::runtime::RawPtr,
@@ -2331,7 +2331,7 @@ pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamInfoW(
                 pavi: ::windows::runtime::RawPtr,
@@ -2354,7 +2354,7 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamLength(pavi: ::windows::runtime::RawPtr) -> i32;
         }
@@ -2377,7 +2377,7 @@ pub unsafe fn AVIStreamOpenFromFileA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamOpenFromFileA(
                 ppavi: *mut ::windows::runtime::RawPtr,
@@ -2415,7 +2415,7 @@ pub unsafe fn AVIStreamOpenFromFileW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamOpenFromFileW(
                 ppavi: *mut ::windows::runtime::RawPtr,
@@ -2450,7 +2450,7 @@ pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVISt
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamRead(
                 pavi: ::windows::runtime::RawPtr,
@@ -2484,7 +2484,7 @@ pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IA
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamReadData(
                 pavi: ::windows::runtime::RawPtr,
@@ -2512,7 +2512,7 @@ pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamReadFormat(
                 pavi: ::windows::runtime::RawPtr,
@@ -2537,7 +2537,7 @@ pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamRelease(pavi: ::windows::runtime::RawPtr) -> u32;
         }
@@ -2552,7 +2552,7 @@ pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamSampleToTime(pavi: ::windows::runtime::RawPtr, lsample: i32) -> i32;
         }
@@ -2572,7 +2572,7 @@ pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, I
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamSetFormat(
                 pavi: ::windows::runtime::RawPtr,
@@ -2597,7 +2597,7 @@ pub unsafe fn AVIStreamStart<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamStart(pavi: ::windows::runtime::RawPtr) -> i32;
         }
@@ -2612,7 +2612,7 @@ pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamTimeToSample(pavi: ::windows::runtime::RawPtr, ltime: i32) -> i32;
         }
@@ -2636,7 +2636,7 @@ pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamWrite(
                 pavi: ::windows::runtime::RawPtr,
@@ -2672,7 +2672,7 @@ pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, I
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AVIStreamWriteData(
                 pavi: ::windows::runtime::RawPtr,
@@ -3313,7 +3313,7 @@ pub unsafe fn CloseDriver<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseDriver(
                 hdriver: HDRVR,
@@ -3336,7 +3336,7 @@ pub unsafe fn CreateEditableStream<'a, Param1: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEditableStream(
                 ppseditable: *mut ::windows::runtime::RawPtr,
@@ -3807,7 +3807,7 @@ pub unsafe fn DefDriverProc<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefDriverProc(
                 dwdriveridentifier: usize,
@@ -3844,7 +3844,7 @@ pub unsafe fn DrawDibBegin<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibBegin(
                 hdd: isize,
@@ -3880,7 +3880,7 @@ pub unsafe fn DrawDibChangePalette(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibChangePalette(
                 hdd: isize,
@@ -3903,7 +3903,7 @@ pub unsafe fn DrawDibChangePalette(
 pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL;
         }
@@ -3933,7 +3933,7 @@ pub unsafe fn DrawDibDraw<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibDraw(
                 hdd: isize,
@@ -3974,7 +3974,7 @@ pub unsafe fn DrawDibDraw<
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL;
         }
@@ -3992,7 +3992,7 @@ pub unsafe fn DrawDibGetBuffer(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibGetBuffer(
                 hdd: isize,
@@ -4015,7 +4015,7 @@ pub unsafe fn DrawDibGetBuffer(
 pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE;
         }
@@ -4027,7 +4027,7 @@ pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPAL
 pub unsafe fn DrawDibOpen() -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibOpen() -> isize;
         }
@@ -4042,7 +4042,7 @@ pub unsafe fn DrawDibProfileDisplay(
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibProfileDisplay(
                 lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -4065,7 +4065,7 @@ pub unsafe fn DrawDibRealize<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibRealize(
                 hdd: isize,
@@ -4092,7 +4092,7 @@ pub unsafe fn DrawDibSetPalette<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibSetPalette(
                 hdd: isize,
@@ -4111,7 +4111,7 @@ pub unsafe fn DrawDibSetPalette<
 pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL;
         }
@@ -4127,7 +4127,7 @@ pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::B
 pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL;
         }
@@ -4143,7 +4143,7 @@ pub unsafe fn DrawDibTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawDibTime(
                 hdd: isize,
@@ -4170,7 +4170,7 @@ pub unsafe fn DriverCallback<'a, Param2: ::windows::runtime::IntoParam<'a, HDRVR
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DriverCallback(
                 dwcallback: usize,
@@ -4201,7 +4201,7 @@ pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
         }
@@ -4287,7 +4287,7 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
 ) -> ::windows::runtime::Result<IAVIStream> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamClone(
                 pavi: ::windows::runtime::RawPtr,
@@ -4308,7 +4308,7 @@ pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamCopy(
                 pavi: ::windows::runtime::RawPtr,
@@ -4336,7 +4336,7 @@ pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVISt
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamCut(
                 pavi: ::windows::runtime::RawPtr,
@@ -4370,7 +4370,7 @@ pub unsafe fn EditStreamPaste<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamPaste(
                 pavi: ::windows::runtime::RawPtr,
@@ -4402,7 +4402,7 @@ pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, I
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamSetInfoA(
                 pavi: ::windows::runtime::RawPtr,
@@ -4428,7 +4428,7 @@ pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, I
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamSetInfoW(
                 pavi: ::windows::runtime::RawPtr,
@@ -4457,7 +4457,7 @@ pub unsafe fn EditStreamSetNameA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamSetNameA(
                 pavi: ::windows::runtime::RawPtr,
@@ -4480,7 +4480,7 @@ pub unsafe fn EditStreamSetNameW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "avifil32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EditStreamSetNameW(
                 pavi: ::windows::runtime::RawPtr,
@@ -4611,7 +4611,7 @@ pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
         }
@@ -4626,7 +4626,7 @@ pub unsafe fn GetOpenFileNamePreviewA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOpenFileNamePreviewA(
                 lpofn: *mut ::std::mem::ManuallyDrop<
@@ -4645,7 +4645,7 @@ pub unsafe fn GetOpenFileNamePreviewW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOpenFileNamePreviewW(
                 lpofn: *mut ::std::mem::ManuallyDrop<
@@ -4664,7 +4664,7 @@ pub unsafe fn GetSaveFileNamePreviewA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSaveFileNamePreviewA(
                 lpofn: *mut ::std::mem::ManuallyDrop<
@@ -4683,7 +4683,7 @@ pub unsafe fn GetSaveFileNamePreviewW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSaveFileNamePreviewW(
                 lpofn: *mut ::std::mem::ManuallyDrop<
@@ -6067,7 +6067,7 @@ pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT;
         }
@@ -6094,7 +6094,7 @@ pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICCompress(
                 hic: HIC,
@@ -6146,7 +6146,7 @@ pub unsafe fn ICCompressorChoose<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICCompressorChoose(
                 hwnd: super::super::Foundation::HWND,
@@ -6173,7 +6173,7 @@ pub unsafe fn ICCompressorChoose<
 pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICCompressorFree(pc: *const COMPVARS);
         }
@@ -6503,7 +6503,7 @@ pub unsafe fn ICDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICDecompress(
                 hic: HIC,
@@ -6536,7 +6536,7 @@ pub unsafe fn ICDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICDraw(
                 hic: HIC,
@@ -6586,7 +6586,7 @@ pub unsafe fn ICDrawBegin<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICDrawBegin(
                 hic: HIC,
@@ -6659,7 +6659,7 @@ pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICGetDisplayFormat(
                 hic: HIC,
@@ -6690,7 +6690,7 @@ pub unsafe fn ICGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICGetInfo(
                 hic: HIC,
@@ -6776,7 +6776,7 @@ pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICImageCompress(
                 hic: HIC,
@@ -6811,7 +6811,7 @@ pub unsafe fn ICImageDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HI
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICImageDecompress(
                 hic: HIC,
@@ -6840,7 +6840,7 @@ pub unsafe fn ICInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICInfo(
                 fcctype: u32,
@@ -6871,7 +6871,7 @@ pub unsafe fn ICInstall<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICInstall(
                 fcctype: u32,
@@ -6902,7 +6902,7 @@ pub unsafe fn ICLocate(
 ) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICLocate(
                 fcctype: u32,
@@ -7059,7 +7059,7 @@ unsafe impl ::windows::runtime::Abi for ICOPEN {
 pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
         }
@@ -7081,7 +7081,7 @@ pub unsafe fn ICOpenFunction(
 ) -> HIC {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICOpenFunction(
                 fcctype: u32,
@@ -7155,7 +7155,7 @@ pub unsafe fn ICRemove(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICRemove(
                 fcctype: u32,
@@ -7225,7 +7225,7 @@ pub unsafe fn ICSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICSendMessage(
                 hic: HIC,
@@ -7254,7 +7254,7 @@ pub unsafe fn ICSeqCompressFrame(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICSeqCompressFrame(
                 pc: *const COMPVARS,
@@ -7279,7 +7279,7 @@ pub unsafe fn ICSeqCompressFrame(
 pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
         }
@@ -7295,7 +7295,7 @@ pub unsafe fn ICSeqCompressFrameStart(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ICSeqCompressFrameStart(
                 pc: *const COMPVARS,
@@ -8272,7 +8272,7 @@ pub unsafe fn MCIWndCreateA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MCIWndCreateA(
                 hwndparent: super::super::Foundation::HWND,
@@ -8305,7 +8305,7 @@ pub unsafe fn MCIWndCreateW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MCIWndCreateW(
                 hwndparent: super::super::Foundation::HWND,
@@ -8328,7 +8328,7 @@ pub unsafe fn MCIWndCreateW<
 pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
         }
@@ -15750,7 +15750,7 @@ pub unsafe fn OpenDriver<
 ) -> HDRVR {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenDriver(
                 szdrivername: super::super::Foundation::PWSTR,
@@ -15806,7 +15806,7 @@ pub unsafe fn PlaySoundA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlaySoundA(
                 pszsound: super::super::Foundation::PSTR,
@@ -15835,7 +15835,7 @@ pub unsafe fn PlaySoundW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlaySoundW(
                 pszsound: super::super::Foundation::PWSTR,
@@ -15947,7 +15947,7 @@ pub unsafe fn SendDriverMessage<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendDriverMessage(
                 hdriver: HDRVR,
@@ -16219,7 +16219,7 @@ pub const VP_TV_STANDARD_WIN_VGA: u32 = 32768u32;
 pub unsafe fn VideoForWindowsVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msvfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VideoForWindowsVersion() -> u32;
         }
@@ -17206,7 +17206,7 @@ pub unsafe fn acmDriverAddA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverAddA(
                 phadid: *mut isize,
@@ -17241,7 +17241,7 @@ pub unsafe fn acmDriverAddW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverAddW(
                 phadid: *mut isize,
@@ -17268,7 +17268,7 @@ pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32;
         }
@@ -17291,7 +17291,7 @@ pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverDetailsA(
                 hadid: HACMDRIVERID,
@@ -17316,7 +17316,7 @@ pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverDetailsW(
                 hadid: HACMDRIVERID,
@@ -17341,7 +17341,7 @@ pub unsafe fn acmDriverEnum(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverEnum(
                 fncallback: ::windows::runtime::RawPtr,
@@ -17365,7 +17365,7 @@ pub unsafe fn acmDriverID<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverID(hao: HACMOBJ, phadid: *mut isize, fdwdriverid: u32) -> u32;
         }
@@ -17392,7 +17392,7 @@ pub unsafe fn acmDriverMessage<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverMessage(
                 had: HACMDRIVER,
@@ -17418,7 +17418,7 @@ pub unsafe fn acmDriverOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDR
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverOpen(phad: *mut isize, hadid: HACMDRIVERID, fdwopen: u32) -> u32;
         }
@@ -17438,7 +17438,7 @@ pub unsafe fn acmDriverPriority<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32;
         }
@@ -17457,7 +17457,7 @@ pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACM
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32;
         }
@@ -17473,7 +17473,7 @@ pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACM
 pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterChooseA(pafltrc: *mut ::std::mem::ManuallyDrop<ACMFILTERCHOOSEA>) -> u32;
         }
@@ -17486,7 +17486,7 @@ pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
 pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterChooseW(pafltrc: *mut ::std::mem::ManuallyDrop<ACMFILTERCHOOSEW>) -> u32;
         }
@@ -17503,7 +17503,7 @@ pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterDetailsA(
                 had: HACMDRIVER,
@@ -17527,7 +17527,7 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterDetailsW(
                 had: HACMDRIVER,
@@ -17554,7 +17554,7 @@ pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterEnumA(
                 had: HACMDRIVER,
@@ -17585,7 +17585,7 @@ pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterEnumW(
                 had: HACMDRIVER,
@@ -17614,7 +17614,7 @@ pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterTagDetailsA(
                 had: HACMDRIVER,
@@ -17638,7 +17638,7 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterTagDetailsW(
                 had: HACMDRIVER,
@@ -17665,7 +17665,7 @@ pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterTagEnumA(
                 had: HACMDRIVER,
@@ -17696,7 +17696,7 @@ pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFilterTagEnumW(
                 had: HACMDRIVER,
@@ -17721,7 +17721,7 @@ pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatChooseA(pafmtc: *mut ::std::mem::ManuallyDrop<ACMFORMATCHOOSEA>) -> u32;
         }
@@ -17734,7 +17734,7 @@ pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
 pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatChooseW(pafmtc: *mut ::std::mem::ManuallyDrop<ACMFORMATCHOOSEW>) -> u32;
         }
@@ -17751,7 +17751,7 @@ pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatDetailsA(
                 had: HACMDRIVER,
@@ -17775,7 +17775,7 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatDetailsW(
                 had: HACMDRIVER,
@@ -17802,7 +17802,7 @@ pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatEnumA(
                 had: HACMDRIVER,
@@ -17833,7 +17833,7 @@ pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatEnumW(
                 had: HACMDRIVER,
@@ -17863,7 +17863,7 @@ pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatSuggest(
                 had: HACMDRIVER,
@@ -17892,7 +17892,7 @@ pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatTagDetailsA(
                 had: HACMDRIVER,
@@ -17916,7 +17916,7 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatTagDetailsW(
                 had: HACMDRIVER,
@@ -17943,7 +17943,7 @@ pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatTagEnumA(
                 had: HACMDRIVER,
@@ -17974,7 +17974,7 @@ pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmFormatTagEnumW(
                 had: HACMDRIVER,
@@ -17998,7 +17998,7 @@ pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
 pub unsafe fn acmGetVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmGetVersion() -> u32;
         }
@@ -18014,7 +18014,7 @@ pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::std::ffi::c_void) -> u32;
         }
@@ -18033,7 +18033,7 @@ pub unsafe fn acmStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMS
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32;
         }
@@ -18052,7 +18052,7 @@ pub unsafe fn acmStreamConvert<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamConvert(
                 has: HACMSTREAM,
@@ -18083,7 +18083,7 @@ pub unsafe fn acmStreamMessage<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamMessage(
                 has: HACMSTREAM,
@@ -18114,7 +18114,7 @@ pub unsafe fn acmStreamOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDR
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamOpen(
                 phas: *mut isize,
@@ -18148,7 +18148,7 @@ pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamPrepareHeader(
                 has: HACMSTREAM,
@@ -18171,7 +18171,7 @@ pub unsafe fn acmStreamReset<'a, Param0: ::windows::runtime::IntoParam<'a, HACMS
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32;
         }
@@ -18191,7 +18191,7 @@ pub unsafe fn acmStreamSize<'a, Param0: ::windows::runtime::IntoParam<'a, HACMST
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamSize(
                 has: HACMSTREAM,
@@ -18220,7 +18220,7 @@ pub unsafe fn acmStreamUnprepareHeader<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "msacm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn acmStreamUnprepareHeader(
                 has: HACMSTREAM,
@@ -18241,7 +18241,7 @@ pub unsafe fn acmStreamUnprepareHeader<
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32;
         }
@@ -18257,7 +18257,7 @@ pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) ->
 pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32;
         }
@@ -18273,7 +18273,7 @@ pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) ->
 pub unsafe fn auxGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn auxGetNumDevs() -> u32;
         }
@@ -18285,7 +18285,7 @@ pub unsafe fn auxGetNumDevs() -> u32 {
 pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32;
         }
@@ -18300,7 +18300,7 @@ pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
 pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -18317,7 +18317,7 @@ pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -
 pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32;
         }
@@ -18346,7 +18346,7 @@ pub unsafe fn capCreateCaptureWindowA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "avicap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn capCreateCaptureWindowA(
                 lpszwindowname: super::super::Foundation::PSTR,
@@ -18390,7 +18390,7 @@ pub unsafe fn capCreateCaptureWindowW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "avicap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn capCreateCaptureWindowW(
                 lpszwindowname: super::super::Foundation::PWSTR,
@@ -18427,7 +18427,7 @@ pub unsafe fn capGetDriverDescriptionA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "avicap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn capGetDriverDescriptionA(
                 wdriverindex: u32,
@@ -18458,7 +18458,7 @@ pub unsafe fn capGetDriverDescriptionW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "avicap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn capGetDriverDescriptionW(
                 wdriverindex: u32,
@@ -18483,7 +18483,7 @@ pub unsafe fn capGetDriverDescriptionW(
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
         }
@@ -18499,7 +18499,7 @@ pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u3
 pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
         }
@@ -18515,7 +18515,7 @@ pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u3
 pub unsafe fn joyGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyGetNumDevs() -> u32;
         }
@@ -18527,7 +18527,7 @@ pub unsafe fn joyGetNumDevs() -> u32 {
 pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
         }
@@ -18542,7 +18542,7 @@ pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
 pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
         }
@@ -18557,7 +18557,7 @@ pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
 pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
         }
@@ -18572,7 +18572,7 @@ pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
 pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyReleaseCapture(ujoyid: u32) -> u32;
         }
@@ -18594,7 +18594,7 @@ pub unsafe fn joySetCapture<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joySetCapture(
                 hwnd: super::super::Foundation::HWND,
@@ -18616,7 +18616,7 @@ pub unsafe fn joySetCapture<
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
         }
@@ -18639,7 +18639,7 @@ pub unsafe fn midiConnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::std::ffi::c_void) -> u32;
         }
@@ -18663,7 +18663,7 @@ pub unsafe fn midiDisconnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiDisconnect(
                 hmi: HMIDI,
@@ -18688,7 +18688,7 @@ pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -18706,7 +18706,7 @@ pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInClose(hmi: HMIDIIN) -> u32;
         }
@@ -18719,7 +18719,7 @@ pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32;
         }
@@ -18735,7 +18735,7 @@ pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic:
 pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32;
         }
@@ -18756,7 +18756,7 @@ pub unsafe fn midiInGetErrorTextA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInGetErrorTextA(
                 mmrerror: u32,
@@ -18781,7 +18781,7 @@ pub unsafe fn midiInGetErrorTextW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInGetErrorTextW(
                 mmrerror: u32,
@@ -18804,7 +18804,7 @@ pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32;
         }
@@ -18819,7 +18819,7 @@ pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
 pub unsafe fn midiInGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInGetNumDevs() -> u32;
         }
@@ -18836,7 +18836,7 @@ pub unsafe fn midiInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDII
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -18859,7 +18859,7 @@ pub unsafe fn midiInOpen(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInOpen(
                 phmi: *mut HMIDIIN,
@@ -18888,7 +18888,7 @@ pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -18906,7 +18906,7 @@ pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInReset(hmi: HMIDIIN) -> u32;
         }
@@ -18920,7 +18920,7 @@ pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInStart(hmi: HMIDIIN) -> u32;
         }
@@ -18934,7 +18934,7 @@ pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInStop(hmi: HMIDIIN) -> u32;
         }
@@ -18951,7 +18951,7 @@ pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -18972,7 +18972,7 @@ pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::runtime::IntoParam<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutCacheDrumPatches(
                 hmo: HMIDIOUT,
@@ -18999,7 +18999,7 @@ pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutCachePatches(
                 hmo: HMIDIOUT,
@@ -19023,7 +19023,7 @@ pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutClose(hmo: HMIDIOUT) -> u32;
         }
@@ -19036,7 +19036,7 @@ pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32;
         }
@@ -19052,7 +19052,7 @@ pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmo
 pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32;
         }
@@ -19073,7 +19073,7 @@ pub unsafe fn midiOutGetErrorTextA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutGetErrorTextA(
                 mmrerror: u32,
@@ -19098,7 +19098,7 @@ pub unsafe fn midiOutGetErrorTextW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutGetErrorTextW(
                 mmrerror: u32,
@@ -19121,7 +19121,7 @@ pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32;
         }
@@ -19136,7 +19136,7 @@ pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
 pub unsafe fn midiOutGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutGetNumDevs() -> u32;
         }
@@ -19151,7 +19151,7 @@ pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: *mut u32) -> u32;
         }
@@ -19171,7 +19171,7 @@ pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
         }
@@ -19192,7 +19192,7 @@ pub unsafe fn midiOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -19215,7 +19215,7 @@ pub unsafe fn midiOutOpen(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutOpen(
                 phmo: *mut HMIDIOUT,
@@ -19244,7 +19244,7 @@ pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -19262,7 +19262,7 @@ pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutReset(hmo: HMIDIOUT) -> u32;
         }
@@ -19277,7 +19277,7 @@ pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
         }
@@ -19295,7 +19295,7 @@ pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
         }
@@ -19315,7 +19315,7 @@ pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -19333,7 +19333,7 @@ pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamClose(hms: HMIDISTRM) -> u32;
         }
@@ -19352,7 +19352,7 @@ pub unsafe fn midiStreamOpen(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamOpen(
                 phms: *mut HMIDISTRM,
@@ -19383,7 +19383,7 @@ pub unsafe fn midiStreamOut<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIS
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
@@ -19401,7 +19401,7 @@ pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamPause(hms: HMIDISTRM) -> u32;
         }
@@ -19417,7 +19417,7 @@ pub unsafe fn midiStreamPosition<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
@@ -19437,7 +19437,7 @@ pub unsafe fn midiStreamProperty<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32;
         }
@@ -19455,7 +19455,7 @@ pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HM
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamRestart(hms: HMIDISTRM) -> u32;
         }
@@ -19469,7 +19469,7 @@ pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn midiStreamStop(hms: HMIDISTRM) -> u32;
         }
@@ -19483,7 +19483,7 @@ pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerClose(hmx: HMIXER) -> u32;
         }
@@ -19500,7 +19500,7 @@ pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::runtime::IntoParam<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetControlDetailsA(
                 hmxobj: HMIXEROBJ,
@@ -19525,7 +19525,7 @@ pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetControlDetailsW(
                 hmxobj: HMIXEROBJ,
@@ -19546,7 +19546,7 @@ pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32;
         }
@@ -19562,7 +19562,7 @@ pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps:
 pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32;
         }
@@ -19582,7 +19582,7 @@ pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetID(hmxobj: HMIXEROBJ, pumxid: *mut u32, fdwid: u32) -> u32;
         }
@@ -19603,7 +19603,7 @@ pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetLineControlsA(
                 hmxobj: HMIXEROBJ,
@@ -19627,7 +19627,7 @@ pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetLineControlsW(
                 hmxobj: HMIXEROBJ,
@@ -19652,7 +19652,7 @@ pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HM
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32;
         }
@@ -19672,7 +19672,7 @@ pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HM
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32;
         }
@@ -19688,7 +19688,7 @@ pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HM
 pub unsafe fn mixerGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerGetNumDevs() -> u32;
         }
@@ -19705,7 +19705,7 @@ pub unsafe fn mixerMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerMessage(hmx: HMIXER, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
@@ -19728,7 +19728,7 @@ pub unsafe fn mixerOpen(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerOpen(
                 phmx: *mut isize,
@@ -19757,7 +19757,7 @@ pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mixerSetControlDetails(
                 hmxobj: HMIXEROBJ,
@@ -19787,7 +19787,7 @@ pub unsafe fn mmDrvInstall<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmDrvInstall(
                 hdriver: HDRVR,
@@ -19809,7 +19809,7 @@ pub unsafe fn mmDrvInstall<
 pub unsafe fn mmGetCurrentTask() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmGetCurrentTask() -> u32;
         }
@@ -19821,7 +19821,7 @@ pub unsafe fn mmGetCurrentTask() -> u32 {
 pub unsafe fn mmTaskBlock(h: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmTaskBlock(h: u32);
         }
@@ -19838,7 +19838,7 @@ pub unsafe fn mmTaskCreate(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmTaskCreate(
                 lpfn: ::windows::runtime::RawPtr,
@@ -19859,7 +19859,7 @@ pub unsafe fn mmTaskCreate(
 pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
         }
@@ -19871,7 +19871,7 @@ pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn mmTaskYield() {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmTaskYield();
         }
@@ -19888,7 +19888,7 @@ pub unsafe fn mmioAdvance<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioAdvance(
                 hmmio: HMMIO,
@@ -19912,7 +19912,7 @@ pub unsafe fn mmioAscend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
         }
@@ -19931,7 +19931,7 @@ pub unsafe fn mmioClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
         }
@@ -19950,7 +19950,7 @@ pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::runtime::IntoParam<'a, HMMI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
         }
@@ -19971,7 +19971,7 @@ pub unsafe fn mmioDescend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioDescend(
                 hmmio: HMMIO,
@@ -19996,7 +19996,7 @@ pub unsafe fn mmioFlush<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
         }
@@ -20016,7 +20016,7 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioGetInfo(
                 hmmio: HMMIO,
@@ -20041,7 +20041,7 @@ pub unsafe fn mmioInstallIOProcA(
 ) -> ::std::option::Option<LPMMIOPROC> {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioInstallIOProcA(
                 fccioproc: u32,
@@ -20066,7 +20066,7 @@ pub unsafe fn mmioInstallIOProcW(
 ) -> ::std::option::Option<LPMMIOPROC> {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioInstallIOProcW(
                 fccioproc: u32,
@@ -20094,7 +20094,7 @@ pub unsafe fn mmioOpenA<
 ) -> HMMIO {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioOpenA(
                 pszfilename: super::super::Foundation::PSTR,
@@ -20122,7 +20122,7 @@ pub unsafe fn mmioOpenW<
 ) -> HMMIO {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioOpenW(
                 pszfilename: super::super::Foundation::PWSTR,
@@ -20146,7 +20146,7 @@ pub unsafe fn mmioRead<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
         }
@@ -20172,7 +20172,7 @@ pub unsafe fn mmioRenameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioRenameA(
                 pszfilename: super::super::Foundation::PSTR,
@@ -20204,7 +20204,7 @@ pub unsafe fn mmioRenameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioRenameW(
                 pszfilename: super::super::Foundation::PWSTR,
@@ -20230,7 +20230,7 @@ pub unsafe fn mmioSeek<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
         }
@@ -20257,7 +20257,7 @@ pub unsafe fn mmioSendMessage<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioSendMessage(
                 hmmio: HMMIO,
@@ -20285,7 +20285,7 @@ pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioSetBuffer(
                 hmmio: HMMIO,
@@ -20312,7 +20312,7 @@ pub unsafe fn mmioSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioSetInfo(
                 hmmio: HMMIO,
@@ -20339,7 +20339,7 @@ pub unsafe fn mmioStringToFOURCCA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioStringToFOURCCA(sz: super::super::Foundation::PSTR, uflags: u32) -> u32;
         }
@@ -20361,7 +20361,7 @@ pub unsafe fn mmioStringToFOURCCW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioStringToFOURCCW(sz: super::super::Foundation::PWSTR, uflags: u32) -> u32;
         }
@@ -20385,7 +20385,7 @@ pub unsafe fn mmioWrite<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mmioWrite(hmmio: HMMIO, pch: super::super::Foundation::PSTR, cch: i32) -> i32;
         }
@@ -20464,7 +20464,7 @@ pub unsafe fn sndOpenSound<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-mm-misc-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn sndOpenSound(
                 eventname: super::super::Foundation::PWSTR,
@@ -20493,7 +20493,7 @@ pub unsafe fn sndPlaySoundA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn sndPlaySoundA(
                 pszsound: super::super::Foundation::PSTR,
@@ -20518,7 +20518,7 @@ pub unsafe fn sndPlaySoundW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn sndPlaySoundW(
                 pszsound: super::super::Foundation::PWSTR,
@@ -20754,7 +20754,7 @@ unsafe impl ::windows::runtime::Abi for tACMFORMATDETAILSW {
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn timeBeginPeriod(uperiod: u32) -> u32;
         }
@@ -20766,7 +20766,7 @@ pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn timeEndPeriod(uperiod: u32) -> u32;
         }
@@ -20778,7 +20778,7 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
         }
@@ -20793,7 +20793,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
@@ -20808,7 +20808,7 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
 pub unsafe fn timeGetTime() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn timeGetTime() -> u32;
         }
@@ -20825,7 +20825,7 @@ pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -20843,7 +20843,7 @@ pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInClose(hwi: HWAVEIN) -> u32;
         }
@@ -20856,7 +20856,7 @@ pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32;
         }
@@ -20872,7 +20872,7 @@ pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic:
 pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32;
         }
@@ -20893,7 +20893,7 @@ pub unsafe fn waveInGetErrorTextA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInGetErrorTextA(
                 mmrerror: u32,
@@ -20918,7 +20918,7 @@ pub unsafe fn waveInGetErrorTextW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInGetErrorTextW(
                 mmrerror: u32,
@@ -20941,7 +20941,7 @@ pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32;
         }
@@ -20956,7 +20956,7 @@ pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
 pub unsafe fn waveInGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInGetNumDevs() -> u32;
         }
@@ -20972,7 +20972,7 @@ pub unsafe fn waveInGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HW
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
@@ -20993,7 +20993,7 @@ pub unsafe fn waveInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEI
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -21017,7 +21017,7 @@ pub unsafe fn waveInOpen(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInOpen(
                 phwi: *mut HWAVEIN,
@@ -21048,7 +21048,7 @@ pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -21066,7 +21066,7 @@ pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInReset(hwi: HWAVEIN) -> u32;
         }
@@ -21080,7 +21080,7 @@ pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInStart(hwi: HWAVEIN) -> u32;
         }
@@ -21094,7 +21094,7 @@ pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInStop(hwi: HWAVEIN) -> u32;
         }
@@ -21111,7 +21111,7 @@ pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -21129,7 +21129,7 @@ pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32;
         }
@@ -21143,7 +21143,7 @@ pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutClose(hwo: HWAVEOUT) -> u32;
         }
@@ -21156,7 +21156,7 @@ pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32;
         }
@@ -21172,7 +21172,7 @@ pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwo
 pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32;
         }
@@ -21193,7 +21193,7 @@ pub unsafe fn waveOutGetErrorTextA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetErrorTextA(
                 mmrerror: u32,
@@ -21218,7 +21218,7 @@ pub unsafe fn waveOutGetErrorTextW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetErrorTextW(
                 mmrerror: u32,
@@ -21241,7 +21241,7 @@ pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32;
         }
@@ -21256,7 +21256,7 @@ pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 pub unsafe fn waveOutGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetNumDevs() -> u32;
         }
@@ -21271,7 +21271,7 @@ pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32;
         }
@@ -21289,7 +21289,7 @@ pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32;
         }
@@ -21308,7 +21308,7 @@ pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
@@ -21327,7 +21327,7 @@ pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutGetVolume(hwo: HWAVEOUT, pdwvolume: *mut u32) -> u32;
         }
@@ -21347,7 +21347,7 @@ pub unsafe fn waveOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVE
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutMessage(hwo: HWAVEOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
@@ -21371,7 +21371,7 @@ pub unsafe fn waveOutOpen(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutOpen(
                 phwo: *mut HWAVEOUT,
@@ -21399,7 +21399,7 @@ pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutPause(hwo: HWAVEOUT) -> u32;
         }
@@ -21416,7 +21416,7 @@ pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -21434,7 +21434,7 @@ pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutReset(hwo: HWAVEOUT) -> u32;
         }
@@ -21448,7 +21448,7 @@ pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVE
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutRestart(hwo: HWAVEOUT) -> u32;
         }
@@ -21463,7 +21463,7 @@ pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32;
         }
@@ -21481,7 +21481,7 @@ pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
         }
@@ -21499,7 +21499,7 @@ pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
         }
@@ -21519,7 +21519,7 @@ pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
@@ -21540,7 +21540,7 @@ pub unsafe fn waveOutWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }

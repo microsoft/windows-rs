@@ -401,7 +401,7 @@ pub unsafe fn DCompositionAttachMouseDragToHwnd<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionAttachMouseDragToHwnd(
                 visual: ::windows::runtime::RawPtr,
@@ -432,7 +432,7 @@ pub unsafe fn DCompositionAttachMouseWheelToHwnd<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionAttachMouseWheelToHwnd(
                 visual: ::windows::runtime::RawPtr,
@@ -459,7 +459,7 @@ pub unsafe fn DCompositionBoostCompositorClock<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionBoostCompositorClock(
                 enable: super::super::Foundation::BOOL,
@@ -481,7 +481,7 @@ pub unsafe fn DCompositionCreateDevice<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionCreateDevice(
                 dxgidevice: ::windows::runtime::RawPtr,
@@ -509,7 +509,7 @@ pub unsafe fn DCompositionCreateDevice2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionCreateDevice2(
                 renderingdevice: ::windows::runtime::RawPtr,
@@ -537,7 +537,7 @@ pub unsafe fn DCompositionCreateDevice3<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionCreateDevice3(
                 renderingdevice: ::windows::runtime::RawPtr,
@@ -562,7 +562,7 @@ pub unsafe fn DCompositionCreateSurfaceHandle(
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionCreateSurfaceHandle(
                 desiredaccess: u32,
@@ -587,7 +587,7 @@ pub unsafe fn DCompositionGetFrameId(
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionGetFrameId(
                 frameidtype: COMPOSITION_FRAME_ID_TYPE,
@@ -611,7 +611,7 @@ pub unsafe fn DCompositionGetStatistics(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionGetStatistics(
                 frameid: u64,
@@ -640,7 +640,7 @@ pub unsafe fn DCompositionGetTargetStatistics(
 ) -> ::windows::runtime::Result<COMPOSITION_TARGET_STATS> {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionGetTargetStatistics(
                 frameid: u64,
@@ -700,7 +700,7 @@ pub unsafe fn DCompositionWaitForCompositorClock(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dcomp")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCompositionWaitForCompositorClock(
                 count: u32,

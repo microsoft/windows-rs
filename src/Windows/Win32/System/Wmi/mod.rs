@@ -19692,7 +19692,7 @@ pub unsafe fn MI_Application_InitializeV1(
 ) -> MI_Result {
     #[cfg(windows)]
     {
-        #[link(name = "mi")]
+        #[link(name = "windows")]
         extern "system" {
             fn MI_Application_InitializeV1(
                 flags: u32,

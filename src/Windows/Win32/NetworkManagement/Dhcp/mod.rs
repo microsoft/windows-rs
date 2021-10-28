@@ -6431,7 +6431,7 @@ pub unsafe fn DhcpAddFilterV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAddFilterV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6457,7 +6457,7 @@ pub unsafe fn DhcpAddSecurityGroup<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAddSecurityGroup(pserver: super::super::Foundation::PWSTR) -> u32;
         }
@@ -6476,7 +6476,7 @@ pub unsafe fn DhcpAddServer(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAddServer(
                 flags: u32,
@@ -6508,7 +6508,7 @@ pub unsafe fn DhcpAddSubnetElement<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAddSubnetElement(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6536,7 +6536,7 @@ pub unsafe fn DhcpAddSubnetElementV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAddSubnetElementV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6564,7 +6564,7 @@ pub unsafe fn DhcpAddSubnetElementV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAddSubnetElementV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6593,7 +6593,7 @@ pub unsafe fn DhcpAddSubnetElementV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAddSubnetElementV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6624,7 +6624,7 @@ pub unsafe fn DhcpAuditLogGetParams<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAuditLogGetParams(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6662,7 +6662,7 @@ pub unsafe fn DhcpAuditLogSetParams<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpAuditLogSetParams(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6688,7 +6688,7 @@ pub unsafe fn DhcpAuditLogSetParams<
 pub unsafe fn DhcpCApiCleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCApiCleanup();
         }
@@ -6700,7 +6700,7 @@ pub unsafe fn DhcpCApiCleanup() {
 pub unsafe fn DhcpCApiInitialize(version: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCApiInitialize(version: *mut u32) -> u32;
         }
@@ -6720,7 +6720,7 @@ pub unsafe fn DhcpCreateClass<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateClass(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6748,7 +6748,7 @@ pub unsafe fn DhcpCreateClassV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateClassV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6775,7 +6775,7 @@ pub unsafe fn DhcpCreateClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6800,7 +6800,7 @@ pub unsafe fn DhcpCreateClientInfoV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateClientInfoV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6825,7 +6825,7 @@ pub unsafe fn DhcpCreateClientInfoVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateClientInfoVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6851,7 +6851,7 @@ pub unsafe fn DhcpCreateOption<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateOption(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6884,7 +6884,7 @@ pub unsafe fn DhcpCreateOptionV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateOptionV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6923,7 +6923,7 @@ pub unsafe fn DhcpCreateOptionV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateOptionV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6957,7 +6957,7 @@ pub unsafe fn DhcpCreateSubnet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateSubnet(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -6986,7 +6986,7 @@ pub unsafe fn DhcpCreateSubnetV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateSubnetV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7014,7 +7014,7 @@ pub unsafe fn DhcpCreateSubnetVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpCreateSubnetVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7038,7 +7038,7 @@ pub unsafe fn DhcpDeRegisterParamChange(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeRegisterParamChange(
                 flags: u32,
@@ -7067,7 +7067,7 @@ pub unsafe fn DhcpDeleteClass<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteClass(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7096,7 +7096,7 @@ pub unsafe fn DhcpDeleteClassV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteClassV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7123,7 +7123,7 @@ pub unsafe fn DhcpDeleteClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7148,7 +7148,7 @@ pub unsafe fn DhcpDeleteClientInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteClientInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7173,7 +7173,7 @@ pub unsafe fn DhcpDeleteFilterV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteFilterV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7198,7 +7198,7 @@ pub unsafe fn DhcpDeleteServer(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteServer(
                 flags: u32,
@@ -7230,7 +7230,7 @@ pub unsafe fn DhcpDeleteSubnet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteSubnet(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7259,7 +7259,7 @@ pub unsafe fn DhcpDeleteSubnetV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteSubnetV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7287,7 +7287,7 @@ pub unsafe fn DhcpDeleteSuperScopeV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDeleteSuperScopeV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7305,7 +7305,7 @@ pub unsafe fn DhcpDeleteSuperScopeV4<
 pub unsafe fn DhcpDsCleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDsCleanup();
         }
@@ -7317,7 +7317,7 @@ pub unsafe fn DhcpDsCleanup() {
 pub unsafe fn DhcpDsInit() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpDsInit() -> u32;
         }
@@ -7341,7 +7341,7 @@ pub unsafe fn DhcpEnumClasses<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumClasses(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7381,7 +7381,7 @@ pub unsafe fn DhcpEnumClassesV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumClassesV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7421,7 +7421,7 @@ pub unsafe fn DhcpEnumFilterV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumFilterV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7461,7 +7461,7 @@ pub unsafe fn DhcpEnumOptionValues<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptionValues(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7506,7 +7506,7 @@ pub unsafe fn DhcpEnumOptionValuesV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptionValuesV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7557,7 +7557,7 @@ pub unsafe fn DhcpEnumOptionValuesV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptionValuesV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7602,7 +7602,7 @@ pub unsafe fn DhcpEnumOptions<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptions(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7644,7 +7644,7 @@ pub unsafe fn DhcpEnumOptionsV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptionsV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7692,7 +7692,7 @@ pub unsafe fn DhcpEnumOptionsV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumOptionsV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7731,7 +7731,7 @@ pub unsafe fn DhcpEnumServers(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumServers(
                 flags: u32,
@@ -7767,7 +7767,7 @@ pub unsafe fn DhcpEnumSubnetClients<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetClients(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7807,7 +7807,7 @@ pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetClientsFilterStatusInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7847,7 +7847,7 @@ pub unsafe fn DhcpEnumSubnetClientsV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetClientsV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7887,7 +7887,7 @@ pub unsafe fn DhcpEnumSubnetClientsV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetClientsV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7928,7 +7928,7 @@ pub unsafe fn DhcpEnumSubnetClientsV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetClientsV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -7968,7 +7968,7 @@ pub unsafe fn DhcpEnumSubnetClientsVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetClientsVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8009,7 +8009,7 @@ pub unsafe fn DhcpEnumSubnetElements<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetElements(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8052,7 +8052,7 @@ pub unsafe fn DhcpEnumSubnetElementsV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetElementsV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8095,7 +8095,7 @@ pub unsafe fn DhcpEnumSubnetElementsV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetElementsV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8139,7 +8139,7 @@ pub unsafe fn DhcpEnumSubnetElementsV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetElementsV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8180,7 +8180,7 @@ pub unsafe fn DhcpEnumSubnets<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnets(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8217,7 +8217,7 @@ pub unsafe fn DhcpEnumSubnetsV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpEnumSubnetsV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8252,7 +8252,7 @@ pub unsafe fn DhcpGetAllOptionValues<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetAllOptionValues(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8283,7 +8283,7 @@ pub unsafe fn DhcpGetAllOptionValuesV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetAllOptionValuesV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8313,7 +8313,7 @@ pub unsafe fn DhcpGetAllOptions<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetAllOptions(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8341,7 +8341,7 @@ pub unsafe fn DhcpGetAllOptionsV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetAllOptionsV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8370,7 +8370,7 @@ pub unsafe fn DhcpGetClassInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetClassInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8400,7 +8400,7 @@ pub unsafe fn DhcpGetClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8428,7 +8428,7 @@ pub unsafe fn DhcpGetClientInfoV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetClientInfoV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8456,7 +8456,7 @@ pub unsafe fn DhcpGetClientInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetClientInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8484,7 +8484,7 @@ pub unsafe fn DhcpGetClientInfoVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetClientInfoVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8513,7 +8513,7 @@ pub unsafe fn DhcpGetClientOptions<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetClientOptions(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8542,7 +8542,7 @@ pub unsafe fn DhcpGetFilterV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetFilterV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8567,7 +8567,7 @@ pub unsafe fn DhcpGetMibInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetMibInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8592,7 +8592,7 @@ pub unsafe fn DhcpGetMibInfoV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetMibInfoV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8617,7 +8617,7 @@ pub unsafe fn DhcpGetMibInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetMibInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8643,7 +8643,7 @@ pub unsafe fn DhcpGetOptionInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetOptionInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8676,7 +8676,7 @@ pub unsafe fn DhcpGetOptionInfoV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetOptionInfoV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8715,7 +8715,7 @@ pub unsafe fn DhcpGetOptionInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetOptionInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8750,7 +8750,7 @@ pub unsafe fn DhcpGetOptionValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetOptionValue(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8786,7 +8786,7 @@ pub unsafe fn DhcpGetOptionValueV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetOptionValueV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8828,7 +8828,7 @@ pub unsafe fn DhcpGetOptionValueV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetOptionValueV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8863,7 +8863,7 @@ pub unsafe fn DhcpGetOriginalSubnetMask<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetOriginalSubnetMask(
                 sadaptername: super::super::Foundation::PWSTR,
@@ -8889,7 +8889,7 @@ pub unsafe fn DhcpGetServerBindingInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetServerBindingInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8917,7 +8917,7 @@ pub unsafe fn DhcpGetServerBindingInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetServerBindingInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8944,7 +8944,7 @@ pub unsafe fn DhcpGetServerSpecificStrings<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetServerSpecificStrings(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8970,7 +8970,7 @@ pub unsafe fn DhcpGetSubnetDelayOffer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetSubnetDelayOffer(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -8998,7 +8998,7 @@ pub unsafe fn DhcpGetSubnetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetSubnetInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9027,7 +9027,7 @@ pub unsafe fn DhcpGetSubnetInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetSubnetInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9055,7 +9055,7 @@ pub unsafe fn DhcpGetSubnetInfoVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetSubnetInfoVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9082,7 +9082,7 @@ pub unsafe fn DhcpGetSuperScopeInfoV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetSuperScopeInfoV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9100,7 +9100,7 @@ pub unsafe fn DhcpGetSuperScopeInfoV4<
 pub unsafe fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::std::ffi::c_void) -> u32;
         }
@@ -9123,7 +9123,7 @@ pub unsafe fn DhcpGetVersion<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpGetVersion(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9158,7 +9158,7 @@ pub unsafe fn DhcpHlprAddV4PolicyCondition<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprAddV4PolicyCondition(
                 policy: *mut DHCP_POLICY,
@@ -9198,7 +9198,7 @@ pub unsafe fn DhcpHlprAddV4PolicyExpr(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprAddV4PolicyExpr(
                 policy: *mut DHCP_POLICY,
@@ -9224,7 +9224,7 @@ pub unsafe fn DhcpHlprAddV4PolicyRange(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprAddV4PolicyRange(
                 policy: *mut DHCP_POLICY,
@@ -9258,7 +9258,7 @@ pub unsafe fn DhcpHlprCreateV4Policy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprCreateV4Policy(
                 policyname: super::super::Foundation::PWSTR,
@@ -9304,7 +9304,7 @@ pub unsafe fn DhcpHlprCreateV4PolicyEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprCreateV4PolicyEx(
                 policyname: super::super::Foundation::PWSTR,
@@ -9339,7 +9339,7 @@ pub unsafe fn DhcpHlprFindV4DhcpProperty(
 ) -> *mut DHCP_PROPERTY {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprFindV4DhcpProperty(
                 propertyarray: *const DHCP_PROPERTY_ARRAY,
@@ -9360,7 +9360,7 @@ pub unsafe fn DhcpHlprFindV4DhcpProperty(
 pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY);
         }
@@ -9373,7 +9373,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
 pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY);
         }
@@ -9388,7 +9388,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_
 pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY);
         }
@@ -9401,7 +9401,7 @@ pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
 pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY);
         }
@@ -9416,7 +9416,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
 pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX);
         }
@@ -9429,7 +9429,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
 pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY);
         }
@@ -9446,7 +9446,7 @@ pub unsafe fn DhcpHlprIsV4PolicySingleUC(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprIsV4PolicySingleUC(
                 policy: *const DHCP_POLICY,
@@ -9461,7 +9461,7 @@ pub unsafe fn DhcpHlprIsV4PolicySingleUC(
 pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32;
         }
@@ -9476,7 +9476,7 @@ pub unsafe fn DhcpHlprIsV4PolicyWellFormed(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprIsV4PolicyWellFormed(
                 ppolicy: *const DHCP_POLICY,
@@ -9494,7 +9494,7 @@ pub unsafe fn DhcpHlprModifyV4PolicyExpr(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprModifyV4PolicyExpr(
                 policy: *mut DHCP_POLICY,
@@ -9513,7 +9513,7 @@ pub unsafe fn DhcpHlprModifyV4PolicyExpr(
 pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32;
         }
@@ -9533,7 +9533,7 @@ pub unsafe fn DhcpModifyClass<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpModifyClass(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9561,7 +9561,7 @@ pub unsafe fn DhcpModifyClassV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpModifyClassV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9593,7 +9593,7 @@ pub unsafe fn DhcpRegisterParamChange<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRegisterParamChange(
                 flags: u32,
@@ -9619,7 +9619,7 @@ pub unsafe fn DhcpRegisterParamChange<
 pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveDNSRegistrations() -> u32;
         }
@@ -9638,7 +9638,7 @@ pub unsafe fn DhcpRemoveOption<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveOption(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9668,7 +9668,7 @@ pub unsafe fn DhcpRemoveOptionV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveOptionV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9704,7 +9704,7 @@ pub unsafe fn DhcpRemoveOptionV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveOptionV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9736,7 +9736,7 @@ pub unsafe fn DhcpRemoveOptionValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveOptionValue(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9769,7 +9769,7 @@ pub unsafe fn DhcpRemoveOptionValueV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveOptionValueV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9808,7 +9808,7 @@ pub unsafe fn DhcpRemoveOptionValueV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveOptionValueV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9843,7 +9843,7 @@ pub unsafe fn DhcpRemoveSubnetElement<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveSubnetElement(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9874,7 +9874,7 @@ pub unsafe fn DhcpRemoveSubnetElementV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveSubnetElementV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9905,7 +9905,7 @@ pub unsafe fn DhcpRemoveSubnetElementV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveSubnetElementV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9937,7 +9937,7 @@ pub unsafe fn DhcpRemoveSubnetElementV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRemoveSubnetElementV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -9976,7 +9976,7 @@ pub unsafe fn DhcpRequestParams<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRequestParams(
                 flags: u32,
@@ -10008,7 +10008,7 @@ pub unsafe fn DhcpRequestParams<
 pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpRpcFreeMemory(bufferpointer: *mut ::std::ffi::c_void);
         }
@@ -10029,7 +10029,7 @@ pub unsafe fn DhcpScanDatabase<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpScanDatabase(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10052,7 +10052,7 @@ pub unsafe fn DhcpScanDatabase<
 pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
         }
@@ -10074,7 +10074,7 @@ pub unsafe fn DhcpServerBackupDatabase<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerBackupDatabase(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10099,7 +10099,7 @@ pub unsafe fn DhcpServerGetConfig<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerGetConfig(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10124,7 +10124,7 @@ pub unsafe fn DhcpServerGetConfigV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerGetConfigV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10150,7 +10150,7 @@ pub unsafe fn DhcpServerGetConfigV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerGetConfigV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10177,7 +10177,7 @@ pub unsafe fn DhcpServerGetConfigVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerGetConfigVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10204,7 +10204,7 @@ pub unsafe fn DhcpServerQueryAttribute<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerQueryAttribute(
                 serveripaddr: super::super::Foundation::PWSTR,
@@ -10236,7 +10236,7 @@ pub unsafe fn DhcpServerQueryAttributes<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerQueryAttributes(
                 serveripaddr: super::super::Foundation::PWSTR,
@@ -10270,7 +10270,7 @@ pub unsafe fn DhcpServerQueryDnsRegCredentials<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerQueryDnsRegCredentials(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10301,7 +10301,7 @@ pub unsafe fn DhcpServerRedoAuthorization<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerRedoAuthorization(
                 serveripaddr: super::super::Foundation::PWSTR,
@@ -10327,7 +10327,7 @@ pub unsafe fn DhcpServerRestoreDatabase<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerRestoreDatabase(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10353,7 +10353,7 @@ pub unsafe fn DhcpServerSetConfig<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerSetConfig(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10381,7 +10381,7 @@ pub unsafe fn DhcpServerSetConfigV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerSetConfigV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10410,7 +10410,7 @@ pub unsafe fn DhcpServerSetConfigV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerSetConfigV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10440,7 +10440,7 @@ pub unsafe fn DhcpServerSetConfigVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerSetConfigVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10472,7 +10472,7 @@ pub unsafe fn DhcpServerSetDnsRegCredentials<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerSetDnsRegCredentials(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10506,7 +10506,7 @@ pub unsafe fn DhcpServerSetDnsRegCredentialsV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpServerSetDnsRegCredentialsV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10535,7 +10535,7 @@ pub unsafe fn DhcpSetClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10560,7 +10560,7 @@ pub unsafe fn DhcpSetClientInfoV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetClientInfoV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10585,7 +10585,7 @@ pub unsafe fn DhcpSetClientInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetClientInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10610,7 +10610,7 @@ pub unsafe fn DhcpSetClientInfoVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetClientInfoVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10635,7 +10635,7 @@ pub unsafe fn DhcpSetFilterV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetFilterV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10661,7 +10661,7 @@ pub unsafe fn DhcpSetOptionInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10694,7 +10694,7 @@ pub unsafe fn DhcpSetOptionInfoV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionInfoV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10733,7 +10733,7 @@ pub unsafe fn DhcpSetOptionInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10768,7 +10768,7 @@ pub unsafe fn DhcpSetOptionValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionValue(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10804,7 +10804,7 @@ pub unsafe fn DhcpSetOptionValueV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionValueV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10846,7 +10846,7 @@ pub unsafe fn DhcpSetOptionValueV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionValueV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10882,7 +10882,7 @@ pub unsafe fn DhcpSetOptionValues<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionValues(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10915,7 +10915,7 @@ pub unsafe fn DhcpSetOptionValuesV5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetOptionValuesV5(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10949,7 +10949,7 @@ pub unsafe fn DhcpSetServerBindingInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetServerBindingInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -10977,7 +10977,7 @@ pub unsafe fn DhcpSetServerBindingInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetServerBindingInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11005,7 +11005,7 @@ pub unsafe fn DhcpSetSubnetDelayOffer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetSubnetDelayOffer(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11033,7 +11033,7 @@ pub unsafe fn DhcpSetSubnetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetSubnetInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11062,7 +11062,7 @@ pub unsafe fn DhcpSetSubnetInfoV6<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetSubnetInfoV6(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11090,7 +11090,7 @@ pub unsafe fn DhcpSetSubnetInfoVQ<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetSubnetInfoVQ(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11121,7 +11121,7 @@ pub unsafe fn DhcpSetSuperScopeV4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetSuperScopeV4(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11143,7 +11143,7 @@ pub unsafe fn DhcpSetSuperScopeV4<
 pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::std::ffi::c_void) -> u32;
         }
@@ -11168,7 +11168,7 @@ pub unsafe fn DhcpUndoRequestParams<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpUndoRequestParams(
                 flags: u32,
@@ -11200,7 +11200,7 @@ pub unsafe fn DhcpV4AddPolicyRange<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4AddPolicyRange(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11229,7 +11229,7 @@ pub unsafe fn DhcpV4CreateClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4CreateClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11254,7 +11254,7 @@ pub unsafe fn DhcpV4CreateClientInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4CreateClientInfoEx(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11279,7 +11279,7 @@ pub unsafe fn DhcpV4CreatePolicy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4CreatePolicy(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11304,7 +11304,7 @@ pub unsafe fn DhcpV4CreatePolicyEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4CreatePolicyEx(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11333,7 +11333,7 @@ pub unsafe fn DhcpV4DeletePolicy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4DeletePolicy(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11369,7 +11369,7 @@ pub unsafe fn DhcpV4EnumPolicies<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4EnumPolicies(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11413,7 +11413,7 @@ pub unsafe fn DhcpV4EnumPoliciesEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4EnumPoliciesEx(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11455,7 +11455,7 @@ pub unsafe fn DhcpV4EnumSubnetClients<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4EnumSubnetClients(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11495,7 +11495,7 @@ pub unsafe fn DhcpV4EnumSubnetClientsEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4EnumSubnetClientsEx(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11535,7 +11535,7 @@ pub unsafe fn DhcpV4EnumSubnetReservations<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4EnumSubnetReservations(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11570,7 +11570,7 @@ pub unsafe fn DhcpV4FailoverAddScopeToRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverAddScopeToRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11595,7 +11595,7 @@ pub unsafe fn DhcpV4FailoverCreateRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverCreateRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11621,7 +11621,7 @@ pub unsafe fn DhcpV4FailoverDeleteRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverDeleteRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11646,7 +11646,7 @@ pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverDeleteScopeFromRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11675,7 +11675,7 @@ pub unsafe fn DhcpV4FailoverEnumRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverEnumRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11709,7 +11709,7 @@ pub unsafe fn DhcpV4FailoverGetAddressStatus<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverGetAddressStatus(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11737,7 +11737,7 @@ pub unsafe fn DhcpV4FailoverGetClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverGetClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11766,7 +11766,7 @@ pub unsafe fn DhcpV4FailoverGetRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverGetRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11794,7 +11794,7 @@ pub unsafe fn DhcpV4FailoverGetScopeRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverGetScopeRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11822,7 +11822,7 @@ pub unsafe fn DhcpV4FailoverGetScopeStatistics<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverGetScopeStatistics(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11850,7 +11850,7 @@ pub unsafe fn DhcpV4FailoverGetSystemTime<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverGetSystemTime(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11878,7 +11878,7 @@ pub unsafe fn DhcpV4FailoverSetRelationship<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverSetRelationship(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11906,7 +11906,7 @@ pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4FailoverTriggerAddrAllocation(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11933,7 +11933,7 @@ pub unsafe fn DhcpV4GetAllOptionValues<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4GetAllOptionValues(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11963,7 +11963,7 @@ pub unsafe fn DhcpV4GetClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4GetClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -11991,7 +11991,7 @@ pub unsafe fn DhcpV4GetClientInfoEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4GetClientInfoEx(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12022,7 +12022,7 @@ pub unsafe fn DhcpV4GetFreeIPAddress<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4GetFreeIPAddress(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12062,7 +12062,7 @@ pub unsafe fn DhcpV4GetOptionValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4GetOptionValue(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12102,7 +12102,7 @@ pub unsafe fn DhcpV4GetPolicy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4GetPolicy(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12138,7 +12138,7 @@ pub unsafe fn DhcpV4GetPolicyEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4GetPolicyEx(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12172,7 +12172,7 @@ pub unsafe fn DhcpV4QueryPolicyEnforcement<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4QueryPolicyEnforcement(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12207,7 +12207,7 @@ pub unsafe fn DhcpV4RemoveOptionValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4RemoveOptionValue(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12243,7 +12243,7 @@ pub unsafe fn DhcpV4RemovePolicyRange<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4RemovePolicyRange(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12279,7 +12279,7 @@ pub unsafe fn DhcpV4SetOptionValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4SetOptionValue(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12320,7 +12320,7 @@ pub unsafe fn DhcpV4SetOptionValues<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4SetOptionValues(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12359,7 +12359,7 @@ pub unsafe fn DhcpV4SetPolicy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4SetPolicy(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12396,7 +12396,7 @@ pub unsafe fn DhcpV4SetPolicyEnforcement<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4SetPolicyEnforcement(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12431,7 +12431,7 @@ pub unsafe fn DhcpV4SetPolicyEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV4SetPolicyEx(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12464,7 +12464,7 @@ pub unsafe fn DhcpV6CreateClientInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV6CreateClientInfo(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12496,7 +12496,7 @@ pub unsafe fn DhcpV6GetFreeIPAddress<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV6GetFreeIPAddress(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12529,7 +12529,7 @@ pub unsafe fn DhcpV6GetStatelessStatistics<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV6GetStatelessStatistics(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12558,7 +12558,7 @@ pub unsafe fn DhcpV6GetStatelessStoreParams<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV6GetStatelessStoreParams(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12592,7 +12592,7 @@ pub unsafe fn DhcpV6SetStatelessStoreParams<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DhcpV6SetStatelessStoreParams(
                 serveripaddress: super::super::Foundation::PWSTR,
@@ -12616,7 +12616,7 @@ pub unsafe fn DhcpV6SetStatelessStoreParams<
 pub unsafe fn Dhcpv6CApiCleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc6")]
+        #[link(name = "windows")]
         extern "system" {
             fn Dhcpv6CApiCleanup();
         }
@@ -12628,7 +12628,7 @@ pub unsafe fn Dhcpv6CApiCleanup() {
 pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc6")]
+        #[link(name = "windows")]
         extern "system" {
             fn Dhcpv6CApiInitialize(version: *mut u32);
         }
@@ -12648,7 +12648,7 @@ pub unsafe fn Dhcpv6ReleasePrefix<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc6")]
+        #[link(name = "windows")]
         extern "system" {
             fn Dhcpv6ReleasePrefix(
                 adaptername: super::super::Foundation::PWSTR,
@@ -12678,7 +12678,7 @@ pub unsafe fn Dhcpv6RenewPrefix<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc6")]
+        #[link(name = "windows")]
         extern "system" {
             fn Dhcpv6RenewPrefix(
                 adaptername: super::super::Foundation::PWSTR,
@@ -12716,7 +12716,7 @@ pub unsafe fn Dhcpv6RequestParams<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc6")]
+        #[link(name = "windows")]
         extern "system" {
             fn Dhcpv6RequestParams(
                 forcenewinform: super::super::Foundation::BOOL,
@@ -12753,7 +12753,7 @@ pub unsafe fn Dhcpv6RequestPrefix<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc6")]
+        #[link(name = "windows")]
         extern "system" {
             fn Dhcpv6RequestPrefix(
                 adaptername: super::super::Foundation::PWSTR,

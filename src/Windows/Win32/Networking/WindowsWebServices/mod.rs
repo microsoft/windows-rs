@@ -14419,7 +14419,7 @@ pub unsafe fn WebAuthNAuthenticatorGetAssertion<
 ) -> ::windows::runtime::Result<*mut WEBAUTHN_ASSERTION> {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNAuthenticatorGetAssertion(
                 hwnd: super::super::Foundation::HWND,
@@ -14457,7 +14457,7 @@ pub unsafe fn WebAuthNAuthenticatorMakeCredential<
 ) -> ::windows::runtime::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION> {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNAuthenticatorMakeCredential(
                 hwnd: super::super::Foundation::HWND,
@@ -14490,7 +14490,7 @@ pub unsafe fn WebAuthNCancelCurrentOperation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNCancelCurrentOperation(
                 pcancellationid: *const ::windows::runtime::GUID,
@@ -14505,7 +14505,7 @@ pub unsafe fn WebAuthNCancelCurrentOperation(
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION);
         }
@@ -14522,7 +14522,7 @@ pub unsafe fn WebAuthNFreeCredentialAttestation(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNFreeCredentialAttestation(
                 pwebauthncredentialattestation: *const WEBAUTHN_CREDENTIAL_ATTESTATION,
@@ -14538,7 +14538,7 @@ pub unsafe fn WebAuthNFreeCredentialAttestation(
 pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNGetApiVersionNumber() -> u32;
         }
@@ -14550,7 +14550,7 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
 pub unsafe fn WebAuthNGetCancellationId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNGetCancellationId(
                 pcancellationid: *mut ::windows::runtime::GUID,
@@ -14569,7 +14569,7 @@ pub unsafe fn WebAuthNGetErrorName(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNGetErrorName(
                 hr: ::windows::runtime::HRESULT,
@@ -14585,7 +14585,7 @@ pub unsafe fn WebAuthNGetW3CExceptionDOMError(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNGetW3CExceptionDOMError(
                 hr: ::windows::runtime::HRESULT,
@@ -14601,7 +14601,7 @@ pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "webauthn")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(
                 pbisuserverifyingplatformauthenticatoravailable : * mut super::super::Foundation:: BOOL,
@@ -14622,7 +14622,7 @@ pub unsafe fn WsAbandonCall(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAbandonCall(
                 serviceproxy: *const WS_SERVICE_PROXY,
@@ -14647,7 +14647,7 @@ pub unsafe fn WsAbandonMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAbandonMessage(
                 channel: *const WS_CHANNEL,
@@ -14671,7 +14671,7 @@ pub unsafe fn WsAbortChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAbortChannel(
                 channel: *const WS_CHANNEL,
@@ -14689,7 +14689,7 @@ pub unsafe fn WsAbortListener(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAbortListener(
                 listener: *const WS_LISTENER,
@@ -14711,7 +14711,7 @@ pub unsafe fn WsAbortServiceHost(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAbortServiceHost(
                 servicehost: *const WS_SERVICE_HOST,
@@ -14733,7 +14733,7 @@ pub unsafe fn WsAbortServiceProxy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAbortServiceProxy(
                 serviceproxy: *const WS_SERVICE_PROXY,
@@ -14757,7 +14757,7 @@ pub unsafe fn WsAcceptChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAcceptChannel(
                 listener: *const WS_LISTENER,
@@ -14789,7 +14789,7 @@ pub unsafe fn WsAddCustomHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAddCustomHeader(
                 message: *const WS_MESSAGE,
@@ -14822,7 +14822,7 @@ pub unsafe fn WsAddErrorString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAddErrorString(
                 error: *const WS_ERROR,
@@ -14846,7 +14846,7 @@ pub unsafe fn WsAddMappedHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAddMappedHeader(
                 message: *const WS_MESSAGE,
@@ -14880,7 +14880,7 @@ pub unsafe fn WsAddressMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAddressMessage(
                 message: *const WS_MESSAGE,
@@ -14906,7 +14906,7 @@ pub unsafe fn WsAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAlloc(
                 heap: *const WS_HEAP,
@@ -14936,7 +14936,7 @@ pub unsafe fn WsAsyncExecute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsAsyncExecute(
                 asyncstate: *const WS_ASYNC_STATE,
@@ -14973,7 +14973,7 @@ pub unsafe fn WsCall(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCall(
                 serviceproxy: *const WS_SERVICE_PROXY,
@@ -15007,7 +15007,7 @@ pub unsafe fn WsCheckMustUnderstandHeaders(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCheckMustUnderstandHeaders(
                 message: *const WS_MESSAGE,
@@ -15027,7 +15027,7 @@ pub unsafe fn WsCloseChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCloseChannel(
                 channel: *const WS_CHANNEL,
@@ -15052,7 +15052,7 @@ pub unsafe fn WsCloseListener(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCloseListener(
                 listener: *const WS_LISTENER,
@@ -15077,7 +15077,7 @@ pub unsafe fn WsCloseServiceHost(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCloseServiceHost(
                 servicehost: *const WS_SERVICE_HOST,
@@ -15102,7 +15102,7 @@ pub unsafe fn WsCloseServiceProxy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCloseServiceProxy(
                 serviceproxy: *const WS_SERVICE_PROXY,
@@ -15131,7 +15131,7 @@ pub unsafe fn WsCombineUrl(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCombineUrl(
                 baseurl: *const WS_STRING,
@@ -15161,7 +15161,7 @@ pub unsafe fn WsCopyError(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCopyError(
                 source: *const WS_ERROR,
@@ -15184,7 +15184,7 @@ pub unsafe fn WsCopyNode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCopyNode(
                 writer: *const WS_XML_WRITER,
@@ -15213,7 +15213,7 @@ pub unsafe fn WsCreateChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateChannel(
                 channeltype: WS_CHANNEL_TYPE,
@@ -15248,7 +15248,7 @@ pub unsafe fn WsCreateChannelForListener(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateChannelForListener(
                 listener: *const WS_LISTENER,
@@ -15276,7 +15276,7 @@ pub unsafe fn WsCreateError(
 ) -> ::windows::runtime::Result<*mut WS_ERROR> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateError(
                 properties: *const WS_ERROR_PROPERTY,
@@ -15304,7 +15304,7 @@ pub unsafe fn WsCreateFaultFromError(
 ) -> ::windows::runtime::Result<WS_FAULT> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateFaultFromError(
                 error: *const WS_ERROR,
@@ -15337,7 +15337,7 @@ pub unsafe fn WsCreateHeap(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateHeap(
                 maxsize: usize,
@@ -15372,7 +15372,7 @@ pub unsafe fn WsCreateListener(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateListener(
                 channeltype: WS_CHANNEL_TYPE,
@@ -15408,7 +15408,7 @@ pub unsafe fn WsCreateMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateMessage(
                 envelopeversion: WS_ENVELOPE_VERSION,
@@ -15441,7 +15441,7 @@ pub unsafe fn WsCreateMessageForChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateMessageForChannel(
                 channel: *const WS_CHANNEL,
@@ -15471,7 +15471,7 @@ pub unsafe fn WsCreateMetadata(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateMetadata(
                 properties: *const WS_METADATA_PROPERTY,
@@ -15499,7 +15499,7 @@ pub unsafe fn WsCreateReader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateReader(
                 properties: *const WS_XML_READER_PROPERTY,
@@ -15538,7 +15538,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateServiceEndpointFromTemplate(
                 channeltype: WS_CHANNEL_TYPE,
@@ -15589,7 +15589,7 @@ pub unsafe fn WsCreateServiceHost(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateServiceHost(
                 endpoints: *const *const WS_SERVICE_ENDPOINT,
@@ -15626,7 +15626,7 @@ pub unsafe fn WsCreateServiceProxy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateServiceProxy(
                 channeltype: WS_CHANNEL_TYPE,
@@ -15670,7 +15670,7 @@ pub unsafe fn WsCreateServiceProxyFromTemplate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateServiceProxyFromTemplate(
                 channeltype: WS_CHANNEL_TYPE,
@@ -15710,7 +15710,7 @@ pub unsafe fn WsCreateWriter(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateWriter(
                 properties: *const WS_XML_WRITER_PROPERTY,
@@ -15739,7 +15739,7 @@ pub unsafe fn WsCreateXmlBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateXmlBuffer(
                 heap: *const WS_HEAP,
@@ -15771,7 +15771,7 @@ pub unsafe fn WsCreateXmlSecurityToken(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsCreateXmlSecurityToken(
                 tokenxml: *const WS_XML_BUFFER,
@@ -15803,7 +15803,7 @@ pub unsafe fn WsDateTimeToFileTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsDateTimeToFileTime(
                 datetime: *const WS_DATETIME,
@@ -15831,7 +15831,7 @@ pub unsafe fn WsDecodeUrl(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsDecodeUrl(
                 url: *const WS_STRING,
@@ -15863,7 +15863,7 @@ pub unsafe fn WsEncodeUrl(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsEncodeUrl(
                 url: *const WS_URL,
@@ -15891,7 +15891,7 @@ pub unsafe fn WsEndReaderCanonicalization(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsEndReaderCanonicalization(
                 reader: *const WS_XML_READER,
@@ -15910,7 +15910,7 @@ pub unsafe fn WsEndWriterCanonicalization(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsEndWriterCanonicalization(
                 writer: *const WS_XML_WRITER,
@@ -15931,7 +15931,7 @@ pub unsafe fn WsFileTimeToDateTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFileTimeToDateTime(
                 filetime: *const super::super::Foundation::FILETIME,
@@ -15957,7 +15957,7 @@ pub unsafe fn WsFillBody(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFillBody(
                 message: *const WS_MESSAGE,
@@ -15985,7 +15985,7 @@ pub unsafe fn WsFillReader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFillReader(
                 reader: *const WS_XML_READER,
@@ -16019,7 +16019,7 @@ pub unsafe fn WsFindAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFindAttribute(
                 reader: *const WS_XML_READER,
@@ -16051,7 +16051,7 @@ pub unsafe fn WsFlushBody(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFlushBody(
                 message: *const WS_MESSAGE,
@@ -16079,7 +16079,7 @@ pub unsafe fn WsFlushWriter(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFlushWriter(
                 writer: *const WS_XML_WRITER,
@@ -16102,7 +16102,7 @@ pub unsafe fn WsFlushWriter(
 pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeChannel(channel: *const WS_CHANNEL);
         }
@@ -16114,7 +16114,7 @@ pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
 pub unsafe fn WsFreeError(error: *const WS_ERROR) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeError(error: *const WS_ERROR);
         }
@@ -16126,7 +16126,7 @@ pub unsafe fn WsFreeError(error: *const WS_ERROR) {
 pub unsafe fn WsFreeHeap(heap: *const WS_HEAP) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeHeap(heap: *const WS_HEAP);
         }
@@ -16138,7 +16138,7 @@ pub unsafe fn WsFreeHeap(heap: *const WS_HEAP) {
 pub unsafe fn WsFreeListener(listener: *const WS_LISTENER) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeListener(listener: *const WS_LISTENER);
         }
@@ -16150,7 +16150,7 @@ pub unsafe fn WsFreeListener(listener: *const WS_LISTENER) {
 pub unsafe fn WsFreeMessage(message: *const WS_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeMessage(message: *const WS_MESSAGE);
         }
@@ -16162,7 +16162,7 @@ pub unsafe fn WsFreeMessage(message: *const WS_MESSAGE) {
 pub unsafe fn WsFreeMetadata(metadata: *const WS_METADATA) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeMetadata(metadata: *const WS_METADATA);
         }
@@ -16174,7 +16174,7 @@ pub unsafe fn WsFreeMetadata(metadata: *const WS_METADATA) {
 pub unsafe fn WsFreeReader(reader: *const WS_XML_READER) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeReader(reader: *const WS_XML_READER);
         }
@@ -16186,7 +16186,7 @@ pub unsafe fn WsFreeReader(reader: *const WS_XML_READER) {
 pub unsafe fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN);
         }
@@ -16198,7 +16198,7 @@ pub unsafe fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN) {
 pub unsafe fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST);
         }
@@ -16210,7 +16210,7 @@ pub unsafe fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST) {
 pub unsafe fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY);
         }
@@ -16222,7 +16222,7 @@ pub unsafe fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY) {
 pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsFreeWriter(writer: *const WS_XML_WRITER);
         }
@@ -16240,7 +16240,7 @@ pub unsafe fn WsGetChannelProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetChannelProperty(
                 channel: *const WS_CHANNEL,
@@ -16277,7 +16277,7 @@ pub unsafe fn WsGetCustomHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetCustomHeader(
                 message: *const WS_MESSAGE,
@@ -16317,7 +16317,7 @@ pub unsafe fn WsGetDictionary(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetDictionary(
                 encoding: WS_ENCODING,
@@ -16343,7 +16343,7 @@ pub unsafe fn WsGetErrorProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetErrorProperty(
                 error: *const WS_ERROR,
@@ -16370,7 +16370,7 @@ pub unsafe fn WsGetErrorString(
 ) -> ::windows::runtime::Result<WS_STRING> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetErrorString(
                 error: *const WS_ERROR,
@@ -16400,7 +16400,7 @@ pub unsafe fn WsGetFaultErrorDetail(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetFaultErrorDetail(
                 error: *const WS_ERROR,
@@ -16432,7 +16432,7 @@ pub unsafe fn WsGetFaultErrorProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetFaultErrorProperty(
                 error: *const WS_ERROR,
@@ -16464,7 +16464,7 @@ pub unsafe fn WsGetHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetHeader(
                 message: *const WS_MESSAGE,
@@ -16500,7 +16500,7 @@ pub unsafe fn WsGetHeaderAttributes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetHeaderAttributes(
                 message: *const WS_MESSAGE,
@@ -16529,7 +16529,7 @@ pub unsafe fn WsGetHeapProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetHeapProperty(
                 heap: *const WS_HEAP,
@@ -16560,7 +16560,7 @@ pub unsafe fn WsGetListenerProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetListenerProperty(
                 listener: *const WS_LISTENER,
@@ -16597,7 +16597,7 @@ pub unsafe fn WsGetMappedHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetMappedHeader(
                 message: *const WS_MESSAGE,
@@ -16638,7 +16638,7 @@ pub unsafe fn WsGetMessageProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetMessageProperty(
                 message: *const WS_MESSAGE,
@@ -16668,7 +16668,7 @@ pub unsafe fn WsGetMetadataEndpoints(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetMetadataEndpoints(
                 metadata: *const WS_METADATA,
@@ -16695,7 +16695,7 @@ pub unsafe fn WsGetMetadataProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetMetadataProperty(
                 metadata: *const WS_METADATA,
@@ -16725,7 +16725,7 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetMissingMetadataDocumentAddress(
                 metadata: *const WS_METADATA,
@@ -16756,7 +16756,7 @@ pub unsafe fn WsGetNamespaceFromPrefix<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetNamespaceFromPrefix(
                 reader: *const WS_XML_READER,
@@ -16787,7 +16787,7 @@ pub unsafe fn WsGetOperationContextProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetOperationContextProperty(
                 context: *const WS_OPERATION_CONTEXT,
@@ -16816,7 +16816,7 @@ pub unsafe fn WsGetPolicyAlternativeCount(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetPolicyAlternativeCount(
                 policy: *const WS_POLICY,
@@ -16843,7 +16843,7 @@ pub unsafe fn WsGetPolicyProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetPolicyProperty(
                 policy: *const WS_POLICY,
@@ -16878,7 +16878,7 @@ pub unsafe fn WsGetPrefixFromNamespace<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetPrefixFromNamespace(
                 writer: *const WS_XML_WRITER,
@@ -16907,7 +16907,7 @@ pub unsafe fn WsGetReaderNode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetReaderNode(
                 xmlreader: *const WS_XML_READER,
@@ -16932,7 +16932,7 @@ pub unsafe fn WsGetReaderPosition(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetReaderPosition(
                 reader: *const WS_XML_READER,
@@ -16959,7 +16959,7 @@ pub unsafe fn WsGetReaderProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetReaderProperty(
                 reader: *const WS_XML_READER,
@@ -16990,7 +16990,7 @@ pub unsafe fn WsGetSecurityContextProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetSecurityContextProperty(
                 securitycontext: *const WS_SECURITY_CONTEXT,
@@ -17022,7 +17022,7 @@ pub unsafe fn WsGetSecurityTokenProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetSecurityTokenProperty(
                 securitytoken: *const WS_SECURITY_TOKEN,
@@ -17055,7 +17055,7 @@ pub unsafe fn WsGetServiceHostProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetServiceHostProperty(
                 servicehost: *const WS_SERVICE_HOST,
@@ -17086,7 +17086,7 @@ pub unsafe fn WsGetServiceProxyProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetServiceProxyProperty(
                 serviceproxy: *const WS_SERVICE_PROXY,
@@ -17115,7 +17115,7 @@ pub unsafe fn WsGetWriterPosition(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetWriterPosition(
                 writer: *const WS_XML_WRITER,
@@ -17142,7 +17142,7 @@ pub unsafe fn WsGetWriterProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetWriterProperty(
                 writer: *const WS_XML_WRITER,
@@ -17175,7 +17175,7 @@ pub unsafe fn WsGetXmlAttribute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsGetXmlAttribute(
                 reader: *const WS_XML_READER,
@@ -17207,7 +17207,7 @@ pub unsafe fn WsInitializeMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsInitializeMessage(
                 message: *const WS_MESSAGE,
@@ -17234,7 +17234,7 @@ pub unsafe fn WsMarkHeaderAsUnderstood(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsMarkHeaderAsUnderstood(
                 message: *const WS_MESSAGE,
@@ -17266,7 +17266,7 @@ pub unsafe fn WsMatchPolicyAlternative<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsMatchPolicyAlternative(
                 policy: *const WS_POLICY,
@@ -17299,7 +17299,7 @@ pub unsafe fn WsMoveReader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsMoveReader(
                 reader: *const WS_XML_READER,
@@ -17328,7 +17328,7 @@ pub unsafe fn WsMoveWriter(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsMoveWriter(
                 writer: *const WS_XML_WRITER,
@@ -17357,7 +17357,7 @@ pub unsafe fn WsOpenChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsOpenChannel(
                 channel: *const WS_CHANNEL,
@@ -17386,7 +17386,7 @@ pub unsafe fn WsOpenListener(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsOpenListener(
                 listener: *const WS_LISTENER,
@@ -17413,7 +17413,7 @@ pub unsafe fn WsOpenServiceHost(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsOpenServiceHost(
                 servicehost: *const WS_SERVICE_HOST,
@@ -17440,7 +17440,7 @@ pub unsafe fn WsOpenServiceProxy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsOpenServiceProxy(
                 serviceproxy: *const WS_SERVICE_PROXY,
@@ -17468,7 +17468,7 @@ pub unsafe fn WsPullBytes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsPullBytes(
                 writer: *const WS_XML_WRITER,
@@ -17496,7 +17496,7 @@ pub unsafe fn WsPushBytes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsPushBytes(
                 writer: *const WS_XML_WRITER,
@@ -17531,7 +17531,7 @@ pub unsafe fn WsReadArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadArray(
                 reader: *const WS_XML_READER,
@@ -17575,7 +17575,7 @@ pub unsafe fn WsReadAttribute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadAttribute(
                 reader: *const WS_XML_READER,
@@ -17613,7 +17613,7 @@ pub unsafe fn WsReadBody(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadBody(
                 message: *const WS_MESSAGE,
@@ -17648,7 +17648,7 @@ pub unsafe fn WsReadBytes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadBytes(
                 reader: *const WS_XML_READER,
@@ -17680,7 +17680,7 @@ pub unsafe fn WsReadChars(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadChars(
                 reader: *const WS_XML_READER,
@@ -17711,7 +17711,7 @@ pub unsafe fn WsReadCharsUtf8(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadCharsUtf8(
                 reader: *const WS_XML_READER,
@@ -17745,7 +17745,7 @@ pub unsafe fn WsReadElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadElement(
                 reader: *const WS_XML_READER,
@@ -17777,7 +17777,7 @@ pub unsafe fn WsReadEndAttribute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadEndAttribute(
                 reader: *const WS_XML_READER,
@@ -17795,7 +17795,7 @@ pub unsafe fn WsReadEndElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadEndElement(
                 reader: *const WS_XML_READER,
@@ -17820,7 +17820,7 @@ pub unsafe fn WsReadEndpointAddressExtension(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadEndpointAddressExtension(
                 reader: *const WS_XML_READER,
@@ -17854,7 +17854,7 @@ pub unsafe fn WsReadEnvelopeEnd(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadEnvelopeEnd(
                 message: *const WS_MESSAGE,
@@ -17875,7 +17875,7 @@ pub unsafe fn WsReadEnvelopeStart(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadEnvelopeStart(
                 message: *const WS_MESSAGE,
@@ -17905,7 +17905,7 @@ pub unsafe fn WsReadMessageEnd(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadMessageEnd(
                 channel: *const WS_CHANNEL,
@@ -17933,7 +17933,7 @@ pub unsafe fn WsReadMessageStart(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadMessageStart(
                 channel: *const WS_CHANNEL,
@@ -17962,7 +17962,7 @@ pub unsafe fn WsReadMetadata(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadMetadata(
                 metadata: *const WS_METADATA,
@@ -17988,7 +17988,7 @@ pub unsafe fn WsReadNode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadNode(
                 reader: *const WS_XML_READER,
@@ -18011,7 +18011,7 @@ pub unsafe fn WsReadQualifiedName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadQualifiedName(
                 reader: *const WS_XML_READER,
@@ -18042,7 +18042,7 @@ pub unsafe fn WsReadStartAttribute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadStartAttribute(
                 reader: *const WS_XML_READER,
@@ -18066,7 +18066,7 @@ pub unsafe fn WsReadStartElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadStartElement(
                 reader: *const WS_XML_READER,
@@ -18088,7 +18088,7 @@ pub unsafe fn WsReadToStartElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadToStartElement(
                 reader: *const WS_XML_READER,
@@ -18123,7 +18123,7 @@ pub unsafe fn WsReadType(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadType(
                 reader: *const WS_XML_READER,
@@ -18162,7 +18162,7 @@ pub unsafe fn WsReadValue(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadValue(
                 reader: *const WS_XML_READER,
@@ -18192,7 +18192,7 @@ pub unsafe fn WsReadXmlBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadXmlBuffer(
                 reader: *const WS_XML_READER,
@@ -18225,7 +18225,7 @@ pub unsafe fn WsReadXmlBufferFromBytes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReadXmlBufferFromBytes(
                 reader: *const WS_XML_READER,
@@ -18272,7 +18272,7 @@ pub unsafe fn WsReceiveMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsReceiveMessage(
                 channel: *const WS_CHANNEL,
@@ -18317,7 +18317,7 @@ pub unsafe fn WsRegisterOperationForCancel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRegisterOperationForCancel(
                 context: *const WS_OPERATION_CONTEXT,
@@ -18348,7 +18348,7 @@ pub unsafe fn WsRemoveCustomHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRemoveCustomHeader(
                 message: *const WS_MESSAGE,
@@ -18375,7 +18375,7 @@ pub unsafe fn WsRemoveHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRemoveHeader(
                 message: *const WS_MESSAGE,
@@ -18401,7 +18401,7 @@ pub unsafe fn WsRemoveMappedHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRemoveMappedHeader(
                 message: *const WS_MESSAGE,
@@ -18425,7 +18425,7 @@ pub unsafe fn WsRemoveNode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRemoveNode(
                 nodeposition: *const WS_XML_NODE_POSITION,
@@ -18460,7 +18460,7 @@ pub unsafe fn WsRequestReply(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRequestReply(
                 channel: *const WS_CHANNEL,
@@ -18510,7 +18510,7 @@ pub unsafe fn WsRequestSecurityToken(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRequestSecurityToken(
                 channel: *const WS_CHANNEL,
@@ -18540,7 +18540,7 @@ pub unsafe fn WsResetChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetChannel(
                 channel: *const WS_CHANNEL,
@@ -18555,7 +18555,7 @@ pub unsafe fn WsResetChannel(
 pub unsafe fn WsResetError(error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetError(error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
         }
@@ -18570,7 +18570,7 @@ pub unsafe fn WsResetHeap(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetHeap(
                 heap: *const WS_HEAP,
@@ -18588,7 +18588,7 @@ pub unsafe fn WsResetListener(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetListener(
                 listener: *const WS_LISTENER,
@@ -18610,7 +18610,7 @@ pub unsafe fn WsResetMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetMessage(
                 message: *const WS_MESSAGE,
@@ -18628,7 +18628,7 @@ pub unsafe fn WsResetMetadata(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetMetadata(
                 metadata: *const WS_METADATA,
@@ -18650,7 +18650,7 @@ pub unsafe fn WsResetServiceHost(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetServiceHost(
                 servicehost: *const WS_SERVICE_HOST,
@@ -18672,7 +18672,7 @@ pub unsafe fn WsResetServiceProxy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsResetServiceProxy(
                 serviceproxy: *const WS_SERVICE_PROXY,
@@ -18694,7 +18694,7 @@ pub unsafe fn WsRevokeSecurityContext(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsRevokeSecurityContext(
                 securitycontext: *const WS_SECURITY_CONTEXT,
@@ -18722,7 +18722,7 @@ pub unsafe fn WsSendFaultMessageForError(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSendFaultMessageForError(
                 channel: *const WS_CHANNEL,
@@ -18763,7 +18763,7 @@ pub unsafe fn WsSendMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSendMessage(
                 channel: *const WS_CHANNEL,
@@ -18805,7 +18805,7 @@ pub unsafe fn WsSendReplyMessage(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSendReplyMessage(
                 channel: *const WS_CHANNEL,
@@ -18844,7 +18844,7 @@ pub unsafe fn WsSetChannelProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetChannelProperty(
                 channel: *const WS_CHANNEL,
@@ -18874,7 +18874,7 @@ pub unsafe fn WsSetErrorProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetErrorProperty(
                 error: *const WS_ERROR,
@@ -18904,7 +18904,7 @@ pub unsafe fn WsSetFaultErrorDetail(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetFaultErrorDetail(
                 error: *const WS_ERROR,
@@ -18934,7 +18934,7 @@ pub unsafe fn WsSetFaultErrorProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetFaultErrorProperty(
                 error: *const WS_ERROR,
@@ -18965,7 +18965,7 @@ pub unsafe fn WsSetHeader(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetHeader(
                 message: *const WS_MESSAGE,
@@ -19001,7 +19001,7 @@ pub unsafe fn WsSetInput(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetInput(
                 reader: *const WS_XML_READER,
@@ -19034,7 +19034,7 @@ pub unsafe fn WsSetInputToBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetInputToBuffer(
                 reader: *const WS_XML_READER,
@@ -19065,7 +19065,7 @@ pub unsafe fn WsSetListenerProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetListenerProperty(
                 listener: *const WS_LISTENER,
@@ -19096,7 +19096,7 @@ pub unsafe fn WsSetMessageProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetMessageProperty(
                 message: *const WS_MESSAGE,
@@ -19128,7 +19128,7 @@ pub unsafe fn WsSetOutput(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetOutput(
                 writer: *const WS_XML_WRITER,
@@ -19161,7 +19161,7 @@ pub unsafe fn WsSetOutputToBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetOutputToBuffer(
                 writer: *const WS_XML_WRITER,
@@ -19190,7 +19190,7 @@ pub unsafe fn WsSetReaderPosition(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetReaderPosition(
                 reader: *const WS_XML_READER,
@@ -19215,7 +19215,7 @@ pub unsafe fn WsSetWriterPosition(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSetWriterPosition(
                 writer: *const WS_XML_WRITER,
@@ -19240,7 +19240,7 @@ pub unsafe fn WsShutdownSessionChannel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsShutdownSessionChannel(
                 channel: *const WS_CHANNEL,
@@ -19264,7 +19264,7 @@ pub unsafe fn WsSkipNode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsSkipNode(
                 reader: *const WS_XML_READER,
@@ -19286,7 +19286,7 @@ pub unsafe fn WsStartReaderCanonicalization(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsStartReaderCanonicalization(
                 reader: *const WS_XML_READER,
@@ -19320,7 +19320,7 @@ pub unsafe fn WsStartWriterCanonicalization(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsStartWriterCanonicalization(
                 writer: *const WS_XML_WRITER,
@@ -19357,7 +19357,7 @@ pub unsafe fn WsTrimXmlWhitespace<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsTrimXmlWhitespace(
                 chars: super::super::Foundation::PWSTR,
@@ -19390,7 +19390,7 @@ pub unsafe fn WsVerifyXmlNCName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsVerifyXmlNCName(
                 ncnamechars: super::super::Foundation::PWSTR,
@@ -19422,7 +19422,7 @@ pub unsafe fn WsWriteArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteArray(
                 writer: *const WS_XML_WRITER,
@@ -19463,7 +19463,7 @@ pub unsafe fn WsWriteAttribute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteAttribute(
                 writer: *const WS_XML_WRITER,
@@ -19498,7 +19498,7 @@ pub unsafe fn WsWriteBody(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteBody(
                 message: *const WS_MESSAGE,
@@ -19530,7 +19530,7 @@ pub unsafe fn WsWriteBytes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteBytes(
                 writer: *const WS_XML_WRITER,
@@ -19562,7 +19562,7 @@ pub unsafe fn WsWriteChars<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteChars(
                 writer: *const WS_XML_WRITER,
@@ -19590,7 +19590,7 @@ pub unsafe fn WsWriteCharsUtf8(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteCharsUtf8(
                 writer: *const WS_XML_WRITER,
@@ -19621,7 +19621,7 @@ pub unsafe fn WsWriteElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteElement(
                 writer: *const WS_XML_WRITER,
@@ -19651,7 +19651,7 @@ pub unsafe fn WsWriteEndAttribute(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteEndAttribute(
                 writer: *const WS_XML_WRITER,
@@ -19669,7 +19669,7 @@ pub unsafe fn WsWriteEndCData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteEndCData(
                 writer: *const WS_XML_WRITER,
@@ -19687,7 +19687,7 @@ pub unsafe fn WsWriteEndElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteEndElement(
                 writer: *const WS_XML_WRITER,
@@ -19705,7 +19705,7 @@ pub unsafe fn WsWriteEndStartElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteEndStartElement(
                 writer: *const WS_XML_WRITER,
@@ -19723,7 +19723,7 @@ pub unsafe fn WsWriteEnvelopeEnd(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteEnvelopeEnd(
                 message: *const WS_MESSAGE,
@@ -19744,7 +19744,7 @@ pub unsafe fn WsWriteEnvelopeStart(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteEnvelopeStart(
                 message: *const WS_MESSAGE,
@@ -19774,7 +19774,7 @@ pub unsafe fn WsWriteMessageEnd(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteMessageEnd(
                 channel: *const WS_CHANNEL,
@@ -19802,7 +19802,7 @@ pub unsafe fn WsWriteMessageStart(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteMessageStart(
                 channel: *const WS_CHANNEL,
@@ -19829,7 +19829,7 @@ pub unsafe fn WsWriteNode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteNode(
                 writer: *const WS_XML_WRITER,
@@ -19857,7 +19857,7 @@ pub unsafe fn WsWriteQualifiedName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteQualifiedName(
                 writer: *const WS_XML_WRITER,
@@ -19893,7 +19893,7 @@ pub unsafe fn WsWriteStartAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteStartAttribute(
                 writer: *const WS_XML_WRITER,
@@ -19923,7 +19923,7 @@ pub unsafe fn WsWriteStartCData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteStartCData(
                 writer: *const WS_XML_WRITER,
@@ -19945,7 +19945,7 @@ pub unsafe fn WsWriteStartElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteStartElement(
                 writer: *const WS_XML_WRITER,
@@ -19974,7 +19974,7 @@ pub unsafe fn WsWriteText(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteText(
                 writer: *const WS_XML_WRITER,
@@ -20004,7 +20004,7 @@ pub unsafe fn WsWriteType(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteType(
                 writer: *const WS_XML_WRITER,
@@ -20041,7 +20041,7 @@ pub unsafe fn WsWriteValue(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteValue(
                 writer: *const WS_XML_WRITER,
@@ -20070,7 +20070,7 @@ pub unsafe fn WsWriteXmlBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteXmlBuffer(
                 writer: *const WS_XML_WRITER,
@@ -20101,7 +20101,7 @@ pub unsafe fn WsWriteXmlBufferToBytes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteXmlBufferToBytes(
                 writer: *const WS_XML_WRITER,
@@ -20144,7 +20144,7 @@ pub unsafe fn WsWriteXmlnsAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsWriteXmlnsAttribute(
                 writer: *const WS_XML_WRITER,
@@ -20174,7 +20174,7 @@ pub unsafe fn WsXmlStringEquals(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "webservices")]
+        #[link(name = "windows")]
         extern "system" {
             fn WsXmlStringEquals(
                 string1: *const WS_XML_STRING,

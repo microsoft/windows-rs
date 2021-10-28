@@ -76,7 +76,7 @@ pub unsafe fn EnumDynamicTimeZoneInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDynamicTimeZoneInformation(
                 dwindex: u32,
@@ -98,7 +98,7 @@ pub unsafe fn FileTimeToSystemTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileTimeToSystemTime(
                 lpfiletime: *const super::super::Foundation::FILETIME,
@@ -119,7 +119,7 @@ pub unsafe fn GetDynamicTimeZoneInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDynamicTimeZoneInformation(
                 ptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION,
@@ -140,7 +140,7 @@ pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDynamicTimeZoneInformationEffectiveYears(
                 lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,
@@ -161,7 +161,7 @@ pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(
 pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFORMATION) -> u32;
         }
@@ -180,7 +180,7 @@ pub unsafe fn GetTimeZoneInformationForYear(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTimeZoneInformationForYear(
                 wyear: u16,
@@ -205,7 +205,7 @@ pub unsafe fn LocalFileTimeToLocalSystemTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalFileTimeToLocalSystemTime(
                 timezoneinformation: *const TIME_ZONE_INFORMATION,
@@ -230,7 +230,7 @@ pub unsafe fn LocalSystemTimeToLocalFileTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalSystemTimeToLocalFileTime(
                 timezoneinformation: *const TIME_ZONE_INFORMATION,
@@ -253,7 +253,7 @@ pub unsafe fn SetDynamicTimeZoneInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDynamicTimeZoneInformation(
                 lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,
@@ -272,7 +272,7 @@ pub unsafe fn SetTimeZoneInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTimeZoneInformation(
                 lptimezoneinformation: *const TIME_ZONE_INFORMATION,
@@ -292,7 +292,7 @@ pub unsafe fn SystemTimeToFileTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemTimeToFileTime(
                 lpsystemtime: *const super::super::Foundation::SYSTEMTIME,
@@ -315,7 +315,7 @@ pub unsafe fn SystemTimeToTzSpecificLocalTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemTimeToTzSpecificLocalTime(
                 lptimezoneinformation: *const TIME_ZONE_INFORMATION,
@@ -340,7 +340,7 @@ pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemTimeToTzSpecificLocalTimeEx(
                 lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,
@@ -422,7 +422,7 @@ pub unsafe fn TzSpecificLocalTimeToSystemTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TzSpecificLocalTimeToSystemTime(
                 lptimezoneinformation: *const TIME_ZONE_INFORMATION,
@@ -447,7 +447,7 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TzSpecificLocalTimeToSystemTimeEx(
                 lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,

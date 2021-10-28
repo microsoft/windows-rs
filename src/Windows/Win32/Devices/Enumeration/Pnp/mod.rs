@@ -4400,7 +4400,7 @@ pub unsafe fn SwDeviceClose<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEV
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDeviceClose(hswdevice: HSWDEVICE);
         }
@@ -4429,7 +4429,7 @@ pub unsafe fn SwDeviceCreate<
 ) -> ::windows::runtime::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDeviceCreate(
                 pszenumeratorname: super::super::super::Foundation::PWSTR,
@@ -4463,7 +4463,7 @@ pub unsafe fn SwDeviceGetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<SW_DEVICE_LIFETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDeviceGetLifetime(
                 hswdevice: HSWDEVICE,
@@ -4491,7 +4491,7 @@ pub unsafe fn SwDeviceInterfacePropertySet<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDeviceInterfacePropertySet(
                 hswdevice: HSWDEVICE,
@@ -4527,7 +4527,7 @@ pub unsafe fn SwDeviceInterfaceRegister<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDeviceInterfaceRegister(
                 hswdevice: HSWDEVICE,
@@ -4568,7 +4568,7 @@ pub unsafe fn SwDeviceInterfaceSetState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDeviceInterfaceSetState(
                 hswdevice: HSWDEVICE,
@@ -4594,7 +4594,7 @@ pub unsafe fn SwDevicePropertySet<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDevicePropertySet(
                 hswdevice: HSWDEVICE,
@@ -4618,7 +4618,7 @@ pub unsafe fn SwDeviceSetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwDeviceSetLifetime(
                 hswdevice: HSWDEVICE,
@@ -4637,7 +4637,7 @@ pub unsafe fn SwDeviceSetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, 
 pub unsafe fn SwMemFree(pmem: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "cfgmgr32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwMemFree(pmem: *const ::std::ffi::c_void);
         }

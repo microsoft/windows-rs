@@ -2257,7 +2257,7 @@ pub unsafe fn WinHttpAddRequestHeaders<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpAddRequestHeaders(
                 hrequest: *mut ::std::ffi::c_void,
@@ -2287,7 +2287,7 @@ pub unsafe fn WinHttpAddRequestHeadersEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpAddRequestHeadersEx(
                 hrequest: *mut ::std::ffi::c_void,
@@ -2314,7 +2314,7 @@ pub unsafe fn WinHttpAddRequestHeadersEx(
 pub unsafe fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL;
         }
@@ -2329,7 +2329,7 @@ pub unsafe fn WinHttpCloseHandle(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpCloseHandle(
                 hinternet: *mut ::std::ffi::c_void,
@@ -2352,7 +2352,7 @@ pub unsafe fn WinHttpConnect<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpConnect(
                 hsession: *mut ::std::ffi::c_void,
@@ -2383,7 +2383,7 @@ pub unsafe fn WinHttpCrackUrl<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpCrackUrl(
                 pwszurl: super::super::Foundation::PWSTR,
@@ -2408,7 +2408,7 @@ pub unsafe fn WinHttpCreateProxyResolver(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpCreateProxyResolver(
                 hsession: *const ::std::ffi::c_void,
@@ -2432,7 +2432,7 @@ pub unsafe fn WinHttpCreateUrl(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpCreateUrl(
                 lpurlcomponents: *const URL_COMPONENTS,
@@ -2458,7 +2458,7 @@ pub unsafe fn WinHttpDetectAutoProxyConfigUrl(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpDetectAutoProxyConfigUrl(
                 dwautodetectflags: u32,
@@ -2477,7 +2477,7 @@ pub unsafe fn WinHttpDetectAutoProxyConfigUrl(
 pub unsafe fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT) {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT);
         }
@@ -2490,7 +2490,7 @@ pub unsafe fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT) {
 pub unsafe fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX) {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX);
         }
@@ -2505,7 +2505,7 @@ pub unsafe fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT
 pub unsafe fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS);
         }
@@ -2522,7 +2522,7 @@ pub unsafe fn WinHttpFreeQueryConnectionGroupResult(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpFreeQueryConnectionGroupResult(
                 presult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT,
@@ -2541,7 +2541,7 @@ pub unsafe fn WinHttpGetDefaultProxyConfiguration(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetDefaultProxyConfiguration(
                 pproxyinfo: *mut WINHTTP_PROXY_INFO,
@@ -2560,7 +2560,7 @@ pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetIEProxyConfigForCurrentUser(
                 pproxyconfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG,
@@ -2585,7 +2585,7 @@ pub unsafe fn WinHttpGetProxyForUrl<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetProxyForUrl(
                 hsession: *mut ::std::ffi::c_void,
@@ -2616,7 +2616,7 @@ pub unsafe fn WinHttpGetProxyForUrlEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetProxyForUrlEx(
                 hresolver: *const ::std::ffi::c_void,
@@ -2649,7 +2649,7 @@ pub unsafe fn WinHttpGetProxyForUrlEx2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetProxyForUrlEx2(
                 hresolver: *const ::std::ffi::c_void,
@@ -2679,7 +2679,7 @@ pub unsafe fn WinHttpGetProxyResult(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetProxyResult(
                 hresolver: *const ::std::ffi::c_void,
@@ -2701,7 +2701,7 @@ pub unsafe fn WinHttpGetProxyResultEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetProxyResultEx(
                 hresolver: *const ::std::ffi::c_void,
@@ -2722,7 +2722,7 @@ pub unsafe fn WinHttpGetProxySettingsVersion(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpGetProxySettingsVersion(
                 hsession: *const ::std::ffi::c_void,
@@ -2752,7 +2752,7 @@ pub unsafe fn WinHttpOpen<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpOpen(
                 pszagentw: super::super::Foundation::PWSTR,
@@ -2791,7 +2791,7 @@ pub unsafe fn WinHttpOpenRequest<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpOpenRequest(
                 hconnect: *mut ::std::ffi::c_void,
@@ -2825,7 +2825,7 @@ pub unsafe fn WinHttpQueryAuthSchemes(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpQueryAuthSchemes(
                 hrequest: *mut ::std::ffi::c_void,
@@ -2853,7 +2853,7 @@ pub unsafe fn WinHttpQueryConnectionGroup(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpQueryConnectionGroup(
                 hinternet: *const ::std::ffi::c_void,
@@ -2879,7 +2879,7 @@ pub unsafe fn WinHttpQueryDataAvailable(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpQueryDataAvailable(
                 hrequest: *mut ::std::ffi::c_void,
@@ -2908,7 +2908,7 @@ pub unsafe fn WinHttpQueryHeaders<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpQueryHeaders(
                 hrequest: *mut ::std::ffi::c_void,
@@ -2946,7 +2946,7 @@ pub unsafe fn WinHttpQueryHeadersEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpQueryHeadersEx(
                 hrequest: *const ::std::ffi::c_void,
@@ -2986,7 +2986,7 @@ pub unsafe fn WinHttpQueryOption(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpQueryOption(
                 hinternet: *mut ::std::ffi::c_void,
@@ -3014,7 +3014,7 @@ pub unsafe fn WinHttpReadData(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpReadData(
                 hrequest: *mut ::std::ffi::c_void,
@@ -3044,7 +3044,7 @@ pub unsafe fn WinHttpReadDataEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpReadDataEx(
                 hrequest: *mut ::std::ffi::c_void,
@@ -3086,7 +3086,7 @@ pub unsafe fn WinHttpReadProxySettings<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpReadProxySettings(
                 hsession: *const ::std::ffi::c_void,
@@ -3118,7 +3118,7 @@ pub unsafe fn WinHttpReceiveResponse(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpReceiveResponse(
                 hrequest: *mut ::std::ffi::c_void,
@@ -3136,7 +3136,7 @@ pub unsafe fn WinHttpReceiveResponse(
 pub unsafe fn WinHttpResetAutoProxy(hsession: *const ::std::ffi::c_void, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpResetAutoProxy(hsession: *const ::std::ffi::c_void, dwflags: u32) -> u32;
         }
@@ -3163,7 +3163,7 @@ pub unsafe fn WinHttpSendRequest<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpSendRequest(
                 hrequest: *mut ::std::ffi::c_void,
@@ -3203,7 +3203,7 @@ pub unsafe fn WinHttpSetCredentials<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpSetCredentials(
                 hrequest: *mut ::std::ffi::c_void,
@@ -3232,7 +3232,7 @@ pub unsafe fn WinHttpSetDefaultProxyConfiguration(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpSetDefaultProxyConfiguration(
                 pproxyinfo: *mut WINHTTP_PROXY_INFO,
@@ -3254,7 +3254,7 @@ pub unsafe fn WinHttpSetOption(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpSetOption(
                 hinternet: *const ::std::ffi::c_void,
@@ -3282,7 +3282,7 @@ pub unsafe fn WinHttpSetProxySettingsPerUser<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpSetProxySettingsPerUser(
                 fproxysettingsperuser: super::super::Foundation::BOOL,
@@ -3303,7 +3303,7 @@ pub unsafe fn WinHttpSetStatusCallback(
 ) -> ::std::option::Option<WINHTTP_STATUS_CALLBACK> {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpSetStatusCallback(
                 hinternet: *mut ::std::ffi::c_void,
@@ -3332,7 +3332,7 @@ pub unsafe fn WinHttpSetTimeouts(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpSetTimeouts(
                 hinternet: *mut ::std::ffi::c_void,
@@ -3360,7 +3360,7 @@ pub unsafe fn WinHttpTimeFromSystemTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpTimeFromSystemTime(
                 pst: *const super::super::Foundation::SYSTEMTIME,
@@ -3385,7 +3385,7 @@ pub unsafe fn WinHttpTimeToSystemTime<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpTimeToSystemTime(
                 pwsztime: super::super::Foundation::PWSTR,
@@ -3408,7 +3408,7 @@ pub unsafe fn WinHttpWebSocketClose(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWebSocketClose(
                 hwebsocket: *const ::std::ffi::c_void,
@@ -3433,7 +3433,7 @@ pub unsafe fn WinHttpWebSocketCompleteUpgrade(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWebSocketCompleteUpgrade(
                 hrequest: *const ::std::ffi::c_void,
@@ -3457,7 +3457,7 @@ pub unsafe fn WinHttpWebSocketQueryCloseStatus(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWebSocketQueryCloseStatus(
                 hwebsocket: *const ::std::ffi::c_void,
@@ -3487,7 +3487,7 @@ pub unsafe fn WinHttpWebSocketReceive(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWebSocketReceive(
                 hwebsocket: *const ::std::ffi::c_void,
@@ -3516,7 +3516,7 @@ pub unsafe fn WinHttpWebSocketSend(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWebSocketSend(
                 hwebsocket: *const ::std::ffi::c_void,
@@ -3543,7 +3543,7 @@ pub unsafe fn WinHttpWebSocketShutdown(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWebSocketShutdown(
                 hwebsocket: *const ::std::ffi::c_void,
@@ -3571,7 +3571,7 @@ pub unsafe fn WinHttpWriteData(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWriteData(
                 hrequest: *mut ::std::ffi::c_void,
@@ -3601,7 +3601,7 @@ pub unsafe fn WinHttpWriteProxySettings<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winhttp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinHttpWriteProxySettings(
                 hsession: *const ::std::ffi::c_void,

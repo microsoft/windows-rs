@@ -172,7 +172,7 @@ unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_ENTRY {
 pub unsafe fn McastApiCleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn McastApiCleanup();
         }
@@ -184,7 +184,7 @@ pub unsafe fn McastApiCleanup() {
 pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn McastApiStartup(version: *mut u32) -> u32;
         }
@@ -206,7 +206,7 @@ pub unsafe fn McastEnumerateScopes<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn McastEnumerateScopes(
                 addrfamily: u16,
@@ -230,7 +230,7 @@ pub unsafe fn McastEnumerateScopes<
 pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32;
         }
@@ -246,7 +246,7 @@ pub unsafe fn McastReleaseAddress(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn McastReleaseAddress(
                 addrfamily: u16,
@@ -271,7 +271,7 @@ pub unsafe fn McastRenewAddress(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn McastRenewAddress(
                 addrfamily: u16,
@@ -299,7 +299,7 @@ pub unsafe fn McastRequestAddress(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dhcpcsvc")]
+        #[link(name = "windows")]
         extern "system" {
             fn McastRequestAddress(
                 addrfamily: u16,

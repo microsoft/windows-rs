@@ -13,7 +13,7 @@ pub unsafe fn OOBEComplete(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OOBEComplete(
                 isoobecomplete: *mut super::super::Foundation::BOOL,
@@ -34,7 +34,7 @@ pub unsafe fn RegisterWaitUntilOOBECompleted(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterWaitUntilOOBECompleted(
                 oobecompletedcallback: ::windows::runtime::RawPtr,
@@ -57,7 +57,7 @@ pub unsafe fn UnregisterWaitUntilOOBECompleted(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterWaitUntilOOBECompleted(
                 waithandle: *const ::std::ffi::c_void,

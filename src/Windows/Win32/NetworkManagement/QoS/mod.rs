@@ -1920,7 +1920,7 @@ pub unsafe fn QOSAddSocketToFlow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSAddSocketToFlow(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -1953,7 +1953,7 @@ pub unsafe fn QOSCancel<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSCancel(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -1977,7 +1977,7 @@ pub unsafe fn QOSCloseHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSCloseHandle(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -1995,7 +1995,7 @@ pub unsafe fn QOSCreateHandle(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSCreateHandle(
                 version: *const QOS_VERSION,
@@ -2021,7 +2021,7 @@ pub unsafe fn QOSEnumerateFlows<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSEnumerateFlows(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -2053,7 +2053,7 @@ pub unsafe fn QOSNotifyFlow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSNotifyFlow(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -2093,7 +2093,7 @@ pub unsafe fn QOSQueryFlow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSQueryFlow(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -2131,7 +2131,7 @@ pub unsafe fn QOSRemoveSocketFromFlow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSRemoveSocketFromFlow(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -2167,7 +2167,7 @@ pub unsafe fn QOSSetFlow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSSetFlow(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -2207,7 +2207,7 @@ pub unsafe fn QOSStartTrackingClient<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSStartTrackingClient(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -2239,7 +2239,7 @@ pub unsafe fn QOSStopTrackingClient<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "qwave")]
+        #[link(name = "windows")]
         extern "system" {
             fn QOSStopTrackingClient(
                 qoshandle: super::super::Foundation::HANDLE,
@@ -4294,7 +4294,7 @@ pub unsafe fn TcAddFilter<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcAddFilter(
                 flowhandle: super::super::Foundation::HANDLE,
@@ -4325,7 +4325,7 @@ pub unsafe fn TcAddFlow<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcAddFlow(
                 ifchandle: super::super::Foundation::HANDLE,
@@ -4355,7 +4355,7 @@ pub unsafe fn TcCloseInterface<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcCloseInterface(ifchandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4373,7 +4373,7 @@ pub unsafe fn TcDeleteFilter<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcDeleteFilter(filterhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4391,7 +4391,7 @@ pub unsafe fn TcDeleteFlow<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcDeleteFlow(flowhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4409,7 +4409,7 @@ pub unsafe fn TcDeregisterClient<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcDeregisterClient(clienthandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4431,7 +4431,7 @@ pub unsafe fn TcEnumerateFlows<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcEnumerateFlows(
                 ifchandle: super::super::Foundation::HANDLE,
@@ -4463,7 +4463,7 @@ pub unsafe fn TcEnumerateInterfaces<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcEnumerateInterfaces(
                 clienthandle: super::super::Foundation::HANDLE,
@@ -4491,7 +4491,7 @@ pub unsafe fn TcGetFlowNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcGetFlowNameA(
                 flowhandle: super::super::Foundation::HANDLE,
@@ -4519,7 +4519,7 @@ pub unsafe fn TcGetFlowNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcGetFlowNameW(
                 flowhandle: super::super::Foundation::HANDLE,
@@ -4546,7 +4546,7 @@ pub unsafe fn TcModifyFlow<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcModifyFlow(
                 flowhandle: super::super::Foundation::HANDLE,
@@ -4575,7 +4575,7 @@ pub unsafe fn TcOpenInterfaceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcOpenInterfaceA(
                 pinterfacename: super::super::Foundation::PSTR,
@@ -4608,7 +4608,7 @@ pub unsafe fn TcOpenInterfaceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcOpenInterfaceW(
                 pinterfacename: super::super::Foundation::PWSTR,
@@ -4639,7 +4639,7 @@ pub unsafe fn TcQueryFlowA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcQueryFlowA(
                 pflowname: super::super::Foundation::PSTR,
@@ -4670,7 +4670,7 @@ pub unsafe fn TcQueryFlowW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcQueryFlowW(
                 pflowname: super::super::Foundation::PWSTR,
@@ -4703,7 +4703,7 @@ pub unsafe fn TcQueryInterface<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcQueryInterface(
                 ifchandle: super::super::Foundation::HANDLE,
@@ -4736,7 +4736,7 @@ pub unsafe fn TcRegisterClient<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcRegisterClient(
                 tciversion: u32,
@@ -4767,7 +4767,7 @@ pub unsafe fn TcSetFlowA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcSetFlowA(
                 pflowname: super::super::Foundation::PSTR,
@@ -4798,7 +4798,7 @@ pub unsafe fn TcSetFlowW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcSetFlowW(
                 pflowname: super::super::Foundation::PWSTR,
@@ -4829,7 +4829,7 @@ pub unsafe fn TcSetInterface<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "traffic")]
+        #[link(name = "windows")]
         extern "system" {
             fn TcSetInterface(
                 ifchandle: super::super::Foundation::HANDLE,

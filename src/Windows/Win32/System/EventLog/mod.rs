@@ -18,7 +18,7 @@ pub unsafe fn BackupEventLogA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BackupEventLogA(
                 heventlog: super::super::Foundation::HANDLE,
@@ -44,7 +44,7 @@ pub unsafe fn BackupEventLogW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BackupEventLogW(
                 heventlog: super::super::Foundation::HANDLE,
@@ -70,7 +70,7 @@ pub unsafe fn ClearEventLogA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClearEventLogA(
                 heventlog: super::super::Foundation::HANDLE,
@@ -96,7 +96,7 @@ pub unsafe fn ClearEventLogW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClearEventLogW(
                 heventlog: super::super::Foundation::HANDLE,
@@ -117,7 +117,7 @@ pub unsafe fn CloseEventLog<'a, Param0: ::windows::runtime::IntoParam<'a, EventL
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseEventLog(heventlog: EventLogHandle) -> super::super::Foundation::BOOL;
         }
@@ -135,7 +135,7 @@ pub unsafe fn DeregisterEventSource<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeregisterEventSource(
                 heventlog: EventSourceHandle,
@@ -1076,7 +1076,7 @@ pub unsafe fn EvtArchiveExportedLog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtArchiveExportedLog(
                 session: isize,
@@ -1099,7 +1099,7 @@ pub unsafe fn EvtArchiveExportedLog<
 pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtCancel(object: isize) -> super::super::Foundation::BOOL;
         }
@@ -1121,7 +1121,7 @@ pub unsafe fn EvtClearLog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtClearLog(
                 session: isize,
@@ -1144,7 +1144,7 @@ pub unsafe fn EvtClearLog<
 pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtClose(object: isize) -> super::super::Foundation::BOOL;
         }
@@ -1162,7 +1162,7 @@ pub unsafe fn EvtCreateBookmark<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtCreateBookmark(bookmarkxml: super::super::Foundation::PWSTR) -> isize;
         }
@@ -1179,7 +1179,7 @@ pub unsafe fn EvtCreateRenderContext(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtCreateRenderContext(
                 valuepathscount: u32,
@@ -1211,7 +1211,7 @@ pub unsafe fn EvtExportLog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtExportLog(
                 session: isize,
@@ -1246,7 +1246,7 @@ pub unsafe fn EvtFormatMessage(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtFormatMessage(
                 publishermetadata: isize,
@@ -1286,7 +1286,7 @@ pub unsafe fn EvtGetChannelConfigProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetChannelConfigProperty(
                 channelconfig: isize,
@@ -1319,7 +1319,7 @@ pub unsafe fn EvtGetEventInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetEventInfo(
                 event: isize,
@@ -1351,7 +1351,7 @@ pub unsafe fn EvtGetEventMetadataProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetEventMetadataProperty(
                 eventmetadata: isize,
@@ -1382,7 +1382,7 @@ pub unsafe fn EvtGetExtendedStatus(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetExtendedStatus(
                 buffersize: u32,
@@ -1409,7 +1409,7 @@ pub unsafe fn EvtGetLogInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetLogInfo(
                 log: isize,
@@ -1442,7 +1442,7 @@ pub unsafe fn EvtGetObjectArrayProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetObjectArrayProperty(
                 objectarray: isize,
@@ -1474,7 +1474,7 @@ pub unsafe fn EvtGetObjectArraySize(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetObjectArraySize(
                 objectarray: isize,
@@ -1500,7 +1500,7 @@ pub unsafe fn EvtGetPublisherMetadataProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetPublisherMetadataProperty(
                 publishermetadata: isize,
@@ -1533,7 +1533,7 @@ pub unsafe fn EvtGetQueryInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtGetQueryInfo(
                 queryorsubscription: isize,
@@ -1565,7 +1565,7 @@ pub unsafe fn EvtNext(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtNext(
                 resultset: isize,
@@ -1597,7 +1597,7 @@ pub unsafe fn EvtNextChannelPath(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtNextChannelPath(
                 channelenum: isize,
@@ -1619,7 +1619,7 @@ pub unsafe fn EvtNextChannelPath(
 pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isize;
         }
@@ -1640,7 +1640,7 @@ pub unsafe fn EvtNextPublisherId(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtNextPublisherId(
                 publisherenum: isize,
@@ -1670,7 +1670,7 @@ pub unsafe fn EvtOpenChannelConfig<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtOpenChannelConfig(
                 session: isize,
@@ -1690,7 +1690,7 @@ pub unsafe fn EvtOpenChannelConfig<
 pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize;
         }
@@ -1705,7 +1705,7 @@ pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
 pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> isize;
         }
@@ -1728,7 +1728,7 @@ pub unsafe fn EvtOpenLog<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtOpenLog(
                 session: isize,
@@ -1748,7 +1748,7 @@ pub unsafe fn EvtOpenLog<
 pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize;
         }
@@ -1774,7 +1774,7 @@ pub unsafe fn EvtOpenPublisherMetadata<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtOpenPublisherMetadata(
                 session: isize,
@@ -1803,7 +1803,7 @@ pub unsafe fn EvtOpenSession(
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtOpenSession(
                 loginclass: EVT_LOGIN_CLASS,
@@ -1835,7 +1835,7 @@ pub unsafe fn EvtQuery<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtQuery(
                 session: isize,
@@ -1866,7 +1866,7 @@ pub unsafe fn EvtRender(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtRender(
                 context: isize,
@@ -1898,7 +1898,7 @@ pub unsafe fn EvtSaveChannelConfig(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtSaveChannelConfig(
                 channelconfig: isize,
@@ -1923,7 +1923,7 @@ pub unsafe fn EvtSeek(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtSeek(
                 resultset: isize,
@@ -1953,7 +1953,7 @@ pub unsafe fn EvtSetChannelConfigProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtSetChannelConfigProperty(
                 channelconfig: isize,
@@ -1990,7 +1990,7 @@ pub unsafe fn EvtSubscribe<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtSubscribe(
                 session: isize,
@@ -2021,7 +2021,7 @@ pub unsafe fn EvtSubscribe<
 pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wevtapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL;
         }
@@ -2046,7 +2046,7 @@ pub unsafe fn GetEventLogInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEventLogInformation(
                 heventlog: super::super::Foundation::HANDLE,
@@ -2077,7 +2077,7 @@ pub unsafe fn GetNumberOfEventLogRecords<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumberOfEventLogRecords(
                 heventlog: super::super::Foundation::HANDLE,
@@ -2102,7 +2102,7 @@ pub unsafe fn GetOldestEventLogRecord<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOldestEventLogRecord(
                 heventlog: super::super::Foundation::HANDLE,
@@ -2128,7 +2128,7 @@ pub unsafe fn NotifyChangeEventLog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyChangeEventLog(
                 heventlog: super::super::Foundation::HANDLE,
@@ -2154,7 +2154,7 @@ pub unsafe fn OpenBackupEventLogA<
 ) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenBackupEventLogA(
                 lpuncservername: super::super::Foundation::PSTR,
@@ -2180,7 +2180,7 @@ pub unsafe fn OpenBackupEventLogW<
 ) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenBackupEventLogW(
                 lpuncservername: super::super::Foundation::PWSTR,
@@ -2206,7 +2206,7 @@ pub unsafe fn OpenEventLogA<
 ) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenEventLogA(
                 lpuncservername: super::super::Foundation::PSTR,
@@ -2232,7 +2232,7 @@ pub unsafe fn OpenEventLogW<
 ) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenEventLogW(
                 lpuncservername: super::super::Foundation::PWSTR,
@@ -2336,7 +2336,7 @@ pub unsafe fn ReadEventLogA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadEventLogA(
                 heventlog: super::super::Foundation::HANDLE,
@@ -2376,7 +2376,7 @@ pub unsafe fn ReadEventLogW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadEventLogW(
                 heventlog: super::super::Foundation::HANDLE,
@@ -2412,7 +2412,7 @@ pub unsafe fn RegisterEventSourceA<
 ) -> EventSourceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterEventSourceA(
                 lpuncservername: super::super::Foundation::PSTR,
@@ -2438,7 +2438,7 @@ pub unsafe fn RegisterEventSourceW<
 ) -> EventSourceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterEventSourceW(
                 lpuncservername: super::super::Foundation::PWSTR,
@@ -2471,7 +2471,7 @@ pub unsafe fn ReportEventA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReportEventA(
                 heventlog: super::super::Foundation::HANDLE,
@@ -2518,7 +2518,7 @@ pub unsafe fn ReportEventW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReportEventW(
                 heventlog: super::super::Foundation::HANDLE,

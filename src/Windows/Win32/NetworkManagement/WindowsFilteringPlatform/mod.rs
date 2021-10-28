@@ -8022,7 +8022,7 @@ pub unsafe fn FwpmCalloutAdd0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutAdd0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8052,7 +8052,7 @@ pub unsafe fn FwpmCalloutCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8079,7 +8079,7 @@ pub unsafe fn FwpmCalloutDeleteById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutDeleteById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8104,7 +8104,7 @@ pub unsafe fn FwpmCalloutDeleteByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutDeleteByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8130,7 +8130,7 @@ pub unsafe fn FwpmCalloutDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8159,7 +8159,7 @@ pub unsafe fn FwpmCalloutEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8191,7 +8191,7 @@ pub unsafe fn FwpmCalloutGetById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutGetById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8219,7 +8219,7 @@ pub unsafe fn FwpmCalloutGetByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutGetByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8252,7 +8252,7 @@ pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutGetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8294,7 +8294,7 @@ pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutSetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8332,7 +8332,7 @@ pub unsafe fn FwpmCalloutSubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutSubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8364,7 +8364,7 @@ pub unsafe fn FwpmCalloutSubscriptionsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutSubscriptionsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8392,7 +8392,7 @@ pub unsafe fn FwpmCalloutUnsubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmCalloutUnsubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8418,7 +8418,7 @@ pub unsafe fn FwpmConnectionCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8446,7 +8446,7 @@ pub unsafe fn FwpmConnectionDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8475,7 +8475,7 @@ pub unsafe fn FwpmConnectionEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8507,7 +8507,7 @@ pub unsafe fn FwpmConnectionGetById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionGetById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8539,7 +8539,7 @@ pub unsafe fn FwpmConnectionGetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionGetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8578,7 +8578,7 @@ pub unsafe fn FwpmConnectionSetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionSetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8614,7 +8614,7 @@ pub unsafe fn FwpmConnectionSubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionSubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8646,7 +8646,7 @@ pub unsafe fn FwpmConnectionUnsubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmConnectionUnsubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8670,7 +8670,7 @@ pub unsafe fn FwpmDynamicKeywordSubscribe0(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmDynamicKeywordSubscribe0(
                 flags: u32,
@@ -8698,7 +8698,7 @@ pub unsafe fn FwpmDynamicKeywordUnsubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmDynamicKeywordUnsubscribe0(
                 subscriptionhandle: super::super::Foundation::HANDLE,
@@ -8720,7 +8720,7 @@ pub unsafe fn FwpmEngineClose0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmEngineClose0(enginehandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -8740,7 +8740,7 @@ pub unsafe fn FwpmEngineGetOption0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmEngineGetOption0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8772,7 +8772,7 @@ pub unsafe fn FwpmEngineGetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmEngineGetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8814,7 +8814,7 @@ pub unsafe fn FwpmEngineOpen0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmEngineOpen0(
                 servername: super::super::Foundation::PWSTR,
@@ -8846,7 +8846,7 @@ pub unsafe fn FwpmEngineSetOption0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmEngineSetOption0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8877,7 +8877,7 @@ pub unsafe fn FwpmEngineSetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmEngineSetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8912,7 +8912,7 @@ pub unsafe fn FwpmFilterAdd0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterAdd0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8942,7 +8942,7 @@ pub unsafe fn FwpmFilterCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8969,7 +8969,7 @@ pub unsafe fn FwpmFilterDeleteById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterDeleteById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -8994,7 +8994,7 @@ pub unsafe fn FwpmFilterDeleteByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterDeleteByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9020,7 +9020,7 @@ pub unsafe fn FwpmFilterDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9049,7 +9049,7 @@ pub unsafe fn FwpmFilterEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9081,7 +9081,7 @@ pub unsafe fn FwpmFilterGetById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterGetById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9109,7 +9109,7 @@ pub unsafe fn FwpmFilterGetByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterGetByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9142,7 +9142,7 @@ pub unsafe fn FwpmFilterGetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterGetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9184,7 +9184,7 @@ pub unsafe fn FwpmFilterSetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterSetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9222,7 +9222,7 @@ pub unsafe fn FwpmFilterSubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterSubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9254,7 +9254,7 @@ pub unsafe fn FwpmFilterSubscriptionsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterSubscriptionsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9282,7 +9282,7 @@ pub unsafe fn FwpmFilterUnsubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFilterUnsubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9300,7 +9300,7 @@ pub unsafe fn FwpmFilterUnsubscribeChanges0<
 pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmFreeMemory0(p: *mut *mut ::std::ffi::c_void);
         }
@@ -9319,7 +9319,7 @@ pub unsafe fn FwpmGetAppIdFromFileName0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmGetAppIdFromFileName0(
                 filename: super::super::Foundation::PWSTR,
@@ -9349,7 +9349,7 @@ pub unsafe fn FwpmIPsecTunnelAdd0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmIPsecTunnelAdd0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9390,7 +9390,7 @@ pub unsafe fn FwpmIPsecTunnelAdd1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmIPsecTunnelAdd1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9433,7 +9433,7 @@ pub unsafe fn FwpmIPsecTunnelAdd2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmIPsecTunnelAdd2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9476,7 +9476,7 @@ pub unsafe fn FwpmIPsecTunnelAdd3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmIPsecTunnelAdd3(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9513,7 +9513,7 @@ pub unsafe fn FwpmIPsecTunnelDeleteByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmIPsecTunnelDeleteByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9539,7 +9539,7 @@ pub unsafe fn FwpmLayerCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmLayerCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9567,7 +9567,7 @@ pub unsafe fn FwpmLayerDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmLayerDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9596,7 +9596,7 @@ pub unsafe fn FwpmLayerEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmLayerEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9628,7 +9628,7 @@ pub unsafe fn FwpmLayerGetById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmLayerGetById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9656,7 +9656,7 @@ pub unsafe fn FwpmLayerGetByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmLayerGetByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9689,7 +9689,7 @@ pub unsafe fn FwpmLayerGetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmLayerGetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9731,7 +9731,7 @@ pub unsafe fn FwpmLayerSetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmLayerSetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9767,7 +9767,7 @@ pub unsafe fn FwpmNetEventCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9795,7 +9795,7 @@ pub unsafe fn FwpmNetEventDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9824,7 +9824,7 @@ pub unsafe fn FwpmNetEventEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9859,7 +9859,7 @@ pub unsafe fn FwpmNetEventEnum1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventEnum1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9894,7 +9894,7 @@ pub unsafe fn FwpmNetEventEnum2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventEnum2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9929,7 +9929,7 @@ pub unsafe fn FwpmNetEventEnum3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventEnum3(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9964,7 +9964,7 @@ pub unsafe fn FwpmNetEventEnum4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventEnum4(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -9999,7 +9999,7 @@ pub unsafe fn FwpmNetEventEnum5<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventEnum5(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10033,7 +10033,7 @@ pub unsafe fn FwpmNetEventSubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventSubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10067,7 +10067,7 @@ pub unsafe fn FwpmNetEventSubscribe1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventSubscribe1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10101,7 +10101,7 @@ pub unsafe fn FwpmNetEventSubscribe2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventSubscribe2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10135,7 +10135,7 @@ pub unsafe fn FwpmNetEventSubscribe3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventSubscribe3(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10169,7 +10169,7 @@ pub unsafe fn FwpmNetEventSubscribe4<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventSubscribe4(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10201,7 +10201,7 @@ pub unsafe fn FwpmNetEventSubscriptionsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventSubscriptionsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10229,7 +10229,7 @@ pub unsafe fn FwpmNetEventUnsubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventUnsubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10259,7 +10259,7 @@ pub unsafe fn FwpmNetEventsGetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventsGetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10298,7 +10298,7 @@ pub unsafe fn FwpmNetEventsSetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmNetEventsSetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10332,7 +10332,7 @@ pub unsafe fn FwpmProviderAdd0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderAdd0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10361,7 +10361,7 @@ pub unsafe fn FwpmProviderContextAdd0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextAdd0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10392,7 +10392,7 @@ pub unsafe fn FwpmProviderContextAdd1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextAdd1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10423,7 +10423,7 @@ pub unsafe fn FwpmProviderContextAdd2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextAdd2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10454,7 +10454,7 @@ pub unsafe fn FwpmProviderContextAdd3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextAdd3(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10484,7 +10484,7 @@ pub unsafe fn FwpmProviderContextCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10511,7 +10511,7 @@ pub unsafe fn FwpmProviderContextDeleteById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextDeleteById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10536,7 +10536,7 @@ pub unsafe fn FwpmProviderContextDeleteByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextDeleteByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10562,7 +10562,7 @@ pub unsafe fn FwpmProviderContextDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10591,7 +10591,7 @@ pub unsafe fn FwpmProviderContextEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10626,7 +10626,7 @@ pub unsafe fn FwpmProviderContextEnum1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextEnum1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10661,7 +10661,7 @@ pub unsafe fn FwpmProviderContextEnum2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextEnum2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10696,7 +10696,7 @@ pub unsafe fn FwpmProviderContextEnum3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextEnum3(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10728,7 +10728,7 @@ pub unsafe fn FwpmProviderContextGetById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10756,7 +10756,7 @@ pub unsafe fn FwpmProviderContextGetById1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetById1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10784,7 +10784,7 @@ pub unsafe fn FwpmProviderContextGetById2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetById2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10812,7 +10812,7 @@ pub unsafe fn FwpmProviderContextGetById3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetById3(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10840,7 +10840,7 @@ pub unsafe fn FwpmProviderContextGetByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10868,7 +10868,7 @@ pub unsafe fn FwpmProviderContextGetByKey1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetByKey1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10896,7 +10896,7 @@ pub unsafe fn FwpmProviderContextGetByKey2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetByKey2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10924,7 +10924,7 @@ pub unsafe fn FwpmProviderContextGetByKey3<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetByKey3(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10957,7 +10957,7 @@ pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextGetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -10999,7 +10999,7 @@ pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextSetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11037,7 +11037,7 @@ pub unsafe fn FwpmProviderContextSubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextSubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11069,7 +11069,7 @@ pub unsafe fn FwpmProviderContextSubscriptionsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextSubscriptionsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11097,7 +11097,7 @@ pub unsafe fn FwpmProviderContextUnsubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderContextUnsubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11123,7 +11123,7 @@ pub unsafe fn FwpmProviderCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11150,7 +11150,7 @@ pub unsafe fn FwpmProviderDeleteByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderDeleteByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11176,7 +11176,7 @@ pub unsafe fn FwpmProviderDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11205,7 +11205,7 @@ pub unsafe fn FwpmProviderEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11237,7 +11237,7 @@ pub unsafe fn FwpmProviderGetByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderGetByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11270,7 +11270,7 @@ pub unsafe fn FwpmProviderGetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderGetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11312,7 +11312,7 @@ pub unsafe fn FwpmProviderSetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderSetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11350,7 +11350,7 @@ pub unsafe fn FwpmProviderSubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderSubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11382,7 +11382,7 @@ pub unsafe fn FwpmProviderSubscriptionsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderSubscriptionsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11410,7 +11410,7 @@ pub unsafe fn FwpmProviderUnsubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmProviderUnsubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11436,7 +11436,7 @@ pub unsafe fn FwpmSessionCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSessionCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11464,7 +11464,7 @@ pub unsafe fn FwpmSessionDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSessionDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11493,7 +11493,7 @@ pub unsafe fn FwpmSessionEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSessionEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11525,7 +11525,7 @@ pub unsafe fn FwpmSubLayerAdd0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerAdd0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11553,7 +11553,7 @@ pub unsafe fn FwpmSubLayerCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11580,7 +11580,7 @@ pub unsafe fn FwpmSubLayerDeleteByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerDeleteByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11606,7 +11606,7 @@ pub unsafe fn FwpmSubLayerDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11635,7 +11635,7 @@ pub unsafe fn FwpmSubLayerEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11667,7 +11667,7 @@ pub unsafe fn FwpmSubLayerGetByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerGetByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11700,7 +11700,7 @@ pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerGetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11742,7 +11742,7 @@ pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerSetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11780,7 +11780,7 @@ pub unsafe fn FwpmSubLayerSubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerSubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11812,7 +11812,7 @@ pub unsafe fn FwpmSubLayerSubscriptionsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerSubscriptionsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11840,7 +11840,7 @@ pub unsafe fn FwpmSubLayerUnsubscribeChanges0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSubLayerUnsubscribeChanges0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11865,7 +11865,7 @@ pub unsafe fn FwpmSystemPortsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSystemPortsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11893,7 +11893,7 @@ pub unsafe fn FwpmSystemPortsSubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSystemPortsSubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11925,7 +11925,7 @@ pub unsafe fn FwpmSystemPortsUnsubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmSystemPortsUnsubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11949,7 +11949,7 @@ pub unsafe fn FwpmTransactionAbort0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmTransactionAbort0(enginehandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -11968,7 +11968,7 @@ pub unsafe fn FwpmTransactionBegin0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmTransactionBegin0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -11992,7 +11992,7 @@ pub unsafe fn FwpmTransactionCommit0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmTransactionCommit0(enginehandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -12014,7 +12014,7 @@ pub unsafe fn FwpmvSwitchEventSubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmvSwitchEventSubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -12046,7 +12046,7 @@ pub unsafe fn FwpmvSwitchEventUnsubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmvSwitchEventUnsubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -12076,7 +12076,7 @@ pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmvSwitchEventsGetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -12115,7 +12115,7 @@ pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn FwpmvSwitchEventsSetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20702,7 +20702,7 @@ pub unsafe fn IPsecDospGetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecDospGetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20737,7 +20737,7 @@ pub unsafe fn IPsecDospGetStatistics0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecDospGetStatistics0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20766,7 +20766,7 @@ pub unsafe fn IPsecDospSetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecDospSetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20800,7 +20800,7 @@ pub unsafe fn IPsecDospStateCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecDospStateCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20828,7 +20828,7 @@ pub unsafe fn IPsecDospStateDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecDospStateDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20857,7 +20857,7 @@ pub unsafe fn IPsecDospStateEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecDospStateEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20888,7 +20888,7 @@ pub unsafe fn IPsecGetStatistics0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecGetStatistics0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20913,7 +20913,7 @@ pub unsafe fn IPsecGetStatistics1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecGetStatistics1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20940,7 +20940,7 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecKeyManagerAddAndRegister0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -20975,7 +20975,7 @@ pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecKeyManagerGetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21017,7 +21017,7 @@ pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecKeyManagerSetSecurityInfoByKey0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21053,7 +21053,7 @@ pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecKeyManagerUnregisterAndDelete0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21079,7 +21079,7 @@ pub unsafe fn IPsecKeyManagersGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecKeyManagersGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21107,7 +21107,7 @@ pub unsafe fn IPsecSaContextAddInbound0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextAddInbound0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21135,7 +21135,7 @@ pub unsafe fn IPsecSaContextAddInbound1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextAddInbound1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21163,7 +21163,7 @@ pub unsafe fn IPsecSaContextAddOutbound0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextAddOutbound0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21191,7 +21191,7 @@ pub unsafe fn IPsecSaContextAddOutbound1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextAddOutbound1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21220,7 +21220,7 @@ pub unsafe fn IPsecSaContextCreate0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextCreate0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21252,7 +21252,7 @@ pub unsafe fn IPsecSaContextCreate1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextCreate1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21284,7 +21284,7 @@ pub unsafe fn IPsecSaContextCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21311,7 +21311,7 @@ pub unsafe fn IPsecSaContextDeleteById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextDeleteById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21337,7 +21337,7 @@ pub unsafe fn IPsecSaContextDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21366,7 +21366,7 @@ pub unsafe fn IPsecSaContextEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21401,7 +21401,7 @@ pub unsafe fn IPsecSaContextEnum1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextEnum1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21432,7 +21432,7 @@ pub unsafe fn IPsecSaContextExpire0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextExpire0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21458,7 +21458,7 @@ pub unsafe fn IPsecSaContextGetById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextGetById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21486,7 +21486,7 @@ pub unsafe fn IPsecSaContextGetById1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextGetById1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21515,7 +21515,7 @@ pub unsafe fn IPsecSaContextGetSpi0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextGetSpi0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21546,7 +21546,7 @@ pub unsafe fn IPsecSaContextGetSpi1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextGetSpi1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21577,7 +21577,7 @@ pub unsafe fn IPsecSaContextSetSpi0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextSetSpi0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21609,7 +21609,7 @@ pub unsafe fn IPsecSaContextSubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextSubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21641,7 +21641,7 @@ pub unsafe fn IPsecSaContextSubscriptionsGet0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextSubscriptionsGet0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21669,7 +21669,7 @@ pub unsafe fn IPsecSaContextUnsubscribe0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextUnsubscribe0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21695,7 +21695,7 @@ pub unsafe fn IPsecSaContextUpdate0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaContextUpdate0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21723,7 +21723,7 @@ pub unsafe fn IPsecSaCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21755,7 +21755,7 @@ pub unsafe fn IPsecSaDbGetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaDbGetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21794,7 +21794,7 @@ pub unsafe fn IPsecSaDbSetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaDbSetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21828,7 +21828,7 @@ pub unsafe fn IPsecSaDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21857,7 +21857,7 @@ pub unsafe fn IPsecSaEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21892,7 +21892,7 @@ pub unsafe fn IPsecSaEnum1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IPsecSaEnum1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21923,7 +21923,7 @@ pub unsafe fn IkeextGetStatistics0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextGetStatistics0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21948,7 +21948,7 @@ pub unsafe fn IkeextGetStatistics1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextGetStatistics1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -21974,7 +21974,7 @@ pub unsafe fn IkeextSaCreateEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaCreateEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22006,7 +22006,7 @@ pub unsafe fn IkeextSaDbGetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaDbGetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22045,7 +22045,7 @@ pub unsafe fn IkeextSaDbSetSecurityInfo0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaDbSetSecurityInfo0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22078,7 +22078,7 @@ pub unsafe fn IkeextSaDeleteById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
         }
@@ -22101,7 +22101,7 @@ pub unsafe fn IkeextSaDestroyEnumHandle0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaDestroyEnumHandle0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22130,7 +22130,7 @@ pub unsafe fn IkeextSaEnum0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaEnum0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22165,7 +22165,7 @@ pub unsafe fn IkeextSaEnum1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaEnum1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22200,7 +22200,7 @@ pub unsafe fn IkeextSaEnum2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaEnum2(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22232,7 +22232,7 @@ pub unsafe fn IkeextSaGetById0<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaGetById0(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22261,7 +22261,7 @@ pub unsafe fn IkeextSaGetById1<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaGetById1(
                 enginehandle: super::super::Foundation::HANDLE,
@@ -22292,7 +22292,7 @@ pub unsafe fn IkeextSaGetById2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fwpuclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn IkeextSaGetById2(
                 enginehandle: super::super::Foundation::HANDLE,

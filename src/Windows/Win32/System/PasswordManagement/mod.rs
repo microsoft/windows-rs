@@ -129,7 +129,7 @@ pub unsafe fn MSChapSrvChangePassword<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MSChapSrvChangePassword(
                 servername: super::super::Foundation::PWSTR,
@@ -171,7 +171,7 @@ pub unsafe fn MSChapSrvChangePassword2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MSChapSrvChangePassword2(
                 servername: super::super::Foundation::PWSTR,

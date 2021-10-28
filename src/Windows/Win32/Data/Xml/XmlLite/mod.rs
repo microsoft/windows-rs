@@ -18,7 +18,7 @@ pub unsafe fn CreateXmlReader<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xmllite")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateXmlReader(
                 riid: *const ::windows::runtime::GUID,
@@ -52,7 +52,7 @@ pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "xmllite")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateXmlReaderInputWithEncodingCodePage(
                 pinputstream: ::windows::runtime::RawPtr,
@@ -95,7 +95,7 @@ pub unsafe fn CreateXmlReaderInputWithEncodingName<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "xmllite")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateXmlReaderInputWithEncodingName(
                 pinputstream: ::windows::runtime::RawPtr,
@@ -132,7 +132,7 @@ pub unsafe fn CreateXmlWriter<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xmllite")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateXmlWriter(
                 riid: *const ::windows::runtime::GUID,
@@ -162,7 +162,7 @@ pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "xmllite")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateXmlWriterOutputWithEncodingCodePage(
                 poutputstream: ::windows::runtime::RawPtr,
@@ -197,7 +197,7 @@ pub unsafe fn CreateXmlWriterOutputWithEncodingName<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "xmllite")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateXmlWriterOutputWithEncodingName(
                 poutputstream: ::windows::runtime::RawPtr,

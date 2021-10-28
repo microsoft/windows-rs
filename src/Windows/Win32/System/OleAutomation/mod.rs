@@ -70,7 +70,7 @@ unsafe impl ::windows::runtime::Abi for BINDPTR {
 pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const super::super::Foundation::BSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserFree(
                 param0: *const u32,
@@ -89,7 +89,7 @@ pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const super::super::Fou
 pub unsafe fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::Foundation::BSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserFree64(
                 param0: *const u32,
@@ -112,7 +112,7 @@ pub unsafe fn BSTR_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserMarshal(
                 param0: *const u32,
@@ -137,7 +137,7 @@ pub unsafe fn BSTR_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserMarshal64(
                 param0: *const u32,
@@ -162,7 +162,7 @@ pub unsafe fn BSTR_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserSize(
                 param0: *const u32,
@@ -187,7 +187,7 @@ pub unsafe fn BSTR_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserSize64(
                 param0: *const u32,
@@ -212,7 +212,7 @@ pub unsafe fn BSTR_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserUnmarshal(
                 param0: *const u32,
@@ -237,7 +237,7 @@ pub unsafe fn BSTR_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BSTR_UserUnmarshal64(
                 param0: *const u32,
@@ -260,7 +260,7 @@ pub unsafe fn BstrFromVector(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BstrFromVector(
                 psa: *const SAFEARRAY,
@@ -440,7 +440,7 @@ unsafe impl ::windows::runtime::Abi for CUSTDATAITEM {
 pub unsafe fn ClearCustData(pcustdata: *mut CUSTDATA) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClearCustData(pcustdata: *mut CUSTDATA);
         }
@@ -457,7 +457,7 @@ pub unsafe fn CreateDispTypeInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDispTypeInfo(
                 pidata: *mut INTERFACEDATA,
@@ -478,7 +478,7 @@ pub unsafe fn CreateDispTypeInfo(
 pub unsafe fn CreateErrorInfo() -> ::windows::runtime::Result<ICreateErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateErrorInfo(
                 pperrinfo: *mut ::windows::runtime::RawPtr,
@@ -502,7 +502,7 @@ pub unsafe fn CreateStdDispatch<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStdDispatch(
                 punkouter: ::windows::runtime::RawPtr,
@@ -532,7 +532,7 @@ pub unsafe fn CreateTypeLib<
 ) -> ::windows::runtime::Result<ICreateTypeLib> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTypeLib(
                 syskind: SYSKIND,
@@ -561,7 +561,7 @@ pub unsafe fn CreateTypeLib2<
 ) -> ::windows::runtime::Result<ICreateTypeLib2> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTypeLib2(
                 syskind: SYSKIND,
@@ -676,7 +676,7 @@ pub unsafe fn DispCallFunc(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DispCallFunc(
                 pvinstance: *const ::std::ffi::c_void,
@@ -714,7 +714,7 @@ pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::runtime::IntoParam<'a, IT
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DispGetIDsOfNames(
                 ptinfo: ::windows::runtime::RawPtr,
@@ -744,7 +744,7 @@ pub unsafe fn DispGetParam(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DispGetParam(
                 pdispparams: *const DISPPARAMS,
@@ -779,7 +779,7 @@ pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DispInvoke(
                 _this: *mut ::std::ffi::c_void,
@@ -810,7 +810,7 @@ pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo
 pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32;
         }
@@ -1051,7 +1051,7 @@ pub unsafe fn GetActiveObject(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetActiveObject(
                 rclsid: *const ::windows::runtime::GUID,
@@ -1075,7 +1075,7 @@ pub unsafe fn GetAltMonthNames(
 ) -> ::windows::runtime::Result<*mut super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAltMonthNames(
                 lcid: u32,
@@ -1093,7 +1093,7 @@ pub unsafe fn GetAltMonthNames(
 pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetErrorInfo(
                 dwreserved: u32,
@@ -1116,7 +1116,7 @@ pub unsafe fn GetRecordInfoFromGuids(
 ) -> ::windows::runtime::Result<IRecordInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRecordInfoFromGuids(
                 rguidtypelib: *const ::windows::runtime::GUID,
@@ -1149,7 +1149,7 @@ pub unsafe fn GetRecordInfoFromTypeInfo<
 ) -> ::windows::runtime::Result<IRecordInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRecordInfoFromTypeInfo(
                 ptypeinfo: ::windows::runtime::RawPtr,
@@ -1167,7 +1167,7 @@ pub unsafe fn GetRecordInfoFromTypeInfo<
 pub unsafe fn HWND_UserFree(param0: *const u32, param1: *const super::super::Foundation::HWND) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserFree(param0: *const u32, param1: *const super::super::Foundation::HWND);
         }
@@ -1183,7 +1183,7 @@ pub unsafe fn HWND_UserFree(param0: *const u32, param1: *const super::super::Fou
 pub unsafe fn HWND_UserFree64(param0: *const u32, param1: *const super::super::Foundation::HWND) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserFree64(param0: *const u32, param1: *const super::super::Foundation::HWND);
         }
@@ -1203,7 +1203,7 @@ pub unsafe fn HWND_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserMarshal(
                 param0: *const u32,
@@ -1228,7 +1228,7 @@ pub unsafe fn HWND_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserMarshal64(
                 param0: *const u32,
@@ -1253,7 +1253,7 @@ pub unsafe fn HWND_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserSize(
                 param0: *const u32,
@@ -1278,7 +1278,7 @@ pub unsafe fn HWND_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserSize64(
                 param0: *const u32,
@@ -1303,7 +1303,7 @@ pub unsafe fn HWND_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserUnmarshal(
                 param0: *const u32,
@@ -1328,7 +1328,7 @@ pub unsafe fn HWND_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HWND_UserUnmarshal64(
                 param0: *const u32,
@@ -7435,7 +7435,7 @@ pub unsafe fn LHashValOfNameSys<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LHashValOfNameSys(
                 syskind: SYSKIND,
@@ -7463,7 +7463,7 @@ pub unsafe fn LHashValOfNameSysA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LHashValOfNameSysA(
                 syskind: SYSKIND,
@@ -7513,7 +7513,7 @@ pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(
 pub unsafe fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const SAFEARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const SAFEARRAY);
         }
@@ -7528,7 +7528,7 @@ pub unsafe fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const SAF
 pub unsafe fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const SAFEARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const SAFEARRAY);
         }
@@ -7547,7 +7547,7 @@ pub unsafe fn LPSAFEARRAY_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserMarshal(
                 param0: *const u32,
@@ -7571,7 +7571,7 @@ pub unsafe fn LPSAFEARRAY_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserMarshal64(
                 param0: *const u32,
@@ -7595,7 +7595,7 @@ pub unsafe fn LPSAFEARRAY_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserSize(
                 param0: *const u32,
@@ -7619,7 +7619,7 @@ pub unsafe fn LPSAFEARRAY_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserSize64(
                 param0: *const u32,
@@ -7643,7 +7643,7 @@ pub unsafe fn LPSAFEARRAY_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserUnmarshal(
                 param0: *const u32,
@@ -7667,7 +7667,7 @@ pub unsafe fn LPSAFEARRAY_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPSAFEARRAY_UserUnmarshal64(
                 param0: *const u32,
@@ -7692,7 +7692,7 @@ pub unsafe fn LoadRegTypeLib(
 ) -> ::windows::runtime::Result<ITypeLib> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadRegTypeLib(
                 rguid: *const ::windows::runtime::GUID,
@@ -7724,7 +7724,7 @@ pub unsafe fn LoadTypeLib<
 ) -> ::windows::runtime::Result<ITypeLib> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadTypeLib(
                 szfile: super::super::Foundation::PWSTR,
@@ -7747,7 +7747,7 @@ pub unsafe fn LoadTypeLibEx<
 ) -> ::windows::runtime::Result<ITypeLib> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadTypeLibEx(
                 szfile: super::super::Foundation::PWSTR,
@@ -7885,7 +7885,7 @@ pub const NUMPRS_USE_ALL: u32 = 4096u32;
 pub unsafe fn OaBuildVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OaBuildVersion() -> u32;
         }
@@ -7897,7 +7897,7 @@ pub unsafe fn OaBuildVersion() -> u32 {
 pub unsafe fn OaEnablePerUserTLibRegistration() {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OaEnablePerUserTLibRegistration();
         }
@@ -7912,7 +7912,7 @@ pub unsafe fn OleLoadPictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, V
 ) -> ::windows::runtime::Result<IDispatch> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLoadPictureFile(
                 varfilename: ::std::mem::ManuallyDrop<VARIANT>,
@@ -7935,7 +7935,7 @@ pub unsafe fn OleLoadPictureFileEx<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<IDispatch> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLoadPictureFileEx(
                 varfilename: ::std::mem::ManuallyDrop<VARIANT>,
@@ -7969,7 +7969,7 @@ pub unsafe fn OleSavePictureFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleSavePictureFile(
                 lpdisppicture: ::windows::runtime::RawPtr,
@@ -8108,7 +8108,7 @@ pub unsafe fn QueryPathOfRegTypeLib(
 ) -> ::windows::runtime::Result<*mut u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryPathOfRegTypeLib(
                 guid: *const ::windows::runtime::GUID,
@@ -8164,7 +8164,7 @@ pub unsafe fn RegisterActiveObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterActiveObject(
                 punk: ::windows::runtime::RawPtr,
@@ -8197,7 +8197,7 @@ pub unsafe fn RegisterTypeLib<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterTypeLib(
                 ptlib: ::windows::runtime::RawPtr,
@@ -8228,7 +8228,7 @@ pub unsafe fn RegisterTypeLibForUser<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterTypeLibForUser(
                 ptlib: ::windows::runtime::RawPtr,
@@ -8252,7 +8252,7 @@ pub unsafe fn RevokeActiveObject(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RevokeActiveObject(
                 dwregister: u32,
@@ -8405,7 +8405,7 @@ pub const STDOLE_MINORVERNUM: u32 = 0u32;
 pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::Com::STGMEDIUM) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserFree(
                 param0: *const u32,
@@ -8429,7 +8429,7 @@ pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::Com::
 pub unsafe fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::Com::STGMEDIUM) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserFree64(
                 param0: *const u32,
@@ -8457,7 +8457,7 @@ pub unsafe fn STGMEDIUM_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserMarshal(
                 param0: *const u32,
@@ -8487,7 +8487,7 @@ pub unsafe fn STGMEDIUM_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserMarshal64(
                 param0: *const u32,
@@ -8517,7 +8517,7 @@ pub unsafe fn STGMEDIUM_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserSize(
                 param0: *const u32,
@@ -8547,7 +8547,7 @@ pub unsafe fn STGMEDIUM_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserSize64(
                 param0: *const u32,
@@ -8577,7 +8577,7 @@ pub unsafe fn STGMEDIUM_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserUnmarshal(
                 param0: *const u32,
@@ -8607,7 +8607,7 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STGMEDIUM_UserUnmarshal64(
                 param0: *const u32,
@@ -8653,7 +8653,7 @@ pub unsafe fn SafeArrayAccessData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayAccessData(
                 psa: *const SAFEARRAY,
@@ -8671,7 +8671,7 @@ pub unsafe fn SafeArrayAddRef(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayAddRef(
                 psa: *const SAFEARRAY,
@@ -8690,7 +8690,7 @@ pub unsafe fn SafeArrayAddRef(
 pub unsafe fn SafeArrayAllocData(psa: *const SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayAllocData(psa: *const SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
@@ -8702,7 +8702,7 @@ pub unsafe fn SafeArrayAllocData(psa: *const SAFEARRAY) -> ::windows::runtime::R
 pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows::runtime::Result<*mut SAFEARRAY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayAllocDescriptor(
                 cdims: u32,
@@ -8722,7 +8722,7 @@ pub unsafe fn SafeArrayAllocDescriptorEx(
 ) -> ::windows::runtime::Result<*mut SAFEARRAY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayAllocDescriptorEx(
                 vt: u16,
@@ -8744,7 +8744,7 @@ pub unsafe fn SafeArrayAllocDescriptorEx(
 pub unsafe fn SafeArrayCopy(psa: *const SAFEARRAY) -> ::windows::runtime::Result<*mut SAFEARRAY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayCopy(
                 psa: *const SAFEARRAY,
@@ -8764,7 +8764,7 @@ pub unsafe fn SafeArrayCopyData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayCopyData(
                 psasource: *const SAFEARRAY,
@@ -8787,7 +8787,7 @@ pub unsafe fn SafeArrayCreate(
 ) -> *mut SAFEARRAY {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayCreate(
                 vt: u16,
@@ -8812,7 +8812,7 @@ pub unsafe fn SafeArrayCreateEx(
 ) -> *mut SAFEARRAY {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayCreateEx(
                 vt: u16,
@@ -8834,7 +8834,7 @@ pub unsafe fn SafeArrayCreateEx(
 pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut SAFEARRAY {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut SAFEARRAY;
         }
@@ -8855,7 +8855,7 @@ pub unsafe fn SafeArrayCreateVectorEx(
 ) -> *mut SAFEARRAY {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayCreateVectorEx(
                 vt: u16,
@@ -8877,7 +8877,7 @@ pub unsafe fn SafeArrayCreateVectorEx(
 pub unsafe fn SafeArrayDestroy(psa: *const SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayDestroy(psa: *const SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
@@ -8889,7 +8889,7 @@ pub unsafe fn SafeArrayDestroy(psa: *const SAFEARRAY) -> ::windows::runtime::Res
 pub unsafe fn SafeArrayDestroyData(psa: *const SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayDestroyData(psa: *const SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
@@ -8901,7 +8901,7 @@ pub unsafe fn SafeArrayDestroyData(psa: *const SAFEARRAY) -> ::windows::runtime:
 pub unsafe fn SafeArrayDestroyDescriptor(psa: *const SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayDestroyDescriptor(psa: *const SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
@@ -8913,7 +8913,7 @@ pub unsafe fn SafeArrayDestroyDescriptor(psa: *const SAFEARRAY) -> ::windows::ru
 pub unsafe fn SafeArrayGetDim(psa: *const SAFEARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetDim(psa: *const SAFEARRAY) -> u32;
         }
@@ -8929,7 +8929,7 @@ pub unsafe fn SafeArrayGetElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetElement(
                 psa: *const SAFEARRAY,
@@ -8950,7 +8950,7 @@ pub unsafe fn SafeArrayGetElement(
 pub unsafe fn SafeArrayGetElemsize(psa: *const SAFEARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetElemsize(psa: *const SAFEARRAY) -> u32;
         }
@@ -8964,7 +8964,7 @@ pub unsafe fn SafeArrayGetIID(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetIID(
                 psa: *const SAFEARRAY,
@@ -8985,7 +8985,7 @@ pub unsafe fn SafeArrayGetLBound(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetLBound(
                 psa: *const SAFEARRAY,
@@ -9009,7 +9009,7 @@ pub unsafe fn SafeArrayGetRecordInfo(
 ) -> ::windows::runtime::Result<IRecordInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetRecordInfo(
                 psa: *const SAFEARRAY,
@@ -9029,7 +9029,7 @@ pub unsafe fn SafeArrayGetUBound(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetUBound(
                 psa: *const SAFEARRAY,
@@ -9051,7 +9051,7 @@ pub unsafe fn SafeArrayGetUBound(
 pub unsafe fn SafeArrayGetVartype(psa: *const SAFEARRAY) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayGetVartype(
                 psa: *const SAFEARRAY,
@@ -9067,7 +9067,7 @@ pub unsafe fn SafeArrayGetVartype(psa: *const SAFEARRAY) -> ::windows::runtime::
 pub unsafe fn SafeArrayLock(psa: *const SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayLock(psa: *const SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
@@ -9083,7 +9083,7 @@ pub unsafe fn SafeArrayPtrOfIndex(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayPtrOfIndex(
                 psa: *const SAFEARRAY,
@@ -9108,7 +9108,7 @@ pub unsafe fn SafeArrayPutElement(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayPutElement(
                 psa: *const SAFEARRAY,
@@ -9132,7 +9132,7 @@ pub unsafe fn SafeArrayRedim(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayRedim(
                 psa: *mut SAFEARRAY,
@@ -9151,7 +9151,7 @@ pub unsafe fn SafeArrayRedim(
 pub unsafe fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void);
         }
@@ -9163,7 +9163,7 @@ pub unsafe fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void) {
 pub unsafe fn SafeArrayReleaseDescriptor(psa: *const SAFEARRAY) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayReleaseDescriptor(psa: *const SAFEARRAY);
         }
@@ -9178,7 +9178,7 @@ pub unsafe fn SafeArraySetIID(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArraySetIID(
                 psa: *const SAFEARRAY,
@@ -9196,7 +9196,7 @@ pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::runtime::IntoParam<'
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArraySetRecordInfo(
                 psa: *const SAFEARRAY,
@@ -9211,7 +9211,7 @@ pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::runtime::IntoParam<'
 pub unsafe fn SafeArrayUnaccessData(psa: *const SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayUnaccessData(psa: *const SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
@@ -9223,7 +9223,7 @@ pub unsafe fn SafeArrayUnaccessData(psa: *const SAFEARRAY) -> ::windows::runtime
 pub unsafe fn SafeArrayUnlock(psa: *const SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeArrayUnlock(psa: *const SAFEARRAY) -> ::windows::runtime::HRESULT;
         }
@@ -9238,7 +9238,7 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorI
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetErrorInfo(
                 dwreserved: u32,
@@ -9261,7 +9261,7 @@ pub unsafe fn SystemTimeToVariantTime(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SystemTimeToVariantTime(
                 lpsystemtime: *const super::super::Foundation::SYSTEMTIME,
@@ -9516,7 +9516,7 @@ pub unsafe fn UnRegisterTypeLib(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnRegisterTypeLib(
                 libid: *const ::windows::runtime::GUID,
@@ -9547,7 +9547,7 @@ pub unsafe fn UnRegisterTypeLibForUser(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnRegisterTypeLibForUser(
                 libid: *const ::windows::runtime::GUID,
@@ -9956,7 +9956,7 @@ pub const VARIANT_USE_NLS: u32 = 128u32;
 pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const VARIANT) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserFree(
                 param0: *const u32,
@@ -9975,7 +9975,7 @@ pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const VARIANT) {
 pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const VARIANT) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserFree64(
                 param0: *const u32,
@@ -9998,7 +9998,7 @@ pub unsafe fn VARIANT_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserMarshal(
                 param0: *const u32,
@@ -10023,7 +10023,7 @@ pub unsafe fn VARIANT_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserMarshal64(
                 param0: *const u32,
@@ -10044,7 +10044,7 @@ pub unsafe fn VARIANT_UserMarshal64(
 pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const VARIANT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserSize(
                 param0: *const u32,
@@ -10065,7 +10065,7 @@ pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const V
 pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const VARIANT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserSize64(
                 param0: *const u32,
@@ -10090,7 +10090,7 @@ pub unsafe fn VARIANT_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserUnmarshal(
                 param0: *const u32,
@@ -10115,7 +10115,7 @@ pub unsafe fn VARIANT_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VARIANT_UserUnmarshal64(
                 param0: *const u32,
@@ -10161,7 +10161,7 @@ pub const VTDATEGRE_MIN: i32 = -657434i32;
 pub unsafe fn VarAbs(pvarin: *const VARIANT) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarAbs(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -10181,7 +10181,7 @@ pub unsafe fn VarAdd(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarAdd(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -10207,7 +10207,7 @@ pub unsafe fn VarAnd(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarAnd(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -10235,7 +10235,7 @@ pub unsafe fn VarBoolFromCy<
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromCy(
                 cyin: super::SystemServices::CY,
@@ -10251,7 +10251,7 @@ pub unsafe fn VarBoolFromCy<
 pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromDate(datein: f64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10267,7 +10267,7 @@ pub unsafe fn VarBoolFromDec(
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -10286,7 +10286,7 @@ pub unsafe fn VarBoolFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -10314,7 +10314,7 @@ pub unsafe fn VarBoolFromI1<
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromI1(
                 cin: super::SystemServices::CHAR,
@@ -10330,7 +10330,7 @@ pub unsafe fn VarBoolFromI1<
 pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromI2(sin: i16, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10343,7 +10343,7 @@ pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromI4(lin: i32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10356,7 +10356,7 @@ pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromI8(i64in: i64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10369,7 +10369,7 @@ pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromR4(fltin: f32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10382,7 +10382,7 @@ pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromR8(dblin: f64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10403,7 +10403,7 @@ pub unsafe fn VarBoolFromStr<
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -10427,7 +10427,7 @@ pub unsafe fn VarBoolFromStr<
 pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromUI1(bin: u8, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10440,7 +10440,7 @@ pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromUI2(uiin: u16, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10453,7 +10453,7 @@ pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromUI4(ulin: u32, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10466,7 +10466,7 @@ pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBoolFromUI8(i64in: u64, pboolout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -10487,7 +10487,7 @@ pub unsafe fn VarBstrCat<
 ) -> ::windows::runtime::Result<*mut u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrCat(
                 bstrleft: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
@@ -10519,7 +10519,7 @@ pub unsafe fn VarBstrCmp<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrCmp(
                 bstrleft: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
@@ -10547,7 +10547,7 @@ pub unsafe fn VarBstrFromBool(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromBool(
                 boolin: i16,
@@ -10580,7 +10580,7 @@ pub unsafe fn VarBstrFromCy<
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromCy(
                 cyin: super::SystemServices::CY,
@@ -10610,7 +10610,7 @@ pub unsafe fn VarBstrFromDate(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromDate(
                 datein: f64,
@@ -10640,7 +10640,7 @@ pub unsafe fn VarBstrFromDec(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -10670,7 +10670,7 @@ pub unsafe fn VarBstrFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -10703,7 +10703,7 @@ pub unsafe fn VarBstrFromI1<
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromI1(
                 cin: super::SystemServices::CHAR,
@@ -10733,7 +10733,7 @@ pub unsafe fn VarBstrFromI2(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromI2(
                 ival: i16,
@@ -10763,7 +10763,7 @@ pub unsafe fn VarBstrFromI4(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromI4(
                 lin: i32,
@@ -10793,7 +10793,7 @@ pub unsafe fn VarBstrFromI8(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromI8(
                 i64in: i64,
@@ -10823,7 +10823,7 @@ pub unsafe fn VarBstrFromR4(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromR4(
                 fltin: f32,
@@ -10853,7 +10853,7 @@ pub unsafe fn VarBstrFromR8(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromR8(
                 dblin: f64,
@@ -10883,7 +10883,7 @@ pub unsafe fn VarBstrFromUI1(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromUI1(
                 bval: u8,
@@ -10913,7 +10913,7 @@ pub unsafe fn VarBstrFromUI2(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromUI2(
                 uiin: u16,
@@ -10943,7 +10943,7 @@ pub unsafe fn VarBstrFromUI4(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromUI4(
                 ulin: u32,
@@ -10973,7 +10973,7 @@ pub unsafe fn VarBstrFromUI8(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarBstrFromUI8(
                 ui64in: u64,
@@ -11002,7 +11002,7 @@ pub unsafe fn VarCat(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCat(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -11030,7 +11030,7 @@ pub unsafe fn VarCmp(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCmp(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -11056,7 +11056,7 @@ pub unsafe fn VarCyAbs<'a, Param0: ::windows::runtime::IntoParam<'a, super::Syst
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyAbs(
                 cyin: super::SystemServices::CY,
@@ -11082,7 +11082,7 @@ pub unsafe fn VarCyAdd<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyAdd(
                 cyleft: super::SystemServices::CY,
@@ -11113,7 +11113,7 @@ pub unsafe fn VarCyCmp<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyCmp(
                 cyleft: super::SystemServices::CY,
@@ -11135,7 +11135,7 @@ pub unsafe fn VarCyCmpR8<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyCmpR8(
                 cyleft: super::SystemServices::CY,
@@ -11153,7 +11153,7 @@ pub unsafe fn VarCyFix<'a, Param0: ::windows::runtime::IntoParam<'a, super::Syst
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFix(
                 cyin: super::SystemServices::CY,
@@ -11172,7 +11172,7 @@ pub unsafe fn VarCyFix<'a, Param0: ::windows::runtime::IntoParam<'a, super::Syst
 pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromBool(
                 boolin: i16,
@@ -11191,7 +11191,7 @@ pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::runtime::Result<super::Sy
 pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromDate(
                 datein: f64,
@@ -11212,7 +11212,7 @@ pub unsafe fn VarCyFromDec(
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -11234,7 +11234,7 @@ pub unsafe fn VarCyFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -11263,7 +11263,7 @@ pub unsafe fn VarCyFromI1<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromI1(
                 cin: super::SystemServices::CHAR,
@@ -11282,7 +11282,7 @@ pub unsafe fn VarCyFromI1<
 pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromI2(
                 sin: i16,
@@ -11301,7 +11301,7 @@ pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::runtime::Result<super::SystemS
 pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromI4(
                 lin: i32,
@@ -11320,7 +11320,7 @@ pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::runtime::Result<super::SystemS
 pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromI8(
                 i64in: i64,
@@ -11339,7 +11339,7 @@ pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::runtime::Result<super::Syste
 pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromR4(
                 fltin: f32,
@@ -11358,7 +11358,7 @@ pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::runtime::Result<super::Syste
 pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromR8(
                 dblin: f64,
@@ -11384,7 +11384,7 @@ pub unsafe fn VarCyFromStr<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -11410,7 +11410,7 @@ pub unsafe fn VarCyFromStr<
 pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromUI1(
                 bin: u8,
@@ -11429,7 +11429,7 @@ pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::runtime::Result<super::SystemS
 pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromUI2(
                 uiin: u16,
@@ -11448,7 +11448,7 @@ pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::runtime::Result<super::Syste
 pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromUI4(
                 ulin: u32,
@@ -11467,7 +11467,7 @@ pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::runtime::Result<super::Syste
 pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyFromUI8(
                 ui64in: u64,
@@ -11488,7 +11488,7 @@ pub unsafe fn VarCyInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::Syst
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyInt(
                 cyin: super::SystemServices::CY,
@@ -11514,7 +11514,7 @@ pub unsafe fn VarCyMul<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyMul(
                 cyleft: super::SystemServices::CY,
@@ -11544,7 +11544,7 @@ pub unsafe fn VarCyMulI4<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyMulI4(
                 cyleft: super::SystemServices::CY,
@@ -11574,7 +11574,7 @@ pub unsafe fn VarCyMulI8<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyMulI8(
                 cyleft: super::SystemServices::CY,
@@ -11600,7 +11600,7 @@ pub unsafe fn VarCyNeg<'a, Param0: ::windows::runtime::IntoParam<'a, super::Syst
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyNeg(
                 cyin: super::SystemServices::CY,
@@ -11625,7 +11625,7 @@ pub unsafe fn VarCyRound<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCyRound(
                 cyin: super::SystemServices::CY,
@@ -11656,7 +11656,7 @@ pub unsafe fn VarCySub<
 ) -> ::windows::runtime::Result<super::SystemServices::CY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarCySub(
                 cyleft: super::SystemServices::CY,
@@ -11679,7 +11679,7 @@ pub unsafe fn VarCySub<
 pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromBool(boolin: i16, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11698,7 +11698,7 @@ pub unsafe fn VarDateFromCy<
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromCy(
                 cyin: super::SystemServices::CY,
@@ -11717,7 +11717,7 @@ pub unsafe fn VarDateFromDec(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -11736,7 +11736,7 @@ pub unsafe fn VarDateFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -11764,7 +11764,7 @@ pub unsafe fn VarDateFromI1<
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromI1(
                 cin: super::SystemServices::CHAR,
@@ -11780,7 +11780,7 @@ pub unsafe fn VarDateFromI1<
 pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromI2(sin: i16, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11793,7 +11793,7 @@ pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromI4(lin: i32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11806,7 +11806,7 @@ pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromI8(i64in: i64, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11819,7 +11819,7 @@ pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromR4(fltin: f32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11832,7 +11832,7 @@ pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromR8(dblin: f64, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11853,7 +11853,7 @@ pub unsafe fn VarDateFromStr<
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -11877,7 +11877,7 @@ pub unsafe fn VarDateFromStr<
 pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromUI1(bin: u8, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11890,7 +11890,7 @@ pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromUI2(uiin: u16, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11903,7 +11903,7 @@ pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromUI4(ulin: u32, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11916,7 +11916,7 @@ pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromUI8(ui64in: u64, pdateout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -11933,7 +11933,7 @@ pub unsafe fn VarDateFromUdate(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromUdate(
                 pudatein: *const UDATE,
@@ -11960,7 +11960,7 @@ pub unsafe fn VarDateFromUdateEx(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDateFromUdateEx(
                 pudatein: *const UDATE,
@@ -11987,7 +11987,7 @@ pub unsafe fn VarDecAbs(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecAbs(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -12009,7 +12009,7 @@ pub unsafe fn VarDecAdd(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecAdd(
                 pdecleft: *const super::SystemServices::DECIMAL,
@@ -12036,7 +12036,7 @@ pub unsafe fn VarDecCmp(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecCmp(
                 pdecleft: *const super::SystemServices::DECIMAL,
@@ -12059,7 +12059,7 @@ pub unsafe fn VarDecCmpR8(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecCmpR8(
                 pdecleft: *const super::SystemServices::DECIMAL,
@@ -12082,7 +12082,7 @@ pub unsafe fn VarDecDiv(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecDiv(
                 pdecleft: *const super::SystemServices::DECIMAL,
@@ -12108,7 +12108,7 @@ pub unsafe fn VarDecFix(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFix(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -12129,7 +12129,7 @@ pub unsafe fn VarDecFromBool(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromBool(
                 boolin: i16,
@@ -12153,7 +12153,7 @@ pub unsafe fn VarDecFromCy<
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromCy(
                 cyin: super::SystemServices::CY,
@@ -12174,7 +12174,7 @@ pub unsafe fn VarDecFromDate(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromDate(
                 datein: f64,
@@ -12196,7 +12196,7 @@ pub unsafe fn VarDecFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -12225,7 +12225,7 @@ pub unsafe fn VarDecFromI1<
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromI1(
                 cin: super::SystemServices::CHAR,
@@ -12246,7 +12246,7 @@ pub unsafe fn VarDecFromI2(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromI2(
                 uiin: i16,
@@ -12265,7 +12265,7 @@ pub unsafe fn VarDecFromI2(
 pub unsafe fn VarDecFromI4(lin: i32) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromI4(
                 lin: i32,
@@ -12286,7 +12286,7 @@ pub unsafe fn VarDecFromI8(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromI8(
                 i64in: i64,
@@ -12307,7 +12307,7 @@ pub unsafe fn VarDecFromR4(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromR4(
                 fltin: f32,
@@ -12328,7 +12328,7 @@ pub unsafe fn VarDecFromR8(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromR8(
                 dblin: f64,
@@ -12354,7 +12354,7 @@ pub unsafe fn VarDecFromStr<
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -12380,7 +12380,7 @@ pub unsafe fn VarDecFromStr<
 pub unsafe fn VarDecFromUI1(bin: u8) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromUI1(
                 bin: u8,
@@ -12401,7 +12401,7 @@ pub unsafe fn VarDecFromUI2(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromUI2(
                 uiin: u16,
@@ -12422,7 +12422,7 @@ pub unsafe fn VarDecFromUI4(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromUI4(
                 ulin: u32,
@@ -12443,7 +12443,7 @@ pub unsafe fn VarDecFromUI8(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecFromUI8(
                 ui64in: u64,
@@ -12464,7 +12464,7 @@ pub unsafe fn VarDecInt(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecInt(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -12486,7 +12486,7 @@ pub unsafe fn VarDecMul(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecMul(
                 pdecleft: *const super::SystemServices::DECIMAL,
@@ -12512,7 +12512,7 @@ pub unsafe fn VarDecNeg(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecNeg(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -12534,7 +12534,7 @@ pub unsafe fn VarDecRound(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecRound(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -12561,7 +12561,7 @@ pub unsafe fn VarDecSub(
 ) -> ::windows::runtime::Result<super::SystemServices::DECIMAL> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDecSub(
                 pdecleft: *const super::SystemServices::DECIMAL,
@@ -12588,7 +12588,7 @@ pub unsafe fn VarDiv(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarDiv(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12614,7 +12614,7 @@ pub unsafe fn VarEqv(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarEqv(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12637,7 +12637,7 @@ pub unsafe fn VarEqv(
 pub unsafe fn VarFix(pvarin: *const VARIANT) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarFix(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12663,7 +12663,7 @@ pub unsafe fn VarFormat<
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarFormat(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12700,7 +12700,7 @@ pub unsafe fn VarFormatCurrency(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarFormatCurrency(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12736,7 +12736,7 @@ pub unsafe fn VarFormatDateTime(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarFormatDateTime(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12772,7 +12772,7 @@ pub unsafe fn VarFormatFromTokens<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarFormatFromTokens(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12807,7 +12807,7 @@ pub unsafe fn VarFormatNumber(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarFormatNumber(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12846,7 +12846,7 @@ pub unsafe fn VarFormatPercent(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarFormatPercent(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -12881,7 +12881,7 @@ pub unsafe fn VarI1FromBool(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromBool(
                 boolin: i16,
@@ -12903,7 +12903,7 @@ pub unsafe fn VarI1FromCy<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromCy(
                 cyin: super::SystemServices::CY,
@@ -12922,7 +12922,7 @@ pub unsafe fn VarI1FromDate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromDate(
                 datein: f64,
@@ -12941,7 +12941,7 @@ pub unsafe fn VarI1FromDec(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -12961,7 +12961,7 @@ pub unsafe fn VarI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -12986,7 +12986,7 @@ pub unsafe fn VarI1FromI2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromI2(
                 uiin: i16,
@@ -13005,7 +13005,7 @@ pub unsafe fn VarI1FromI4(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromI4(
                 lin: i32,
@@ -13024,7 +13024,7 @@ pub unsafe fn VarI1FromI8(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromI8(
                 i64in: i64,
@@ -13043,7 +13043,7 @@ pub unsafe fn VarI1FromR4(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromR4(
                 fltin: f32,
@@ -13062,7 +13062,7 @@ pub unsafe fn VarI1FromR8(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromR8(
                 dblin: f64,
@@ -13086,7 +13086,7 @@ pub unsafe fn VarI1FromStr<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -13113,7 +13113,7 @@ pub unsafe fn VarI1FromUI1(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromUI1(
                 bin: u8,
@@ -13132,7 +13132,7 @@ pub unsafe fn VarI1FromUI2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromUI2(
                 uiin: u16,
@@ -13151,7 +13151,7 @@ pub unsafe fn VarI1FromUI4(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromUI4(
                 ulin: u32,
@@ -13170,7 +13170,7 @@ pub unsafe fn VarI1FromUI8(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI1FromUI8(
                 i64in: u64,
@@ -13185,7 +13185,7 @@ pub unsafe fn VarI1FromUI8(
 pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromBool(boolin: i16, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13205,7 +13205,7 @@ pub unsafe fn VarI2FromCy<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromCy(
                 cyin: super::SystemServices::CY,
@@ -13220,7 +13220,7 @@ pub unsafe fn VarI2FromCy<
 pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromDate(datein: f64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13236,7 +13236,7 @@ pub unsafe fn VarI2FromDec(
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -13255,7 +13255,7 @@ pub unsafe fn VarI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -13283,7 +13283,7 @@ pub unsafe fn VarI2FromI1<
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromI1(
                 cin: super::SystemServices::CHAR,
@@ -13299,7 +13299,7 @@ pub unsafe fn VarI2FromI1<
 pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromI4(lin: i32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13312,7 +13312,7 @@ pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromI8(i64in: i64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13325,7 +13325,7 @@ pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromR4(fltin: f32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13338,7 +13338,7 @@ pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromR8(dblin: f64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13359,7 +13359,7 @@ pub unsafe fn VarI2FromStr<
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -13383,7 +13383,7 @@ pub unsafe fn VarI2FromStr<
 pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromUI1(bin: u8, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13396,7 +13396,7 @@ pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromUI2(uiin: u16, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13409,7 +13409,7 @@ pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromUI4(ulin: u32, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13422,7 +13422,7 @@ pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI2FromUI8(ui64in: u64, psout: *mut i16) -> ::windows::runtime::HRESULT;
         }
@@ -13435,7 +13435,7 @@ pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::runtime::Result<i16> {
 pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromBool(boolin: i16, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13454,7 +13454,7 @@ pub unsafe fn VarI4FromCy<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromCy(
                 cyin: super::SystemServices::CY,
@@ -13470,7 +13470,7 @@ pub unsafe fn VarI4FromCy<
 pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromDate(datein: f64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13486,7 +13486,7 @@ pub unsafe fn VarI4FromDec(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -13505,7 +13505,7 @@ pub unsafe fn VarI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -13533,7 +13533,7 @@ pub unsafe fn VarI4FromI1<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromI1(
                 cin: super::SystemServices::CHAR,
@@ -13549,7 +13549,7 @@ pub unsafe fn VarI4FromI1<
 pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromI2(sin: i16, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13562,7 +13562,7 @@ pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::runtime::Result<i32> {
 pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromI8(i64in: i64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13575,7 +13575,7 @@ pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::runtime::Result<i32> {
 pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromR4(fltin: f32, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13588,7 +13588,7 @@ pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::runtime::Result<i32> {
 pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromR8(dblin: f64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13609,7 +13609,7 @@ pub unsafe fn VarI4FromStr<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -13633,7 +13633,7 @@ pub unsafe fn VarI4FromStr<
 pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromUI1(bin: u8, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13646,7 +13646,7 @@ pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::runtime::Result<i32> {
 pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromUI2(uiin: u16, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13659,7 +13659,7 @@ pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::runtime::Result<i32> {
 pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromUI4(ulin: u32, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13672,7 +13672,7 @@ pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::runtime::Result<i32> {
 pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI4FromUI8(ui64in: u64, plout: *mut i32) -> ::windows::runtime::HRESULT;
         }
@@ -13685,7 +13685,7 @@ pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<i32> {
 pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromBool(boolin: i16, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13704,7 +13704,7 @@ pub unsafe fn VarI8FromCy<
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromCy(
                 cyin: super::SystemServices::CY,
@@ -13720,7 +13720,7 @@ pub unsafe fn VarI8FromCy<
 pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromDate(datein: f64, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13736,7 +13736,7 @@ pub unsafe fn VarI8FromDec(
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -13755,7 +13755,7 @@ pub unsafe fn VarI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -13783,7 +13783,7 @@ pub unsafe fn VarI8FromI1<
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromI1(
                 cin: super::SystemServices::CHAR,
@@ -13799,7 +13799,7 @@ pub unsafe fn VarI8FromI1<
 pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromI2(sin: i16, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13812,7 +13812,7 @@ pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::runtime::Result<i64> {
 pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromR4(fltin: f32, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13825,7 +13825,7 @@ pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::runtime::Result<i64> {
 pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromR8(dblin: f64, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13846,7 +13846,7 @@ pub unsafe fn VarI8FromStr<
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -13870,7 +13870,7 @@ pub unsafe fn VarI8FromStr<
 pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromUI1(bin: u8, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13883,7 +13883,7 @@ pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::runtime::Result<i64> {
 pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromUI2(uiin: u16, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13896,7 +13896,7 @@ pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::runtime::Result<i64> {
 pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromUI4(ulin: u32, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13909,7 +13909,7 @@ pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::runtime::Result<i64> {
 pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarI8FromUI8(ui64in: u64, pi64out: *mut i64) -> ::windows::runtime::HRESULT;
         }
@@ -13926,7 +13926,7 @@ pub unsafe fn VarIdiv(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarIdiv(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -13952,7 +13952,7 @@ pub unsafe fn VarImp(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarImp(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -13975,7 +13975,7 @@ pub unsafe fn VarImp(
 pub unsafe fn VarInt(pvarin: *const VARIANT) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarInt(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -13995,7 +13995,7 @@ pub unsafe fn VarMod(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarMod(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14022,7 +14022,7 @@ pub unsafe fn VarMonthName(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarMonthName(
                 imonth: i32,
@@ -14051,7 +14051,7 @@ pub unsafe fn VarMul(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarMul(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14074,7 +14074,7 @@ pub unsafe fn VarMul(
 pub unsafe fn VarNeg(pvarin: *const VARIANT) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarNeg(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14091,7 +14091,7 @@ pub unsafe fn VarNeg(pvarin: *const VARIANT) -> ::windows::runtime::Result<VARIA
 pub unsafe fn VarNot(pvarin: *const VARIANT) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarNot(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14112,7 +14112,7 @@ pub unsafe fn VarNumFromParseNum(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarNumFromParseNum(
                 pnumprs: *const NUMPARSE,
@@ -14140,7 +14140,7 @@ pub unsafe fn VarOr(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarOr(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14172,7 +14172,7 @@ pub unsafe fn VarParseNumFromStr<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarParseNumFromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -14201,7 +14201,7 @@ pub unsafe fn VarPow(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarPow(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14223,7 +14223,7 @@ pub unsafe fn VarPow(
 pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::HRESULT;
         }
@@ -14239,7 +14239,7 @@ pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::Res
 pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromBool(boolin: i16, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14259,7 +14259,7 @@ pub unsafe fn VarR4FromCy<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromCy(
                 cyin: super::SystemServices::CY,
@@ -14274,7 +14274,7 @@ pub unsafe fn VarR4FromCy<
 pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromDate(datein: f64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14290,7 +14290,7 @@ pub unsafe fn VarR4FromDec(
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -14309,7 +14309,7 @@ pub unsafe fn VarR4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -14337,7 +14337,7 @@ pub unsafe fn VarR4FromI1<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromI1(
                 cin: super::SystemServices::CHAR,
@@ -14353,7 +14353,7 @@ pub unsafe fn VarR4FromI1<
 pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromI2(sin: i16, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14366,7 +14366,7 @@ pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::runtime::Result<f32> {
 pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromI4(lin: i32, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14379,7 +14379,7 @@ pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::runtime::Result<f32> {
 pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromI8(i64in: i64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14392,7 +14392,7 @@ pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::runtime::Result<f32> {
 pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromR8(dblin: f64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14413,7 +14413,7 @@ pub unsafe fn VarR4FromStr<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -14437,7 +14437,7 @@ pub unsafe fn VarR4FromStr<
 pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromUI1(bin: u8, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14450,7 +14450,7 @@ pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::runtime::Result<f32> {
 pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromUI2(uiin: u16, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14463,7 +14463,7 @@ pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::runtime::Result<f32> {
 pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromUI4(ulin: u32, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14476,7 +14476,7 @@ pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::runtime::Result<f32> {
 pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR4FromUI8(ui64in: u64, pfltout: *mut f32) -> ::windows::runtime::HRESULT;
         }
@@ -14489,7 +14489,7 @@ pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::runtime::Result<f32> {
 pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromBool(boolin: i16, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14509,7 +14509,7 @@ pub unsafe fn VarR8FromCy<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromCy(
                 cyin: super::SystemServices::CY,
@@ -14524,7 +14524,7 @@ pub unsafe fn VarR8FromCy<
 pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromDate(datein: f64, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14540,7 +14540,7 @@ pub unsafe fn VarR8FromDec(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -14559,7 +14559,7 @@ pub unsafe fn VarR8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -14588,7 +14588,7 @@ pub unsafe fn VarR8FromI1<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromI1(
                 cin: super::SystemServices::CHAR,
@@ -14603,7 +14603,7 @@ pub unsafe fn VarR8FromI1<
 pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromI2(sin: i16, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14616,7 +14616,7 @@ pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromI4(lin: i32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14629,7 +14629,7 @@ pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromI8(i64in: i64, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14642,7 +14642,7 @@ pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromR4(fltin: f32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14663,7 +14663,7 @@ pub unsafe fn VarR8FromStr<
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -14687,7 +14687,7 @@ pub unsafe fn VarR8FromStr<
 pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromUI1(bin: u8, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14700,7 +14700,7 @@ pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromUI2(uiin: u16, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14713,7 +14713,7 @@ pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromUI4(ulin: u32, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14726,7 +14726,7 @@ pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8FromUI8(ui64in: u64, pdblout: *mut f64) -> ::windows::runtime::HRESULT;
         }
@@ -14739,7 +14739,7 @@ pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
 pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8Pow(
                 dblleft: f64,
@@ -14761,7 +14761,7 @@ pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::runtime::Resul
 pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarR8Round(
                 dblin: f64,
@@ -14787,7 +14787,7 @@ pub unsafe fn VarRound(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarRound(
                 pvarin: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14813,7 +14813,7 @@ pub unsafe fn VarSub(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarSub(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -14847,7 +14847,7 @@ pub unsafe fn VarTokenizeFormatString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarTokenizeFormatString(
                 pstrformat: super::super::Foundation::PWSTR,
@@ -14876,7 +14876,7 @@ pub unsafe fn VarTokenizeFormatString<
 pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromBool(boolin: i16, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -14895,7 +14895,7 @@ pub unsafe fn VarUI1FromCy<
 ) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromCy(
                 cyin: super::SystemServices::CY,
@@ -14911,7 +14911,7 @@ pub unsafe fn VarUI1FromCy<
 pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromDate(datein: f64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -14927,7 +14927,7 @@ pub unsafe fn VarUI1FromDec(
 ) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -14946,7 +14946,7 @@ pub unsafe fn VarUI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
 ) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -14974,7 +14974,7 @@ pub unsafe fn VarUI1FromI1<
 ) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromI1(
                 cin: super::SystemServices::CHAR,
@@ -14990,7 +14990,7 @@ pub unsafe fn VarUI1FromI1<
 pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromI2(sin: i16, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15003,7 +15003,7 @@ pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::runtime::Result<u8> {
 pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromI4(lin: i32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15016,7 +15016,7 @@ pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::runtime::Result<u8> {
 pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromI8(i64in: i64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15029,7 +15029,7 @@ pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::runtime::Result<u8> {
 pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromR4(fltin: f32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15042,7 +15042,7 @@ pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::runtime::Result<u8> {
 pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromR8(dblin: f64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15063,7 +15063,7 @@ pub unsafe fn VarUI1FromStr<
 ) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -15087,7 +15087,7 @@ pub unsafe fn VarUI1FromStr<
 pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromUI2(uiin: u16, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15100,7 +15100,7 @@ pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::runtime::Result<u8> {
 pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromUI4(ulin: u32, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15113,7 +15113,7 @@ pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::runtime::Result<u8> {
 pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI1FromUI8(ui64in: u64, pbout: *mut u8) -> ::windows::runtime::HRESULT;
         }
@@ -15126,7 +15126,7 @@ pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::runtime::Result<u8> {
 pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromBool(boolin: i16, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15145,7 +15145,7 @@ pub unsafe fn VarUI2FromCy<
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromCy(
                 cyin: super::SystemServices::CY,
@@ -15161,7 +15161,7 @@ pub unsafe fn VarUI2FromCy<
 pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromDate(datein: f64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15177,7 +15177,7 @@ pub unsafe fn VarUI2FromDec(
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -15196,7 +15196,7 @@ pub unsafe fn VarUI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -15224,7 +15224,7 @@ pub unsafe fn VarUI2FromI1<
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromI1(
                 cin: super::SystemServices::CHAR,
@@ -15240,7 +15240,7 @@ pub unsafe fn VarUI2FromI1<
 pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromI2(uiin: i16, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15253,7 +15253,7 @@ pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::runtime::Result<u16> {
 pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromI4(lin: i32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15266,7 +15266,7 @@ pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::runtime::Result<u16> {
 pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromI8(i64in: i64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15279,7 +15279,7 @@ pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::runtime::Result<u16> {
 pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromR4(fltin: f32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15292,7 +15292,7 @@ pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::runtime::Result<u16> {
 pub unsafe fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15312,7 +15312,7 @@ pub unsafe fn VarUI2FromStr<
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -15336,7 +15336,7 @@ pub unsafe fn VarUI2FromStr<
 pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromUI1(bin: u8, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15349,7 +15349,7 @@ pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::runtime::Result<u16> {
 pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromUI4(ulin: u32, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15362,7 +15362,7 @@ pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::runtime::Result<u16> {
 pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI2FromUI8(i64in: u64, puiout: *mut u16) -> ::windows::runtime::HRESULT;
         }
@@ -15375,7 +15375,7 @@ pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::runtime::Result<u16> {
 pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromBool(boolin: i16, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15394,7 +15394,7 @@ pub unsafe fn VarUI4FromCy<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromCy(
                 cyin: super::SystemServices::CY,
@@ -15410,7 +15410,7 @@ pub unsafe fn VarUI4FromCy<
 pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromDate(datein: f64, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15426,7 +15426,7 @@ pub unsafe fn VarUI4FromDec(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -15445,7 +15445,7 @@ pub unsafe fn VarUI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -15473,7 +15473,7 @@ pub unsafe fn VarUI4FromI1<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromI1(
                 cin: super::SystemServices::CHAR,
@@ -15489,7 +15489,7 @@ pub unsafe fn VarUI4FromI1<
 pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromI2(uiin: i16, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15502,7 +15502,7 @@ pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::runtime::Result<u32> {
 pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromI4(lin: i32, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15515,7 +15515,7 @@ pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::runtime::Result<u32> {
 pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromI8(i64in: i64, plout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15528,7 +15528,7 @@ pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::runtime::Result<u32> {
 pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromR4(fltin: f32, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15541,7 +15541,7 @@ pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::runtime::Result<u32> {
 pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromR8(dblin: f64, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15562,7 +15562,7 @@ pub unsafe fn VarUI4FromStr<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -15586,7 +15586,7 @@ pub unsafe fn VarUI4FromStr<
 pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromUI1(bin: u8, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15599,7 +15599,7 @@ pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::runtime::Result<u32> {
 pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromUI2(uiin: u16, pulout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15612,7 +15612,7 @@ pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::runtime::Result<u32> {
 pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI4FromUI8(ui64in: u64, plout: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -15625,7 +15625,7 @@ pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<u32> {
 pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromBool(boolin: i16, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15644,7 +15644,7 @@ pub unsafe fn VarUI8FromCy<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromCy(
                 cyin: super::SystemServices::CY,
@@ -15660,7 +15660,7 @@ pub unsafe fn VarUI8FromCy<
 pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromDate(datein: f64, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15676,7 +15676,7 @@ pub unsafe fn VarUI8FromDec(
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromDec(
                 pdecin: *const super::SystemServices::DECIMAL,
@@ -15695,7 +15695,7 @@ pub unsafe fn VarUI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromDisp(
                 pdispin: ::windows::runtime::RawPtr,
@@ -15723,7 +15723,7 @@ pub unsafe fn VarUI8FromI1<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromI1(
                 cin: super::SystemServices::CHAR,
@@ -15739,7 +15739,7 @@ pub unsafe fn VarUI8FromI1<
 pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromI2(sin: i16, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15752,7 +15752,7 @@ pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::runtime::Result<u64> {
 pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromI8(ui64in: i64, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15765,7 +15765,7 @@ pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::runtime::Result<u64> {
 pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromR4(fltin: f32, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15778,7 +15778,7 @@ pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::runtime::Result<u64> {
 pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromR8(dblin: f64, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15799,7 +15799,7 @@ pub unsafe fn VarUI8FromStr<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromStr(
                 strin: super::super::Foundation::PWSTR,
@@ -15823,7 +15823,7 @@ pub unsafe fn VarUI8FromStr<
 pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromUI1(bin: u8, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15836,7 +15836,7 @@ pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::runtime::Result<u64> {
 pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromUI2(uiin: u16, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15849,7 +15849,7 @@ pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::runtime::Result<u64> {
 pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUI8FromUI4(ulin: u32, pi64out: *mut u64) -> ::windows::runtime::HRESULT;
         }
@@ -15863,7 +15863,7 @@ pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::runtime::Result<u64> {
 pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::runtime::Result<UDATE> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarUdateFromDate(
                 datein: f64,
@@ -15891,7 +15891,7 @@ pub unsafe fn VarWeekdayName(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarWeekdayName(
                 iweekday: i32,
@@ -15922,7 +15922,7 @@ pub unsafe fn VarXor(
 ) -> ::windows::runtime::Result<VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VarXor(
                 pvarleft: *const ::std::mem::ManuallyDrop<VARIANT>,
@@ -15950,7 +15950,7 @@ pub unsafe fn VariantChangeType(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantChangeType(
                 pvargdest: *mut ::std::mem::ManuallyDrop<VARIANT>,
@@ -15980,7 +15980,7 @@ pub unsafe fn VariantChangeTypeEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantChangeTypeEx(
                 pvargdest: *mut ::std::mem::ManuallyDrop<VARIANT>,
@@ -16006,7 +16006,7 @@ pub unsafe fn VariantChangeTypeEx(
 pub unsafe fn VariantClear(pvarg: *mut VARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantClear(
                 pvarg: *mut ::std::mem::ManuallyDrop<VARIANT>,
@@ -16024,7 +16024,7 @@ pub unsafe fn VariantCopy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantCopy(
                 pvargdest: *mut ::std::mem::ManuallyDrop<VARIANT>,
@@ -16047,7 +16047,7 @@ pub unsafe fn VariantCopyInd(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantCopyInd(
                 pvardest: *mut ::std::mem::ManuallyDrop<VARIANT>,
@@ -16067,7 +16067,7 @@ pub unsafe fn VariantCopyInd(
 pub unsafe fn VariantInit(pvarg: *mut VARIANT) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantInit(pvarg: *mut ::std::mem::ManuallyDrop<VARIANT>);
         }
@@ -16083,7 +16083,7 @@ pub unsafe fn VariantTimeToDosDateTime(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantTimeToDosDateTime(
                 vtime: f64,
@@ -16107,7 +16107,7 @@ pub unsafe fn VariantTimeToSystemTime(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantTimeToSystemTime(
                 vtime: f64,
@@ -16131,7 +16131,7 @@ pub unsafe fn VectorFromBstr<
 ) -> ::windows::runtime::Result<*mut SAFEARRAY> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VectorFromBstr(
                 bstr: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,

@@ -25,7 +25,7 @@ pub unsafe fn ChangeServiceConfig2A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeServiceConfig2A(
                 hservice: super::super::Security::SC_HANDLE,
@@ -53,7 +53,7 @@ pub unsafe fn ChangeServiceConfig2W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeServiceConfig2W(
                 hservice: super::super::Security::SC_HANDLE,
@@ -95,7 +95,7 @@ pub unsafe fn ChangeServiceConfigA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeServiceConfigA(
                 hservice: super::super::Security::SC_HANDLE,
@@ -153,7 +153,7 @@ pub unsafe fn ChangeServiceConfigW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeServiceConfigW(
                 hservice: super::super::Security::SC_HANDLE,
@@ -195,7 +195,7 @@ pub unsafe fn CloseServiceHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseServiceHandle(
                 hscobject: super::super::Security::SC_HANDLE,
@@ -217,7 +217,7 @@ pub unsafe fn ControlService<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ControlService(
                 hservice: super::super::Security::SC_HANDLE,
@@ -246,7 +246,7 @@ pub unsafe fn ControlServiceExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ControlServiceExA(
                 hservice: super::super::Security::SC_HANDLE,
@@ -277,7 +277,7 @@ pub unsafe fn ControlServiceExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ControlServiceExW(
                 hservice: super::super::Security::SC_HANDLE,
@@ -324,7 +324,7 @@ pub unsafe fn CreateServiceA<
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateServiceA(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -389,7 +389,7 @@ pub unsafe fn CreateServiceW<
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateServiceW(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -447,7 +447,7 @@ pub unsafe fn DeleteService<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteService(
                 hservice: super::super::Security::SC_HANDLE,
@@ -745,7 +745,7 @@ pub unsafe fn EnumDependentServicesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDependentServicesA(
                 hservice: super::super::Security::SC_HANDLE,
@@ -782,7 +782,7 @@ pub unsafe fn EnumDependentServicesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDependentServicesW(
                 hservice: super::super::Security::SC_HANDLE,
@@ -821,7 +821,7 @@ pub unsafe fn EnumServicesStatusA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumServicesStatusA(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -867,7 +867,7 @@ pub unsafe fn EnumServicesStatusExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumServicesStatusExA(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -917,7 +917,7 @@ pub unsafe fn EnumServicesStatusExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumServicesStatusExW(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -964,7 +964,7 @@ pub unsafe fn EnumServicesStatusW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumServicesStatusW(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1017,7 +1017,7 @@ pub unsafe fn GetServiceDirectory<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-service-core-l1-1-4")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceDirectory(
                 hservicestatus: SERVICE_STATUS_HANDLE,
@@ -1051,7 +1051,7 @@ pub unsafe fn GetServiceDisplayNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceDisplayNameA(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1083,7 +1083,7 @@ pub unsafe fn GetServiceDisplayNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceDisplayNameW(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1115,7 +1115,7 @@ pub unsafe fn GetServiceKeyNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceKeyNameA(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1147,7 +1147,7 @@ pub unsafe fn GetServiceKeyNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceKeyNameW(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1178,7 +1178,7 @@ pub unsafe fn GetServiceRegistryStateKey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-service-core-l1-1-3")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetServiceRegistryStateKey(
                 servicestatushandle: SERVICE_STATUS_HANDLE,
@@ -1210,7 +1210,7 @@ pub unsafe fn GetSharedServiceDirectory<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-service-core-l1-1-5")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSharedServiceDirectory(
                 servicehandle: super::super::Security::SC_HANDLE,
@@ -1243,7 +1243,7 @@ pub unsafe fn GetSharedServiceRegistryStateKey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-service-core-l1-1-5")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSharedServiceRegistryStateKey(
                 servicehandle: super::super::Security::SC_HANDLE,
@@ -1295,7 +1295,7 @@ pub unsafe fn LockServiceDatabase<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LockServiceDatabase(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1342,7 +1342,7 @@ pub unsafe fn NotifyBootConfigStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyBootConfigStatus(
                 bootacceptable: super::super::Foundation::BOOL,
@@ -1364,7 +1364,7 @@ pub unsafe fn NotifyServiceStatusChangeA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyServiceStatusChangeA(
                 hservice: super::super::Security::SC_HANDLE,
@@ -1392,7 +1392,7 @@ pub unsafe fn NotifyServiceStatusChangeW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyServiceStatusChangeW(
                 hservice: super::super::Security::SC_HANDLE,
@@ -1421,7 +1421,7 @@ pub unsafe fn OpenSCManagerA<
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenSCManagerA(
                 lpmachinename: super::super::Foundation::PSTR,
@@ -1450,7 +1450,7 @@ pub unsafe fn OpenSCManagerW<
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenSCManagerW(
                 lpmachinename: super::super::Foundation::PWSTR,
@@ -1479,7 +1479,7 @@ pub unsafe fn OpenServiceA<
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenServiceA(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1508,7 +1508,7 @@ pub unsafe fn OpenServiceW<
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenServiceW(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1741,7 +1741,7 @@ pub unsafe fn QueryServiceConfig2A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceConfig2A(
                 hservice: super::super::Security::SC_HANDLE,
@@ -1775,7 +1775,7 @@ pub unsafe fn QueryServiceConfig2W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceConfig2W(
                 hservice: super::super::Security::SC_HANDLE,
@@ -1808,7 +1808,7 @@ pub unsafe fn QueryServiceConfigA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceConfigA(
                 hservice: super::super::Security::SC_HANDLE,
@@ -1839,7 +1839,7 @@ pub unsafe fn QueryServiceConfigW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceConfigW(
                 hservice: super::super::Security::SC_HANDLE,
@@ -1869,7 +1869,7 @@ pub unsafe fn QueryServiceDynamicInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceDynamicInformation(
                 hservicestatus: SERVICE_STATUS_HANDLE,
@@ -1898,7 +1898,7 @@ pub unsafe fn QueryServiceLockStatusA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceLockStatusA(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1929,7 +1929,7 @@ pub unsafe fn QueryServiceLockStatusW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceLockStatusW(
                 hscmanager: super::super::Security::SC_HANDLE,
@@ -1961,7 +1961,7 @@ pub unsafe fn QueryServiceObjectSecurity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceObjectSecurity(
                 hservice: super::super::Security::SC_HANDLE,
@@ -1992,7 +1992,7 @@ pub unsafe fn QueryServiceStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceStatus(
                 hservice: super::super::Security::SC_HANDLE,
@@ -2020,7 +2020,7 @@ pub unsafe fn QueryServiceStatusEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryServiceStatusEx(
                 hservice: super::super::Security::SC_HANDLE,
@@ -2058,7 +2058,7 @@ pub unsafe fn RegisterServiceCtrlHandlerA<
 ) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterServiceCtrlHandlerA(
                 lpservicename: super::super::Foundation::PSTR,
@@ -2084,7 +2084,7 @@ pub unsafe fn RegisterServiceCtrlHandlerExA<
 ) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterServiceCtrlHandlerExA(
                 lpservicename: super::super::Foundation::PSTR,
@@ -2112,7 +2112,7 @@ pub unsafe fn RegisterServiceCtrlHandlerExW<
 ) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterServiceCtrlHandlerExW(
                 lpservicename: super::super::Foundation::PWSTR,
@@ -2139,7 +2139,7 @@ pub unsafe fn RegisterServiceCtrlHandlerW<
 ) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterServiceCtrlHandlerW(
                 lpservicename: super::super::Foundation::PWSTR,
@@ -4092,7 +4092,7 @@ pub unsafe fn SetServiceBits<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetServiceBits(
                 hservicestatus: SERVICE_STATUS_HANDLE,
@@ -4126,7 +4126,7 @@ pub unsafe fn SetServiceObjectSecurity<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetServiceObjectSecurity(
                 hservice: super::super::Security::SC_HANDLE,
@@ -4153,7 +4153,7 @@ pub unsafe fn SetServiceStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetServiceStatus(
                 hservicestatus: SERVICE_STATUS_HANDLE,
@@ -4179,7 +4179,7 @@ pub unsafe fn StartServiceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartServiceA(
                 hservice: super::super::Security::SC_HANDLE,
@@ -4202,7 +4202,7 @@ pub unsafe fn StartServiceCtrlDispatcherA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartServiceCtrlDispatcherA(
                 lpservicestarttable: *const ::std::mem::ManuallyDrop<SERVICE_TABLE_ENTRYA>,
@@ -4221,7 +4221,7 @@ pub unsafe fn StartServiceCtrlDispatcherW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartServiceCtrlDispatcherW(
                 lpservicestarttable: *const ::std::mem::ManuallyDrop<SERVICE_TABLE_ENTRYW>,
@@ -4245,7 +4245,7 @@ pub unsafe fn StartServiceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartServiceW(
                 hservice: super::super::Security::SC_HANDLE,
@@ -4275,7 +4275,7 @@ pub unsafe fn UnlockServiceDatabase(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnlockServiceDatabase(
                 sclock: *const ::std::ffi::c_void,
@@ -4299,7 +4299,7 @@ pub unsafe fn WaitServiceState<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitServiceState(
                 hservice: super::super::Security::SC_HANDLE,

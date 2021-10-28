@@ -353,7 +353,7 @@ pub unsafe fn WebSocketAbortHandle<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE);
         }
@@ -379,7 +379,7 @@ pub unsafe fn WebSocketBeginClientHandshake<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketBeginClientHandshake(
                 hwebsocket: WEB_SOCKET_HANDLE,
@@ -426,7 +426,7 @@ pub unsafe fn WebSocketBeginServerHandshake<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketBeginServerHandshake(
                 hwebsocket: WEB_SOCKET_HANDLE,
@@ -464,7 +464,7 @@ pub unsafe fn WebSocketCompleteAction<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketCompleteAction(
                 hwebsocket: WEB_SOCKET_HANDLE,
@@ -487,7 +487,7 @@ pub unsafe fn WebSocketCreateClientHandle(
 ) -> ::windows::runtime::Result<WEB_SOCKET_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketCreateClientHandle(
                 pproperties: *const WEB_SOCKET_PROPERTY,
@@ -513,7 +513,7 @@ pub unsafe fn WebSocketCreateServerHandle(
 ) -> ::windows::runtime::Result<WEB_SOCKET_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketCreateServerHandle(
                 pproperties: *const WEB_SOCKET_PROPERTY,
@@ -541,7 +541,7 @@ pub unsafe fn WebSocketDeleteHandle<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE);
         }
@@ -564,7 +564,7 @@ pub unsafe fn WebSocketEndClientHandshake<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketEndClientHandshake(
                 hwebsocket: WEB_SOCKET_HANDLE,
@@ -596,7 +596,7 @@ pub unsafe fn WebSocketEndServerHandshake<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketEndServerHandshake(
                 hwebsocket: WEB_SOCKET_HANDLE,
@@ -622,7 +622,7 @@ pub unsafe fn WebSocketGetAction<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketGetAction(
                 hwebsocket: WEB_SOCKET_HANDLE,
@@ -657,7 +657,7 @@ pub unsafe fn WebSocketGetGlobalProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketGetGlobalProperty(
                 etype: WEB_SOCKET_PROPERTY_TYPE,
@@ -682,7 +682,7 @@ pub unsafe fn WebSocketReceive<'a, Param0: ::windows::runtime::IntoParam<'a, WEB
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketReceive(
                 hwebsocket: WEB_SOCKET_HANDLE,
@@ -708,7 +708,7 @@ pub unsafe fn WebSocketSend<'a, Param0: ::windows::runtime::IntoParam<'a, WEB_SO
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "websocket")]
+        #[link(name = "windows")]
         extern "system" {
             fn WebSocketSend(
                 hwebsocket: WEB_SOCKET_HANDLE,

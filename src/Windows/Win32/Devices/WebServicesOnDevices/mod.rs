@@ -6228,7 +6228,7 @@ pub unsafe fn WSDAllocateLinkedMemory(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDAllocateLinkedMemory(
                 pparent: *mut ::std::ffi::c_void,
@@ -6249,7 +6249,7 @@ pub unsafe fn WSDAttachLinkedMemory(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDAttachLinkedMemory(
                 pparent: *mut ::std::ffi::c_void,
@@ -6275,7 +6275,7 @@ pub unsafe fn WSDCreateDeviceHost<
 ) -> ::windows::runtime::Result<IWSDDeviceHost> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDeviceHost(
                 pszlocalid: super::super::Foundation::PWSTR,
@@ -6307,7 +6307,7 @@ pub unsafe fn WSDCreateDeviceHost2<
 ) -> ::windows::runtime::Result<IWSDDeviceHost> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDeviceHost2(
                 pszlocalid: super::super::Foundation::PWSTR,
@@ -6343,7 +6343,7 @@ pub unsafe fn WSDCreateDeviceHostAdvanced<
 ) -> ::windows::runtime::Result<IWSDDeviceHost> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDeviceHostAdvanced(
                 pszlocalid: super::super::Foundation::PWSTR,
@@ -6379,7 +6379,7 @@ pub unsafe fn WSDCreateDeviceProxy<
 ) -> ::windows::runtime::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDeviceProxy(
                 pszdeviceid: super::super::Foundation::PWSTR,
@@ -6415,7 +6415,7 @@ pub unsafe fn WSDCreateDeviceProxy2<
 ) -> ::windows::runtime::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDeviceProxy2(
                 pszdeviceid: super::super::Foundation::PWSTR,
@@ -6455,7 +6455,7 @@ pub unsafe fn WSDCreateDeviceProxyAdvanced<
 ) -> ::windows::runtime::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDeviceProxyAdvanced(
                 pszdeviceid: super::super::Foundation::PWSTR,
@@ -6486,7 +6486,7 @@ pub unsafe fn WSDCreateDiscoveryProvider<
 ) -> ::windows::runtime::Result<IWSDiscoveryProvider> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDiscoveryProvider(
                 pcontext: ::windows::runtime::RawPtr,
@@ -6511,7 +6511,7 @@ pub unsafe fn WSDCreateDiscoveryProvider2<
 ) -> ::windows::runtime::Result<IWSDiscoveryProvider> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDiscoveryProvider2(
                 pcontext: ::windows::runtime::RawPtr,
@@ -6541,7 +6541,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher<
 ) -> ::windows::runtime::Result<IWSDiscoveryPublisher> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDiscoveryPublisher(
                 pcontext: ::windows::runtime::RawPtr,
@@ -6566,7 +6566,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<
 ) -> ::windows::runtime::Result<IWSDiscoveryPublisher> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateDiscoveryPublisher2(
                 pcontext: ::windows::runtime::RawPtr,
@@ -6591,7 +6591,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<
 pub unsafe fn WSDCreateHttpAddress() -> ::windows::runtime::Result<IWSDHttpAddress> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateHttpAddress(
                 ppaddress: *mut ::windows::runtime::RawPtr,
@@ -6607,7 +6607,7 @@ pub unsafe fn WSDCreateHttpMessageParameters(
 ) -> ::windows::runtime::Result<IWSDHttpMessageParameters> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateHttpMessageParameters(
                 pptxparams: *mut ::windows::runtime::RawPtr,
@@ -6624,7 +6624,7 @@ pub unsafe fn WSDCreateHttpMessageParameters(
 pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::runtime::Result<IWSDOutboundAttachment> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateOutboundAttachment(
                 ppattachment: *mut ::windows::runtime::RawPtr,
@@ -6640,7 +6640,7 @@ pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::runtime::Result<IWSDOu
 pub unsafe fn WSDCreateUdpAddress() -> ::windows::runtime::Result<IWSDUdpAddress> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateUdpAddress(
                 ppaddress: *mut ::windows::runtime::RawPtr,
@@ -6656,7 +6656,7 @@ pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::runtime::Result<IWSD
 {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDCreateUdpMessageParameters(
                 pptxparams: *mut ::windows::runtime::RawPtr,
@@ -6672,7 +6672,7 @@ pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::runtime::Result<IWSD
 pub unsafe fn WSDDetachLinkedMemory(pvoid: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDDetachLinkedMemory(pvoid: *mut ::std::ffi::c_void);
         }
@@ -6708,7 +6708,7 @@ unsafe impl ::windows::runtime::Abi for WSDEventType {
 pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDFreeLinkedMemory(pvoid: *mut ::std::ffi::c_void);
         }
@@ -6734,7 +6734,7 @@ pub unsafe fn WSDGenerateFault<
 ) -> ::windows::runtime::Result<*mut WSD_SOAP_FAULT> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDGenerateFault(
                 pszcode: super::super::Foundation::PWSTR,
@@ -6772,7 +6772,7 @@ pub unsafe fn WSDGenerateFaultEx<
 ) -> ::windows::runtime::Result<*mut WSD_SOAP_FAULT> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDGenerateFaultEx(
                 pcode: *const WSDXML_NAME,
@@ -6803,7 +6803,7 @@ pub unsafe fn WSDGetConfigurationOption(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDGetConfigurationOption(
                 dwoption: u32,
@@ -6828,7 +6828,7 @@ pub unsafe fn WSDSetConfigurationOption(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDSetConfigurationOption(
                 dwoption: u32,
@@ -6919,7 +6919,7 @@ pub unsafe fn WSDUriDecode<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDUriDecode(
                 source: super::super::Foundation::PWSTR,
@@ -6951,7 +6951,7 @@ pub unsafe fn WSDUriEncode<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDUriEncode(
                 source: super::super::Foundation::PWSTR,
@@ -6978,7 +6978,7 @@ pub unsafe fn WSDXMLAddChild(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDXMLAddChild(
                 pparent: *mut WSDXML_ELEMENT,
@@ -7001,7 +7001,7 @@ pub unsafe fn WSDXMLAddSibling(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDXMLAddSibling(
                 pfirst: *mut WSDXML_ELEMENT,
@@ -7028,7 +7028,7 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDXMLBuildAnyForSingleElement(
                 pelementname: *mut WSDXML_NAME,
@@ -7050,7 +7050,7 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runtime::HRESULT;
         }
@@ -7062,7 +7062,7 @@ pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runt
 pub unsafe fn WSDXMLCreateContext() -> ::windows::runtime::Result<IWSDXMLContext> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDXMLCreateContext(
                 ppcontext: *mut ::windows::runtime::RawPtr,
@@ -7085,7 +7085,7 @@ pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<
 ) -> ::windows::runtime::Result<*mut WSDXML_NAME> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDXMLGetNameFromBuiltinNamespace(
                 psznamespace: super::super::Foundation::PWSTR,
@@ -7117,7 +7117,7 @@ pub unsafe fn WSDXMLGetValueFromAny<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsdapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WSDXMLGetValueFromAny(
                 psznamespace: super::super::Foundation::PWSTR,

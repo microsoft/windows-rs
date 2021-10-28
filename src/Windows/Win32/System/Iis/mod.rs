@@ -1160,7 +1160,7 @@ pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows::runtime::GUID =
 pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rpcproxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1173,7 +1173,7 @@ pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::
 pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "rpcproxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL;
         }
@@ -2591,7 +2591,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_TRACE_TYPE {
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcproxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
         }
@@ -2608,7 +2608,7 @@ pub unsafe fn HttpFilterProc(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcproxy")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpFilterProc(
                 pfc: *mut HTTP_FILTER_CONTEXT,

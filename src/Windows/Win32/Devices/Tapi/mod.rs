@@ -805,7 +805,7 @@ pub unsafe fn GetTnefStreamCodepage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTnefStreamCodepage(
                 lpstream: ::windows::runtime::RawPtr,
@@ -36816,7 +36816,7 @@ pub unsafe fn OpenTnefStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenTnefStream(
                 lpvsupport: *mut ::std::ffi::c_void,
@@ -36863,7 +36863,7 @@ pub unsafe fn OpenTnefStreamEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenTnefStreamEx(
                 lpvsupport: *mut ::std::ffi::c_void,
@@ -38738,7 +38738,7 @@ pub unsafe fn lineAccept<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineAccept(
                 hcall: u32,
@@ -38767,7 +38767,7 @@ pub unsafe fn lineAddProvider<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineAddProvider(
                 lpszproviderfilename: super::super::Foundation::PSTR,
@@ -38796,7 +38796,7 @@ pub unsafe fn lineAddProviderA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineAddProviderA(
                 lpszproviderfilename: super::super::Foundation::PSTR,
@@ -38825,7 +38825,7 @@ pub unsafe fn lineAddProviderW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineAddProviderW(
                 lpszproviderfilename: super::super::Foundation::PWSTR,
@@ -38845,7 +38845,7 @@ pub unsafe fn lineAddProviderW<
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32;
         }
@@ -38866,7 +38866,7 @@ pub unsafe fn lineAgentSpecific(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineAgentSpecific(
                 hline: u32,
@@ -38898,7 +38898,7 @@ pub unsafe fn lineAnswer<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineAnswer(
                 hcall: u32,
@@ -38926,7 +38926,7 @@ pub unsafe fn lineBlindTransfer<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineBlindTransfer(
                 hcall: u32,
@@ -38954,7 +38954,7 @@ pub unsafe fn lineBlindTransferA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineBlindTransferA(
                 hcall: u32,
@@ -38982,7 +38982,7 @@ pub unsafe fn lineBlindTransferW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineBlindTransferW(
                 hcall: u32,
@@ -39002,7 +39002,7 @@ pub unsafe fn lineBlindTransferW<
 pub unsafe fn lineClose(hline: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineClose(hline: u32) -> i32;
         }
@@ -39019,7 +39019,7 @@ pub unsafe fn lineCompleteCall(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineCompleteCall(
                 hcall: u32,
@@ -39046,7 +39046,7 @@ pub unsafe fn lineCompleteTransfer(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineCompleteTransfer(
                 hcall: u32,
@@ -39077,7 +39077,7 @@ pub unsafe fn lineConfigDialog<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineConfigDialog(
                 dwdeviceid: u32,
@@ -39106,7 +39106,7 @@ pub unsafe fn lineConfigDialogA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineConfigDialogA(
                 dwdeviceid: u32,
@@ -39138,7 +39138,7 @@ pub unsafe fn lineConfigDialogEdit<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineConfigDialogEdit(
                 dwdeviceid: u32,
@@ -39176,7 +39176,7 @@ pub unsafe fn lineConfigDialogEditA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineConfigDialogEditA(
                 dwdeviceid: u32,
@@ -39214,7 +39214,7 @@ pub unsafe fn lineConfigDialogEditW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineConfigDialogEditW(
                 dwdeviceid: u32,
@@ -39249,7 +39249,7 @@ pub unsafe fn lineConfigDialogW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineConfigDialogW(
                 dwdeviceid: u32,
@@ -39276,7 +39276,7 @@ pub unsafe fn lineConfigProvider<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineConfigProvider(
                 hwndowner: super::super::Foundation::HWND,
@@ -39304,7 +39304,7 @@ pub unsafe fn lineCreateAgentA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineCreateAgentA(
                 hline: u32,
@@ -39337,7 +39337,7 @@ pub unsafe fn lineCreateAgentSessionA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineCreateAgentSessionA(
                 hline: u32,
@@ -39374,7 +39374,7 @@ pub unsafe fn lineCreateAgentSessionW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineCreateAgentSessionW(
                 hline: u32,
@@ -39410,7 +39410,7 @@ pub unsafe fn lineCreateAgentW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineCreateAgentW(
                 hline: u32,
@@ -39432,7 +39432,7 @@ pub unsafe fn lineCreateAgentW<
 pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineDeallocateCall(hcall: u32) -> i32;
         }
@@ -39450,7 +39450,7 @@ pub unsafe fn lineDevSpecific(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineDevSpecific(
                 hline: u32,
@@ -39479,7 +39479,7 @@ pub unsafe fn lineDevSpecificFeature(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineDevSpecificFeature(
                 hline: u32,
@@ -39509,7 +39509,7 @@ pub unsafe fn lineDial<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineDial(
                 hcall: u32,
@@ -39537,7 +39537,7 @@ pub unsafe fn lineDialA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineDialA(
                 hcall: u32,
@@ -39565,7 +39565,7 @@ pub unsafe fn lineDialW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineDialW(
                 hcall: u32,
@@ -39593,7 +39593,7 @@ pub unsafe fn lineDrop<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineDrop(
                 hcall: u32,
@@ -39621,7 +39621,7 @@ pub unsafe fn lineForward(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineForward(
                 hline: u32,
@@ -39657,7 +39657,7 @@ pub unsafe fn lineForwardA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineForwardA(
                 hline: u32,
@@ -39693,7 +39693,7 @@ pub unsafe fn lineForwardW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineForwardW(
                 hline: u32,
@@ -39733,7 +39733,7 @@ pub unsafe fn lineGatherDigits<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGatherDigits(
                 hcall: u32,
@@ -39773,7 +39773,7 @@ pub unsafe fn lineGatherDigitsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGatherDigitsA(
                 hcall: u32,
@@ -39813,7 +39813,7 @@ pub unsafe fn lineGatherDigitsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGatherDigitsW(
                 hcall: u32,
@@ -39850,7 +39850,7 @@ pub unsafe fn lineGenerateDigits<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGenerateDigits(
                 hcall: u32,
@@ -39881,7 +39881,7 @@ pub unsafe fn lineGenerateDigitsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGenerateDigitsA(
                 hcall: u32,
@@ -39912,7 +39912,7 @@ pub unsafe fn lineGenerateDigitsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGenerateDigitsW(
                 hcall: u32,
@@ -39940,7 +39940,7 @@ pub unsafe fn lineGenerateTone(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGenerateTone(
                 hcall: u32,
@@ -39971,7 +39971,7 @@ pub unsafe fn lineGetAddressCaps(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressCaps(
                 hlineapp: u32,
@@ -40004,7 +40004,7 @@ pub unsafe fn lineGetAddressCapsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressCapsA(
                 hlineapp: u32,
@@ -40037,7 +40037,7 @@ pub unsafe fn lineGetAddressCapsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressCapsW(
                 hlineapp: u32,
@@ -40073,7 +40073,7 @@ pub unsafe fn lineGetAddressID<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressID(
                 hline: u32,
@@ -40107,7 +40107,7 @@ pub unsafe fn lineGetAddressIDA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressIDA(
                 hline: u32,
@@ -40141,7 +40141,7 @@ pub unsafe fn lineGetAddressIDW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressIDW(
                 hline: u32,
@@ -40169,7 +40169,7 @@ pub unsafe fn lineGetAddressStatus(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressStatus(
                 hline: u32,
@@ -40193,7 +40193,7 @@ pub unsafe fn lineGetAddressStatusA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressStatusA(
                 hline: u32,
@@ -40217,7 +40217,7 @@ pub unsafe fn lineGetAddressStatusW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAddressStatusW(
                 hline: u32,
@@ -40241,7 +40241,7 @@ pub unsafe fn lineGetAgentActivityListA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentActivityListA(
                 hline: u32,
@@ -40265,7 +40265,7 @@ pub unsafe fn lineGetAgentActivityListW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentActivityListW(
                 hline: u32,
@@ -40291,7 +40291,7 @@ pub unsafe fn lineGetAgentCapsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentCapsA(
                 hlineapp: u32,
@@ -40321,7 +40321,7 @@ pub unsafe fn lineGetAgentCapsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentCapsW(
                 hlineapp: u32,
@@ -40349,7 +40349,7 @@ pub unsafe fn lineGetAgentGroupListA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentGroupListA(
                 hline: u32,
@@ -40373,7 +40373,7 @@ pub unsafe fn lineGetAgentGroupListW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentGroupListW(
                 hline: u32,
@@ -40394,7 +40394,7 @@ pub unsafe fn lineGetAgentGroupListW(
 pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32;
         }
@@ -40415,7 +40415,7 @@ pub unsafe fn lineGetAgentSessionInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentSessionInfo(
                 hline: u32,
@@ -40439,7 +40439,7 @@ pub unsafe fn lineGetAgentSessionList(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentSessionList(
                 hline: u32,
@@ -40463,7 +40463,7 @@ pub unsafe fn lineGetAgentStatusA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentStatusA(
                 hline: u32,
@@ -40487,7 +40487,7 @@ pub unsafe fn lineGetAgentStatusW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAgentStatusW(
                 hline: u32,
@@ -40518,7 +40518,7 @@ pub unsafe fn lineGetAppPriority<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAppPriority(
                 lpszappfilename: super::super::Foundation::PSTR,
@@ -40555,7 +40555,7 @@ pub unsafe fn lineGetAppPriorityA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAppPriorityA(
                 lpszappfilename: super::super::Foundation::PSTR,
@@ -40592,7 +40592,7 @@ pub unsafe fn lineGetAppPriorityW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetAppPriorityW(
                 lpszappfilename: super::super::Foundation::PWSTR,
@@ -40618,7 +40618,7 @@ pub unsafe fn lineGetAppPriorityW<
 pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
         }
@@ -40633,7 +40633,7 @@ pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 
 pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
         }
@@ -40648,7 +40648,7 @@ pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
 pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
         }
@@ -40664,7 +40664,7 @@ pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
 pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32;
         }
@@ -40679,7 +40679,7 @@ pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -
 pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32;
         }
@@ -40698,7 +40698,7 @@ pub unsafe fn lineGetCountry(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetCountry(
                 dwcountryid: u32,
@@ -40722,7 +40722,7 @@ pub unsafe fn lineGetCountryA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetCountryA(
                 dwcountryid: u32,
@@ -40746,7 +40746,7 @@ pub unsafe fn lineGetCountryW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetCountryW(
                 dwcountryid: u32,
@@ -40772,7 +40772,7 @@ pub unsafe fn lineGetDevCaps(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetDevCaps(
                 hlineapp: u32,
@@ -40802,7 +40802,7 @@ pub unsafe fn lineGetDevCapsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetDevCapsA(
                 hlineapp: u32,
@@ -40832,7 +40832,7 @@ pub unsafe fn lineGetDevCapsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetDevCapsW(
                 hlineapp: u32,
@@ -40864,7 +40864,7 @@ pub unsafe fn lineGetDevConfig<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetDevConfig(
                 dwdeviceid: u32,
@@ -40892,7 +40892,7 @@ pub unsafe fn lineGetDevConfigA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetDevConfigA(
                 dwdeviceid: u32,
@@ -40920,7 +40920,7 @@ pub unsafe fn lineGetDevConfigW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetDevConfigW(
                 dwdeviceid: u32,
@@ -40940,7 +40940,7 @@ pub unsafe fn lineGetDevConfigW<
 pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
         }
@@ -40955,7 +40955,7 @@ pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
 pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
         }
@@ -40981,7 +40981,7 @@ pub unsafe fn lineGetID<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetID(
                 hline: u32,
@@ -41018,7 +41018,7 @@ pub unsafe fn lineGetIDA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetIDA(
                 hline: u32,
@@ -41055,7 +41055,7 @@ pub unsafe fn lineGetIDW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetIDW(
                 hline: u32,
@@ -41089,7 +41089,7 @@ pub unsafe fn lineGetIcon<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetIcon(
                 dwdeviceid: u32,
@@ -41117,7 +41117,7 @@ pub unsafe fn lineGetIconA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetIconA(
                 dwdeviceid: u32,
@@ -41145,7 +41145,7 @@ pub unsafe fn lineGetIconW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetIconW(
                 dwdeviceid: u32,
@@ -41165,7 +41165,7 @@ pub unsafe fn lineGetIconW<
 pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
         }
@@ -41180,7 +41180,7 @@ pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTAT
 pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
         }
@@ -41195,7 +41195,7 @@ pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTA
 pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
         }
@@ -41210,7 +41210,7 @@ pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTA
 pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32;
         }
@@ -41231,7 +41231,7 @@ pub unsafe fn lineGetNewCalls(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetNewCalls(
                 hline: u32,
@@ -41253,7 +41253,7 @@ pub unsafe fn lineGetNewCalls(
 pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32;
         }
@@ -41269,7 +41269,7 @@ pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u
 pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST)
                 -> i32;
@@ -41288,7 +41288,7 @@ pub unsafe fn lineGetProviderListA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetProviderListA(
                 dwapiversion: u32,
@@ -41309,7 +41309,7 @@ pub unsafe fn lineGetProviderListW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetProviderListW(
                 dwapiversion: u32,
@@ -41332,7 +41332,7 @@ pub unsafe fn lineGetProxyStatus(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetProxyStatus(
                 hlineapp: u32,
@@ -41358,7 +41358,7 @@ pub unsafe fn lineGetQueueInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetQueueInfo(
                 hline: u32,
@@ -41382,7 +41382,7 @@ pub unsafe fn lineGetQueueListA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetQueueListA(
                 hline: u32,
@@ -41406,7 +41406,7 @@ pub unsafe fn lineGetQueueListW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetQueueListW(
                 hline: u32,
@@ -41430,7 +41430,7 @@ pub unsafe fn lineGetRequest(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetRequest(
                 hlineapp: u32,
@@ -41454,7 +41454,7 @@ pub unsafe fn lineGetRequestA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetRequestA(
                 hlineapp: u32,
@@ -41478,7 +41478,7 @@ pub unsafe fn lineGetRequestW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetRequestW(
                 hlineapp: u32,
@@ -41502,7 +41502,7 @@ pub unsafe fn lineGetStatusMessages(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetStatusMessages(
                 hline: u32,
@@ -41526,7 +41526,7 @@ pub unsafe fn lineGetTranslateCaps(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetTranslateCaps(
                 hlineapp: u32,
@@ -41550,7 +41550,7 @@ pub unsafe fn lineGetTranslateCapsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetTranslateCapsA(
                 hlineapp: u32,
@@ -41574,7 +41574,7 @@ pub unsafe fn lineGetTranslateCapsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineGetTranslateCapsW(
                 hlineapp: u32,
@@ -41602,7 +41602,7 @@ pub unsafe fn lineHandoff<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineHandoff(
                 hcall: u32,
@@ -41630,7 +41630,7 @@ pub unsafe fn lineHandoffA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineHandoffA(
                 hcall: u32,
@@ -41658,7 +41658,7 @@ pub unsafe fn lineHandoffW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineHandoffW(
                 hcall: u32,
@@ -41678,7 +41678,7 @@ pub unsafe fn lineHandoffW<
 pub unsafe fn lineHold(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineHold(hcall: u32) -> i32;
         }
@@ -41701,7 +41701,7 @@ pub unsafe fn lineInitialize<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineInitialize(
                 lphlineapp: *mut u32,
@@ -41738,7 +41738,7 @@ pub unsafe fn lineInitializeExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineInitializeExA(
                 lphlineapp: *mut u32,
@@ -41779,7 +41779,7 @@ pub unsafe fn lineInitializeExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineInitializeExW(
                 lphlineapp: *mut u32,
@@ -41817,7 +41817,7 @@ pub unsafe fn lineMakeCall<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineMakeCall(
                 hline: u32,
@@ -41851,7 +41851,7 @@ pub unsafe fn lineMakeCallA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineMakeCallA(
                 hline: u32,
@@ -41885,7 +41885,7 @@ pub unsafe fn lineMakeCallW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineMakeCallW(
                 hline: u32,
@@ -41909,7 +41909,7 @@ pub unsafe fn lineMakeCallW<
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32;
         }
@@ -41924,7 +41924,7 @@ pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
 pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32;
         }
@@ -41943,7 +41943,7 @@ pub unsafe fn lineMonitorTones(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineMonitorTones(
                 hcall: u32,
@@ -41970,7 +41970,7 @@ pub unsafe fn lineNegotiateAPIVersion(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineNegotiateAPIVersion(
                 hlineapp: u32,
@@ -42003,7 +42003,7 @@ pub unsafe fn lineNegotiateExtVersion(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineNegotiateExtVersion(
                 hlineapp: u32,
@@ -42039,7 +42039,7 @@ pub unsafe fn lineOpen(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineOpen(
                 hlineapp: u32,
@@ -42081,7 +42081,7 @@ pub unsafe fn lineOpenA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineOpenA(
                 hlineapp: u32,
@@ -42123,7 +42123,7 @@ pub unsafe fn lineOpenW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineOpenW(
                 hlineapp: u32,
@@ -42164,7 +42164,7 @@ pub unsafe fn linePark<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn linePark(
                 hcall: u32,
@@ -42195,7 +42195,7 @@ pub unsafe fn lineParkA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineParkA(
                 hcall: u32,
@@ -42226,7 +42226,7 @@ pub unsafe fn lineParkW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineParkW(
                 hcall: u32,
@@ -42259,7 +42259,7 @@ pub unsafe fn linePickup<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn linePickup(
                 hline: u32,
@@ -42294,7 +42294,7 @@ pub unsafe fn linePickupA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn linePickupA(
                 hline: u32,
@@ -42329,7 +42329,7 @@ pub unsafe fn linePickupW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn linePickupW(
                 hline: u32,
@@ -42357,7 +42357,7 @@ pub unsafe fn linePrepareAddToConference(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn linePrepareAddToConference(
                 hconfcall: u32,
@@ -42381,7 +42381,7 @@ pub unsafe fn linePrepareAddToConferenceA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn linePrepareAddToConferenceA(
                 hconfcall: u32,
@@ -42405,7 +42405,7 @@ pub unsafe fn linePrepareAddToConferenceW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn linePrepareAddToConferenceW(
                 hconfcall: u32,
@@ -42432,7 +42432,7 @@ pub unsafe fn lineProxyMessage(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineProxyMessage(
                 hline: u32,
@@ -42463,7 +42463,7 @@ pub unsafe fn lineProxyResponse(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineProxyResponse(
                 hline: u32,
@@ -42491,7 +42491,7 @@ pub unsafe fn lineRedirect<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineRedirect(
                 hcall: u32,
@@ -42519,7 +42519,7 @@ pub unsafe fn lineRedirectA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineRedirectA(
                 hcall: u32,
@@ -42547,7 +42547,7 @@ pub unsafe fn lineRedirectW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineRedirectW(
                 hcall: u32,
@@ -42572,7 +42572,7 @@ pub unsafe fn lineRegisterRequestRecipient(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineRegisterRequestRecipient(
                 hlineapp: u32,
@@ -42594,7 +42594,7 @@ pub unsafe fn lineRegisterRequestRecipient(
 pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineReleaseUserUserInfo(hcall: u32) -> i32;
         }
@@ -42606,7 +42606,7 @@ pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
 pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineRemoveFromConference(hcall: u32) -> i32;
         }
@@ -42625,7 +42625,7 @@ pub unsafe fn lineRemoveProvider<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineRemoveProvider(
                 dwpermanentproviderid: u32,
@@ -42643,7 +42643,7 @@ pub unsafe fn lineRemoveProvider<
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSecureCall(hcall: u32) -> i32;
         }
@@ -42663,7 +42663,7 @@ pub unsafe fn lineSendUserUserInfo<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSendUserUserInfo(
                 hcall: u32,
@@ -42683,7 +42683,7 @@ pub unsafe fn lineSendUserUserInfo<
 pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32;
         }
@@ -42703,7 +42703,7 @@ pub unsafe fn lineSetAgentGroup(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAgentGroup(
                 hline: u32,
@@ -42727,7 +42727,7 @@ pub unsafe fn lineSetAgentMeasurementPeriod(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAgentMeasurementPeriod(
                 hline: u32,
@@ -42752,7 +42752,7 @@ pub unsafe fn lineSetAgentSessionState(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAgentSessionState(
                 hline: u32,
@@ -42779,7 +42779,7 @@ pub unsafe fn lineSetAgentState(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAgentState(
                 hline: u32,
@@ -42806,7 +42806,7 @@ pub unsafe fn lineSetAgentStateEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAgentStateEx(
                 hline: u32,
@@ -42840,7 +42840,7 @@ pub unsafe fn lineSetAppPriority<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAppPriority(
                 lpszappfilename: super::super::Foundation::PSTR,
@@ -42878,7 +42878,7 @@ pub unsafe fn lineSetAppPriorityA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAppPriorityA(
                 lpszappfilename: super::super::Foundation::PSTR,
@@ -42916,7 +42916,7 @@ pub unsafe fn lineSetAppPriorityW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAppPriorityW(
                 lpszappfilename: super::super::Foundation::PWSTR,
@@ -42942,7 +42942,7 @@ pub unsafe fn lineSetAppPriorityW<
 pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32;
         }
@@ -42957,7 +42957,7 @@ pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
 pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::std::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetCallData(hcall: u32, lpcalldata: *mut ::std::ffi::c_void, dwsize: u32)
                 -> i32;
@@ -42980,7 +42980,7 @@ pub unsafe fn lineSetCallParams(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetCallParams(
                 hcall: u32,
@@ -43004,7 +43004,7 @@ pub unsafe fn lineSetCallParams(
 pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32;
         }
@@ -43025,7 +43025,7 @@ pub unsafe fn lineSetCallQualityOfService(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetCallQualityOfService(
                 hcall: u32,
@@ -43049,7 +43049,7 @@ pub unsafe fn lineSetCallQualityOfService(
 pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32;
         }
@@ -43064,7 +43064,7 @@ pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
 pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32;
         }
@@ -43088,7 +43088,7 @@ pub unsafe fn lineSetDevConfig<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetDevConfig(
                 dwdeviceid: u32,
@@ -43119,7 +43119,7 @@ pub unsafe fn lineSetDevConfigA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetDevConfigA(
                 dwdeviceid: u32,
@@ -43150,7 +43150,7 @@ pub unsafe fn lineSetDevConfigW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetDevConfigW(
                 dwdeviceid: u32,
@@ -43172,7 +43172,7 @@ pub unsafe fn lineSetDevConfigW<
 pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32;
         }
@@ -43201,7 +43201,7 @@ pub unsafe fn lineSetMediaControl(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetMediaControl(
                 hline: u32,
@@ -43239,7 +43239,7 @@ pub unsafe fn lineSetMediaControl(
 pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32;
         }
@@ -43254,7 +43254,7 @@ pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
 pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32;
         }
@@ -43274,7 +43274,7 @@ pub unsafe fn lineSetQueueMeasurementPeriod(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetQueueMeasurementPeriod(
                 hline: u32,
@@ -43294,7 +43294,7 @@ pub unsafe fn lineSetQueueMeasurementPeriod(
 pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32;
         }
@@ -43318,7 +43318,7 @@ pub unsafe fn lineSetTerminal(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetTerminal(
                 hline: u32,
@@ -43355,7 +43355,7 @@ pub unsafe fn lineSetTollList<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetTollList(
                 hlineapp: u32,
@@ -43386,7 +43386,7 @@ pub unsafe fn lineSetTollListA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetTollListA(
                 hlineapp: u32,
@@ -43417,7 +43417,7 @@ pub unsafe fn lineSetTollListW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetTollListW(
                 hlineapp: u32,
@@ -43446,7 +43446,7 @@ pub unsafe fn lineSetupConference(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetupConference(
                 hcall: u32,
@@ -43479,7 +43479,7 @@ pub unsafe fn lineSetupConferenceA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetupConferenceA(
                 hcall: u32,
@@ -43512,7 +43512,7 @@ pub unsafe fn lineSetupConferenceW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetupConferenceW(
                 hcall: u32,
@@ -43542,7 +43542,7 @@ pub unsafe fn lineSetupTransfer(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetupTransfer(
                 hcall: u32,
@@ -43566,7 +43566,7 @@ pub unsafe fn lineSetupTransferA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetupTransferA(
                 hcall: u32,
@@ -43590,7 +43590,7 @@ pub unsafe fn lineSetupTransferW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSetupTransferW(
                 hcall: u32,
@@ -43610,7 +43610,7 @@ pub unsafe fn lineSetupTransferW(
 pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineShutdown(hlineapp: u32) -> i32;
         }
@@ -43622,7 +43622,7 @@ pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
 pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32;
         }
@@ -43649,7 +43649,7 @@ pub unsafe fn lineTranslateAddress<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineTranslateAddress(
                 hlineapp: u32,
@@ -43689,7 +43689,7 @@ pub unsafe fn lineTranslateAddressA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineTranslateAddressA(
                 hlineapp: u32,
@@ -43729,7 +43729,7 @@ pub unsafe fn lineTranslateAddressW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineTranslateAddressW(
                 hlineapp: u32,
@@ -43768,7 +43768,7 @@ pub unsafe fn lineTranslateDialog<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineTranslateDialog(
                 hlineapp: u32,
@@ -43803,7 +43803,7 @@ pub unsafe fn lineTranslateDialogA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineTranslateDialogA(
                 hlineapp: u32,
@@ -43838,7 +43838,7 @@ pub unsafe fn lineTranslateDialogW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineTranslateDialogW(
                 hlineapp: u32,
@@ -43862,7 +43862,7 @@ pub unsafe fn lineTranslateDialogW<
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32;
         }
@@ -43877,7 +43877,7 @@ pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
 pub unsafe fn lineUnhold(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineUnhold(hcall: u32) -> i32;
         }
@@ -43898,7 +43898,7 @@ pub unsafe fn lineUnpark<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineUnpark(
                 hline: u32,
@@ -43929,7 +43929,7 @@ pub unsafe fn lineUnparkA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineUnparkA(
                 hline: u32,
@@ -43960,7 +43960,7 @@ pub unsafe fn lineUnparkW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lineUnparkW(
                 hline: u32,
@@ -44042,7 +44042,7 @@ unsafe impl ::windows::runtime::Abi for linereqmediacallW_tag {
 pub unsafe fn phoneClose(hphone: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneClose(hphone: u32) -> i32;
         }
@@ -44063,7 +44063,7 @@ pub unsafe fn phoneConfigDialog<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneConfigDialog(
                 dwdeviceid: u32,
@@ -44092,7 +44092,7 @@ pub unsafe fn phoneConfigDialogA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneConfigDialogA(
                 dwdeviceid: u32,
@@ -44121,7 +44121,7 @@ pub unsafe fn phoneConfigDialogW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneConfigDialogW(
                 dwdeviceid: u32,
@@ -44141,7 +44141,7 @@ pub unsafe fn phoneConfigDialogW<
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::std::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneDevSpecific(hphone: u32, lpparams: *mut ::std::ffi::c_void, dwsize: u32)
                 -> i32;
@@ -44162,7 +44162,7 @@ pub unsafe fn phoneGetButtonInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetButtonInfo(
                 hphone: u32,
@@ -44186,7 +44186,7 @@ pub unsafe fn phoneGetButtonInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetButtonInfoA(
                 hphone: u32,
@@ -44210,7 +44210,7 @@ pub unsafe fn phoneGetButtonInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetButtonInfoW(
                 hphone: u32,
@@ -44235,7 +44235,7 @@ pub unsafe fn phoneGetData(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetData(
                 hphone: u32,
@@ -44263,7 +44263,7 @@ pub unsafe fn phoneGetDevCaps(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetDevCaps(
                 hphoneapp: u32,
@@ -44293,7 +44293,7 @@ pub unsafe fn phoneGetDevCapsA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetDevCapsA(
                 hphoneapp: u32,
@@ -44323,7 +44323,7 @@ pub unsafe fn phoneGetDevCapsW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetDevCapsW(
                 hphoneapp: u32,
@@ -44347,7 +44347,7 @@ pub unsafe fn phoneGetDevCapsW(
 pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32;
         }
@@ -44362,7 +44362,7 @@ pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
 pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32;
         }
@@ -44378,7 +44378,7 @@ pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32
 pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32;
         }
@@ -44401,7 +44401,7 @@ pub unsafe fn phoneGetID<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetID(
                 hphone: u32,
@@ -44429,7 +44429,7 @@ pub unsafe fn phoneGetIDA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetIDA(
                 hphone: u32,
@@ -44457,7 +44457,7 @@ pub unsafe fn phoneGetIDW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetIDW(
                 hphone: u32,
@@ -44485,7 +44485,7 @@ pub unsafe fn phoneGetIcon<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetIcon(
                 dwdeviceid: u32,
@@ -44513,7 +44513,7 @@ pub unsafe fn phoneGetIconA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetIconA(
                 dwdeviceid: u32,
@@ -44541,7 +44541,7 @@ pub unsafe fn phoneGetIconW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetIconW(
                 dwdeviceid: u32,
@@ -44561,7 +44561,7 @@ pub unsafe fn phoneGetIconW<
 pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32;
         }
@@ -44577,7 +44577,7 @@ pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut 
 pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32)
                 -> i32;
@@ -44594,7 +44594,7 @@ pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwti
 pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32;
         }
@@ -44610,7 +44610,7 @@ pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut
 pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
         }
@@ -44625,7 +44625,7 @@ pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i3
 pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
         }
@@ -44645,7 +44645,7 @@ pub unsafe fn phoneGetStatusMessages(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetStatusMessages(
                 hphone: u32,
@@ -44667,7 +44667,7 @@ pub unsafe fn phoneGetStatusMessages(
 pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
         }
@@ -44682,7 +44682,7 @@ pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
 pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32;
         }
@@ -44709,7 +44709,7 @@ pub unsafe fn phoneInitialize<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneInitialize(
                 lphphoneapp: *mut u32,
@@ -44746,7 +44746,7 @@ pub unsafe fn phoneInitializeExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneInitializeExA(
                 lphphoneapp: *mut u32,
@@ -44787,7 +44787,7 @@ pub unsafe fn phoneInitializeExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneInitializeExW(
                 lphphoneapp: *mut u32,
@@ -44822,7 +44822,7 @@ pub unsafe fn phoneNegotiateAPIVersion(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneNegotiateAPIVersion(
                 hphoneapp: u32,
@@ -44855,7 +44855,7 @@ pub unsafe fn phoneNegotiateExtVersion(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneNegotiateExtVersion(
                 hphoneapp: u32,
@@ -44889,7 +44889,7 @@ pub unsafe fn phoneOpen(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneOpen(
                 hphoneapp: u32,
@@ -44921,7 +44921,7 @@ pub unsafe fn phoneSetButtonInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetButtonInfo(
                 hphone: u32,
@@ -44945,7 +44945,7 @@ pub unsafe fn phoneSetButtonInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetButtonInfoA(
                 hphone: u32,
@@ -44969,7 +44969,7 @@ pub unsafe fn phoneSetButtonInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetButtonInfoW(
                 hphone: u32,
@@ -44994,7 +44994,7 @@ pub unsafe fn phoneSetData(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetData(
                 hphone: u32,
@@ -45026,7 +45026,7 @@ pub unsafe fn phoneSetDisplay<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetDisplay(
                 hphone: u32,
@@ -45050,7 +45050,7 @@ pub unsafe fn phoneSetDisplay<
 pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32;
         }
@@ -45066,7 +45066,7 @@ pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i3
 pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32)
                 -> i32;
@@ -45083,7 +45083,7 @@ pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitc
 pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32;
         }
@@ -45099,7 +45099,7 @@ pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) ->
 pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32;
         }
@@ -45120,7 +45120,7 @@ pub unsafe fn phoneSetStatusMessages(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetStatusMessages(
                 hphone: u32,
@@ -45142,7 +45142,7 @@ pub unsafe fn phoneSetStatusMessages(
 pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32;
         }
@@ -45158,7 +45158,7 @@ pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -
 pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn phoneShutdown(hphoneapp: u32) -> i32;
         }
@@ -45174,7 +45174,7 @@ pub unsafe fn tapiGetLocationInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiGetLocationInfo(
                 lpszcountrycode: super::super::Foundation::PSTR,
@@ -45196,7 +45196,7 @@ pub unsafe fn tapiGetLocationInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiGetLocationInfoA(
                 lpszcountrycode: super::super::Foundation::PSTR,
@@ -45218,7 +45218,7 @@ pub unsafe fn tapiGetLocationInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiGetLocationInfoW(
                 lpszcountrycodew: super::super::Foundation::PWSTR,
@@ -45244,7 +45244,7 @@ pub unsafe fn tapiRequestDrop<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiRequestDrop(
                 hwnd: super::super::Foundation::HWND,
@@ -45274,7 +45274,7 @@ pub unsafe fn tapiRequestMakeCall<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiRequestMakeCall(
                 lpszdestaddress: super::super::Foundation::PSTR,
@@ -45308,7 +45308,7 @@ pub unsafe fn tapiRequestMakeCallA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiRequestMakeCallA(
                 lpszdestaddress: super::super::Foundation::PSTR,
@@ -45342,7 +45342,7 @@ pub unsafe fn tapiRequestMakeCallW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiRequestMakeCallW(
                 lpszdestaddress: super::super::Foundation::PWSTR,
@@ -45386,7 +45386,7 @@ pub unsafe fn tapiRequestMediaCall<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiRequestMediaCall(
                 hwnd: super::super::Foundation::HWND,
@@ -45442,7 +45442,7 @@ pub unsafe fn tapiRequestMediaCallA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiRequestMediaCallA(
                 hwnd: super::super::Foundation::HWND,
@@ -45498,7 +45498,7 @@ pub unsafe fn tapiRequestMediaCallW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "tapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn tapiRequestMediaCallW(
                 hwnd: super::super::Foundation::HWND,

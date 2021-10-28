@@ -16,7 +16,7 @@ pub unsafe fn AddERExcludedApplicationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "faultrep")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddERExcludedApplicationA(
                 szapplication: super::super::Foundation::PSTR,
@@ -36,7 +36,7 @@ pub unsafe fn AddERExcludedApplicationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "faultrep")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddERExcludedApplicationW(
                 wszapplication: super::super::Foundation::PWSTR,
@@ -193,7 +193,7 @@ pub unsafe fn ReportFault(
 ) -> EFaultRepRetVal {
     #[cfg(windows)]
     {
-        #[link(name = "faultrep")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReportFault(
                 pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS,
@@ -1479,7 +1479,7 @@ pub unsafe fn WerAddExcludedApplication<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerAddExcludedApplication(
                 pwzexename: super::super::Foundation::PWSTR,
@@ -1500,7 +1500,7 @@ pub unsafe fn WerFreeString<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerFreeString(pwszstr: super::super::Foundation::PWSTR);
         }
@@ -1518,7 +1518,7 @@ pub unsafe fn WerGetFlags<
 ) -> ::windows::runtime::Result<WER_FAULT_REPORTING> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerGetFlags(
                 hprocess: super::super::Foundation::HANDLE,
@@ -1539,7 +1539,7 @@ pub unsafe fn WerRegisterAdditionalProcess(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRegisterAdditionalProcess(
                 processid: u32,
@@ -1564,7 +1564,7 @@ pub unsafe fn WerRegisterAppLocalDump<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRegisterAppLocalDump(
                 localappdatarelativepath: super::super::Foundation::PWSTR,
@@ -1586,7 +1586,7 @@ pub unsafe fn WerRegisterCustomMetadata<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRegisterCustomMetadata(
                 key: super::super::Foundation::PWSTR,
@@ -1604,7 +1604,7 @@ pub unsafe fn WerRegisterExcludedMemoryBlock(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRegisterExcludedMemoryBlock(
                 address: *const ::std::ffi::c_void,
@@ -1628,7 +1628,7 @@ pub unsafe fn WerRegisterFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRegisterFile(
                 pwzfile: super::super::Foundation::PWSTR,
@@ -1652,7 +1652,7 @@ pub unsafe fn WerRegisterMemoryBlock(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRegisterMemoryBlock(
                 pvaddress: *const ::std::ffi::c_void,
@@ -1678,7 +1678,7 @@ pub unsafe fn WerRegisterRuntimeExceptionModule<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRegisterRuntimeExceptionModule(
                 pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR,
@@ -1705,7 +1705,7 @@ pub unsafe fn WerRemoveExcludedApplication<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerRemoveExcludedApplication(
                 pwzexename: super::super::Foundation::PWSTR,
@@ -1739,7 +1739,7 @@ pub unsafe fn WerReportAddDump<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportAddDump(
                 hreporthandle: HREPORT,
@@ -1778,7 +1778,7 @@ pub unsafe fn WerReportAddFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportAddFile(
                 hreporthandle: HREPORT,
@@ -1803,7 +1803,7 @@ pub unsafe fn WerReportCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportCloseHandle(hreporthandle: HREPORT) -> ::windows::runtime::HRESULT;
         }
@@ -1823,7 +1823,7 @@ pub unsafe fn WerReportCreate<
 ) -> ::windows::runtime::Result<HREPORT> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportCreate(
                 pwzeventtype: super::super::Foundation::PWSTR,
@@ -1855,7 +1855,7 @@ pub unsafe fn WerReportHang<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "faultrep")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportHang(
                 hwndhungapp: super::super::Foundation::HWND,
@@ -1885,7 +1885,7 @@ pub unsafe fn WerReportSetParameter<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportSetParameter(
                 hreporthandle: HREPORT,
@@ -1917,7 +1917,7 @@ pub unsafe fn WerReportSetUIOption<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportSetUIOption(
                 hreporthandle: HREPORT,
@@ -1942,7 +1942,7 @@ pub unsafe fn WerReportSubmit<'a, Param0: ::windows::runtime::IntoParam<'a, HREP
 ) -> ::windows::runtime::Result<WER_SUBMIT_RESULT> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerReportSubmit(
                 hreporthandle: HREPORT,
@@ -1967,7 +1967,7 @@ pub unsafe fn WerReportSubmit<'a, Param0: ::windows::runtime::IntoParam<'a, HREP
 pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::runtime::HRESULT;
         }
@@ -1981,7 +1981,7 @@ pub unsafe fn WerStoreClose<'a, Param0: ::windows::runtime::IntoParam<'a, HREPOR
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreClose(hreportstore: HREPORTSTORE);
         }
@@ -1999,7 +1999,7 @@ pub unsafe fn WerStoreGetFirstReportKey<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreGetFirstReportKey(
                 hreportstore: HREPORTSTORE,
@@ -2023,7 +2023,7 @@ pub unsafe fn WerStoreGetNextReportKey<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreGetNextReportKey(
                 hreportstore: HREPORTSTORE,
@@ -2046,7 +2046,7 @@ pub unsafe fn WerStoreGetReportCount<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreGetReportCount(
                 hreportstore: HREPORTSTORE,
@@ -2065,7 +2065,7 @@ pub unsafe fn WerStoreGetSizeOnDisk<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreGetSizeOnDisk(
                 hreportstore: HREPORTSTORE,
@@ -2084,7 +2084,7 @@ pub unsafe fn WerStoreOpen(
 ) -> ::windows::runtime::Result<HREPORTSTORE> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreOpen(
                 repstoretype: REPORT_STORE_TYPES,
@@ -2101,7 +2101,7 @@ pub unsafe fn WerStoreOpen(
 pub unsafe fn WerStorePurge() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStorePurge() -> ::windows::runtime::HRESULT;
         }
@@ -2121,7 +2121,7 @@ pub unsafe fn WerStoreQueryReportMetadataV1<
 ) -> ::windows::runtime::Result<WER_REPORT_METADATA_V1> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreQueryReportMetadataV1(
                 hreportstore: HREPORTSTORE,
@@ -2152,7 +2152,7 @@ pub unsafe fn WerStoreQueryReportMetadataV2<
 ) -> ::windows::runtime::Result<WER_REPORT_METADATA_V2> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreQueryReportMetadataV2(
                 hreportstore: HREPORTSTORE,
@@ -2183,7 +2183,7 @@ pub unsafe fn WerStoreQueryReportMetadataV3<
 ) -> ::windows::runtime::Result<WER_REPORT_METADATA_V3> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreQueryReportMetadataV3(
                 hreportstore: HREPORTSTORE,
@@ -2215,7 +2215,7 @@ pub unsafe fn WerStoreUploadReport<
 ) -> ::windows::runtime::Result<WER_SUBMIT_RESULT> {
     #[cfg(windows)]
     {
-        #[link(name = "wer")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerStoreUploadReport(
                 hreportstore: HREPORTSTORE,
@@ -2240,7 +2240,7 @@ pub unsafe fn WerStoreUploadReport<
 pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::runtime::HRESULT;
         }
@@ -2252,7 +2252,7 @@ pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::runti
 pub unsafe fn WerUnregisterAppLocalDump() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerUnregisterAppLocalDump() -> ::windows::runtime::HRESULT;
         }
@@ -2270,7 +2270,7 @@ pub unsafe fn WerUnregisterCustomMetadata<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerUnregisterCustomMetadata(
                 key: super::super::Foundation::PWSTR,
@@ -2286,7 +2286,7 @@ pub unsafe fn WerUnregisterExcludedMemoryBlock(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerUnregisterExcludedMemoryBlock(
                 address: *const ::std::ffi::c_void,
@@ -2306,7 +2306,7 @@ pub unsafe fn WerUnregisterFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerUnregisterFile(
                 pwzfilepath: super::super::Foundation::PWSTR,
@@ -2322,7 +2322,7 @@ pub unsafe fn WerUnregisterMemoryBlock(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerUnregisterMemoryBlock(
                 pvaddress: *const ::std::ffi::c_void,
@@ -2343,7 +2343,7 @@ pub unsafe fn WerUnregisterRuntimeExceptionModule<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WerUnregisterRuntimeExceptionModule(
                 pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR,

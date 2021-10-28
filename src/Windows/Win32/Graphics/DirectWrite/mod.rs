@@ -4231,7 +4231,7 @@ pub unsafe fn DWriteCreateFactory(
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "dwrite")]
+        #[link(name = "windows")]
         extern "system" {
             fn DWriteCreateFactory(
                 factorytype: DWRITE_FACTORY_TYPE,

@@ -144,7 +144,7 @@ pub unsafe fn CloseCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMP
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseCompressor(
                 compressorhandle: COMPRESSOR_HANDLE,
@@ -159,7 +159,7 @@ pub unsafe fn CloseCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMP
 pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL;
         }
@@ -179,7 +179,7 @@ pub unsafe fn Compress<'a, Param0: ::windows::runtime::IntoParam<'a, COMPRESSOR_
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn Compress(
                 compressorhandle: COMPRESSOR_HANDLE,
@@ -210,7 +210,7 @@ pub unsafe fn CreateCompressor(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCompressor(
                 algorithm: COMPRESS_ALGORITHM,
@@ -235,7 +235,7 @@ pub unsafe fn CreateDecompressor(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDecompressor(
                 algorithm: COMPRESS_ALGORITHM,
@@ -263,7 +263,7 @@ pub unsafe fn Decompress(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn Decompress(
                 decompressorhandle: isize,
@@ -306,7 +306,7 @@ pub unsafe fn QueryCompressorInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryCompressorInformation(
                 compressorhandle: COMPRESSOR_HANDLE,
@@ -334,7 +334,7 @@ pub unsafe fn QueryDecompressorInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryDecompressorInformation(
                 decompressorhandle: isize,
@@ -359,7 +359,7 @@ pub unsafe fn ResetCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMP
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetCompressor(
                 compressorhandle: COMPRESSOR_HANDLE,
@@ -374,7 +374,7 @@ pub unsafe fn ResetCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMP
 pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL;
         }
@@ -395,7 +395,7 @@ pub unsafe fn SetCompressorInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCompressorInformation(
                 compressorhandle: COMPRESSOR_HANDLE,
@@ -423,7 +423,7 @@ pub unsafe fn SetDecompressorInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDecompressorInformation(
                 decompressorhandle: isize,

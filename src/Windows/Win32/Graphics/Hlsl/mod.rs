@@ -160,7 +160,7 @@ pub unsafe fn D3DCompile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DCompile(
                 psrcdata: *const ::std::ffi::c_void,
@@ -219,7 +219,7 @@ pub unsafe fn D3DCompile2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DCompile2(
                 psrcdata: *const ::std::ffi::c_void,
@@ -279,7 +279,7 @@ pub unsafe fn D3DCompileFromFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DCompileFromFile(
                 pfilename: super::super::Foundation::PWSTR,
@@ -317,7 +317,7 @@ pub unsafe fn D3DCompressShaders(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DCompressShaders(
                 unumshaders: u32,
@@ -345,7 +345,7 @@ pub unsafe fn D3DCreateBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DCreateBlob(
                 size: usize,
@@ -366,7 +366,7 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3D11FunctionLinkingGraph> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DCreateFunctionLinkingGraph(
                 uflags: u32,
@@ -384,7 +384,7 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(
 pub unsafe fn D3DCreateLinker() -> ::windows::runtime::Result<super::Direct3D11::ID3D11Linker> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DCreateLinker(
                 pplinker: *mut ::windows::runtime::RawPtr,
@@ -410,7 +410,7 @@ pub unsafe fn D3DDecompressShaders(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DDecompressShaders(
                 psrcdata: *const ::std::ffi::c_void,
@@ -450,7 +450,7 @@ pub unsafe fn D3DDisassemble<
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DDisassemble(
                 psrcdata: *const ::std::ffi::c_void,
@@ -487,7 +487,7 @@ pub unsafe fn D3DDisassemble10Effect<
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DDisassemble10Effect(
                 peffect: ::windows::runtime::RawPtr,
@@ -523,7 +523,7 @@ pub unsafe fn D3DDisassembleRegion<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DDisassembleRegion(
                 psrcdata: *const ::std::ffi::c_void,
@@ -560,7 +560,7 @@ pub unsafe fn D3DGetBlobPart(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DGetBlobPart(
                 psrcdata: *const ::std::ffi::c_void,
@@ -591,7 +591,7 @@ pub unsafe fn D3DGetDebugInfo(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DGetDebugInfo(
                 psrcdata: *const ::std::ffi::c_void,
@@ -618,7 +618,7 @@ pub unsafe fn D3DGetInputAndOutputSignatureBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DGetInputAndOutputSignatureBlob(
                 psrcdata: *const ::std::ffi::c_void,
@@ -645,7 +645,7 @@ pub unsafe fn D3DGetInputSignatureBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DGetInputSignatureBlob(
                 psrcdata: *const ::std::ffi::c_void,
@@ -672,7 +672,7 @@ pub unsafe fn D3DGetOutputSignatureBlob(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DGetOutputSignatureBlob(
                 psrcdata: *const ::std::ffi::c_void,
@@ -703,7 +703,7 @@ pub unsafe fn D3DGetTraceInstructionOffsets(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DGetTraceInstructionOffsets(
                 psrcdata: *const ::std::ffi::c_void,
@@ -736,7 +736,7 @@ pub unsafe fn D3DLoadModule(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3D11Module> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DLoadModule(
                 psrcdata: *const ::std::ffi::c_void,
@@ -772,7 +772,7 @@ pub unsafe fn D3DPreprocess<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DPreprocess(
                 psrcdata: *const ::std::ffi::c_void,
@@ -807,7 +807,7 @@ pub unsafe fn D3DReadFileToBlob<
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DReadFileToBlob(
                 pfilename: super::super::Foundation::PWSTR,
@@ -830,7 +830,7 @@ pub unsafe fn D3DReflect(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DReflect(
                 psrcdata: *const ::std::ffi::c_void,
@@ -858,7 +858,7 @@ pub unsafe fn D3DReflectLibrary(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DReflectLibrary(
                 psrcdata: *const ::std::ffi::c_void,
@@ -889,7 +889,7 @@ pub unsafe fn D3DSetBlobPart(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DSetBlobPart(
                 psrcdata: *const ::std::ffi::c_void,
@@ -925,7 +925,7 @@ pub unsafe fn D3DStripShader(
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DStripShader(
                 pshaderbytecode: *const ::std::ffi::c_void,
@@ -960,7 +960,7 @@ pub unsafe fn D3DWriteBlobToFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DWriteBlobToFile(
                 pblob: ::windows::runtime::RawPtr,
@@ -1214,7 +1214,7 @@ pub unsafe fn DxcCreateInstance(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dxcompiler")]
+        #[link(name = "windows")]
         extern "system" {
             fn DxcCreateInstance(
                 rclsid: *const ::windows::runtime::GUID,
@@ -1244,7 +1244,7 @@ pub unsafe fn DxcCreateInstance2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dxcompiler")]
+        #[link(name = "windows")]
         extern "system" {
             fn DxcCreateInstance2(
                 pmalloc: ::windows::runtime::RawPtr,

@@ -464,7 +464,7 @@ pub unsafe fn DwmAttachMilContent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmAttachMilContent(
                 hwnd: super::super::Foundation::HWND,
@@ -490,7 +490,7 @@ pub unsafe fn DwmDefWindowProc<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmDefWindowProc(
                 hwnd: super::super::Foundation::HWND,
@@ -520,7 +520,7 @@ pub unsafe fn DwmDetachMilContent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmDetachMilContent(
                 hwnd: super::super::Foundation::HWND,
@@ -541,7 +541,7 @@ pub unsafe fn DwmEnableBlurBehindWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmEnableBlurBehindWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -556,7 +556,7 @@ pub unsafe fn DwmEnableBlurBehindWindow<
 pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::runtime::HRESULT;
         }
@@ -574,7 +574,7 @@ pub unsafe fn DwmEnableMMCSS<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmEnableMMCSS(
                 fenablemmcss: super::super::Foundation::BOOL,
@@ -595,7 +595,7 @@ pub unsafe fn DwmExtendFrameIntoClientArea<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmExtendFrameIntoClientArea(
                 hwnd: super::super::Foundation::HWND,
@@ -610,7 +610,7 @@ pub unsafe fn DwmExtendFrameIntoClientArea<
 pub unsafe fn DwmFlush() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmFlush() -> ::windows::runtime::HRESULT;
         }
@@ -626,7 +626,7 @@ pub unsafe fn DwmGetColorizationColor(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmGetColorizationColor(
                 pcrcolorization: *mut u32,
@@ -651,7 +651,7 @@ pub unsafe fn DwmGetCompositionTimingInfo<
 ) -> ::windows::runtime::Result<DWM_TIMING_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmGetCompositionTimingInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -670,7 +670,7 @@ pub unsafe fn DwmGetGraphicsStreamClient(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmGetGraphicsStreamClient(
                 uindex: u32,
@@ -690,7 +690,7 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(
 ) -> ::windows::runtime::Result<MilMatrix3x2D> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmGetGraphicsStreamTransformHint(
                 uindex: u32,
@@ -712,7 +712,7 @@ pub unsafe fn DwmGetTransportAttributes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmGetTransportAttributes(
                 pfisremoting: *mut super::super::Foundation::BOOL,
@@ -739,7 +739,7 @@ pub unsafe fn DwmGetUnmetTabRequirements<
 ) -> ::windows::runtime::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmGetUnmetTabRequirements(
                 appwindow: super::super::Foundation::HWND,
@@ -766,7 +766,7 @@ pub unsafe fn DwmGetWindowAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmGetWindowAttribute(
                 hwnd: super::super::Foundation::HWND,
@@ -795,7 +795,7 @@ pub unsafe fn DwmInvalidateIconicBitmaps<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmInvalidateIconicBitmaps(
                 hwnd: super::super::Foundation::HWND,
@@ -811,7 +811,7 @@ pub unsafe fn DwmIsCompositionEnabled() -> ::windows::runtime::Result<super::sup
 {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmIsCompositionEnabled(
                 pfenabled: *mut super::super::Foundation::BOOL,
@@ -836,7 +836,7 @@ pub unsafe fn DwmModifyPreviousDxFrameDuration<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmModifyPreviousDxFrameDuration(
                 hwnd: super::super::Foundation::HWND,
@@ -860,7 +860,7 @@ pub unsafe fn DwmQueryThumbnailSourceSize(
 ) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmQueryThumbnailSourceSize(
                 hthumbnail: isize,
@@ -886,7 +886,7 @@ pub unsafe fn DwmRegisterThumbnail<
 ) -> ::windows::runtime::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmRegisterThumbnail(
                 hwnddestination: super::super::Foundation::HWND,
@@ -914,7 +914,7 @@ pub unsafe fn DwmRenderGesture(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmRenderGesture(
                 gt: GESTURE_TYPE,
@@ -944,7 +944,7 @@ pub unsafe fn DwmSetDxFrameDuration<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmSetDxFrameDuration(
                 hwnd: super::super::Foundation::HWND,
@@ -969,7 +969,7 @@ pub unsafe fn DwmSetIconicLivePreviewBitmap<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmSetIconicLivePreviewBitmap(
                 hwnd: super::super::Foundation::HWND,
@@ -1001,7 +1001,7 @@ pub unsafe fn DwmSetIconicThumbnail<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmSetIconicThumbnail(
                 hwnd: super::super::Foundation::HWND,
@@ -1029,7 +1029,7 @@ pub unsafe fn DwmSetPresentParameters<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmSetPresentParameters(
                 hwnd: super::super::Foundation::HWND,
@@ -1057,7 +1057,7 @@ pub unsafe fn DwmSetWindowAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmSetWindowAttribute(
                 hwnd: super::super::Foundation::HWND,
@@ -1083,7 +1083,7 @@ pub unsafe fn DwmShowContact(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmShowContact(
                 dwpointerid: u32,
@@ -1111,7 +1111,7 @@ pub unsafe fn DwmTetherContact<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmTetherContact(
                 dwpointerid: u32,
@@ -1139,7 +1139,7 @@ pub unsafe fn DwmTransitionOwnedWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmTransitionOwnedWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -1154,7 +1154,7 @@ pub unsafe fn DwmTransitionOwnedWindow<
 pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::runtime::HRESULT;
         }
@@ -1170,7 +1170,7 @@ pub unsafe fn DwmUpdateThumbnailProperties(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dwmapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DwmUpdateThumbnailProperties(
                 hthumbnailid: isize,

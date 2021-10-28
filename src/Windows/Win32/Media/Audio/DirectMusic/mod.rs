@@ -3970,7 +3970,7 @@ pub unsafe fn DirectSoundCaptureCreate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundCaptureCreate(
                 pcguiddevice: *const ::windows::runtime::GUID,
@@ -3998,7 +3998,7 @@ pub unsafe fn DirectSoundCaptureCreate8<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundCaptureCreate8(
                 pcguiddevice: *const ::windows::runtime::GUID,
@@ -4023,7 +4023,7 @@ pub unsafe fn DirectSoundCaptureEnumerateA(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundCaptureEnumerateA(
                 pdsenumcallback: ::windows::runtime::RawPtr,
@@ -4046,7 +4046,7 @@ pub unsafe fn DirectSoundCaptureEnumerateW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundCaptureEnumerateW(
                 pdsenumcallback: ::windows::runtime::RawPtr,
@@ -4072,7 +4072,7 @@ pub unsafe fn DirectSoundCreate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundCreate(
                 pcguiddevice: *const ::windows::runtime::GUID,
@@ -4100,7 +4100,7 @@ pub unsafe fn DirectSoundCreate8<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundCreate8(
                 pcguiddevice: *const ::windows::runtime::GUID,
@@ -4125,7 +4125,7 @@ pub unsafe fn DirectSoundEnumerateA(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundEnumerateA(
                 pdsenumcallback: ::windows::runtime::RawPtr,
@@ -4148,7 +4148,7 @@ pub unsafe fn DirectSoundEnumerateW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundEnumerateW(
                 pdsenumcallback: ::windows::runtime::RawPtr,
@@ -4183,7 +4183,7 @@ pub unsafe fn DirectSoundFullDuplexCreate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectSoundFullDuplexCreate(
                 pcguidcapturedevice: *const ::windows::runtime::GUID,
@@ -4500,7 +4500,7 @@ pub unsafe fn GetDeviceID(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "dsound")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeviceID(
                 pguidsrc: *const ::windows::runtime::GUID,

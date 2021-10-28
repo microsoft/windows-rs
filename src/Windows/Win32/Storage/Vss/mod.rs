@@ -10,7 +10,7 @@
 pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::runtime::Result<IVssExpressWriter> {
     #[cfg(windows)]
     {
-        #[link(name = "vssapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateVssExpressWriterInternal(
                 ppwriter: *mut ::windows::runtime::RawPtr,

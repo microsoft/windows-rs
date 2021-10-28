@@ -80,7 +80,7 @@ unsafe impl ::windows::runtime::Abi for BRUSHOBJ {
 pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE;
         }
@@ -92,7 +92,7 @@ pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::F
 pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std::ffi::c_void;
         }
@@ -107,7 +107,7 @@ pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std:
 pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::std::ffi::c_void;
         }
@@ -119,7 +119,7 @@ pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::std::ffi::c_voi
 pub unsafe fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32;
         }
@@ -265,7 +265,7 @@ pub unsafe fn CLIPOBJ_bEnum(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPOBJ_bEnum(
                 pco: *mut CLIPOBJ,
@@ -295,7 +295,7 @@ pub unsafe fn CLIPOBJ_cEnumStart<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPOBJ_cEnumStart(
                 pco: *mut CLIPOBJ,
@@ -320,7 +320,7 @@ pub unsafe fn CLIPOBJ_cEnumStart<
 pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ;
         }
@@ -8501,7 +8501,7 @@ pub unsafe fn DisplayConfigGetDeviceInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisplayConfigGetDeviceInfo(
                 requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -8520,7 +8520,7 @@ pub unsafe fn DisplayConfigSetDeviceInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisplayConfigSetDeviceInfo(
                 setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -8658,7 +8658,7 @@ unsafe impl ::windows::runtime::Abi for ENUMRECTS {
 pub unsafe fn EngAcquireSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngAcquireSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__);
         }
@@ -8683,7 +8683,7 @@ pub unsafe fn EngAlphaBlend(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngAlphaBlend(
                 psodest: *mut SURFOBJ,
@@ -8720,7 +8720,7 @@ pub unsafe fn EngAssociateSurface<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngAssociateSurface(
                 hsurf: super::super::System::SystemServices::HSURF,
@@ -8753,7 +8753,7 @@ pub unsafe fn EngBitBlt(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngBitBlt(
                 psotrg: *const SURFOBJ,
@@ -8790,7 +8790,7 @@ pub unsafe fn EngBitBlt(
 pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL;
         }
@@ -8802,7 +8802,7 @@ pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL
 pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32)
                 -> *mut FD_GLYPHSET;
@@ -8827,7 +8827,7 @@ pub unsafe fn EngCopyBits(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCopyBits(
                 psodest: *mut SURFOBJ,
@@ -8863,7 +8863,7 @@ pub unsafe fn EngCreateBitmap<
 ) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCreateBitmap(
                 sizl: super::super::Foundation::SIZE,
@@ -8888,7 +8888,7 @@ pub unsafe fn EngCreateBitmap<
 pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCreateClip() -> *mut CLIPOBJ;
         }
@@ -8913,7 +8913,7 @@ pub unsafe fn EngCreateDeviceBitmap<
 ) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCreateDeviceBitmap(
                 dhsurf: super::super::System::SystemServices::DHSURF,
@@ -8942,7 +8942,7 @@ pub unsafe fn EngCreateDeviceSurface<
 ) -> super::super::System::SystemServices::HSURF {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCreateDeviceSurface(
                 dhsurf: super::super::System::SystemServices::DHSURF,
@@ -8970,7 +8970,7 @@ pub unsafe fn EngCreatePalette(
 ) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCreatePalette(
                 imode: u32,
@@ -8997,7 +8997,7 @@ pub unsafe fn EngCreatePalette(
 pub unsafe fn EngCreateSemaphore() -> *mut super::super::System::SystemServices::HSEMAPHORE__ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngCreateSemaphore() -> *mut super::super::System::SystemServices::HSEMAPHORE__;
         }
@@ -9010,7 +9010,7 @@ pub unsafe fn EngCreateSemaphore() -> *mut super::super::System::SystemServices:
 pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngDeleteClip(pco: *const CLIPOBJ);
         }
@@ -9028,7 +9028,7 @@ pub unsafe fn EngDeletePalette<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngDeletePalette(
                 hpal: super::super::Graphics::Gdi::HPALETTE,
@@ -9042,7 +9042,7 @@ pub unsafe fn EngDeletePalette<
 pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngDeletePath(ppo: *mut PATHOBJ);
         }
@@ -9055,7 +9055,7 @@ pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
 pub unsafe fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__);
         }
@@ -9073,7 +9073,7 @@ pub unsafe fn EngDeleteSurface<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngDeleteSurface(
                 hsurf: super::super::System::SystemServices::HSURF,
@@ -9092,7 +9092,7 @@ pub unsafe fn EngEraseSurface(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngEraseSurface(
                 pso: *mut SURFOBJ,
@@ -9121,7 +9121,7 @@ pub unsafe fn EngFillPath(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngFillPath(
                 pso: *mut SURFOBJ,
@@ -9158,7 +9158,7 @@ pub unsafe fn EngFindResource<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngFindResource(
                 h: super::super::Foundation::HANDLE,
@@ -9186,7 +9186,7 @@ pub unsafe fn EngFreeModule<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngFreeModule(h: super::super::Foundation::HANDLE);
         }
@@ -9198,7 +9198,7 @@ pub unsafe fn EngFreeModule<
 pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16);
         }
@@ -9219,7 +9219,7 @@ pub unsafe fn EngGetDriverName<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngGetDriverName(
                 hdev: super::super::System::SystemServices::HDEV,
@@ -9239,7 +9239,7 @@ pub unsafe fn EngGetPrinterDataFileName<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngGetPrinterDataFileName(
                 hdev: super::super::System::SystemServices::HDEV,
@@ -9269,7 +9269,7 @@ pub unsafe fn EngGradientFill(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngGradientFill(
                 psodest: *mut SURFOBJ,
@@ -9314,7 +9314,7 @@ pub unsafe fn EngLineTo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngLineTo(
                 pso: *mut SURFOBJ,
@@ -9352,7 +9352,7 @@ pub unsafe fn EngLoadModule<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngLoadModule(
                 pwsz: super::super::Foundation::PWSTR,
@@ -9372,7 +9372,7 @@ pub unsafe fn EngLockSurface<
 ) -> *mut SURFOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngLockSurface(hsurf: super::super::System::SystemServices::HSURF) -> *mut SURFOBJ;
         }
@@ -9390,7 +9390,7 @@ pub unsafe fn EngMarkBandingSurface<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngMarkBandingSurface(
                 hsurf: super::super::System::SystemServices::HSURF,
@@ -9414,7 +9414,7 @@ pub unsafe fn EngMultiByteToUnicodeN<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngMultiByteToUnicodeN(
                 unicodestring: super::super::Foundation::PWSTR,
@@ -9448,7 +9448,7 @@ pub unsafe fn EngMultiByteToWideChar<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngMultiByteToWideChar(
                 codepage: u32,
@@ -9479,7 +9479,7 @@ pub unsafe fn EngPaint(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngPaint(
                 pso: *mut SURFOBJ,
@@ -9520,7 +9520,7 @@ pub unsafe fn EngPlgBlt(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngPlgBlt(
                 psotrg: *mut SURFOBJ,
@@ -9556,7 +9556,7 @@ pub unsafe fn EngPlgBlt(
 pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS);
         }
@@ -9569,7 +9569,7 @@ pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
 pub unsafe fn EngReleaseSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngReleaseSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__);
         }
@@ -9598,7 +9598,7 @@ pub unsafe fn EngStretchBlt(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngStretchBlt(
                 psodest: *mut SURFOBJ,
@@ -9653,7 +9653,7 @@ pub unsafe fn EngStretchBltROP(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngStretchBltROP(
                 psodest: *mut SURFOBJ,
@@ -9705,7 +9705,7 @@ pub unsafe fn EngStrokeAndFillPath(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngStrokeAndFillPath(
                 pso: *mut SURFOBJ,
@@ -9749,7 +9749,7 @@ pub unsafe fn EngStrokePath(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngStrokePath(
                 pso: *mut SURFOBJ,
@@ -9791,7 +9791,7 @@ pub unsafe fn EngTextOut(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngTextOut(
                 pso: *mut SURFOBJ,
@@ -9835,7 +9835,7 @@ pub unsafe fn EngTransparentBlt(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngTransparentBlt(
                 psodst: *const SURFOBJ,
@@ -9875,7 +9875,7 @@ pub unsafe fn EngUnicodeToMultiByteN<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngUnicodeToMultiByteN(
                 multibytestring: super::super::Foundation::PSTR,
@@ -9900,7 +9900,7 @@ pub unsafe fn EngUnicodeToMultiByteN<
 pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngUnlockSurface(pso: *mut SURFOBJ);
         }
@@ -9922,7 +9922,7 @@ pub unsafe fn EngWideCharToMultiByte<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngWideCharToMultiByte(
                 codepage: u32,
@@ -10360,7 +10360,7 @@ unsafe impl ::windows::runtime::Abi for FONTOBJ {
 pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32;
         }
@@ -10382,7 +10382,7 @@ pub unsafe fn FONTOBJ_cGetGlyphs(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_cGetGlyphs(
                 pfo: *mut FONTOBJ,
@@ -10407,7 +10407,7 @@ pub unsafe fn FONTOBJ_cGetGlyphs(
 pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR;
         }
@@ -10423,7 +10423,7 @@ pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD
 pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET;
         }
@@ -10436,7 +10436,7 @@ pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
 pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS;
         }
@@ -10452,7 +10452,7 @@ pub unsafe fn FONTOBJ_pvTrueTypeFontFile(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_pvTrueTypeFontFile(
                 pfo: *mut FONTOBJ,
@@ -10473,7 +10473,7 @@ pub unsafe fn FONTOBJ_pxoGetXform(
 ) -> *mut super::super::System::SystemServices::XFORMOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_pxoGetXform(
                 pfo: *const FONTOBJ,
@@ -10488,7 +10488,7 @@ pub unsafe fn FONTOBJ_pxoGetXform(
 pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO);
         }
@@ -10887,7 +10887,7 @@ pub unsafe fn GetDisplayConfigBufferSizes(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDisplayConfigBufferSizes(
                 flags: u32,
@@ -10932,7 +10932,7 @@ pub unsafe fn HT_Get8BPPFormatPalette(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HT_Get8BPPFormatPalette(
                 ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY,
@@ -10965,7 +10965,7 @@ pub unsafe fn HT_Get8BPPMaskPalette<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HT_Get8BPPMaskPalette(
                 ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY,
@@ -11538,7 +11538,7 @@ pub unsafe fn PATHOBJ_bEnum(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PATHOBJ_bEnum(
                 ppo: *mut PATHOBJ,
@@ -11561,7 +11561,7 @@ pub unsafe fn PATHOBJ_bEnumClipLines(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PATHOBJ_bEnumClipLines(
                 ppo: *mut PATHOBJ,
@@ -11581,7 +11581,7 @@ pub unsafe fn PATHOBJ_bEnumClipLines(
 pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ);
         }
@@ -11599,7 +11599,7 @@ pub unsafe fn PATHOBJ_vEnumStartClipLines(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PATHOBJ_vEnumStartClipLines(
                 ppo: *mut PATHOBJ,
@@ -11625,7 +11625,7 @@ pub unsafe fn PATHOBJ_vGetBounds(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PATHOBJ_vGetBounds(
                 ppo: *mut PATHOBJ,
@@ -11971,7 +11971,7 @@ pub unsafe fn QueryDisplayConfig(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryDisplayConfig(
                 flags: u32,
@@ -12082,7 +12082,7 @@ pub unsafe fn STROBJ_bEnum(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STROBJ_bEnum(
                 pstro: *mut STROBJ,
@@ -12107,7 +12107,7 @@ pub unsafe fn STROBJ_bEnumPositionsOnly(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STROBJ_bEnumPositionsOnly(
                 pstro: *mut STROBJ,
@@ -12133,7 +12133,7 @@ pub unsafe fn STROBJ_bGetAdvanceWidths(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STROBJ_bGetAdvanceWidths(
                 pso: *mut STROBJ,
@@ -12156,7 +12156,7 @@ pub unsafe fn STROBJ_bGetAdvanceWidths(
 pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32;
         }
@@ -12169,7 +12169,7 @@ pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
 pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn STROBJ_vEnumStart(pstro: *mut STROBJ);
         }
@@ -12259,7 +12259,7 @@ pub unsafe fn SetDisplayConfig(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDisplayConfig(
                 numpatharrayelements: u32,
@@ -12712,7 +12712,7 @@ pub unsafe fn XFORMOBJ_bApplyXform(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn XFORMOBJ_bApplyXform(
                 pxo: *mut super::super::System::SystemServices::XFORMOBJ,
@@ -12740,7 +12740,7 @@ pub unsafe fn XFORMOBJ_iGetXform(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn XFORMOBJ_iGetXform(
                 pxo: *const super::super::System::SystemServices::XFORMOBJ,
@@ -12806,7 +12806,7 @@ pub unsafe fn XLATEOBJ_cGetPalette(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn XLATEOBJ_cGetPalette(
                 pxlo: *mut XLATEOBJ,
@@ -12829,7 +12829,7 @@ pub unsafe fn XLATEOBJ_cGetPalette(
 pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ)
                 -> super::super::Foundation::HANDLE;
@@ -12842,7 +12842,7 @@ pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::
 pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32;
         }
@@ -12857,7 +12857,7 @@ pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
 pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32;
         }

@@ -4,3 +4,4 @@
 *.winmd -text
 *.dll   -text
 *.lib   -text
+*.a     -text

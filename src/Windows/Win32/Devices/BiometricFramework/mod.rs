@@ -5453,7 +5453,7 @@ pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 pub unsafe fn WinBioAcquireFocus() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioAcquireFocus() -> ::windows::runtime::HRESULT;
         }
@@ -5468,7 +5468,7 @@ pub unsafe fn WinBioAsyncEnumBiometricUnits(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioAsyncEnumBiometricUnits(
                 frameworkhandle: u32,
@@ -5490,7 +5490,7 @@ pub unsafe fn WinBioAsyncEnumDatabases(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioAsyncEnumDatabases(
                 frameworkhandle: u32,
@@ -5512,7 +5512,7 @@ pub unsafe fn WinBioAsyncEnumServiceProviders(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioAsyncEnumServiceProviders(
                 frameworkhandle: u32,
@@ -5534,7 +5534,7 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioAsyncMonitorFrameworkChanges(
                 frameworkhandle: u32,
@@ -5565,7 +5565,7 @@ pub unsafe fn WinBioAsyncOpenFramework<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioAsyncOpenFramework(
                 notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD,
@@ -5613,7 +5613,7 @@ pub unsafe fn WinBioAsyncOpenSession<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioAsyncOpenSession(
                 factor: u32,
@@ -5655,7 +5655,7 @@ pub unsafe fn WinBioAsyncOpenSession<
 pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -5675,7 +5675,7 @@ pub unsafe fn WinBioCaptureSample(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioCaptureSample(
                 sessionhandle: u32,
@@ -5710,7 +5710,7 @@ pub unsafe fn WinBioCaptureSampleWithCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioCaptureSampleWithCallback(
                 sessionhandle: u32,
@@ -5735,7 +5735,7 @@ pub unsafe fn WinBioCaptureSampleWithCallback(
 pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -5747,7 +5747,7 @@ pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::
 pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -5770,7 +5770,7 @@ pub unsafe fn WinBioControlUnit(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioControlUnit(
                 sessionhandle: u32,
@@ -5816,7 +5816,7 @@ pub unsafe fn WinBioControlUnitPrivileged(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioControlUnitPrivileged(
                 sessionhandle: u32,
@@ -5856,7 +5856,7 @@ pub unsafe fn WinBioDeleteTemplate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioDeleteTemplate(
                 sessionhandle: u32,
@@ -5883,7 +5883,7 @@ pub unsafe fn WinBioEnrollBegin(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnrollBegin(
                 sessionhandle: u32,
@@ -5904,7 +5904,7 @@ pub unsafe fn WinBioEnrollBegin(
 pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnrollCapture(
                 sessionhandle: u32,
@@ -5925,7 +5925,7 @@ pub unsafe fn WinBioEnrollCaptureWithCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnrollCaptureWithCallback(
                 sessionhandle: u32,
@@ -5950,7 +5950,7 @@ pub unsafe fn WinBioEnrollCommit(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnrollCommit(
                 sessionhandle: u32,
@@ -5971,7 +5971,7 @@ pub unsafe fn WinBioEnrollCommit(
 pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -5986,7 +5986,7 @@ pub unsafe fn WinBioEnrollSelect(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnrollSelect(
                 sessionhandle: u32,
@@ -6009,7 +6009,7 @@ pub unsafe fn WinBioEnumBiometricUnits(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnumBiometricUnits(
                 factor: u32,
@@ -6034,7 +6034,7 @@ pub unsafe fn WinBioEnumDatabases(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnumDatabases(
                 factor: u32,
@@ -6061,7 +6061,7 @@ pub unsafe fn WinBioEnumEnrollments(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnumEnrollments(
                 sessionhandle: u32,
@@ -6090,7 +6090,7 @@ pub unsafe fn WinBioEnumServiceProviders(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioEnumServiceProviders(
                 factor: u32,
@@ -6111,7 +6111,7 @@ pub unsafe fn WinBioEnumServiceProviders(
 pub unsafe fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -6129,7 +6129,7 @@ pub unsafe fn WinBioGetCredentialState<
 ) -> ::windows::runtime::Result<WINBIO_CREDENTIAL_STATE> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioGetCredentialState(
                 identity: WINBIO_IDENTITY,
@@ -6152,7 +6152,7 @@ pub unsafe fn WinBioGetCredentialState<
 pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
@@ -6167,7 +6167,7 @@ pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SE
 pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
@@ -6184,7 +6184,7 @@ pub unsafe fn WinBioGetEnrolledFactors(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioGetEnrolledFactors(
                 accountowner: *const WINBIO_IDENTITY,
@@ -6201,7 +6201,7 @@ pub unsafe fn WinBioGetEnrolledFactors(
 pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
@@ -6225,7 +6225,7 @@ pub unsafe fn WinBioGetProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioGetProperty(
                 sessionhandle: u32,
@@ -6262,7 +6262,7 @@ pub unsafe fn WinBioIdentify(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioIdentify(
                 sessionhandle: u32,
@@ -6291,7 +6291,7 @@ pub unsafe fn WinBioIdentifyWithCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioIdentifyWithCallback(
                 sessionhandle: u32,
@@ -6315,7 +6315,7 @@ pub unsafe fn WinBioImproveBegin(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::runtime::HRESULT;
         }
@@ -6331,7 +6331,7 @@ pub unsafe fn WinBioImproveBegin(
 pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -6343,7 +6343,7 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::Result
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioLocateSensor(
                 sessionhandle: u32,
@@ -6364,7 +6364,7 @@ pub unsafe fn WinBioLocateSensorWithCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioLocateSensorWithCallback(
                 sessionhandle: u32,
@@ -6385,7 +6385,7 @@ pub unsafe fn WinBioLocateSensorWithCallback(
 pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::HRESULT;
         }
@@ -6401,7 +6401,7 @@ pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runt
 pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -6416,7 +6416,7 @@ pub unsafe fn WinBioMonitorPresence(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioMonitorPresence(
                 sessionhandle: u32,
@@ -6442,7 +6442,7 @@ pub unsafe fn WinBioOpenSession(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioOpenSession(
                 factor: u32,
@@ -6477,7 +6477,7 @@ pub unsafe fn WinBioRegisterEventMonitor(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioRegisterEventMonitor(
                 sessionhandle: u32,
@@ -6500,7 +6500,7 @@ pub unsafe fn WinBioRegisterEventMonitor(
 pub unsafe fn WinBioReleaseFocus() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioReleaseFocus() -> ::windows::runtime::HRESULT;
         }
@@ -6512,7 +6512,7 @@ pub unsafe fn WinBioReleaseFocus() -> ::windows::runtime::Result<()> {
 pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioRemoveAllCredentials() -> ::windows::runtime::HRESULT;
         }
@@ -6524,7 +6524,7 @@ pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::runtime::Result<()> {
 pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioRemoveAllDomainCredentials() -> ::windows::runtime::HRESULT;
         }
@@ -6542,7 +6542,7 @@ pub unsafe fn WinBioRemoveCredential<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioRemoveCredential(
                 identity: WINBIO_IDENTITY,
@@ -6562,7 +6562,7 @@ pub unsafe fn WinBioSetCredential(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioSetCredential(
                 r#type: WINBIO_CREDENTIAL_TYPE,
@@ -6594,7 +6594,7 @@ pub unsafe fn WinBioSetProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioSetProperty(
                 sessionhandle: u32,
@@ -6625,7 +6625,7 @@ pub unsafe fn WinBioSetProperty(
 pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::HRESULT;
         }
@@ -6641,7 +6641,7 @@ pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::ru
 pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
@@ -6660,7 +6660,7 @@ pub unsafe fn WinBioVerify(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioVerify(
                 sessionhandle: u32,
@@ -6694,7 +6694,7 @@ pub unsafe fn WinBioVerifyWithCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioVerifyWithCallback(
                 sessionhandle: u32,
@@ -6719,7 +6719,7 @@ pub unsafe fn WinBioVerifyWithCallback(
 pub unsafe fn WinBioWait(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winbio")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinBioWait(sessionhandle: u32) -> ::windows::runtime::HRESULT;
         }
