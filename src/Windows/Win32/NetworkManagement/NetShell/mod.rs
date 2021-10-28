@@ -141,7 +141,7 @@ pub unsafe fn MatchEnumTag<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn MatchEnumTag(
                 hmodule: super::super::Foundation::HANDLE,
@@ -173,7 +173,7 @@ pub unsafe fn MatchToken<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn MatchToken(
                 pwszusertoken: super::super::Foundation::PWSTR,
@@ -528,7 +528,7 @@ pub unsafe fn PreprocessCommand<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PreprocessCommand(
                 hmodule: super::super::Foundation::HANDLE,
@@ -567,7 +567,7 @@ pub unsafe fn PrintError<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
         }
@@ -588,7 +588,7 @@ pub unsafe fn PrintMessage<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintMessage(pwszformat: super::super::Foundation::PWSTR) -> u32;
         }
@@ -607,7 +607,7 @@ pub unsafe fn PrintMessageFromModule<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrintMessageFromModule(
                 hmodule: super::super::Foundation::HANDLE,
@@ -626,7 +626,7 @@ pub unsafe fn PrintMessageFromModule<
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterContext(
                 pchildcontext: *const ::std::mem::ManuallyDrop<NS_CONTEXT_ATTRIBUTES>,
@@ -643,7 +643,7 @@ pub unsafe fn RegisterHelper(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netsh")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterHelper(
                 pguidparentcontext: *const ::windows::runtime::GUID,

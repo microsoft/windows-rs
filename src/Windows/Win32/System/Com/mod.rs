@@ -1778,7 +1778,7 @@ pub unsafe fn BindMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, IMoniker
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BindMoniker(
                 pmk: ::windows::runtime::RawPtr,
@@ -2251,7 +2251,7 @@ unsafe impl ::windows::runtime::Abi for CIP_STATUS {
 pub unsafe fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16);
         }
@@ -2266,7 +2266,7 @@ pub unsafe fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16) {
 pub unsafe fn CLIPFORMAT_UserFree64(param0: *const u32, param1: *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserFree64(param0: *const u32, param1: *const u16);
         }
@@ -2285,7 +2285,7 @@ pub unsafe fn CLIPFORMAT_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserMarshal(
                 param0: *const u32,
@@ -2309,7 +2309,7 @@ pub unsafe fn CLIPFORMAT_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserMarshal64(
                 param0: *const u32,
@@ -2329,7 +2329,7 @@ pub unsafe fn CLIPFORMAT_UserMarshal64(
 pub unsafe fn CLIPFORMAT_UserSize(param0: *const u32, param1: u32, param2: *const u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserSize(param0: *const u32, param1: u32, param2: *const u16) -> u32;
         }
@@ -2345,7 +2345,7 @@ pub unsafe fn CLIPFORMAT_UserSize(param0: *const u32, param1: u32, param2: *cons
 pub unsafe fn CLIPFORMAT_UserSize64(param0: *const u32, param1: u32, param2: *const u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserSize64(param0: *const u32, param1: u32, param2: *const u16) -> u32;
         }
@@ -2365,7 +2365,7 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserUnmarshal(
                 param0: *const u32,
@@ -2389,7 +2389,7 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLIPFORMAT_UserUnmarshal64(
                 param0: *const u32,
@@ -2491,7 +2491,7 @@ pub unsafe fn CLSIDFromProgID<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLSIDFromProgID(
                 lpszprogid: super::super::Foundation::PWSTR,
@@ -2515,7 +2515,7 @@ pub unsafe fn CLSIDFromProgIDEx<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLSIDFromProgIDEx(
                 lpszprogid: super::super::Foundation::PWSTR,
@@ -2539,7 +2539,7 @@ pub unsafe fn CLSIDFromString<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CLSIDFromString(
                 lpsz: super::super::Foundation::PWSTR,
@@ -3230,7 +3230,7 @@ pub const CatalogObject: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 pub unsafe fn CoAddRefServerProcess() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoAddRefServerProcess() -> u32;
         }
@@ -3248,7 +3248,7 @@ pub unsafe fn CoAllowSetForegroundWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoAllowSetForegroundWindow(
                 punk: ::windows::runtime::RawPtr,
@@ -3265,7 +3265,7 @@ pub unsafe fn CoAllowUnmarshalerCLSID(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoAllowUnmarshalerCLSID(
                 clsid: *const ::windows::runtime::GUID,
@@ -3279,7 +3279,7 @@ pub unsafe fn CoAllowUnmarshalerCLSID(
 pub unsafe fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::runtime::HRESULT;
         }
@@ -3300,7 +3300,7 @@ pub unsafe fn CoCopyProxy<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCopyProxy(
                 pproxy: ::windows::runtime::RawPtr,
@@ -3323,7 +3323,7 @@ pub unsafe fn CoCreateFreeThreadedMarshaler<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCreateFreeThreadedMarshaler(
                 punkouter: ::windows::runtime::RawPtr,
@@ -3341,7 +3341,7 @@ pub unsafe fn CoCreateFreeThreadedMarshaler<
 pub unsafe fn CoCreateGuid() -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCreateGuid(pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
@@ -3363,7 +3363,7 @@ pub unsafe fn CoCreateInstance<
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCreateInstance(
                 rclsid: *const ::windows::runtime::GUID,
@@ -3400,7 +3400,7 @@ pub unsafe fn CoCreateInstanceEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCreateInstanceEx(
                 clsid: *const ::windows::runtime::GUID,
@@ -3437,7 +3437,7 @@ pub unsafe fn CoCreateInstanceFromApp<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCreateInstanceFromApp(
                 clsid: *const ::windows::runtime::GUID,
@@ -3469,7 +3469,7 @@ pub unsafe fn CoDecrementMTAUsage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE) -> ::windows::runtime::HRESULT;
         }
@@ -3483,7 +3483,7 @@ pub unsafe fn CoDisableCallCancellation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoDisableCallCancellation(
                 preserved: *const ::std::ffi::c_void,
@@ -3497,7 +3497,7 @@ pub unsafe fn CoDisableCallCancellation(
 pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoDisconnectContext(dwtimeout: u32) -> ::windows::runtime::HRESULT;
         }
@@ -3515,7 +3515,7 @@ pub unsafe fn CoDisconnectObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoDisconnectObject(
                 punk: ::windows::runtime::RawPtr,
@@ -3535,7 +3535,7 @@ pub unsafe fn CoDosDateTimeToFileTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoDosDateTimeToFileTime(
                 ndosdate: u16,
@@ -3557,7 +3557,7 @@ pub unsafe fn CoEnableCallCancellation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoEnableCallCancellation(
                 preserved: *const ::std::ffi::c_void,
@@ -3572,7 +3572,7 @@ pub unsafe fn CoEnableCallCancellation(
 pub unsafe fn CoFileTimeNow() -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoFileTimeNow(
                 lpfiletime: *mut super::super::Foundation::FILETIME,
@@ -3593,7 +3593,7 @@ pub unsafe fn CoFileTimeToDosDateTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoFileTimeToDosDateTime(
                 lpfiletime: *const super::super::Foundation::FILETIME,
@@ -3613,7 +3613,7 @@ pub unsafe fn CoFileTimeToDosDateTime(
 pub unsafe fn CoFreeAllLibraries() {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoFreeAllLibraries();
         }
@@ -3631,7 +3631,7 @@ pub unsafe fn CoFreeLibrary<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoFreeLibrary(hinst: super::super::Foundation::HINSTANCE);
         }
@@ -3643,7 +3643,7 @@ pub unsafe fn CoFreeLibrary<
 pub unsafe fn CoFreeUnusedLibraries() {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoFreeUnusedLibraries();
         }
@@ -3655,7 +3655,7 @@ pub unsafe fn CoFreeUnusedLibraries() {
 pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32);
         }
@@ -3673,7 +3673,7 @@ pub unsafe fn CoGetApartmentType(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetApartmentType(
                 papttype: *mut APTTYPE,
@@ -3695,7 +3695,7 @@ pub unsafe fn CoGetCallContext(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetCallContext(
                 riid: *const ::windows::runtime::GUID,
@@ -3714,7 +3714,7 @@ pub unsafe fn CoGetCallContext(
 pub unsafe fn CoGetCallerTID() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetCallerTID(lpdwtid: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -3731,7 +3731,7 @@ pub unsafe fn CoGetCancelObject(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetCancelObject(
                 dwthreadid: u32,
@@ -3758,7 +3758,7 @@ pub unsafe fn CoGetClassObject(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetClassObject(
                 rclsid: *const ::windows::runtime::GUID,
@@ -3800,7 +3800,7 @@ pub unsafe fn CoGetClassObjectFromURL<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetClassObjectFromURL(
                 rclassid: *const ::windows::runtime::GUID,
@@ -3835,7 +3835,7 @@ pub unsafe fn CoGetClassObjectFromURL<
 pub unsafe fn CoGetContextToken() -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetContextToken(ptoken: *mut usize) -> ::windows::runtime::HRESULT;
         }
@@ -3849,7 +3849,7 @@ pub unsafe fn CoGetCurrentLogicalThreadId() -> ::windows::runtime::Result<::wind
 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetCurrentLogicalThreadId(
                 pguid: *mut ::windows::runtime::GUID,
@@ -3865,7 +3865,7 @@ pub unsafe fn CoGetCurrentLogicalThreadId() -> ::windows::runtime::Result<::wind
 pub unsafe fn CoGetCurrentProcess() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetCurrentProcess() -> u32;
         }
@@ -3891,7 +3891,7 @@ pub unsafe fn CoGetInstanceFromFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetInstanceFromFile(
                 pserverinfo: *const COSERVERINFO,
@@ -3938,7 +3938,7 @@ pub unsafe fn CoGetInstanceFromIStorage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetInstanceFromIStorage(
                 pserverinfo: *const COSERVERINFO,
@@ -3975,7 +3975,7 @@ pub unsafe fn CoGetInterceptor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetInterceptor(
                 iidintercepted: *const ::windows::runtime::GUID,
@@ -4009,7 +4009,7 @@ pub unsafe fn CoGetInterceptorFromTypeInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetInterceptorFromTypeInfo(
                 iidintercepted: *const ::windows::runtime::GUID,
@@ -4041,7 +4041,7 @@ pub unsafe fn CoGetInterfaceAndReleaseStream<
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetInterfaceAndReleaseStream(
                 pstm: ::windows::runtime::RawPtr,
@@ -4063,7 +4063,7 @@ pub unsafe fn CoGetInterfaceAndReleaseStream<
 pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> ::windows::runtime::Result<IMalloc> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetMalloc(
                 dwmemcontext: u32,
@@ -4090,7 +4090,7 @@ pub unsafe fn CoGetMarshalSizeMax<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetMarshalSizeMax(
                 pulsize: *mut u32,
@@ -4126,7 +4126,7 @@ pub unsafe fn CoGetObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetObject(
                 pszname: super::super::Foundation::PWSTR,
@@ -4152,7 +4152,7 @@ pub unsafe fn CoGetObjectContext(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetObjectContext(
                 riid: *const ::windows::runtime::GUID,
@@ -4169,7 +4169,7 @@ pub unsafe fn CoGetPSClsid(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetPSClsid(
                 riid: *const ::windows::runtime::GUID,
@@ -4196,7 +4196,7 @@ pub unsafe fn CoGetStandardMarshal<
 ) -> ::windows::runtime::Result<IMarshal> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetStandardMarshal(
                 riid: *const ::windows::runtime::GUID,
@@ -4230,7 +4230,7 @@ pub unsafe fn CoGetStdMarshalEx<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetStdMarshalEx(
                 punkouter: ::windows::runtime::RawPtr,
@@ -4257,7 +4257,7 @@ pub unsafe fn CoGetSystemSecurityPermissions(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetSystemSecurityPermissions(
                 comsdtype: COMSD,
@@ -4278,7 +4278,7 @@ pub unsafe fn CoGetTreatAsClass(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetTreatAsClass(
                 clsidold: *const ::windows::runtime::GUID,
@@ -4296,7 +4296,7 @@ pub unsafe fn CoGetTreatAsClass(
 pub unsafe fn CoHandlePriorityEventsFromMessagePump() {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoHandlePriorityEventsFromMessagePump();
         }
@@ -4308,7 +4308,7 @@ pub unsafe fn CoHandlePriorityEventsFromMessagePump() {
 pub unsafe fn CoImpersonateClient() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoImpersonateClient() -> ::windows::runtime::HRESULT;
         }
@@ -4320,7 +4320,7 @@ pub unsafe fn CoImpersonateClient() -> ::windows::runtime::Result<()> {
 pub unsafe fn CoIncrementMTAUsage() -> ::windows::runtime::Result<CO_MTA_USAGE_COOKIE> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoIncrementMTAUsage(
                 pcookie: *mut CO_MTA_USAGE_COOKIE,
@@ -4338,7 +4338,7 @@ pub unsafe fn CoInitialize(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInitialize(pvreserved: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -4353,7 +4353,7 @@ pub unsafe fn CoInitializeEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInitializeEx(
                 pvreserved: *const ::std::ffi::c_void,
@@ -4383,7 +4383,7 @@ pub unsafe fn CoInitializeSecurity(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInitializeSecurity(
                 psecdesc: *const super::super::Security::SECURITY_DESCRIPTOR,
@@ -4427,7 +4427,7 @@ pub unsafe fn CoInstall<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInstall(
                 pbc: ::windows::runtime::RawPtr,
@@ -4462,7 +4462,7 @@ pub unsafe fn CoInternetCombineIUri<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetCombineIUri(
                 pbaseuri: ::windows::runtime::RawPtr,
@@ -4500,7 +4500,7 @@ pub unsafe fn CoInternetCombineUrl<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetCombineUrl(
                 pwzbaseurl: super::super::Foundation::PWSTR,
@@ -4540,7 +4540,7 @@ pub unsafe fn CoInternetCombineUrlEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetCombineUrlEx(
                 pbaseuri: ::windows::runtime::RawPtr,
@@ -4574,7 +4574,7 @@ pub unsafe fn CoInternetCompareUrl<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetCompareUrl(
                 pwzurl1: super::super::Foundation::PWSTR,
@@ -4603,7 +4603,7 @@ pub unsafe fn CoInternetCreateSecurityManager<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetCreateSecurityManager(
                 psp: ::windows::runtime::RawPtr,
@@ -4632,7 +4632,7 @@ pub unsafe fn CoInternetCreateZoneManager<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetCreateZoneManager(
                 psp: ::windows::runtime::RawPtr,
@@ -4661,7 +4661,7 @@ pub unsafe fn CoInternetGetProtocolFlags<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetGetProtocolFlags(
                 pwzurl: super::super::Foundation::PWSTR,
@@ -4691,7 +4691,7 @@ pub unsafe fn CoInternetGetSecurityUrl<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetGetSecurityUrl(
                 pwszurl: super::super::Foundation::PWSTR,
@@ -4719,7 +4719,7 @@ pub unsafe fn CoInternetGetSecurityUrlEx<'a, Param0: ::windows::runtime::IntoPar
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetGetSecurityUrlEx(
                 puri: ::windows::runtime::RawPtr,
@@ -4746,7 +4746,7 @@ pub unsafe fn CoInternetGetSession(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetGetSession(
                 dwsessionmode: u32,
@@ -4770,7 +4770,7 @@ pub unsafe fn CoInternetIsFeatureEnabled(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetIsFeatureEnabled(
                 featureentry: INTERNETFEATURELIST,
@@ -4798,7 +4798,7 @@ pub unsafe fn CoInternetIsFeatureEnabledForIUri<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetIsFeatureEnabledForIUri(
                 featureentry: INTERNETFEATURELIST,
@@ -4831,7 +4831,7 @@ pub unsafe fn CoInternetIsFeatureEnabledForUrl<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetIsFeatureEnabledForUrl(
                 featureentry: INTERNETFEATURELIST,
@@ -4865,7 +4865,7 @@ pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetIsFeatureZoneElevationEnabled(
                 szfromurl: super::super::Foundation::PWSTR,
@@ -4897,7 +4897,7 @@ pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetParseIUri(
                 piuri: ::windows::runtime::RawPtr,
@@ -4938,7 +4938,7 @@ pub unsafe fn CoInternetParseUrl<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetParseUrl(
                 pwzurl: super::super::Foundation::PWSTR,
@@ -4979,7 +4979,7 @@ pub unsafe fn CoInternetQueryInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetQueryInfo(
                 pwzurl: super::super::Foundation::PWSTR,
@@ -5016,7 +5016,7 @@ pub unsafe fn CoInternetSetFeatureEnabled<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInternetSetFeatureEnabled(
                 featureentry: INTERNETFEATURELIST,
@@ -5043,7 +5043,7 @@ pub unsafe fn CoInvalidateRemoteMachineBindings<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoInvalidateRemoteMachineBindings(
                 pszmachinename: super::super::Foundation::PWSTR,
@@ -5063,7 +5063,7 @@ pub unsafe fn CoIsHandlerConnected<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoIsHandlerConnected(
                 punk: ::windows::runtime::RawPtr,
@@ -5080,7 +5080,7 @@ pub unsafe fn CoIsOle1Class(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoIsOle1Class(
                 rclsid: *const ::windows::runtime::GUID,
@@ -5102,7 +5102,7 @@ pub unsafe fn CoLoadLibrary<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoLoadLibrary(
                 lpszlibname: super::super::Foundation::PWSTR,
@@ -5130,7 +5130,7 @@ pub unsafe fn CoLockObjectExternal<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoLockObjectExternal(
                 punk: ::windows::runtime::RawPtr,
@@ -5158,7 +5158,7 @@ pub unsafe fn CoMarshalHresult<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoMarshalHresult(
                 pstm: ::windows::runtime::RawPtr,
@@ -5180,7 +5180,7 @@ pub unsafe fn CoMarshalInterThreadInterfaceInStream<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoMarshalInterThreadInterfaceInStream(
                 riid: *const ::windows::runtime::GUID,
@@ -5214,7 +5214,7 @@ pub unsafe fn CoMarshalInterface<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoMarshalInterface(
                 pstm: ::windows::runtime::RawPtr,
@@ -5245,7 +5245,7 @@ pub unsafe fn CoQueryAuthenticationServices(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoQueryAuthenticationServices(
                 pcauthsvc: *mut u32,
@@ -5273,7 +5273,7 @@ pub unsafe fn CoQueryClientBlanket(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoQueryClientBlanket(
                 pauthnsvc: *mut u32,
@@ -5315,7 +5315,7 @@ pub unsafe fn CoQueryProxyBlanket<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoQueryProxyBlanket(
                 pproxy: ::windows::runtime::RawPtr,
@@ -5351,7 +5351,7 @@ pub unsafe fn CoRegisterActivationFilter<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterActivationFilter(
                 pactivationfilter: ::windows::runtime::RawPtr,
@@ -5368,7 +5368,7 @@ pub unsafe fn CoRegisterChannelHook<'a, Param1: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterChannelHook(
                 extensionuuid: *const ::windows::runtime::GUID,
@@ -5395,7 +5395,7 @@ pub unsafe fn CoRegisterClassObject<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterClassObject(
                 rclsid: *const ::windows::runtime::GUID,
@@ -5427,7 +5427,7 @@ pub unsafe fn CoRegisterDeviceCatalog<
 ) -> ::windows::runtime::Result<CO_DEVICE_CATALOG_COOKIE> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterDeviceCatalog(
                 deviceinstanceid: super::super::Foundation::PWSTR,
@@ -5450,7 +5450,7 @@ pub unsafe fn CoRegisterInitializeSpy<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterInitializeSpy(
                 pspy: ::windows::runtime::RawPtr,
@@ -5468,7 +5468,7 @@ pub unsafe fn CoRegisterMallocSpy<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterMallocSpy(
                 pmallocspy: ::windows::runtime::RawPtr,
@@ -5487,7 +5487,7 @@ pub unsafe fn CoRegisterMessageFilter<
 ) -> ::windows::runtime::Result<IMessageFilter> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterMessageFilter(
                 lpmessagefilter: ::windows::runtime::RawPtr,
@@ -5507,7 +5507,7 @@ pub unsafe fn CoRegisterPSClsid(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterPSClsid(
                 riid: *const ::windows::runtime::GUID,
@@ -5524,7 +5524,7 @@ pub unsafe fn CoRegisterSurrogate<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRegisterSurrogate(
                 psurrogate: ::windows::runtime::RawPtr,
@@ -5544,7 +5544,7 @@ pub unsafe fn CoReleaseMarshalData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoReleaseMarshalData(
                 pstm: ::windows::runtime::RawPtr,
@@ -5558,7 +5558,7 @@ pub unsafe fn CoReleaseMarshalData<
 pub unsafe fn CoReleaseServerProcess() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoReleaseServerProcess() -> u32;
         }
@@ -5570,7 +5570,7 @@ pub unsafe fn CoReleaseServerProcess() -> u32 {
 pub unsafe fn CoResumeClassObjects() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoResumeClassObjects() -> ::windows::runtime::HRESULT;
         }
@@ -5582,7 +5582,7 @@ pub unsafe fn CoResumeClassObjects() -> ::windows::runtime::Result<()> {
 pub unsafe fn CoRevertToSelf() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRevertToSelf() -> ::windows::runtime::HRESULT;
         }
@@ -5594,7 +5594,7 @@ pub unsafe fn CoRevertToSelf() -> ::windows::runtime::Result<()> {
 pub unsafe fn CoRevokeClassObject(dwregister: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRevokeClassObject(dwregister: u32) -> ::windows::runtime::HRESULT;
         }
@@ -5611,7 +5611,7 @@ pub unsafe fn CoRevokeDeviceCatalog<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRevokeDeviceCatalog(
                 cookie: CO_DEVICE_CATALOG_COOKIE,
@@ -5625,7 +5625,7 @@ pub unsafe fn CoRevokeDeviceCatalog<
 pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::runtime::HRESULT;
         }
@@ -5637,7 +5637,7 @@ pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::runtime::Resul
 pub unsafe fn CoRevokeMallocSpy() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoRevokeMallocSpy() -> ::windows::runtime::HRESULT;
         }
@@ -5654,7 +5654,7 @@ pub unsafe fn CoSetCancelObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoSetCancelObject(punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -5671,7 +5671,7 @@ pub unsafe fn CoSetMessageDispatcher<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoSetMessageDispatcher(pmessagedispatcher: ::windows::runtime::RawPtr);
         }
@@ -5699,7 +5699,7 @@ pub unsafe fn CoSetProxyBlanket<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoSetProxyBlanket(
                 pproxy: ::windows::runtime::RawPtr,
@@ -5730,7 +5730,7 @@ pub unsafe fn CoSetProxyBlanket<
 pub unsafe fn CoSuspendClassObjects() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoSuspendClassObjects() -> ::windows::runtime::HRESULT;
         }
@@ -5747,7 +5747,7 @@ pub unsafe fn CoSwitchCallContext<
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoSwitchCallContext(
                 pnewobject: ::windows::runtime::RawPtr,
@@ -5765,7 +5765,7 @@ pub unsafe fn CoSwitchCallContext<
 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
         }
@@ -5777,7 +5777,7 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
 pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoTaskMemFree(pv: *const ::std::ffi::c_void);
         }
@@ -5792,7 +5792,7 @@ pub unsafe fn CoTaskMemRealloc(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoTaskMemRealloc(
                 pv: *const ::std::ffi::c_void,
@@ -5810,7 +5810,7 @@ pub unsafe fn CoTaskMemRealloc(
 pub unsafe fn CoTestCancel() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoTestCancel() -> ::windows::runtime::HRESULT;
         }
@@ -5825,7 +5825,7 @@ pub unsafe fn CoTreatAsClass(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoTreatAsClass(
                 clsidold: *const ::windows::runtime::GUID,
@@ -5844,7 +5844,7 @@ pub unsafe fn CoTreatAsClass(
 pub unsafe fn CoUninitialize() {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoUninitialize();
         }
@@ -5862,7 +5862,7 @@ pub unsafe fn CoUnmarshalHresult<
 ) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoUnmarshalHresult(
                 pstm: ::windows::runtime::RawPtr,
@@ -5887,7 +5887,7 @@ pub unsafe fn CoUnmarshalInterface<
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoUnmarshalInterface(
                 pstm: ::windows::runtime::RawPtr,
@@ -5915,7 +5915,7 @@ pub unsafe fn CoWaitForMultipleHandles(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoWaitForMultipleHandles(
                 dwflags: u32,
@@ -5947,7 +5947,7 @@ pub unsafe fn CoWaitForMultipleObjects(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoWaitForMultipleObjects(
                 dwflags: u32,
@@ -6013,7 +6013,7 @@ pub unsafe fn CompareSecurityIds(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompareSecurityIds(
                 pbsecurityid1: *const u8,
@@ -6042,7 +6042,7 @@ pub unsafe fn CompatFlagsFromClsid(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompatFlagsFromClsid(
                 pclsid: *const ::windows::runtime::GUID,
@@ -6075,7 +6075,7 @@ pub const ComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 pub unsafe fn CopyBindInfo(pcbisrc: *const BINDINFO) -> ::windows::runtime::Result<BINDINFO> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyBindInfo(
                 pcbisrc: *const ::std::mem::ManuallyDrop<BINDINFO>,
@@ -6098,7 +6098,7 @@ pub unsafe fn CopyStgMedium(
 ) -> ::windows::runtime::Result<STGMEDIUM> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyStgMedium(
                 pcstgmedsrc: *const ::std::mem::ManuallyDrop<STGMEDIUM>,
@@ -6115,7 +6115,7 @@ pub unsafe fn CopyStgMedium(
 pub unsafe fn CreateAntiMoniker() -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAntiMoniker(
                 ppmk: *mut ::windows::runtime::RawPtr,
@@ -6138,7 +6138,7 @@ pub unsafe fn CreateAsyncBindCtx<
 ) -> ::windows::runtime::Result<IBindCtx> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAsyncBindCtx(
                 reserved: u32,
@@ -6174,7 +6174,7 @@ pub unsafe fn CreateAsyncBindCtxEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAsyncBindCtxEx(
                 pbc: ::windows::runtime::RawPtr,
@@ -6201,7 +6201,7 @@ pub unsafe fn CreateAsyncBindCtxEx<
 pub unsafe fn CreateBindCtx(reserved: u32) -> ::windows::runtime::Result<IBindCtx> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateBindCtx(
                 reserved: u32,
@@ -6219,7 +6219,7 @@ pub unsafe fn CreateClassMoniker(
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateClassMoniker(
                 rclsid: *const ::windows::runtime::GUID,
@@ -6236,7 +6236,7 @@ pub unsafe fn CreateClassMoniker(
 pub unsafe fn CreateDataAdviseHolder() -> ::windows::runtime::Result<IDataAdviseHolder> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDataAdviseHolder(
                 ppdaholder: *mut ::windows::runtime::RawPtr,
@@ -6260,7 +6260,7 @@ pub unsafe fn CreateDataCache<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDataCache(
                 punkouter: ::windows::runtime::RawPtr,
@@ -6289,7 +6289,7 @@ pub unsafe fn CreateFileMoniker<
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileMoniker(
                 lpszpathname: super::super::Foundation::PWSTR,
@@ -6309,7 +6309,7 @@ pub unsafe fn CreateFormatEnumerator(
 ) -> ::windows::runtime::Result<IEnumFORMATETC> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFormatEnumerator(
                 cfmtetc: u32,
@@ -6338,7 +6338,7 @@ pub unsafe fn CreateGenericComposite<
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateGenericComposite(
                 pmkfirst: ::windows::runtime::RawPtr,
@@ -6364,7 +6364,7 @@ pub unsafe fn CreateIUriBuilder<'a, Param0: ::windows::runtime::IntoParam<'a, IU
 ) -> ::windows::runtime::Result<IUriBuilder> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIUriBuilder(
                 piuri: ::windows::runtime::RawPtr,
@@ -6396,7 +6396,7 @@ pub unsafe fn CreateItemMoniker<
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateItemMoniker(
                 lpszdelim: super::super::Foundation::PWSTR,
@@ -6423,7 +6423,7 @@ pub unsafe fn CreateObjrefMoniker<
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateObjrefMoniker(
                 punk: ::windows::runtime::RawPtr,
@@ -6439,7 +6439,7 @@ pub unsafe fn CreateObjrefMoniker<
 pub unsafe fn CreateOleAdviseHolder() -> ::windows::runtime::Result<IOleAdviseHolder> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateOleAdviseHolder(
                 ppoaholder: *mut ::windows::runtime::RawPtr,
@@ -6459,7 +6459,7 @@ pub unsafe fn CreatePointerMoniker<
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePointerMoniker(
                 punk: ::windows::runtime::RawPtr,
@@ -6483,7 +6483,7 @@ pub unsafe fn CreateURLMoniker<
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateURLMoniker(
                 pmkctx: ::windows::runtime::RawPtr,
@@ -6515,7 +6515,7 @@ pub unsafe fn CreateURLMonikerEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateURLMonikerEx(
                 pmkctx: ::windows::runtime::RawPtr,
@@ -6547,7 +6547,7 @@ pub unsafe fn CreateURLMonikerEx2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateURLMonikerEx2(
                 pmkctx: ::windows::runtime::RawPtr,
@@ -6578,7 +6578,7 @@ pub unsafe fn CreateUri<
 ) -> ::windows::runtime::Result<IUri> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateUri(
                 pwzuri: super::super::Foundation::PWSTR,
@@ -6612,7 +6612,7 @@ pub unsafe fn CreateUriFromMultiByteString<
 ) -> ::windows::runtime::Result<IUri> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateUriFromMultiByteString(
                 pszansiinputuri: super::super::Foundation::PSTR,
@@ -6650,7 +6650,7 @@ pub unsafe fn CreateUriWithFragment<
 ) -> ::windows::runtime::Result<IUri> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateUriWithFragment(
                 pwzuri: super::super::Foundation::PWSTR,
@@ -7050,7 +7050,7 @@ pub unsafe fn DoDragDrop<
 ) -> ::windows::runtime::HRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DoDragDrop(
                 pdataobj: ::windows::runtime::RawPtr,
@@ -7513,7 +7513,7 @@ pub unsafe fn FaultInIEFeature<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn FaultInIEFeature(
                 hwnd: super::super::Foundation::HWND,
@@ -7542,7 +7542,7 @@ pub unsafe fn FindMediaType<
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindMediaType(
                 rgsztypes: super::super::Foundation::PSTR,
@@ -7568,7 +7568,7 @@ pub unsafe fn FindMediaTypeClass<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindMediaTypeClass(
                 pbc: ::windows::runtime::RawPtr,
@@ -7606,7 +7606,7 @@ pub unsafe fn FindMimeFromData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindMimeFromData(
                 pbc: ::windows::runtime::RawPtr,
@@ -8018,7 +8018,7 @@ pub unsafe fn GetClassFile<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassFile(
                 szfilename: super::super::Foundation::PWSTR,
@@ -8049,7 +8049,7 @@ pub unsafe fn GetClassFileOrMime<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassFileOrMime(
                 pbc: ::windows::runtime::RawPtr,
@@ -8086,7 +8086,7 @@ pub unsafe fn GetClassURL<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClassURL(
                 szurl: super::super::Foundation::PWSTR,
@@ -8107,7 +8107,7 @@ pub unsafe fn GetComponentIDFromCLSSPEC(
 ) -> ::windows::runtime::Result<super::super::Foundation::PSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComponentIDFromCLSSPEC(
                 pclassspec: *const super::SystemServices::uCLSSPEC,
@@ -8127,7 +8127,7 @@ pub unsafe fn GetRunningObjectTable(
 ) -> ::windows::runtime::Result<IRunningObjectTable> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRunningObjectTable(
                 reserved: u32,
@@ -8151,7 +8151,7 @@ pub unsafe fn GetSoftwareUpdateInfo<
 ) -> ::windows::runtime::Result<super::super::UI::Shell::SOFTDISTINFO> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSoftwareUpdateInfo(
                 szdistunit: super::super::Foundation::PWSTR,
@@ -8173,7 +8173,7 @@ pub unsafe fn HACCEL_UserFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserFree(
                 param0: *const u32,
@@ -8195,7 +8195,7 @@ pub unsafe fn HACCEL_UserFree64(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserFree64(
                 param0: *const u32,
@@ -8218,7 +8218,7 @@ pub unsafe fn HACCEL_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserMarshal(
                 param0: *const u32,
@@ -8243,7 +8243,7 @@ pub unsafe fn HACCEL_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserMarshal64(
                 param0: *const u32,
@@ -8268,7 +8268,7 @@ pub unsafe fn HACCEL_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserSize(
                 param0: *const u32,
@@ -8293,7 +8293,7 @@ pub unsafe fn HACCEL_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserSize64(
                 param0: *const u32,
@@ -8318,7 +8318,7 @@ pub unsafe fn HACCEL_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserUnmarshal(
                 param0: *const u32,
@@ -8343,7 +8343,7 @@ pub unsafe fn HACCEL_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HACCEL_UserUnmarshal64(
                 param0: *const u32,
@@ -8367,7 +8367,7 @@ pub unsafe fn HBITMAP_UserFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserFree(
                 param0: *const u32,
@@ -8389,7 +8389,7 @@ pub unsafe fn HBITMAP_UserFree64(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserFree64(
                 param0: *const u32,
@@ -8412,7 +8412,7 @@ pub unsafe fn HBITMAP_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserMarshal(
                 param0: *const u32,
@@ -8437,7 +8437,7 @@ pub unsafe fn HBITMAP_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserMarshal64(
                 param0: *const u32,
@@ -8462,7 +8462,7 @@ pub unsafe fn HBITMAP_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserSize(
                 param0: *const u32,
@@ -8487,7 +8487,7 @@ pub unsafe fn HBITMAP_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserSize64(
                 param0: *const u32,
@@ -8512,7 +8512,7 @@ pub unsafe fn HBITMAP_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserUnmarshal(
                 param0: *const u32,
@@ -8537,7 +8537,7 @@ pub unsafe fn HBITMAP_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HBITMAP_UserUnmarshal64(
                 param0: *const u32,
@@ -8558,7 +8558,7 @@ pub unsafe fn HBITMAP_UserUnmarshal64(
 pub unsafe fn HDC_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HDC) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HDC);
         }
@@ -8574,7 +8574,7 @@ pub unsafe fn HDC_UserFree(param0: *const u32, param1: *const super::super::Grap
 pub unsafe fn HDC_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HDC) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HDC);
         }
@@ -8594,7 +8594,7 @@ pub unsafe fn HDC_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserMarshal(
                 param0: *const u32,
@@ -8619,7 +8619,7 @@ pub unsafe fn HDC_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserMarshal64(
                 param0: *const u32,
@@ -8644,7 +8644,7 @@ pub unsafe fn HDC_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserSize(
                 param0: *const u32,
@@ -8669,7 +8669,7 @@ pub unsafe fn HDC_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserSize64(
                 param0: *const u32,
@@ -8694,7 +8694,7 @@ pub unsafe fn HDC_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserUnmarshal(
                 param0: *const u32,
@@ -8719,7 +8719,7 @@ pub unsafe fn HDC_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HDC_UserUnmarshal64(
                 param0: *const u32,
@@ -8739,7 +8739,7 @@ pub unsafe fn HDC_UserUnmarshal64(
 pub unsafe fn HGLOBAL_UserFree(param0: *const u32, param1: *const isize) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserFree(param0: *const u32, param1: *const isize);
         }
@@ -8754,7 +8754,7 @@ pub unsafe fn HGLOBAL_UserFree(param0: *const u32, param1: *const isize) {
 pub unsafe fn HGLOBAL_UserFree64(param0: *const u32, param1: *const isize) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserFree64(param0: *const u32, param1: *const isize);
         }
@@ -8773,7 +8773,7 @@ pub unsafe fn HGLOBAL_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserMarshal(
                 param0: *const u32,
@@ -8797,7 +8797,7 @@ pub unsafe fn HGLOBAL_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserMarshal64(
                 param0: *const u32,
@@ -8817,7 +8817,7 @@ pub unsafe fn HGLOBAL_UserMarshal64(
 pub unsafe fn HGLOBAL_UserSize(param0: *const u32, param1: u32, param2: *const isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserSize(param0: *const u32, param1: u32, param2: *const isize) -> u32;
         }
@@ -8833,7 +8833,7 @@ pub unsafe fn HGLOBAL_UserSize(param0: *const u32, param1: u32, param2: *const i
 pub unsafe fn HGLOBAL_UserSize64(param0: *const u32, param1: u32, param2: *const isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserSize64(param0: *const u32, param1: u32, param2: *const isize) -> u32;
         }
@@ -8853,7 +8853,7 @@ pub unsafe fn HGLOBAL_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserUnmarshal(
                 param0: *const u32,
@@ -8877,7 +8877,7 @@ pub unsafe fn HGLOBAL_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HGLOBAL_UserUnmarshal64(
                 param0: *const u32,
@@ -8901,7 +8901,7 @@ pub unsafe fn HICON_UserFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserFree(
                 param0: *const u32,
@@ -8923,7 +8923,7 @@ pub unsafe fn HICON_UserFree64(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserFree64(
                 param0: *const u32,
@@ -8946,7 +8946,7 @@ pub unsafe fn HICON_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserMarshal(
                 param0: *const u32,
@@ -8971,7 +8971,7 @@ pub unsafe fn HICON_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserMarshal64(
                 param0: *const u32,
@@ -8996,7 +8996,7 @@ pub unsafe fn HICON_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserSize(
                 param0: *const u32,
@@ -9021,7 +9021,7 @@ pub unsafe fn HICON_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserSize64(
                 param0: *const u32,
@@ -9046,7 +9046,7 @@ pub unsafe fn HICON_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserUnmarshal(
                 param0: *const u32,
@@ -9071,7 +9071,7 @@ pub unsafe fn HICON_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HICON_UserUnmarshal64(
                 param0: *const u32,
@@ -9165,7 +9165,7 @@ pub unsafe fn HMENU_UserFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserFree(
                 param0: *const u32,
@@ -9187,7 +9187,7 @@ pub unsafe fn HMENU_UserFree64(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserFree64(
                 param0: *const u32,
@@ -9210,7 +9210,7 @@ pub unsafe fn HMENU_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserMarshal(
                 param0: *const u32,
@@ -9235,7 +9235,7 @@ pub unsafe fn HMENU_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserMarshal64(
                 param0: *const u32,
@@ -9260,7 +9260,7 @@ pub unsafe fn HMENU_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserSize(
                 param0: *const u32,
@@ -9285,7 +9285,7 @@ pub unsafe fn HMENU_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserSize64(
                 param0: *const u32,
@@ -9310,7 +9310,7 @@ pub unsafe fn HMENU_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserUnmarshal(
                 param0: *const u32,
@@ -9335,7 +9335,7 @@ pub unsafe fn HMENU_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HMENU_UserUnmarshal64(
                 param0: *const u32,
@@ -9359,7 +9359,7 @@ pub unsafe fn HPALETTE_UserFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserFree(
                 param0: *const u32,
@@ -9381,7 +9381,7 @@ pub unsafe fn HPALETTE_UserFree64(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserFree64(
                 param0: *const u32,
@@ -9404,7 +9404,7 @@ pub unsafe fn HPALETTE_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserMarshal(
                 param0: *const u32,
@@ -9429,7 +9429,7 @@ pub unsafe fn HPALETTE_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserMarshal64(
                 param0: *const u32,
@@ -9454,7 +9454,7 @@ pub unsafe fn HPALETTE_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserSize(
                 param0: *const u32,
@@ -9479,7 +9479,7 @@ pub unsafe fn HPALETTE_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserSize64(
                 param0: *const u32,
@@ -9504,7 +9504,7 @@ pub unsafe fn HPALETTE_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserUnmarshal(
                 param0: *const u32,
@@ -9529,7 +9529,7 @@ pub unsafe fn HPALETTE_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HPALETTE_UserUnmarshal64(
                 param0: *const u32,
@@ -9550,7 +9550,7 @@ pub unsafe fn HPALETTE_UserUnmarshal64(
 pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN);
         }
@@ -9569,7 +9569,7 @@ pub unsafe fn HRGN_UserFree64(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-marshal-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserFree64(
                 param0: *const u32,
@@ -9592,7 +9592,7 @@ pub unsafe fn HRGN_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserMarshal(
                 param0: *const u32,
@@ -9617,7 +9617,7 @@ pub unsafe fn HRGN_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-marshal-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserMarshal64(
                 param0: *const u32,
@@ -9642,7 +9642,7 @@ pub unsafe fn HRGN_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserSize(
                 param0: *const u32,
@@ -9667,7 +9667,7 @@ pub unsafe fn HRGN_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-marshal-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserSize64(
                 param0: *const u32,
@@ -9692,7 +9692,7 @@ pub unsafe fn HRGN_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserUnmarshal(
                 param0: *const u32,
@@ -9717,7 +9717,7 @@ pub unsafe fn HRGN_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-marshal-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HRGN_UserUnmarshal64(
                 param0: *const u32,
@@ -9772,7 +9772,7 @@ pub unsafe fn HlinkGoBack<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn HlinkGoBack(punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -9789,7 +9789,7 @@ pub unsafe fn HlinkGoForward<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn HlinkGoForward(punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -9808,7 +9808,7 @@ pub unsafe fn HlinkNavigateMoniker<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn HlinkNavigateMoniker(
                 punk: ::windows::runtime::RawPtr,
@@ -9831,7 +9831,7 @@ pub unsafe fn HlinkNavigateString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn HlinkNavigateString(
                 punk: ::windows::runtime::RawPtr,
@@ -9864,7 +9864,7 @@ pub unsafe fn HlinkSimpleNavigateToMoniker<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn HlinkSimpleNavigateToMoniker(
                 pmktarget: ::windows::runtime::RawPtr,
@@ -9913,7 +9913,7 @@ pub unsafe fn HlinkSimpleNavigateToString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn HlinkSimpleNavigateToString(
                 sztarget: super::super::Foundation::PWSTR,
@@ -17889,7 +17889,7 @@ pub struct IDummyHICONIncluder_abi(
 pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn IEGetUserPrivateNamespaceName() -> super::super::Foundation::PWSTR;
         }
@@ -17901,7 +17901,7 @@ pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::Foundation::PWSTR
 pub unsafe fn IEInstallScope() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn IEInstallScope(pdwscope: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -22279,7 +22279,7 @@ pub unsafe fn IIDFromString<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IIDFromString(
                 lpsz: super::super::Foundation::PWSTR,
@@ -48083,7 +48083,7 @@ pub unsafe fn IsAccelerator<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsAccelerator(
                 haccel: super::super::UI::WindowsAndMessaging::HACCEL,
@@ -48107,7 +48107,7 @@ pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, IMoni
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsAsyncMoniker(pmk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -48125,7 +48125,7 @@ pub unsafe fn IsLoggingEnabledA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsLoggingEnabledA(
                 pszurl: super::super::Foundation::PSTR,
@@ -48145,7 +48145,7 @@ pub unsafe fn IsLoggingEnabledW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsLoggingEnabledW(
                 pwszurl: super::super::Foundation::PWSTR,
@@ -48168,7 +48168,7 @@ pub unsafe fn IsValidURL<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidURL(
                 pbc: ::windows::runtime::RawPtr,
@@ -48595,7 +48595,7 @@ pub unsafe fn MkParseDisplayName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MkParseDisplayName(
                 pbc: ::windows::runtime::RawPtr,
@@ -48628,7 +48628,7 @@ pub unsafe fn MkParseDisplayNameEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn MkParseDisplayNameEx(
                 pbc: ::windows::runtime::RawPtr,
@@ -48658,7 +48658,7 @@ pub unsafe fn MonikerCommonPrefixWith<
 ) -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MonikerCommonPrefixWith(
                 pmkthis: ::windows::runtime::RawPtr,
@@ -48691,7 +48691,7 @@ pub unsafe fn MonikerRelativePathTo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MonikerRelativePathTo(
                 pmksrc: ::windows::runtime::RawPtr,
@@ -52060,7 +52060,7 @@ pub unsafe fn ObtainUserAgentString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObtainUserAgentString(
                 dwoption: u32,
@@ -52081,7 +52081,7 @@ pub unsafe fn ObtainUserAgentString(
 pub unsafe fn OleBuildVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleBuildVersion() -> u32;
         }
@@ -52106,7 +52106,7 @@ pub unsafe fn OleCreate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreate(
                 rclsid: *const ::windows::runtime::GUID,
@@ -52143,7 +52143,7 @@ pub unsafe fn OleCreateDefaultHandler<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateDefaultHandler(
                 clsid: *const ::windows::runtime::GUID,
@@ -52177,7 +52177,7 @@ pub unsafe fn OleCreateEmbeddingHelper<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateEmbeddingHelper(
                 clsid: *const ::windows::runtime::GUID,
@@ -52223,7 +52223,7 @@ pub unsafe fn OleCreateEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateEx(
                 rclsid: *const ::windows::runtime::GUID,
@@ -52267,7 +52267,7 @@ pub unsafe fn OleCreateFontIndirect(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateFontIndirect(
                 lpfontdesc: *mut FONTDESC,
@@ -52302,7 +52302,7 @@ pub unsafe fn OleCreateFromData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateFromData(
                 psrcdataobj: ::windows::runtime::RawPtr,
@@ -52351,7 +52351,7 @@ pub unsafe fn OleCreateFromDataEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateFromDataEx(
                 psrcdataobj: ::windows::runtime::RawPtr,
@@ -52408,7 +52408,7 @@ pub unsafe fn OleCreateFromFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateFromFile(
                 rclsid: *const ::windows::runtime::GUID,
@@ -52463,7 +52463,7 @@ pub unsafe fn OleCreateFromFileEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateFromFileEx(
                 rclsid: *const ::windows::runtime::GUID,
@@ -52518,7 +52518,7 @@ pub unsafe fn OleCreateLink<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateLink(
                 pmklinksrc: ::windows::runtime::RawPtr,
@@ -52567,7 +52567,7 @@ pub unsafe fn OleCreateLinkEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateLinkEx(
                 pmklinksrc: ::windows::runtime::RawPtr,
@@ -52620,7 +52620,7 @@ pub unsafe fn OleCreateLinkFromData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateLinkFromData(
                 psrcdataobj: ::windows::runtime::RawPtr,
@@ -52669,7 +52669,7 @@ pub unsafe fn OleCreateLinkFromDataEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateLinkFromDataEx(
                 psrcdataobj: ::windows::runtime::RawPtr,
@@ -52725,7 +52725,7 @@ pub unsafe fn OleCreateLinkToFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateLinkToFile(
                 lpszfilename: super::super::Foundation::PWSTR,
@@ -52777,7 +52777,7 @@ pub unsafe fn OleCreateLinkToFileEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateLinkToFileEx(
                 lpszfilename: super::super::Foundation::PWSTR,
@@ -52823,7 +52823,7 @@ pub unsafe fn OleCreateMenuDescriptor<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateMenuDescriptor(
                 hmenucombined: super::super::UI::WindowsAndMessaging::HMENU,
@@ -52854,7 +52854,7 @@ pub unsafe fn OleCreatePictureIndirect<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreatePictureIndirect(
                 lppictdesc: *mut PICTDESC,
@@ -52894,7 +52894,7 @@ pub unsafe fn OleCreatePropertyFrame<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreatePropertyFrame(
                 hwndowner: super::super::Foundation::HWND,
@@ -52934,7 +52934,7 @@ pub unsafe fn OleCreatePropertyFrameIndirect(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreatePropertyFrameIndirect(
                 lpparams: *mut OCPFIPARAMS,
@@ -52962,7 +52962,7 @@ pub unsafe fn OleCreateStaticFromData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleCreateStaticFromData(
                 psrcdataobj: ::windows::runtime::RawPtr,
@@ -52991,7 +52991,7 @@ pub unsafe fn OleCreateStaticFromData<
 pub unsafe fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::runtime::HRESULT;
         }
@@ -53010,7 +53010,7 @@ pub unsafe fn OleDoAutoConvert<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleDoAutoConvert(
                 pstg: ::windows::runtime::RawPtr,
@@ -53035,7 +53035,7 @@ pub unsafe fn OleDraw<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleDraw(
                 punknown: ::windows::runtime::RawPtr,
@@ -53066,7 +53066,7 @@ pub unsafe fn OleDuplicateData<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleDuplicateData(
                 hsrc: super::super::Foundation::HANDLE,
@@ -53086,7 +53086,7 @@ pub unsafe fn OleDuplicateData<
 pub unsafe fn OleFlushClipboard() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleFlushClipboard() -> ::windows::runtime::HRESULT;
         }
@@ -53101,7 +53101,7 @@ pub unsafe fn OleGetAutoConvert(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleGetAutoConvert(
                 clsidold: *const ::windows::runtime::GUID,
@@ -53120,7 +53120,7 @@ pub unsafe fn OleGetAutoConvert(
 pub unsafe fn OleGetClipboard() -> ::windows::runtime::Result<IDataObject> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleGetClipboard(
                 ppdataobj: *mut ::windows::runtime::RawPtr,
@@ -53142,7 +53142,7 @@ pub unsafe fn OleGetClipboardWithEnterpriseInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleGetClipboardWithEnterpriseInfo(
                 dataobject: *mut ::windows::runtime::RawPtr,
@@ -53176,7 +53176,7 @@ pub unsafe fn OleGetIconOfClass<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleGetIconOfClass(
                 rclsid: *const ::windows::runtime::GUID,
@@ -53204,7 +53204,7 @@ pub unsafe fn OleGetIconOfFile<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleGetIconOfFile(
                 lpszpath: super::super::Foundation::PWSTR,
@@ -53230,7 +53230,7 @@ pub unsafe fn OleIconToCursor<
 ) -> super::super::UI::WindowsAndMessaging::HCURSOR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleIconToCursor(
                 hinstexe: super::super::Foundation::HINSTANCE,
@@ -53248,7 +53248,7 @@ pub unsafe fn OleIconToCursor<
 pub unsafe fn OleInitialize(pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleInitialize(pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -53262,7 +53262,7 @@ pub unsafe fn OleIsCurrentClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleIsCurrentClipboard(
                 pdataobj: ::windows::runtime::RawPtr,
@@ -53279,7 +53279,7 @@ pub unsafe fn OleIsRunning<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObj
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleIsRunning(pobject: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL;
         }
@@ -53301,7 +53301,7 @@ pub unsafe fn OleLoad<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLoad(
                 pstg: ::windows::runtime::RawPtr,
@@ -53332,7 +53332,7 @@ pub unsafe fn OleLoadFromStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLoadFromStream(
                 pstm: ::windows::runtime::RawPtr,
@@ -53367,7 +53367,7 @@ pub unsafe fn OleLoadPicture<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLoadPicture(
                 lpstream: ::windows::runtime::RawPtr,
@@ -53409,7 +53409,7 @@ pub unsafe fn OleLoadPictureEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLoadPictureEx(
                 lpstream: ::windows::runtime::RawPtr,
@@ -53452,7 +53452,7 @@ pub unsafe fn OleLoadPicturePath<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLoadPicturePath(
                 szurlorpath: super::super::Foundation::PWSTR,
@@ -53489,7 +53489,7 @@ pub unsafe fn OleLockRunning<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleLockRunning(
                 punknown: ::windows::runtime::RawPtr,
@@ -53549,7 +53549,7 @@ pub unsafe fn OleMetafilePictFromIconAndLabel<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleMetafilePictFromIconAndLabel(
                 hicon: super::super::UI::WindowsAndMessaging::HICON,
@@ -53579,7 +53579,7 @@ pub unsafe fn OleNoteObjectVisible<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleNoteObjectVisible(
                 punknown: ::windows::runtime::RawPtr,
@@ -53596,7 +53596,7 @@ pub unsafe fn OleQueryCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleQueryCreateFromData(
                 psrcdataobject: ::windows::runtime::RawPtr,
@@ -53612,7 +53612,7 @@ pub unsafe fn OleQueryLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleQueryLinkFromData(
                 psrcdataobject: ::windows::runtime::RawPtr,
@@ -53629,7 +53629,7 @@ pub unsafe fn OleRegEnumFormatEtc(
 ) -> ::windows::runtime::Result<IEnumFORMATETC> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleRegEnumFormatEtc(
                 clsid: *const ::windows::runtime::GUID,
@@ -53653,7 +53653,7 @@ pub unsafe fn OleRegEnumVerbs(
 ) -> ::windows::runtime::Result<IEnumOLEVERB> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleRegEnumVerbs(
                 clsid: *const ::windows::runtime::GUID,
@@ -53674,7 +53674,7 @@ pub unsafe fn OleRegGetMiscStatus(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleRegGetMiscStatus(
                 clsid: *const ::windows::runtime::GUID,
@@ -53699,7 +53699,7 @@ pub unsafe fn OleRegGetUserType(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleRegGetUserType(
                 clsid: *const ::windows::runtime::GUID,
@@ -53727,7 +53727,7 @@ pub unsafe fn OleRun<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleRun(punknown: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
@@ -53752,7 +53752,7 @@ pub unsafe fn OleSave<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleSave(
                 pps: ::windows::runtime::RawPtr,
@@ -53781,7 +53781,7 @@ pub unsafe fn OleSaveToStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleSaveToStream(
                 ppstm: ::windows::runtime::RawPtr,
@@ -53799,7 +53799,7 @@ pub unsafe fn OleSetAutoConvert(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleSetAutoConvert(
                 clsidold: *const ::windows::runtime::GUID,
@@ -53820,7 +53820,7 @@ pub unsafe fn OleSetClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, IDat
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleSetClipboard(pdataobj: ::windows::runtime::RawPtr)
                 -> ::windows::runtime::HRESULT;
@@ -53841,7 +53841,7 @@ pub unsafe fn OleSetContainedObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleSetContainedObject(
                 punknown: ::windows::runtime::RawPtr,
@@ -53869,7 +53869,7 @@ pub unsafe fn OleSetMenuDescriptor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleSetMenuDescriptor(
                 holemenu: isize,
@@ -53902,7 +53902,7 @@ pub unsafe fn OleTranslateAccelerator<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleTranslateAccelerator(
                 lpframe: ::windows::runtime::RawPtr,
@@ -53931,7 +53931,7 @@ pub unsafe fn OleTranslateColor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleTranslateColor(
                 clr: u32,
@@ -53969,7 +53969,7 @@ pub unsafe fn OleUIAddVerbMenuA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIAddVerbMenuA(
                 lpoleobj: ::windows::runtime::RawPtr,
@@ -54018,7 +54018,7 @@ pub unsafe fn OleUIAddVerbMenuW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIAddVerbMenuW(
                 lpoleobj: ::windows::runtime::RawPtr,
@@ -54055,7 +54055,7 @@ pub unsafe fn OleUIAddVerbMenuW<
 pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIBusyA(param0: *const ::std::mem::ManuallyDrop<OLEUIBUSYA>) -> u32;
         }
@@ -54072,7 +54072,7 @@ pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
 pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIBusyW(param0: *const ::std::mem::ManuallyDrop<OLEUIBUSYW>) -> u32;
         }
@@ -54092,7 +54092,7 @@ pub unsafe fn OleUICanConvertOrActivateAs<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUICanConvertOrActivateAs(
                 rclsid: *const ::windows::runtime::GUID,
@@ -54117,7 +54117,7 @@ pub unsafe fn OleUICanConvertOrActivateAs<
 pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIChangeIconA(param0: *const ::std::mem::ManuallyDrop<OLEUICHANGEICONA>) -> u32;
         }
@@ -54130,7 +54130,7 @@ pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
 pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIChangeIconW(param0: *const ::std::mem::ManuallyDrop<OLEUICHANGEICONW>) -> u32;
         }
@@ -54147,7 +54147,7 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIChangeSourceA(
                 param0: *const ::std::mem::ManuallyDrop<OLEUICHANGESOURCEA>,
@@ -54166,7 +54166,7 @@ pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIChangeSourceW(
                 param0: *const ::std::mem::ManuallyDrop<OLEUICHANGESOURCEW>,
@@ -54181,7 +54181,7 @@ pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
 pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIConvertA(param0: *const ::std::mem::ManuallyDrop<OLEUICONVERTA>) -> u32;
         }
@@ -54194,7 +54194,7 @@ pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
 pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIConvertW(param0: *const ::std::mem::ManuallyDrop<OLEUICONVERTW>) -> u32;
         }
@@ -54207,7 +54207,7 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIEditLinksA(param0: *const ::std::mem::ManuallyDrop<OLEUIEDITLINKSA>) -> u32;
         }
@@ -54220,7 +54220,7 @@ pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIEditLinksW(param0: *const ::std::mem::ManuallyDrop<OLEUIEDITLINKSW>) -> u32;
         }
@@ -54237,7 +54237,7 @@ pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIInsertObjectA(
                 param0: *const ::std::mem::ManuallyDrop<OLEUIINSERTOBJECTA>,
@@ -54256,7 +54256,7 @@ pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIInsertObjectW(
                 param0: *const ::std::mem::ManuallyDrop<OLEUIINSERTOBJECTW>,
@@ -54276,7 +54276,7 @@ pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIObjectPropertiesA(
                 param0: *const ::std::mem::ManuallyDrop<OLEUIOBJECTPROPSA>,
@@ -54296,7 +54296,7 @@ pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIObjectPropertiesW(
                 param0: *const ::std::mem::ManuallyDrop<OLEUIOBJECTPROPSW>,
@@ -54311,7 +54311,7 @@ pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIPasteSpecialA(
                 param0: *const ::std::mem::ManuallyDrop<OLEUIPASTESPECIALA>,
@@ -54326,7 +54326,7 @@ pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIPasteSpecialW(
                 param0: *const ::std::mem::ManuallyDrop<OLEUIPASTESPECIALW>,
@@ -54347,7 +54347,7 @@ pub unsafe fn OleUIPromptUserA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIPromptUserA(ntemplate: i32, hwndparent: super::super::Foundation::HWND) -> i32;
         }
@@ -54369,7 +54369,7 @@ pub unsafe fn OleUIPromptUserW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIPromptUserW(ntemplate: i32, hwndparent: super::super::Foundation::HWND) -> i32;
         }
@@ -54395,7 +54395,7 @@ pub unsafe fn OleUIUpdateLinksA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIUpdateLinksA(
                 lpoleuilinkcntr: ::windows::runtime::RawPtr,
@@ -54428,7 +54428,7 @@ pub unsafe fn OleUIUpdateLinksW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "oledlg")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUIUpdateLinksW(
                 lpoleuilinkcntr: ::windows::runtime::RawPtr,
@@ -54450,7 +54450,7 @@ pub unsafe fn OleUIUpdateLinksW<
 pub unsafe fn OleUninitialize() {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OleUninitialize();
         }
@@ -55424,7 +55424,7 @@ pub unsafe fn ProgIDFromCLSID(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProgIDFromCLSID(
                 clsid: *const ::windows::runtime::GUID,
@@ -55990,7 +55990,7 @@ pub unsafe fn RegisterBindStatusCallback<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterBindStatusCallback(
                 pbc: ::windows::runtime::RawPtr,
@@ -56021,7 +56021,7 @@ pub unsafe fn RegisterDragDrop<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDragDrop(
                 hwnd: super::super::Foundation::HWND,
@@ -56044,7 +56044,7 @@ pub unsafe fn RegisterFormatEnumerator<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterFormatEnumerator(
                 pbc: ::windows::runtime::RawPtr,
@@ -56072,7 +56072,7 @@ pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterMediaTypeClass(
                 pbc: ::windows::runtime::RawPtr,
@@ -56102,7 +56102,7 @@ pub unsafe fn RegisterMediaTypes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterMediaTypes(
                 ctypes: u32,
@@ -56129,7 +56129,7 @@ pub unsafe fn RegisterMediaTypes(
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut BINDINFO) {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseBindInfo(pbindinfo: *mut ::std::mem::ManuallyDrop<BINDINFO>);
         }
@@ -56146,7 +56146,7 @@ pub unsafe fn ReleaseBindInfo(pbindinfo: *mut BINDINFO) {
 pub unsafe fn ReleaseStgMedium(param0: *mut STGMEDIUM) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseStgMedium(param0: *mut ::std::mem::ManuallyDrop<STGMEDIUM>);
         }
@@ -56325,7 +56325,7 @@ pub unsafe fn RevokeBindStatusCallback<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn RevokeBindStatusCallback(
                 pbc: ::windows::runtime::RawPtr,
@@ -56346,7 +56346,7 @@ pub unsafe fn RevokeDragDrop<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RevokeDragDrop(hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
         }
@@ -56365,7 +56365,7 @@ pub unsafe fn RevokeFormatEnumerator<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn RevokeFormatEnumerator(
                 pbc: ::windows::runtime::RawPtr,
@@ -56501,7 +56501,7 @@ unsafe impl ::windows::runtime::Abi for SHORT_SIZEDARR {
 pub unsafe fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16);
         }
@@ -56516,7 +56516,7 @@ pub unsafe fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16)
 pub unsafe fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u16);
         }
@@ -56535,7 +56535,7 @@ pub unsafe fn SNB_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserMarshal(
                 param0: *const u32,
@@ -56559,7 +56559,7 @@ pub unsafe fn SNB_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserMarshal64(
                 param0: *const u32,
@@ -56583,7 +56583,7 @@ pub unsafe fn SNB_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserSize(
                 param0: *const u32,
@@ -56607,7 +56607,7 @@ pub unsafe fn SNB_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserSize64(
                 param0: *const u32,
@@ -56631,7 +56631,7 @@ pub unsafe fn SNB_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserUnmarshal(
                 param0: *const u32,
@@ -56655,7 +56655,7 @@ pub unsafe fn SNB_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SNB_UserUnmarshal64(
                 param0: *const u32,
@@ -57007,7 +57007,7 @@ pub unsafe fn SetAccessForIEAppContainer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetAccessForIEAppContainer(
                 hobject: super::super::Foundation::HANDLE,
@@ -57037,7 +57037,7 @@ pub unsafe fn SetSoftwareUpdateAdvertisementState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSoftwareUpdateAdvertisementState(
                 szdistunit: super::super::Foundation::PWSTR,
@@ -57116,7 +57116,7 @@ pub unsafe fn StringFromCLSID(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StringFromCLSID(
                 rclsid: *const ::windows::runtime::GUID,
@@ -57139,7 +57139,7 @@ pub unsafe fn StringFromGUID2(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StringFromGUID2(
                 rguid: *const ::windows::runtime::GUID,
@@ -57162,7 +57162,7 @@ pub unsafe fn StringFromIID(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StringFromIID(
                 rclsid: *const ::windows::runtime::GUID,
@@ -57555,7 +57555,7 @@ pub unsafe fn URLDownloadToCacheFileA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLDownloadToCacheFileA(
                 param0: ::windows::runtime::RawPtr,
@@ -57595,7 +57595,7 @@ pub unsafe fn URLDownloadToCacheFileW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLDownloadToCacheFileW(
                 param0: ::windows::runtime::RawPtr,
@@ -57635,7 +57635,7 @@ pub unsafe fn URLDownloadToFileA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLDownloadToFileA(
                 param0: ::windows::runtime::RawPtr,
@@ -57673,7 +57673,7 @@ pub unsafe fn URLDownloadToFileW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLDownloadToFileW(
                 param0: ::windows::runtime::RawPtr,
@@ -57721,7 +57721,7 @@ pub unsafe fn URLOpenBlockingStreamA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLOpenBlockingStreamA(
                 param0: ::windows::runtime::RawPtr,
@@ -57761,7 +57761,7 @@ pub unsafe fn URLOpenBlockingStreamW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLOpenBlockingStreamW(
                 param0: ::windows::runtime::RawPtr,
@@ -57797,7 +57797,7 @@ pub unsafe fn URLOpenPullStreamA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLOpenPullStreamA(
                 param0: ::windows::runtime::RawPtr,
@@ -57831,7 +57831,7 @@ pub unsafe fn URLOpenPullStreamW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLOpenPullStreamW(
                 param0: ::windows::runtime::RawPtr,
@@ -57865,7 +57865,7 @@ pub unsafe fn URLOpenStreamA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLOpenStreamA(
                 param0: ::windows::runtime::RawPtr,
@@ -57899,7 +57899,7 @@ pub unsafe fn URLOpenStreamW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn URLOpenStreamW(
                 param0: ::windows::runtime::RawPtr,
@@ -58158,7 +58158,7 @@ pub unsafe fn UrlMkGetSessionOption(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn UrlMkGetSessionOption(
                 dwoption: u32,
@@ -58188,7 +58188,7 @@ pub unsafe fn UrlMkSetSessionOption(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn UrlMkSetSessionOption(
                 dwoption: u32,
@@ -58299,7 +58299,7 @@ pub unsafe fn WriteHitLogging(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "urlmon")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteHitLogging(
                 lplogginginfo: *const HIT_LOGGING_INFO,

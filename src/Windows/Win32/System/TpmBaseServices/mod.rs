@@ -16,7 +16,7 @@ pub unsafe fn GetDeviceID(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeviceID(
                 pbwindowsaik: *mut u8,
@@ -45,7 +45,7 @@ pub unsafe fn GetDeviceIDString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeviceIDString(
                 pszwindowsaik: super::super::Foundation::PWSTR,
@@ -339,7 +339,7 @@ pub unsafe fn Tbsi_Context_Create(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Context_Create(
                 pcontextparams: *const TBS_CONTEXT_PARAMS,
@@ -357,7 +357,7 @@ pub unsafe fn Tbsi_Context_Create(
 pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32;
         }
@@ -369,7 +369,7 @@ pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
 pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::std::ffi::c_void) -> u32;
         }
@@ -389,7 +389,7 @@ pub unsafe fn Tbsi_Get_OwnerAuth(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Get_OwnerAuth(
                 hcontext: *const ::std::ffi::c_void,
@@ -415,7 +415,7 @@ pub unsafe fn Tbsi_Get_TCG_Log(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Get_TCG_Log(
                 hcontext: *const ::std::ffi::c_void,
@@ -435,7 +435,7 @@ pub unsafe fn Tbsi_Get_TCG_Log(
 pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *mut u32) -> u32;
         }
@@ -457,7 +457,7 @@ pub unsafe fn Tbsi_Physical_Presence_Command(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Physical_Presence_Command(
                 hcontext: *const ::std::ffi::c_void,
@@ -481,7 +481,7 @@ pub unsafe fn Tbsi_Physical_Presence_Command(
 pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Revoke_Attestation() -> u32;
         }
@@ -493,7 +493,7 @@ pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
 pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsip_Cancel_Commands(hcontext: *const ::std::ffi::c_void) -> u32;
         }
@@ -505,7 +505,7 @@ pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const ::std::ffi::c_void) -> u32 
 pub unsafe fn Tbsip_Context_Close(hcontext: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsip_Context_Close(hcontext: *const ::std::ffi::c_void) -> u32;
         }
@@ -525,7 +525,7 @@ pub unsafe fn Tbsip_Submit_Command(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tbs")]
+        #[link(name = "windows")]
         extern "system" {
             fn Tbsip_Submit_Command(
                 hcontext: *const ::std::ffi::c_void,

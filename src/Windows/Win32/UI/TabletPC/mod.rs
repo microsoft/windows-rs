@@ -49,7 +49,7 @@ pub unsafe fn AddStroke<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTE
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddStroke(
                 hrc: HRECOCONTEXT,
@@ -82,7 +82,7 @@ pub unsafe fn AddWordsToWordList<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddWordsToWordList(
                 hwl: HRECOWORDLIST,
@@ -105,7 +105,7 @@ pub unsafe fn AdviseInkChange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdviseInkChange(
                 hrc: HRECOCONTEXT,
@@ -266,7 +266,7 @@ pub unsafe fn CreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOG
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateContext(
                 hrec: HRECOGNIZER,
@@ -284,7 +284,7 @@ pub unsafe fn CreateRecognizer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRecognizer(
                 pclsid: *mut ::windows::runtime::GUID,
@@ -1618,7 +1618,7 @@ pub unsafe fn DestroyContext<'a, Param0: ::windows::runtime::IntoParam<'a, HRECO
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyContext(hrc: HRECOCONTEXT) -> ::windows::runtime::HRESULT;
         }
@@ -1632,7 +1632,7 @@ pub unsafe fn DestroyRecognizer<'a, Param0: ::windows::runtime::IntoParam<'a, HR
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyRecognizer(hrec: HRECOGNIZER) -> ::windows::runtime::HRESULT;
         }
@@ -1646,7 +1646,7 @@ pub unsafe fn DestroyWordList<'a, Param0: ::windows::runtime::IntoParam<'a, HREC
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyWordList(hwl: HRECOWORDLIST) -> ::windows::runtime::HRESULT;
         }
@@ -1692,7 +1692,7 @@ pub unsafe fn EndInkInput<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCON
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndInkInput(hrc: HRECOCONTEXT) -> ::windows::runtime::HRESULT;
         }
@@ -2212,7 +2212,7 @@ pub unsafe fn GetAllRecognizers(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAllRecognizers(
                 recognizerclsids: *mut *mut ::windows::runtime::GUID,
@@ -2236,7 +2236,7 @@ pub unsafe fn GetBestResultString<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBestResultString(
                 hrc: HRECOCONTEXT,
@@ -2260,7 +2260,7 @@ pub unsafe fn GetLatticePtr<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOC
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLatticePtr(
                 hrc: HRECOCONTEXT,
@@ -2280,7 +2280,7 @@ pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HRE
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLeftSeparator(
                 hrc: HRECOCONTEXT,
@@ -2304,7 +2304,7 @@ pub unsafe fn GetRecoAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, HR
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRecoAttributes(
                 hrec: HRECOGNIZER,
@@ -2323,7 +2323,7 @@ pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetResultPropertyList(
                 hrec: HRECOGNIZER,
@@ -2349,7 +2349,7 @@ pub unsafe fn GetRightSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HR
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRightSeparator(
                 hrc: HRECOCONTEXT,
@@ -2374,7 +2374,7 @@ pub unsafe fn GetUnicodeRanges<'a, Param0: ::windows::runtime::IntoParam<'a, HRE
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUnicodeRanges(
                 hrec: HRECOGNIZER,
@@ -26173,7 +26173,7 @@ pub unsafe fn IsStringSupported<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsStringSupported(
                 hrc: HRECOCONTEXT,
@@ -26322,7 +26322,7 @@ pub unsafe fn LoadCachedAttributes<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadCachedAttributes(
                 clsid: ::windows::runtime::GUID,
@@ -26412,7 +26412,7 @@ pub unsafe fn MakeWordList<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MakeWordList(
                 hrec: HRECOGNIZER,
@@ -26673,7 +26673,7 @@ pub unsafe fn Process<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn Process(
                 hrc: HRECOCONTEXT,
@@ -27284,7 +27284,7 @@ pub unsafe fn SetEnabledUnicodeRanges<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEnabledUnicodeRanges(
                 hrc: HRECOCONTEXT,
@@ -27314,7 +27314,7 @@ pub unsafe fn SetFactoid<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFactoid(
                 hrc: HRECOCONTEXT,
@@ -27338,7 +27338,7 @@ pub unsafe fn SetFlags<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEX
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> ::windows::runtime::HRESULT;
         }
@@ -27354,7 +27354,7 @@ pub unsafe fn SetGuide<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEX
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetGuide(
                 hrc: HRECOCONTEXT,
@@ -27387,7 +27387,7 @@ pub unsafe fn SetTextContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTextContext(
                 hrc: HRECOCONTEXT,
@@ -27419,7 +27419,7 @@ pub unsafe fn SetWordList<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "inkobjcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows::runtime::HRESULT;
         }

@@ -22,7 +22,7 @@ pub unsafe fn CreateAppContainerProfile<
 ) -> ::windows::runtime::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAppContainerProfile(
                 pszappcontainername: super::super::Foundation::PWSTR,
@@ -57,7 +57,7 @@ pub unsafe fn DeleteAppContainerProfile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteAppContainerProfile(
                 pszappcontainername: super::super::Foundation::PWSTR,
@@ -77,7 +77,7 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<
 ) -> ::windows::runtime::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeriveAppContainerSidFromAppContainerName(
                 pszappcontainername: super::super::Foundation::PWSTR,
@@ -106,7 +106,7 @@ pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedNam
 ) -> ::windows::runtime::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(
                 psidappcontainersid: super::super::Foundation::PSID,
@@ -135,7 +135,7 @@ pub unsafe fn GetAppContainerFolderPath<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAppContainerFolderPath(
                 pszappcontainersid: super::super::Foundation::PWSTR,
@@ -164,7 +164,7 @@ pub unsafe fn GetAppContainerNamedObjectPath<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAppContainerNamedObjectPath(
                 token: super::super::Foundation::HANDLE,
@@ -191,7 +191,7 @@ pub unsafe fn GetAppContainerRegistryLocation(
 ) -> ::windows::runtime::Result<super::super::System::Registry::HKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAppContainerRegistryLocation(
                 desiredaccess: u32,
@@ -294,7 +294,7 @@ pub unsafe fn IsProcessInIsolatedContainer(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-security-isolatedcontainer-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsProcessInIsolatedContainer(
                 isprocessinisolatedcontainer: *mut super::super::Foundation::BOOL,
@@ -313,7 +313,7 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "isolatedwindowsenvironmentutils")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsProcessInIsolatedWindowsEnvironment(
                 isprocessinisolatedwindowsenvironment: *mut super::super::Foundation::BOOL,
@@ -333,7 +333,7 @@ pub unsafe fn IsProcessInWDAGContainer(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-security-isolatedcontainer-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsProcessInWDAGContainer(
                 reserved: *const ::std::ffi::c_void,

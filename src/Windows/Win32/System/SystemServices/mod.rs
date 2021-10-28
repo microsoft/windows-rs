@@ -1135,7 +1135,7 @@ pub unsafe fn BindIoCompletionCallback<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BindIoCompletionCallback(
                 filehandle: super::super::Foundation::HANDLE,
@@ -15210,7 +15210,7 @@ pub unsafe fn DeviceIoControl<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeviceIoControl(
                 hdevice: super::super::Foundation::HANDLE,
@@ -15959,7 +15959,7 @@ pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EngQueryEMFInfo(
                 hdev: HDEV,
@@ -20179,7 +20179,7 @@ pub unsafe fn GetOverlappedResult<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOverlappedResult(
                 hfile: super::super::Foundation::HANDLE,
@@ -20212,7 +20212,7 @@ pub unsafe fn GetOverlappedResultEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOverlappedResultEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -24940,7 +24940,7 @@ pub struct IServiceProvider_abi(
 pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS;
         }
@@ -24956,7 +24956,7 @@ pub unsafe fn I_RpcNsRaiseException(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNsRaiseException(
                 message: *mut super::Rpc::RPC_MESSAGE,
@@ -24978,7 +24978,7 @@ pub unsafe fn I_RpcNsSendReceive(
 ) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNsSendReceive(
                 message: *mut super::Rpc::RPC_MESSAGE,
@@ -24997,7 +24997,7 @@ pub unsafe fn I_RpcNsSendReceive(
 pub unsafe fn I_RpcReBindBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcReBindBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS;
         }
@@ -35134,7 +35134,7 @@ pub unsafe fn RegisterDeviceNotificationA<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDeviceNotificationA(
                 hrecipient: super::super::Foundation::HANDLE,
@@ -35162,7 +35162,7 @@ pub unsafe fn RegisterDeviceNotificationW<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterDeviceNotificationW(
                 hrecipient: super::super::Foundation::HANDLE,
@@ -35483,7 +35483,7 @@ pub unsafe fn RtlCompareMemory(
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlCompareMemory(
                 source1: *const ::std::ffi::c_void,
@@ -35509,7 +35509,7 @@ pub unsafe fn RtlConvertDeviceFamilyInfoToString(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlConvertDeviceFamilyInfoToString(
                 puldevicefamilybuffersize: *mut u32,
@@ -35531,7 +35531,7 @@ pub unsafe fn RtlConvertDeviceFamilyInfoToString(
 pub unsafe fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u32) -> u32;
         }
@@ -35547,7 +35547,7 @@ pub unsafe fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcr
 pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u64) -> u64;
         }
@@ -35563,7 +35563,7 @@ pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcr
 pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u32;
         }
@@ -35575,7 +35575,7 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u3
 pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
         }
@@ -35595,7 +35595,7 @@ pub unsafe fn RtlFillNonVolatileMemory(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFillNonVolatileMemory(
                 nvtoken: *const ::std::ffi::c_void,
@@ -35622,7 +35622,7 @@ pub unsafe fn RtlFirstEntrySList(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFirstEntrySList(
                 listhead: *const super::Kernel::SLIST_HEADER,
@@ -35641,7 +35641,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFlushNonVolatileMemory(
                 nvtoken: *const ::std::ffi::c_void,
@@ -35668,7 +35668,7 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFlushNonVolatileMemoryRanges(
                 nvtoken: *const ::std::ffi::c_void,
@@ -35690,7 +35690,7 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(
 pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32;
         }
@@ -35706,7 +35706,7 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlGetDeviceFamilyInfoEnum(
                 pulluapinfo: *mut u64,
@@ -35730,7 +35730,7 @@ pub unsafe fn RtlGetNonVolatileToken(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlGetNonVolatileToken(
                 nvbuffer: *const ::std::ffi::c_void,
@@ -35757,7 +35757,7 @@ pub unsafe fn RtlGetProductInfo(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlGetProductInfo(
                 osmajorversion: u32,
@@ -35781,7 +35781,7 @@ pub unsafe fn RtlGetProductInfo(
 pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlGetReturnAddressHijackTarget() -> usize;
         }
@@ -35797,7 +35797,7 @@ pub unsafe fn RtlGetSystemGlobalData(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdllk")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlGetSystemGlobalData(
                 dataid: RTL_SYSTEM_GLOBAL_DATA_ID,
@@ -35817,7 +35817,7 @@ pub unsafe fn RtlGetSystemGlobalData(
 pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
         }
@@ -35835,7 +35835,7 @@ pub unsafe fn RtlInitializeCorrelationVector(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInitializeCorrelationVector(
                 correlationvector: *mut CORRELATION_VECTOR,
@@ -35856,7 +35856,7 @@ pub unsafe fn RtlInitializeCorrelationVector(
 pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER);
         }
@@ -35871,7 +35871,7 @@ pub unsafe fn RtlInterlockedFlushSList(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInterlockedFlushSList(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -35888,7 +35888,7 @@ pub unsafe fn RtlInterlockedPopEntrySList(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInterlockedPopEntrySList(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -35906,7 +35906,7 @@ pub unsafe fn RtlInterlockedPushEntrySList(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInterlockedPushEntrySList(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -35930,7 +35930,7 @@ pub unsafe fn RtlInterlockedPushListSListEx(
 ) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInterlockedPushListSListEx(
                 listhead: *mut super::Kernel::SLIST_HEADER,
@@ -35956,7 +35956,7 @@ pub unsafe fn RtlIsZeroMemory(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIsZeroMemory(
                 buffer: *const ::std::ffi::c_void,
@@ -35984,7 +35984,7 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlNormalizeSecurityDescriptor(
                 securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
@@ -36008,7 +36008,7 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<
 pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES;
         }
@@ -36021,7 +36021,7 @@ pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
 pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16;
         }
@@ -36036,7 +36036,7 @@ pub unsafe fn RtlRaiseCustomSystemEventTrigger(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlRaiseCustomSystemEventTrigger(
                 triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG,
@@ -36058,7 +36058,7 @@ pub unsafe fn RtlRaiseException(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlRaiseException(
                 exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD,
@@ -36077,7 +36077,7 @@ pub unsafe fn RtlSwitchedVVI(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlSwitchedVVI(
                 versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW,
@@ -36097,7 +36097,7 @@ pub unsafe fn RtlSwitchedVVI(
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;
         }
@@ -36115,7 +36115,7 @@ pub unsafe fn RtlWriteNonVolatileMemory(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlWriteNonVolatileMemory(
                 nvtoken: *const ::std::ffi::c_void,
@@ -47008,7 +47008,7 @@ pub unsafe fn UnregisterDeviceNotification(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterDeviceNotification(
                 handle: *const ::std::ffi::c_void,
@@ -49009,7 +49009,7 @@ unsafe impl ::windows::runtime::Abi for remoteMETAFILEPICT {
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn timeKillEvent(utimerid: u32) -> u32;
         }
@@ -49027,7 +49027,7 @@ pub unsafe fn timeSetEvent(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn timeSetEvent(
                 udelay: u32,

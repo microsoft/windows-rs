@@ -1986,7 +1986,7 @@ pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, I
 ) -> ::windows::runtime::Result<super::super::System::OleAutomation::IEnumVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsBuildEnumerator(
                 padscontainer: ::windows::runtime::RawPtr,
@@ -2012,7 +2012,7 @@ pub unsafe fn ADsBuildVarArrayInt(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsBuildVarArrayInt(
                 lpdwobjecttypes: *mut u32,
@@ -2042,7 +2042,7 @@ pub unsafe fn ADsBuildVarArrayStr(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsBuildVarArrayStr(
                 lpppathnames: *const super::super::Foundation::PWSTR,
@@ -2071,7 +2071,7 @@ pub unsafe fn ADsDecodeBinaryData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsDecodeBinaryData(
                 szsrcdata: super::super::Foundation::PWSTR,
@@ -2097,7 +2097,7 @@ pub unsafe fn ADsEncodeBinaryData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsEncodeBinaryData(
                 pbsrcdata: *mut u8,
@@ -2131,7 +2131,7 @@ pub unsafe fn ADsEnumerateNext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsEnumerateNext(
                 penumvariant: ::windows::runtime::RawPtr,
@@ -2160,7 +2160,7 @@ pub unsafe fn ADsFreeEnumerator<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsFreeEnumerator(
                 penumvariant: ::windows::runtime::RawPtr,
@@ -2181,7 +2181,7 @@ pub unsafe fn ADsGetLastError(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsGetLastError(
                 lperror: *mut u32,
@@ -2214,7 +2214,7 @@ pub unsafe fn ADsGetObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsGetObject(
                 lpszpathname: super::super::Foundation::PWSTR,
@@ -2248,7 +2248,7 @@ pub unsafe fn ADsOpenObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsOpenObject(
                 lpszpathname: super::super::Foundation::PWSTR,
@@ -2282,7 +2282,7 @@ pub unsafe fn ADsPropCheckIfWritable<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsprop")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsPropCheckIfWritable(
                 pwzattr: super::super::Foundation::PWSTR,
@@ -2309,7 +2309,7 @@ pub unsafe fn ADsPropCreateNotifyObj<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsprop")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsPropCreateNotifyObj(
                 pappthddataobj: ::windows::runtime::RawPtr,
@@ -2337,7 +2337,7 @@ pub unsafe fn ADsPropGetInitInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsprop")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsPropGetInitInfo(
                 hnotifyobj: super::super::Foundation::HWND,
@@ -2362,7 +2362,7 @@ pub unsafe fn ADsPropSendErrorMessage<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsprop")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsPropSendErrorMessage(
                 hnotifyobj: super::super::Foundation::HWND,
@@ -2388,7 +2388,7 @@ pub unsafe fn ADsPropSetHwnd<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsprop")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsPropSetHwnd(
                 hnotifyobj: super::super::Foundation::HWND,
@@ -2415,7 +2415,7 @@ pub unsafe fn ADsPropSetHwndWithTitle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsprop")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsPropSetHwndWithTitle(
                 hnotifyobj: super::super::Foundation::HWND,
@@ -2443,7 +2443,7 @@ pub unsafe fn ADsPropShowErrorDialog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsprop")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsPropShowErrorDialog(
                 hnotifyobj: super::super::Foundation::HWND,
@@ -2476,7 +2476,7 @@ pub unsafe fn ADsSetLastError<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ADsSetLastError(
                 dwerr: u32,
@@ -2509,7 +2509,7 @@ pub const AccessControlList: ::windows::runtime::GUID = ::windows::runtime::GUID
 pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32);
         }
@@ -2533,7 +2533,7 @@ pub unsafe fn AdsTypeToPropVariant(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdsTypeToPropVariant(
                 padsvalues: *mut ADSVALUE,
@@ -2556,7 +2556,7 @@ pub unsafe fn AdsTypeToPropVariant(
 pub unsafe fn AllocADsMem(cb: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocADsMem(cb: u32) -> *mut ::std::ffi::c_void;
         }
@@ -2574,7 +2574,7 @@ pub unsafe fn AllocADsStr<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocADsStr(
                 pstr: super::super::Foundation::PWSTR,
@@ -2612,7 +2612,7 @@ pub unsafe fn BinarySDToSecurityDescriptor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn BinarySDToSecurityDescriptor(
                 psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
@@ -7582,7 +7582,7 @@ pub unsafe fn DsAddSidHistoryA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsAddSidHistoryA(
                 hds: super::super::Foundation::HANDLE,
@@ -7630,7 +7630,7 @@ pub unsafe fn DsAddSidHistoryW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsAddSidHistoryW(
                 hds: super::super::Foundation::HANDLE,
@@ -7673,7 +7673,7 @@ pub unsafe fn DsAddressToSiteNamesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsAddressToSiteNamesA(
                 computername: super::super::Foundation::PSTR,
@@ -7709,7 +7709,7 @@ pub unsafe fn DsAddressToSiteNamesExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsAddressToSiteNamesExA(
                 computername: super::super::Foundation::PSTR,
@@ -7747,7 +7747,7 @@ pub unsafe fn DsAddressToSiteNamesExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsAddressToSiteNamesExW(
                 computername: super::super::Foundation::PWSTR,
@@ -7784,7 +7784,7 @@ pub unsafe fn DsAddressToSiteNamesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsAddressToSiteNamesW(
                 computername: super::super::Foundation::PWSTR,
@@ -7815,7 +7815,7 @@ pub unsafe fn DsBindA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindA(
                 domaincontrollername: super::super::Foundation::PSTR,
@@ -7851,7 +7851,7 @@ pub unsafe fn DsBindByInstanceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindByInstanceA(
                 servername: super::super::Foundation::PSTR,
@@ -7897,7 +7897,7 @@ pub unsafe fn DsBindByInstanceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindByInstanceW(
                 servername: super::super::Foundation::PWSTR,
@@ -7934,7 +7934,7 @@ pub unsafe fn DsBindToISTGA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindToISTGA(
                 sitename: super::super::Foundation::PSTR,
@@ -7959,7 +7959,7 @@ pub unsafe fn DsBindToISTGW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindToISTGW(
                 sitename: super::super::Foundation::PWSTR,
@@ -7986,7 +7986,7 @@ pub unsafe fn DsBindW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindW(
                 domaincontrollername: super::super::Foundation::PWSTR,
@@ -8016,7 +8016,7 @@ pub unsafe fn DsBindWithCredA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindWithCredA(
                 domaincontrollername: super::super::Foundation::PSTR,
@@ -8048,7 +8048,7 @@ pub unsafe fn DsBindWithCredW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindWithCredW(
                 domaincontrollername: super::super::Foundation::PWSTR,
@@ -8082,7 +8082,7 @@ pub unsafe fn DsBindWithSpnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindWithSpnA(
                 domaincontrollername: super::super::Foundation::PSTR,
@@ -8119,7 +8119,7 @@ pub unsafe fn DsBindWithSpnExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindWithSpnExA(
                 domaincontrollername: super::super::Foundation::PSTR,
@@ -8158,7 +8158,7 @@ pub unsafe fn DsBindWithSpnExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindWithSpnExW(
                 domaincontrollername: super::super::Foundation::PWSTR,
@@ -8196,7 +8196,7 @@ pub unsafe fn DsBindWithSpnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindWithSpnW(
                 domaincontrollername: super::super::Foundation::PWSTR,
@@ -8227,7 +8227,7 @@ pub unsafe fn DsBindingSetTimeout<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBindingSetTimeout(hds: super::super::Foundation::HANDLE, ctimeoutsecs: u32)
                 -> u32;
@@ -8244,7 +8244,7 @@ pub unsafe fn DsBindingSetTimeout<
 pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsuiext")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBrowseForContainerA(pinfo: *mut ::std::mem::ManuallyDrop<DSBROWSEINFOA>) -> i32;
         }
@@ -8257,7 +8257,7 @@ pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
 pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsuiext")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsBrowseForContainerW(pinfo: *mut ::std::mem::ManuallyDrop<DSBROWSEINFOW>) -> i32;
         }
@@ -8279,7 +8279,7 @@ pub unsafe fn DsClientMakeSpnForTargetServerA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsClientMakeSpnForTargetServerA(
                 serviceclass: super::super::Foundation::PSTR,
@@ -8311,7 +8311,7 @@ pub unsafe fn DsClientMakeSpnForTargetServerW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsClientMakeSpnForTargetServerW(
                 serviceclass: super::super::Foundation::PWSTR,
@@ -8345,7 +8345,7 @@ pub unsafe fn DsCrackNamesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackNamesA(
                 hds: super::super::Foundation::HANDLE,
@@ -8385,7 +8385,7 @@ pub unsafe fn DsCrackNamesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackNamesW(
                 hds: super::super::Foundation::HANDLE,
@@ -8427,7 +8427,7 @@ pub unsafe fn DsCrackSpn2A<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackSpn2A(
                 pszspn: super::super::Foundation::PSTR,
@@ -8473,7 +8473,7 @@ pub unsafe fn DsCrackSpn2W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackSpn2W(
                 pszspn: super::super::Foundation::PWSTR,
@@ -8521,7 +8521,7 @@ pub unsafe fn DsCrackSpn3W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackSpn3W(
                 pszspn: super::super::Foundation::PWSTR,
@@ -8574,7 +8574,7 @@ pub unsafe fn DsCrackSpn4W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackSpn4W(
                 pszspn: super::super::Foundation::PWSTR,
@@ -8625,7 +8625,7 @@ pub unsafe fn DsCrackSpnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackSpnA(
                 pszspn: super::super::Foundation::PSTR,
@@ -8668,7 +8668,7 @@ pub unsafe fn DsCrackSpnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackSpnW(
                 pszspn: super::super::Foundation::PWSTR,
@@ -8707,7 +8707,7 @@ pub unsafe fn DsCrackUnquotedMangledRdnA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackUnquotedMangledRdnA(
                 pszrdn: super::super::Foundation::PSTR,
@@ -8738,7 +8738,7 @@ pub unsafe fn DsCrackUnquotedMangledRdnW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsCrackUnquotedMangledRdnW(
                 pszrdn: super::super::Foundation::PWSTR,
@@ -8772,7 +8772,7 @@ pub unsafe fn DsDeregisterDnsHostRecordsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsDeregisterDnsHostRecordsA(
                 servername: super::super::Foundation::PSTR,
@@ -8808,7 +8808,7 @@ pub unsafe fn DsDeregisterDnsHostRecordsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsDeregisterDnsHostRecordsW(
                 servername: super::super::Foundation::PWSTR,
@@ -8841,7 +8841,7 @@ pub unsafe fn DsEnumerateDomainTrustsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsEnumerateDomainTrustsA(
                 servername: super::super::Foundation::PSTR,
@@ -8872,7 +8872,7 @@ pub unsafe fn DsEnumerateDomainTrustsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsEnumerateDomainTrustsW(
                 servername: super::super::Foundation::PWSTR,
@@ -8898,7 +8898,7 @@ pub unsafe fn DsFreeDomainControllerInfoA(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeDomainControllerInfoA(
                 infolevel: u32,
@@ -8922,7 +8922,7 @@ pub unsafe fn DsFreeDomainControllerInfoW(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeDomainControllerInfoW(
                 infolevel: u32,
@@ -8943,7 +8943,7 @@ pub unsafe fn DsFreeDomainControllerInfoW(
 pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA);
         }
@@ -8956,7 +8956,7 @@ pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
 pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW);
         }
@@ -8968,7 +8968,7 @@ pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
 pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreePasswordCredentials(authidentity: *const ::std::ffi::c_void);
         }
@@ -8983,7 +8983,7 @@ pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::std::ffi::c_void)
 pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA);
         }
@@ -8996,7 +8996,7 @@ pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
 pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW);
         }
@@ -9009,7 +9009,7 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
 pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation::PSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation::PSTR);
         }
@@ -9025,7 +9025,7 @@ pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation:
 pub unsafe fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation::PWSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation::PWSTR);
         }
@@ -9042,7 +9042,7 @@ pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::runtime::IntoParam<'a, GetDcC
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcCloseW(getdccontexthandle: GetDcContextHandle);
         }
@@ -9067,7 +9067,7 @@ pub unsafe fn DsGetDcNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcNameA(
                 computername: super::super::Foundation::PSTR,
@@ -9106,7 +9106,7 @@ pub unsafe fn DsGetDcNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcNameW(
                 computername: super::super::Foundation::PWSTR,
@@ -9145,7 +9145,7 @@ pub unsafe fn DsGetDcNextA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcNextA(
                 getdccontexthandle: super::super::Foundation::HANDLE,
@@ -9180,7 +9180,7 @@ pub unsafe fn DsGetDcNextW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcNextW(
                 getdccontexthandle: super::super::Foundation::HANDLE,
@@ -9216,7 +9216,7 @@ pub unsafe fn DsGetDcOpenA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcOpenA(
                 dnsname: super::super::Foundation::PSTR,
@@ -9258,7 +9258,7 @@ pub unsafe fn DsGetDcOpenW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcOpenW(
                 dnsname: super::super::Foundation::PWSTR,
@@ -9294,7 +9294,7 @@ pub unsafe fn DsGetDcSiteCoverageA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcSiteCoverageA(
                 servername: super::super::Foundation::PSTR,
@@ -9322,7 +9322,7 @@ pub unsafe fn DsGetDcSiteCoverageW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDcSiteCoverageW(
                 servername: super::super::Foundation::PWSTR,
@@ -9353,7 +9353,7 @@ pub unsafe fn DsGetDomainControllerInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDomainControllerInfoA(
                 hds: super::super::Foundation::HANDLE,
@@ -9388,7 +9388,7 @@ pub unsafe fn DsGetDomainControllerInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetDomainControllerInfoW(
                 hds: super::super::Foundation::HANDLE,
@@ -9426,7 +9426,7 @@ pub unsafe fn DsGetForestTrustInformationW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetForestTrustInformationW(
                 servername: super::super::Foundation::PWSTR,
@@ -9456,7 +9456,7 @@ pub unsafe fn DsGetFriendlyClassName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dsuiext")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetFriendlyClassName(
                 pszobjectclass: super::super::Foundation::PWSTR,
@@ -9486,7 +9486,7 @@ pub unsafe fn DsGetIcon<
 ) -> super::super::UI::WindowsAndMessaging::HICON {
     #[cfg(windows)]
     {
-        #[link(name = "dsuiext")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetIcon(
                 dwflags: u32,
@@ -9516,7 +9516,7 @@ pub unsafe fn DsGetRdnW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetRdnW(
                 ppdn: *mut super::super::Foundation::PWSTR,
@@ -9549,7 +9549,7 @@ pub unsafe fn DsGetSiteNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetSiteNameA(
                 computername: super::super::Foundation::PSTR,
@@ -9574,7 +9574,7 @@ pub unsafe fn DsGetSiteNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetSiteNameW(
                 computername: super::super::Foundation::PWSTR,
@@ -9607,7 +9607,7 @@ pub unsafe fn DsGetSpnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetSpnA(
                 servicetype: DS_SPN_NAME_TYPE,
@@ -9654,7 +9654,7 @@ pub unsafe fn DsGetSpnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsGetSpnW(
                 servicetype: DS_SPN_NAME_TYPE,
@@ -9697,7 +9697,7 @@ pub unsafe fn DsInheritSecurityIdentityA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsInheritSecurityIdentityA(
                 hds: super::super::Foundation::HANDLE,
@@ -9730,7 +9730,7 @@ pub unsafe fn DsInheritSecurityIdentityW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsInheritSecurityIdentityW(
                 hds: super::super::Foundation::HANDLE,
@@ -9759,7 +9759,7 @@ pub unsafe fn DsIsMangledDnA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsIsMangledDnA(
                 pszdn: super::super::Foundation::PSTR,
@@ -9784,7 +9784,7 @@ pub unsafe fn DsIsMangledDnW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsIsMangledDnW(
                 pszdn: super::super::Foundation::PWSTR,
@@ -9810,7 +9810,7 @@ pub unsafe fn DsIsMangledRdnValueA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsIsMangledRdnValueA(
                 pszrdn: super::super::Foundation::PSTR,
@@ -9838,7 +9838,7 @@ pub unsafe fn DsIsMangledRdnValueW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsIsMangledRdnValueW(
                 pszrdn: super::super::Foundation::PWSTR,
@@ -9867,7 +9867,7 @@ pub unsafe fn DsListDomainsInSiteA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListDomainsInSiteA(
                 hds: super::super::Foundation::HANDLE,
@@ -9896,7 +9896,7 @@ pub unsafe fn DsListDomainsInSiteW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListDomainsInSiteW(
                 hds: super::super::Foundation::HANDLE,
@@ -9925,7 +9925,7 @@ pub unsafe fn DsListInfoForServerA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListInfoForServerA(
                 hds: super::super::Foundation::HANDLE,
@@ -9954,7 +9954,7 @@ pub unsafe fn DsListInfoForServerW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListInfoForServerW(
                 hds: super::super::Foundation::HANDLE,
@@ -9981,7 +9981,7 @@ pub unsafe fn DsListRolesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListRolesA(
                 hds: super::super::Foundation::HANDLE,
@@ -10006,7 +10006,7 @@ pub unsafe fn DsListRolesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListRolesW(
                 hds: super::super::Foundation::HANDLE,
@@ -10035,7 +10035,7 @@ pub unsafe fn DsListServersForDomainInSiteA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListServersForDomainInSiteA(
                 hds: super::super::Foundation::HANDLE,
@@ -10068,7 +10068,7 @@ pub unsafe fn DsListServersForDomainInSiteW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListServersForDomainInSiteW(
                 hds: super::super::Foundation::HANDLE,
@@ -10099,7 +10099,7 @@ pub unsafe fn DsListServersInSiteA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListServersInSiteA(
                 hds: super::super::Foundation::HANDLE,
@@ -10128,7 +10128,7 @@ pub unsafe fn DsListServersInSiteW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListServersInSiteW(
                 hds: super::super::Foundation::HANDLE,
@@ -10155,7 +10155,7 @@ pub unsafe fn DsListSitesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListSitesA(
                 hds: super::super::Foundation::HANDLE,
@@ -10180,7 +10180,7 @@ pub unsafe fn DsListSitesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsListSitesW(
                 hds: super::super::Foundation::HANDLE,
@@ -10209,7 +10209,7 @@ pub unsafe fn DsMakePasswordCredentialsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsMakePasswordCredentialsA(
                 user: super::super::Foundation::PSTR,
@@ -10242,7 +10242,7 @@ pub unsafe fn DsMakePasswordCredentialsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsMakePasswordCredentialsW(
                 user: super::super::Foundation::PWSTR,
@@ -10279,7 +10279,7 @@ pub unsafe fn DsMakeSpnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsMakeSpnA(
                 serviceclass: super::super::Foundation::PSTR,
@@ -10322,7 +10322,7 @@ pub unsafe fn DsMakeSpnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsMakeSpnW(
                 serviceclass: super::super::Foundation::PWSTR,
@@ -10359,7 +10359,7 @@ pub unsafe fn DsMapSchemaGuidsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsMapSchemaGuidsA(
                 hds: super::super::Foundation::HANDLE,
@@ -10390,7 +10390,7 @@ pub unsafe fn DsMapSchemaGuidsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsMapSchemaGuidsW(
                 hds: super::super::Foundation::HANDLE,
@@ -10425,7 +10425,7 @@ pub unsafe fn DsMergeForestTrustInformationW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsMergeForestTrustInformationW(
                 domainname: super::super::Foundation::PWSTR,
@@ -10459,7 +10459,7 @@ pub unsafe fn DsQuerySitesByCostA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsQuerySitesByCostA(
                 hds: super::super::Foundation::HANDLE,
@@ -10497,7 +10497,7 @@ pub unsafe fn DsQuerySitesByCostW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsQuerySitesByCostW(
                 hds: super::super::Foundation::HANDLE,
@@ -10523,7 +10523,7 @@ pub unsafe fn DsQuerySitesByCostW<
 pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO);
         }
@@ -10544,7 +10544,7 @@ pub unsafe fn DsQuoteRdnValueA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsQuoteRdnValueA(
                 cunquotedrdnvaluelength: u32,
@@ -10575,7 +10575,7 @@ pub unsafe fn DsQuoteRdnValueW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsQuoteRdnValueW(
                 cunquotedrdnvaluelength: u32,
@@ -10605,7 +10605,7 @@ pub unsafe fn DsRemoveDsDomainA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsRemoveDsDomainA(
                 hds: super::super::Foundation::HANDLE,
@@ -10631,7 +10631,7 @@ pub unsafe fn DsRemoveDsDomainW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsRemoveDsDomainW(
                 hds: super::super::Foundation::HANDLE,
@@ -10662,7 +10662,7 @@ pub unsafe fn DsRemoveDsServerA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsRemoveDsServerA(
                 hds: super::super::Foundation::HANDLE,
@@ -10699,7 +10699,7 @@ pub unsafe fn DsRemoveDsServerW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsRemoveDsServerW(
                 hds: super::super::Foundation::HANDLE,
@@ -10739,7 +10739,7 @@ pub unsafe fn DsReplicaAddA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaAddA(
                 hds: super::super::Foundation::HANDLE,
@@ -10783,7 +10783,7 @@ pub unsafe fn DsReplicaAddW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaAddW(
                 hds: super::super::Foundation::HANDLE,
@@ -10819,7 +10819,7 @@ pub unsafe fn DsReplicaConsistencyCheck<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaConsistencyCheck(
                 hds: super::super::Foundation::HANDLE,
@@ -10850,7 +10850,7 @@ pub unsafe fn DsReplicaDelA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaDelA(
                 hds: super::super::Foundation::HANDLE,
@@ -10883,7 +10883,7 @@ pub unsafe fn DsReplicaDelW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaDelW(
                 hds: super::super::Foundation::HANDLE,
@@ -10905,7 +10905,7 @@ pub unsafe fn DsReplicaDelW<
 pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::std::ffi::c_void);
         }
@@ -10937,7 +10937,7 @@ pub unsafe fn DsReplicaGetInfo2W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaGetInfo2W(
                 hds: super::super::Foundation::HANDLE,
@@ -10980,7 +10980,7 @@ pub unsafe fn DsReplicaGetInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaGetInfoW(
                 hds: super::super::Foundation::HANDLE,
@@ -11021,7 +11021,7 @@ pub unsafe fn DsReplicaModifyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaModifyA(
                 hds: super::super::Foundation::HANDLE,
@@ -11070,7 +11070,7 @@ pub unsafe fn DsReplicaModifyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaModifyW(
                 hds: super::super::Foundation::HANDLE,
@@ -11112,7 +11112,7 @@ pub unsafe fn DsReplicaSyncA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaSyncA(
                 hds: super::super::Foundation::HANDLE,
@@ -11146,7 +11146,7 @@ pub unsafe fn DsReplicaSyncAllA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaSyncAllA(
                 hds: super::super::Foundation::HANDLE,
@@ -11184,7 +11184,7 @@ pub unsafe fn DsReplicaSyncAllW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaSyncAllW(
                 hds: super::super::Foundation::HANDLE,
@@ -11220,7 +11220,7 @@ pub unsafe fn DsReplicaSyncW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaSyncW(
                 hds: super::super::Foundation::HANDLE,
@@ -11254,7 +11254,7 @@ pub unsafe fn DsReplicaUpdateRefsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaUpdateRefsA(
                 hds: super::super::Foundation::HANDLE,
@@ -11290,7 +11290,7 @@ pub unsafe fn DsReplicaUpdateRefsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaUpdateRefsW(
                 hds: super::super::Foundation::HANDLE,
@@ -11324,7 +11324,7 @@ pub unsafe fn DsReplicaVerifyObjectsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaVerifyObjectsA(
                 hds: super::super::Foundation::HANDLE,
@@ -11356,7 +11356,7 @@ pub unsafe fn DsReplicaVerifyObjectsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsReplicaVerifyObjectsW(
                 hds: super::super::Foundation::HANDLE,
@@ -11378,7 +11378,7 @@ pub unsafe fn DsReplicaVerifyObjectsW<
 pub unsafe fn DsRoleFreeMemory(buffer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsRoleFreeMemory(buffer: *mut ::std::ffi::c_void);
         }
@@ -11398,7 +11398,7 @@ pub unsafe fn DsRoleGetPrimaryDomainInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsRoleGetPrimaryDomainInformation(
                 lpserver: super::super::Foundation::PWSTR,
@@ -11427,7 +11427,7 @@ pub unsafe fn DsServerRegisterSpnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsServerRegisterSpnA(
                 operation: DS_SPN_WRITE_OP,
@@ -11456,7 +11456,7 @@ pub unsafe fn DsServerRegisterSpnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsServerRegisterSpnW(
                 operation: DS_SPN_WRITE_OP,
@@ -11477,7 +11477,7 @@ pub unsafe fn DsServerRegisterSpnW<
 pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32;
         }
@@ -11490,7 +11490,7 @@ pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
 pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32;
         }
@@ -11511,7 +11511,7 @@ pub unsafe fn DsUnquoteRdnValueA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsUnquoteRdnValueA(
                 cquotedrdnvaluelength: u32,
@@ -11542,7 +11542,7 @@ pub unsafe fn DsUnquoteRdnValueW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dsparse")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsUnquoteRdnValueW(
                 cquotedrdnvaluelength: u32,
@@ -11570,7 +11570,7 @@ pub unsafe fn DsValidateSubnetNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsValidateSubnetNameA(subnetname: super::super::Foundation::PSTR) -> u32;
         }
@@ -11588,7 +11588,7 @@ pub unsafe fn DsValidateSubnetNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsValidateSubnetNameW(subnetname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11611,7 +11611,7 @@ pub unsafe fn DsWriteAccountSpnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsWriteAccountSpnA(
                 hds: super::super::Foundation::HANDLE,
@@ -11646,7 +11646,7 @@ pub unsafe fn DsWriteAccountSpnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DsWriteAccountSpnW(
                 hds: super::super::Foundation::HANDLE,
@@ -11692,7 +11692,7 @@ pub const FaxNumber: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
 pub unsafe fn FreeADsMem(pmem: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeADsMem(pmem: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -11710,7 +11710,7 @@ pub unsafe fn FreeADsStr<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeADsStr(pstr: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -45333,7 +45333,7 @@ pub unsafe fn PropVariantToAdsType(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToAdsType(
                 pvariant: *mut ::std::mem::ManuallyDrop<
@@ -45376,7 +45376,7 @@ pub unsafe fn ReallocADsMem(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReallocADsMem(
                 poldmem: *mut ::std::ffi::c_void,
@@ -45403,7 +45403,7 @@ pub unsafe fn ReallocADsStr<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReallocADsStr(
                 ppstr: *mut super::super::Foundation::PWSTR,
@@ -45527,7 +45527,7 @@ pub unsafe fn SecurityDescriptorToBinarySD<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "activeds")]
+        #[link(name = "windows")]
         extern "system" {
             fn SecurityDescriptorToBinarySD(
                 vvarsecdes: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,

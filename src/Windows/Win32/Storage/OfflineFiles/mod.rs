@@ -8308,7 +8308,7 @@ pub unsafe fn OfflineFilesEnable<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineFilesEnable(
                 benable: super::super::Foundation::BOOL,
@@ -8330,7 +8330,7 @@ pub unsafe fn OfflineFilesQueryStatus(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineFilesQueryStatus(
                 pbactive: *mut super::super::Foundation::BOOL,
@@ -8353,7 +8353,7 @@ pub unsafe fn OfflineFilesQueryStatusEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineFilesQueryStatusEx(
                 pbactive: *mut super::super::Foundation::BOOL,
@@ -8379,7 +8379,7 @@ pub const OfflineFilesSetting: ::windows::runtime::GUID = ::windows::runtime::GU
 pub unsafe fn OfflineFilesStart() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "cscapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn OfflineFilesStart() -> u32;
         }

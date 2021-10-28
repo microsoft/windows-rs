@@ -1697,7 +1697,7 @@ pub unsafe fn CoCreateActivity<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoCreateActivity(
                 piunknown: ::windows::runtime::RawPtr,
@@ -1723,7 +1723,7 @@ pub unsafe fn CoEnterServiceDomain<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoEnterServiceDomain(
                 pconfigobject: ::windows::runtime::RawPtr,
@@ -1742,7 +1742,7 @@ pub unsafe fn CoGetDefaultContext(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoGetDefaultContext(
                 apttype: super::Com::APTTYPE,
@@ -1768,7 +1768,7 @@ pub unsafe fn CoLeaveServiceDomain<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoLeaveServiceDomain(punkstatus: ::windows::runtime::RawPtr);
         }
@@ -2737,7 +2737,7 @@ unsafe impl ::windows::runtime::Abi for GetAppTrackerDataFlags {
 pub unsafe fn GetDispenserManager() -> ::windows::runtime::Result<IDispenserManager> {
     #[cfg(windows)]
     {
-        #[link(name = "mtxdm")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDispenserManager(
                 param0: *mut ::windows::runtime::RawPtr,
@@ -2753,7 +2753,7 @@ pub unsafe fn GetDispenserManager() -> ::windows::runtime::Result<IDispenserMana
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -27813,7 +27813,7 @@ pub unsafe fn MTSCreateActivity(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs")]
+        #[link(name = "windows")]
         extern "system" {
             fn MTSCreateActivity(
                 riid: *const ::windows::runtime::GUID,
@@ -28356,7 +28356,7 @@ unsafe impl ::windows::runtime::Abi for RECYCLE_INFO {
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs")]
+        #[link(name = "windows")]
         extern "system" {
             fn RecycleSurrogate(lreasoncode: i32) -> ::windows::runtime::HRESULT;
         }
@@ -28395,7 +28395,7 @@ pub unsafe fn SafeRef<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "comsvcs")]
+        #[link(name = "windows")]
         extern "system" {
             fn SafeRef(
                 rid: *const ::windows::runtime::GUID,

@@ -444,7 +444,7 @@ unsafe impl ::windows::runtime::Abi for WNV_REDIRECT_PARAM {
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "wnvapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WnvOpen() -> super::super::Foundation::HANDLE;
         }
@@ -465,7 +465,7 @@ pub unsafe fn WnvRequestNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wnvapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn WnvRequestNotification(
                 wnvhandle: super::super::Foundation::HANDLE,

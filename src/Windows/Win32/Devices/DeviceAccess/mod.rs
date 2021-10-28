@@ -23,7 +23,7 @@ pub unsafe fn CreateDeviceAccessInstance<
 ) -> ::windows::runtime::Result<ICreateDeviceAccessAsync> {
     #[cfg(windows)]
     {
-        #[link(name = "deviceaccess")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDeviceAccessInstance(
                 deviceinterfacepath: super::super::Foundation::PWSTR,

@@ -18309,7 +18309,7 @@ pub unsafe fn ProcessIdToSessionId(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessIdToSessionId(
                 dwprocessid: u32,
@@ -20207,7 +20207,7 @@ pub unsafe fn WTSCloseServer<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSCloseServer(hserver: super::super::Foundation::HANDLE);
         }
@@ -20229,7 +20229,7 @@ pub unsafe fn WTSConnectSessionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSConnectSessionA(
                 logonid: u32,
@@ -20261,7 +20261,7 @@ pub unsafe fn WTSConnectSessionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSConnectSessionW(
                 logonid: u32,
@@ -20295,7 +20295,7 @@ pub unsafe fn WTSCreateListenerA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSCreateListenerA(
                 hserver: super::super::Foundation::HANDLE,
@@ -20333,7 +20333,7 @@ pub unsafe fn WTSCreateListenerW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSCreateListenerW(
                 hserver: super::super::Foundation::HANDLE,
@@ -20368,7 +20368,7 @@ pub unsafe fn WTSDisconnectSession<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSDisconnectSession(
                 hserver: super::super::Foundation::HANDLE,
@@ -20394,7 +20394,7 @@ pub unsafe fn WTSEnableChildSessions<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnableChildSessions(
                 benable: super::super::Foundation::BOOL,
@@ -20418,7 +20418,7 @@ pub unsafe fn WTSEnumerateListenersA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateListenersA(
                 hserver: super::super::Foundation::HANDLE,
@@ -20452,7 +20452,7 @@ pub unsafe fn WTSEnumerateListenersW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateListenersW(
                 hserver: super::super::Foundation::HANDLE,
@@ -20486,7 +20486,7 @@ pub unsafe fn WTSEnumerateProcessesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateProcessesA(
                 hserver: super::super::Foundation::HANDLE,
@@ -20520,7 +20520,7 @@ pub unsafe fn WTSEnumerateProcessesExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateProcessesExA(
                 hserver: super::super::Foundation::HANDLE,
@@ -20554,7 +20554,7 @@ pub unsafe fn WTSEnumerateProcessesExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateProcessesExW(
                 hserver: super::super::Foundation::HANDLE,
@@ -20588,7 +20588,7 @@ pub unsafe fn WTSEnumerateProcessesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateProcessesW(
                 hserver: super::super::Foundation::HANDLE,
@@ -20622,7 +20622,7 @@ pub unsafe fn WTSEnumerateServersA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateServersA(
                 pdomainname: super::super::Foundation::PSTR,
@@ -20656,7 +20656,7 @@ pub unsafe fn WTSEnumerateServersW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateServersW(
                 pdomainname: super::super::Foundation::PWSTR,
@@ -20690,7 +20690,7 @@ pub unsafe fn WTSEnumerateSessionsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateSessionsA(
                 hserver: super::super::Foundation::HANDLE,
@@ -20724,7 +20724,7 @@ pub unsafe fn WTSEnumerateSessionsExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateSessionsExA(
                 hserver: super::super::Foundation::HANDLE,
@@ -20758,7 +20758,7 @@ pub unsafe fn WTSEnumerateSessionsExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateSessionsExW(
                 hserver: super::super::Foundation::HANDLE,
@@ -20792,7 +20792,7 @@ pub unsafe fn WTSEnumerateSessionsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSEnumerateSessionsW(
                 hserver: super::super::Foundation::HANDLE,
@@ -20816,7 +20816,7 @@ pub unsafe fn WTSEnumerateSessionsW<
 pub unsafe fn WTSFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSFreeMemory(pmemory: *mut ::std::ffi::c_void);
         }
@@ -20833,7 +20833,7 @@ pub unsafe fn WTSFreeMemoryExA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSFreeMemoryExA(
                 wtstypeclass: WTS_TYPE_CLASS,
@@ -20858,7 +20858,7 @@ pub unsafe fn WTSFreeMemoryExW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSFreeMemoryExW(
                 wtstypeclass: WTS_TYPE_CLASS,
@@ -20878,7 +20878,7 @@ pub unsafe fn WTSFreeMemoryExW(
 pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSGetActiveConsoleSessionId() -> u32;
         }
@@ -20891,7 +20891,7 @@ pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
 pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -20917,7 +20917,7 @@ pub unsafe fn WTSGetListenerSecurityA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSGetListenerSecurityA(
                 hserver: super::super::Foundation::HANDLE,
@@ -20961,7 +20961,7 @@ pub unsafe fn WTSGetListenerSecurityW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSGetListenerSecurityW(
                 hserver: super::super::Foundation::HANDLE,
@@ -21404,7 +21404,7 @@ pub unsafe fn WTSIsChildSessionsEnabled(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSIsChildSessionsEnabled(
                 pbenabled: *mut super::super::Foundation::BOOL,
@@ -21712,7 +21712,7 @@ pub unsafe fn WTSLogoffSession<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSLogoffSession(
                 hserver: super::super::Foundation::HANDLE,
@@ -21738,7 +21738,7 @@ pub unsafe fn WTSOpenServerA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSOpenServerA(
                 pservername: super::super::Foundation::PSTR,
@@ -21758,7 +21758,7 @@ pub unsafe fn WTSOpenServerExA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSOpenServerExA(
                 pservername: super::super::Foundation::PSTR,
@@ -21778,7 +21778,7 @@ pub unsafe fn WTSOpenServerExW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSOpenServerExW(
                 pservername: super::super::Foundation::PWSTR,
@@ -21798,7 +21798,7 @@ pub unsafe fn WTSOpenServerW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSOpenServerW(
                 pservername: super::super::Foundation::PWSTR,
@@ -21823,7 +21823,7 @@ pub unsafe fn WTSQueryListenerConfigA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSQueryListenerConfigA(
                 hserver: super::super::Foundation::HANDLE,
@@ -21858,7 +21858,7 @@ pub unsafe fn WTSQueryListenerConfigW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSQueryListenerConfigW(
                 hserver: super::super::Foundation::HANDLE,
@@ -21892,7 +21892,7 @@ pub unsafe fn WTSQuerySessionInformationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSQuerySessionInformationA(
                 hserver: super::super::Foundation::HANDLE,
@@ -21926,7 +21926,7 @@ pub unsafe fn WTSQuerySessionInformationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSQuerySessionInformationW(
                 hserver: super::super::Foundation::HANDLE,
@@ -21961,7 +21961,7 @@ pub unsafe fn WTSQueryUserConfigA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSQueryUserConfigA(
                 pservername: super::super::Foundation::PSTR,
@@ -21996,7 +21996,7 @@ pub unsafe fn WTSQueryUserConfigW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSQueryUserConfigW(
                 pservername: super::super::Foundation::PWSTR,
@@ -22024,7 +22024,7 @@ pub unsafe fn WTSQueryUserToken(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSQueryUserToken(
                 sessionid: u32,
@@ -22049,7 +22049,7 @@ pub unsafe fn WTSRegisterSessionNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSRegisterSessionNotification(
                 hwnd: super::super::Foundation::HWND,
@@ -22076,7 +22076,7 @@ pub unsafe fn WTSRegisterSessionNotificationEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSRegisterSessionNotificationEx(
                 hserver: super::super::Foundation::HANDLE,
@@ -22458,7 +22458,7 @@ pub unsafe fn WTSSendMessageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSSendMessageA(
                 hserver: super::super::Foundation::HANDLE,
@@ -22510,7 +22510,7 @@ pub unsafe fn WTSSendMessageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSSendMessageW(
                 hserver: super::super::Foundation::HANDLE,
@@ -22556,7 +22556,7 @@ pub unsafe fn WTSSetListenerSecurityA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSSetListenerSecurityA(
                 hserver: super::super::Foundation::HANDLE,
@@ -22594,7 +22594,7 @@ pub unsafe fn WTSSetListenerSecurityW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSSetListenerSecurityW(
                 hserver: super::super::Foundation::HANDLE,
@@ -22630,7 +22630,7 @@ pub unsafe fn WTSSetRenderHint<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSSetRenderHint(
                 prenderhintid: *mut u64,
@@ -22667,7 +22667,7 @@ pub unsafe fn WTSSetUserConfigA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSSetUserConfigA(
                 pservername: super::super::Foundation::PSTR,
@@ -22703,7 +22703,7 @@ pub unsafe fn WTSSetUserConfigW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSSetUserConfigW(
                 pservername: super::super::Foundation::PWSTR,
@@ -22734,7 +22734,7 @@ pub unsafe fn WTSShutdownSystem<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSShutdownSystem(
                 hserver: super::super::Foundation::HANDLE,
@@ -22761,7 +22761,7 @@ pub unsafe fn WTSStartRemoteControlSessionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSStartRemoteControlSessionA(
                 ptargetservername: super::super::Foundation::PSTR,
@@ -22792,7 +22792,7 @@ pub unsafe fn WTSStartRemoteControlSessionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSStartRemoteControlSessionW(
                 ptargetservername: super::super::Foundation::PWSTR,
@@ -22815,7 +22815,7 @@ pub unsafe fn WTSStartRemoteControlSessionW<
 pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL;
         }
@@ -22835,7 +22835,7 @@ pub unsafe fn WTSTerminateProcess<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSTerminateProcess(
                 hserver: super::super::Foundation::HANDLE,
@@ -23050,7 +23050,7 @@ pub unsafe fn WTSUnRegisterSessionNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSUnRegisterSessionNotification(
                 hwnd: super::super::Foundation::HWND,
@@ -23072,7 +23072,7 @@ pub unsafe fn WTSUnRegisterSessionNotificationEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSUnRegisterSessionNotificationEx(
                 hserver: super::super::Foundation::HANDLE,
@@ -23096,7 +23096,7 @@ pub unsafe fn WTSVirtualChannelClose<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelClose(
                 hchannelhandle: super::super::Foundation::HANDLE,
@@ -23119,7 +23119,7 @@ pub unsafe fn WTSVirtualChannelOpen<
 ) -> HwtsVirtualChannelHandle {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelOpen(
                 hserver: super::super::Foundation::HANDLE,
@@ -23147,7 +23147,7 @@ pub unsafe fn WTSVirtualChannelOpenEx<
 ) -> HwtsVirtualChannelHandle {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelOpenEx(
                 sessionid: u32,
@@ -23173,7 +23173,7 @@ pub unsafe fn WTSVirtualChannelPurgeInput<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelPurgeInput(
                 hchannelhandle: super::super::Foundation::HANDLE,
@@ -23195,7 +23195,7 @@ pub unsafe fn WTSVirtualChannelPurgeOutput<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelPurgeOutput(
                 hchannelhandle: super::super::Foundation::HANDLE,
@@ -23220,7 +23220,7 @@ pub unsafe fn WTSVirtualChannelQuery<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelQuery(
                 hchannelhandle: super::super::Foundation::HANDLE,
@@ -23252,7 +23252,7 @@ pub unsafe fn WTSVirtualChannelRead<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelRead(
                 hchannelhandle: super::super::Foundation::HANDLE,
@@ -23286,7 +23286,7 @@ pub unsafe fn WTSVirtualChannelWrite<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSVirtualChannelWrite(
                 hchannelhandle: super::super::Foundation::HANDLE,
@@ -23316,7 +23316,7 @@ pub unsafe fn WTSWaitSystemEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wtsapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WTSWaitSystemEvent(
                 hserver: super::super::Foundation::HANDLE,

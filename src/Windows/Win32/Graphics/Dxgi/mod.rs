@@ -11,7 +11,7 @@ pub unsafe fn CreateDXGIFactory<T: ::windows::runtime::Interface>() -> ::windows
 {
     #[cfg(windows)]
     {
-        #[link(name = "dxgi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDXGIFactory(
                 riid: *const ::windows::runtime::GUID,
@@ -32,7 +32,7 @@ pub unsafe fn CreateDXGIFactory1<T: ::windows::runtime::Interface>() -> ::window
 {
     #[cfg(windows)]
     {
-        #[link(name = "dxgi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDXGIFactory1(
                 riid: *const ::windows::runtime::GUID,
@@ -54,7 +54,7 @@ pub unsafe fn CreateDXGIFactory2<T: ::windows::runtime::Interface>(
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "dxgi")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDXGIFactory2(
                 flags: u32,
@@ -76,7 +76,7 @@ pub unsafe fn CreateDXGIFactory2<T: ::windows::runtime::Interface>(
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dxgi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DXGIDeclareAdapterRemovalSupport() -> ::windows::runtime::HRESULT;
         }
@@ -90,7 +90,7 @@ pub unsafe fn DXGIGetDebugInterface1<T: ::windows::runtime::Interface>(
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "dxgi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DXGIGetDebugInterface1(
                 flags: u32,

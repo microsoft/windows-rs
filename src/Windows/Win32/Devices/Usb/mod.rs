@@ -5193,7 +5193,7 @@ pub unsafe fn WinUsb_AbortPipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_AbortPipe(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5222,7 +5222,7 @@ pub unsafe fn WinUsb_ControlTransfer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_ControlTransfer(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5252,7 +5252,7 @@ pub unsafe fn WinUsb_FlushPipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_FlushPipe(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5273,7 +5273,7 @@ pub unsafe fn WinUsb_Free(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_Free(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5291,7 +5291,7 @@ pub unsafe fn WinUsb_GetAdjustedFrameNumber(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetAdjustedFrameNumber(
                 currentframenumber: *mut u32,
@@ -5314,7 +5314,7 @@ pub unsafe fn WinUsb_GetAssociatedInterface(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetAssociatedInterface(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5338,7 +5338,7 @@ pub unsafe fn WinUsb_GetCurrentAlternateSetting(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetCurrentAlternateSetting(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5361,7 +5361,7 @@ pub unsafe fn WinUsb_GetCurrentFrameNumber(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetCurrentFrameNumber(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5385,7 +5385,7 @@ pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetCurrentFrameNumberAndQpc(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5412,7 +5412,7 @@ pub unsafe fn WinUsb_GetDescriptor(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetDescriptor(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5449,7 +5449,7 @@ pub unsafe fn WinUsb_GetOverlappedResult<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetOverlappedResult(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5478,7 +5478,7 @@ pub unsafe fn WinUsb_GetPipePolicy(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetPipePolicy(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5508,7 +5508,7 @@ pub unsafe fn WinUsb_GetPowerPolicy(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_GetPowerPolicy(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5537,7 +5537,7 @@ pub unsafe fn WinUsb_Initialize<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_Initialize(
                 devicehandle: super::super::Foundation::HANDLE,
@@ -5563,7 +5563,7 @@ pub unsafe fn WinUsb_ParseConfigurationDescriptor(
 ) -> *mut USB_INTERFACE_DESCRIPTOR {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_ParseConfigurationDescriptor(
                 configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR,
@@ -5596,7 +5596,7 @@ pub unsafe fn WinUsb_ParseDescriptors(
 ) -> *mut USB_COMMON_DESCRIPTOR {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_ParseDescriptors(
                 descriptorbuffer: *const ::std::ffi::c_void,
@@ -5624,7 +5624,7 @@ pub unsafe fn WinUsb_QueryDeviceInformation(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_QueryDeviceInformation(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5651,7 +5651,7 @@ pub unsafe fn WinUsb_QueryInterfaceSettings(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_QueryInterfaceSettings(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5677,7 +5677,7 @@ pub unsafe fn WinUsb_QueryPipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_QueryPipe(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5705,7 +5705,7 @@ pub unsafe fn WinUsb_QueryPipeEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_QueryPipeEx(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5736,7 +5736,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_ReadIsochPipe(
                 bufferhandle: *const ::std::ffi::c_void,
@@ -5776,7 +5776,7 @@ pub unsafe fn WinUsb_ReadIsochPipeAsap<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_ReadIsochPipeAsap(
                 bufferhandle: *const ::std::ffi::c_void,
@@ -5812,7 +5812,7 @@ pub unsafe fn WinUsb_ReadPipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_ReadPipe(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5845,7 +5845,7 @@ pub unsafe fn WinUsb_RegisterIsochBuffer(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_RegisterIsochBuffer(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5873,7 +5873,7 @@ pub unsafe fn WinUsb_ResetPipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_ResetPipe(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5895,7 +5895,7 @@ pub unsafe fn WinUsb_SetCurrentAlternateSetting(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_SetCurrentAlternateSetting(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5920,7 +5920,7 @@ pub unsafe fn WinUsb_SetPipePolicy(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_SetPipePolicy(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5950,7 +5950,7 @@ pub unsafe fn WinUsb_SetPowerPolicy(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_SetPowerPolicy(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5976,7 +5976,7 @@ pub unsafe fn WinUsb_StartTrackingForTimeSync(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_StartTrackingForTimeSync(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -5998,7 +5998,7 @@ pub unsafe fn WinUsb_StopTrackingForTimeSync(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_StopTrackingForTimeSync(
                 interfacehandle: *const ::std::ffi::c_void,
@@ -6019,7 +6019,7 @@ pub unsafe fn WinUsb_UnregisterIsochBuffer(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_UnregisterIsochBuffer(
                 isochbufferhandle: *const ::std::ffi::c_void,
@@ -6042,7 +6042,7 @@ pub unsafe fn WinUsb_WriteIsochPipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_WriteIsochPipe(
                 bufferhandle: *const ::std::ffi::c_void,
@@ -6076,7 +6076,7 @@ pub unsafe fn WinUsb_WriteIsochPipeAsap<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_WriteIsochPipeAsap(
                 bufferhandle: *const ::std::ffi::c_void,
@@ -6108,7 +6108,7 @@ pub unsafe fn WinUsb_WritePipe(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winusb")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinUsb_WritePipe(
                 interfacehandle: *const ::std::ffi::c_void,

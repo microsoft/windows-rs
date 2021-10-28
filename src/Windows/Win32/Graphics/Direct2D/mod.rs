@@ -420,7 +420,7 @@ pub unsafe fn D2D1ComputeMaximumScaleFactor(
 ) -> f32 {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1ComputeMaximumScaleFactor(
                 matrix: *const super::super::super::Foundation::Numerics::Matrix3x2,
@@ -438,7 +438,7 @@ pub unsafe fn D2D1ConvertColorSpace(
 ) -> D2D1_COLOR_F {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1ConvertColorSpace(
                 sourcecolorspace: D2D1_COLOR_SPACE,
@@ -465,7 +465,7 @@ pub unsafe fn D2D1CreateDevice<
 ) -> ::windows::runtime::Result<ID2D1Device> {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1CreateDevice(
                 dxgidevice: ::windows::runtime::RawPtr,
@@ -494,7 +494,7 @@ pub unsafe fn D2D1CreateDeviceContext<
 ) -> ::windows::runtime::Result<ID2D1DeviceContext> {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1CreateDeviceContext(
                 dxgisurface: ::windows::runtime::RawPtr,
@@ -522,7 +522,7 @@ pub unsafe fn D2D1CreateFactory(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1CreateFactory(
                 factorytype: D2D1_FACTORY_TYPE,
@@ -562,7 +562,7 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
                 ppoint0: *const D2D_POINT_2F,
@@ -611,7 +611,7 @@ pub unsafe fn D2D1InvertMatrix(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1InvertMatrix(
                 matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2,
@@ -628,7 +628,7 @@ pub unsafe fn D2D1IsMatrixInvertible(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1IsMatrixInvertible(
                 matrix: *const super::super::super::Foundation::Numerics::Matrix3x2,
@@ -647,7 +647,7 @@ pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::runtime::IntoParam<'a,
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1MakeRotateMatrix(
                 angle: f32,
@@ -673,7 +673,7 @@ pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::runtime::IntoParam<'a, D
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1MakeSkewMatrix(
                 anglex: f32,
@@ -695,7 +695,7 @@ pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::runtime::IntoParam<'a, D
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32);
         }
@@ -711,7 +711,7 @@ pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1Tan(angle: f32) -> f32;
         }
@@ -723,7 +723,7 @@ pub unsafe fn D2D1Tan(angle: f32) -> f32 {
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     #[cfg(windows)]
     {
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32;
         }

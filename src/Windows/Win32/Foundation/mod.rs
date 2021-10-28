@@ -1296,7 +1296,7 @@ pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>
 ) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseHandle(hobject: HANDLE) -> BOOL;
         }
@@ -1315,7 +1315,7 @@ pub unsafe fn CompareObjectHandles<
 ) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-handle-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompareObjectHandles(
                 hfirstobjecthandle: HANDLE,
@@ -1709,7 +1709,7 @@ pub unsafe fn DuplicateHandle<
 ) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DuplicateHandle(
                 hsourceprocesshandle: HANDLE,
@@ -3470,7 +3470,7 @@ pub unsafe fn GetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
         }
@@ -3485,7 +3485,7 @@ pub unsafe fn GetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
 pub unsafe fn GetLastError() -> WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLastError() -> WIN32_ERROR;
         }
@@ -5677,7 +5677,7 @@ pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
         }
@@ -9466,7 +9466,7 @@ pub unsafe fn SetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
         }
@@ -9482,7 +9482,7 @@ pub unsafe fn SetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLastError(dwerrcode: WIN32_ERROR);
         }
@@ -9494,7 +9494,7 @@ pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
         }
@@ -9511,7 +9511,7 @@ pub unsafe fn SysAddRefString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysAddRefString(
                 bstrstring: ::std::mem::ManuallyDrop<BSTR>,
@@ -9527,7 +9527,7 @@ pub unsafe fn SysAllocString<'a, Param0: ::windows::runtime::IntoParam<'a, PWSTR
 ) -> BSTR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysAllocString(psz: PWSTR) -> BSTR;
         }
@@ -9542,7 +9542,7 @@ pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> BSTR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysAllocStringByteLen(psz: PSTR, len: u32) -> BSTR;
         }
@@ -9560,7 +9560,7 @@ pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, PW
 ) -> BSTR {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
         }
@@ -9577,7 +9577,7 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysFreeString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
         }
@@ -9592,7 +9592,7 @@ pub unsafe fn SysReAllocString<'a, Param1: ::windows::runtime::IntoParam<'a, PWS
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysReAllocString(pbstr: *mut ::std::mem::ManuallyDrop<BSTR>, psz: PWSTR) -> i32;
         }
@@ -9611,7 +9611,7 @@ pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::runtime::IntoParam<'a, 
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysReAllocStringLen(
                 pbstr: *mut ::std::mem::ManuallyDrop<BSTR>,
@@ -9633,7 +9633,7 @@ pub unsafe fn SysReleaseString<'a, Param0: ::windows::runtime::IntoParam<'a, BST
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysReleaseString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
         }
@@ -9647,7 +9647,7 @@ pub unsafe fn SysStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a, BST
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysStringByteLen(bstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
         }
@@ -9661,7 +9661,7 @@ pub unsafe fn SysStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleaut32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SysStringLen(pbstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
         }

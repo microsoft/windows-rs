@@ -319,7 +319,7 @@ pub unsafe fn AbortPrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AbortPrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -341,7 +341,7 @@ pub unsafe fn AddFormA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddFormA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -369,7 +369,7 @@ pub unsafe fn AddFormW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddFormW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -399,7 +399,7 @@ pub unsafe fn AddJobA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddJobA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -433,7 +433,7 @@ pub unsafe fn AddJobW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddJobW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -465,7 +465,7 @@ pub unsafe fn AddMonitorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddMonitorA(
                 pname: super::super::Foundation::PSTR,
@@ -493,7 +493,7 @@ pub unsafe fn AddMonitorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddMonitorW(
                 pname: super::super::Foundation::PWSTR,
@@ -523,7 +523,7 @@ pub unsafe fn AddPortA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPortA(
                 pname: super::super::Foundation::PSTR,
@@ -553,7 +553,7 @@ pub unsafe fn AddPortW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPortW(
                 pname: super::super::Foundation::PWSTR,
@@ -579,7 +579,7 @@ pub unsafe fn AddPrintDeviceObject<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrintDeviceObject(
                 hprinter: super::super::Foundation::HANDLE,
@@ -609,7 +609,7 @@ pub unsafe fn AddPrintProcessorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrintProcessorA(
                 pname: super::super::Foundation::PSTR,
@@ -643,7 +643,7 @@ pub unsafe fn AddPrintProcessorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrintProcessorW(
                 pname: super::super::Foundation::PWSTR,
@@ -673,7 +673,7 @@ pub unsafe fn AddPrintProvidorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrintProvidorA(
                 pname: super::super::Foundation::PSTR,
@@ -701,7 +701,7 @@ pub unsafe fn AddPrintProvidorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrintProvidorW(
                 pname: super::super::Foundation::PWSTR,
@@ -729,7 +729,7 @@ pub unsafe fn AddPrinterA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterA(
                 pname: super::super::Foundation::PSTR,
@@ -759,7 +759,7 @@ pub unsafe fn AddPrinterConnection2A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterConnection2A(
                 hwnd: super::super::Foundation::HWND,
@@ -791,7 +791,7 @@ pub unsafe fn AddPrinterConnection2W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterConnection2W(
                 hwnd: super::super::Foundation::HWND,
@@ -819,7 +819,7 @@ pub unsafe fn AddPrinterConnectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterConnectionA(
                 pname: super::super::Foundation::PSTR,
@@ -839,7 +839,7 @@ pub unsafe fn AddPrinterConnectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterConnectionW(
                 pname: super::super::Foundation::PWSTR,
@@ -861,7 +861,7 @@ pub unsafe fn AddPrinterDriverA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterDriverA(
                 pname: super::super::Foundation::PSTR,
@@ -890,7 +890,7 @@ pub unsafe fn AddPrinterDriverExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterDriverExA(
                 pname: super::super::Foundation::PSTR,
@@ -921,7 +921,7 @@ pub unsafe fn AddPrinterDriverExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterDriverExW(
                 pname: super::super::Foundation::PWSTR,
@@ -951,7 +951,7 @@ pub unsafe fn AddPrinterDriverW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterDriverW(
                 pname: super::super::Foundation::PWSTR,
@@ -979,7 +979,7 @@ pub unsafe fn AddPrinterW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPrinterW(
                 pname: super::super::Foundation::PWSTR,
@@ -1011,7 +1011,7 @@ pub unsafe fn AdvancedDocumentPropertiesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdvancedDocumentPropertiesA(
                 hwnd: super::super::Foundation::HWND,
@@ -1047,7 +1047,7 @@ pub unsafe fn AdvancedDocumentPropertiesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdvancedDocumentPropertiesW(
                 hwnd: super::super::Foundation::HWND,
@@ -1076,7 +1076,7 @@ pub unsafe fn AppendPrinterNotifyInfoData(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn AppendPrinterNotifyInfoData(
                 pinfodest: *const PRINTER_NOTIFY_INFO,
@@ -2151,7 +2151,7 @@ pub unsafe fn CallRouterFindFirstPrinterChangeNotification<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallRouterFindFirstPrinterChangeNotification(
                 hprinterrpc: super::super::Foundation::HANDLE,
@@ -2181,7 +2181,7 @@ pub unsafe fn ClosePrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClosePrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -2203,7 +2203,7 @@ pub unsafe fn CloseSpoolFileHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseSpoolFileHandle(
                 hprinter: super::super::Foundation::HANDLE,
@@ -2230,7 +2230,7 @@ pub unsafe fn CommitSpoolData<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommitSpoolData(
                 hprinter: super::super::Foundation::HANDLE,
@@ -2260,7 +2260,7 @@ pub unsafe fn CommonPropertySheetUIA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "compstui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommonPropertySheetUIA(
                 hwndowner: super::super::Foundation::HWND,
@@ -2292,7 +2292,7 @@ pub unsafe fn CommonPropertySheetUIW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "compstui")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommonPropertySheetUIW(
                 hwndowner: super::super::Foundation::HWND,
@@ -2324,7 +2324,7 @@ pub unsafe fn ConfigurePortA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConfigurePortA(
                 pname: super::super::Foundation::PSTR,
@@ -2354,7 +2354,7 @@ pub unsafe fn ConfigurePortW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConfigurePortW(
                 pname: super::super::Foundation::PWSTR,
@@ -2381,7 +2381,7 @@ pub unsafe fn ConnectToPrinterDlg<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConnectToPrinterDlg(
                 hwnd: super::super::Foundation::HWND,
@@ -2412,7 +2412,7 @@ pub unsafe fn CorePrinterDriverInstalledA<
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn CorePrinterDriverInstalledA(
                 pszserver: super::super::Foundation::PSTR,
@@ -2454,7 +2454,7 @@ pub unsafe fn CorePrinterDriverInstalledW<
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn CorePrinterDriverInstalledW(
                 pszserver: super::super::Foundation::PWSTR,
@@ -2494,7 +2494,7 @@ pub unsafe fn CreatePrintAsyncNotifyChannel<
 ) -> ::windows::runtime::Result<IPrintAsyncNotifyChannel> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePrintAsyncNotifyChannel(
                 pszname: super::super::Foundation::PWSTR,
@@ -2530,7 +2530,7 @@ pub unsafe fn CreatePrinterIC<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePrinterIC(
                 hprinter: super::super::Foundation::HANDLE,
@@ -4570,7 +4570,7 @@ pub unsafe fn DeleteFormA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFormA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -4596,7 +4596,7 @@ pub unsafe fn DeleteFormW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFormW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -4623,7 +4623,7 @@ pub unsafe fn DeleteJobNamedProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteJobNamedProperty(
                 hprinter: super::super::Foundation::HANDLE,
@@ -4653,7 +4653,7 @@ pub unsafe fn DeleteMonitorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteMonitorA(
                 pname: super::super::Foundation::PSTR,
@@ -4683,7 +4683,7 @@ pub unsafe fn DeleteMonitorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteMonitorW(
                 pname: super::super::Foundation::PWSTR,
@@ -4713,7 +4713,7 @@ pub unsafe fn DeletePortA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePortA(
                 pname: super::super::Foundation::PSTR,
@@ -4743,7 +4743,7 @@ pub unsafe fn DeletePortW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePortW(
                 pname: super::super::Foundation::PWSTR,
@@ -4773,7 +4773,7 @@ pub unsafe fn DeletePrintProcessorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrintProcessorA(
                 pname: super::super::Foundation::PSTR,
@@ -4803,7 +4803,7 @@ pub unsafe fn DeletePrintProcessorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrintProcessorW(
                 pname: super::super::Foundation::PWSTR,
@@ -4833,7 +4833,7 @@ pub unsafe fn DeletePrintProvidorA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrintProvidorA(
                 pname: super::super::Foundation::PSTR,
@@ -4863,7 +4863,7 @@ pub unsafe fn DeletePrintProvidorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrintProvidorW(
                 pname: super::super::Foundation::PWSTR,
@@ -4889,7 +4889,7 @@ pub unsafe fn DeletePrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -4909,7 +4909,7 @@ pub unsafe fn DeletePrinterConnectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterConnectionA(
                 pname: super::super::Foundation::PSTR,
@@ -4929,7 +4929,7 @@ pub unsafe fn DeletePrinterConnectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterConnectionW(
                 pname: super::super::Foundation::PWSTR,
@@ -4951,7 +4951,7 @@ pub unsafe fn DeletePrinterDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDataA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -4979,7 +4979,7 @@ pub unsafe fn DeletePrinterDataExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDataExA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -5009,7 +5009,7 @@ pub unsafe fn DeletePrinterDataExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDataExW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -5037,7 +5037,7 @@ pub unsafe fn DeletePrinterDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDataW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -5065,7 +5065,7 @@ pub unsafe fn DeletePrinterDriverA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDriverA(
                 pname: super::super::Foundation::PSTR,
@@ -5097,7 +5097,7 @@ pub unsafe fn DeletePrinterDriverExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDriverExA(
                 pname: super::super::Foundation::PSTR,
@@ -5133,7 +5133,7 @@ pub unsafe fn DeletePrinterDriverExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDriverExW(
                 pname: super::super::Foundation::PWSTR,
@@ -5167,7 +5167,7 @@ pub unsafe fn DeletePrinterDriverPackageA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDriverPackageA(
                 pszserver: super::super::Foundation::PSTR,
@@ -5198,7 +5198,7 @@ pub unsafe fn DeletePrinterDriverPackageW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDriverPackageW(
                 pszserver: super::super::Foundation::PWSTR,
@@ -5229,7 +5229,7 @@ pub unsafe fn DeletePrinterDriverW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterDriverW(
                 pname: super::super::Foundation::PWSTR,
@@ -5255,7 +5255,7 @@ pub unsafe fn DeletePrinterIC<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterIC(
                 hprinteric: super::super::Foundation::HANDLE,
@@ -5277,7 +5277,7 @@ pub unsafe fn DeletePrinterKeyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterKeyA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -5303,7 +5303,7 @@ pub unsafe fn DeletePrinterKeyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeletePrinterKeyW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -5329,7 +5329,7 @@ pub unsafe fn DevQueryPrint<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevQueryPrint(
                 hprinter: super::super::Foundation::HANDLE,
@@ -5350,7 +5350,7 @@ pub unsafe fn DevQueryPrint<
 pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO)
                 -> super::super::Foundation::BOOL;
@@ -5376,7 +5376,7 @@ pub unsafe fn DocumentPropertiesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DocumentPropertiesA(
                 hwnd: super::super::Foundation::HWND,
@@ -5415,7 +5415,7 @@ pub unsafe fn DocumentPropertiesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn DocumentPropertiesW(
                 hwnd: super::super::Foundation::HWND,
@@ -6024,7 +6024,7 @@ pub unsafe fn EndDocPrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndDocPrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6044,7 +6044,7 @@ pub unsafe fn EndPagePrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndPagePrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6069,7 +6069,7 @@ pub unsafe fn EnumFormsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFormsA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6106,7 +6106,7 @@ pub unsafe fn EnumFormsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFormsW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6141,7 +6141,7 @@ pub unsafe fn EnumJobNamedProperties<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumJobNamedProperties(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6176,7 +6176,7 @@ pub unsafe fn EnumJobsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumJobsA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6219,7 +6219,7 @@ pub unsafe fn EnumJobsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumJobsW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6260,7 +6260,7 @@ pub unsafe fn EnumMonitorsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumMonitorsA(
                 pname: super::super::Foundation::PSTR,
@@ -6297,7 +6297,7 @@ pub unsafe fn EnumMonitorsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumMonitorsW(
                 pname: super::super::Foundation::PWSTR,
@@ -6334,7 +6334,7 @@ pub unsafe fn EnumPortsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPortsA(
                 pname: super::super::Foundation::PSTR,
@@ -6371,7 +6371,7 @@ pub unsafe fn EnumPortsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPortsW(
                 pname: super::super::Foundation::PWSTR,
@@ -6410,7 +6410,7 @@ pub unsafe fn EnumPrintProcessorDatatypesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrintProcessorDatatypesA(
                 pname: super::super::Foundation::PSTR,
@@ -6451,7 +6451,7 @@ pub unsafe fn EnumPrintProcessorDatatypesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrintProcessorDatatypesW(
                 pname: super::super::Foundation::PWSTR,
@@ -6492,7 +6492,7 @@ pub unsafe fn EnumPrintProcessorsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrintProcessorsA(
                 pname: super::super::Foundation::PSTR,
@@ -6533,7 +6533,7 @@ pub unsafe fn EnumPrintProcessorsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrintProcessorsW(
                 pname: super::super::Foundation::PWSTR,
@@ -6575,7 +6575,7 @@ pub unsafe fn EnumPrinterDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterDataA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6619,7 +6619,7 @@ pub unsafe fn EnumPrinterDataExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterDataExA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6657,7 +6657,7 @@ pub unsafe fn EnumPrinterDataExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterDataExW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6697,7 +6697,7 @@ pub unsafe fn EnumPrinterDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterDataW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6742,7 +6742,7 @@ pub unsafe fn EnumPrinterDriversA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterDriversA(
                 pname: super::super::Foundation::PSTR,
@@ -6783,7 +6783,7 @@ pub unsafe fn EnumPrinterDriversW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterDriversW(
                 pname: super::super::Foundation::PWSTR,
@@ -6822,7 +6822,7 @@ pub unsafe fn EnumPrinterKeyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterKeyA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6857,7 +6857,7 @@ pub unsafe fn EnumPrinterKeyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrinterKeyW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -6893,7 +6893,7 @@ pub unsafe fn EnumPrintersA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrintersA(
                 flags: u32,
@@ -6933,7 +6933,7 @@ pub unsafe fn EnumPrintersW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumPrintersW(
                 flags: u32,
@@ -6978,7 +6978,7 @@ pub unsafe fn ExtDeviceMode<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtDeviceMode(
                 hwnd: super::super::Foundation::HWND,
@@ -7262,7 +7262,7 @@ pub unsafe fn FindClosePrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindClosePrinterChangeNotification(
                 hchange: super::super::Foundation::HANDLE,
@@ -7287,7 +7287,7 @@ pub unsafe fn FindFirstPrinterChangeNotification<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstPrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -7318,7 +7318,7 @@ pub unsafe fn FindNextPrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextPrinterChangeNotification(
                 hchange: super::super::Foundation::HANDLE,
@@ -7350,7 +7350,7 @@ pub unsafe fn FlushPrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushPrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -7378,7 +7378,7 @@ pub unsafe fn FreePrintNamedPropertyArray(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreePrintNamedPropertyArray(
                 cproperties: u32,
@@ -7397,7 +7397,7 @@ pub unsafe fn FreePrintNamedPropertyArray(
 pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue);
         }
@@ -7412,7 +7412,7 @@ pub unsafe fn FreePrinterNotifyInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreePrinterNotifyInfo(
                 pprinternotifyinfo: *const PRINTER_NOTIFY_INFO,
@@ -7479,7 +7479,7 @@ pub unsafe fn GdiDeleteSpoolFileHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiDeleteSpoolFileHandle(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7499,7 +7499,7 @@ pub unsafe fn GdiEndDocEMF<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiEndDocEMF(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7520,7 +7520,7 @@ pub unsafe fn GdiEndPageEMF<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiEndPageEMF(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7544,7 +7544,7 @@ pub unsafe fn GdiGetDC<
 ) -> super::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiGetDC(spoolfilehandle: super::super::Foundation::HANDLE) -> super::Gdi::HDC;
         }
@@ -7565,7 +7565,7 @@ pub unsafe fn GdiGetDevmodeForPage<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiGetDevmodeForPage(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7593,7 +7593,7 @@ pub unsafe fn GdiGetPageCount<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiGetPageCount(spoolfilehandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -7613,7 +7613,7 @@ pub unsafe fn GdiGetPageHandle<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiGetPageHandle(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7642,7 +7642,7 @@ pub unsafe fn GdiGetSpoolFileHandle<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiGetSpoolFileHandle(
                 pwszprintername: super::super::Foundation::PWSTR,
@@ -7673,7 +7673,7 @@ pub unsafe fn GdiPlayPageEMF<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiPlayPageEMF(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7704,7 +7704,7 @@ pub unsafe fn GdiResetDCEMF<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiResetDCEMF(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7729,7 +7729,7 @@ pub unsafe fn GdiStartDocEMF<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiStartDocEMF(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7753,7 +7753,7 @@ pub unsafe fn GdiStartPageEMF<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiStartPageEMF(
                 spoolfilehandle: super::super::Foundation::HANDLE,
@@ -7784,7 +7784,7 @@ pub unsafe fn GenerateCopyFilePaths<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn GenerateCopyFilePaths(
                 pszprintername: super::super::Foundation::PWSTR,
@@ -7822,7 +7822,7 @@ pub unsafe fn GetCPSUIUserData<
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "compstui")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCPSUIUserData(hdlg: super::super::Foundation::HWND) -> usize;
         }
@@ -7846,7 +7846,7 @@ pub unsafe fn GetCorePrinterDriversA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCorePrinterDriversA(
                 pszserver: super::super::Foundation::PSTR,
@@ -7883,7 +7883,7 @@ pub unsafe fn GetCorePrinterDriversW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCorePrinterDriversW(
                 pszserver: super::super::Foundation::PWSTR,
@@ -7912,7 +7912,7 @@ pub unsafe fn GetDefaultPrinterA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDefaultPrinterA(
                 pszbuffer: super::super::Foundation::PSTR,
@@ -7934,7 +7934,7 @@ pub unsafe fn GetDefaultPrinterW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDefaultPrinterW(
                 pszbuffer: super::super::Foundation::PWSTR,
@@ -7964,7 +7964,7 @@ pub unsafe fn GetFormA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFormA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8002,7 +8002,7 @@ pub unsafe fn GetFormW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFormW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8039,7 +8039,7 @@ pub unsafe fn GetJobA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetJobA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8073,7 +8073,7 @@ pub unsafe fn GetJobAttributes<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetJobAttributes(
                 pprintername: super::super::Foundation::PWSTR,
@@ -8104,7 +8104,7 @@ pub unsafe fn GetJobAttributesEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetJobAttributesEx(
                 pprintername: super::super::Foundation::PWSTR,
@@ -8140,7 +8140,7 @@ pub unsafe fn GetJobNamedPropertyValue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetJobNamedPropertyValue(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8173,7 +8173,7 @@ pub unsafe fn GetJobW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetJobW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8202,7 +8202,7 @@ pub unsafe fn GetPrintExecutionData(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrintExecutionData(
                 pdata: *mut PRINT_EXECUTION_DATA,
@@ -8226,7 +8226,7 @@ pub unsafe fn GetPrintOutputInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrintOutputInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -8261,7 +8261,7 @@ pub unsafe fn GetPrintProcessorDirectoryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrintProcessorDirectoryA(
                 pname: super::super::Foundation::PSTR,
@@ -8299,7 +8299,7 @@ pub unsafe fn GetPrintProcessorDirectoryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrintProcessorDirectoryW(
                 pname: super::super::Foundation::PWSTR,
@@ -8335,7 +8335,7 @@ pub unsafe fn GetPrinterA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8371,7 +8371,7 @@ pub unsafe fn GetPrinterDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDataA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8411,7 +8411,7 @@ pub unsafe fn GetPrinterDataExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDataExA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8453,7 +8453,7 @@ pub unsafe fn GetPrinterDataExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDataExW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8493,7 +8493,7 @@ pub unsafe fn GetPrinterDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDataW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8533,7 +8533,7 @@ pub unsafe fn GetPrinterDriver2A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriver2A(
                 hwnd: super::super::Foundation::HWND,
@@ -8575,7 +8575,7 @@ pub unsafe fn GetPrinterDriver2W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriver2W(
                 hwnd: super::super::Foundation::HWND,
@@ -8615,7 +8615,7 @@ pub unsafe fn GetPrinterDriverA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriverA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8653,7 +8653,7 @@ pub unsafe fn GetPrinterDriverDirectoryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriverDirectoryA(
                 pname: super::super::Foundation::PSTR,
@@ -8691,7 +8691,7 @@ pub unsafe fn GetPrinterDriverDirectoryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriverDirectoryW(
                 pname: super::super::Foundation::PWSTR,
@@ -8733,7 +8733,7 @@ pub unsafe fn GetPrinterDriverPackagePathA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriverPackagePathA(
                 pszserver: super::super::Foundation::PSTR,
@@ -8778,7 +8778,7 @@ pub unsafe fn GetPrinterDriverPackagePathW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriverPackagePathW(
                 pszserver: super::super::Foundation::PWSTR,
@@ -8819,7 +8819,7 @@ pub unsafe fn GetPrinterDriverW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterDriverW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8855,7 +8855,7 @@ pub unsafe fn GetPrinterW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrinterW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -8885,7 +8885,7 @@ pub unsafe fn GetSpoolFileHandle<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSpoolFileHandle(
                 hprinter: super::super::Foundation::HANDLE,
@@ -29160,7 +29160,7 @@ pub unsafe fn ImpersonatePrinterClient<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImpersonatePrinterClient(
                 htoken: super::super::Foundation::HANDLE,
@@ -29187,7 +29187,7 @@ pub unsafe fn InstallPrinterDriverFromPackageA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallPrinterDriverFromPackageA(
                 pszserver: super::super::Foundation::PSTR,
@@ -29225,7 +29225,7 @@ pub unsafe fn InstallPrinterDriverFromPackageW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallPrinterDriverFromPackageW(
                 pszserver: super::super::Foundation::PWSTR,
@@ -29254,7 +29254,7 @@ pub unsafe fn IsValidDevmodeA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidDevmodeA(
                 pdevmode: *const super::super::UI::DisplayDevices::DEVMODEA,
@@ -29276,7 +29276,7 @@ pub unsafe fn IsValidDevmodeW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidDevmodeW(
                 pdevmode: *const super::super::UI::DisplayDevices::DEVMODEW,
@@ -31844,7 +31844,7 @@ pub unsafe fn OpenPrinter2A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPrinter2A(
                 pprintername: super::super::Foundation::PSTR,
@@ -31875,7 +31875,7 @@ pub unsafe fn OpenPrinter2W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPrinter2W(
                 pprintername: super::super::Foundation::PWSTR,
@@ -31905,7 +31905,7 @@ pub unsafe fn OpenPrinterA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPrinterA(
                 pprintername: super::super::Foundation::PSTR,
@@ -31933,7 +31933,7 @@ pub unsafe fn OpenPrinterW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenPrinterW(
                 pprintername: super::super::Foundation::PWSTR,
@@ -35401,7 +35401,7 @@ pub unsafe fn PartialReplyPrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn PartialReplyPrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -35430,7 +35430,7 @@ pub unsafe fn PlayGdiScriptOnPrinterIC<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlayGdiScriptOnPrinterIC(
                 hprinteric: super::super::Foundation::HANDLE,
@@ -35834,7 +35834,7 @@ pub unsafe fn PrinterMessageBoxA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrinterMessageBoxA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -35874,7 +35874,7 @@ pub unsafe fn PrinterMessageBoxW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrinterMessageBoxW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -35908,7 +35908,7 @@ pub unsafe fn PrinterProperties<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrinterProperties(
                 hwnd: super::super::Foundation::HWND,
@@ -35944,7 +35944,7 @@ pub unsafe fn ProvidorFindClosePrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProvidorFindClosePrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -35972,7 +35972,7 @@ pub unsafe fn ProvidorFindFirstPrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProvidorFindFirstPrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36027,7 +36027,7 @@ pub unsafe fn ReadPrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadPrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36060,7 +36060,7 @@ pub unsafe fn RegisterForPrintAsyncNotifications<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterForPrintAsyncNotifications(
                 pszname: super::super::Foundation::PWSTR,
@@ -36095,7 +36095,7 @@ pub unsafe fn RemovePrintDeviceObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemovePrintDeviceObject(
                 hdeviceobject: super::super::Foundation::HANDLE,
@@ -36118,7 +36118,7 @@ pub unsafe fn ReplyPrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplyPrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36150,7 +36150,7 @@ pub unsafe fn ReplyPrinterChangeNotificationEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplyPrinterChangeNotificationEx(
                 hnotify: super::super::Foundation::HANDLE,
@@ -36183,7 +36183,7 @@ pub unsafe fn ReportJobProcessingProgress<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReportJobProcessingProgress(
                 printerhandle: super::super::Foundation::HANDLE,
@@ -36213,7 +36213,7 @@ pub unsafe fn ResetPrinterA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetPrinterA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36238,7 +36238,7 @@ pub unsafe fn ResetPrinterW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetPrinterW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36257,7 +36257,7 @@ pub unsafe fn ResetPrinterW<
 pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE;
         }
@@ -36269,7 +36269,7 @@ pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
 pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterAllocBidiMem(numbytes: usize) -> *mut ::std::ffi::c_void;
         }
@@ -36282,7 +36282,7 @@ pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::std::ffi::c_void {
 pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER;
         }
@@ -36298,7 +36298,7 @@ pub unsafe fn RouterAllocPrinterNotifyInfo(
 ) -> *mut PRINTER_NOTIFY_INFO {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterAllocPrinterNotifyInfo(
                 cprinternotifyinfodata: u32,
@@ -36314,7 +36314,7 @@ pub unsafe fn RouterAllocPrinterNotifyInfo(
 pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterFreeBidiMem(pmempointer: *const ::std::ffi::c_void);
         }
@@ -36327,7 +36327,7 @@ pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::std::ffi::c_void) {
 pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32;
         }
@@ -36344,7 +36344,7 @@ pub unsafe fn RouterFreePrinterNotifyInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn RouterFreePrinterNotifyInfo(
                 pinfo: *const PRINTER_NOTIFY_INFO,
@@ -36645,7 +36645,7 @@ pub unsafe fn ScheduleJob<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScheduleJob(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36670,7 +36670,7 @@ pub unsafe fn SetCPSUIUserData<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "compstui")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCPSUIUserData(
                 hdlg: super::super::Foundation::HWND,
@@ -36694,7 +36694,7 @@ pub unsafe fn SetDefaultPrinterA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDefaultPrinterA(
                 pszprinter: super::super::Foundation::PSTR,
@@ -36714,7 +36714,7 @@ pub unsafe fn SetDefaultPrinterW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDefaultPrinterW(
                 pszprinter: super::super::Foundation::PWSTR,
@@ -36738,7 +36738,7 @@ pub unsafe fn SetFormA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFormA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36770,7 +36770,7 @@ pub unsafe fn SetFormW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFormW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36802,7 +36802,7 @@ pub unsafe fn SetJobA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetJobA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36834,7 +36834,7 @@ pub unsafe fn SetJobNamedProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetJobNamedProperty(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36864,7 +36864,7 @@ pub unsafe fn SetJobW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetJobW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36898,7 +36898,7 @@ pub unsafe fn SetPortA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPortA(
                 pname: super::super::Foundation::PSTR,
@@ -36930,7 +36930,7 @@ pub unsafe fn SetPortW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPortW(
                 pname: super::super::Foundation::PWSTR,
@@ -36961,7 +36961,7 @@ pub unsafe fn SetPrinterA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrinterA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -36994,7 +36994,7 @@ pub unsafe fn SetPrinterDataA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrinterDataA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37031,7 +37031,7 @@ pub unsafe fn SetPrinterDataExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrinterDataExA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37070,7 +37070,7 @@ pub unsafe fn SetPrinterDataExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrinterDataExW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37107,7 +37107,7 @@ pub unsafe fn SetPrinterDataW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrinterDataW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37140,7 +37140,7 @@ pub unsafe fn SetPrinterW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPrinterW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37170,7 +37170,7 @@ pub unsafe fn SplIsSessionZero<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn SplIsSessionZero(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37199,7 +37199,7 @@ pub unsafe fn SplPromptUIInUsersSession<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn SplPromptUIInUsersSession(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37230,7 +37230,7 @@ pub unsafe fn SpoolerCopyFileEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "mscms")]
+        #[link(name = "windows")]
         extern "system" {
             fn SpoolerCopyFileEvent(
                 pszprintername: super::super::Foundation::PWSTR,
@@ -37256,7 +37256,7 @@ pub unsafe fn SpoolerFindClosePrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn SpoolerFindClosePrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37285,7 +37285,7 @@ pub unsafe fn SpoolerFindFirstPrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn SpoolerFindFirstPrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37324,7 +37324,7 @@ pub unsafe fn SpoolerFindNextPrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn SpoolerFindNextPrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37346,7 +37346,7 @@ pub unsafe fn SpoolerFindNextPrinterChangeNotification<
 pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO);
         }
@@ -37367,7 +37367,7 @@ pub unsafe fn SpoolerRefreshPrinterChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn SpoolerRefreshPrinterChangeNotification(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37397,7 +37397,7 @@ pub unsafe fn StartDocPrinterA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartDocPrinterA(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37425,7 +37425,7 @@ pub unsafe fn StartDocPrinterW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartDocPrinterW(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37451,7 +37451,7 @@ pub unsafe fn StartPagePrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartPagePrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -37978,7 +37978,7 @@ pub unsafe fn UnRegisterForPrintAsyncNotifications<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnRegisterForPrintAsyncNotifications(
                 param0: super::super::Foundation::HANDLE,
@@ -38000,7 +38000,7 @@ pub unsafe fn UpdatePrintDeviceObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "spoolss")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdatePrintDeviceObject(
                 hprinter: super::super::Foundation::HANDLE,
@@ -38034,7 +38034,7 @@ pub unsafe fn UploadPrinterDriverPackageA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn UploadPrinterDriverPackageA(
                 pszserver: super::super::Foundation::PSTR,
@@ -38078,7 +38078,7 @@ pub unsafe fn UploadPrinterDriverPackageW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn UploadPrinterDriverPackageW(
                 pszserver: super::super::Foundation::PWSTR,
@@ -38183,7 +38183,7 @@ pub unsafe fn WaitForPrinterChange<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitForPrinterChange(hprinter: super::super::Foundation::HANDLE, flags: u32) -> u32;
         }
@@ -38207,7 +38207,7 @@ pub unsafe fn WritePrinter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePrinter(
                 hprinter: super::super::Foundation::HANDLE,
@@ -38311,7 +38311,7 @@ pub unsafe fn XcvDataW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winspool")]
+        #[link(name = "windows")]
         extern "system" {
             fn XcvDataW(
                 hxcv: super::super::Foundation::HANDLE,

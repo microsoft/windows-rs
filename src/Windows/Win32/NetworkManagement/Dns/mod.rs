@@ -4073,7 +4073,7 @@ pub unsafe fn DnsAcquireContextHandle_A(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsAcquireContextHandle_A(
                 credentialflags: u32,
@@ -4097,7 +4097,7 @@ pub unsafe fn DnsAcquireContextHandle_W(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsAcquireContextHandle_W(
                 credentialflags: u32,
@@ -4118,7 +4118,7 @@ pub unsafe fn DnsAcquireContextHandle_W(
 pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32;
         }
@@ -4130,7 +4130,7 @@ pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
 pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32;
         }
@@ -4151,7 +4151,7 @@ pub unsafe fn DnsConnectionDeleteProxyInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionDeleteProxyInfo(
                 pwszconnectionname: super::super::Foundation::PWSTR,
@@ -4169,7 +4169,7 @@ pub unsafe fn DnsConnectionDeleteProxyInfo<
 pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST);
         }
@@ -4182,7 +4182,7 @@ pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST
 pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO);
         }
@@ -4197,7 +4197,7 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_I
 pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX);
         }
@@ -4212,7 +4212,7 @@ pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PRO
 pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST);
         }
@@ -4226,7 +4226,7 @@ pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_L
 pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32;
         }
@@ -4246,7 +4246,7 @@ pub unsafe fn DnsConnectionGetProxyInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionGetProxyInfo(
                 pwszconnectionname: super::super::Foundation::PWSTR,
@@ -4276,7 +4276,7 @@ pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionGetProxyInfoForHostUrl(
                 pwszhosturl: super::super::Foundation::PWSTR,
@@ -4307,7 +4307,7 @@ pub unsafe fn DnsConnectionGetProxyList<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionGetProxyList(
                 pwszconnectionname: super::super::Foundation::PWSTR,
@@ -4329,7 +4329,7 @@ pub unsafe fn DnsConnectionSetPolicyEntries(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionSetPolicyEntries(
                 policyentrytag: DNS_CONNECTION_POLICY_TAG,
@@ -4355,7 +4355,7 @@ pub unsafe fn DnsConnectionSetProxyInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionSetProxyInfo(
                 pwszconnectionname: super::super::Foundation::PWSTR,
@@ -4378,7 +4378,7 @@ pub unsafe fn DnsConnectionUpdateIfIndexTable(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsConnectionUpdateIfIndexTable(
                 pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST,
@@ -4418,7 +4418,7 @@ pub unsafe fn DnsExtractRecordsFromMessage_UTF8(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsExtractRecordsFromMessage_UTF8(
                 pdnsbuffer: *const DNS_MESSAGE_BUFFER,
@@ -4443,7 +4443,7 @@ pub unsafe fn DnsExtractRecordsFromMessage_W(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsExtractRecordsFromMessage_W(
                 pdnsbuffer: *const DNS_MESSAGE_BUFFER,
@@ -4463,7 +4463,7 @@ pub unsafe fn DnsExtractRecordsFromMessage_W(
 pub unsafe fn DnsFree(pdata: *const ::std::ffi::c_void, freetype: DNS_FREE_TYPE) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsFree(pdata: *const ::std::ffi::c_void, freetype: DNS_FREE_TYPE);
         }
@@ -4479,7 +4479,7 @@ pub unsafe fn DnsFree(pdata: *const ::std::ffi::c_void, freetype: DNS_FREE_TYPE)
 pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER);
         }
@@ -4495,7 +4495,7 @@ pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS
 pub unsafe fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR);
         }
@@ -4512,7 +4512,7 @@ pub unsafe fn DnsGetApplicationSettings(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsGetApplicationSettings(
                 pcservers: *mut u32,
@@ -4542,7 +4542,7 @@ pub unsafe fn DnsGetProxyInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsGetProxyInformation(
                 hostname: super::super::Foundation::PWSTR,
@@ -4577,7 +4577,7 @@ pub unsafe fn DnsModifyRecordsInSet_A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsModifyRecordsInSet_A(
                 paddrecords: *const DNS_RECORDA,
@@ -4614,7 +4614,7 @@ pub unsafe fn DnsModifyRecordsInSet_UTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsModifyRecordsInSet_UTF8(
                 paddrecords: *const DNS_RECORDA,
@@ -4651,7 +4651,7 @@ pub unsafe fn DnsModifyRecordsInSet_W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsModifyRecordsInSet_W(
                 paddrecords: *const DNS_RECORDA,
@@ -4685,7 +4685,7 @@ pub unsafe fn DnsNameCompare_A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsNameCompare_A(
                 pname1: super::super::Foundation::PSTR,
@@ -4711,7 +4711,7 @@ pub unsafe fn DnsNameCompare_W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsNameCompare_W(
                 pname1: super::super::Foundation::PWSTR,
@@ -4740,7 +4740,7 @@ pub unsafe fn DnsQueryConfig<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsQueryConfig(
                 config: DNS_CONFIG_TYPE,
@@ -4771,7 +4771,7 @@ pub unsafe fn DnsQueryEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsQueryEx(
                 pqueryrequest: *const ::std::mem::ManuallyDrop<DNS_QUERY_REQUEST>,
@@ -4802,7 +4802,7 @@ pub unsafe fn DnsQuery_A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsQuery_A(
                 pszname: super::super::Foundation::PSTR,
@@ -4839,7 +4839,7 @@ pub unsafe fn DnsQuery_UTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsQuery_UTF8(
                 pszname: super::super::Foundation::PSTR,
@@ -4876,7 +4876,7 @@ pub unsafe fn DnsQuery_W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsQuery_W(
                 pszname: super::super::Foundation::PWSTR,
@@ -4906,7 +4906,7 @@ pub unsafe fn DnsRecordCompare(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsRecordCompare(
                 precord1: *const DNS_RECORDA,
@@ -4929,7 +4929,7 @@ pub unsafe fn DnsRecordCopyEx(
 ) -> *mut DNS_RECORDA {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsRecordCopyEx(
                 precord: *const DNS_RECORDA,
@@ -4955,7 +4955,7 @@ pub unsafe fn DnsRecordSetCompare(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsRecordSetCompare(
                 prr1: *mut DNS_RECORDA,
@@ -4982,7 +4982,7 @@ pub unsafe fn DnsRecordSetCopyEx(
 ) -> *mut DNS_RECORDA {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsRecordSetCopyEx(
                 precordset: *const DNS_RECORDA,
@@ -5003,7 +5003,7 @@ pub unsafe fn DnsRecordSetCopyEx(
 pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA;
         }
@@ -5021,7 +5021,7 @@ pub unsafe fn DnsReleaseContextHandle<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsReleaseContextHandle(hcontext: super::super::Foundation::HANDLE);
         }
@@ -5043,7 +5043,7 @@ pub unsafe fn DnsReplaceRecordSetA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsReplaceRecordSetA(
                 preplaceset: *const DNS_RECORDA,
@@ -5077,7 +5077,7 @@ pub unsafe fn DnsReplaceRecordSetUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsReplaceRecordSetUTF8(
                 preplaceset: *const DNS_RECORDA,
@@ -5111,7 +5111,7 @@ pub unsafe fn DnsReplaceRecordSetW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsReplaceRecordSetW(
                 preplaceset: *const DNS_RECORDA,
@@ -5139,7 +5139,7 @@ pub unsafe fn DnsServiceBrowse(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceBrowse(
                 prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_BROWSE_REQUEST>,
@@ -5157,7 +5157,7 @@ pub unsafe fn DnsServiceBrowse(
 pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
         }
@@ -5185,7 +5185,7 @@ pub unsafe fn DnsServiceConstructInstance<
 ) -> *mut DNS_SERVICE_INSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceConstructInstance(
                 pservicename: super::super::Foundation::PWSTR,
@@ -5222,7 +5222,7 @@ pub unsafe fn DnsServiceCopyInstance(
 ) -> *mut DNS_SERVICE_INSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceCopyInstance(
                 porig: *const DNS_SERVICE_INSTANCE,
@@ -5240,7 +5240,7 @@ pub unsafe fn DnsServiceDeRegister(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceDeRegister(
                 prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>,
@@ -5259,7 +5259,7 @@ pub unsafe fn DnsServiceDeRegister(
 pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE);
         }
@@ -5275,7 +5275,7 @@ pub unsafe fn DnsServiceRegister(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceRegister(
                 prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>,
@@ -5293,7 +5293,7 @@ pub unsafe fn DnsServiceRegister(
 pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32;
         }
@@ -5311,7 +5311,7 @@ pub unsafe fn DnsServiceResolve(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceResolve(
                 prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_RESOLVE_REQUEST>,
@@ -5329,7 +5329,7 @@ pub unsafe fn DnsServiceResolve(
 pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
         }
@@ -5348,7 +5348,7 @@ pub unsafe fn DnsSetApplicationSettings(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsSetApplicationSettings(
                 cservers: u32,
@@ -5372,7 +5372,7 @@ pub unsafe fn DnsStartMulticastQuery(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsStartMulticastQuery(
                 pqueryrequest: *const ::std::mem::ManuallyDrop<MDNS_QUERY_REQUEST>,
@@ -5390,7 +5390,7 @@ pub unsafe fn DnsStartMulticastQuery(
 pub unsafe fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32;
         }
@@ -5409,7 +5409,7 @@ pub unsafe fn DnsValidateName_A<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsValidateName_A(
                 pszname: super::super::Foundation::PSTR,
@@ -5434,7 +5434,7 @@ pub unsafe fn DnsValidateName_UTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsValidateName_UTF8(
                 pszname: super::super::Foundation::PSTR,
@@ -5459,7 +5459,7 @@ pub unsafe fn DnsValidateName_W<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsValidateName_W(
                 pszname: super::super::Foundation::PWSTR,
@@ -5489,7 +5489,7 @@ pub unsafe fn DnsWriteQuestionToBuffer_UTF8<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsWriteQuestionToBuffer_UTF8(
                 pdnsbuffer: *mut DNS_MESSAGE_BUFFER,
@@ -5527,7 +5527,7 @@ pub unsafe fn DnsWriteQuestionToBuffer_W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dnsapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsWriteQuestionToBuffer_W(
                 pdnsbuffer: *mut DNS_MESSAGE_BUFFER,

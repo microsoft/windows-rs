@@ -366,7 +366,7 @@ pub const EC_WRITE_ACCESS: u32 = 2u32;
 pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcClose(object: isize) -> super::super::Foundation::BOOL;
         }
@@ -385,7 +385,7 @@ pub unsafe fn EcDeleteSubscription<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcDeleteSubscription(
                 subscriptionname: super::super::Foundation::PWSTR,
@@ -409,7 +409,7 @@ pub unsafe fn EcEnumNextSubscription(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcEnumNextSubscription(
                 subscriptionenum: isize,
@@ -440,7 +440,7 @@ pub unsafe fn EcGetObjectArrayProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcGetObjectArrayProperty(
                 objectarray: isize,
@@ -472,7 +472,7 @@ pub unsafe fn EcGetObjectArraySize(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcGetObjectArraySize(
                 objectarray: isize,
@@ -498,7 +498,7 @@ pub unsafe fn EcGetSubscriptionProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcGetSubscriptionProperty(
                 subscription: isize,
@@ -537,7 +537,7 @@ pub unsafe fn EcGetSubscriptionRunTimeStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcGetSubscriptionRunTimeStatus(
                 subscriptionname: super::super::Foundation::PWSTR,
@@ -569,7 +569,7 @@ pub unsafe fn EcInsertObjectArrayElement(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcInsertObjectArrayElement(
                 objectarray: isize,
@@ -595,7 +595,7 @@ pub unsafe fn EcOpenSubscription<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcOpenSubscription(
                 subscriptionname: super::super::Foundation::PWSTR,
@@ -615,7 +615,7 @@ pub unsafe fn EcOpenSubscription<
 pub unsafe fn EcOpenSubscriptionEnum(flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcOpenSubscriptionEnum(flags: u32) -> isize;
         }
@@ -631,7 +631,7 @@ pub unsafe fn EcRemoveObjectArrayElement(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcRemoveObjectArrayElement(
                 objectarray: isize,
@@ -658,7 +658,7 @@ pub unsafe fn EcRetrySubscription<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcRetrySubscription(
                 subscriptionname: super::super::Foundation::PWSTR,
@@ -682,7 +682,7 @@ pub unsafe fn EcSaveSubscription(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcSaveSubscription(
                 subscription: isize,
@@ -707,7 +707,7 @@ pub unsafe fn EcSetObjectArrayProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcSetObjectArrayProperty(
                 objectarray: isize,
@@ -737,7 +737,7 @@ pub unsafe fn EcSetSubscriptionProperty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wecapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn EcSetSubscriptionProperty(
                 subscription: isize,

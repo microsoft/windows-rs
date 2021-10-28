@@ -36,7 +36,7 @@ pub unsafe fn D3D11CreateDevice<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d11")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D11CreateDevice(
                 padapter: ::windows::runtime::RawPtr,
@@ -89,7 +89,7 @@ pub unsafe fn D3D11CreateDeviceAndSwapChain<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d11")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D11CreateDeviceAndSwapChain(
                 padapter: ::windows::runtime::RawPtr,
@@ -14621,7 +14621,7 @@ pub unsafe fn D3DDisassemble11Trace<
 ) -> ::windows::runtime::Result<ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcompiler_47")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DDisassemble11Trace(
                 psrcdata: *const ::std::ffi::c_void,
@@ -14660,7 +14660,7 @@ pub unsafe fn D3DX11CreateFFT<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateFFT(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14694,7 +14694,7 @@ pub unsafe fn D3DX11CreateFFT1DComplex<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateFFT1DComplex(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14728,7 +14728,7 @@ pub unsafe fn D3DX11CreateFFT1DReal<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateFFT1DReal(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14763,7 +14763,7 @@ pub unsafe fn D3DX11CreateFFT2DComplex<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateFFT2DComplex(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14800,7 +14800,7 @@ pub unsafe fn D3DX11CreateFFT2DReal<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateFFT2DReal(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14838,7 +14838,7 @@ pub unsafe fn D3DX11CreateFFT3DComplex<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateFFT3DComplex(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14878,7 +14878,7 @@ pub unsafe fn D3DX11CreateFFT3DReal<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateFFT3DReal(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14914,7 +14914,7 @@ pub unsafe fn D3DX11CreateScan<
 ) -> ::windows::runtime::Result<ID3DX11Scan> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateScan(
                 pdevicecontext: ::windows::runtime::RawPtr,
@@ -14944,7 +14944,7 @@ pub unsafe fn D3DX11CreateSegmentedScan<
 ) -> ::windows::runtime::Result<ID3DX11SegmentedScan> {
     #[cfg(windows)]
     {
-        #[link(name = "d3dcsx")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3DX11CreateSegmentedScan(
                 pdevicecontext: ::windows::runtime::RawPtr,

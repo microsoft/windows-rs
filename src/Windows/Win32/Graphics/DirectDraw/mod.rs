@@ -13416,7 +13416,7 @@ pub unsafe fn DirectDrawCreate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ddraw")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectDrawCreate(
                 lpguid: *mut ::windows::runtime::GUID,
@@ -13444,7 +13444,7 @@ pub unsafe fn DirectDrawCreateClipper<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ddraw")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectDrawCreateClipper(
                 dwflags: u32,
@@ -13473,7 +13473,7 @@ pub unsafe fn DirectDrawCreateEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ddraw")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectDrawCreateEx(
                 lpguid: *mut ::windows::runtime::GUID,
@@ -13500,7 +13500,7 @@ pub unsafe fn DirectDrawEnumerateA(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ddraw")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectDrawEnumerateA(
                 lpcallback: ::windows::runtime::RawPtr,
@@ -13524,7 +13524,7 @@ pub unsafe fn DirectDrawEnumerateExA(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ddraw")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectDrawEnumerateExA(
                 lpcallback: ::windows::runtime::RawPtr,
@@ -13550,7 +13550,7 @@ pub unsafe fn DirectDrawEnumerateExW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ddraw")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectDrawEnumerateExW(
                 lpcallback: ::windows::runtime::RawPtr,
@@ -13575,7 +13575,7 @@ pub unsafe fn DirectDrawEnumerateW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ddraw")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectDrawEnumerateW(
                 lpcallback: ::windows::runtime::RawPtr,

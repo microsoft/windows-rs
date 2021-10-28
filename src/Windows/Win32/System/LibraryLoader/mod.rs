@@ -16,7 +16,7 @@ pub unsafe fn AddDllDirectory<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddDllDirectory(
                 newdirectory: super::super::Foundation::PWSTR,
@@ -38,7 +38,7 @@ pub unsafe fn BeginUpdateResourceA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginUpdateResourceA(
                 pfilename: super::super::Foundation::PSTR,
@@ -64,7 +64,7 @@ pub unsafe fn BeginUpdateResourceW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginUpdateResourceW(
                 pfilename: super::super::Foundation::PWSTR,
@@ -89,7 +89,7 @@ pub unsafe fn DisableThreadLibraryCalls<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DisableThreadLibraryCalls(
                 hlibmodule: super::super::Foundation::HINSTANCE,
@@ -187,7 +187,7 @@ pub unsafe fn EndUpdateResourceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndUpdateResourceA(
                 hupdate: super::super::Foundation::HANDLE,
@@ -213,7 +213,7 @@ pub unsafe fn EndUpdateResourceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndUpdateResourceW(
                 hupdate: super::super::Foundation::HANDLE,
@@ -243,7 +243,7 @@ pub unsafe fn EnumResourceLanguagesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceLanguagesA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -281,7 +281,7 @@ pub unsafe fn EnumResourceLanguagesExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceLanguagesExA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -323,7 +323,7 @@ pub unsafe fn EnumResourceLanguagesExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceLanguagesExW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -363,7 +363,7 @@ pub unsafe fn EnumResourceLanguagesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceLanguagesW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -397,7 +397,7 @@ pub unsafe fn EnumResourceNamesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceNamesA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -431,7 +431,7 @@ pub unsafe fn EnumResourceNamesExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceNamesExA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -469,7 +469,7 @@ pub unsafe fn EnumResourceNamesExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceNamesExW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -505,7 +505,7 @@ pub unsafe fn EnumResourceNamesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceNamesW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -535,7 +535,7 @@ pub unsafe fn EnumResourceTypesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceTypesA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -565,7 +565,7 @@ pub unsafe fn EnumResourceTypesExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceTypesExA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -599,7 +599,7 @@ pub unsafe fn EnumResourceTypesExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceTypesExW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -631,7 +631,7 @@ pub unsafe fn EnumResourceTypesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumResourceTypesW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -664,7 +664,7 @@ pub unsafe fn FindResourceA<
 ) -> HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindResourceA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -695,7 +695,7 @@ pub unsafe fn FindResourceExA<
 ) -> HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindResourceExA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -728,7 +728,7 @@ pub unsafe fn FindResourceExW<
 ) -> HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindResourceExW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -760,7 +760,7 @@ pub unsafe fn FindResourceW<
 ) -> HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindResourceW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -786,7 +786,7 @@ pub unsafe fn FreeLibrary<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeLibrary(
                 hlibmodule: super::super::Foundation::HINSTANCE,
@@ -807,7 +807,7 @@ pub unsafe fn FreeLibraryAndExitThread<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeLibraryAndExitThread(
                 hlibmodule: super::super::Foundation::HINSTANCE,
@@ -826,7 +826,7 @@ pub unsafe fn FreeLibraryAndExitThread<
 pub unsafe fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL;
         }
@@ -845,7 +845,7 @@ pub unsafe fn GetDllDirectoryA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDllDirectoryA(
                 nbufferlength: u32,
@@ -867,7 +867,7 @@ pub unsafe fn GetDllDirectoryW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDllDirectoryW(
                 nbufferlength: u32,
@@ -893,7 +893,7 @@ pub unsafe fn GetModuleFileNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetModuleFileNameA(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -921,7 +921,7 @@ pub unsafe fn GetModuleFileNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetModuleFileNameW(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -947,7 +947,7 @@ pub unsafe fn GetModuleHandleA<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetModuleHandleA(
                 lpmodulename: super::super::Foundation::PSTR,
@@ -969,7 +969,7 @@ pub unsafe fn GetModuleHandleExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetModuleHandleExA(
                 dwflags: u32,
@@ -997,7 +997,7 @@ pub unsafe fn GetModuleHandleExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetModuleHandleExW(
                 dwflags: u32,
@@ -1023,7 +1023,7 @@ pub unsafe fn GetModuleHandleW<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetModuleHandleW(
                 lpmodulename: super::super::Foundation::PWSTR,
@@ -1045,7 +1045,7 @@ pub unsafe fn GetProcAddress<
 ) -> ::std::option::Option<super::super::Foundation::FARPROC> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcAddress(
                 hmodule: super::super::Foundation::HINSTANCE,
@@ -1151,7 +1151,7 @@ pub unsafe fn LoadLibraryA<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryA(
                 lplibfilename: super::super::Foundation::PSTR,
@@ -1174,7 +1174,7 @@ pub unsafe fn LoadLibraryExA<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryExA(
                 lplibfilename: super::super::Foundation::PSTR,
@@ -1203,7 +1203,7 @@ pub unsafe fn LoadLibraryExW<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryExW(
                 lplibfilename: super::super::Foundation::PWSTR,
@@ -1229,7 +1229,7 @@ pub unsafe fn LoadLibraryW<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryW(
                 lplibfilename: super::super::Foundation::PWSTR,
@@ -1250,7 +1250,7 @@ pub unsafe fn LoadModule<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadModule(
                 lpmodulename: super::super::Foundation::PSTR,
@@ -1275,7 +1275,7 @@ pub unsafe fn LoadPackagedLibrary<
 ) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadPackagedLibrary(
                 lpwlibfilename: super::super::Foundation::PWSTR,
@@ -1301,7 +1301,7 @@ pub unsafe fn LoadResource<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadResource(hmodule: super::super::Foundation::HINSTANCE, hresinfo: HRSRC)
                 -> isize;
@@ -1317,7 +1317,7 @@ pub unsafe fn LoadResource<
 pub unsafe fn LockResource(hresdata: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LockResource(hresdata: isize) -> *mut ::std::ffi::c_void;
         }
@@ -1431,7 +1431,7 @@ pub unsafe fn RemoveDllDirectory(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveDllDirectory(
                 cookie: *const ::std::ffi::c_void,
@@ -1449,7 +1449,7 @@ pub unsafe fn SetDefaultDllDirectories(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDefaultDllDirectories(
                 directoryflags: LOAD_LIBRARY_FLAGS,
@@ -1471,7 +1471,7 @@ pub unsafe fn SetDllDirectoryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDllDirectoryA(
                 lppathname: super::super::Foundation::PSTR,
@@ -1491,7 +1491,7 @@ pub unsafe fn SetDllDirectoryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDllDirectoryW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -1513,7 +1513,7 @@ pub unsafe fn SizeofResource<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SizeofResource(hmodule: super::super::Foundation::HINSTANCE, hresinfo: HRSRC)
                 -> u32;
@@ -1542,7 +1542,7 @@ pub unsafe fn UpdateResourceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateResourceA(
                 hupdate: super::super::Foundation::HANDLE,
@@ -1581,7 +1581,7 @@ pub unsafe fn UpdateResourceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateResourceW(
                 hupdate: super::super::Foundation::HANDLE,

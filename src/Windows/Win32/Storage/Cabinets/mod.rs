@@ -139,7 +139,7 @@ pub unsafe fn FCIAddFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FCIAddFile(
                 hfci: *const ::std::ffi::c_void,
@@ -184,7 +184,7 @@ pub unsafe fn FCICreate(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FCICreate(
                 perf: *const ERF,
@@ -225,7 +225,7 @@ pub unsafe fn FCICreate(
 pub unsafe fn FCIDestroy(hfci: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FCIDestroy(hfci: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -275,7 +275,7 @@ pub unsafe fn FCIFlushCabinet<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FCIFlushCabinet(
                 hfci: *const ::std::ffi::c_void,
@@ -302,7 +302,7 @@ pub unsafe fn FCIFlushFolder(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FCIFlushFolder(
                 hfci: *const ::std::ffi::c_void,
@@ -440,7 +440,7 @@ pub unsafe fn FDICopy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FDICopy(
                 hfdi: *const ::std::ffi::c_void,
@@ -479,7 +479,7 @@ pub unsafe fn FDICreate(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FDICreate(
                 pfnalloc: ::windows::runtime::RawPtr,
@@ -713,7 +713,7 @@ unsafe impl ::windows::runtime::Abi for FDIDECRYPTTYPE {
 pub unsafe fn FDIDestroy(hfdi: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FDIDestroy(hfdi: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -762,7 +762,7 @@ pub unsafe fn FDIIsCabinet(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FDIIsCabinet(
                 hfdi: *const ::std::ffi::c_void,
@@ -923,7 +923,7 @@ pub unsafe fn FDITruncateCabinet<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "cabinet")]
+        #[link(name = "windows")]
         extern "system" {
             fn FDITruncateCabinet(
                 hfdi: *const ::std::ffi::c_void,

@@ -107,7 +107,7 @@ pub unsafe fn AccNotifyTouchInteraction<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccNotifyTouchInteraction(
                 hwndapp: super::super::Foundation::HWND,
@@ -136,7 +136,7 @@ pub unsafe fn AccSetRunningUtilityState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccSetRunningUtilityState(
                 hwndapp: super::super::Foundation::HWND,
@@ -181,7 +181,7 @@ pub unsafe fn AccessibleChildren<'a, Param0: ::windows::runtime::IntoParam<'a, I
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessibleChildren(
                 pacccontainer: ::windows::runtime::RawPtr,
@@ -222,7 +222,7 @@ pub unsafe fn AccessibleObjectFromEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessibleObjectFromEvent(
                 hwnd: super::super::Foundation::HWND,
@@ -261,7 +261,7 @@ pub unsafe fn AccessibleObjectFromPoint<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessibleObjectFromPoint(
                 ptscreen: super::super::Foundation::POINT,
@@ -293,7 +293,7 @@ pub unsafe fn AccessibleObjectFromWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn AccessibleObjectFromWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -1050,7 +1050,7 @@ pub unsafe fn CreateStdAccessibleObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStdAccessibleObject(
                 hwnd: super::super::Foundation::HWND,
@@ -1084,7 +1084,7 @@ pub unsafe fn CreateStdAccessibleProxyA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStdAccessibleProxyA(
                 hwnd: super::super::Foundation::HWND,
@@ -1120,7 +1120,7 @@ pub unsafe fn CreateStdAccessibleProxyW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStdAccessibleProxyW(
                 hwnd: super::super::Foundation::HWND,
@@ -1208,7 +1208,7 @@ pub unsafe fn DockPattern_SetDockPosition<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn DockPattern_SetDockPosition(
                 hobj: HUIAPATTERNOBJECT,
@@ -1404,7 +1404,7 @@ pub unsafe fn ExpandCollapsePattern_Collapse<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExpandCollapsePattern_Collapse(
                 hobj: HUIAPATTERNOBJECT,
@@ -1423,7 +1423,7 @@ pub unsafe fn ExpandCollapsePattern_Expand<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT)
                 -> ::windows::runtime::HRESULT;
@@ -1638,7 +1638,7 @@ pub const FullDescription_Property_GUID: ::windows::runtime::GUID =
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
         }
@@ -1658,7 +1658,7 @@ pub unsafe fn GetRoleTextA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRoleTextA(
                 lrole: u32,
@@ -1683,7 +1683,7 @@ pub unsafe fn GetRoleTextW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRoleTextW(
                 lrole: u32,
@@ -1708,7 +1708,7 @@ pub unsafe fn GetStateTextA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStateTextA(
                 lstatebit: u32,
@@ -1733,7 +1733,7 @@ pub unsafe fn GetStateTextW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStateTextW(
                 lstatebit: u32,
@@ -1802,7 +1802,7 @@ pub unsafe fn GridPattern_GetItem<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn GridPattern_GetItem(
                 hobj: HUIAPATTERNOBJECT,
@@ -47793,7 +47793,7 @@ pub unsafe fn InvokePattern_Invoke<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows::runtime::HRESULT;
         }
@@ -48132,7 +48132,7 @@ pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows::runtime::G
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
         }
@@ -48167,7 +48167,7 @@ pub unsafe fn ItemContainerPattern_FindItemByProperty<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn ItemContainerPattern_FindItemByProperty(
                 hobj: HUIAPATTERNOBJECT,
@@ -48292,7 +48292,7 @@ pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn LegacyIAccessiblePattern_DoDefaultAction(
                 hobj: HUIAPATTERNOBJECT,
@@ -48311,7 +48311,7 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<
 ) -> ::windows::runtime::Result<IAccessible> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn LegacyIAccessiblePattern_GetIAccessible(
                 hobj: HUIAPATTERNOBJECT,
@@ -48334,7 +48334,7 @@ pub unsafe fn LegacyIAccessiblePattern_Select<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn LegacyIAccessiblePattern_Select(
                 hobj: HUIAPATTERNOBJECT,
@@ -48358,7 +48358,7 @@ pub unsafe fn LegacyIAccessiblePattern_SetValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn LegacyIAccessiblePattern_SetValue(
                 hobj: HUIAPATTERNOBJECT,
@@ -48527,7 +48527,7 @@ pub unsafe fn LresultFromObject<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn LresultFromObject(
                 riid: *const ::windows::runtime::GUID,
@@ -48686,7 +48686,7 @@ pub unsafe fn MultipleViewPattern_GetViewName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MultipleViewPattern_GetViewName(
                 hobj: HUIAPATTERNOBJECT,
@@ -48713,7 +48713,7 @@ pub unsafe fn MultipleViewPattern_SetCurrentView<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MultipleViewPattern_SetCurrentView(
                 hobj: HUIAPATTERNOBJECT,
@@ -48885,7 +48885,7 @@ pub unsafe fn NotifyWinEvent<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyWinEvent(
                 event: u32,
@@ -48917,7 +48917,7 @@ pub unsafe fn ObjectFromLresult<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn ObjectFromLresult(
                 lresult: super::super::Foundation::LRESULT,
@@ -49360,7 +49360,7 @@ pub unsafe fn RangeValuePattern_SetValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn RangeValuePattern_SetValue(
                 hobj: HUIAPATTERNOBJECT,
@@ -49430,7 +49430,7 @@ pub unsafe fn RegisterPointerInputTarget<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterPointerInputTarget(
                 hwnd: super::super::Foundation::HWND,
@@ -49457,7 +49457,7 @@ pub unsafe fn RegisterPointerInputTargetEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterPointerInputTargetEx(
                 hwnd: super::super::Foundation::HWND,
@@ -50211,7 +50211,7 @@ pub unsafe fn ScrollItemPattern_ScrollIntoView<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScrollItemPattern_ScrollIntoView(
                 hobj: HUIAPATTERNOBJECT,
@@ -50238,7 +50238,7 @@ pub unsafe fn ScrollPattern_Scroll<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScrollPattern_Scroll(
                 hobj: HUIAPATTERNOBJECT,
@@ -50266,7 +50266,7 @@ pub unsafe fn ScrollPattern_SetScrollPercent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScrollPattern_SetScrollPercent(
                 hobj: HUIAPATTERNOBJECT,
@@ -50368,7 +50368,7 @@ pub unsafe fn SelectionItemPattern_AddToSelection<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectionItemPattern_AddToSelection(
                 hobj: HUIAPATTERNOBJECT,
@@ -50387,7 +50387,7 @@ pub unsafe fn SelectionItemPattern_RemoveFromSelection<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectionItemPattern_RemoveFromSelection(
                 hobj: HUIAPATTERNOBJECT,
@@ -50406,7 +50406,7 @@ pub unsafe fn SelectionItemPattern_Select<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows::runtime::HRESULT;
         }
@@ -50525,7 +50525,7 @@ pub unsafe fn SetWinEventHook<
 ) -> HWINEVENTHOOK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWinEventHook(
                 eventmin: u32,
@@ -50888,7 +50888,7 @@ pub unsafe fn SynchronizedInputPattern_Cancel<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SynchronizedInputPattern_Cancel(
                 hobj: HUIAPATTERNOBJECT,
@@ -50908,7 +50908,7 @@ pub unsafe fn SynchronizedInputPattern_StartListening<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn SynchronizedInputPattern_StartListening(
                 hobj: HUIAPATTERNOBJECT,
@@ -51188,7 +51188,7 @@ pub unsafe fn TextPattern_GetSelection<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextPattern_GetSelection(
                 hobj: HUIAPATTERNOBJECT,
@@ -51210,7 +51210,7 @@ pub unsafe fn TextPattern_GetVisibleRanges<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextPattern_GetVisibleRanges(
                 hobj: HUIAPATTERNOBJECT,
@@ -51233,7 +51233,7 @@ pub unsafe fn TextPattern_RangeFromChild<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextPattern_RangeFromChild(
                 hobj: HUIAPATTERNOBJECT,
@@ -51262,7 +51262,7 @@ pub unsafe fn TextPattern_RangeFromPoint<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextPattern_RangeFromPoint(
                 hobj: HUIAPATTERNOBJECT,
@@ -51289,7 +51289,7 @@ pub unsafe fn TextPattern_get_DocumentRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextPattern_get_DocumentRange(
                 hobj: HUIAPATTERNOBJECT,
@@ -51310,7 +51310,7 @@ pub unsafe fn TextPattern_get_SupportedTextSelection<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextPattern_get_SupportedTextSelection(
                 hobj: HUIAPATTERNOBJECT,
@@ -51334,7 +51334,7 @@ pub unsafe fn TextRange_AddToSelection<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows::runtime::HRESULT;
         }
@@ -51349,7 +51349,7 @@ pub unsafe fn TextRange_Clone<'a, Param0: ::windows::runtime::IntoParam<'a, HUIA
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_Clone(
                 hobj: HUIATEXTRANGE,
@@ -51373,7 +51373,7 @@ pub unsafe fn TextRange_Compare<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_Compare(
                 hobj: HUIATEXTRANGE,
@@ -51404,7 +51404,7 @@ pub unsafe fn TextRange_CompareEndpoints<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_CompareEndpoints(
                 hobj: HUIATEXTRANGE,
@@ -51435,7 +51435,7 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_ExpandToEnclosingUnit(
                 hobj: HUIATEXTRANGE,
@@ -51466,7 +51466,7 @@ pub unsafe fn TextRange_FindAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_FindAttribute(
                 hobj: HUIATEXTRANGE,
@@ -51504,7 +51504,7 @@ pub unsafe fn TextRange_FindText<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_FindText(
                 hobj: HUIATEXTRANGE,
@@ -51541,7 +51541,7 @@ pub unsafe fn TextRange_GetAttributeValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_GetAttributeValue(
                 hobj: HUIATEXTRANGE,
@@ -51571,7 +51571,7 @@ pub unsafe fn TextRange_GetBoundingRectangles<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_GetBoundingRectangles(
                 hobj: HUIATEXTRANGE,
@@ -51594,7 +51594,7 @@ pub unsafe fn TextRange_GetChildren<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_GetChildren(
                 hobj: HUIATEXTRANGE,
@@ -51615,7 +51615,7 @@ pub unsafe fn TextRange_GetEnclosingElement<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_GetEnclosingElement(
                 hobj: HUIATEXTRANGE,
@@ -51635,7 +51635,7 @@ pub unsafe fn TextRange_GetText<'a, Param0: ::windows::runtime::IntoParam<'a, HU
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_GetText(
                 hobj: HUIATEXTRANGE,
@@ -51661,7 +51661,7 @@ pub unsafe fn TextRange_Move<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAT
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_Move(
                 hobj: HUIATEXTRANGE,
@@ -51693,7 +51693,7 @@ pub unsafe fn TextRange_MoveEndpointByRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_MoveEndpointByRange(
                 hobj: HUIATEXTRANGE,
@@ -51725,7 +51725,7 @@ pub unsafe fn TextRange_MoveEndpointByUnit<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_MoveEndpointByUnit(
                 hobj: HUIATEXTRANGE,
@@ -51755,7 +51755,7 @@ pub unsafe fn TextRange_RemoveFromSelection<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows::runtime::HRESULT;
         }
@@ -51775,7 +51775,7 @@ pub unsafe fn TextRange_ScrollIntoView<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_ScrollIntoView(
                 hobj: HUIATEXTRANGE,
@@ -51792,7 +51792,7 @@ pub unsafe fn TextRange_Select<'a, Param0: ::windows::runtime::IntoParam<'a, HUI
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows::runtime::HRESULT;
         }
@@ -52201,7 +52201,7 @@ pub unsafe fn TogglePattern_Toggle<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows::runtime::HRESULT;
         }
@@ -52315,7 +52315,7 @@ pub unsafe fn TransformPattern_Move<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TransformPattern_Move(
                 hobj: HUIAPATTERNOBJECT,
@@ -52343,7 +52343,7 @@ pub unsafe fn TransformPattern_Resize<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TransformPattern_Resize(
                 hobj: HUIAPATTERNOBJECT,
@@ -52370,7 +52370,7 @@ pub unsafe fn TransformPattern_Rotate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn TransformPattern_Rotate(
                 hobj: HUIAPATTERNOBJECT,
@@ -53105,7 +53105,7 @@ pub unsafe fn UiaAddEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaAddEvent(
                 hnode: HUIANODE,
@@ -53389,7 +53389,7 @@ unsafe impl ::windows::runtime::Abi for UiaChangesEventArgs {
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
         }
@@ -53429,7 +53429,7 @@ unsafe impl ::windows::runtime::Abi for UiaCondition {
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaDisconnectAllProviders() -> ::windows::runtime::HRESULT;
         }
@@ -53446,7 +53446,7 @@ pub unsafe fn UiaDisconnectProvider<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaDisconnectProvider(
                 pprovider: ::windows::runtime::RawPtr,
@@ -53468,7 +53468,7 @@ pub unsafe fn UiaEventAddWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaEventAddWindow(
                 hevent: HUIAEVENT,
@@ -53527,7 +53527,7 @@ pub unsafe fn UiaEventRemoveWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaEventRemoveWindow(
                 hevent: HUIAEVENT,
@@ -53550,7 +53550,7 @@ pub unsafe fn UiaFind<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaFind(
                 hnode: HUIANODE,
@@ -53624,7 +53624,7 @@ pub unsafe fn UiaGetErrorDescription(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetErrorDescription(
                 pdescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
@@ -53642,7 +53642,7 @@ pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetPatternProvider(
                 hnode: HUIANODE,
@@ -53672,7 +53672,7 @@ pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetPropertyValue(
                 hnode: HUIANODE,
@@ -53694,7 +53694,7 @@ pub unsafe fn UiaGetReservedMixedAttributeValue(
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetReservedMixedAttributeValue(
                 punkmixedattributevalue: *mut ::windows::runtime::RawPtr,
@@ -53712,7 +53712,7 @@ pub unsafe fn UiaGetReservedNotSupportedValue(
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetReservedNotSupportedValue(
                 punknotsupportedvalue: *mut ::windows::runtime::RawPtr,
@@ -53729,7 +53729,7 @@ pub unsafe fn UiaGetReservedNotSupportedValue(
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::runtime::HRESULT;
         }
@@ -53745,7 +53745,7 @@ pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::runtime::IntoParam<'a, HUIA
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetRuntimeId(
                 hnode: HUIANODE,
@@ -53768,7 +53768,7 @@ pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaGetUpdatedCache(
                 hnode: HUIANODE,
@@ -53803,7 +53803,7 @@ pub unsafe fn UiaHPatternObjectFromVariant(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaHPatternObjectFromVariant(
                 pvar: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
@@ -53826,7 +53826,7 @@ pub unsafe fn UiaHTextRangeFromVariant(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaHTextRangeFromVariant(
                 pvar: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
@@ -53853,7 +53853,7 @@ pub unsafe fn UiaHUiaNodeFromVariant(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaHUiaNodeFromVariant(
                 pvar: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
@@ -53874,7 +53874,7 @@ pub unsafe fn UiaHasServerSideProvider<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaHasServerSideProvider(
                 hwnd: super::super::Foundation::HWND,
@@ -53894,7 +53894,7 @@ pub unsafe fn UiaHostProviderFromHwnd<
 ) -> ::windows::runtime::Result<IRawElementProviderSimple> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaHostProviderFromHwnd(
                 hwnd: super::super::Foundation::HWND,
@@ -53925,7 +53925,7 @@ pub unsafe fn UiaIAccessibleFromProvider<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaIAccessibleFromProvider(
                 pprovider: ::windows::runtime::RawPtr,
@@ -53953,7 +53953,7 @@ pub unsafe fn UiaLookupId(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaLookupId(
                 r#type: AutomationIdentifierType,
@@ -53979,7 +53979,7 @@ pub unsafe fn UiaNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaNavigate(
                 hnode: HUIANODE,
@@ -54011,7 +54011,7 @@ pub unsafe fn UiaNodeFromFocus(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaNodeFromFocus(
                 prequest: *mut UiaCacheRequest,
@@ -54039,7 +54039,7 @@ pub unsafe fn UiaNodeFromHandle<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaNodeFromHandle(
                 hwnd: super::super::Foundation::HWND,
@@ -54061,7 +54061,7 @@ pub unsafe fn UiaNodeFromPoint(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaNodeFromPoint(
                 x: f64,
@@ -54092,7 +54092,7 @@ pub unsafe fn UiaNodeFromProvider<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaNodeFromProvider(
                 pprovider: ::windows::runtime::RawPtr,
@@ -54110,7 +54110,7 @@ pub unsafe fn UiaNodeRelease<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAN
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
         }
@@ -54158,7 +54158,7 @@ pub unsafe fn UiaPatternRelease<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
         }
@@ -54341,7 +54341,7 @@ pub unsafe fn UiaProviderForNonClient<
 ) -> ::windows::runtime::Result<IRawElementProviderSimple> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaProviderForNonClient(
                 hwnd: super::super::Foundation::HWND,
@@ -54373,7 +54373,7 @@ pub unsafe fn UiaProviderFromIAccessible<
 ) -> ::windows::runtime::Result<IRawElementProviderSimple> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaProviderFromIAccessible(
                 paccessible: ::windows::runtime::RawPtr,
@@ -54405,7 +54405,7 @@ pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseActiveTextPositionChangedEvent(
                 provider: ::windows::runtime::RawPtr,
@@ -54431,7 +54431,7 @@ pub unsafe fn UiaRaiseAsyncContentLoadedEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseAsyncContentLoadedEvent(
                 pprovider: ::windows::runtime::RawPtr,
@@ -54458,7 +54458,7 @@ pub unsafe fn UiaRaiseAutomationEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseAutomationEvent(
                 pprovider: ::windows::runtime::RawPtr,
@@ -54488,7 +54488,7 @@ pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseAutomationPropertyChangedEvent(
                 pprovider: ::windows::runtime::RawPtr,
@@ -54523,7 +54523,7 @@ pub unsafe fn UiaRaiseChangesEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseChangesEvent(
                 pprovider: ::windows::runtime::RawPtr,
@@ -54556,7 +54556,7 @@ pub unsafe fn UiaRaiseNotificationEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseNotificationEvent(
                 provider: ::windows::runtime::RawPtr,
@@ -54589,7 +54589,7 @@ pub unsafe fn UiaRaiseStructureChangedEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseStructureChangedEvent(
                 pprovider: ::windows::runtime::RawPtr,
@@ -54620,7 +54620,7 @@ pub unsafe fn UiaRaiseTextEditTextChangedEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRaiseTextEditTextChangedEvent(
                 pprovider: ::windows::runtime::RawPtr,
@@ -54681,7 +54681,7 @@ pub unsafe fn UiaRegisterProviderCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRegisterProviderCallback(pcallback: *mut ::windows::runtime::RawPtr);
         }
@@ -54697,7 +54697,7 @@ pub unsafe fn UiaRemoveEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAE
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows::runtime::HRESULT;
         }
@@ -54721,7 +54721,7 @@ pub unsafe fn UiaReturnRawElementProvider<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaReturnRawElementProvider(
                 hwnd: super::super::Foundation::HWND,
@@ -54746,7 +54746,7 @@ pub unsafe fn UiaSetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaSetFocus(hnode: HUIANODE) -> ::windows::runtime::HRESULT;
         }
@@ -54845,7 +54845,7 @@ pub unsafe fn UiaTextRangeRelease<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
         }
@@ -54897,7 +54897,7 @@ pub unsafe fn UnhookWinEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HWINE
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
         }
@@ -54916,7 +54916,7 @@ pub unsafe fn UnregisterPointerInputTarget<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterPointerInputTarget(
                 hwnd: super::super::Foundation::HWND,
@@ -54941,7 +54941,7 @@ pub unsafe fn UnregisterPointerInputTargetEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterPointerInputTargetEx(
                 hwnd: super::super::Foundation::HWND,
@@ -54967,7 +54967,7 @@ pub unsafe fn ValuePattern_SetValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn ValuePattern_SetValue(
                 hobj: HUIAPATTERNOBJECT,
@@ -55007,7 +55007,7 @@ pub unsafe fn VirtualizedItemPattern_Realize<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn VirtualizedItemPattern_Realize(
                 hobj: HUIAPATTERNOBJECT,
@@ -55076,7 +55076,7 @@ pub unsafe fn WindowFromAccessibleObject<
 ) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
     #[cfg(windows)]
     {
-        #[link(name = "oleacc")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowFromAccessibleObject(
                 param0: ::windows::runtime::RawPtr,
@@ -55126,7 +55126,7 @@ pub unsafe fn WindowPattern_Close<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows::runtime::HRESULT;
         }
@@ -55144,7 +55144,7 @@ pub unsafe fn WindowPattern_SetWindowVisualState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowPattern_SetWindowVisualState(
                 hobj: HUIAPATTERNOBJECT,
@@ -55168,7 +55168,7 @@ pub unsafe fn WindowPattern_WaitForInputIdle<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uiautomationcore")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowPattern_WaitForInputIdle(
                 hobj: HUIAPATTERNOBJECT,

@@ -19,7 +19,7 @@ pub unsafe fn BindIFilterFromStorage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "query")]
+        #[link(name = "windows")]
         extern "system" {
             fn BindIFilterFromStorage(
                 pstg: ::windows::runtime::RawPtr,
@@ -49,7 +49,7 @@ pub unsafe fn BindIFilterFromStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "query")]
+        #[link(name = "windows")]
         extern "system" {
             fn BindIFilterFromStream(
                 pstm: ::windows::runtime::RawPtr,
@@ -820,7 +820,7 @@ pub unsafe fn LoadIFilter<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "query")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadIFilter(
                 pwcspath: super::super::Foundation::PWSTR,
@@ -850,7 +850,7 @@ pub unsafe fn LoadIFilterEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "query")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadIFilterEx(
                 pwcspath: super::super::Foundation::PWSTR,

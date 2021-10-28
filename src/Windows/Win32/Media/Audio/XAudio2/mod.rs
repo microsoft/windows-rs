@@ -22,7 +22,7 @@ pub const AudioVolumeMeter: ::windows::runtime::GUID = ::windows::runtime::GUID:
 pub unsafe fn CreateAudioReverb() -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "xaudio2_8")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAudioReverb(
                 ppapo: *mut ::windows::runtime::RawPtr,
@@ -38,7 +38,7 @@ pub unsafe fn CreateAudioReverb() -> ::windows::runtime::Result<::windows::runti
 pub unsafe fn CreateAudioVolumeMeter() -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "xaudio2_8")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateAudioVolumeMeter(
                 ppapo: *mut ::windows::runtime::RawPtr,
@@ -59,7 +59,7 @@ pub unsafe fn CreateFX(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xaudio2_8")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFX(
                 clsid: *const ::windows::runtime::GUID,
@@ -82,7 +82,7 @@ pub unsafe fn CreateFX(
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::runtime::Result<IXAPO> {
     #[cfg(windows)]
     {
-        #[link(name = "hrtfapo")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateHrtfApo(
                 init: *const HrtfApoInit,
@@ -3890,7 +3890,7 @@ pub unsafe fn XAudio2CreateWithVersionInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xaudio2_8")]
+        #[link(name = "windows")]
         extern "system" {
             fn XAudio2CreateWithVersionInfo(
                 ppxaudio2: *mut ::windows::runtime::RawPtr,

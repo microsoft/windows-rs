@@ -18,7 +18,7 @@ pub unsafe fn AssignProcessToJobObject<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AssignProcessToJobObject(
                 hjob: super::super::Foundation::HANDLE,
@@ -43,7 +43,7 @@ pub unsafe fn CreateJobObjectA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateJobObjectA(
                 lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -68,7 +68,7 @@ pub unsafe fn CreateJobObjectW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateJobObjectW(
                 lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -86,7 +86,7 @@ pub unsafe fn CreateJobObjectW<
 pub unsafe fn FreeMemoryJobObject(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeMemoryJobObject(buffer: *const ::std::ffi::c_void);
         }
@@ -107,7 +107,7 @@ pub unsafe fn IsProcessInJob<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsProcessInJob(
                 processhandle: super::super::Foundation::HANDLE,
@@ -369,7 +369,7 @@ pub unsafe fn OpenJobObjectA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenJobObjectA(
                 dwdesiredaccess: u32,
@@ -398,7 +398,7 @@ pub unsafe fn OpenJobObjectW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenJobObjectW(
                 dwdesiredaccess: u32,
@@ -428,7 +428,7 @@ pub unsafe fn QueryInformationJobObject<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryInformationJobObject(
                 hjob: super::super::Foundation::HANDLE,
@@ -462,7 +462,7 @@ pub unsafe fn QueryIoRateControlInformationJobObject<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryIoRateControlInformationJobObject(
                 hjob: super::super::Foundation::HANDLE,
@@ -493,7 +493,7 @@ pub unsafe fn SetInformationJobObject<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetInformationJobObject(
                 hjob: super::super::Foundation::HANDLE,
@@ -522,7 +522,7 @@ pub unsafe fn SetIoRateControlInformationJobObject<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIoRateControlInformationJobObject(
                 hjob: super::super::Foundation::HANDLE,
@@ -547,7 +547,7 @@ pub unsafe fn TerminateJobObject<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TerminateJobObject(
                 hjob: super::super::Foundation::HANDLE,
@@ -575,7 +575,7 @@ pub unsafe fn UserHandleGrantAccess<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UserHandleGrantAccess(
                 huserhandle: super::super::Foundation::HANDLE,

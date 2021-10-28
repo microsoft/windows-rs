@@ -16,7 +16,7 @@ pub unsafe fn AcquireDeveloperLicense<
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "wsclient")]
+        #[link(name = "windows")]
         extern "system" {
             fn AcquireDeveloperLicense(
                 hwndparent: super::super::Foundation::HWND,
@@ -36,7 +36,7 @@ pub unsafe fn CheckDeveloperLicense(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "wsclient")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckDeveloperLicense(
                 pexpiration: *mut super::super::Foundation::FILETIME,
@@ -59,7 +59,7 @@ pub unsafe fn RemoveDeveloperLicense<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wsclient")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveDeveloperLicense(
                 hwndparent: super::super::Foundation::HWND,

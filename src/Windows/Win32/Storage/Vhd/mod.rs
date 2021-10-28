@@ -361,7 +361,7 @@ pub unsafe fn AddVirtualDiskParent<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddVirtualDiskParent(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -387,7 +387,7 @@ pub unsafe fn ApplySnapshotVhdSet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplySnapshotVhdSet(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -422,7 +422,7 @@ pub unsafe fn AttachVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn AttachVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -454,7 +454,7 @@ pub unsafe fn BreakMirrorVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn BreakMirrorVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -1047,7 +1047,7 @@ pub unsafe fn CompactVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompactVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -1075,7 +1075,7 @@ pub unsafe fn CompleteForkVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompleteForkVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -1107,7 +1107,7 @@ pub unsafe fn CreateVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateVirtualDisk(
                 virtualstoragetype: *const VIRTUAL_STORAGE_TYPE,
@@ -1407,7 +1407,7 @@ pub unsafe fn DeleteSnapshotVhdSet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteSnapshotVhdSet(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -1434,7 +1434,7 @@ pub unsafe fn DeleteVirtualDiskMetadata<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteVirtualDiskMetadata(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -1460,7 +1460,7 @@ pub unsafe fn DetachVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn DetachVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -1632,7 +1632,7 @@ pub unsafe fn EnumerateVirtualDiskMetadata<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumerateVirtualDiskMetadata(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -1661,7 +1661,7 @@ pub unsafe fn ExpandVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExpandVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -1854,7 +1854,7 @@ pub unsafe fn ForkVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn ForkVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -2210,7 +2210,7 @@ pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAllAttachedVirtualDiskPhysicalPaths(
                 pathsbuffersizeinbytes: *mut u32,
@@ -2238,7 +2238,7 @@ pub unsafe fn GetStorageDependencyInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStorageDependencyInformation(
                 objecthandle: super::super::Foundation::HANDLE,
@@ -2271,7 +2271,7 @@ pub unsafe fn GetVirtualDiskInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVirtualDiskInformation(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -2302,7 +2302,7 @@ pub unsafe fn GetVirtualDiskMetadata<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVirtualDiskMetadata(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -2332,7 +2332,7 @@ pub unsafe fn GetVirtualDiskOperationProgress<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVirtualDiskOperationProgress(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -2360,7 +2360,7 @@ pub unsafe fn GetVirtualDiskPhysicalPath<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVirtualDiskPhysicalPath(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -2901,7 +2901,7 @@ pub unsafe fn MergeVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn MergeVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -2932,7 +2932,7 @@ pub unsafe fn MirrorVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn MirrorVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -2962,7 +2962,7 @@ pub unsafe fn ModifyVhdSet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn ModifyVhdSet(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -3256,7 +3256,7 @@ pub unsafe fn OpenVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenVirtualDisk(
                 virtualstoragetype: *const VIRTUAL_STORAGE_TYPE,
@@ -3379,7 +3379,7 @@ pub unsafe fn QueryChangesVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryChangesVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -3827,7 +3827,7 @@ pub unsafe fn RawSCSIVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn RawSCSIVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -3858,7 +3858,7 @@ pub unsafe fn ResizeVirtualDisk<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResizeVirtualDisk(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -4232,7 +4232,7 @@ pub unsafe fn SetVirtualDiskInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetVirtualDiskInformation(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -4259,7 +4259,7 @@ pub unsafe fn SetVirtualDiskMetadata<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetVirtualDiskMetadata(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
@@ -4434,7 +4434,7 @@ pub unsafe fn TakeSnapshotVhdSet<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "virtdisk")]
+        #[link(name = "windows")]
         extern "system" {
             fn TakeSnapshotVhdSet(
                 virtualdiskhandle: super::super::Foundation::HANDLE,

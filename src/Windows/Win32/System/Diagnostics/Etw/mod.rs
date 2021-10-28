@@ -56,7 +56,7 @@ pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseTrace(tracehandle: u64) -> u32;
         }
@@ -77,7 +77,7 @@ pub unsafe fn ControlTraceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ControlTraceA(
                 tracehandle: u64,
@@ -108,7 +108,7 @@ pub unsafe fn ControlTraceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ControlTraceW(
                 tracehandle: u64,
@@ -137,7 +137,7 @@ pub unsafe fn CreateTraceInstanceId<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTraceInstanceId(
                 reghandle: super::super::super::Foundation::HANDLE,
@@ -163,7 +163,7 @@ pub unsafe fn CveEventWrite<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CveEventWrite(
                 cveid: super::super::super::Foundation::PWSTR,
@@ -3273,7 +3273,7 @@ pub unsafe fn EnableTrace(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableTrace(
                 enable: u32,
@@ -3307,7 +3307,7 @@ pub unsafe fn EnableTraceEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableTraceEx(
                 providerid: *const ::windows::runtime::GUID,
@@ -3348,7 +3348,7 @@ pub unsafe fn EnableTraceEx2(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableTraceEx2(
                 tracehandle: u64,
@@ -3383,7 +3383,7 @@ pub unsafe fn EnumerateTraceGuids(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumerateTraceGuids(
                 guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES,
@@ -3410,7 +3410,7 @@ pub unsafe fn EnumerateTraceGuidsEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumerateTraceGuidsEx(
                 tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
@@ -3447,7 +3447,7 @@ pub unsafe fn EventAccessControl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventAccessControl(
                 guid: *const ::windows::runtime::GUID,
@@ -3476,7 +3476,7 @@ pub unsafe fn EventAccessQuery(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventAccessQuery(
                 guid: *const ::windows::runtime::GUID,
@@ -3496,7 +3496,7 @@ pub unsafe fn EventAccessQuery(
 pub unsafe fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32;
         }
@@ -3511,7 +3511,7 @@ pub unsafe fn EventActivityIdControl(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventActivityIdControl(
                 controlcode: u32,
@@ -3533,7 +3533,7 @@ pub unsafe fn EventEnabled(
 ) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventEnabled(
                 reghandle: u64,
@@ -3556,7 +3556,7 @@ pub unsafe fn EventProviderEnabled(
 ) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventProviderEnabled(
                 reghandle: u64,
@@ -3581,7 +3581,7 @@ pub unsafe fn EventRegister(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventRegister(
                 providerid: *const ::windows::runtime::GUID,
@@ -3608,7 +3608,7 @@ pub unsafe fn EventSetInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventSetInformation(
                 reghandle: u64,
@@ -3642,7 +3642,7 @@ pub const EventTraceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventUnregister(reghandle: u64) -> u32;
         }
@@ -3659,7 +3659,7 @@ pub unsafe fn EventWrite(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventWrite(
                 reghandle: u64,
@@ -3690,7 +3690,7 @@ pub unsafe fn EventWriteEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventWriteEx(
                 reghandle: u64,
@@ -3729,7 +3729,7 @@ pub unsafe fn EventWriteString<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventWriteString(
                 reghandle: u64,
@@ -3758,7 +3758,7 @@ pub unsafe fn EventWriteTransfer(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EventWriteTransfer(
                 reghandle: u64,
@@ -3792,7 +3792,7 @@ pub unsafe fn FlushTraceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushTraceA(
                 tracehandle: u64,
@@ -3820,7 +3820,7 @@ pub unsafe fn FlushTraceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushTraceW(
                 tracehandle: u64,
@@ -3840,7 +3840,7 @@ pub unsafe fn FlushTraceW<
 pub unsafe fn GetTraceEnableFlags(tracehandle: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTraceEnableFlags(tracehandle: u64) -> u32;
         }
@@ -3852,7 +3852,7 @@ pub unsafe fn GetTraceEnableFlags(tracehandle: u64) -> u32 {
 pub unsafe fn GetTraceEnableLevel(tracehandle: u64) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTraceEnableLevel(tracehandle: u64) -> u8;
         }
@@ -3864,7 +3864,7 @@ pub unsafe fn GetTraceEnableLevel(tracehandle: u64) -> u8 {
 pub unsafe fn GetTraceLoggerHandle(buffer: *const ::std::ffi::c_void) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTraceLoggerHandle(buffer: *const ::std::ffi::c_void) -> u64;
         }
@@ -4535,7 +4535,7 @@ unsafe impl ::windows::runtime::Abi for OFFSETINSTANCEDATAANDLENGTH {
 pub unsafe fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenTraceA(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEA>) -> u64;
         }
@@ -4548,7 +4548,7 @@ pub unsafe fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64 {
 pub unsafe fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenTraceW(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEW>) -> u64;
         }
@@ -4933,7 +4933,7 @@ pub unsafe fn ProcessTrace(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessTrace(
                 handlearray: *const u64,
@@ -4960,7 +4960,7 @@ pub unsafe fn QueryAllTracesA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryAllTracesA(
                 propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
@@ -4985,7 +4985,7 @@ pub unsafe fn QueryAllTracesW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryAllTracesW(
                 propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
@@ -5013,7 +5013,7 @@ pub unsafe fn QueryTraceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryTraceA(
                 tracehandle: u64,
@@ -5041,7 +5041,7 @@ pub unsafe fn QueryTraceProcessingHandle(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryTraceProcessingHandle(
                 processinghandle: u64,
@@ -5077,7 +5077,7 @@ pub unsafe fn QueryTraceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryTraceW(
                 tracehandle: u64,
@@ -5111,7 +5111,7 @@ pub unsafe fn RegisterTraceGuidsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterTraceGuidsA(
                 requestaddress: ::windows::runtime::RawPtr,
@@ -5155,7 +5155,7 @@ pub unsafe fn RegisterTraceGuidsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterTraceGuidsW(
                 requestaddress: ::windows::runtime::RawPtr,
@@ -5185,7 +5185,7 @@ pub unsafe fn RegisterTraceGuidsW<
 pub unsafe fn RemoveTraceCallback(pguid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveTraceCallback(pguid: *const ::windows::runtime::GUID) -> u32;
         }
@@ -5295,7 +5295,7 @@ pub unsafe fn SetTraceCallback(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTraceCallback(
                 pguid: *const ::windows::runtime::GUID,
@@ -5321,7 +5321,7 @@ pub unsafe fn StartTraceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartTraceA(
                 tracehandle: *mut u64,
@@ -5349,7 +5349,7 @@ pub unsafe fn StartTraceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartTraceW(
                 tracehandle: *mut u64,
@@ -5377,7 +5377,7 @@ pub unsafe fn StopTraceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StopTraceA(
                 tracehandle: u64,
@@ -5405,7 +5405,7 @@ pub unsafe fn StopTraceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StopTraceW(
                 tracehandle: u64,
@@ -6776,7 +6776,7 @@ pub unsafe fn TdhAggregatePayloadFilters(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhAggregatePayloadFilters(
                 payloadfiltercount: u32,
@@ -6800,7 +6800,7 @@ pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhCleanupPayloadEventFilterDescriptor(
                 eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR,
@@ -6818,7 +6818,7 @@ pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32;
         }
@@ -6841,7 +6841,7 @@ pub unsafe fn TdhCreatePayloadFilter<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhCreatePayloadFilter(
                 providerguid: *const ::windows::runtime::GUID,
@@ -6867,7 +6867,7 @@ pub unsafe fn TdhCreatePayloadFilter<
 pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::std::ffi::c_void) -> u32;
         }
@@ -6883,7 +6883,7 @@ pub unsafe fn TdhEnumerateManifestProviderEvents(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhEnumerateManifestProviderEvents(
                 providerguid: *const ::windows::runtime::GUID,
@@ -6908,7 +6908,7 @@ pub unsafe fn TdhEnumerateProviderFieldInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhEnumerateProviderFieldInformation(
                 pguid: *const ::windows::runtime::GUID,
@@ -6937,7 +6937,7 @@ pub unsafe fn TdhEnumerateProviderFilters(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhEnumerateProviderFilters(
                 guid: *const ::windows::runtime::GUID,
@@ -6966,7 +6966,7 @@ pub unsafe fn TdhEnumerateProviders(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhEnumerateProviders(
                 pbuffer: *mut PROVIDER_ENUMERATION_INFO,
@@ -6989,7 +6989,7 @@ pub unsafe fn TdhEnumerateProvidersForDecodingSource(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhEnumerateProvidersForDecodingSource(
                 filter: DECODING_SOURCE,
@@ -7024,7 +7024,7 @@ pub unsafe fn TdhFormatProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhFormatProperty(
                 eventinfo: *const TRACE_EVENT_INFO,
@@ -7063,7 +7063,7 @@ pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> u32;
         }
@@ -7084,7 +7084,7 @@ pub unsafe fn TdhGetEventInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetEventInformation(
                 event: *const EVENT_RECORD,
@@ -7117,7 +7117,7 @@ pub unsafe fn TdhGetEventMapInformation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetEventMapInformation(
                 pevent: *const EVENT_RECORD,
@@ -7144,7 +7144,7 @@ pub unsafe fn TdhGetManifestEventInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetManifestEventInformation(
                 providerguid: *const ::windows::runtime::GUID,
@@ -7174,7 +7174,7 @@ pub unsafe fn TdhGetProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetProperty(
                 pevent: *const EVENT_RECORD,
@@ -7209,7 +7209,7 @@ pub unsafe fn TdhGetPropertySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetPropertySize(
                 pevent: *const EVENT_RECORD,
@@ -7240,7 +7240,7 @@ pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::runtime::IntoParam<'a, TDH
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetWppMessage(
                 handle: TDH_HANDLE,
@@ -7273,7 +7273,7 @@ pub unsafe fn TdhGetWppProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhGetWppProperty(
                 handle: TDH_HANDLE,
@@ -7303,7 +7303,7 @@ pub unsafe fn TdhLoadManifest<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhLoadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
         }
@@ -7321,7 +7321,7 @@ pub unsafe fn TdhLoadManifestFromBinary<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhLoadManifestFromBinary(binarypath: super::super::super::Foundation::PWSTR)
                 -> u32;
@@ -7334,7 +7334,7 @@ pub unsafe fn TdhLoadManifestFromBinary<
 pub unsafe fn TdhLoadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhLoadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32;
         }
@@ -7349,7 +7349,7 @@ pub unsafe fn TdhLoadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata
 pub unsafe fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32;
         }
@@ -7367,7 +7367,7 @@ pub unsafe fn TdhQueryProviderFieldInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhQueryProviderFieldInformation(
                 pguid: *const ::windows::runtime::GUID,
@@ -7394,7 +7394,7 @@ pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> u32;
         }
@@ -7415,7 +7415,7 @@ pub unsafe fn TdhUnloadManifest<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhUnloadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
         }
@@ -7427,7 +7427,7 @@ pub unsafe fn TdhUnloadManifest<
 pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "tdh")]
+        #[link(name = "windows")]
         extern "system" {
             fn TdhUnloadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32;
         }
@@ -7442,7 +7442,7 @@ pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbda
 pub unsafe fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
         }
@@ -7463,7 +7463,7 @@ pub unsafe fn TraceEventInstance(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceEventInstance(
                 tracehandle: u64,
@@ -7490,7 +7490,7 @@ pub unsafe fn TraceMessage(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceMessage(
                 loggerhandle: u64,
@@ -7518,7 +7518,7 @@ pub unsafe fn TraceMessageVa(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceMessageVa(
                 loggerhandle: u64,
@@ -7548,7 +7548,7 @@ pub unsafe fn TraceQueryInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceQueryInformation(
                 sessionhandle: u64,
@@ -7577,7 +7577,7 @@ pub unsafe fn TraceSetInformation(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TraceSetInformation(
                 sessionhandle: u64,
@@ -7599,7 +7599,7 @@ pub unsafe fn TraceSetInformation(
 pub unsafe fn UnregisterTraceGuids(registrationhandle: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
         }
@@ -7621,7 +7621,7 @@ pub unsafe fn UpdateTraceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateTraceA(
                 tracehandle: u64,
@@ -7649,7 +7649,7 @@ pub unsafe fn UpdateTraceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateTraceW(
                 tracehandle: u64,

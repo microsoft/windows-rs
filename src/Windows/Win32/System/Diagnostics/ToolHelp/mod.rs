@@ -71,7 +71,7 @@ pub unsafe fn CreateToolhelp32Snapshot(
 ) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateToolhelp32Snapshot(
                 dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS,
@@ -242,7 +242,7 @@ pub unsafe fn Heap32First(
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Heap32First(
                 lphe: *mut HEAPENTRY32,
@@ -269,7 +269,7 @@ pub unsafe fn Heap32ListFirst<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Heap32ListFirst(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -294,7 +294,7 @@ pub unsafe fn Heap32ListNext<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Heap32ListNext(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -313,7 +313,7 @@ pub unsafe fn Heap32ListNext<
 pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundation::BOOL;
         }
@@ -457,7 +457,7 @@ pub unsafe fn Module32First<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Module32First(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -482,7 +482,7 @@ pub unsafe fn Module32FirstW<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Module32FirstW(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -507,7 +507,7 @@ pub unsafe fn Module32Next<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Module32Next(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -532,7 +532,7 @@ pub unsafe fn Module32NextW<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Module32NextW(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -674,7 +674,7 @@ pub unsafe fn Process32First<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Process32First(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -699,7 +699,7 @@ pub unsafe fn Process32FirstW<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Process32FirstW(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -724,7 +724,7 @@ pub unsafe fn Process32Next<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Process32Next(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -749,7 +749,7 @@ pub unsafe fn Process32NextW<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Process32NextW(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -820,7 +820,7 @@ pub unsafe fn Thread32First<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Thread32First(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -845,7 +845,7 @@ pub unsafe fn Thread32Next<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Thread32Next(
                 hsnapshot: super::super::super::Foundation::HANDLE,
@@ -870,7 +870,7 @@ pub unsafe fn Toolhelp32ReadProcessMemory(
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Toolhelp32ReadProcessMemory(
                 th32processid: u32,

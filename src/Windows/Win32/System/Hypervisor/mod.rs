@@ -16,7 +16,7 @@ pub unsafe fn ApplyGuestMemoryFix(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyGuestMemoryFix(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -47,7 +47,7 @@ pub unsafe fn ApplyPendingSavedStateFileReplayLog<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplyPendingSavedStateFileReplayLog(
                 vmrsfile: super::super::Foundation::PWSTR,
@@ -69,7 +69,7 @@ pub unsafe fn CallStackUnwind(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallStackUnwind(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -157,7 +157,7 @@ pub unsafe fn FindSavedStateSymbolFieldInType<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindSavedStateSymbolFieldInType(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -188,7 +188,7 @@ pub unsafe fn ForceActiveVirtualTrustLevel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ForceActiveVirtualTrustLevel(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -213,7 +213,7 @@ pub unsafe fn ForceArchitecture(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ForceArchitecture(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -243,7 +243,7 @@ pub unsafe fn ForceNestedHostMode<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ForceNestedHostMode(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -270,7 +270,7 @@ pub unsafe fn ForcePagingMode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ForcePagingMode(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -490,7 +490,7 @@ pub unsafe fn GetActiveVirtualTrustLevel(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetActiveVirtualTrustLevel(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -515,7 +515,7 @@ pub unsafe fn GetArchitecture(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetArchitecture(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -540,7 +540,7 @@ pub unsafe fn GetEnabledVirtualTrustLevels(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnabledVirtualTrustLevels(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -564,7 +564,7 @@ pub unsafe fn GetGuestEnabledVirtualTrustLevels(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGuestEnabledVirtualTrustLevels(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -587,7 +587,7 @@ pub unsafe fn GetGuestOsInfo(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGuestOsInfo(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -613,7 +613,7 @@ pub unsafe fn GetGuestPhysicalMemoryChunks(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGuestPhysicalMemoryChunks(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -639,7 +639,7 @@ pub unsafe fn GetGuestRawSavedMemorySize(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGuestRawSavedMemorySize(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -661,7 +661,7 @@ pub unsafe fn GetMemoryBlockCacheLimit(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMemoryBlockCacheLimit(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -685,7 +685,7 @@ pub unsafe fn GetNestedVirtualizationMode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNestedVirtualizationMode(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -710,7 +710,7 @@ pub unsafe fn GetPagingMode(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPagingMode(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -736,7 +736,7 @@ pub unsafe fn GetRegisterValue(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRegisterValue(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -768,7 +768,7 @@ pub unsafe fn GetSavedStateSymbolFieldInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSavedStateSymbolFieldInfo(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -794,7 +794,7 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSavedStateSymbolProviderHandle(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -819,7 +819,7 @@ pub unsafe fn GetSavedStateSymbolTypeSize<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSavedStateSymbolTypeSize(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -845,7 +845,7 @@ pub unsafe fn GetVpCount(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVpCount(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -868,7 +868,7 @@ pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GuestPhysicalAddressToRawSavedMemoryOffset(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -895,7 +895,7 @@ pub unsafe fn GuestVirtualAddressToPhysicalAddress(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn GuestVirtualAddressToPhysicalAddress(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -1307,7 +1307,7 @@ pub unsafe fn HdvCreateDeviceInstance(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvCreateDeviceInstance(
                 devicehosthandle: *const ::std::ffi::c_void,
@@ -1346,7 +1346,7 @@ pub unsafe fn HdvCreateGuestMemoryAperture<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvCreateGuestMemoryAperture(
                 requestor: *const ::std::ffi::c_void,
@@ -1383,7 +1383,7 @@ pub unsafe fn HdvCreateSectionBackedMmioRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvCreateSectionBackedMmioRange(
                 requestor: *const ::std::ffi::c_void,
@@ -1416,7 +1416,7 @@ pub unsafe fn HdvDeliverGuestInterrupt(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvDeliverGuestInterrupt(
                 requestor: *const ::std::ffi::c_void,
@@ -1440,7 +1440,7 @@ pub unsafe fn HdvDestroyGuestMemoryAperture(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvDestroyGuestMemoryAperture(
                 requestor: *const ::std::ffi::c_void,
@@ -1463,7 +1463,7 @@ pub unsafe fn HdvDestroySectionBackedMmioRange(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvDestroySectionBackedMmioRange(
                 requestor: *const ::std::ffi::c_void,
@@ -1491,7 +1491,7 @@ pub unsafe fn HdvInitializeDeviceHost<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvInitializeDeviceHost(
                 computesystem: super::HostComputeSystem::HCS_SYSTEM,
@@ -1515,7 +1515,7 @@ pub unsafe fn HdvReadGuestMemory(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvReadGuestMemory(
                 requestor: *const ::std::ffi::c_void,
@@ -1549,7 +1549,7 @@ pub unsafe fn HdvRegisterDoorbell<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvRegisterDoorbell(
                 requestor: *const ::std::ffi::c_void,
@@ -1578,7 +1578,7 @@ pub unsafe fn HdvTeardownDeviceHost(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvTeardownDeviceHost(
                 devicehosthandle: *const ::std::ffi::c_void,
@@ -1598,7 +1598,7 @@ pub unsafe fn HdvUnregisterDoorbell(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvUnregisterDoorbell(
                 requestor: *const ::std::ffi::c_void,
@@ -1628,7 +1628,7 @@ pub unsafe fn HdvWriteGuestMemory(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmdevicehost")]
+        #[link(name = "windows")]
         extern "system" {
             fn HdvWriteGuestMemory(
                 requestor: *const ::std::ffi::c_void,
@@ -1657,7 +1657,7 @@ pub unsafe fn InKernelSpace(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn InKernelSpace(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -1683,7 +1683,7 @@ pub unsafe fn IsActiveVirtualTrustLevelEnabled(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsActiveVirtualTrustLevelEnabled(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -1708,7 +1708,7 @@ pub unsafe fn IsNestedVirtualizationEnabled(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsNestedVirtualizationEnabled(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -1734,7 +1734,7 @@ pub unsafe fn LoadSavedStateFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadSavedStateFile(
                 vmrsfile: super::super::Foundation::PWSTR,
@@ -1762,7 +1762,7 @@ pub unsafe fn LoadSavedStateFiles<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadSavedStateFiles(
                 binfile: super::super::Foundation::PWSTR,
@@ -1794,7 +1794,7 @@ pub unsafe fn LoadSavedStateModuleSymbols<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadSavedStateModuleSymbols(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -1831,7 +1831,7 @@ pub unsafe fn LoadSavedStateModuleSymbolsEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadSavedStateModuleSymbolsEx(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -1867,7 +1867,7 @@ pub unsafe fn LoadSavedStateSymbolProvider<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadSavedStateSymbolProvider(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -1899,7 +1899,7 @@ pub unsafe fn LocateSavedStateFiles<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocateSavedStateFiles(
                 vmname: super::super::Foundation::PWSTR,
@@ -2170,7 +2170,7 @@ pub unsafe fn ReadGuestPhysicalAddress(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadGuestPhysicalAddress(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2201,7 +2201,7 @@ pub unsafe fn ReadGuestRawSavedMemory(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadGuestRawSavedMemory(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2236,7 +2236,7 @@ pub unsafe fn ReadSavedStateGlobalVariable<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadSavedStateGlobalVariable(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2263,7 +2263,7 @@ pub unsafe fn ReleaseSavedStateFiles(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseSavedStateFiles(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2279,7 +2279,7 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseSavedStateSymbolProvider(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2303,7 +2303,7 @@ pub unsafe fn ResolveSavedStateGlobalVariableAddress<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResolveSavedStateGlobalVariableAddress(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2375,7 +2375,7 @@ pub unsafe fn ScanMemoryForDosImages(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScanMemoryForDosImages(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2409,7 +2409,7 @@ pub unsafe fn SetMemoryBlockCacheLimit(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMemoryBlockCacheLimit(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -2432,7 +2432,7 @@ pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vmsavedstatedumpprovider")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSavedStateSymbolProviderDebugInfoCallback(
                 vmsavedstatedumphandle: *mut ::std::ffi::c_void,
@@ -8148,7 +8148,7 @@ pub unsafe fn WHvAcceptPartitionMigration<
 ) -> ::windows::runtime::Result<WHV_PARTITION_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvAcceptPartitionMigration(
                 migrationhandle: super::super::Foundation::HANDLE,
@@ -8176,7 +8176,7 @@ pub unsafe fn WHvAdviseGpaRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvAdviseGpaRange(
                 partition: WHV_PARTITION_HANDLE,
@@ -8209,7 +8209,7 @@ pub unsafe fn WHvAllocateVpciResource(
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvAllocateVpciResource(
                 providerid: *const ::windows::runtime::GUID,
@@ -8241,7 +8241,7 @@ pub unsafe fn WHvCancelPartitionMigration<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCancelPartitionMigration(
                 partition: WHV_PARTITION_HANDLE,
@@ -8262,7 +8262,7 @@ pub unsafe fn WHvCancelRunVirtualProcessor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCancelRunVirtualProcessor(
                 partition: WHV_PARTITION_HANDLE,
@@ -8288,7 +8288,7 @@ pub unsafe fn WHvCompletePartitionMigration<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCompletePartitionMigration(
                 partition: WHV_PARTITION_HANDLE,
@@ -8312,7 +8312,7 @@ pub unsafe fn WHvCreateNotificationPort<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCreateNotificationPort(
                 partition: WHV_PARTITION_HANDLE,
@@ -8335,7 +8335,7 @@ pub unsafe fn WHvCreateNotificationPort<
 pub unsafe fn WHvCreatePartition() -> ::windows::runtime::Result<WHV_PARTITION_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCreatePartition(
                 partition: *mut WHV_PARTITION_HANDLE,
@@ -8360,7 +8360,7 @@ pub unsafe fn WHvCreateTrigger<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCreateTrigger(
                 partition: WHV_PARTITION_HANDLE,
@@ -8390,7 +8390,7 @@ pub unsafe fn WHvCreateVirtualProcessor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCreateVirtualProcessor(
                 partition: WHV_PARTITION_HANDLE,
@@ -8419,7 +8419,7 @@ pub unsafe fn WHvCreateVirtualProcessor2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCreateVirtualProcessor2(
                 partition: WHV_PARTITION_HANDLE,
@@ -8454,7 +8454,7 @@ pub unsafe fn WHvCreateVpciDevice<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvCreateVpciDevice(
                 partition: WHV_PARTITION_HANDLE,
@@ -8485,7 +8485,7 @@ pub unsafe fn WHvDeleteNotificationPort<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvDeleteNotificationPort(
                 partition: WHV_PARTITION_HANDLE,
@@ -8509,7 +8509,7 @@ pub unsafe fn WHvDeletePartition<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvDeletePartition(partition: WHV_PARTITION_HANDLE) -> ::windows::runtime::HRESULT;
         }
@@ -8527,7 +8527,7 @@ pub unsafe fn WHvDeleteTrigger<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvDeleteTrigger(
                 partition: WHV_PARTITION_HANDLE,
@@ -8552,7 +8552,7 @@ pub unsafe fn WHvDeleteVirtualProcessor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvDeleteVirtualProcessor(
                 partition: WHV_PARTITION_HANDLE,
@@ -8573,7 +8573,7 @@ pub unsafe fn WHvDeleteVpciDevice<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvDeleteVpciDevice(
                 partition: WHV_PARTITION_HANDLE,
@@ -8595,7 +8595,7 @@ pub unsafe fn WHvEmulatorCreateEmulator(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvemulation")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvEmulatorCreateEmulator(
                 callbacks: *const ::std::mem::ManuallyDrop<WHV_EMULATOR_CALLBACKS>,
@@ -8616,7 +8616,7 @@ pub unsafe fn WHvEmulatorDestroyEmulator(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvemulation")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvEmulatorDestroyEmulator(
                 emulator: *const ::std::ffi::c_void,
@@ -8635,7 +8635,7 @@ pub unsafe fn WHvEmulatorTryIoEmulation(
 ) -> ::windows::runtime::Result<WHV_EMULATOR_STATUS> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvemulation")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvEmulatorTryIoEmulation(
                 emulator: *const ::std::ffi::c_void,
@@ -8667,7 +8667,7 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(
 ) -> ::windows::runtime::Result<WHV_EMULATOR_STATUS> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvemulation")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvEmulatorTryMmioEmulation(
                 emulator: *const ::std::ffi::c_void,
@@ -8699,7 +8699,7 @@ pub unsafe fn WHvGetCapability(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetCapability(
                 capabilitycode: WHV_CAPABILITY_CODE,
@@ -8732,7 +8732,7 @@ pub unsafe fn WHvGetInterruptTargetVpSet<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetInterruptTargetVpSet(
                 partition: WHV_PARTITION_HANDLE,
@@ -8768,7 +8768,7 @@ pub unsafe fn WHvGetPartitionCounters<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetPartitionCounters(
                 partition: WHV_PARTITION_HANDLE,
@@ -8802,7 +8802,7 @@ pub unsafe fn WHvGetPartitionProperty<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetPartitionProperty(
                 partition: WHV_PARTITION_HANDLE,
@@ -8837,7 +8837,7 @@ pub unsafe fn WHvGetVirtualProcessorCounters<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorCounters(
                 partition: WHV_PARTITION_HANDLE,
@@ -8872,7 +8872,7 @@ pub unsafe fn WHvGetVirtualProcessorCpuidOutput<
 ) -> ::windows::runtime::Result<WHV_CPUID_OUTPUT> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorCpuidOutput(
                 partition: WHV_PARTITION_HANDLE,
@@ -8907,7 +8907,7 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorInterruptControllerState(
                 partition: WHV_PARTITION_HANDLE,
@@ -8941,7 +8941,7 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorInterruptControllerState2(
                 partition: WHV_PARTITION_HANDLE,
@@ -8975,7 +8975,7 @@ pub unsafe fn WHvGetVirtualProcessorRegisters<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorRegisters(
                 partition: WHV_PARTITION_HANDLE,
@@ -9010,7 +9010,7 @@ pub unsafe fn WHvGetVirtualProcessorState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorState(
                 partition: WHV_PARTITION_HANDLE,
@@ -9046,7 +9046,7 @@ pub unsafe fn WHvGetVirtualProcessorXsaveState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorXsaveState(
                 partition: WHV_PARTITION_HANDLE,
@@ -9082,7 +9082,7 @@ pub unsafe fn WHvGetVpciDeviceInterruptTarget<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVpciDeviceInterruptTarget(
                 partition: WHV_PARTITION_HANDLE,
@@ -9119,7 +9119,7 @@ pub unsafe fn WHvGetVpciDeviceNotification<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVpciDeviceNotification(
                 partition: WHV_PARTITION_HANDLE,
@@ -9152,7 +9152,7 @@ pub unsafe fn WHvGetVpciDeviceProperty<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvGetVpciDeviceProperty(
                 partition: WHV_PARTITION_HANDLE,
@@ -9188,7 +9188,7 @@ pub unsafe fn WHvMapGpaRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvMapGpaRange(
                 partition: WHV_PARTITION_HANDLE,
@@ -9225,7 +9225,7 @@ pub unsafe fn WHvMapGpaRange2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvMapGpaRange2(
                 partition: WHV_PARTITION_HANDLE,
@@ -9263,7 +9263,7 @@ pub unsafe fn WHvMapVpciDeviceInterrupt<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvMapVpciDeviceInterrupt(
                 partition: WHV_PARTITION_HANDLE,
@@ -9300,7 +9300,7 @@ pub unsafe fn WHvMapVpciDeviceMmioRanges<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvMapVpciDeviceMmioRanges(
                 partition: WHV_PARTITION_HANDLE,
@@ -9332,7 +9332,7 @@ pub unsafe fn WHvPostVirtualProcessorSynicMessage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvPostVirtualProcessorSynicMessage(
                 partition: WHV_PARTITION_HANDLE,
@@ -9366,7 +9366,7 @@ pub unsafe fn WHvQueryGpaRangeDirtyBitmap<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvQueryGpaRangeDirtyBitmap(
                 partition: WHV_PARTITION_HANDLE,
@@ -9402,7 +9402,7 @@ pub unsafe fn WHvReadGpaRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvReadGpaRange(
                 partition: WHV_PARTITION_HANDLE,
@@ -9437,7 +9437,7 @@ pub unsafe fn WHvReadVpciDeviceRegister<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvReadVpciDeviceRegister(
                 partition: WHV_PARTITION_HANDLE,
@@ -9469,7 +9469,7 @@ pub unsafe fn WHvRegisterPartitionDoorbellEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvRegisterPartitionDoorbellEvent(
                 partition: WHV_PARTITION_HANDLE,
@@ -9497,7 +9497,7 @@ pub unsafe fn WHvRequestInterrupt<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvRequestInterrupt(
                 partition: WHV_PARTITION_HANDLE,
@@ -9526,7 +9526,7 @@ pub unsafe fn WHvRequestVpciDeviceInterrupt<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvRequestVpciDeviceInterrupt(
                 partition: WHV_PARTITION_HANDLE,
@@ -9554,7 +9554,7 @@ pub unsafe fn WHvResetPartition<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvResetPartition(partition: WHV_PARTITION_HANDLE) -> ::windows::runtime::HRESULT;
         }
@@ -9571,7 +9571,7 @@ pub unsafe fn WHvResumePartitionTime<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvResumePartitionTime(
                 partition: WHV_PARTITION_HANDLE,
@@ -9594,7 +9594,7 @@ pub unsafe fn WHvRetargetVpciDeviceInterrupt<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvRetargetVpciDeviceInterrupt(
                 partition: WHV_PARTITION_HANDLE,
@@ -9627,7 +9627,7 @@ pub unsafe fn WHvRunVirtualProcessor<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvRunVirtualProcessor(
                 partition: WHV_PARTITION_HANDLE,
@@ -9658,7 +9658,7 @@ pub unsafe fn WHvSetNotificationPortProperty<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetNotificationPortProperty(
                 partition: WHV_PARTITION_HANDLE,
@@ -9689,7 +9689,7 @@ pub unsafe fn WHvSetPartitionProperty<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetPartitionProperty(
                 partition: WHV_PARTITION_HANDLE,
@@ -9720,7 +9720,7 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetVirtualProcessorInterruptControllerState(
                 partition: WHV_PARTITION_HANDLE,
@@ -9751,7 +9751,7 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetVirtualProcessorInterruptControllerState2(
                 partition: WHV_PARTITION_HANDLE,
@@ -9783,7 +9783,7 @@ pub unsafe fn WHvSetVirtualProcessorRegisters<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetVirtualProcessorRegisters(
                 partition: WHV_PARTITION_HANDLE,
@@ -9817,7 +9817,7 @@ pub unsafe fn WHvSetVirtualProcessorState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetVirtualProcessorState(
                 partition: WHV_PARTITION_HANDLE,
@@ -9850,7 +9850,7 @@ pub unsafe fn WHvSetVirtualProcessorXsaveState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetVirtualProcessorXsaveState(
                 partition: WHV_PARTITION_HANDLE,
@@ -9881,7 +9881,7 @@ pub unsafe fn WHvSetVpciDevicePowerState<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetVpciDevicePowerState(
                 partition: WHV_PARTITION_HANDLE,
@@ -9907,7 +9907,7 @@ pub unsafe fn WHvSetupPartition<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSetupPartition(partition: WHV_PARTITION_HANDLE) -> ::windows::runtime::HRESULT;
         }
@@ -9927,7 +9927,7 @@ pub unsafe fn WHvSignalVirtualProcessorSynicEvent<
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSignalVirtualProcessorSynicEvent(
                 partition: WHV_PARTITION_HANDLE,
@@ -9956,7 +9956,7 @@ pub unsafe fn WHvStartPartitionMigration<
 ) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvStartPartitionMigration(
                 partition: WHV_PARTITION_HANDLE,
@@ -9979,7 +9979,7 @@ pub unsafe fn WHvSuspendPartitionTime<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvSuspendPartitionTime(
                 partition: WHV_PARTITION_HANDLE,
@@ -10003,7 +10003,7 @@ pub unsafe fn WHvTranslateGva<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvTranslateGva(
                 partition: WHV_PARTITION_HANDLE,
@@ -10037,7 +10037,7 @@ pub unsafe fn WHvUnmapGpaRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvUnmapGpaRange(
                 partition: WHV_PARTITION_HANDLE,
@@ -10065,7 +10065,7 @@ pub unsafe fn WHvUnmapVpciDeviceInterrupt<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvUnmapVpciDeviceInterrupt(
                 partition: WHV_PARTITION_HANDLE,
@@ -10092,7 +10092,7 @@ pub unsafe fn WHvUnmapVpciDeviceMmioRanges<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvUnmapVpciDeviceMmioRanges(
                 partition: WHV_PARTITION_HANDLE,
@@ -10117,7 +10117,7 @@ pub unsafe fn WHvUnregisterPartitionDoorbellEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvUnregisterPartitionDoorbellEvent(
                 partition: WHV_PARTITION_HANDLE,
@@ -10143,7 +10143,7 @@ pub unsafe fn WHvUpdateTriggerParameters<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvUpdateTriggerParameters(
                 partition: WHV_PARTITION_HANDLE,
@@ -10175,7 +10175,7 @@ pub unsafe fn WHvWriteGpaRange<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvWriteGpaRange(
                 partition: WHV_PARTITION_HANDLE,
@@ -10210,7 +10210,7 @@ pub unsafe fn WHvWriteVpciDeviceRegister<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "winhvplatform")]
+        #[link(name = "windows")]
         extern "system" {
             fn WHvWriteVpciDeviceRegister(
                 partition: WHV_PARTITION_HANDLE,

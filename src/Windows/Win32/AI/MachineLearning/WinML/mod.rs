@@ -2305,7 +2305,7 @@ pub struct IWinMLRuntimeFactory_abi(
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::runtime::Result<IMLOperatorRegistry> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.ai.machinelearning")]
+        #[link(name = "windows")]
         extern "system" {
             fn MLCreateOperatorRegistry(
                 registry: *mut ::windows::runtime::RawPtr,
@@ -3753,7 +3753,7 @@ unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC_0 {
 pub unsafe fn WinMLCreateRuntime() -> ::windows::runtime::Result<IWinMLRuntime> {
     #[cfg(windows)]
     {
-        #[link(name = "winml")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinMLCreateRuntime(
                 runtime: *mut ::windows::runtime::RawPtr,

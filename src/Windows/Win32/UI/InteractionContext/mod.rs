@@ -16,7 +16,7 @@ pub unsafe fn AddPointerInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddPointerInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -47,7 +47,7 @@ pub unsafe fn BufferPointerPacketsInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn BufferPointerPacketsInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -177,7 +177,7 @@ unsafe impl ::windows::runtime::Abi for CROSS_SLIDE_THRESHOLD {
 pub unsafe fn CreateInteractionContext() -> ::windows::runtime::Result<HINTERACTIONCONTEXT> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateInteractionContext(
                 interactioncontext: *mut HINTERACTIONCONTEXT,
@@ -198,7 +198,7 @@ pub unsafe fn DestroyInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -218,7 +218,7 @@ pub unsafe fn GetCrossSlideParameterInteractionContext<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCrossSlideParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -246,7 +246,7 @@ pub unsafe fn GetHoldParameterInteractionContext<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetHoldParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -274,7 +274,7 @@ pub unsafe fn GetInertiaParameterInteractionContext<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInertiaParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -303,7 +303,7 @@ pub unsafe fn GetInteractionConfigurationInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetInteractionConfigurationInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -330,7 +330,7 @@ pub unsafe fn GetMouseWheelParameterInteractionContext<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMouseWheelParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -358,7 +358,7 @@ pub unsafe fn GetPropertyInteractionContext<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPropertyInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -391,7 +391,7 @@ pub unsafe fn GetStateInteractionContext<
 ) -> ::windows::runtime::Result<INTERACTION_STATE> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStateInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -420,7 +420,7 @@ pub unsafe fn GetTapParameterInteractionContext<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTapParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -448,7 +448,7 @@ pub unsafe fn GetTranslationParameterInteractionContext<
 ) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTranslationParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1154,7 +1154,7 @@ pub unsafe fn ProcessBufferedPacketsInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessBufferedPacketsInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1173,7 +1173,7 @@ pub unsafe fn ProcessInertiaInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessInertiaInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1200,7 +1200,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn ProcessPointerFramesInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1231,7 +1231,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterOutputCallbackInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1260,7 +1260,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterOutputCallbackInteractionContext2(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1287,7 +1287,7 @@ pub unsafe fn RemovePointerInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemovePointerInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1311,7 +1311,7 @@ pub unsafe fn ResetInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1332,7 +1332,7 @@ pub unsafe fn SetCrossSlideParametersInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCrossSlideParametersInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1360,7 +1360,7 @@ pub unsafe fn SetHoldParameterInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetHoldParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1388,7 +1388,7 @@ pub unsafe fn SetInertiaParameterInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetInertiaParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1416,7 +1416,7 @@ pub unsafe fn SetInteractionConfigurationInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetInteractionConfigurationInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1444,7 +1444,7 @@ pub unsafe fn SetMouseWheelParameterInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMouseWheelParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1473,7 +1473,7 @@ pub unsafe fn SetPivotInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPivotInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1503,7 +1503,7 @@ pub unsafe fn SetPropertyInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPropertyInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1531,7 +1531,7 @@ pub unsafe fn SetTapParameterInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTapParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1559,7 +1559,7 @@ pub unsafe fn SetTranslationParameterInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTranslationParameterInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
@@ -1585,7 +1585,7 @@ pub unsafe fn StopInteractionContext<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ninput")]
+        #[link(name = "windows")]
         extern "system" {
             fn StopInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,

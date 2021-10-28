@@ -497,7 +497,7 @@ pub unsafe fn BeginBufferedAnimation<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginBufferedAnimation(
                 hwnd: super::super::Foundation::HWND,
@@ -537,7 +537,7 @@ pub unsafe fn BeginBufferedPaint<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginBufferedPaint(
                 hdctarget: super::super::Graphics::Gdi::HDC,
@@ -567,7 +567,7 @@ pub unsafe fn BeginPanningFeedback<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginPanningFeedback(
                 hwnd: super::super::Foundation::HWND,
@@ -585,7 +585,7 @@ pub unsafe fn BufferedPaintClear(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BufferedPaintClear(
                 hbufferedpaint: isize,
@@ -604,7 +604,7 @@ pub unsafe fn BufferedPaintClear(
 pub unsafe fn BufferedPaintInit() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BufferedPaintInit() -> ::windows::runtime::HRESULT;
         }
@@ -624,7 +624,7 @@ pub unsafe fn BufferedPaintRenderAnimation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BufferedPaintRenderAnimation(
                 hwnd: super::super::Foundation::HWND,
@@ -647,7 +647,7 @@ pub unsafe fn BufferedPaintSetAlpha(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BufferedPaintSetAlpha(
                 hbufferedpaint: isize,
@@ -674,7 +674,7 @@ pub unsafe fn BufferedPaintStopAllAnimations<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BufferedPaintStopAllAnimations(
                 hwnd: super::super::Foundation::HWND,
@@ -688,7 +688,7 @@ pub unsafe fn BufferedPaintStopAllAnimations<
 pub unsafe fn BufferedPaintUnInit() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn BufferedPaintUnInit() -> ::windows::runtime::HRESULT;
         }
@@ -2206,7 +2206,7 @@ pub unsafe fn CheckDlgButton<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckDlgButton(
                 hdlg: super::super::Foundation::HWND,
@@ -2235,7 +2235,7 @@ pub unsafe fn CheckRadioButton<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckRadioButton(
                 hdlg: super::super::Foundation::HWND,
@@ -2257,7 +2257,7 @@ pub unsafe fn CheckRadioButton<
 pub unsafe fn CloseThemeData(htheme: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseThemeData(htheme: isize) -> ::windows::runtime::HRESULT;
         }
@@ -2279,7 +2279,7 @@ pub unsafe fn CreateMappedBitmap<
 ) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMappedBitmap(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -2310,7 +2310,7 @@ pub unsafe fn CreatePropertySheetPageA(
 ) -> HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePropertySheetPageA(
                 constpropsheetpagepointer: *mut ::std::mem::ManuallyDrop<PROPSHEETPAGEA>,
@@ -2333,7 +2333,7 @@ pub unsafe fn CreatePropertySheetPageW(
 ) -> HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePropertySheetPageW(
                 constpropsheetpagepointer: *mut ::std::mem::ManuallyDrop<PROPSHEETPAGEW>,
@@ -2359,7 +2359,7 @@ pub unsafe fn CreateStatusWindowA<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStatusWindowA(
                 style: i32,
@@ -2391,7 +2391,7 @@ pub unsafe fn CreateStatusWindowW<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStatusWindowW(
                 style: i32,
@@ -2418,7 +2418,7 @@ pub unsafe fn CreateSyntheticPointerDevice(
 ) -> HSYNTHETICPOINTERDEVICE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSyntheticPointerDevice(
                 pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
@@ -2457,7 +2457,7 @@ pub unsafe fn CreateToolbarEx<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateToolbarEx(
                 hwnd: super::super::Foundation::HWND,
@@ -2516,7 +2516,7 @@ pub unsafe fn CreateUpDownControl<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateUpDownControl(
                 dwstyle: u32,
@@ -2857,7 +2857,7 @@ pub const DPA_APPEND: u32 = 2147483647u32;
 pub unsafe fn DPA_Clone(hdpa: *const _DPA, hdpanew: *mut _DPA) -> *mut _DPA {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_Clone(hdpa: *const _DPA, hdpanew: *mut _DPA) -> *mut _DPA;
         }
@@ -2872,7 +2872,7 @@ pub unsafe fn DPA_Clone(hdpa: *const _DPA, hdpanew: *mut _DPA) -> *mut _DPA {
 pub unsafe fn DPA_Create(citemgrow: i32) -> *mut _DPA {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_Create(citemgrow: i32) -> *mut _DPA;
         }
@@ -2891,7 +2891,7 @@ pub unsafe fn DPA_CreateEx<
 ) -> *mut _DPA {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_CreateEx(cpgrow: i32, hheap: super::super::Foundation::HANDLE) -> *mut _DPA;
         }
@@ -2907,7 +2907,7 @@ pub unsafe fn DPA_CreateEx<
 pub unsafe fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> super::super::Foundation::BOOL;
         }
@@ -2919,7 +2919,7 @@ pub unsafe fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> super::super::Foundation::BO
 pub unsafe fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::std::ffi::c_void;
         }
@@ -2935,7 +2935,7 @@ pub unsafe fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::std::ffi::c_void 
 pub unsafe fn DPA_Destroy(hdpa: *mut _DPA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_Destroy(hdpa: *mut _DPA) -> super::super::Foundation::BOOL;
         }
@@ -2951,7 +2951,7 @@ pub unsafe fn DPA_DestroyCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_DestroyCallback(
                 hdpa: *mut _DPA,
@@ -2976,7 +2976,7 @@ pub unsafe fn DPA_EnumCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_EnumCallback(
                 hdpa: *const _DPA,
@@ -2996,7 +2996,7 @@ pub unsafe fn DPA_EnumCallback(
 pub unsafe fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut ::std::ffi::c_void;
         }
@@ -3011,7 +3011,7 @@ pub unsafe fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut ::std::ffi::c_void
 pub unsafe fn DPA_GetPtrIndex(hdpa: *const _DPA, p: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_GetPtrIndex(hdpa: *const _DPA, p: *const ::std::ffi::c_void) -> i32;
         }
@@ -3026,7 +3026,7 @@ pub unsafe fn DPA_GetPtrIndex(hdpa: *const _DPA, p: *const ::std::ffi::c_void) -
 pub unsafe fn DPA_GetSize(hdpa: *const _DPA) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_GetSize(hdpa: *const _DPA) -> u64;
         }
@@ -3039,7 +3039,7 @@ pub unsafe fn DPA_GetSize(hdpa: *const _DPA) -> u64 {
 pub unsafe fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> super::super::Foundation::BOOL;
         }
@@ -3054,7 +3054,7 @@ pub unsafe fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> super::super::Foundation::BO
 pub unsafe fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: *const ::std::ffi::c_void) -> i32;
         }
@@ -3079,7 +3079,7 @@ pub unsafe fn DPA_LoadStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_LoadStream(
                 phdpa: *mut *mut _DPA,
@@ -3113,7 +3113,7 @@ pub unsafe fn DPA_Merge<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_Merge(
                 hdpadest: *mut _DPA,
@@ -3148,7 +3148,7 @@ pub unsafe fn DPA_SaveStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_SaveStream(
                 hdpa: *const _DPA,
@@ -3182,7 +3182,7 @@ pub unsafe fn DPA_Search<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_Search(
                 hdpa: *const _DPA,
@@ -3213,7 +3213,7 @@ pub unsafe fn DPA_SetPtr(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_SetPtr(
                 hdpa: *mut _DPA,
@@ -3241,7 +3241,7 @@ pub unsafe fn DPA_Sort<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPA_Sort(
                 hdpa: *mut _DPA,
@@ -3520,7 +3520,7 @@ pub const DSA_APPEND: u32 = 2147483647u32;
 pub unsafe fn DSA_Clone(hdsa: *const _DSA) -> *mut _DSA {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_Clone(hdsa: *const _DSA) -> *mut _DSA;
         }
@@ -3532,7 +3532,7 @@ pub unsafe fn DSA_Clone(hdsa: *const _DSA) -> *mut _DSA {
 pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA;
         }
@@ -3548,7 +3548,7 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA {
 pub unsafe fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::BOOL;
         }
@@ -3561,7 +3561,7 @@ pub unsafe fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::B
 pub unsafe fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundation::BOOL;
         }
@@ -3577,7 +3577,7 @@ pub unsafe fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundatio
 pub unsafe fn DSA_Destroy(hdsa: *mut _DSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_Destroy(hdsa: *mut _DSA) -> super::super::Foundation::BOOL;
         }
@@ -3593,7 +3593,7 @@ pub unsafe fn DSA_DestroyCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_DestroyCallback(
                 hdsa: *mut _DSA,
@@ -3618,7 +3618,7 @@ pub unsafe fn DSA_EnumCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_EnumCallback(
                 hdsa: *const _DSA,
@@ -3643,7 +3643,7 @@ pub unsafe fn DSA_GetItem(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_GetItem(
                 hdsa: *const _DSA,
@@ -3663,7 +3663,7 @@ pub unsafe fn DSA_GetItem(
 pub unsafe fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut ::std::ffi::c_void;
         }
@@ -3678,7 +3678,7 @@ pub unsafe fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut ::std::ffi::c_vo
 pub unsafe fn DSA_GetSize(hdsa: *const _DSA) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_GetSize(hdsa: *const _DSA) -> u64;
         }
@@ -3690,7 +3690,7 @@ pub unsafe fn DSA_GetSize(hdsa: *const _DSA) -> u64 {
 pub unsafe fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const ::std::ffi::c_void) -> i32;
         }
@@ -3711,7 +3711,7 @@ pub unsafe fn DSA_SetItem(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_SetItem(
                 hdsa: *mut _DSA,
@@ -3739,7 +3739,7 @@ pub unsafe fn DSA_Sort<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DSA_Sort(
                 pdsa: *mut _DSA,
@@ -3925,7 +3925,7 @@ pub unsafe fn DestroyPropertySheetPage<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyPropertySheetPage(param0: HPROPSHEETPAGE) -> super::super::Foundation::BOOL;
         }
@@ -3942,7 +3942,7 @@ pub unsafe fn DestroySyntheticPointerDevice<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroySyntheticPointerDevice(device: HSYNTHETICPOINTERDEVICE);
         }
@@ -3965,7 +3965,7 @@ pub unsafe fn DlgDirListA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirListA(
                 hdlg: super::super::Foundation::HWND,
@@ -4000,7 +4000,7 @@ pub unsafe fn DlgDirListComboBoxA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirListComboBoxA(
                 hdlg: super::super::Foundation::HWND,
@@ -4035,7 +4035,7 @@ pub unsafe fn DlgDirListComboBoxW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirListComboBoxW(
                 hdlg: super::super::Foundation::HWND,
@@ -4070,7 +4070,7 @@ pub unsafe fn DlgDirListW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirListW(
                 hdlg: super::super::Foundation::HWND,
@@ -4103,7 +4103,7 @@ pub unsafe fn DlgDirSelectComboBoxExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirSelectComboBoxExA(
                 hwnddlg: super::super::Foundation::HWND,
@@ -4134,7 +4134,7 @@ pub unsafe fn DlgDirSelectComboBoxExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirSelectComboBoxExW(
                 hwnddlg: super::super::Foundation::HWND,
@@ -4165,7 +4165,7 @@ pub unsafe fn DlgDirSelectExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirSelectExA(
                 hwnddlg: super::super::Foundation::HWND,
@@ -4196,7 +4196,7 @@ pub unsafe fn DlgDirSelectExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DlgDirSelectExW(
                 hwnddlg: super::super::Foundation::HWND,
@@ -4227,7 +4227,7 @@ pub unsafe fn DrawInsert<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawInsert(
                 handparent: super::super::Foundation::HWND,
@@ -4262,7 +4262,7 @@ pub unsafe fn DrawShadowText<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawShadowText(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4304,7 +4304,7 @@ pub unsafe fn DrawStatusTextA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawStatusTextA(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4336,7 +4336,7 @@ pub unsafe fn DrawStatusTextW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawStatusTextW(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -4369,7 +4369,7 @@ pub unsafe fn DrawThemeBackground<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeBackground(
                 htheme: isize,
@@ -4407,7 +4407,7 @@ pub unsafe fn DrawThemeBackgroundEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeBackgroundEx(
                 htheme: isize,
@@ -4446,7 +4446,7 @@ pub unsafe fn DrawThemeEdge<
 ) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeEdge(
                 htheme: isize,
@@ -4492,7 +4492,7 @@ pub unsafe fn DrawThemeIcon<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeIcon(
                 htheme: isize,
@@ -4530,7 +4530,7 @@ pub unsafe fn DrawThemeParentBackground<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeParentBackground(
                 hwnd: super::super::Foundation::HWND,
@@ -4561,7 +4561,7 @@ pub unsafe fn DrawThemeParentBackgroundEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeParentBackgroundEx(
                 hwnd: super::super::Foundation::HWND,
@@ -4599,7 +4599,7 @@ pub unsafe fn DrawThemeText<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeText(
                 htheme: isize,
@@ -4647,7 +4647,7 @@ pub unsafe fn DrawThemeTextEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawThemeTextEx(
                 htheme: isize,
@@ -5506,7 +5506,7 @@ pub unsafe fn EnableScrollBar<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableScrollBar(
                 hwnd: super::super::Foundation::HWND,
@@ -5533,7 +5533,7 @@ pub unsafe fn EnableThemeDialogTexture<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableThemeDialogTexture(
                 hwnd: super::super::Foundation::HWND,
@@ -5554,7 +5554,7 @@ pub unsafe fn EnableTheming<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableTheming(
                 fenable: super::super::Foundation::BOOL,
@@ -5575,7 +5575,7 @@ pub unsafe fn EndBufferedAnimation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndBufferedAnimation(
                 hbpanimation: isize,
@@ -5601,7 +5601,7 @@ pub unsafe fn EndBufferedPaint<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndBufferedPaint(
                 hbufferedpaint: isize,
@@ -5628,7 +5628,7 @@ pub unsafe fn EndPanningFeedback<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndPanningFeedback(
                 hwnd: super::super::Foundation::HWND,
@@ -5652,7 +5652,7 @@ pub unsafe fn EvaluateProximityToPolygon(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvaluateProximityToPolygon(
                 numvertices: u32,
@@ -5679,7 +5679,7 @@ pub unsafe fn EvaluateProximityToRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EvaluateProximityToRect(
                 controlboundingbox: *const super::super::Foundation::RECT,
@@ -5918,7 +5918,7 @@ pub unsafe fn FlatSB_EnableScrollBar<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_EnableScrollBar(
                 param0: super::super::Foundation::HWND,
@@ -5946,7 +5946,7 @@ pub unsafe fn FlatSB_GetScrollInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_GetScrollInfo(
                 param0: super::super::Foundation::HWND,
@@ -5973,7 +5973,7 @@ pub unsafe fn FlatSB_GetScrollPos<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_GetScrollPos(
                 param0: super::super::Foundation::HWND,
@@ -5999,7 +5999,7 @@ pub unsafe fn FlatSB_GetScrollProp<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_GetScrollProp(
                 param0: super::super::Foundation::HWND,
@@ -6028,7 +6028,7 @@ pub unsafe fn FlatSB_GetScrollRange<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_GetScrollRange(
                 param0: super::super::Foundation::HWND,
@@ -6060,7 +6060,7 @@ pub unsafe fn FlatSB_SetScrollInfo<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_SetScrollInfo(
                 param0: super::super::Foundation::HWND,
@@ -6092,7 +6092,7 @@ pub unsafe fn FlatSB_SetScrollPos<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_SetScrollPos(
                 param0: super::super::Foundation::HWND,
@@ -6124,7 +6124,7 @@ pub unsafe fn FlatSB_SetScrollProp<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_SetScrollProp(
                 param0: super::super::Foundation::HWND,
@@ -6157,7 +6157,7 @@ pub unsafe fn FlatSB_SetScrollRange<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_SetScrollRange(
                 param0: super::super::Foundation::HWND,
@@ -6190,7 +6190,7 @@ pub unsafe fn FlatSB_ShowScrollBar<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlatSB_ShowScrollBar(
                 param0: super::super::Foundation::HWND,
@@ -6593,7 +6593,7 @@ pub unsafe fn GetBufferedPaintBits(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBufferedPaintBits(
                 hbufferedpaint: isize,
@@ -6615,7 +6615,7 @@ pub unsafe fn GetBufferedPaintBits(
 pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
         }
@@ -6628,7 +6628,7 @@ pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphic
 pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
         }
@@ -6645,7 +6645,7 @@ pub unsafe fn GetBufferedPaintTargetRect(
 ) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBufferedPaintTargetRect(
                 hbufferedpaint: isize,
@@ -6666,7 +6666,7 @@ pub unsafe fn GetCIMSSM(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCIMSSM(
                 inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
@@ -6687,7 +6687,7 @@ pub unsafe fn GetComboBoxInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComboBoxInfo(
                 hwndcombo: super::super::Foundation::HWND,
@@ -6708,7 +6708,7 @@ pub unsafe fn GetCurrentInputMessageSource(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentInputMessageSource(
                 inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
@@ -6732,7 +6732,7 @@ pub unsafe fn GetCurrentThemeName(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentThemeName(
                 pszthemefilename: super::super::Foundation::PWSTR,
@@ -6767,7 +6767,7 @@ pub unsafe fn GetEffectiveClientRect<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEffectiveClientRect(
                 hwnd: super::super::Foundation::HWND,
@@ -6793,7 +6793,7 @@ pub unsafe fn GetListBoxInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetListBoxInfo(hwnd: super::super::Foundation::HWND) -> u32;
         }
@@ -6805,7 +6805,7 @@ pub unsafe fn GetListBoxInfo<
 pub unsafe fn GetMUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMUILanguage() -> u16;
         }
@@ -6824,7 +6824,7 @@ pub unsafe fn GetPointerDevice<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerDevice(
                 device: super::super::Foundation::HANDLE,
@@ -6850,7 +6850,7 @@ pub unsafe fn GetPointerDeviceCursors<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerDeviceCursors(
                 device: super::super::Foundation::HANDLE,
@@ -6878,7 +6878,7 @@ pub unsafe fn GetPointerDeviceProperties<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerDeviceProperties(
                 device: super::super::Foundation::HANDLE,
@@ -6906,7 +6906,7 @@ pub unsafe fn GetPointerDeviceRects<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerDeviceRects(
                 device: super::super::Foundation::HANDLE,
@@ -6930,7 +6930,7 @@ pub unsafe fn GetPointerDevices(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPointerDevices(
                 devicecount: *mut u32,
@@ -6955,7 +6955,7 @@ pub unsafe fn GetRawPointerDeviceData(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRawPointerDeviceData(
                 pointerid: u32,
@@ -6987,7 +6987,7 @@ pub unsafe fn GetScrollBarInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetScrollBarInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -7015,7 +7015,7 @@ pub unsafe fn GetScrollInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetScrollInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -7042,7 +7042,7 @@ pub unsafe fn GetScrollPos<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetScrollPos(hwnd: super::super::Foundation::HWND, nbar: SCROLLBAR_CONSTANTS)
                 -> i32;
@@ -7067,7 +7067,7 @@ pub unsafe fn GetScrollRange<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetScrollRange(
                 hwnd: super::super::Foundation::HWND,
@@ -7097,7 +7097,7 @@ pub unsafe fn GetThemeAnimationProperty(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeAnimationProperty(
                 htheme: isize,
@@ -7134,7 +7134,7 @@ pub unsafe fn GetThemeAnimationTransform(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeAnimationTransform(
                 htheme: isize,
@@ -7163,7 +7163,7 @@ pub unsafe fn GetThemeAnimationTransform(
 pub unsafe fn GetThemeAppProperties() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeAppProperties() -> u32;
         }
@@ -7185,7 +7185,7 @@ pub unsafe fn GetThemeBackgroundContentRect<
 ) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeBackgroundContentRect(
                 htheme: isize,
@@ -7224,7 +7224,7 @@ pub unsafe fn GetThemeBackgroundExtent<
 ) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeBackgroundExtent(
                 htheme: isize,
@@ -7263,7 +7263,7 @@ pub unsafe fn GetThemeBackgroundRegion<
 ) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HRGN> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeBackgroundRegion(
                 htheme: isize,
@@ -7299,7 +7299,7 @@ pub unsafe fn GetThemeBitmap(
 ) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HBITMAP> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeBitmap(
                 htheme: isize,
@@ -7334,7 +7334,7 @@ pub unsafe fn GetThemeBool(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeBool(
                 htheme: isize,
@@ -7366,7 +7366,7 @@ pub unsafe fn GetThemeColor(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeColor(
                 htheme: isize,
@@ -7402,7 +7402,7 @@ pub unsafe fn GetThemeDocumentationProperty<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeDocumentationProperty(
                 pszthemename: super::super::Foundation::PWSTR,
@@ -7430,7 +7430,7 @@ pub unsafe fn GetThemeEnumValue(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeEnumValue(
                 htheme: isize,
@@ -7464,7 +7464,7 @@ pub unsafe fn GetThemeFilename(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeFilename(
                 htheme: isize,
@@ -7501,7 +7501,7 @@ pub unsafe fn GetThemeFont<
 ) -> ::windows::runtime::Result<super::super::Graphics::Gdi::LOGFONTW> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeFont(
                 htheme: isize,
@@ -7535,7 +7535,7 @@ pub unsafe fn GetThemeInt(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeInt(
                 htheme: isize,
@@ -7566,7 +7566,7 @@ pub unsafe fn GetThemeIntList(
 ) -> ::windows::runtime::Result<INTLIST> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeIntList(
                 htheme: isize,
@@ -7603,7 +7603,7 @@ pub unsafe fn GetThemeMargins<
 ) -> ::windows::runtime::Result<MARGINS> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeMargins(
                 htheme: isize,
@@ -7643,7 +7643,7 @@ pub unsafe fn GetThemeMetric<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeMetric(
                 htheme: isize,
@@ -7682,7 +7682,7 @@ pub unsafe fn GetThemePartSize<
 ) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemePartSize(
                 htheme: isize,
@@ -7719,7 +7719,7 @@ pub unsafe fn GetThemePosition(
 ) -> ::windows::runtime::Result<super::super::Foundation::POINT> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemePosition(
                 htheme: isize,
@@ -7751,7 +7751,7 @@ pub unsafe fn GetThemePropertyOrigin(
 ) -> ::windows::runtime::Result<PROPERTYORIGIN> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemePropertyOrigin(
                 htheme: isize,
@@ -7783,7 +7783,7 @@ pub unsafe fn GetThemeRect(
 ) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeRect(
                 htheme: isize,
@@ -7822,7 +7822,7 @@ pub unsafe fn GetThemeStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeStream(
                 htheme: isize,
@@ -7859,7 +7859,7 @@ pub unsafe fn GetThemeString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeString(
                 htheme: isize,
@@ -7887,7 +7887,7 @@ pub unsafe fn GetThemeString(
 pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL;
         }
@@ -7902,7 +7902,7 @@ pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foun
 pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32;
         }
@@ -7921,7 +7921,7 @@ pub unsafe fn GetThemeSysColorBrush(
 ) -> super::super::Graphics::Gdi::HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeSysColorBrush(
                 htheme: isize,
@@ -7943,7 +7943,7 @@ pub unsafe fn GetThemeSysFont(
 ) -> ::windows::runtime::Result<super::super::Graphics::Gdi::LOGFONTW> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeSysFont(
                 htheme: isize,
@@ -7966,7 +7966,7 @@ pub unsafe fn GetThemeSysFont(
 pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeSysInt(
                 htheme: isize,
@@ -7988,7 +7988,7 @@ pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::runtime::
 pub unsafe fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32;
         }
@@ -8009,7 +8009,7 @@ pub unsafe fn GetThemeSysString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeSysString(
                 htheme: isize,
@@ -8046,7 +8046,7 @@ pub unsafe fn GetThemeTextExtent<
 ) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeTextExtent(
                 htheme: isize,
@@ -8090,7 +8090,7 @@ pub unsafe fn GetThemeTextMetrics<
 ) -> ::windows::runtime::Result<super::super::Graphics::Gdi::TEXTMETRICW> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeTextMetrics(
                 htheme: isize,
@@ -8122,7 +8122,7 @@ pub unsafe fn GetThemeTimingFunction(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeTimingFunction(
                 htheme: isize,
@@ -8153,7 +8153,7 @@ pub unsafe fn GetThemeTransitionDuration(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThemeTransitionDuration(
                 htheme: isize,
@@ -8191,7 +8191,7 @@ pub unsafe fn GetWindowFeedbackSetting<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowFeedbackSetting(
                 hwnd: super::super::Foundation::HWND,
@@ -8221,7 +8221,7 @@ pub unsafe fn GetWindowTheme<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowTheme(hwnd: super::super::Foundation::HWND) -> isize;
         }
@@ -8758,7 +8758,7 @@ pub unsafe fn HIMAGELIST_QueryInterface<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HIMAGELIST_QueryInterface(
                 himl: HIMAGELIST,
@@ -8925,7 +8925,7 @@ pub unsafe fn HitTestThemeBackground<
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn HitTestThemeBackground(
                 htheme: isize,
@@ -30492,7 +30492,7 @@ pub unsafe fn ImageList_Add<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Add(
                 himl: HIMAGELIST,
@@ -30521,7 +30521,7 @@ pub unsafe fn ImageList_AddMasked<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_AddMasked(
                 himl: HIMAGELIST,
@@ -30547,7 +30547,7 @@ pub unsafe fn ImageList_BeginDrag<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_BeginDrag(
                 himltrack: HIMAGELIST,
@@ -30577,7 +30577,7 @@ pub unsafe fn ImageList_CoCreateInstance<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_CoCreateInstance(
                 rclsid: *const ::windows::runtime::GUID,
@@ -30611,7 +30611,7 @@ pub unsafe fn ImageList_Copy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Copy(
                 himldst: HIMAGELIST,
@@ -30641,7 +30641,7 @@ pub unsafe fn ImageList_Create(
 ) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Create(
                 cx: i32,
@@ -30668,7 +30668,7 @@ pub unsafe fn ImageList_Destroy<'a, Param0: ::windows::runtime::IntoParam<'a, HI
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Destroy(himl: HIMAGELIST) -> super::super::Foundation::BOOL;
         }
@@ -30688,7 +30688,7 @@ pub unsafe fn ImageList_DragEnter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_DragEnter(
                 hwndlock: super::super::Foundation::HWND,
@@ -30714,7 +30714,7 @@ pub unsafe fn ImageList_DragLeave<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_DragLeave(
                 hwndlock: super::super::Foundation::HWND,
@@ -30729,7 +30729,7 @@ pub unsafe fn ImageList_DragLeave<
 pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -30750,7 +30750,7 @@ pub unsafe fn ImageList_DragShowNolock<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_DragShowNolock(
                 fshow: super::super::Foundation::BOOL,
@@ -30776,7 +30776,7 @@ pub unsafe fn ImageList_Draw<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Draw(
                 himl: HIMAGELIST,
@@ -30818,7 +30818,7 @@ pub unsafe fn ImageList_DrawEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_DrawEx(
                 himl: HIMAGELIST,
@@ -30855,7 +30855,7 @@ pub unsafe fn ImageList_DrawIndirect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_DrawIndirect(
                 pimldp: *const IMAGELISTDRAWPARAMS,
@@ -30871,7 +30871,7 @@ pub unsafe fn ImageList_Duplicate<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Duplicate(himl: HIMAGELIST) -> HIMAGELIST;
         }
@@ -30883,7 +30883,7 @@ pub unsafe fn ImageList_Duplicate<'a, Param0: ::windows::runtime::IntoParam<'a, 
 pub unsafe fn ImageList_EndDrag() {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_EndDrag();
         }
@@ -30897,7 +30897,7 @@ pub unsafe fn ImageList_GetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_GetBkColor(himl: HIMAGELIST) -> u32;
         }
@@ -30913,7 +30913,7 @@ pub unsafe fn ImageList_GetDragImage(
 ) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_GetDragImage(
                 ppt: *mut super::super::Foundation::POINT,
@@ -30936,7 +30936,7 @@ pub unsafe fn ImageList_GetIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HI
 ) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_GetIcon(
                 himl: HIMAGELIST,
@@ -30961,7 +30961,7 @@ pub unsafe fn ImageList_GetIconSize<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_GetIconSize(
                 himl: HIMAGELIST,
@@ -30983,7 +30983,7 @@ pub unsafe fn ImageList_GetImageCount<'a, Param0: ::windows::runtime::IntoParam<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_GetImageCount(himl: HIMAGELIST) -> i32;
         }
@@ -31000,7 +31000,7 @@ pub unsafe fn ImageList_GetImageInfo<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_GetImageInfo(
                 himl: HIMAGELIST,
@@ -31033,7 +31033,7 @@ pub unsafe fn ImageList_LoadImageA<
 ) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_LoadImageA(
                 hi: super::super::Foundation::HINSTANCE,
@@ -31074,7 +31074,7 @@ pub unsafe fn ImageList_LoadImageW<
 ) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_LoadImageW(
                 hi: super::super::Foundation::HINSTANCE,
@@ -31113,7 +31113,7 @@ pub unsafe fn ImageList_Merge<
 ) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Merge(
                 himl1: HIMAGELIST,
@@ -31145,7 +31145,7 @@ pub unsafe fn ImageList_Read<
 ) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Read(pstm: ::windows::runtime::RawPtr) -> HIMAGELIST;
         }
@@ -31166,7 +31166,7 @@ pub unsafe fn ImageList_ReadEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_ReadEx(
                 dwflags: u32,
@@ -31193,7 +31193,7 @@ pub unsafe fn ImageList_Remove<'a, Param0: ::windows::runtime::IntoParam<'a, HIM
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Remove(himl: HIMAGELIST, i: i32) -> super::super::Foundation::BOOL;
         }
@@ -31219,7 +31219,7 @@ pub unsafe fn ImageList_Replace<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Replace(
                 himl: HIMAGELIST,
@@ -31250,7 +31250,7 @@ pub unsafe fn ImageList_ReplaceIcon<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_ReplaceIcon(
                 himl: HIMAGELIST,
@@ -31273,7 +31273,7 @@ pub unsafe fn ImageList_SetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_SetBkColor(himl: HIMAGELIST, clrbk: u32) -> u32;
         }
@@ -31297,7 +31297,7 @@ pub unsafe fn ImageList_SetDragCursorImage<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_SetDragCursorImage(
                 himldrag: HIMAGELIST,
@@ -31324,7 +31324,7 @@ pub unsafe fn ImageList_SetIconSize<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_SetIconSize(
                 himl: HIMAGELIST,
@@ -31348,7 +31348,7 @@ pub unsafe fn ImageList_SetImageCount<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_SetImageCount(
                 himl: HIMAGELIST,
@@ -31374,7 +31374,7 @@ pub unsafe fn ImageList_SetOverlayImage<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_SetOverlayImage(
                 himl: HIMAGELIST,
@@ -31405,7 +31405,7 @@ pub unsafe fn ImageList_Write<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_Write(
                 himl: HIMAGELIST,
@@ -31432,7 +31432,7 @@ pub unsafe fn ImageList_WriteEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImageList_WriteEx(
                 himl: HIMAGELIST,
@@ -31453,7 +31453,7 @@ pub unsafe fn ImageList_WriteEx<
 pub unsafe fn InitCommonControls() {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitCommonControls();
         }
@@ -31468,7 +31468,7 @@ pub unsafe fn InitCommonControlsEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitCommonControlsEx(
                 picce: *const INITCOMMONCONTROLSEX,
@@ -31482,7 +31482,7 @@ pub unsafe fn InitCommonControlsEx(
 pub unsafe fn InitMUILanguage(uilang: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitMUILanguage(uilang: u16);
         }
@@ -31500,7 +31500,7 @@ pub unsafe fn InitializeFlatSB<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeFlatSB(
                 param0: super::super::Foundation::HWND,
@@ -31518,7 +31518,7 @@ pub unsafe fn InitializeTouchInjection(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeTouchInjection(
                 maxcount: u32,
@@ -31548,7 +31548,7 @@ pub unsafe fn InjectSyntheticPointerInput<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InjectSyntheticPointerInput(
                 device: HSYNTHETICPOINTERDEVICE,
@@ -31576,7 +31576,7 @@ pub unsafe fn InjectTouchInput(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InjectTouchInput(
                 count: u32,
@@ -31595,7 +31595,7 @@ pub unsafe fn InjectTouchInput(
 pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsAppThemed() -> super::super::Foundation::BOOL;
         }
@@ -31608,7 +31608,7 @@ pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
 pub unsafe fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL;
         }
@@ -31621,7 +31621,7 @@ pub unsafe fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL {
 pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsCompositionActive() -> super::super::Foundation::BOOL;
         }
@@ -31640,7 +31640,7 @@ pub unsafe fn IsDlgButtonChecked<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDlgButtonChecked(hdlg: super::super::Foundation::HWND, nidbutton: i32) -> u32;
         }
@@ -31656,7 +31656,7 @@ pub unsafe fn IsDlgButtonChecked<
 pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsThemeActive() -> super::super::Foundation::BOOL;
         }
@@ -31673,7 +31673,7 @@ pub unsafe fn IsThemeBackgroundPartiallyTransparent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsThemeBackgroundPartiallyTransparent(
                 htheme: isize,
@@ -31699,7 +31699,7 @@ pub unsafe fn IsThemeDialogTextureEnabled<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsThemeDialogTextureEnabled(
                 hwnd: super::super::Foundation::HWND,
@@ -31718,7 +31718,7 @@ pub unsafe fn IsThemePartDefined(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsThemePartDefined(
                 htheme: isize,
@@ -31774,7 +31774,7 @@ pub unsafe fn LBItemFromPt<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LBItemFromPt(
                 hlb: super::super::Foundation::HWND,
@@ -33762,7 +33762,7 @@ pub unsafe fn LoadIconMetric<
 ) -> ::windows::runtime::Result<super::WindowsAndMessaging::HICON> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadIconMetric(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -33797,7 +33797,7 @@ pub unsafe fn LoadIconWithScaleDown<
 ) -> ::windows::runtime::Result<super::WindowsAndMessaging::HICON> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadIconWithScaleDown(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -34443,7 +34443,7 @@ pub unsafe fn MakeDragList<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MakeDragList(hlb: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -34471,7 +34471,7 @@ pub unsafe fn MenuHelp<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MenuHelp(
                 umsg: u32,
@@ -39294,7 +39294,7 @@ pub unsafe fn OpenThemeData<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenThemeData(
                 hwnd: super::super::Foundation::HWND,
@@ -39321,7 +39321,7 @@ pub unsafe fn OpenThemeDataEx<
 ) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenThemeDataEx(
                 hwnd: super::super::Foundation::HWND,
@@ -42317,7 +42317,7 @@ pub unsafe fn PackTouchHitTestingProximityEvaluation(
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PackTouchHitTestingProximityEvaluation(
                 phittestinginput: *const TOUCH_HIT_TESTING_INPUT,
@@ -42340,7 +42340,7 @@ pub unsafe fn PackTouchHitTestingProximityEvaluation(
 pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropertySheetA(param0: *mut ::std::mem::ManuallyDrop<PROPSHEETHEADERA_V2>) -> isize;
         }
@@ -42357,7 +42357,7 @@ pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
 pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropertySheetW(param0: *mut ::std::mem::ManuallyDrop<PROPSHEETHEADERW_V2>) -> isize;
         }
@@ -43128,7 +43128,7 @@ pub unsafe fn RegisterPointerDeviceNotifications<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterPointerDeviceNotifications(
                 window: super::super::Foundation::HWND,
@@ -43153,7 +43153,7 @@ pub unsafe fn RegisterTouchHitTestingWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterTouchHitTestingWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -43675,7 +43675,7 @@ pub unsafe fn ScrollDC<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScrollDC(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -43713,7 +43713,7 @@ pub unsafe fn ScrollWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScrollWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -43755,7 +43755,7 @@ pub unsafe fn ScrollWindowEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScrollWindowEx(
                 hwnd: super::super::Foundation::HWND,
@@ -43795,7 +43795,7 @@ pub unsafe fn SetScrollInfo<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetScrollInfo(
                 hwnd: super::super::Foundation::HWND,
@@ -43827,7 +43827,7 @@ pub unsafe fn SetScrollPos<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetScrollPos(
                 hwnd: super::super::Foundation::HWND,
@@ -43860,7 +43860,7 @@ pub unsafe fn SetScrollRange<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetScrollRange(
                 hwnd: super::super::Foundation::HWND,
@@ -43884,7 +43884,7 @@ pub unsafe fn SetScrollRange<
 pub unsafe fn SetThemeAppProperties(dwflags: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThemeAppProperties(dwflags: u32);
         }
@@ -43906,7 +43906,7 @@ pub unsafe fn SetWindowFeedbackSetting<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowFeedbackSetting(
                 hwnd: super::super::Foundation::HWND,
@@ -43940,7 +43940,7 @@ pub unsafe fn SetWindowTheme<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowTheme(
                 hwnd: super::super::Foundation::HWND,
@@ -43970,7 +43970,7 @@ pub unsafe fn SetWindowThemeAttribute<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowThemeAttribute(
                 hwnd: super::super::Foundation::HWND,
@@ -44001,7 +44001,7 @@ pub unsafe fn ShowHideMenuCtl<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowHideMenuCtl(
                 hwnd: super::super::Foundation::HWND,
@@ -44030,7 +44030,7 @@ pub unsafe fn ShowScrollBar<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ShowScrollBar(
                 hwnd: super::super::Foundation::HWND,
@@ -44057,7 +44057,7 @@ pub unsafe fn Str_SetPtrW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Str_SetPtrW(
                 ppsz: *mut super::super::Foundation::PWSTR,
@@ -48070,7 +48070,7 @@ pub unsafe fn TaskDialog<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TaskDialog(
                 hwndowner: super::super::Foundation::HWND,
@@ -48108,7 +48108,7 @@ pub unsafe fn TaskDialogIndirect(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TaskDialogIndirect(
                 ptaskconfig: *const ::std::mem::ManuallyDrop<TASKDIALOGCONFIG>,
@@ -48274,7 +48274,7 @@ pub unsafe fn UninitializeFlatSB<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UninitializeFlatSB(
                 param0: super::super::Foundation::HWND,
@@ -48298,7 +48298,7 @@ pub unsafe fn UpdatePanningFeedback<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "uxtheme")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdatePanningFeedback(
                 hwnd: super::super::Foundation::HWND,

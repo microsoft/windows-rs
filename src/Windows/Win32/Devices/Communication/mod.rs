@@ -17,7 +17,7 @@ pub unsafe fn BuildCommDCBA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildCommDCBA(
                 lpdef: super::super::Foundation::PSTR,
@@ -43,7 +43,7 @@ pub unsafe fn BuildCommDCBAndTimeoutsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildCommDCBAndTimeoutsA(
                 lpdef: super::super::Foundation::PSTR,
@@ -71,7 +71,7 @@ pub unsafe fn BuildCommDCBAndTimeoutsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildCommDCBAndTimeoutsW(
                 lpdef: super::super::Foundation::PWSTR,
@@ -98,7 +98,7 @@ pub unsafe fn BuildCommDCBW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildCommDCBW(
                 lpdef: super::super::Foundation::PWSTR,
@@ -504,7 +504,7 @@ pub unsafe fn ClearCommBreak<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClearCommBreak(
                 hfile: super::super::Foundation::HANDLE,
@@ -526,7 +526,7 @@ pub unsafe fn ClearCommError<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClearCommError(
                 hfile: super::super::Foundation::HANDLE,
@@ -555,7 +555,7 @@ pub unsafe fn CommConfigDialogA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommConfigDialogA(
                 lpszname: super::super::Foundation::PSTR,
@@ -584,7 +584,7 @@ pub unsafe fn CommConfigDialogW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommConfigDialogW(
                 lpszname: super::super::Foundation::PWSTR,
@@ -743,7 +743,7 @@ pub unsafe fn EscapeCommFunction<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EscapeCommFunction(
                 hfile: super::super::Foundation::HANDLE,
@@ -769,7 +769,7 @@ pub unsafe fn GetCommConfig<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommConfig(
                 hcommdev: super::super::Foundation::HANDLE,
@@ -796,7 +796,7 @@ pub unsafe fn GetCommMask<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommMask(
                 hfile: super::super::Foundation::HANDLE,
@@ -821,7 +821,7 @@ pub unsafe fn GetCommModemStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommModemStatus(
                 hfile: super::super::Foundation::HANDLE,
@@ -843,7 +843,7 @@ pub unsafe fn GetCommPorts(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-comm-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommPorts(
                 lpportnumbers: *mut u32,
@@ -870,7 +870,7 @@ pub unsafe fn GetCommProperties<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommProperties(
                 hfile: super::super::Foundation::HANDLE,
@@ -895,7 +895,7 @@ pub unsafe fn GetCommState<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommState(
                 hfile: super::super::Foundation::HANDLE,
@@ -920,7 +920,7 @@ pub unsafe fn GetCommTimeouts<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommTimeouts(
                 hfile: super::super::Foundation::HANDLE,
@@ -946,7 +946,7 @@ pub unsafe fn GetDefaultCommConfigA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDefaultCommConfigA(
                 lpszname: super::super::Foundation::PSTR,
@@ -974,7 +974,7 @@ pub unsafe fn GetDefaultCommConfigW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDefaultCommConfigW(
                 lpszname: super::super::Foundation::PWSTR,
@@ -1539,7 +1539,7 @@ pub unsafe fn OpenCommPort(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-comm-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenCommPort(
                 uportnumber: u32,
@@ -1617,7 +1617,7 @@ pub unsafe fn PurgeComm<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PurgeComm(
                 hfile: super::super::Foundation::HANDLE,
@@ -1647,7 +1647,7 @@ pub unsafe fn SetCommBreak<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCommBreak(
                 hfile: super::super::Foundation::HANDLE,
@@ -1669,7 +1669,7 @@ pub unsafe fn SetCommConfig<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCommConfig(
                 hcommdev: super::super::Foundation::HANDLE,
@@ -1696,7 +1696,7 @@ pub unsafe fn SetCommMask<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCommMask(
                 hfile: super::super::Foundation::HANDLE,
@@ -1721,7 +1721,7 @@ pub unsafe fn SetCommState<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCommState(
                 hfile: super::super::Foundation::HANDLE,
@@ -1746,7 +1746,7 @@ pub unsafe fn SetCommTimeouts<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCommTimeouts(
                 hfile: super::super::Foundation::HANDLE,
@@ -1772,7 +1772,7 @@ pub unsafe fn SetDefaultCommConfigA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDefaultCommConfigA(
                 lpszname: super::super::Foundation::PSTR,
@@ -1800,7 +1800,7 @@ pub unsafe fn SetDefaultCommConfigW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDefaultCommConfigW(
                 lpszname: super::super::Foundation::PWSTR,
@@ -1828,7 +1828,7 @@ pub unsafe fn SetupComm<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetupComm(
                 hfile: super::super::Foundation::HANDLE,
@@ -1856,7 +1856,7 @@ pub unsafe fn TransmitCommChar<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TransmitCommChar(
                 hfile: super::super::Foundation::HANDLE,
@@ -1882,7 +1882,7 @@ pub unsafe fn WaitCommEvent<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WaitCommEvent(
                 hfile: super::super::Foundation::HANDLE,

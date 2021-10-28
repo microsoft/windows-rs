@@ -186,7 +186,7 @@ pub unsafe fn CoDecodeProxy(
 ) -> ::windows::runtime::Result<ServerInformation> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CoDecodeProxy(
                 dwclientpid: u32,
@@ -215,7 +215,7 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<
 ) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d11")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirect3D11DeviceFromDXGIDevice(
                 dxgidevice: ::windows::runtime::RawPtr,
@@ -239,7 +239,7 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<
 ) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d11")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirect3D11SurfaceFromDXGISurface(
                 dgxisurface: ::windows::runtime::RawPtr,
@@ -263,7 +263,7 @@ pub unsafe fn CreateDispatcherQueueController<
 ) -> ::windows::runtime::Result<super::super::super::System::DispatcherQueueController> {
     #[cfg(windows)]
     {
-        #[link(name = "coremessaging")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDispatcherQueueController(
                 options: DispatcherQueueOptions,
@@ -310,7 +310,7 @@ pub unsafe fn CreateRandomAccessStreamOnFile<
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-shcore-stream-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRandomAccessStreamOnFile(
                 filepath: super::super::Foundation::PWSTR,
@@ -342,7 +342,7 @@ pub unsafe fn CreateRandomAccessStreamOverStream<
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-shcore-stream-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRandomAccessStreamOverStream(
                 stream: ::windows::runtime::RawPtr,
@@ -372,7 +372,7 @@ pub unsafe fn CreateStreamOverRandomAccessStream<
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-shcore-stream-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateStreamOverRandomAccessStream(
                 randomaccessstream: ::windows::runtime::RawPtr,
@@ -544,7 +544,7 @@ unsafe impl ::windows::runtime::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::runtime::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRestrictedErrorInfo(
                 pprestrictederrorinfo: *mut ::windows::runtime::RawPtr,
@@ -816,7 +816,7 @@ unsafe impl ::windows::runtime::Abi for HSTRING_HEADER_0 {
 pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::runtime::HSTRING) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserFree(
                 param0: *const u32,
@@ -834,7 +834,7 @@ pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::run
 pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::runtime::HSTRING) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserFree64(
                 param0: *const u32,
@@ -856,7 +856,7 @@ pub unsafe fn HSTRING_UserMarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserMarshal(
                 param0: *const u32,
@@ -880,7 +880,7 @@ pub unsafe fn HSTRING_UserMarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserMarshal64(
                 param0: *const u32,
@@ -904,7 +904,7 @@ pub unsafe fn HSTRING_UserSize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserSize(
                 param0: *const u32,
@@ -928,7 +928,7 @@ pub unsafe fn HSTRING_UserSize64(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserSize64(
                 param0: *const u32,
@@ -952,7 +952,7 @@ pub unsafe fn HSTRING_UserUnmarshal(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserUnmarshal(
                 param0: *const u32,
@@ -976,7 +976,7 @@ pub unsafe fn HSTRING_UserUnmarshal64(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn HSTRING_UserUnmarshal64(
                 param0: *const u32,
@@ -11837,7 +11837,7 @@ pub struct IWindowsDevicesAllJoynBusObjectInterop_abi(
 pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL;
         }
@@ -11854,7 +11854,7 @@ pub unsafe fn MetaDataGetDispenser(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "rometadata")]
+        #[link(name = "windows")]
         extern "system" {
             fn MetaDataGetDispenser(
                 rclsid: *const ::windows::runtime::GUID,
@@ -11951,7 +11951,7 @@ pub unsafe fn PdfCreateRenderer<
 ) -> ::windows::runtime::Result<IPdfRendererNative> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.data.pdf")]
+        #[link(name = "windows")]
         extern "system" {
             fn PdfCreateRenderer(
                 pdevice: ::windows::runtime::RawPtr,
@@ -12070,7 +12070,7 @@ pub unsafe fn RoActivateInstance<
 ) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoActivateInstance(
                 activatableclassid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -12090,7 +12090,7 @@ pub unsafe fn RoCaptureErrorContext(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoCaptureErrorContext(
                 hr: ::windows::runtime::HRESULT,
@@ -12104,7 +12104,7 @@ pub unsafe fn RoCaptureErrorContext(
 pub unsafe fn RoClearError() {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoClearError();
         }
@@ -12116,7 +12116,7 @@ pub unsafe fn RoClearError() {
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::runtime::HRESULT) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoFailFastWithErrorContext(hrerror: ::windows::runtime::HRESULT);
         }
@@ -12133,7 +12133,7 @@ pub unsafe fn RoFreeParameterizedTypeExtra<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-roparameterizediid-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
         }
@@ -12151,7 +12151,7 @@ pub unsafe fn RoGetActivationFactory<
 ) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetActivationFactory(
                 activatableclassid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -12180,7 +12180,7 @@ pub unsafe fn RoGetAgileReference<
 ) -> ::windows::runtime::Result<IAgileReference> {
     #[cfg(windows)]
     {
-        #[link(name = "ole32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetAgileReference(
                 options: AgileReferenceOptions,
@@ -12204,7 +12204,7 @@ pub unsafe fn RoGetAgileReference<
 pub unsafe fn RoGetApartmentIdentifier() -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetApartmentIdentifier(
                 apartmentidentifier: *mut u64,
@@ -12220,7 +12220,7 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows::runtime::Result<u64> {
 pub unsafe fn RoGetBufferMarshaler() -> ::windows::runtime::Result<super::Com::IMarshal> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-robuffer-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetBufferMarshaler(
                 buffermarshaler: *mut ::windows::runtime::RawPtr,
@@ -12236,7 +12236,7 @@ pub unsafe fn RoGetBufferMarshaler() -> ::windows::runtime::Result<super::Com::I
 pub unsafe fn RoGetErrorReportingFlags() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetErrorReportingFlags(pflags: *mut u32) -> ::windows::runtime::HRESULT;
         }
@@ -12251,7 +12251,7 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(
 ) -> ::windows::runtime::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetMatchingRestrictedErrorInfo(
                 hrin: ::windows::runtime::HRESULT,
@@ -12279,7 +12279,7 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-roparameterizediid-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetParameterizedTypeInstanceIID(
                 nameelementcount: u32,
@@ -12311,7 +12311,7 @@ pub unsafe fn RoGetServerActivatableClasses<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-registration-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoGetServerActivatableClasses(
                 servername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -12334,7 +12334,7 @@ pub unsafe fn RoGetServerActivatableClasses<
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::runtime::HRESULT;
         }
@@ -12353,7 +12353,7 @@ pub unsafe fn RoInspectCapturedStackBackTrace(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoInspectCapturedStackBackTrace(
                 targeterrorinfoaddress: usize,
@@ -12385,7 +12385,7 @@ pub unsafe fn RoInspectThreadErrorInfo(
 ) -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoInspectThreadErrorInfo(
                 targettebaddress: usize,
@@ -12418,7 +12418,7 @@ pub unsafe fn RoOriginateError<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoOriginateError(
                 error: ::windows::runtime::HRESULT,
@@ -12444,7 +12444,7 @@ pub unsafe fn RoOriginateErrorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoOriginateErrorW(
                 error: ::windows::runtime::HRESULT,
@@ -12473,7 +12473,7 @@ pub unsafe fn RoOriginateLanguageException<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoOriginateLanguageException(
                 error: ::windows::runtime::HRESULT,
@@ -12499,7 +12499,7 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-roparameterizediid-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoParameterizedTypeExtraGetTypeSignature(
                 extra: ROPARAMIIDHANDLE,
@@ -12519,7 +12519,7 @@ pub unsafe fn RoRegisterActivationFactories(
 ) -> ::windows::runtime::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoRegisterActivationFactories(
                 activatableclassids: *const ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -12550,7 +12550,7 @@ pub unsafe fn RoRegisterForApartmentShutdown<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoRegisterForApartmentShutdown(
                 callbackobject: ::windows::runtime::RawPtr,
@@ -12578,7 +12578,7 @@ pub unsafe fn RoReportFailedDelegate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoReportFailedDelegate(
                 punkdelegate: ::windows::runtime::RawPtr,
@@ -12602,7 +12602,7 @@ pub unsafe fn RoReportUnhandledError<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoReportUnhandledError(
                 prestrictederrorinfo: ::windows::runtime::RawPtr,
@@ -12622,7 +12622,7 @@ pub unsafe fn RoResolveRestrictedErrorInfoReference<
 ) -> ::windows::runtime::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoResolveRestrictedErrorInfoReference(
                 reference: super::super::Foundation::PWSTR,
@@ -12640,7 +12640,7 @@ pub unsafe fn RoResolveRestrictedErrorInfoReference<
 pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoRevokeActivationFactories(cookie: isize);
         }
@@ -12652,7 +12652,7 @@ pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
 pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoSetErrorReportingFlags(flags: u32) -> ::windows::runtime::HRESULT;
         }
@@ -12672,7 +12672,7 @@ pub unsafe fn RoTransformError<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoTransformError(
                 olderror: ::windows::runtime::HRESULT,
@@ -12701,7 +12701,7 @@ pub unsafe fn RoTransformErrorW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoTransformErrorW(
                 olderror: ::windows::runtime::HRESULT,
@@ -12723,7 +12723,7 @@ pub unsafe fn RoTransformErrorW<
 pub unsafe fn RoUninitialize() {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoUninitialize();
         }
@@ -12740,7 +12740,7 @@ pub unsafe fn RoUnregisterForApartmentShutdown<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoUnregisterForApartmentShutdown(
                 regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE,
@@ -12793,7 +12793,7 @@ pub unsafe fn SetRestrictedErrorInfo<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-error-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetRestrictedErrorInfo(
                 prestrictederrorinfo: ::windows::runtime::RawPtr,
@@ -12864,7 +12864,7 @@ pub unsafe fn WindowsCompareStringOrdinal<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsCompareStringOrdinal(
                 string1: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -12893,7 +12893,7 @@ pub unsafe fn WindowsConcatString<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsConcatString(
                 string1: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -12923,7 +12923,7 @@ pub unsafe fn WindowsCreateString<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsCreateString(
                 sourcestring: super::super::Foundation::PWSTR,
@@ -12955,7 +12955,7 @@ pub unsafe fn WindowsCreateStringReference<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsCreateStringReference(
                 sourcestring: super::super::Foundation::PWSTR,
@@ -12983,7 +12983,7 @@ pub unsafe fn WindowsDeleteString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsDeleteString(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13002,7 +13002,7 @@ pub unsafe fn WindowsDeleteStringBuffer<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsDeleteStringBuffer(
                 bufferhandle: HSTRING_BUFFER,
@@ -13021,7 +13021,7 @@ pub unsafe fn WindowsDuplicateString<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsDuplicateString(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13044,7 +13044,7 @@ pub unsafe fn WindowsGetStringLen<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsGetStringLen(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13065,7 +13065,7 @@ pub unsafe fn WindowsGetStringRawBuffer<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsGetStringRawBuffer(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13090,7 +13090,7 @@ pub unsafe fn WindowsInspectString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsInspectString(
                 targethstring: usize,
@@ -13124,7 +13124,7 @@ pub unsafe fn WindowsInspectString2(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsInspectString2(
                 targethstring: u64,
@@ -13157,7 +13157,7 @@ pub unsafe fn WindowsIsStringEmpty<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsIsStringEmpty(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13175,7 +13175,7 @@ pub unsafe fn WindowsPreallocateStringBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsPreallocateStringBuffer(
                 length: u32,
@@ -13201,7 +13201,7 @@ pub unsafe fn WindowsPromoteStringBuffer<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsPromoteStringBuffer(
                 bufferhandle: HSTRING_BUFFER,
@@ -13228,7 +13228,7 @@ pub unsafe fn WindowsReplaceString<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsReplaceString(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13259,7 +13259,7 @@ pub unsafe fn WindowsStringHasEmbeddedNull<
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsStringHasEmbeddedNull(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13283,7 +13283,7 @@ pub unsafe fn WindowsSubstring<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsSubstring(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13313,7 +13313,7 @@ pub unsafe fn WindowsSubstringWithSpecifiedLength<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsSubstringWithSpecifiedLength(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13345,7 +13345,7 @@ pub unsafe fn WindowsTrimStringEnd<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsTrimStringEnd(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
@@ -13375,7 +13375,7 @@ pub unsafe fn WindowsTrimStringStart<
 ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-winrt-string-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowsTrimStringStart(
                 string: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,

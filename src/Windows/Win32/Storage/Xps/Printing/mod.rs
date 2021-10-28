@@ -785,7 +785,7 @@ pub unsafe fn StartXpsPrintJob<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xpsprint")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartXpsPrintJob(
                 printername: super::super::super::Foundation::PWSTR,
@@ -836,7 +836,7 @@ pub unsafe fn StartXpsPrintJob1<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "xpsprint")]
+        #[link(name = "windows")]
         extern "system" {
             fn StartXpsPrintJob1(
                 printername: super::super::super::Foundation::PWSTR,

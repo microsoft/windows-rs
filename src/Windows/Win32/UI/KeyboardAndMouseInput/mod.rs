@@ -75,7 +75,7 @@ pub unsafe fn ActivateKeyboardLayout<
 ) -> super::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ActivateKeyboardLayout(
                 hkl: super::TextServices::HKL,
@@ -100,7 +100,7 @@ pub unsafe fn BlockInput<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BlockInput(
                 fblockit: super::super::Foundation::BOOL,
@@ -165,7 +165,7 @@ pub unsafe fn DefRawInputProc(
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefRawInputProc(
                 parawinput: *const *const RAWINPUT,
@@ -193,7 +193,7 @@ pub unsafe fn DragDetect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DragDetect(
                 hwnd: super::super::Foundation::HWND,
@@ -217,7 +217,7 @@ pub unsafe fn EnableWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -293,7 +293,7 @@ pub const GRPSELTAP: u32 = 128u32;
 pub unsafe fn GetActiveWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetActiveWindow() -> super::super::Foundation::HWND;
         }
@@ -305,7 +305,7 @@ pub unsafe fn GetActiveWindow() -> super::super::Foundation::HWND {
 pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAsyncKeyState(vkey: i32) -> i16;
         }
@@ -318,7 +318,7 @@ pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
 pub unsafe fn GetCapture() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCapture() -> super::super::Foundation::HWND;
         }
@@ -330,7 +330,7 @@ pub unsafe fn GetCapture() -> super::super::Foundation::HWND {
 pub unsafe fn GetDoubleClickTime() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDoubleClickTime() -> u32;
         }
@@ -343,7 +343,7 @@ pub unsafe fn GetDoubleClickTime() -> u32 {
 pub unsafe fn GetFocus() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFocus() -> super::super::Foundation::HWND;
         }
@@ -355,7 +355,7 @@ pub unsafe fn GetFocus() -> super::super::Foundation::HWND {
 pub unsafe fn GetKBCodePage() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKBCodePage() -> u32;
         }
@@ -372,7 +372,7 @@ pub unsafe fn GetKeyNameTextA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyNameTextA(
                 lparam: i32,
@@ -397,7 +397,7 @@ pub unsafe fn GetKeyNameTextW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyNameTextW(
                 lparam: i32,
@@ -417,7 +417,7 @@ pub unsafe fn GetKeyNameTextW(
 pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyState(nvirtkey: i32) -> i16;
         }
@@ -430,7 +430,7 @@ pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
 pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyboardLayout(idthread: u32) -> super::TextServices::HKL;
         }
@@ -443,7 +443,7 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::TextServices::HKL {
 pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::TextServices::HKL) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::TextServices::HKL) -> i32;
         }
@@ -461,7 +461,7 @@ pub unsafe fn GetKeyboardLayoutNameA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyboardLayoutNameA(
                 pwszklid: super::super::Foundation::PSTR,
@@ -478,7 +478,7 @@ pub unsafe fn GetKeyboardLayoutNameW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyboardLayoutNameW(
                 pwszklid: super::super::Foundation::PWSTR,
@@ -493,7 +493,7 @@ pub unsafe fn GetKeyboardLayoutNameW(
 pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::Foundation::BOOL;
         }
@@ -505,7 +505,7 @@ pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::Foundation:
 pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKeyboardType(ntypeflag: i32) -> i32;
         }
@@ -518,7 +518,7 @@ pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
 pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::Foundation::BOOL;
         }
@@ -536,7 +536,7 @@ pub unsafe fn GetMouseMovePointsEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMouseMovePointsEx(
                 cbsize: u32,
@@ -561,7 +561,7 @@ pub unsafe fn GetMouseMovePointsEx(
 pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeheader: u32)
                 -> u32;
@@ -584,7 +584,7 @@ pub unsafe fn GetRawInputData<'a, Param0: ::windows::runtime::IntoParam<'a, HRAW
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRawInputData(
                 hrawinput: HRAWINPUT,
@@ -617,7 +617,7 @@ pub unsafe fn GetRawInputDeviceInfoA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRawInputDeviceInfoA(
                 hdevice: super::super::Foundation::HANDLE,
@@ -648,7 +648,7 @@ pub unsafe fn GetRawInputDeviceInfoW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRawInputDeviceInfoW(
                 hdevice: super::super::Foundation::HANDLE,
@@ -675,7 +675,7 @@ pub unsafe fn GetRawInputDeviceList(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRawInputDeviceList(
                 prawinputdevicelist: *mut RAWINPUTDEVICELIST,
@@ -700,7 +700,7 @@ pub unsafe fn GetRegisteredRawInputDevices(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRegisteredRawInputDevices(
                 prawinputdevices: *mut RAWINPUTDEVICE,
@@ -926,7 +926,7 @@ pub unsafe fn IsWindowEnabled<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWindowEnabled(
                 hwnd: super::super::Foundation::HWND,
@@ -1377,7 +1377,7 @@ pub unsafe fn LoadKeyboardLayoutA<
 ) -> super::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadKeyboardLayoutA(
                 pwszklid: super::super::Foundation::PSTR,
@@ -1402,7 +1402,7 @@ pub unsafe fn LoadKeyboardLayoutW<
 ) -> super::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadKeyboardLayoutW(
                 pwszklid: super::super::Foundation::PWSTR,
@@ -1606,7 +1606,7 @@ impl ::std::ops::Not for MOUSE_EVENT_FLAGS {
 pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32;
         }
@@ -1629,7 +1629,7 @@ pub unsafe fn MapVirtualKeyExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapVirtualKeyExA(ucode: u32, umaptype: u32, dwhkl: super::TextServices::HKL) -> u32;
         }
@@ -1653,7 +1653,7 @@ pub unsafe fn MapVirtualKeyExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapVirtualKeyExW(ucode: u32, umaptype: u32, dwhkl: super::TextServices::HKL) -> u32;
         }
@@ -1669,7 +1669,7 @@ pub unsafe fn MapVirtualKeyExW<
 pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32;
         }
@@ -1704,7 +1704,7 @@ pub const OVERSCORE: u32 = 773u32;
 pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OemKeyScan(woemchar: u16) -> u32;
         }
@@ -2451,7 +2451,7 @@ pub unsafe fn RegisterHotKey<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterHotKey(
                 hwnd: super::super::Foundation::HWND,
@@ -2478,7 +2478,7 @@ pub unsafe fn RegisterRawInputDevices(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterRawInputDevices(
                 prawinputdevices: *const RAWINPUTDEVICE,
@@ -2499,7 +2499,7 @@ pub unsafe fn RegisterRawInputDevices(
 pub unsafe fn ReleaseCapture() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseCapture() -> super::super::Foundation::BOOL;
         }
@@ -2522,7 +2522,7 @@ pub const SHFT_INVALID: u32 = 15u32;
 pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32;
         }
@@ -2544,7 +2544,7 @@ pub unsafe fn SetActiveWindow<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetActiveWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -2564,7 +2564,7 @@ pub unsafe fn SetCapture<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCapture(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
@@ -2577,7 +2577,7 @@ pub unsafe fn SetCapture<
 pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDoubleClickTime(param0: u32) -> super::super::Foundation::BOOL;
         }
@@ -2595,7 +2595,7 @@ pub unsafe fn SetFocus<
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFocus(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
@@ -2608,7 +2608,7 @@ pub unsafe fn SetFocus<
 pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetKeyboardState(lpkeystate: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -2626,7 +2626,7 @@ pub unsafe fn SwapMouseButton<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwapMouseButton(
                 fswap: super::super::Foundation::BOOL,
@@ -2746,7 +2746,7 @@ pub unsafe fn ToAscii(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ToAscii(
                 uvirtkey: u32,
@@ -2778,7 +2778,7 @@ pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::Tex
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ToAsciiEx(
                 uvirtkey: u32,
@@ -2812,7 +2812,7 @@ pub unsafe fn ToUnicode(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ToUnicode(
                 wvirtkey: u32,
@@ -2850,7 +2850,7 @@ pub unsafe fn ToUnicodeEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ToUnicodeEx(
                 wvirtkey: u32,
@@ -2881,7 +2881,7 @@ pub unsafe fn TrackMouseEvent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TrackMouseEvent(
                 lpeventtrack: *mut TRACKMOUSEEVENT,
@@ -2902,7 +2902,7 @@ pub unsafe fn UnloadKeyboardLayout<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnloadKeyboardLayout(
                 hkl: super::TextServices::HKL,
@@ -2923,7 +2923,7 @@ pub unsafe fn UnregisterHotKey<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterHotKey(
                 hwnd: super::super::Foundation::HWND,
@@ -3714,7 +3714,7 @@ pub unsafe fn VkKeyScanA<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VkKeyScanA(ch: super::super::System::SystemServices::CHAR) -> i16;
         }
@@ -3737,7 +3737,7 @@ pub unsafe fn VkKeyScanExA<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VkKeyScanExA(
                 ch: super::super::System::SystemServices::CHAR,
@@ -3762,7 +3762,7 @@ pub unsafe fn VkKeyScanExW<
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VkKeyScanExW(ch: u16, dwhkl: super::TextServices::HKL) -> i16;
         }
@@ -3777,7 +3777,7 @@ pub unsafe fn VkKeyScanExW<
 pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VkKeyScanW(ch: u16) -> i16;
         }
@@ -3795,7 +3795,7 @@ pub unsafe fn _TrackMouseEvent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "comctl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _TrackMouseEvent(
                 lpeventtrack: *mut TRACKMOUSEEVENT,
@@ -3882,7 +3882,7 @@ unsafe impl ::windows::runtime::Abi for _VK_TO_FUNCTION_TABLE {
 pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
         }
@@ -3905,7 +3905,7 @@ pub unsafe fn mouse_event(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn mouse_event(
                 dwflags: MOUSE_EVENT_FLAGS,

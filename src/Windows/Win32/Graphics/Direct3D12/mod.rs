@@ -51,7 +51,7 @@ pub unsafe fn D3D11On12CreateDevice<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d11")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D11On12CreateDevice(
                 pdevice: ::windows::runtime::RawPtr,
@@ -187,7 +187,7 @@ pub unsafe fn D3D12CreateDevice<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12CreateDevice(
                 padapter: ::windows::runtime::RawPtr,
@@ -215,7 +215,7 @@ pub unsafe fn D3D12CreateRootSignatureDeserializer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12CreateRootSignatureDeserializer(
                 psrcdata: *const ::std::ffi::c_void,
@@ -243,7 +243,7 @@ pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12CreateVersionedRootSignatureDeserializer(
                 psrcdata: *const ::std::ffi::c_void,
@@ -271,7 +271,7 @@ pub unsafe fn D3D12EnableExperimentalFeatures(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12EnableExperimentalFeatures(
                 numfeatures: u32,
@@ -303,7 +303,7 @@ pub unsafe fn D3D12GetDebugInterface<T: ::windows::runtime::Interface>(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12GetDebugInterface(
                 riid: *const ::windows::runtime::GUID,
@@ -325,7 +325,7 @@ pub unsafe fn D3D12GetInterface<T: ::windows::runtime::Interface>(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12GetInterface(
                 rclsid: *const ::windows::runtime::GUID,
@@ -366,7 +366,7 @@ pub unsafe fn D3D12SerializeRootSignature(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12SerializeRootSignature(
                 prootsignature: *const D3D12_ROOT_SIGNATURE_DESC,
@@ -394,7 +394,7 @@ pub unsafe fn D3D12SerializeVersionedRootSignature(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d12")]
+        #[link(name = "windows")]
         extern "system" {
             fn D3D12SerializeVersionedRootSignature(
                 prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC,
@@ -17643,7 +17643,7 @@ pub unsafe fn Direct3DCreate9On12(
 ) -> ::std::option::Option<super::Direct3D9::IDirect3D9> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn Direct3DCreate9On12(
                 sdkversion: u32,
@@ -17669,7 +17669,7 @@ pub unsafe fn Direct3DCreate9On12Ex(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "d3d9")]
+        #[link(name = "windows")]
         extern "system" {
             fn Direct3DCreate9On12Ex(
                 sdkversion: u32,
@@ -56832,7 +56832,7 @@ pub unsafe fn MFCreateD3D12SynchronizationObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "mfplat")]
+        #[link(name = "windows")]
         extern "system" {
             fn MFCreateD3D12SynchronizationObject(
                 pdevice: ::windows::runtime::RawPtr,

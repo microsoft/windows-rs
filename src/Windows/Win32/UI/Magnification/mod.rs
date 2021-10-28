@@ -121,7 +121,7 @@ pub unsafe fn MagGetColorEffect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetColorEffect(
                 hwnd: super::super::Foundation::HWND,
@@ -142,7 +142,7 @@ pub unsafe fn MagGetFullscreenColorEffect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetFullscreenColorEffect(
                 peffect: *mut MAGCOLOREFFECT,
@@ -161,7 +161,7 @@ pub unsafe fn MagGetFullscreenTransform(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetFullscreenTransform(
                 pmaglevel: *mut f32,
@@ -187,7 +187,7 @@ pub unsafe fn MagGetImageScalingCallback<
 ) -> ::std::option::Option<MagImageScalingCallback> {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetImageScalingCallback(
                 hwnd: super::super::Foundation::HWND,
@@ -206,7 +206,7 @@ pub unsafe fn MagGetInputTransform(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetInputTransform(
                 pfenabled: *mut super::super::Foundation::BOOL,
@@ -235,7 +235,7 @@ pub unsafe fn MagGetWindowFilterList<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetWindowFilterList(
                 hwnd: super::super::Foundation::HWND,
@@ -264,7 +264,7 @@ pub unsafe fn MagGetWindowSource<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetWindowSource(
                 hwnd: super::super::Foundation::HWND,
@@ -289,7 +289,7 @@ pub unsafe fn MagGetWindowTransform<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagGetWindowTransform(
                 hwnd: super::super::Foundation::HWND,
@@ -319,7 +319,7 @@ pub type MagImageScalingCallback = unsafe extern "system" fn(
 pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagInitialize() -> super::super::Foundation::BOOL;
         }
@@ -338,7 +338,7 @@ pub unsafe fn MagSetColorEffect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetColorEffect(
                 hwnd: super::super::Foundation::HWND,
@@ -359,7 +359,7 @@ pub unsafe fn MagSetFullscreenColorEffect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetFullscreenColorEffect(
                 peffect: *const MAGCOLOREFFECT,
@@ -378,7 +378,7 @@ pub unsafe fn MagSetFullscreenTransform(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetFullscreenTransform(
                 maglevel: f32,
@@ -405,7 +405,7 @@ pub unsafe fn MagSetImageScalingCallback<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetImageScalingCallback(
                 hwnd: super::super::Foundation::HWND,
@@ -431,7 +431,7 @@ pub unsafe fn MagSetInputTransform<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetInputTransform(
                 fenabled: super::super::Foundation::BOOL,
@@ -460,7 +460,7 @@ pub unsafe fn MagSetWindowFilterList<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetWindowFilterList(
                 hwnd: super::super::Foundation::HWND,
@@ -490,7 +490,7 @@ pub unsafe fn MagSetWindowSource<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetWindowSource(
                 hwnd: super::super::Foundation::HWND,
@@ -515,7 +515,7 @@ pub unsafe fn MagSetWindowTransform<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagSetWindowTransform(
                 hwnd: super::super::Foundation::HWND,
@@ -539,7 +539,7 @@ pub unsafe fn MagShowSystemCursor<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagShowSystemCursor(
                 fshowcursor: super::super::Foundation::BOOL,
@@ -554,7 +554,7 @@ pub unsafe fn MagShowSystemCursor<
 pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "magnification")]
+        #[link(name = "windows")]
         extern "system" {
             fn MagUninitialize() -> super::super::Foundation::BOOL;
         }

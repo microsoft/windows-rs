@@ -13,7 +13,7 @@ pub unsafe fn CloseDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
         }
@@ -28,7 +28,7 @@ pub unsafe fn CloseWindowStation<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseWindowStation(hwinsta: HWINSTA) -> super::super::Foundation::BOOL;
         }
@@ -56,7 +56,7 @@ pub unsafe fn CreateDesktopA<
 ) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDesktopA(
                 lpszdesktop: super::super::Foundation::PSTR,
@@ -100,7 +100,7 @@ pub unsafe fn CreateDesktopExA<
 ) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDesktopExA(
                 lpszdesktop: super::super::Foundation::PSTR,
@@ -148,7 +148,7 @@ pub unsafe fn CreateDesktopExW<
 ) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDesktopExW(
                 lpszdesktop: super::super::Foundation::PWSTR,
@@ -194,7 +194,7 @@ pub unsafe fn CreateDesktopW<
 ) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDesktopW(
                 lpszdesktop: super::super::Foundation::PWSTR,
@@ -229,7 +229,7 @@ pub unsafe fn CreateWindowStationA<
 ) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWindowStationA(
                 lpwinsta: super::super::Foundation::PSTR,
@@ -260,7 +260,7 @@ pub unsafe fn CreateWindowStationW<
 ) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWindowStationW(
                 lpwinsta: super::super::Foundation::PWSTR,
@@ -291,7 +291,7 @@ pub unsafe fn EnumDesktopWindows<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDesktopWindows(
                 hdesktop: HDESK,
@@ -320,7 +320,7 @@ pub unsafe fn EnumDesktopsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDesktopsA(
                 hwinsta: HWINSTA,
@@ -349,7 +349,7 @@ pub unsafe fn EnumDesktopsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDesktopsW(
                 hwinsta: HWINSTA,
@@ -376,7 +376,7 @@ pub unsafe fn EnumWindowStationsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumWindowStationsA(
                 lpenumfunc: ::windows::runtime::RawPtr,
@@ -401,7 +401,7 @@ pub unsafe fn EnumWindowStationsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumWindowStationsW(
                 lpenumfunc: ::windows::runtime::RawPtr,
@@ -419,7 +419,7 @@ pub unsafe fn EnumWindowStationsW<
 pub unsafe fn GetProcessWindowStation() -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessWindowStation() -> HWINSTA;
         }
@@ -431,7 +431,7 @@ pub unsafe fn GetProcessWindowStation() -> HWINSTA {
 pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadDesktop(dwthreadid: u32) -> HDESK;
         }
@@ -453,7 +453,7 @@ pub unsafe fn GetUserObjectInformationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserObjectInformationA(
                 hobj: super::super::Foundation::HANDLE,
@@ -487,7 +487,7 @@ pub unsafe fn GetUserObjectInformationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserObjectInformationW(
                 hobj: super::super::Foundation::HANDLE,
@@ -559,7 +559,7 @@ pub unsafe fn OpenDesktopA<
 ) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenDesktopA(
                 lpszdesktop: super::super::Foundation::PSTR,
@@ -591,7 +591,7 @@ pub unsafe fn OpenDesktopW<
 ) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenDesktopW(
                 lpszdesktop: super::super::Foundation::PWSTR,
@@ -621,7 +621,7 @@ pub unsafe fn OpenInputDesktop<
 ) -> HDESK {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenInputDesktop(
                 dwflags: u32,
@@ -650,7 +650,7 @@ pub unsafe fn OpenWindowStationA<
 ) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenWindowStationA(
                 lpszwinsta: super::super::Foundation::PSTR,
@@ -679,7 +679,7 @@ pub unsafe fn OpenWindowStationW<
 ) -> HWINSTA {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenWindowStationW(
                 lpszwinsta: super::super::Foundation::PWSTR,
@@ -702,7 +702,7 @@ pub unsafe fn SetProcessWindowStation<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessWindowStation(hwinsta: HWINSTA) -> super::super::Foundation::BOOL;
         }
@@ -717,7 +717,7 @@ pub unsafe fn SetThreadDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDE
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
         }
@@ -738,7 +738,7 @@ pub unsafe fn SetUserObjectInformationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUserObjectInformationA(
                 hobj: super::super::Foundation::HANDLE,
@@ -769,7 +769,7 @@ pub unsafe fn SetUserObjectInformationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUserObjectInformationW(
                 hobj: super::super::Foundation::HANDLE,
@@ -794,7 +794,7 @@ pub unsafe fn SwitchDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SwitchDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
         }

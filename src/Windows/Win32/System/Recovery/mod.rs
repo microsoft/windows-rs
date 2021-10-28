@@ -16,7 +16,7 @@ pub unsafe fn ApplicationRecoveryFinished<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplicationRecoveryFinished(bsuccess: super::super::Foundation::BOOL);
         }
@@ -30,7 +30,7 @@ pub unsafe fn ApplicationRecoveryInProgress(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApplicationRecoveryInProgress(
                 pbcancelled: *mut super::super::Foundation::BOOL,
@@ -62,7 +62,7 @@ pub unsafe fn GetApplicationRecoveryCallback<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetApplicationRecoveryCallback(
                 hprocess: super::super::Foundation::HANDLE,
@@ -96,7 +96,7 @@ pub unsafe fn GetApplicationRestartSettings<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetApplicationRestartSettings(
                 hprocess: super::super::Foundation::HANDLE,
@@ -182,7 +182,7 @@ pub unsafe fn RegisterApplicationRecoveryCallback(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterApplicationRecoveryCallback(
                 precoveycallback: ::windows::runtime::RawPtr,
@@ -212,7 +212,7 @@ pub unsafe fn RegisterApplicationRestart<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterApplicationRestart(
                 pwzcommandline: super::super::Foundation::PWSTR,
@@ -231,7 +231,7 @@ pub unsafe fn RegisterApplicationRestart<
 pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::HRESULT;
         }
@@ -243,7 +243,7 @@ pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Res
 pub unsafe fn UnregisterApplicationRestart() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterApplicationRestart() -> ::windows::runtime::HRESULT;
         }

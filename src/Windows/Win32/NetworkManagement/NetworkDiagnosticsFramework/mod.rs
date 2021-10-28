@@ -1117,7 +1117,7 @@ pub unsafe fn NdfCancelIncident(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCancelIncident(handle: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -1129,7 +1129,7 @@ pub unsafe fn NdfCancelIncident(
 pub unsafe fn NdfCloseIncident(handle: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCloseIncident(handle: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -1143,7 +1143,7 @@ pub unsafe fn NdfCreateConnectivityIncident(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateConnectivityIncident(
                 handle: *mut *mut ::std::ffi::c_void,
@@ -1165,7 +1165,7 @@ pub unsafe fn NdfCreateDNSIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateDNSIncident(
                 hostname: super::super::Foundation::PWSTR,
@@ -1206,7 +1206,7 @@ pub unsafe fn NdfCreateGroupingIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateGroupingIncident(
                 cloudname: super::super::Foundation::PWSTR,
@@ -1244,7 +1244,7 @@ pub unsafe fn NdfCreateIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateIncident(
                 helperclassname: super::super::Foundation::PWSTR,
@@ -1273,7 +1273,7 @@ pub unsafe fn NdfCreateNetConnectionIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateNetConnectionIncident(
                 handle: *mut *mut ::std::ffi::c_void,
@@ -1301,7 +1301,7 @@ pub unsafe fn NdfCreatePnrpIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreatePnrpIncident(
                 cloudname: super::super::Foundation::PWSTR,
@@ -1333,7 +1333,7 @@ pub unsafe fn NdfCreateSharingIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateSharingIncident(
                 uncpath: super::super::Foundation::PWSTR,
@@ -1355,7 +1355,7 @@ pub unsafe fn NdfCreateWebIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateWebIncident(
                 url: super::super::Foundation::PWSTR,
@@ -1381,7 +1381,7 @@ pub unsafe fn NdfCreateWebIncidentEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateWebIncidentEx(
                 url: super::super::Foundation::PWSTR,
@@ -1421,7 +1421,7 @@ pub unsafe fn NdfCreateWinSockIncident<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfCreateWinSockIncident(
                 sock: super::super::Networking::WinSock::SOCKET,
@@ -1455,7 +1455,7 @@ pub unsafe fn NdfDiagnoseIncident(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfDiagnoseIncident(
                 handle: *const ::std::ffi::c_void,
@@ -1487,7 +1487,7 @@ pub unsafe fn NdfExecuteDiagnosis<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfExecuteDiagnosis(
                 handle: *const ::std::ffi::c_void,
@@ -1505,7 +1505,7 @@ pub unsafe fn NdfGetTraceFile(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfGetTraceFile(
                 handle: *const ::std::ffi::c_void,
@@ -1528,7 +1528,7 @@ pub unsafe fn NdfRepairIncident(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ndfapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdfRepairIncident(
                 handle: *const ::std::ffi::c_void,

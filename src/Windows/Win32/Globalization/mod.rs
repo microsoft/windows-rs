@@ -1099,7 +1099,7 @@ pub unsafe fn CompareStringA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompareStringA(
                 locale: u32,
@@ -1142,7 +1142,7 @@ pub unsafe fn CompareStringEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompareStringEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -1186,7 +1186,7 @@ pub unsafe fn CompareStringOrdinal<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompareStringOrdinal(
                 lpstring1: super::Foundation::PWSTR,
@@ -1222,7 +1222,7 @@ pub unsafe fn CompareStringW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompareStringW(
                 locale: u32,
@@ -1248,7 +1248,7 @@ pub unsafe fn CompareStringW<
 pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertDefaultLocale(locale: u32) -> u32;
         }
@@ -1548,7 +1548,7 @@ pub unsafe fn EnumCalendarInfoA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumCalendarInfoA(
                 lpcalinfoenumproc: ::windows::runtime::RawPtr,
@@ -1576,7 +1576,7 @@ pub unsafe fn EnumCalendarInfoExA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumCalendarInfoExA(
                 lpcalinfoenumprocex: ::windows::runtime::RawPtr,
@@ -1611,7 +1611,7 @@ pub unsafe fn EnumCalendarInfoExEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumCalendarInfoExEx(
                 pcalinfoenumprocexex: ::windows::runtime::RawPtr,
@@ -1643,7 +1643,7 @@ pub unsafe fn EnumCalendarInfoExW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumCalendarInfoExW(
                 lpcalinfoenumprocex: ::windows::runtime::RawPtr,
@@ -1671,7 +1671,7 @@ pub unsafe fn EnumCalendarInfoW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumCalendarInfoW(
                 lpcalinfoenumproc: ::windows::runtime::RawPtr,
@@ -1698,7 +1698,7 @@ pub unsafe fn EnumDateFormatsA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDateFormatsA(
                 lpdatefmtenumproc: ::windows::runtime::RawPtr,
@@ -1723,7 +1723,7 @@ pub unsafe fn EnumDateFormatsExA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDateFormatsExA(
                 lpdatefmtenumprocex: ::windows::runtime::RawPtr,
@@ -1753,7 +1753,7 @@ pub unsafe fn EnumDateFormatsExEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDateFormatsExEx(
                 lpdatefmtenumprocexex: ::windows::runtime::RawPtr,
@@ -1780,7 +1780,7 @@ pub unsafe fn EnumDateFormatsExW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDateFormatsExW(
                 lpdatefmtenumprocex: ::windows::runtime::RawPtr,
@@ -1805,7 +1805,7 @@ pub unsafe fn EnumDateFormatsW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDateFormatsW(
                 lpdatefmtenumproc: ::windows::runtime::RawPtr,
@@ -1831,7 +1831,7 @@ pub unsafe fn EnumLanguageGroupLocalesA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumLanguageGroupLocalesA(
                 lplanggrouplocaleenumproc: ::windows::runtime::RawPtr,
@@ -1859,7 +1859,7 @@ pub unsafe fn EnumLanguageGroupLocalesW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumLanguageGroupLocalesW(
                 lplanggrouplocaleenumproc: ::windows::runtime::RawPtr,
@@ -1885,7 +1885,7 @@ pub unsafe fn EnumSystemCodePagesA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemCodePagesA(
                 lpcodepageenumproc: ::windows::runtime::RawPtr,
@@ -1907,7 +1907,7 @@ pub unsafe fn EnumSystemCodePagesW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemCodePagesW(
                 lpcodepageenumproc: ::windows::runtime::RawPtr,
@@ -1930,7 +1930,7 @@ pub unsafe fn EnumSystemGeoID(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemGeoID(
                 geoclass: u32,
@@ -1958,7 +1958,7 @@ pub unsafe fn EnumSystemGeoNames<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemGeoNames(
                 geoclass: u32,
@@ -1983,7 +1983,7 @@ pub unsafe fn EnumSystemLanguageGroupsA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemLanguageGroupsA(
                 lplanguagegroupenumproc: ::windows::runtime::RawPtr,
@@ -2008,7 +2008,7 @@ pub unsafe fn EnumSystemLanguageGroupsW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemLanguageGroupsW(
                 lplanguagegroupenumproc: ::windows::runtime::RawPtr,
@@ -2032,7 +2032,7 @@ pub unsafe fn EnumSystemLocalesA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemLocalesA(
                 lplocaleenumproc: ::windows::runtime::RawPtr,
@@ -2059,7 +2059,7 @@ pub unsafe fn EnumSystemLocalesEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemLocalesEx(
                 lplocaleenumprocex: ::windows::runtime::RawPtr,
@@ -2085,7 +2085,7 @@ pub unsafe fn EnumSystemLocalesW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumSystemLocalesW(
                 lplocaleenumproc: ::windows::runtime::RawPtr,
@@ -2108,7 +2108,7 @@ pub unsafe fn EnumTimeFormatsA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumTimeFormatsA(
                 lptimefmtenumproc: ::windows::runtime::RawPtr,
@@ -2138,7 +2138,7 @@ pub unsafe fn EnumTimeFormatsEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumTimeFormatsEx(
                 lptimefmtenumprocex: ::windows::runtime::RawPtr,
@@ -2165,7 +2165,7 @@ pub unsafe fn EnumTimeFormatsW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumTimeFormatsW(
                 lptimefmtenumproc: ::windows::runtime::RawPtr,
@@ -2190,7 +2190,7 @@ pub unsafe fn EnumUILanguagesA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumUILanguagesA(
                 lpuilanguageenumproc: ::windows::runtime::RawPtr,
@@ -2215,7 +2215,7 @@ pub unsafe fn EnumUILanguagesW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumUILanguagesW(
                 lpuilanguageenumproc: ::windows::runtime::RawPtr,
@@ -2453,7 +2453,7 @@ pub unsafe fn FindNLSString<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNLSString(
                 locale: u32,
@@ -2499,7 +2499,7 @@ pub unsafe fn FindNLSStringEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNLSStringEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -2546,7 +2546,7 @@ pub unsafe fn FindStringOrdinal<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindStringOrdinal(
                 dwfindstringordinalflags: u32,
@@ -2582,7 +2582,7 @@ pub unsafe fn FoldStringA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FoldStringA(
                 dwmapflags: FOLD_STRING_MAP_FLAGS,
@@ -2616,7 +2616,7 @@ pub unsafe fn FoldStringW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FoldStringW(
                 dwmapflags: FOLD_STRING_MAP_FLAGS,
@@ -2860,7 +2860,7 @@ unsafe impl ::windows::runtime::Abi for GUIDELINE {
 pub unsafe fn GetACP() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetACP() -> u32;
         }
@@ -2873,7 +2873,7 @@ pub unsafe fn GetACP() -> u32 {
 pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL;
         }
@@ -2893,7 +2893,7 @@ pub unsafe fn GetCPInfoExA(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCPInfoExA(
                 codepage: u32,
@@ -2918,7 +2918,7 @@ pub unsafe fn GetCPInfoExW(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCPInfoExW(
                 codepage: u32,
@@ -2946,7 +2946,7 @@ pub unsafe fn GetCalendarInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCalendarInfoA(
                 locale: u32,
@@ -2985,7 +2985,7 @@ pub unsafe fn GetCalendarInfoEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCalendarInfoEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -3021,7 +3021,7 @@ pub unsafe fn GetCalendarInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCalendarInfoW(
                 locale: u32,
@@ -3058,7 +3058,7 @@ pub unsafe fn GetCurrencyFormatA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrencyFormatA(
                 locale: u32,
@@ -3096,7 +3096,7 @@ pub unsafe fn GetCurrencyFormatEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrencyFormatEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -3133,7 +3133,7 @@ pub unsafe fn GetCurrencyFormatW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrencyFormatW(
                 locale: u32,
@@ -3170,7 +3170,7 @@ pub unsafe fn GetDateFormatA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDateFormatA(
                 locale: u32,
@@ -3210,7 +3210,7 @@ pub unsafe fn GetDateFormatEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDateFormatEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -3249,7 +3249,7 @@ pub unsafe fn GetDateFormatW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDateFormatW(
                 locale: u32,
@@ -3284,7 +3284,7 @@ pub unsafe fn GetDistanceOfClosestLanguageInList<
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "bcp47mrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDistanceOfClosestLanguageInList(
                 pszlanguage: super::Foundation::PWSTR,
@@ -3320,7 +3320,7 @@ pub unsafe fn GetDurationFormat<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDurationFormat(
                 locale: u32,
@@ -3361,7 +3361,7 @@ pub unsafe fn GetDurationFormatEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDurationFormatEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -3398,7 +3398,7 @@ pub unsafe fn GetFileMUIInfo<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileMUIInfo(
                 dwflags: u32,
@@ -3433,7 +3433,7 @@ pub unsafe fn GetFileMUIPath<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileMUIPath(
                 dwflags: u32,
@@ -3468,7 +3468,7 @@ pub unsafe fn GetGeoInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGeoInfoA(
                 location: i32,
@@ -3501,7 +3501,7 @@ pub unsafe fn GetGeoInfoEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGeoInfoEx(
                 location: super::Foundation::PWSTR,
@@ -3530,7 +3530,7 @@ pub unsafe fn GetGeoInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGeoInfoW(
                 location: i32,
@@ -3560,7 +3560,7 @@ pub unsafe fn GetLocaleInfoA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLocaleInfoA(
                 locale: u32,
@@ -3591,7 +3591,7 @@ pub unsafe fn GetLocaleInfoEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLocaleInfoEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -3619,7 +3619,7 @@ pub unsafe fn GetLocaleInfoW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLocaleInfoW(
                 locale: u32,
@@ -3646,7 +3646,7 @@ pub unsafe fn GetNLSVersion(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNLSVersion(
                 function: u32,
@@ -3674,7 +3674,7 @@ pub unsafe fn GetNLSVersionEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNLSVersionEx(
                 function: u32,
@@ -3705,7 +3705,7 @@ pub unsafe fn GetNumberFormatA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumberFormatA(
                 locale: u32,
@@ -3743,7 +3743,7 @@ pub unsafe fn GetNumberFormatEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumberFormatEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -3780,7 +3780,7 @@ pub unsafe fn GetNumberFormatW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNumberFormatW(
                 locale: u32,
@@ -3806,7 +3806,7 @@ pub unsafe fn GetNumberFormatW<
 pub unsafe fn GetOEMCP() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOEMCP() -> u32;
         }
@@ -3824,7 +3824,7 @@ pub unsafe fn GetProcessPreferredUILanguages(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProcessPreferredUILanguages(
                 dwflags: u32,
@@ -3856,7 +3856,7 @@ pub unsafe fn GetStringScripts<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStringScripts(
                 dwflags: u32,
@@ -3890,7 +3890,7 @@ pub unsafe fn GetStringTypeA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStringTypeA(
                 locale: u32,
@@ -3924,7 +3924,7 @@ pub unsafe fn GetStringTypeExA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStringTypeExA(
                 locale: u32,
@@ -3958,7 +3958,7 @@ pub unsafe fn GetStringTypeExW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStringTypeExW(
                 locale: u32,
@@ -3991,7 +3991,7 @@ pub unsafe fn GetStringTypeW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStringTypeW(
                 dwinfotype: u32,
@@ -4013,7 +4013,7 @@ pub unsafe fn GetStringTypeW<
 pub unsafe fn GetSystemDefaultLCID() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDefaultLCID() -> u32;
         }
@@ -4025,7 +4025,7 @@ pub unsafe fn GetSystemDefaultLCID() -> u32 {
 pub unsafe fn GetSystemDefaultLangID() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDefaultLangID() -> u16;
         }
@@ -4041,7 +4041,7 @@ pub unsafe fn GetSystemDefaultLocaleName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDefaultLocaleName(
                 lplocalename: super::Foundation::PWSTR,
@@ -4059,7 +4059,7 @@ pub unsafe fn GetSystemDefaultLocaleName(
 pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemDefaultUILanguage() -> u16;
         }
@@ -4077,7 +4077,7 @@ pub unsafe fn GetSystemPreferredUILanguages(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemPreferredUILanguages(
                 dwflags: u32,
@@ -4105,7 +4105,7 @@ pub unsafe fn GetTextCharset<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextCharset(hdc: super::Graphics::Gdi::HDC) -> i32;
         }
@@ -4125,7 +4125,7 @@ pub unsafe fn GetTextCharsetInfo<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextCharsetInfo(
                 hdc: super::Graphics::Gdi::HDC,
@@ -4145,7 +4145,7 @@ pub unsafe fn GetTextCharsetInfo<
 pub unsafe fn GetThreadLocale() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadLocale() -> u32;
         }
@@ -4163,7 +4163,7 @@ pub unsafe fn GetThreadPreferredUILanguages(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadPreferredUILanguages(
                 dwflags: u32,
@@ -4185,7 +4185,7 @@ pub unsafe fn GetThreadPreferredUILanguages(
 pub unsafe fn GetThreadUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadUILanguage() -> u16;
         }
@@ -4208,7 +4208,7 @@ pub unsafe fn GetTimeFormatA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTimeFormatA(
                 locale: u32,
@@ -4246,7 +4246,7 @@ pub unsafe fn GetTimeFormatEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTimeFormatEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -4283,7 +4283,7 @@ pub unsafe fn GetTimeFormatW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTimeFormatW(
                 locale: u32,
@@ -4319,7 +4319,7 @@ pub unsafe fn GetUILanguageInfo<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUILanguageInfo(
                 dwflags: u32,
@@ -4344,7 +4344,7 @@ pub unsafe fn GetUILanguageInfo<
 pub unsafe fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonamecount: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonamecount: i32) -> i32;
         }
@@ -4359,7 +4359,7 @@ pub unsafe fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonameco
 pub unsafe fn GetUserDefaultLCID() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserDefaultLCID() -> u32;
         }
@@ -4371,7 +4371,7 @@ pub unsafe fn GetUserDefaultLCID() -> u32 {
 pub unsafe fn GetUserDefaultLangID() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserDefaultLangID() -> u16;
         }
@@ -4387,7 +4387,7 @@ pub unsafe fn GetUserDefaultLocaleName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserDefaultLocaleName(
                 lplocalename: super::Foundation::PWSTR,
@@ -4405,7 +4405,7 @@ pub unsafe fn GetUserDefaultLocaleName(
 pub unsafe fn GetUserDefaultUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserDefaultUILanguage() -> u16;
         }
@@ -4417,7 +4417,7 @@ pub unsafe fn GetUserDefaultUILanguage() -> u16 {
 pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserGeoID(geoclass: u32) -> i32;
         }
@@ -4435,7 +4435,7 @@ pub unsafe fn GetUserPreferredUILanguages(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserPreferredUILanguages(
                 dwflags: u32,
@@ -19370,7 +19370,7 @@ pub unsafe fn IdnToAscii<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "normaliz")]
+        #[link(name = "windows")]
         extern "system" {
             fn IdnToAscii(
                 dwflags: u32,
@@ -19404,7 +19404,7 @@ pub unsafe fn IdnToNameprepUnicode<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IdnToNameprepUnicode(
                 dwflags: u32,
@@ -19438,7 +19438,7 @@ pub unsafe fn IdnToUnicode<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "normaliz")]
+        #[link(name = "windows")]
         extern "system" {
             fn IdnToUnicode(
                 dwflags: u32,
@@ -19470,7 +19470,7 @@ pub unsafe fn ImmAssociateContext<
 ) -> HIMC {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmAssociateContext(param0: super::Foundation::HWND, param1: HIMC) -> HIMC;
         }
@@ -19494,7 +19494,7 @@ pub unsafe fn ImmAssociateContextEx<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmAssociateContextEx(
                 param0: super::Foundation::HWND,
@@ -19524,7 +19524,7 @@ pub unsafe fn ImmConfigureIMEA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmConfigureIMEA(
                 param0: super::UI::TextServices::HKL,
@@ -19556,7 +19556,7 @@ pub unsafe fn ImmConfigureIMEW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmConfigureIMEW(
                 param0: super::UI::TextServices::HKL,
@@ -19578,7 +19578,7 @@ pub unsafe fn ImmConfigureIMEW<
 pub unsafe fn ImmCreateContext() -> HIMC {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmCreateContext() -> HIMC;
         }
@@ -19590,7 +19590,7 @@ pub unsafe fn ImmCreateContext() -> HIMC {
 pub unsafe fn ImmCreateIMCC(param0: u32) -> HIMCC {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmCreateIMCC(param0: u32) -> HIMCC;
         }
@@ -19611,7 +19611,7 @@ pub unsafe fn ImmCreateSoftKeyboard<
 ) -> super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmCreateSoftKeyboard(
                 param0: u32,
@@ -19636,7 +19636,7 @@ pub unsafe fn ImmDestroyContext<'a, Param0: ::windows::runtime::IntoParam<'a, HI
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmDestroyContext(param0: HIMC) -> super::Foundation::BOOL;
         }
@@ -19650,7 +19650,7 @@ pub unsafe fn ImmDestroyIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, HIMCC
 ) -> HIMCC {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmDestroyIMCC(param0: HIMCC) -> HIMCC;
         }
@@ -19668,7 +19668,7 @@ pub unsafe fn ImmDestroySoftKeyboard<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmDestroySoftKeyboard(param0: super::Foundation::HWND) -> super::Foundation::BOOL;
         }
@@ -19681,7 +19681,7 @@ pub unsafe fn ImmDestroySoftKeyboard<
 pub unsafe fn ImmDisableIME(param0: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmDisableIME(param0: u32) -> super::Foundation::BOOL;
         }
@@ -19694,7 +19694,7 @@ pub unsafe fn ImmDisableIME(param0: u32) -> super::Foundation::BOOL {
 pub unsafe fn ImmDisableLegacyIME() -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmDisableLegacyIME() -> super::Foundation::BOOL;
         }
@@ -19707,7 +19707,7 @@ pub unsafe fn ImmDisableLegacyIME() -> super::Foundation::BOOL {
 pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmDisableTextFrameService(idthread: u32) -> super::Foundation::BOOL;
         }
@@ -19727,7 +19727,7 @@ pub unsafe fn ImmEnumInputContext<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmEnumInputContext(
                 idthread: u32,
@@ -19760,7 +19760,7 @@ pub unsafe fn ImmEnumRegisterWordA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmEnumRegisterWordA(
                 param0: super::UI::TextServices::HKL,
@@ -19799,7 +19799,7 @@ pub unsafe fn ImmEnumRegisterWordW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmEnumRegisterWordW(
                 param0: super::UI::TextServices::HKL,
@@ -19835,7 +19835,7 @@ pub unsafe fn ImmEscapeA<
 ) -> super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmEscapeA(
                 param0: super::UI::TextServices::HKL,
@@ -19867,7 +19867,7 @@ pub unsafe fn ImmEscapeW<
 ) -> super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmEscapeW(
                 param0: super::UI::TextServices::HKL,
@@ -19892,7 +19892,7 @@ pub unsafe fn ImmGenerateMessage<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGenerateMessage(param0: HIMC) -> super::Foundation::BOOL;
         }
@@ -19909,7 +19909,7 @@ pub unsafe fn ImmGetCandidateListA<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCandidateListA(
                 param0: HIMC,
@@ -19934,7 +19934,7 @@ pub unsafe fn ImmGetCandidateListCountA<'a, Param0: ::windows::runtime::IntoPara
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCandidateListCountA(param0: HIMC, lpdwlistcount: *mut u32) -> u32;
         }
@@ -19952,7 +19952,7 @@ pub unsafe fn ImmGetCandidateListCountW<'a, Param0: ::windows::runtime::IntoPara
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCandidateListCountW(param0: HIMC, lpdwlistcount: *mut u32) -> u32;
         }
@@ -19972,7 +19972,7 @@ pub unsafe fn ImmGetCandidateListW<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCandidateListW(
                 param0: HIMC,
@@ -19999,7 +19999,7 @@ pub unsafe fn ImmGetCandidateWindow<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCandidateWindow(
                 param0: HIMC,
@@ -20027,7 +20027,7 @@ pub unsafe fn ImmGetCompositionFontA<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCompositionFontA(
                 param0: HIMC,
@@ -20049,7 +20049,7 @@ pub unsafe fn ImmGetCompositionFontW<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCompositionFontW(
                 param0: HIMC,
@@ -20072,7 +20072,7 @@ pub unsafe fn ImmGetCompositionStringA<'a, Param0: ::windows::runtime::IntoParam
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCompositionStringA(
                 param0: HIMC,
@@ -20099,7 +20099,7 @@ pub unsafe fn ImmGetCompositionStringW<'a, Param0: ::windows::runtime::IntoParam
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCompositionStringW(
                 param0: HIMC,
@@ -20125,7 +20125,7 @@ pub unsafe fn ImmGetCompositionWindow<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetCompositionWindow(
                 param0: HIMC,
@@ -20149,7 +20149,7 @@ pub unsafe fn ImmGetContext<
 ) -> HIMC {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetContext(param0: super::Foundation::HWND) -> HIMC;
         }
@@ -20174,7 +20174,7 @@ pub unsafe fn ImmGetConversionListA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetConversionListA(
                 param0: super::UI::TextServices::HKL,
@@ -20213,7 +20213,7 @@ pub unsafe fn ImmGetConversionListW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetConversionListW(
                 param0: super::UI::TextServices::HKL,
@@ -20244,7 +20244,7 @@ pub unsafe fn ImmGetConversionStatus<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetConversionStatus(
                 param0: HIMC,
@@ -20270,7 +20270,7 @@ pub unsafe fn ImmGetDefaultIMEWnd<
 ) -> super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetDefaultIMEWnd(param0: super::Foundation::HWND) -> super::Foundation::HWND;
         }
@@ -20290,7 +20290,7 @@ pub unsafe fn ImmGetDescriptionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetDescriptionA(
                 param0: super::UI::TextServices::HKL,
@@ -20318,7 +20318,7 @@ pub unsafe fn ImmGetDescriptionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetDescriptionW(
                 param0: super::UI::TextServices::HKL,
@@ -20344,7 +20344,7 @@ pub unsafe fn ImmGetGuideLineA<'a, Param0: ::windows::runtime::IntoParam<'a, HIM
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetGuideLineA(
                 param0: HIMC,
@@ -20372,7 +20372,7 @@ pub unsafe fn ImmGetGuideLineW<'a, Param0: ::windows::runtime::IntoParam<'a, HIM
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetGuideLineW(
                 param0: HIMC,
@@ -20400,7 +20400,7 @@ pub unsafe fn ImmGetHotKey(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetHotKey(
                 param0: u32,
@@ -20424,7 +20424,7 @@ pub unsafe fn ImmGetIMCCLockCount<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetIMCCLockCount(param0: HIMCC) -> u32;
         }
@@ -20438,7 +20438,7 @@ pub unsafe fn ImmGetIMCCSize<'a, Param0: ::windows::runtime::IntoParam<'a, HIMCC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetIMCCSize(param0: HIMCC) -> u32;
         }
@@ -20452,7 +20452,7 @@ pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetIMCLockCount(param0: HIMC) -> u32;
         }
@@ -20472,7 +20472,7 @@ pub unsafe fn ImmGetIMEFileNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetIMEFileNameA(
                 param0: super::UI::TextServices::HKL,
@@ -20500,7 +20500,7 @@ pub unsafe fn ImmGetIMEFileNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetIMEFileNameW(
                 param0: super::UI::TextServices::HKL,
@@ -20531,7 +20531,7 @@ pub unsafe fn ImmGetImeMenuItemsA<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetImeMenuItemsA(
                 param0: HIMC,
@@ -20565,7 +20565,7 @@ pub unsafe fn ImmGetImeMenuItemsW<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetImeMenuItemsW(
                 param0: HIMC,
@@ -20594,7 +20594,7 @@ pub unsafe fn ImmGetOpenStatus<'a, Param0: ::windows::runtime::IntoParam<'a, HIM
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetOpenStatus(param0: HIMC) -> super::Foundation::BOOL;
         }
@@ -20613,7 +20613,7 @@ pub unsafe fn ImmGetProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetProperty(param0: super::UI::TextServices::HKL, param1: u32) -> u32;
         }
@@ -20639,7 +20639,7 @@ pub unsafe fn ImmGetRegisterWordStyleA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetRegisterWordStyleA(
                 param0: super::UI::TextServices::HKL,
@@ -20667,7 +20667,7 @@ pub unsafe fn ImmGetRegisterWordStyleW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetRegisterWordStyleW(
                 param0: super::UI::TextServices::HKL,
@@ -20691,7 +20691,7 @@ pub unsafe fn ImmGetStatusWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetStatusWindowPos(
                 param0: HIMC,
@@ -20715,7 +20715,7 @@ pub unsafe fn ImmGetVirtualKey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmGetVirtualKey(param0: super::Foundation::HWND) -> u32;
         }
@@ -20735,7 +20735,7 @@ pub unsafe fn ImmInstallIMEA<
 ) -> super::UI::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmInstallIMEA(
                 lpszimefilename: super::Foundation::PSTR,
@@ -20761,7 +20761,7 @@ pub unsafe fn ImmInstallIMEW<
 ) -> super::UI::TextServices::HKL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmInstallIMEW(
                 lpszimefilename: super::Foundation::PWSTR,
@@ -20785,7 +20785,7 @@ pub unsafe fn ImmIsIME<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmIsIME(param0: super::UI::TextServices::HKL) -> super::Foundation::BOOL;
         }
@@ -20808,7 +20808,7 @@ pub unsafe fn ImmIsUIMessageA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmIsUIMessageA(
                 param0: super::Foundation::HWND,
@@ -20841,7 +20841,7 @@ pub unsafe fn ImmIsUIMessageW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmIsUIMessageW(
                 param0: super::Foundation::HWND,
@@ -20870,7 +20870,7 @@ pub unsafe fn ImmLockIMC<'a, Param0: ::windows::runtime::IntoParam<'a, HIMC>>(
 ) -> *mut INPUTCONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmLockIMC(param0: HIMC) -> *mut INPUTCONTEXT;
         }
@@ -20884,7 +20884,7 @@ pub unsafe fn ImmLockIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, HIMCC>>(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmLockIMCC(param0: HIMCC) -> *mut ::std::ffi::c_void;
         }
@@ -20902,7 +20902,7 @@ pub unsafe fn ImmNotifyIME<'a, Param0: ::windows::runtime::IntoParam<'a, HIMC>>(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmNotifyIME(
                 param0: HIMC,
@@ -20927,7 +20927,7 @@ pub unsafe fn ImmReSizeIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, HIMCC>
 ) -> HIMCC {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmReSizeIMCC(param0: HIMCC, param1: u32) -> HIMCC;
         }
@@ -20953,7 +20953,7 @@ pub unsafe fn ImmRegisterWordA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmRegisterWordA(
                 param0: super::UI::TextServices::HKL,
@@ -20986,7 +20986,7 @@ pub unsafe fn ImmRegisterWordW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmRegisterWordW(
                 param0: super::UI::TextServices::HKL,
@@ -21016,7 +21016,7 @@ pub unsafe fn ImmReleaseContext<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmReleaseContext(
                 param0: super::Foundation::HWND,
@@ -21044,7 +21044,7 @@ pub unsafe fn ImmRequestMessageA<
 ) -> super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmRequestMessageA(
                 param0: HIMC,
@@ -21074,7 +21074,7 @@ pub unsafe fn ImmRequestMessageW<
 ) -> super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmRequestMessageW(
                 param0: HIMC,
@@ -21098,7 +21098,7 @@ pub unsafe fn ImmSetCandidateWindow<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetCandidateWindow(
                 param0: HIMC,
@@ -21124,7 +21124,7 @@ pub unsafe fn ImmSetCompositionFontA<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetCompositionFontA(
                 param0: HIMC,
@@ -21146,7 +21146,7 @@ pub unsafe fn ImmSetCompositionFontW<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetCompositionFontW(
                 param0: HIMC,
@@ -21172,7 +21172,7 @@ pub unsafe fn ImmSetCompositionStringA<'a, Param0: ::windows::runtime::IntoParam
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetCompositionStringA(
                 param0: HIMC,
@@ -21206,7 +21206,7 @@ pub unsafe fn ImmSetCompositionStringW<'a, Param0: ::windows::runtime::IntoParam
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetCompositionStringW(
                 param0: HIMC,
@@ -21236,7 +21236,7 @@ pub unsafe fn ImmSetCompositionWindow<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetCompositionWindow(
                 param0: HIMC,
@@ -21259,7 +21259,7 @@ pub unsafe fn ImmSetConversionStatus<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetConversionStatus(
                 param0: HIMC,
@@ -21288,7 +21288,7 @@ pub unsafe fn ImmSetHotKey<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetHotKey(
                 param0: u32,
@@ -21318,7 +21318,7 @@ pub unsafe fn ImmSetOpenStatus<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetOpenStatus(
                 param0: HIMC,
@@ -21340,7 +21340,7 @@ pub unsafe fn ImmSetStatusWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSetStatusWindowPos(
                 param0: HIMC,
@@ -21365,7 +21365,7 @@ pub unsafe fn ImmShowSoftKeyboard<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmShowSoftKeyboard(
                 param0: super::Foundation::HWND,
@@ -21390,7 +21390,7 @@ pub unsafe fn ImmSimulateHotKey<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmSimulateHotKey(
                 param0: super::Foundation::HWND,
@@ -21411,7 +21411,7 @@ pub unsafe fn ImmUnlockIMC<'a, Param0: ::windows::runtime::IntoParam<'a, HIMC>>(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmUnlockIMC(param0: HIMC) -> super::Foundation::BOOL;
         }
@@ -21426,7 +21426,7 @@ pub unsafe fn ImmUnlockIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, HIMCC>
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmUnlockIMCC(param0: HIMCC) -> super::Foundation::BOOL;
         }
@@ -21449,7 +21449,7 @@ pub unsafe fn ImmUnregisterWordA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmUnregisterWordA(
                 param0: super::UI::TextServices::HKL,
@@ -21482,7 +21482,7 @@ pub unsafe fn ImmUnregisterWordW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "imm32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ImmUnregisterWordW(
                 param0: super::UI::TextServices::HKL,
@@ -21505,7 +21505,7 @@ pub unsafe fn ImmUnregisterWordW<
 pub unsafe fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL;
         }
@@ -21518,7 +21518,7 @@ pub unsafe fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL {
 pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL;
         }
@@ -21543,7 +21543,7 @@ pub unsafe fn IsNLSDefinedString<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsNLSDefinedString(
                 function: u32,
@@ -21575,7 +21575,7 @@ pub unsafe fn IsNormalizedString<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsNormalizedString(
                 normform: NORM_FORM,
@@ -21600,7 +21600,7 @@ pub unsafe fn IsTextUnicode(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsTextUnicode(
                 lpv: *const ::std::ffi::c_void,
@@ -21621,7 +21621,7 @@ pub unsafe fn IsTextUnicode(
 pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL;
         }
@@ -21637,7 +21637,7 @@ pub unsafe fn IsValidLanguageGroup(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidLanguageGroup(
                 languagegroup: u32,
@@ -21659,7 +21659,7 @@ pub unsafe fn IsValidLocale(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidLocale(
                 locale: u32,
@@ -21683,7 +21683,7 @@ pub unsafe fn IsValidLocaleName<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidLocaleName(lplocalename: super::Foundation::PWSTR)
                 -> super::Foundation::BOOL;
@@ -21704,7 +21704,7 @@ pub unsafe fn IsValidNLSVersion<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsValidNLSVersion(
                 function: u32,
@@ -21730,7 +21730,7 @@ pub unsafe fn IsWellFormedTag<
 ) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "bcp47mrm")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsWellFormedTag(psztag: super::Foundation::PWSTR) -> u8;
         }
@@ -21938,7 +21938,7 @@ pub unsafe fn LCIDToLocaleName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LCIDToLocaleName(
                 locale: u32,
@@ -21986,7 +21986,7 @@ pub unsafe fn LCMapStringA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LCMapStringA(
                 locale: u32,
@@ -22028,7 +22028,7 @@ pub unsafe fn LCMapStringEx<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LCMapStringEx(
                 lplocalename: super::Foundation::PWSTR,
@@ -22071,7 +22071,7 @@ pub unsafe fn LCMapStringW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LCMapStringW(
                 locale: u32,
@@ -22341,7 +22341,7 @@ pub unsafe fn LocaleNameToLCID<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocaleNameToLCID(lpname: super::Foundation::PWSTR, dwflags: u32) -> u32;
         }
@@ -23115,7 +23115,7 @@ pub unsafe fn MappingDoAction<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "elscore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MappingDoAction(
                 pbag: *mut MAPPING_PROPERTY_BAG,
@@ -23139,7 +23139,7 @@ pub unsafe fn MappingFreePropertyBag(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "elscore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MappingFreePropertyBag(
                 pbag: *const MAPPING_PROPERTY_BAG,
@@ -23156,7 +23156,7 @@ pub unsafe fn MappingFreeServices(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "elscore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MappingFreeServices(
                 pserviceinfo: *const MAPPING_SERVICE_INFO,
@@ -23175,7 +23175,7 @@ pub unsafe fn MappingGetServices(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "elscore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MappingGetServices(
                 poptions: *const MAPPING_ENUM_OPTIONS,
@@ -23207,7 +23207,7 @@ pub unsafe fn MappingRecognizeText<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "elscore")]
+        #[link(name = "windows")]
         extern "system" {
             fn MappingRecognizeText(
                 pserviceinfo: *const MAPPING_SERVICE_INFO,
@@ -23245,7 +23245,7 @@ pub unsafe fn MultiByteToWideChar<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MultiByteToWideChar(
                 codepage: u32,
@@ -23597,7 +23597,7 @@ pub unsafe fn NormalizeString<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NormalizeString(
                 normform: NORM_FORM,
@@ -23632,7 +23632,7 @@ pub unsafe fn NotifyUILanguageChange<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NotifyUILanguageChange(
                 dwflags: u32,
@@ -23874,7 +23874,7 @@ pub unsafe fn ResolveLocaleName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResolveLocaleName(
                 lpnametoresolve: super::Foundation::PWSTR,
@@ -23899,7 +23899,7 @@ pub unsafe fn RestoreThreadPreferredUILanguages<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
         }
@@ -24716,7 +24716,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptApplyDigitSubstitution(
                 psds: *const SCRIPT_DIGITSUBSTITUTE,
@@ -24748,7 +24748,7 @@ pub unsafe fn ScriptApplyLogicalWidth(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptApplyLogicalWidth(
                 pidx: *const i32,
@@ -24789,7 +24789,7 @@ pub unsafe fn ScriptBreak<
 ) -> ::windows::runtime::Result<SCRIPT_LOGATTR> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptBreak(
                 pwcchars: super::Foundation::PWSTR,
@@ -24827,7 +24827,7 @@ pub unsafe fn ScriptCPtoX<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptCPtoX(
                 icp: i32,
@@ -24868,7 +24868,7 @@ pub unsafe fn ScriptCacheGetHeight<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptCacheGetHeight(
                 hdc: super::Graphics::Gdi::HDC,
@@ -24889,7 +24889,7 @@ pub unsafe fn ScriptCacheGetHeight<
 pub unsafe fn ScriptFreeCache(psc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptFreeCache(psc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -24913,7 +24913,7 @@ pub unsafe fn ScriptGetCMap<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetCMap(
                 hdc: super::Graphics::Gdi::HDC,
@@ -24955,7 +24955,7 @@ pub unsafe fn ScriptGetFontAlternateGlyphs<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetFontAlternateGlyphs(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25003,7 +25003,7 @@ pub unsafe fn ScriptGetFontFeatureTags<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetFontFeatureTags(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25046,7 +25046,7 @@ pub unsafe fn ScriptGetFontLanguageTags<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetFontLanguageTags(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25083,7 +25083,7 @@ pub unsafe fn ScriptGetFontProperties<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetFontProperties(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25115,7 +25115,7 @@ pub unsafe fn ScriptGetFontScriptTags<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetFontScriptTags(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25151,7 +25151,7 @@ pub unsafe fn ScriptGetGlyphABCWidth<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetGlyphABCWidth(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25182,7 +25182,7 @@ pub unsafe fn ScriptGetLogicalWidths(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetLogicalWidths(
                 psa: *const SCRIPT_ANALYSIS,
@@ -25214,7 +25214,7 @@ pub unsafe fn ScriptGetProperties(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptGetProperties(
                 ppsp: *mut *mut *mut SCRIPT_PROPERTIES,
@@ -25241,7 +25241,7 @@ pub unsafe fn ScriptIsComplex<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptIsComplex(
                 pwcinchars: super::Foundation::PWSTR,
@@ -25274,7 +25274,7 @@ pub unsafe fn ScriptItemize<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptItemize(
                 pwcinchars: super::Foundation::PWSTR,
@@ -25316,7 +25316,7 @@ pub unsafe fn ScriptItemizeOpenType<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptItemizeOpenType(
                 pwcinchars: super::Foundation::PWSTR,
@@ -25353,7 +25353,7 @@ pub unsafe fn ScriptJustify(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptJustify(
                 psva: *const SCRIPT_VISATTR,
@@ -25386,7 +25386,7 @@ pub unsafe fn ScriptLayout(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptLayout(
                 cruns: i32,
@@ -25423,7 +25423,7 @@ pub unsafe fn ScriptPlace<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptPlace(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25480,7 +25480,7 @@ pub unsafe fn ScriptPlaceOpenType<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptPlaceOpenType(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25549,7 +25549,7 @@ pub unsafe fn ScriptPositionSingleGlyph<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptPositionSingleGlyph(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25590,7 +25590,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(
 ) -> ::windows::runtime::Result<SCRIPT_DIGITSUBSTITUTE> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptRecordDigitSubstitution(
                 locale: u32,
@@ -25624,7 +25624,7 @@ pub unsafe fn ScriptShape<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptShape(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25681,7 +25681,7 @@ pub unsafe fn ScriptShapeOpenType<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptShapeOpenType(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25746,7 +25746,7 @@ pub unsafe fn ScriptStringAnalyse<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringAnalyse(
                 hdc: super::Graphics::Gdi::HDC,
@@ -25795,7 +25795,7 @@ pub unsafe fn ScriptStringCPtoX<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringCPtoX(
                 ssa: *const ::std::ffi::c_void,
@@ -25821,7 +25821,7 @@ pub unsafe fn ScriptStringFree(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringFree(pssa: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -25836,7 +25836,7 @@ pub unsafe fn ScriptStringGetLogicalWidths(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringGetLogicalWidths(
                 ssa: *const ::std::ffi::c_void,
@@ -25854,7 +25854,7 @@ pub unsafe fn ScriptStringGetOrder(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringGetOrder(
                 ssa: *const ::std::ffi::c_void,
@@ -25882,7 +25882,7 @@ pub unsafe fn ScriptStringOut<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringOut(
                 ssa: *const ::std::ffi::c_void,
@@ -25915,7 +25915,7 @@ pub unsafe fn ScriptStringValidate(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringValidate(ssa: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -25932,7 +25932,7 @@ pub unsafe fn ScriptStringXtoCP(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptStringXtoCP(
                 ssa: *const ::std::ffi::c_void,
@@ -25955,7 +25955,7 @@ pub unsafe fn ScriptStringXtoCP(
 pub unsafe fn ScriptString_pLogAttr(ssa: *const ::std::ffi::c_void) -> *mut SCRIPT_LOGATTR {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptString_pLogAttr(ssa: *const ::std::ffi::c_void) -> *mut SCRIPT_LOGATTR;
         }
@@ -25968,7 +25968,7 @@ pub unsafe fn ScriptString_pLogAttr(ssa: *const ::std::ffi::c_void) -> *mut SCRI
 pub unsafe fn ScriptString_pSize(ssa: *const ::std::ffi::c_void) -> *mut super::Foundation::SIZE {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptString_pSize(ssa: *const ::std::ffi::c_void) -> *mut super::Foundation::SIZE;
         }
@@ -25980,7 +25980,7 @@ pub unsafe fn ScriptString_pSize(ssa: *const ::std::ffi::c_void) -> *mut super::
 pub unsafe fn ScriptString_pcOutChars(ssa: *const ::std::ffi::c_void) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptString_pcOutChars(ssa: *const ::std::ffi::c_void) -> *mut i32;
         }
@@ -26006,7 +26006,7 @@ pub unsafe fn ScriptSubstituteSingleGlyph<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptSubstituteSingleGlyph(
                 hdc: super::Graphics::Gdi::HDC,
@@ -26059,7 +26059,7 @@ pub unsafe fn ScriptTextOut<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptTextOut(
                 hdc: super::Graphics::Gdi::HDC,
@@ -26112,7 +26112,7 @@ pub unsafe fn ScriptXtoCP(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "usp10")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScriptXtoCP(
                 ix: i32,
@@ -26154,7 +26154,7 @@ pub unsafe fn SetCalendarInfoA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCalendarInfoA(
                 locale: u32,
@@ -26185,7 +26185,7 @@ pub unsafe fn SetCalendarInfoW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCalendarInfoW(
                 locale: u32,
@@ -26215,7 +26215,7 @@ pub unsafe fn SetLocaleInfoA<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLocaleInfoA(
                 locale: u32,
@@ -26243,7 +26243,7 @@ pub unsafe fn SetLocaleInfoW<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLocaleInfoW(
                 locale: u32,
@@ -26271,7 +26271,7 @@ pub unsafe fn SetProcessPreferredUILanguages<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetProcessPreferredUILanguages(
                 dwflags: u32,
@@ -26292,7 +26292,7 @@ pub unsafe fn SetProcessPreferredUILanguages<
 pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL;
         }
@@ -26312,7 +26312,7 @@ pub unsafe fn SetThreadPreferredUILanguages<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadPreferredUILanguages(
                 dwflags: u32,
@@ -26341,7 +26341,7 @@ pub unsafe fn SetThreadPreferredUILanguages2<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadPreferredUILanguages2(
                 flags: u32,
@@ -26363,7 +26363,7 @@ pub unsafe fn SetThreadPreferredUILanguages2<
 pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetThreadUILanguage(langid: u16) -> u16;
         }
@@ -26376,7 +26376,7 @@ pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
 pub unsafe fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL;
         }
@@ -26394,7 +26394,7 @@ pub unsafe fn SetUserGeoName<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUserGeoName(geoname: super::Foundation::PWSTR) -> super::Foundation::BOOL;
         }
@@ -26606,7 +26606,7 @@ pub unsafe fn TranslateCharsetInfo(
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateCharsetInfo(
                 lpsrc: *mut u32,
@@ -27218,7 +27218,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_ESCAPE(
                 context: *const ::std::ffi::c_void,
@@ -27255,7 +27255,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_SKIP(
                 context: *const ::std::ffi::c_void,
@@ -27292,7 +27292,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_STOP(
                 context: *const ::std::ffi::c_void,
@@ -27329,7 +27329,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(
                 context: *const ::std::ffi::c_void,
@@ -27371,7 +27371,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_ESCAPE(
                 context: *const ::std::ffi::c_void,
@@ -27408,7 +27408,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_SKIP(
                 context: *const ::std::ffi::c_void,
@@ -27445,7 +27445,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_STOP<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_STOP(
                 context: *const ::std::ffi::c_void,
@@ -27482,7 +27482,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn UCNV_TO_U_CALLBACK_SUBSTITUTE(
                 context: *const ::std::ffi::c_void,
@@ -33004,7 +33004,7 @@ pub unsafe fn VerifyScripts<
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerifyScripts(
                 dwflags: u32,
@@ -33143,7 +33143,7 @@ pub unsafe fn WideCharToMultiByte<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WideCharToMultiByte(
                 codepage: u32,
@@ -33190,7 +33190,7 @@ pub unsafe fn lstrcatA<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcatA(
                 lpstring1: super::Foundation::PSTR,
@@ -33216,7 +33216,7 @@ pub unsafe fn lstrcatW<
 ) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcatW(
                 lpstring1: super::Foundation::PWSTR,
@@ -33242,7 +33242,7 @@ pub unsafe fn lstrcmpA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcmpA(
                 lpstring1: super::Foundation::PSTR,
@@ -33268,7 +33268,7 @@ pub unsafe fn lstrcmpW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcmpW(
                 lpstring1: super::Foundation::PWSTR,
@@ -33294,7 +33294,7 @@ pub unsafe fn lstrcmpiA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcmpiA(
                 lpstring1: super::Foundation::PSTR,
@@ -33320,7 +33320,7 @@ pub unsafe fn lstrcmpiW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcmpiW(
                 lpstring1: super::Foundation::PWSTR,
@@ -33342,7 +33342,7 @@ pub unsafe fn lstrcpyA<'a, Param1: ::windows::runtime::IntoParam<'a, super::Foun
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcpyA(
                 lpstring1: super::Foundation::PSTR,
@@ -33364,7 +33364,7 @@ pub unsafe fn lstrcpyW<'a, Param1: ::windows::runtime::IntoParam<'a, super::Foun
 ) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcpyW(
                 lpstring1: super::Foundation::PWSTR,
@@ -33387,7 +33387,7 @@ pub unsafe fn lstrcpynA<'a, Param1: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcpynA(
                 lpstring1: super::Foundation::PSTR,
@@ -33412,7 +33412,7 @@ pub unsafe fn lstrcpynW<'a, Param1: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrcpynW(
                 lpstring1: super::Foundation::PWSTR,
@@ -33435,7 +33435,7 @@ pub unsafe fn lstrlenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foun
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrlenA(lpstring: super::Foundation::PSTR) -> i32;
         }
@@ -33450,7 +33450,7 @@ pub unsafe fn lstrlenW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foun
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn lstrlenW(lpstring: super::Foundation::PWSTR) -> i32;
         }
@@ -33740,7 +33740,7 @@ pub unsafe fn u_UCharsToChars<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_UCharsToChars(us: *const u16, cs: super::Foundation::PSTR, length: i32);
         }
@@ -33760,7 +33760,7 @@ pub unsafe fn u_austrcpy<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fo
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_austrcpy(dst: super::Foundation::PSTR, src: *const u16)
                 -> super::Foundation::PSTR;
@@ -33784,7 +33784,7 @@ pub unsafe fn u_austrncpy<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_austrncpy(
                 dst: super::Foundation::PSTR,
@@ -33804,7 +33804,7 @@ pub unsafe fn u_austrncpy<
 pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_catclose(catd: *mut UResourceBundle);
         }
@@ -33823,7 +33823,7 @@ pub unsafe fn u_catgets(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_catgets(
                 catd: *mut UResourceBundle,
@@ -33858,7 +33858,7 @@ pub unsafe fn u_catopen<
 ) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_catopen(
                 name: super::Foundation::PSTR,
@@ -33878,7 +33878,7 @@ pub unsafe fn u_catopen<
 pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charAge(c: i32, versionarray: *mut u8);
         }
@@ -33893,7 +33893,7 @@ pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
 pub unsafe fn u_charDigitValue(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charDigitValue(c: i32) -> i32;
         }
@@ -33905,7 +33905,7 @@ pub unsafe fn u_charDigitValue(c: i32) -> i32 {
 pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charDirection(c: i32) -> UCharDirection;
         }
@@ -33925,7 +33925,7 @@ pub unsafe fn u_charFromName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charFromName(
                 namechoice: UCharNameChoice,
@@ -33945,7 +33945,7 @@ pub unsafe fn u_charFromName<
 pub unsafe fn u_charMirror(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charMirror(c: i32) -> i32;
         }
@@ -33964,7 +33964,7 @@ pub unsafe fn u_charName<'a, Param2: ::windows::runtime::IntoParam<'a, super::Fo
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charName(
                 code: i32,
@@ -33988,7 +33988,7 @@ pub unsafe fn u_charName<'a, Param2: ::windows::runtime::IntoParam<'a, super::Fo
 pub unsafe fn u_charType(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charType(c: i32) -> i8;
         }
@@ -34008,7 +34008,7 @@ pub unsafe fn u_charsToUChars<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_charsToUChars(cs: super::Foundation::PSTR, us: *mut u16, length: i32);
         }
@@ -34024,7 +34024,7 @@ pub unsafe fn u_charsToUChars<
 pub unsafe fn u_cleanup() {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_cleanup();
         }
@@ -34036,7 +34036,7 @@ pub unsafe fn u_cleanup() {
 pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_countChar32(s: *const u16, length: i32) -> i32;
         }
@@ -34051,7 +34051,7 @@ pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
 pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_digit(ch: i32, radix: i8) -> i32;
         }
@@ -34074,7 +34074,7 @@ pub unsafe fn u_enumCharNames(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_enumCharNames(
                 start: i32,
@@ -34103,7 +34103,7 @@ pub unsafe fn u_enumCharTypes(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_enumCharTypes(
                 enumrange: *mut ::windows::runtime::RawPtr,
@@ -34122,7 +34122,7 @@ pub unsafe fn u_enumCharTypes(
 pub unsafe fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR;
         }
@@ -34134,7 +34134,7 @@ pub unsafe fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR {
 pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_foldCase(c: i32, options: u32) -> i32;
         }
@@ -34149,7 +34149,7 @@ pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
 pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_forDigit(digit: i32, radix: i8) -> i32;
         }
@@ -34175,7 +34175,7 @@ pub unsafe fn u_formatMessage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_formatMessage(
                 locale: super::Foundation::PSTR,
@@ -34213,7 +34213,7 @@ pub unsafe fn u_formatMessageWithError<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_formatMessageWithError(
                 locale: super::Foundation::PSTR,
@@ -34241,7 +34241,7 @@ pub unsafe fn u_formatMessageWithError<
 pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getBidiPairedBracket(c: i32) -> i32;
         }
@@ -34256,7 +34256,7 @@ pub unsafe fn u_getBinaryPropertySet(
 ) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getBinaryPropertySet(
                 property: UProperty,
@@ -34274,7 +34274,7 @@ pub unsafe fn u_getBinaryPropertySet(
 pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getCombiningClass(c: i32) -> u8;
         }
@@ -34286,7 +34286,7 @@ pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
 pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode);
         }
@@ -34306,7 +34306,7 @@ pub unsafe fn u_getFC_NFKC_Closure(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getFC_NFKC_Closure(
                 c: i32,
@@ -34328,7 +34328,7 @@ pub unsafe fn u_getFC_NFKC_Closure(
 pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode)
                 -> *mut UCPMap;
@@ -34344,7 +34344,7 @@ pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCo
 pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getIntPropertyMaxValue(which: UProperty) -> i32;
         }
@@ -34356,7 +34356,7 @@ pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
 pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getIntPropertyMinValue(which: UProperty) -> i32;
         }
@@ -34368,7 +34368,7 @@ pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
 pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32;
         }
@@ -34383,7 +34383,7 @@ pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
 pub unsafe fn u_getNumericValue(c: i32) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getNumericValue(c: i32) -> f64;
         }
@@ -34401,7 +34401,7 @@ pub unsafe fn u_getPropertyEnum<
 ) -> UProperty {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getPropertyEnum(alias: super::Foundation::PSTR) -> UProperty;
         }
@@ -34417,7 +34417,7 @@ pub unsafe fn u_getPropertyName(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getPropertyName(
                 property: UProperty,
@@ -34442,7 +34442,7 @@ pub unsafe fn u_getPropertyValueEnum<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getPropertyValueEnum(property: UProperty, alias: super::Foundation::PSTR) -> i32;
         }
@@ -34462,7 +34462,7 @@ pub unsafe fn u_getPropertyValueName(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getPropertyValueName(
                 property: UProperty,
@@ -34482,7 +34482,7 @@ pub unsafe fn u_getPropertyValueName(
 pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getUnicodeVersion(versionarray: *mut u8);
         }
@@ -34494,7 +34494,7 @@ pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
 pub unsafe fn u_getVersion(versionarray: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_getVersion(versionarray: *mut u8);
         }
@@ -34506,7 +34506,7 @@ pub unsafe fn u_getVersion(versionarray: *mut u8) {
 pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8;
         }
@@ -34521,7 +34521,7 @@ pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
 pub unsafe fn u_init(status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_init(status: *mut UErrorCode);
         }
@@ -34533,7 +34533,7 @@ pub unsafe fn u_init(status: *mut UErrorCode) {
 pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isIDIgnorable(c: i32) -> i8;
         }
@@ -34545,7 +34545,7 @@ pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
 pub unsafe fn u_isIDPart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isIDPart(c: i32) -> i8;
         }
@@ -34557,7 +34557,7 @@ pub unsafe fn u_isIDPart(c: i32) -> i8 {
 pub unsafe fn u_isIDStart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isIDStart(c: i32) -> i8;
         }
@@ -34569,7 +34569,7 @@ pub unsafe fn u_isIDStart(c: i32) -> i8 {
 pub unsafe fn u_isISOControl(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isISOControl(c: i32) -> i8;
         }
@@ -34581,7 +34581,7 @@ pub unsafe fn u_isISOControl(c: i32) -> i8 {
 pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isJavaIDPart(c: i32) -> i8;
         }
@@ -34593,7 +34593,7 @@ pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
 pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isJavaIDStart(c: i32) -> i8;
         }
@@ -34605,7 +34605,7 @@ pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
 pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isJavaSpaceChar(c: i32) -> i8;
         }
@@ -34617,7 +34617,7 @@ pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
 pub unsafe fn u_isMirrored(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isMirrored(c: i32) -> i8;
         }
@@ -34629,7 +34629,7 @@ pub unsafe fn u_isMirrored(c: i32) -> i8 {
 pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isUAlphabetic(c: i32) -> i8;
         }
@@ -34641,7 +34641,7 @@ pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
 pub unsafe fn u_isULowercase(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isULowercase(c: i32) -> i8;
         }
@@ -34653,7 +34653,7 @@ pub unsafe fn u_isULowercase(c: i32) -> i8 {
 pub unsafe fn u_isUUppercase(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isUUppercase(c: i32) -> i8;
         }
@@ -34665,7 +34665,7 @@ pub unsafe fn u_isUUppercase(c: i32) -> i8 {
 pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isUWhiteSpace(c: i32) -> i8;
         }
@@ -34677,7 +34677,7 @@ pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
 pub unsafe fn u_isWhitespace(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isWhitespace(c: i32) -> i8;
         }
@@ -34689,7 +34689,7 @@ pub unsafe fn u_isWhitespace(c: i32) -> i8 {
 pub unsafe fn u_isalnum(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isalnum(c: i32) -> i8;
         }
@@ -34701,7 +34701,7 @@ pub unsafe fn u_isalnum(c: i32) -> i8 {
 pub unsafe fn u_isalpha(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isalpha(c: i32) -> i8;
         }
@@ -34713,7 +34713,7 @@ pub unsafe fn u_isalpha(c: i32) -> i8 {
 pub unsafe fn u_isbase(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isbase(c: i32) -> i8;
         }
@@ -34725,7 +34725,7 @@ pub unsafe fn u_isbase(c: i32) -> i8 {
 pub unsafe fn u_isblank(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isblank(c: i32) -> i8;
         }
@@ -34737,7 +34737,7 @@ pub unsafe fn u_isblank(c: i32) -> i8 {
 pub unsafe fn u_iscntrl(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_iscntrl(c: i32) -> i8;
         }
@@ -34749,7 +34749,7 @@ pub unsafe fn u_iscntrl(c: i32) -> i8 {
 pub unsafe fn u_isdefined(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isdefined(c: i32) -> i8;
         }
@@ -34761,7 +34761,7 @@ pub unsafe fn u_isdefined(c: i32) -> i8 {
 pub unsafe fn u_isdigit(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isdigit(c: i32) -> i8;
         }
@@ -34773,7 +34773,7 @@ pub unsafe fn u_isdigit(c: i32) -> i8 {
 pub unsafe fn u_isgraph(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isgraph(c: i32) -> i8;
         }
@@ -34785,7 +34785,7 @@ pub unsafe fn u_isgraph(c: i32) -> i8 {
 pub unsafe fn u_islower(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_islower(c: i32) -> i8;
         }
@@ -34797,7 +34797,7 @@ pub unsafe fn u_islower(c: i32) -> i8 {
 pub unsafe fn u_isprint(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isprint(c: i32) -> i8;
         }
@@ -34809,7 +34809,7 @@ pub unsafe fn u_isprint(c: i32) -> i8 {
 pub unsafe fn u_ispunct(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_ispunct(c: i32) -> i8;
         }
@@ -34821,7 +34821,7 @@ pub unsafe fn u_ispunct(c: i32) -> i8 {
 pub unsafe fn u_isspace(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isspace(c: i32) -> i8;
         }
@@ -34833,7 +34833,7 @@ pub unsafe fn u_isspace(c: i32) -> i8 {
 pub unsafe fn u_istitle(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_istitle(c: i32) -> i8;
         }
@@ -34845,7 +34845,7 @@ pub unsafe fn u_istitle(c: i32) -> i8 {
 pub unsafe fn u_isupper(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isupper(c: i32) -> i8;
         }
@@ -34857,7 +34857,7 @@ pub unsafe fn u_isupper(c: i32) -> i8 {
 pub unsafe fn u_isxdigit(c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_isxdigit(c: i32) -> i8;
         }
@@ -34869,7 +34869,7 @@ pub unsafe fn u_isxdigit(c: i32) -> i8 {
 pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32;
         }
@@ -34886,7 +34886,7 @@ pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options:
 pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16;
         }
@@ -34902,7 +34902,7 @@ pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
 pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
         }
@@ -34918,7 +34918,7 @@ pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
 pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32;
         }
@@ -34934,7 +34934,7 @@ pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
 pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32;
         }
@@ -34950,7 +34950,7 @@ pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32)
 pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
         }
@@ -34966,7 +34966,7 @@ pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 
 pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16;
         }
@@ -34982,7 +34982,7 @@ pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16
 pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16;
         }
@@ -34998,7 +34998,7 @@ pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
 pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16;
         }
@@ -35014,7 +35014,7 @@ pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
 pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16;
         }
@@ -35041,7 +35041,7 @@ pub unsafe fn u_parseMessage<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_parseMessage(
                 locale: super::Foundation::PSTR,
@@ -35079,7 +35079,7 @@ pub unsafe fn u_parseMessageWithError<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_parseMessageWithError(
                 locale: super::Foundation::PSTR,
@@ -35113,7 +35113,7 @@ pub unsafe fn u_setMemoryFunctions(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_setMemoryFunctions(
                 context: *const ::std::ffi::c_void,
@@ -35144,7 +35144,7 @@ pub unsafe fn u_shapeArabic(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_shapeArabic(
                 source: *const u16,
@@ -35177,7 +35177,7 @@ pub unsafe fn u_strCaseCompare(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strCaseCompare(
                 s1: *const u16,
@@ -35209,7 +35209,7 @@ pub unsafe fn u_strCompare(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strCompare(
                 s1: *const u16,
@@ -35237,7 +35237,7 @@ pub unsafe fn u_strCompareIter(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strCompareIter(
                 iter1: *mut ::std::mem::ManuallyDrop<UCharIterator>,
@@ -35262,7 +35262,7 @@ pub unsafe fn u_strFindFirst(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFindFirst(
                 s: *const u16,
@@ -35289,7 +35289,7 @@ pub unsafe fn u_strFindLast(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFindLast(
                 s: *const u16,
@@ -35318,7 +35318,7 @@ pub unsafe fn u_strFoldCase(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFoldCase(
                 dest: *mut u16,
@@ -35357,7 +35357,7 @@ pub unsafe fn u_strFromJavaModifiedUTF8WithSub<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFromJavaModifiedUTF8WithSub(
                 dest: *mut u16,
@@ -35394,7 +35394,7 @@ pub unsafe fn u_strFromUTF32(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFromUTF32(
                 dest: *mut u16,
@@ -35429,7 +35429,7 @@ pub unsafe fn u_strFromUTF32WithSub(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFromUTF32WithSub(
                 dest: *mut u16,
@@ -35470,7 +35470,7 @@ pub unsafe fn u_strFromUTF8<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFromUTF8(
                 dest: *mut u16,
@@ -35507,7 +35507,7 @@ pub unsafe fn u_strFromUTF8Lenient<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFromUTF8Lenient(
                 dest: *mut u16,
@@ -35546,7 +35546,7 @@ pub unsafe fn u_strFromUTF8WithSub<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFromUTF8WithSub(
                 dest: *mut u16,
@@ -35587,7 +35587,7 @@ pub unsafe fn u_strFromWCS<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strFromWCS(
                 dest: *mut u16,
@@ -35613,7 +35613,7 @@ pub unsafe fn u_strFromWCS<
 pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8;
         }
@@ -35640,7 +35640,7 @@ pub unsafe fn u_strToJavaModifiedUTF8<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToJavaModifiedUTF8(
                 dest: super::Foundation::PSTR,
@@ -35677,7 +35677,7 @@ pub unsafe fn u_strToLower<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToLower(
                 dest: *mut u16,
@@ -35715,7 +35715,7 @@ pub unsafe fn u_strToTitle<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToTitle(
                 dest: *mut u16,
@@ -35750,7 +35750,7 @@ pub unsafe fn u_strToUTF32(
 ) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToUTF32(
                 dest: *mut i32,
@@ -35785,7 +35785,7 @@ pub unsafe fn u_strToUTF32WithSub(
 ) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToUTF32WithSub(
                 dest: *mut i32,
@@ -35826,7 +35826,7 @@ pub unsafe fn u_strToUTF8<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToUTF8(
                 dest: super::Foundation::PSTR,
@@ -35865,7 +35865,7 @@ pub unsafe fn u_strToUTF8WithSub<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToUTF8WithSub(
                 dest: super::Foundation::PSTR,
@@ -35906,7 +35906,7 @@ pub unsafe fn u_strToUpper<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToUpper(
                 dest: *mut u16,
@@ -35943,7 +35943,7 @@ pub unsafe fn u_strToWCS<
 ) -> super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strToWCS(
                 dest: super::Foundation::PWSTR,
@@ -35969,7 +35969,7 @@ pub unsafe fn u_strToWCS<
 pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32;
         }
@@ -35985,7 +35985,7 @@ pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 
 pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16;
         }
@@ -36000,7 +36000,7 @@ pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
 pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strchr(s: *const u16, c: u16) -> *mut u16;
         }
@@ -36012,7 +36012,7 @@ pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
 pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strchr32(s: *const u16, c: i32) -> *mut u16;
         }
@@ -36027,7 +36027,7 @@ pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
 pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strcmp(s1: *const u16, s2: *const u16) -> i32;
         }
@@ -36042,7 +36042,7 @@ pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
 pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32;
         }
@@ -36057,7 +36057,7 @@ pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
 pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16;
         }
@@ -36072,7 +36072,7 @@ pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
 pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strcspn(string: *const u16, matchset: *const u16) -> i32;
         }
@@ -36087,7 +36087,7 @@ pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
 pub unsafe fn u_strlen(s: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strlen(s: *const u16) -> i32;
         }
@@ -36099,7 +36099,7 @@ pub unsafe fn u_strlen(s: *const u16) -> i32 {
 pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32;
         }
@@ -36116,7 +36116,7 @@ pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32
 pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
         }
@@ -36132,7 +36132,7 @@ pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
 pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32;
         }
@@ -36148,7 +36148,7 @@ pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
 pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32;
         }
@@ -36164,7 +36164,7 @@ pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) ->
 pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16;
         }
@@ -36180,7 +36180,7 @@ pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
 pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16;
         }
@@ -36195,7 +36195,7 @@ pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
 pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strrchr(s: *const u16, c: u16) -> *mut u16;
         }
@@ -36210,7 +36210,7 @@ pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
 pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strrchr32(s: *const u16, c: i32) -> *mut u16;
         }
@@ -36225,7 +36225,7 @@ pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
 pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16;
         }
@@ -36240,7 +36240,7 @@ pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
 pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strspn(string: *const u16, matchset: *const u16) -> i32;
         }
@@ -36255,7 +36255,7 @@ pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
 pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16;
         }
@@ -36270,7 +36270,7 @@ pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
 pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16;
         }
@@ -36286,7 +36286,7 @@ pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut 
 pub unsafe fn u_tolower(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_tolower(c: i32) -> i32;
         }
@@ -36298,7 +36298,7 @@ pub unsafe fn u_tolower(c: i32) -> i32 {
 pub unsafe fn u_totitle(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_totitle(c: i32) -> i32;
         }
@@ -36310,7 +36310,7 @@ pub unsafe fn u_totitle(c: i32) -> i32 {
 pub unsafe fn u_toupper(c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_toupper(c: i32) -> i32;
         }
@@ -36326,7 +36326,7 @@ pub unsafe fn u_uastrcpy<'a, Param1: ::windows::runtime::IntoParam<'a, super::Fo
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_uastrcpy(dst: *mut u16, src: super::Foundation::PSTR) -> *mut u16;
         }
@@ -36349,7 +36349,7 @@ pub unsafe fn u_uastrncpy<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_uastrncpy(dst: *mut u16, src: super::Foundation::PSTR, n: i32) -> *mut u16;
         }
@@ -36370,7 +36370,7 @@ pub unsafe fn u_unescape<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fo
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_unescape(src: super::Foundation::PSTR, dest: *mut u16, destcapacity: i32) -> i32;
         }
@@ -36391,7 +36391,7 @@ pub unsafe fn u_unescapeAt(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_unescapeAt(
                 charat: ::windows::runtime::RawPtr,
@@ -36420,7 +36420,7 @@ pub unsafe fn u_versionFromString<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_versionFromString(versionarray: *mut u8, versionstring: super::Foundation::PSTR);
         }
@@ -36435,7 +36435,7 @@ pub unsafe fn u_versionFromString<
 pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16);
         }
@@ -36457,7 +36457,7 @@ pub unsafe fn u_versionToString<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_versionToString(versionarray: *const u8, versionstring: super::Foundation::PSTR);
         }
@@ -36484,7 +36484,7 @@ pub unsafe fn u_vformatMessage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_vformatMessage(
                 locale: super::Foundation::PSTR,
@@ -36525,7 +36525,7 @@ pub unsafe fn u_vformatMessageWithError<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_vformatMessageWithError(
                 locale: super::Foundation::PSTR,
@@ -36567,7 +36567,7 @@ pub unsafe fn u_vparseMessage<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_vparseMessage(
                 locale: super::Foundation::PSTR,
@@ -36608,7 +36608,7 @@ pub unsafe fn u_vparseMessageWithError<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn u_vparseMessageWithError(
                 locale: super::Foundation::PSTR,
@@ -36638,7 +36638,7 @@ pub unsafe fn u_vparseMessageWithError<
 pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_close(pbidi: *mut UBiDi);
         }
@@ -36650,7 +36650,7 @@ pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
 pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32;
         }
@@ -36662,7 +36662,7 @@ pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
 pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32;
         }
@@ -36677,7 +36677,7 @@ pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
 pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection;
         }
@@ -36696,7 +36696,7 @@ pub unsafe fn ubidi_getClassCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getClassCallback(
                 pbidi: *mut UBiDi,
@@ -36716,7 +36716,7 @@ pub unsafe fn ubidi_getClassCallback(
 pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection;
         }
@@ -36731,7 +36731,7 @@ pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirect
 pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection;
         }
@@ -36743,7 +36743,7 @@ pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
 pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getLength(pbidi: *const UBiDi) -> i32;
         }
@@ -36755,7 +36755,7 @@ pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
 pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8;
         }
@@ -36770,7 +36770,7 @@ pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
 pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8;
         }
@@ -36789,7 +36789,7 @@ pub unsafe fn ubidi_getLogicalIndex(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getLogicalIndex(
                 pbidi: *mut UBiDi,
@@ -36813,7 +36813,7 @@ pub unsafe fn ubidi_getLogicalMap(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getLogicalMap(
                 pbidi: *mut UBiDi,
@@ -36838,7 +36838,7 @@ pub unsafe fn ubidi_getLogicalRun(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getLogicalRun(
                 pbidi: *const UBiDi,
@@ -36860,7 +36860,7 @@ pub unsafe fn ubidi_getLogicalRun(
 pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8;
         }
@@ -36879,7 +36879,7 @@ pub unsafe fn ubidi_getParagraph(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getParagraph(
                 pbidi: *const UBiDi,
@@ -36912,7 +36912,7 @@ pub unsafe fn ubidi_getParagraphByIndex(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getParagraphByIndex(
                 pbidi: *const UBiDi,
@@ -36938,7 +36938,7 @@ pub unsafe fn ubidi_getParagraphByIndex(
 pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32;
         }
@@ -36950,7 +36950,7 @@ pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
 pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode;
         }
@@ -36962,7 +36962,7 @@ pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode 
 pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32;
         }
@@ -36974,7 +36974,7 @@ pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
 pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32;
         }
@@ -36986,7 +36986,7 @@ pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
 pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16;
         }
@@ -37002,7 +37002,7 @@ pub unsafe fn ubidi_getVisualIndex(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getVisualIndex(
                 pbidi: *mut UBiDi,
@@ -37026,7 +37026,7 @@ pub unsafe fn ubidi_getVisualMap(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getVisualMap(
                 pbidi: *mut UBiDi,
@@ -37051,7 +37051,7 @@ pub unsafe fn ubidi_getVisualRun(
 ) -> UBiDiDirection {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_getVisualRun(
                 pbidi: *mut UBiDi,
@@ -37073,7 +37073,7 @@ pub unsafe fn ubidi_getVisualRun(
 pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32);
         }
@@ -37089,7 +37089,7 @@ pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32
 pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8;
         }
@@ -37101,7 +37101,7 @@ pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
 pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8;
         }
@@ -37113,7 +37113,7 @@ pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
 pub unsafe fn ubidi_open() -> *mut UBiDi {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_open() -> *mut UBiDi;
         }
@@ -37129,7 +37129,7 @@ pub unsafe fn ubidi_openSized(
 ) -> *mut UBiDi {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_openSized(
                 maxlength: i32,
@@ -37149,7 +37149,7 @@ pub unsafe fn ubidi_openSized(
 pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8);
         }
@@ -37164,7 +37164,7 @@ pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8
 pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32);
         }
@@ -37180,7 +37180,7 @@ pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mu
 pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32);
         }
@@ -37203,7 +37203,7 @@ pub unsafe fn ubidi_setClassCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_setClassCallback(
                 pbidi: *mut UBiDi,
@@ -37236,7 +37236,7 @@ pub unsafe fn ubidi_setContext(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_setContext(
                 pbidi: *mut UBiDi,
@@ -37262,7 +37262,7 @@ pub unsafe fn ubidi_setContext(
 pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8);
         }
@@ -37283,7 +37283,7 @@ pub unsafe fn ubidi_setLine(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_setLine(
                 pparabidi: *const UBiDi,
@@ -37314,7 +37314,7 @@ pub unsafe fn ubidi_setPara(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_setPara(
                 pbidi: *mut UBiDi,
@@ -37340,7 +37340,7 @@ pub unsafe fn ubidi_setPara(
 pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode);
         }
@@ -37355,7 +37355,7 @@ pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiRe
 pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32);
         }
@@ -37376,7 +37376,7 @@ pub unsafe fn ubidi_writeReordered(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_writeReordered(
                 pbidi: *mut UBiDi,
@@ -37407,7 +37407,7 @@ pub unsafe fn ubidi_writeReverse(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubidi_writeReverse(
                 src: *const u16,
@@ -37433,7 +37433,7 @@ pub unsafe fn ubidi_writeReverse(
 pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubiditransform_close(pbiditransform: *mut UBiDiTransform);
         }
@@ -37445,7 +37445,7 @@ pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
 pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform;
         }
@@ -37470,7 +37470,7 @@ pub unsafe fn ubiditransform_transform(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubiditransform_transform(
                 pbiditransform: *mut UBiDiTransform,
@@ -37508,7 +37508,7 @@ pub unsafe fn ubiditransform_transform(
 pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ublock_getCode(c: i32) -> UBlockCode;
         }
@@ -37520,7 +37520,7 @@ pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
 pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_close(bi: *mut UBreakIterator);
         }
@@ -37532,7 +37532,7 @@ pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
 pub unsafe fn ubrk_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_countAvailable() -> i32;
         }
@@ -37544,7 +37544,7 @@ pub unsafe fn ubrk_countAvailable() -> i32 {
 pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_current(bi: *const UBreakIterator) -> i32;
         }
@@ -37556,7 +37556,7 @@ pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
 pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_first(bi: *mut UBreakIterator) -> i32;
         }
@@ -37568,7 +37568,7 @@ pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
 pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32;
         }
@@ -37584,7 +37584,7 @@ pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
 pub unsafe fn ubrk_getAvailable(index: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_getAvailable(index: i32) -> super::Foundation::PSTR;
         }
@@ -37601,7 +37601,7 @@ pub unsafe fn ubrk_getBinaryRules(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_getBinaryRules(
                 bi: *mut UBreakIterator,
@@ -37628,7 +37628,7 @@ pub unsafe fn ubrk_getLocaleByType(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_getLocaleByType(
                 bi: *const UBreakIterator,
@@ -37648,7 +37648,7 @@ pub unsafe fn ubrk_getLocaleByType(
 pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32;
         }
@@ -37665,7 +37665,7 @@ pub unsafe fn ubrk_getRuleStatusVec(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_getRuleStatusVec(
                 bi: *mut UBreakIterator,
@@ -37687,7 +37687,7 @@ pub unsafe fn ubrk_getRuleStatusVec(
 pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8;
         }
@@ -37702,7 +37702,7 @@ pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
 pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_last(bi: *mut UBreakIterator) -> i32;
         }
@@ -37714,7 +37714,7 @@ pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
 pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_next(bi: *mut UBreakIterator) -> i32;
         }
@@ -37733,7 +37733,7 @@ pub unsafe fn ubrk_open<'a, Param1: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_open(
                 r#type: UBreakIteratorType,
@@ -37763,7 +37763,7 @@ pub unsafe fn ubrk_openBinaryRules(
 ) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_openBinaryRules(
                 binaryrules: *const u8,
@@ -37794,7 +37794,7 @@ pub unsafe fn ubrk_openRules(
 ) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_openRules(
                 rules: *const u16,
@@ -37820,7 +37820,7 @@ pub unsafe fn ubrk_openRules(
 pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32;
         }
@@ -37835,7 +37835,7 @@ pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
 pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_previous(bi: *mut UBreakIterator) -> i32;
         }
@@ -37851,7 +37851,7 @@ pub unsafe fn ubrk_refreshUText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_refreshUText(
                 bi: *mut UBreakIterator,
@@ -37876,7 +37876,7 @@ pub unsafe fn ubrk_safeClone(
 ) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_safeClone(
                 bi: *const UBreakIterator,
@@ -37903,7 +37903,7 @@ pub unsafe fn ubrk_setText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_setText(
                 bi: *mut UBreakIterator,
@@ -37925,7 +37925,7 @@ pub unsafe fn ubrk_setText(
 pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode);
         }
@@ -37946,7 +37946,7 @@ pub unsafe fn ucal_add(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_add(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -37968,7 +37968,7 @@ pub unsafe fn ucal_add(
 pub unsafe fn ucal_clear(calendar: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_clear(calendar: *mut *mut ::std::ffi::c_void);
         }
@@ -37980,7 +37980,7 @@ pub unsafe fn ucal_clear(calendar: *mut *mut ::std::ffi::c_void) {
 pub unsafe fn ucal_clearField(cal: *mut *mut ::std::ffi::c_void, field: UCalendarDateFields) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_clearField(cal: *mut *mut ::std::ffi::c_void, field: UCalendarDateFields);
         }
@@ -37998,7 +37998,7 @@ pub unsafe fn ucal_clone(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_clone(
                 cal: *const *const ::std::ffi::c_void,
@@ -38016,7 +38016,7 @@ pub unsafe fn ucal_clone(
 pub unsafe fn ucal_close(cal: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_close(cal: *mut *mut ::std::ffi::c_void);
         }
@@ -38028,7 +38028,7 @@ pub unsafe fn ucal_close(cal: *mut *mut ::std::ffi::c_void) {
 pub unsafe fn ucal_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_countAvailable() -> i32;
         }
@@ -38043,7 +38043,7 @@ pub unsafe fn ucal_equivalentTo(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_equivalentTo(
                 cal1: *const *const ::std::ffi::c_void,
@@ -38065,7 +38065,7 @@ pub unsafe fn ucal_get(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_get(
                 cal: *const *const ::std::ffi::c_void,
@@ -38088,7 +38088,7 @@ pub unsafe fn ucal_getAttribute(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getAttribute(
                 cal: *const *const ::std::ffi::c_void,
@@ -38107,7 +38107,7 @@ pub unsafe fn ucal_getAttribute(
 pub unsafe fn ucal_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -38126,7 +38126,7 @@ pub unsafe fn ucal_getCanonicalTimeZoneID(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getCanonicalTimeZoneID(
                 id: *const u16,
@@ -38152,7 +38152,7 @@ pub unsafe fn ucal_getCanonicalTimeZoneID(
 pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32;
         }
@@ -38171,7 +38171,7 @@ pub unsafe fn ucal_getDayOfWeekType(
 ) -> UCalendarWeekdayType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getDayOfWeekType(
                 cal: *const *const ::std::ffi::c_void,
@@ -38195,7 +38195,7 @@ pub unsafe fn ucal_getDefaultTimeZone(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getDefaultTimeZone(
                 result: *mut u16,
@@ -38220,7 +38220,7 @@ pub unsafe fn ucal_getFieldDifference(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getFieldDifference(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -38245,7 +38245,7 @@ pub unsafe fn ucal_getGregorianChange(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getGregorianChange(
                 cal: *const *const ::std::ffi::c_void,
@@ -38267,7 +38267,7 @@ pub unsafe fn ucal_getHostTimeZone(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getHostTimeZone(
                 result: *mut u16,
@@ -38297,7 +38297,7 @@ pub unsafe fn ucal_getKeywordValuesForLocale<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getKeywordValuesForLocale(
                 key: super::Foundation::PSTR,
@@ -38324,7 +38324,7 @@ pub unsafe fn ucal_getLimit(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getLimit(
                 cal: *const *const ::std::ffi::c_void,
@@ -38351,7 +38351,7 @@ pub unsafe fn ucal_getLocaleByType(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getLocaleByType(
                 cal: *const *const ::std::ffi::c_void,
@@ -38374,7 +38374,7 @@ pub unsafe fn ucal_getMillis(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getMillis(
                 cal: *const *const ::std::ffi::c_void,
@@ -38392,7 +38392,7 @@ pub unsafe fn ucal_getMillis(
 pub unsafe fn ucal_getNow() -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getNow() -> f64;
         }
@@ -38405,7 +38405,7 @@ pub unsafe fn ucal_getNow() -> f64 {
 pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getTZDataVersion(status: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -38428,7 +38428,7 @@ pub unsafe fn ucal_getTimeZoneDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getTimeZoneDisplayName(
                 cal: *const *const ::std::ffi::c_void,
@@ -38459,7 +38459,7 @@ pub unsafe fn ucal_getTimeZoneID(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getTimeZoneID(
                 cal: *const *const ::std::ffi::c_void,
@@ -38492,7 +38492,7 @@ pub unsafe fn ucal_getTimeZoneIDForWindowsID<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getTimeZoneIDForWindowsID(
                 winid: *const u16,
@@ -38523,7 +38523,7 @@ pub unsafe fn ucal_getTimeZoneTransitionDate(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getTimeZoneTransitionDate(
                 cal: *const *const ::std::ffi::c_void,
@@ -38549,7 +38549,7 @@ pub unsafe fn ucal_getType(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getType(
                 cal: *const *const ::std::ffi::c_void,
@@ -38571,7 +38571,7 @@ pub unsafe fn ucal_getWeekendTransition(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getWeekendTransition(
                 cal: *const *const ::std::ffi::c_void,
@@ -38597,7 +38597,7 @@ pub unsafe fn ucal_getWindowsTimeZoneID(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_getWindowsTimeZoneID(
                 id: *const u16,
@@ -38624,7 +38624,7 @@ pub unsafe fn ucal_inDaylightTime(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_inDaylightTime(
                 cal: *const *const ::std::ffi::c_void,
@@ -38642,7 +38642,7 @@ pub unsafe fn ucal_inDaylightTime(
 pub unsafe fn ucal_isSet(cal: *const *const ::std::ffi::c_void, field: UCalendarDateFields) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_isSet(cal: *const *const ::std::ffi::c_void, field: UCalendarDateFields) -> i8;
         }
@@ -38661,7 +38661,7 @@ pub unsafe fn ucal_isWeekend(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_isWeekend(
                 cal: *const *const ::std::ffi::c_void,
@@ -38688,7 +38688,7 @@ pub unsafe fn ucal_open<'a, Param2: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_open(
                 zoneid: *const u16,
@@ -38719,7 +38719,7 @@ pub unsafe fn ucal_openCountryTimeZones<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_openCountryTimeZones(
                 country: super::Foundation::PSTR,
@@ -38746,7 +38746,7 @@ pub unsafe fn ucal_openTimeZoneIDEnumeration<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_openTimeZoneIDEnumeration(
                 zonetype: USystemTimeZoneType,
@@ -38768,7 +38768,7 @@ pub unsafe fn ucal_openTimeZoneIDEnumeration<
 pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -38785,7 +38785,7 @@ pub unsafe fn ucal_roll(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_roll(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -38807,7 +38807,7 @@ pub unsafe fn ucal_roll(
 pub unsafe fn ucal_set(cal: *mut *mut ::std::ffi::c_void, field: UCalendarDateFields, value: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_set(cal: *mut *mut ::std::ffi::c_void, field: UCalendarDateFields, value: i32);
         }
@@ -38827,7 +38827,7 @@ pub unsafe fn ucal_setAttribute(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_setAttribute(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -38853,7 +38853,7 @@ pub unsafe fn ucal_setDate(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_setDate(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -38886,7 +38886,7 @@ pub unsafe fn ucal_setDateTime(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_setDateTime(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -38916,7 +38916,7 @@ pub unsafe fn ucal_setDateTime(
 pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode);
         }
@@ -38935,7 +38935,7 @@ pub unsafe fn ucal_setGregorianChange(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_setGregorianChange(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -38959,7 +38959,7 @@ pub unsafe fn ucal_setMillis(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_setMillis(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -38984,7 +38984,7 @@ pub unsafe fn ucal_setTimeZone(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucal_setTimeZone(
                 cal: *mut *mut ::std::ffi::c_void,
@@ -39006,7 +39006,7 @@ pub unsafe fn ucal_setTimeZone(
 pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_close(csm: *mut UCaseMap);
         }
@@ -39018,7 +39018,7 @@ pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
 pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator;
         }
@@ -39031,7 +39031,7 @@ pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIter
 pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PSTR;
         }
@@ -39043,7 +39043,7 @@ pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PST
 pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_getOptions(csm: *const UCaseMap) -> u32;
         }
@@ -39063,7 +39063,7 @@ pub unsafe fn ucasemap_open<
 ) -> *mut UCaseMap {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_open(
                 locale: super::Foundation::PSTR,
@@ -39087,7 +39087,7 @@ pub unsafe fn ucasemap_setBreakIterator(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_setBreakIterator(
                 csm: *mut UCaseMap,
@@ -39115,7 +39115,7 @@ pub unsafe fn ucasemap_setLocale<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_setLocale(
                 csm: *mut UCaseMap,
@@ -39135,7 +39135,7 @@ pub unsafe fn ucasemap_setLocale<
 pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode);
         }
@@ -39158,7 +39158,7 @@ pub unsafe fn ucasemap_toTitle(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_toTitle(
                 csm: *mut UCaseMap,
@@ -39196,7 +39196,7 @@ pub unsafe fn ucasemap_utf8FoldCase<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_utf8FoldCase(
                 csm: *const UCaseMap,
@@ -39234,7 +39234,7 @@ pub unsafe fn ucasemap_utf8ToLower<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_utf8ToLower(
                 csm: *const UCaseMap,
@@ -39272,7 +39272,7 @@ pub unsafe fn ucasemap_utf8ToTitle<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_utf8ToTitle(
                 csm: *mut UCaseMap,
@@ -39310,7 +39310,7 @@ pub unsafe fn ucasemap_utf8ToUpper<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucasemap_utf8ToUpper(
                 csm: *const UCaseMap,
@@ -39336,7 +39336,7 @@ pub unsafe fn ucasemap_utf8ToUpper<
 pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition);
         }
@@ -39352,7 +39352,7 @@ pub unsafe fn ucfpos_constrainCategory(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_constrainCategory(
                 ucfpos: *mut UConstrainedFieldPosition,
@@ -39377,7 +39377,7 @@ pub unsafe fn ucfpos_constrainField(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_constrainField(
                 ucfpos: *mut UConstrainedFieldPosition,
@@ -39402,7 +39402,7 @@ pub unsafe fn ucfpos_getCategory(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_getCategory(
                 ucfpos: *const UConstrainedFieldPosition,
@@ -39423,7 +39423,7 @@ pub unsafe fn ucfpos_getField(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_getField(
                 ucfpos: *const UConstrainedFieldPosition,
@@ -39446,7 +39446,7 @@ pub unsafe fn ucfpos_getIndexes(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_getIndexes(
                 ucfpos: *const UConstrainedFieldPosition,
@@ -39471,7 +39471,7 @@ pub unsafe fn ucfpos_getInt64IterationContext(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_getInt64IterationContext(
                 ucfpos: *const UConstrainedFieldPosition,
@@ -39494,7 +39494,7 @@ pub unsafe fn ucfpos_matchesField(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_matchesField(
                 ucfpos: *const UConstrainedFieldPosition,
@@ -39516,7 +39516,7 @@ pub unsafe fn ucfpos_matchesField(
 pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition;
         }
@@ -39528,7 +39528,7 @@ pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition
 pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode);
         }
@@ -39547,7 +39547,7 @@ pub unsafe fn ucfpos_setInt64IterationContext(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_setInt64IterationContext(
                 ucfpos: *mut UConstrainedFieldPosition,
@@ -39574,7 +39574,7 @@ pub unsafe fn ucfpos_setState(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucfpos_setState(
                 ucfpos: *mut UConstrainedFieldPosition,
@@ -39610,7 +39610,7 @@ pub unsafe fn ucnv_cbFromUWriteBytes<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_cbFromUWriteBytes(
                 args: *mut UConverterFromUnicodeArgs,
@@ -39639,7 +39639,7 @@ pub unsafe fn ucnv_cbFromUWriteSub(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_cbFromUWriteSub(
                 args: *mut UConverterFromUnicodeArgs,
@@ -39666,7 +39666,7 @@ pub unsafe fn ucnv_cbFromUWriteUChars(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_cbFromUWriteUChars(
                 args: *mut UConverterFromUnicodeArgs,
@@ -39695,7 +39695,7 @@ pub unsafe fn ucnv_cbToUWriteSub(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_cbToUWriteSub(
                 args: *mut UConverterToUnicodeArgs,
@@ -39722,7 +39722,7 @@ pub unsafe fn ucnv_cbToUWriteUChars(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_cbToUWriteUChars(
                 args: *mut UConverterToUnicodeArgs,
@@ -39746,7 +39746,7 @@ pub unsafe fn ucnv_cbToUWriteUChars(
 pub unsafe fn ucnv_close(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_close(converter: *mut UConverter);
         }
@@ -39766,7 +39766,7 @@ pub unsafe fn ucnv_compareNames<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_compareNames(
                 name1: super::Foundation::PSTR,
@@ -39799,7 +39799,7 @@ pub unsafe fn ucnv_convert<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_convert(
                 toconvertername: super::Foundation::PSTR,
@@ -39846,7 +39846,7 @@ pub unsafe fn ucnv_convertEx<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_convertEx(
                 targetcnv: *mut UConverter,
@@ -39893,7 +39893,7 @@ pub unsafe fn ucnv_countAliases<
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_countAliases(
                 alias: super::Foundation::PSTR,
@@ -39911,7 +39911,7 @@ pub unsafe fn ucnv_countAliases<
 pub unsafe fn ucnv_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_countAvailable() -> i32;
         }
@@ -39923,7 +39923,7 @@ pub unsafe fn ucnv_countAvailable() -> i32 {
 pub unsafe fn ucnv_countStandards() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_countStandards() -> u16;
         }
@@ -39944,7 +39944,7 @@ pub unsafe fn ucnv_detectUnicodeSignature<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_detectUnicodeSignature(
                 source: super::Foundation::PSTR,
@@ -39966,7 +39966,7 @@ pub unsafe fn ucnv_detectUnicodeSignature<
 pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32);
         }
@@ -39982,7 +39982,7 @@ pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, so
 pub unsafe fn ucnv_flushCache() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_flushCache() -> i32;
         }
@@ -40007,7 +40007,7 @@ pub unsafe fn ucnv_fromAlgorithmic<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_fromAlgorithmic(
                 cnv: *mut UConverter,
@@ -40046,7 +40046,7 @@ pub unsafe fn ucnv_fromUChars<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_fromUChars(
                 cnv: *mut UConverter,
@@ -40072,7 +40072,7 @@ pub unsafe fn ucnv_fromUChars<
 pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
         }
@@ -40100,7 +40100,7 @@ pub unsafe fn ucnv_fromUnicode<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_fromUnicode(
                 converter: *mut UConverter,
@@ -40138,7 +40138,7 @@ pub unsafe fn ucnv_getAlias<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getAlias(
                 alias: super::Foundation::PSTR,
@@ -40166,7 +40166,7 @@ pub unsafe fn ucnv_getAliases<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getAliases(
                 alias: super::Foundation::PSTR,
@@ -40187,7 +40187,7 @@ pub unsafe fn ucnv_getAliases<
 pub unsafe fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR;
         }
@@ -40199,7 +40199,7 @@ pub unsafe fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR {
 pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32;
         }
@@ -40223,7 +40223,7 @@ pub unsafe fn ucnv_getCanonicalName<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getCanonicalName(
                 alias: super::Foundation::PSTR,
@@ -40244,7 +40244,7 @@ pub unsafe fn ucnv_getCanonicalName<
 pub unsafe fn ucnv_getDefaultName() -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getDefaultName() -> super::Foundation::PSTR;
         }
@@ -40266,7 +40266,7 @@ pub unsafe fn ucnv_getDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getDisplayName(
                 converter: *const UConverter,
@@ -40295,7 +40295,7 @@ pub unsafe fn ucnv_getFromUCallBack(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getFromUCallBack(
                 converter: *const UConverter,
@@ -40324,7 +40324,7 @@ pub unsafe fn ucnv_getInvalidChars<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getInvalidChars(
                 converter: *const UConverter,
@@ -40351,7 +40351,7 @@ pub unsafe fn ucnv_getInvalidUChars(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getInvalidUChars(
                 converter: *const UConverter,
@@ -40373,7 +40373,7 @@ pub unsafe fn ucnv_getInvalidUChars(
 pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8;
         }
@@ -40385,7 +40385,7 @@ pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
 pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getMinCharSize(converter: *const UConverter) -> i8;
         }
@@ -40401,7 +40401,7 @@ pub unsafe fn ucnv_getName(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getName(
                 converter: *const UConverter,
@@ -40428,7 +40428,7 @@ pub unsafe fn ucnv_getNextUChar<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getNextUChar(
                 converter: *mut UConverter,
@@ -40453,7 +40453,7 @@ pub unsafe fn ucnv_getPlatform(
 ) -> UConverterPlatform {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getPlatform(
                 converter: *const UConverter,
@@ -40472,7 +40472,7 @@ pub unsafe fn ucnv_getPlatform(
 pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR;
         }
@@ -40496,7 +40496,7 @@ pub unsafe fn ucnv_getStandardName<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getStandardName(
                 name: super::Foundation::PSTR,
@@ -40520,7 +40520,7 @@ pub unsafe fn ucnv_getStarters(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getStarters(
                 converter: *const UConverter,
@@ -40549,7 +40549,7 @@ pub unsafe fn ucnv_getSubstChars<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getSubstChars(
                 converter: *const UConverter,
@@ -40576,7 +40576,7 @@ pub unsafe fn ucnv_getToUCallBack(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getToUCallBack(
                 converter: *const UConverter,
@@ -40596,7 +40596,7 @@ pub unsafe fn ucnv_getToUCallBack(
 pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getType(converter: *const UConverter) -> UConverterType;
         }
@@ -40613,7 +40613,7 @@ pub unsafe fn ucnv_getUnicodeSet(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_getUnicodeSet(
                 cnv: *const UConverter,
@@ -40635,7 +40635,7 @@ pub unsafe fn ucnv_getUnicodeSet(
 pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8;
         }
@@ -40647,7 +40647,7 @@ pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
 pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8;
         }
@@ -40666,7 +40666,7 @@ pub unsafe fn ucnv_open<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_open(
                 convertername: super::Foundation::PSTR,
@@ -40684,7 +40684,7 @@ pub unsafe fn ucnv_open<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fou
 pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -40700,7 +40700,7 @@ pub unsafe fn ucnv_openCCSID(
 ) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_openCCSID(
                 codepage: i32,
@@ -40729,7 +40729,7 @@ pub unsafe fn ucnv_openPackage<
 ) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_openPackage(
                 packagename: super::Foundation::PSTR,
@@ -40758,7 +40758,7 @@ pub unsafe fn ucnv_openStandardNames<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_openStandardNames(
                 convname: super::Foundation::PSTR,
@@ -40778,7 +40778,7 @@ pub unsafe fn ucnv_openStandardNames<
 pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter;
         }
@@ -40793,7 +40793,7 @@ pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConver
 pub unsafe fn ucnv_reset(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_reset(converter: *mut UConverter);
         }
@@ -40805,7 +40805,7 @@ pub unsafe fn ucnv_reset(converter: *mut UConverter) {
 pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_resetFromUnicode(converter: *mut UConverter);
         }
@@ -40817,7 +40817,7 @@ pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
 pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_resetToUnicode(converter: *mut UConverter);
         }
@@ -40834,7 +40834,7 @@ pub unsafe fn ucnv_safeClone(
 ) -> *mut UConverter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_safeClone(
                 cnv: *const UConverter,
@@ -40862,7 +40862,7 @@ pub unsafe fn ucnv_setDefaultName<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_setDefaultName(name: super::Foundation::PSTR);
         }
@@ -40874,7 +40874,7 @@ pub unsafe fn ucnv_setDefaultName<
 pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8);
         }
@@ -40897,7 +40897,7 @@ pub unsafe fn ucnv_setFromUCallBack(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_setFromUCallBack(
                 converter: *mut UConverter,
@@ -40932,7 +40932,7 @@ pub unsafe fn ucnv_setSubstChars<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_setSubstChars(
                 converter: *mut UConverter,
@@ -40959,7 +40959,7 @@ pub unsafe fn ucnv_setSubstString(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_setSubstString(
                 cnv: *mut UConverter,
@@ -40989,7 +40989,7 @@ pub unsafe fn ucnv_setToUCallBack(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_setToUCallBack(
                 converter: *mut UConverter,
@@ -41028,7 +41028,7 @@ pub unsafe fn ucnv_toAlgorithmic<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_toAlgorithmic(
                 algorithmictype: UConverterType,
@@ -41067,7 +41067,7 @@ pub unsafe fn ucnv_toUChars<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_toUChars(
                 cnv: *mut UConverter,
@@ -41093,7 +41093,7 @@ pub unsafe fn ucnv_toUChars<
 pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32;
         }
@@ -41121,7 +41121,7 @@ pub unsafe fn ucnv_toUnicode<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_toUnicode(
                 converter: *mut UConverter,
@@ -41151,7 +41151,7 @@ pub unsafe fn ucnv_toUnicode<
 pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnv_usesFallback(cnv: *const UConverter) -> i8;
         }
@@ -41163,7 +41163,7 @@ pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
 pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnvsel_close(sel: *mut UConverterSelector);
         }
@@ -41181,7 +41181,7 @@ pub unsafe fn ucnvsel_open(
 ) -> *mut UConverterSelector {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnvsel_open(
                 converterlist: *const *const i8,
@@ -41209,7 +41209,7 @@ pub unsafe fn ucnvsel_openFromSerialized(
 ) -> *mut UConverterSelector {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnvsel_openFromSerialized(
                 buffer: *const ::std::ffi::c_void,
@@ -41234,7 +41234,7 @@ pub unsafe fn ucnvsel_selectForString(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnvsel_selectForString(
                 sel: *const UConverterSelector,
@@ -41265,7 +41265,7 @@ pub unsafe fn ucnvsel_selectForUTF8<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnvsel_selectForUTF8(
                 sel: *const UConverterSelector,
@@ -41292,7 +41292,7 @@ pub unsafe fn ucnvsel_serialize(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucnvsel_serialize(
                 sel: *const UConverterSelector,
@@ -41319,7 +41319,7 @@ pub unsafe fn ucol_cloneBinary(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_cloneBinary(
                 coll: *const UCollator,
@@ -41341,7 +41341,7 @@ pub unsafe fn ucol_cloneBinary(
 pub unsafe fn ucol_close(coll: *mut UCollator) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_close(coll: *mut UCollator);
         }
@@ -41353,7 +41353,7 @@ pub unsafe fn ucol_close(coll: *mut UCollator) {
 pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_closeElements(elems: *mut UCollationElements);
         }
@@ -41365,7 +41365,7 @@ pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
 pub unsafe fn ucol_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_countAvailable() -> i32;
         }
@@ -41383,7 +41383,7 @@ pub unsafe fn ucol_equal(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_equal(
                 coll: *const UCollator,
@@ -41411,7 +41411,7 @@ pub unsafe fn ucol_getAttribute(
 ) -> UColAttributeValue {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getAttribute(
                 coll: *const UCollator,
@@ -41432,7 +41432,7 @@ pub unsafe fn ucol_getAttribute(
 pub unsafe fn ucol_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -41452,7 +41452,7 @@ pub unsafe fn ucol_getBound(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getBound(
                 source: *const u8,
@@ -41486,7 +41486,7 @@ pub unsafe fn ucol_getContractionsAndExpansions(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getContractionsAndExpansions(
                 coll: *const UCollator,
@@ -41521,7 +41521,7 @@ pub unsafe fn ucol_getDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getDisplayName(
                 objloc: super::Foundation::PSTR,
@@ -41550,7 +41550,7 @@ pub unsafe fn ucol_getEquivalentReorderCodes(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getEquivalentReorderCodes(
                 reordercode: i32,
@@ -41585,7 +41585,7 @@ pub unsafe fn ucol_getFunctionalEquivalent<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getFunctionalEquivalent(
                 result: super::Foundation::PSTR,
@@ -41618,7 +41618,7 @@ pub unsafe fn ucol_getKeywordValues<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getKeywordValues(
                 keyword: super::Foundation::PSTR,
@@ -41646,7 +41646,7 @@ pub unsafe fn ucol_getKeywordValuesForLocale<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getKeywordValuesForLocale(
                 key: super::Foundation::PSTR,
@@ -41668,7 +41668,7 @@ pub unsafe fn ucol_getKeywordValuesForLocale<
 pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -41685,7 +41685,7 @@ pub unsafe fn ucol_getLocaleByType(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getLocaleByType(
                 coll: *const UCollator,
@@ -41705,7 +41705,7 @@ pub unsafe fn ucol_getLocaleByType(
 pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32;
         }
@@ -41720,7 +41720,7 @@ pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32)
 pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode;
         }
@@ -41732,7 +41732,7 @@ pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
 pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getOffset(elems: *const UCollationElements) -> i32;
         }
@@ -41749,7 +41749,7 @@ pub unsafe fn ucol_getReorderCodes(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getReorderCodes(
                 coll: *const UCollator,
@@ -41771,7 +41771,7 @@ pub unsafe fn ucol_getReorderCodes(
 pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16;
         }
@@ -41791,7 +41791,7 @@ pub unsafe fn ucol_getRulesEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getRulesEx(
                 coll: *const UCollator,
@@ -41819,7 +41819,7 @@ pub unsafe fn ucol_getSortKey(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getSortKey(
                 coll: *const UCollator,
@@ -41843,7 +41843,7 @@ pub unsafe fn ucol_getSortKey(
 pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue;
         }
@@ -41855,7 +41855,7 @@ pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
 pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet;
         }
@@ -41870,7 +41870,7 @@ pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCod
 pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8);
         }
@@ -41885,7 +41885,7 @@ pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
 pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32;
         }
@@ -41900,7 +41900,7 @@ pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCod
 pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_getVersion(coll: *const UCollator, info: *mut u8);
         }
@@ -41921,7 +41921,7 @@ pub unsafe fn ucol_greater(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_greater(
                 coll: *const UCollator,
@@ -41951,7 +41951,7 @@ pub unsafe fn ucol_greaterOrEqual(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_greaterOrEqual(
                 coll: *const UCollator,
@@ -41975,7 +41975,7 @@ pub unsafe fn ucol_greaterOrEqual(
 pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_keyHashCode(key: *const u8, length: i32) -> i32;
         }
@@ -41997,7 +41997,7 @@ pub unsafe fn ucol_mergeSortkeys(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_mergeSortkeys(
                 src1: *const u8,
@@ -42023,7 +42023,7 @@ pub unsafe fn ucol_mergeSortkeys(
 pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
         }
@@ -42045,7 +42045,7 @@ pub unsafe fn ucol_nextSortKeyPart(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_nextSortKeyPart(
                 coll: *const UCollator,
@@ -42075,7 +42075,7 @@ pub unsafe fn ucol_open<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_open(loc: super::Foundation::PSTR, status: *mut UErrorCode) -> *mut UCollator;
         }
@@ -42090,7 +42090,7 @@ pub unsafe fn ucol_open<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fou
 pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -42107,7 +42107,7 @@ pub unsafe fn ucol_openBinary(
 ) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_openBinary(
                 bin: *const u8,
@@ -42134,7 +42134,7 @@ pub unsafe fn ucol_openElements(
 ) -> *mut UCollationElements {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_openElements(
                 coll: *const UCollator,
@@ -42163,7 +42163,7 @@ pub unsafe fn ucol_openRules(
 ) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_openRules(
                 rules: *const u16,
@@ -42189,7 +42189,7 @@ pub unsafe fn ucol_openRules(
 pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32;
         }
@@ -42204,7 +42204,7 @@ pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorC
 pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_primaryOrder(order: i32) -> i32;
         }
@@ -42216,7 +42216,7 @@ pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
 pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_reset(elems: *mut UCollationElements);
         }
@@ -42233,7 +42233,7 @@ pub unsafe fn ucol_safeClone(
 ) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_safeClone(
                 coll: *const UCollator,
@@ -42255,7 +42255,7 @@ pub unsafe fn ucol_safeClone(
 pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_secondaryOrder(order: i32) -> i32;
         }
@@ -42272,7 +42272,7 @@ pub unsafe fn ucol_setAttribute(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_setAttribute(
                 coll: *mut UCollator,
@@ -42298,7 +42298,7 @@ pub unsafe fn ucol_setMaxVariable(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_setMaxVariable(
                 coll: *mut UCollator,
@@ -42318,7 +42318,7 @@ pub unsafe fn ucol_setMaxVariable(
 pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode);
         }
@@ -42339,7 +42339,7 @@ pub unsafe fn ucol_setReorderCodes(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_setReorderCodes(
                 coll: *mut UCollator,
@@ -42361,7 +42361,7 @@ pub unsafe fn ucol_setReorderCodes(
 pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue);
         }
@@ -42381,7 +42381,7 @@ pub unsafe fn ucol_setText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_setText(
                 elems: *mut UCollationElements,
@@ -42409,7 +42409,7 @@ pub unsafe fn ucol_strcoll(
 ) -> UCollationResult {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_strcoll(
                 coll: *const UCollator,
@@ -42438,7 +42438,7 @@ pub unsafe fn ucol_strcollIter(
 ) -> UCollationResult {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_strcollIter(
                 coll: *const UCollator,
@@ -42472,7 +42472,7 @@ pub unsafe fn ucol_strcollUTF8<
 ) -> UCollationResult {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_strcollUTF8(
                 coll: *const UCollator,
@@ -42498,7 +42498,7 @@ pub unsafe fn ucol_strcollUTF8<
 pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucol_tertiaryOrder(order: i32) -> i32;
         }
@@ -42510,7 +42510,7 @@ pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
 pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucpmap_get(map: *const UCPMap, c: i32) -> u32;
         }
@@ -42533,7 +42533,7 @@ pub unsafe fn ucpmap_getRange(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucpmap_getRange(
                 map: *const UCPMap,
@@ -42561,7 +42561,7 @@ pub unsafe fn ucpmap_getRange(
 pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_close(trie: *mut UCPTrie);
         }
@@ -42573,7 +42573,7 @@ pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
 pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32;
         }
@@ -42596,7 +42596,7 @@ pub unsafe fn ucptrie_getRange(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_getRange(
                 trie: *const UCPTrie,
@@ -42624,7 +42624,7 @@ pub unsafe fn ucptrie_getRange(
 pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType;
         }
@@ -42636,7 +42636,7 @@ pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
 pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth;
         }
@@ -42648,7 +42648,7 @@ pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
 pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32;
         }
@@ -42663,7 +42663,7 @@ pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
 pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32;
         }
@@ -42685,7 +42685,7 @@ pub unsafe fn ucptrie_internalU8PrevIndex(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_internalU8PrevIndex(
                 trie: *const UCPTrie,
@@ -42714,7 +42714,7 @@ pub unsafe fn ucptrie_openFromBinary(
 ) -> *mut UCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_openFromBinary(
                 r#type: UCPTrieType,
@@ -42745,7 +42745,7 @@ pub unsafe fn ucptrie_toBinary(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucptrie_toBinary(
                 trie: *const UCPTrie,
@@ -42767,7 +42767,7 @@ pub unsafe fn ucptrie_toBinary(
 pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_close(ucsd: *mut UCharsetDetector);
         }
@@ -42782,7 +42782,7 @@ pub unsafe fn ucsdet_detect(
 ) -> *mut UCharsetMatch {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_detect(
                 ucsd: *mut UCharsetDetector,
@@ -42804,7 +42804,7 @@ pub unsafe fn ucsdet_detectAll(
 ) -> *mut *mut UCharsetMatch {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_detectAll(
                 ucsd: *mut UCharsetDetector,
@@ -42824,7 +42824,7 @@ pub unsafe fn ucsdet_detectAll(
 pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8;
         }
@@ -42842,7 +42842,7 @@ pub unsafe fn ucsdet_getAllDetectableCharsets(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_getAllDetectableCharsets(
                 ucsd: *const UCharsetDetector,
@@ -42860,7 +42860,7 @@ pub unsafe fn ucsdet_getAllDetectableCharsets(
 pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32;
         }
@@ -42879,7 +42879,7 @@ pub unsafe fn ucsdet_getLanguage(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_getLanguage(
                 ucsm: *const UCharsetMatch,
@@ -42901,7 +42901,7 @@ pub unsafe fn ucsdet_getName(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_getName(
                 ucsm: *const UCharsetMatch,
@@ -42924,7 +42924,7 @@ pub unsafe fn ucsdet_getUChars(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_getUChars(
                 ucsm: *const UCharsetMatch,
@@ -42946,7 +42946,7 @@ pub unsafe fn ucsdet_getUChars(
 pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8;
         }
@@ -42958,7 +42958,7 @@ pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
 pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector;
         }
@@ -42979,7 +42979,7 @@ pub unsafe fn ucsdet_setDeclaredEncoding<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_setDeclaredEncoding(
                 ucsd: *mut UCharsetDetector,
@@ -43010,7 +43010,7 @@ pub unsafe fn ucsdet_setText<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucsdet_setText(
                 ucsd: *mut UCharsetDetector,
@@ -43040,7 +43040,7 @@ pub unsafe fn ucurr_countCurrencies<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_countCurrencies(
                 locale: super::Foundation::PSTR,
@@ -43069,7 +43069,7 @@ pub unsafe fn ucurr_forLocale<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_forLocale(
                 locale: super::Foundation::PSTR,
@@ -43102,7 +43102,7 @@ pub unsafe fn ucurr_forLocaleAndDate<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_forLocaleAndDate(
                 locale: super::Foundation::PSTR,
@@ -43128,7 +43128,7 @@ pub unsafe fn ucurr_forLocaleAndDate<
 pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32;
         }
@@ -43147,7 +43147,7 @@ pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getDefaultFractionDigitsForUsage(
                 currency: *const u16,
@@ -43177,7 +43177,7 @@ pub unsafe fn ucurr_getKeywordValuesForLocale<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getKeywordValuesForLocale(
                 key: super::Foundation::PSTR,
@@ -43210,7 +43210,7 @@ pub unsafe fn ucurr_getName<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getName(
                 currency: *const u16,
@@ -43236,7 +43236,7 @@ pub unsafe fn ucurr_getName<
 pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getNumericCode(currency: *const u16) -> i32;
         }
@@ -43260,7 +43260,7 @@ pub unsafe fn ucurr_getPluralName<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getPluralName(
                 currency: *const u16,
@@ -43286,7 +43286,7 @@ pub unsafe fn ucurr_getPluralName<
 pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64;
         }
@@ -43305,7 +43305,7 @@ pub unsafe fn ucurr_getRoundingIncrementForUsage(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_getRoundingIncrementForUsage(
                 currency: *const u16,
@@ -43330,7 +43330,7 @@ pub unsafe fn ucurr_isAvailable(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_isAvailable(
                 isocode: *const u16,
@@ -43355,7 +43355,7 @@ pub unsafe fn ucurr_openISOCurrencies(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_openISOCurrencies(
                 currtype: u32,
@@ -43381,7 +43381,7 @@ pub unsafe fn ucurr_register<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_register(
                 isocode: *const u16,
@@ -43401,7 +43401,7 @@ pub unsafe fn ucurr_register<
 pub unsafe fn ucurr_unregister(key: *mut ::std::ffi::c_void, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ucurr_unregister(key: *mut ::std::ffi::c_void, status: *mut UErrorCode) -> i8;
         }
@@ -43419,7 +43419,7 @@ pub unsafe fn udat_adoptNumberFormat(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_adoptNumberFormat(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -43442,7 +43442,7 @@ pub unsafe fn udat_adoptNumberFormatForFields(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_adoptNumberFormatForFields(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -43469,7 +43469,7 @@ pub unsafe fn udat_applyPattern(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_applyPattern(
                 format: *mut *mut ::std::ffi::c_void,
@@ -43494,7 +43494,7 @@ pub unsafe fn udat_clone(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_clone(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43512,7 +43512,7 @@ pub unsafe fn udat_clone(
 pub unsafe fn udat_close(format: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_close(format: *mut *mut ::std::ffi::c_void);
         }
@@ -43524,7 +43524,7 @@ pub unsafe fn udat_close(format: *mut *mut ::std::ffi::c_void) {
 pub unsafe fn udat_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_countAvailable() -> i32;
         }
@@ -43539,7 +43539,7 @@ pub unsafe fn udat_countSymbols(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_countSymbols(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43564,7 +43564,7 @@ pub unsafe fn udat_format(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_format(
                 format: *const *const ::std::ffi::c_void,
@@ -43597,7 +43597,7 @@ pub unsafe fn udat_formatCalendar(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_formatCalendar(
                 format: *const *const ::std::ffi::c_void,
@@ -43630,7 +43630,7 @@ pub unsafe fn udat_formatCalendarForFields(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_formatCalendarForFields(
                 format: *const *const ::std::ffi::c_void,
@@ -43663,7 +43663,7 @@ pub unsafe fn udat_formatForFields(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_formatForFields(
                 format: *const *const ::std::ffi::c_void,
@@ -43692,7 +43692,7 @@ pub unsafe fn udat_get2DigitYearStart(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_get2DigitYearStart(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43711,7 +43711,7 @@ pub unsafe fn udat_get2DigitYearStart(
 pub unsafe fn udat_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -43727,7 +43727,7 @@ pub unsafe fn udat_getBooleanAttribute(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getBooleanAttribute(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43749,7 +43749,7 @@ pub unsafe fn udat_getCalendar(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getCalendar(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43767,7 +43767,7 @@ pub unsafe fn udat_getContext(
 ) -> UDisplayContext {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getContext(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43792,7 +43792,7 @@ pub unsafe fn udat_getLocaleByType(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getLocaleByType(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43814,7 +43814,7 @@ pub unsafe fn udat_getNumberFormat(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getNumberFormat(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43831,7 +43831,7 @@ pub unsafe fn udat_getNumberFormatForField(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getNumberFormatForField(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43856,7 +43856,7 @@ pub unsafe fn udat_getSymbols(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_getSymbols(
                 fmt: *const *const ::std::ffi::c_void,
@@ -43882,7 +43882,7 @@ pub unsafe fn udat_getSymbols(
 pub unsafe fn udat_isLenient(fmt: *const *const ::std::ffi::c_void) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_isLenient(fmt: *const *const ::std::ffi::c_void) -> i8;
         }
@@ -43904,7 +43904,7 @@ pub unsafe fn udat_open<'a, Param2: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_open(
                 timestyle: UDateFormatStyle,
@@ -43940,7 +43940,7 @@ pub unsafe fn udat_parse(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_parse(
                 format: *const *const ::std::ffi::c_void,
@@ -43971,7 +43971,7 @@ pub unsafe fn udat_parseCalendar(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_parseCalendar(
                 format: *const *const ::std::ffi::c_void,
@@ -44001,7 +44001,7 @@ pub unsafe fn udat_set2DigitYearStart(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_set2DigitYearStart(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -44026,7 +44026,7 @@ pub unsafe fn udat_setBooleanAttribute(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_setBooleanAttribute(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -44051,7 +44051,7 @@ pub unsafe fn udat_setCalendar(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_setCalendar(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -44073,7 +44073,7 @@ pub unsafe fn udat_setContext(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_setContext(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -44093,7 +44093,7 @@ pub unsafe fn udat_setContext(
 pub unsafe fn udat_setLenient(fmt: *mut *mut ::std::ffi::c_void, islenient: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_setLenient(fmt: *mut *mut ::std::ffi::c_void, islenient: i8);
         }
@@ -44111,7 +44111,7 @@ pub unsafe fn udat_setNumberFormat(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_setNumberFormat(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -44136,7 +44136,7 @@ pub unsafe fn udat_setSymbols(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_setSymbols(
                 format: *mut *mut ::std::ffi::c_void,
@@ -44162,7 +44162,7 @@ pub unsafe fn udat_setSymbols(
 pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDateFields {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDateFields;
         }
@@ -44180,7 +44180,7 @@ pub unsafe fn udat_toPattern(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udat_toPattern(
                 fmt: *const *const ::std::ffi::c_void,
@@ -44213,7 +44213,7 @@ pub unsafe fn udatpg_addPattern(
 ) -> UDateTimePatternConflict {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_addPattern(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44246,7 +44246,7 @@ pub unsafe fn udatpg_clone(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_clone(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44264,7 +44264,7 @@ pub unsafe fn udatpg_clone(
 pub unsafe fn udatpg_close(dtpg: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_close(dtpg: *mut *mut ::std::ffi::c_void);
         }
@@ -44280,7 +44280,7 @@ pub unsafe fn udatpg_getAppendItemFormat(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getAppendItemFormat(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44304,7 +44304,7 @@ pub unsafe fn udatpg_getAppendItemName(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getAppendItemName(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44331,7 +44331,7 @@ pub unsafe fn udatpg_getBaseSkeleton(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getBaseSkeleton(
                 unuseddtpg: *mut *mut ::std::ffi::c_void,
@@ -44364,7 +44364,7 @@ pub unsafe fn udatpg_getBestPattern(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getBestPattern(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44398,7 +44398,7 @@ pub unsafe fn udatpg_getBestPatternWithOptions(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getBestPatternWithOptions(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44429,7 +44429,7 @@ pub unsafe fn udatpg_getDateTimeFormat(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getDateTimeFormat(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44450,7 +44450,7 @@ pub unsafe fn udatpg_getDecimal(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getDecimal(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44475,7 +44475,7 @@ pub unsafe fn udatpg_getFieldDisplayName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getFieldDisplayName(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44506,7 +44506,7 @@ pub unsafe fn udatpg_getPatternForSkeleton(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getPatternForSkeleton(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44535,7 +44535,7 @@ pub unsafe fn udatpg_getSkeleton(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_getSkeleton(
                 unuseddtpg: *mut *mut ::std::ffi::c_void,
@@ -44568,7 +44568,7 @@ pub unsafe fn udatpg_open<
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_open(
                 locale: super::Foundation::PSTR,
@@ -44589,7 +44589,7 @@ pub unsafe fn udatpg_openBaseSkeletons(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_openBaseSkeletons(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44607,7 +44607,7 @@ pub unsafe fn udatpg_openBaseSkeletons(
 pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::std::ffi::c_void;
         }
@@ -44622,7 +44622,7 @@ pub unsafe fn udatpg_openSkeletons(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_openSkeletons(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44649,7 +44649,7 @@ pub unsafe fn udatpg_replaceFieldTypes(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_replaceFieldTypes(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44689,7 +44689,7 @@ pub unsafe fn udatpg_replaceFieldTypesWithOptions(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_replaceFieldTypesWithOptions(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44726,7 +44726,7 @@ pub unsafe fn udatpg_setAppendItemFormat(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_setAppendItemFormat(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44753,7 +44753,7 @@ pub unsafe fn udatpg_setAppendItemName(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_setAppendItemName(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44779,7 +44779,7 @@ pub unsafe fn udatpg_setDateTimeFormat(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_setDateTimeFormat(
                 dtpg: *const *const ::std::ffi::c_void,
@@ -44803,7 +44803,7 @@ pub unsafe fn udatpg_setDecimal(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udatpg_setDecimal(
                 dtpg: *mut *mut ::std::ffi::c_void,
@@ -44823,7 +44823,7 @@ pub unsafe fn udatpg_setDecimal(
 pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udtitvfmt_close(formatter: *mut UDateIntervalFormat);
         }
@@ -44835,7 +44835,7 @@ pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
 pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval);
         }
@@ -44855,7 +44855,7 @@ pub unsafe fn udtitvfmt_format(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udtitvfmt_format(
                 formatter: *const UDateIntervalFormat,
@@ -44894,7 +44894,7 @@ pub unsafe fn udtitvfmt_open<
 ) -> *mut UDateIntervalFormat {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udtitvfmt_open(
                 locale: super::Foundation::PSTR,
@@ -44920,7 +44920,7 @@ pub unsafe fn udtitvfmt_open<
 pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval;
         }
@@ -44935,7 +44935,7 @@ pub unsafe fn udtitvfmt_resultAsValue(
 ) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn udtitvfmt_resultAsValue(
                 uresult: *const UFormattedDateInterval,
@@ -44953,7 +44953,7 @@ pub unsafe fn udtitvfmt_resultAsValue(
 pub unsafe fn uenum_close(en: *mut UEnumeration) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uenum_close(en: *mut UEnumeration);
         }
@@ -44965,7 +44965,7 @@ pub unsafe fn uenum_close(en: *mut UEnumeration) {
 pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32;
         }
@@ -44985,7 +44985,7 @@ pub unsafe fn uenum_next(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uenum_next(
                 en: *mut UEnumeration,
@@ -45009,7 +45009,7 @@ pub unsafe fn uenum_openCharStringsEnumeration(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uenum_openCharStringsEnumeration(
                 strings: *const *const i8,
@@ -45033,7 +45033,7 @@ pub unsafe fn uenum_openUCharStringsEnumeration(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uenum_openUCharStringsEnumeration(
                 strings: *const *const u16,
@@ -45053,7 +45053,7 @@ pub unsafe fn uenum_openUCharStringsEnumeration(
 pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode);
         }
@@ -45072,7 +45072,7 @@ pub unsafe fn uenum_unext(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uenum_unext(
                 en: *mut UEnumeration,
@@ -45092,7 +45092,7 @@ pub unsafe fn uenum_unext(
 pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator);
         }
@@ -45108,7 +45108,7 @@ pub unsafe fn ufieldpositer_next(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufieldpositer_next(
                 fpositer: *mut UFieldPositionIterator,
@@ -45128,7 +45128,7 @@ pub unsafe fn ufieldpositer_next(
 pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator;
         }
@@ -45140,7 +45140,7 @@ pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPosition
 pub unsafe fn ufmt_close(fmt: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_close(fmt: *mut *mut ::std::ffi::c_void);
         }
@@ -45156,7 +45156,7 @@ pub unsafe fn ufmt_getArrayItemByIndex(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getArrayItemByIndex(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -45179,7 +45179,7 @@ pub unsafe fn ufmt_getArrayLength(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getArrayLength(
                 fmt: *const *const ::std::ffi::c_void,
@@ -45197,7 +45197,7 @@ pub unsafe fn ufmt_getArrayLength(
 pub unsafe fn ufmt_getDate(fmt: *const *const ::std::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getDate(fmt: *const *const ::std::ffi::c_void, status: *mut UErrorCode) -> f64;
         }
@@ -45217,7 +45217,7 @@ pub unsafe fn ufmt_getDecNumChars(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getDecNumChars(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -45237,7 +45237,7 @@ pub unsafe fn ufmt_getDecNumChars(
 pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getDouble(fmt: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode) -> f64;
         }
@@ -45252,7 +45252,7 @@ pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::std::ffi::c_void, status: *mut UEr
 pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getInt64(fmt: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode) -> i64;
         }
@@ -45267,7 +45267,7 @@ pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::std::ffi::c_void, status: *mut UErr
 pub unsafe fn ufmt_getLong(fmt: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getLong(fmt: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode) -> i32;
         }
@@ -45285,7 +45285,7 @@ pub unsafe fn ufmt_getObject(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getObject(
                 fmt: *const *const ::std::ffi::c_void,
@@ -45306,7 +45306,7 @@ pub unsafe fn ufmt_getType(
 ) -> UFormattableType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getType(
                 fmt: *const *const ::std::ffi::c_void,
@@ -45328,7 +45328,7 @@ pub unsafe fn ufmt_getUChars(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_getUChars(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -45348,7 +45348,7 @@ pub unsafe fn ufmt_getUChars(
 pub unsafe fn ufmt_isNumeric(fmt: *const *const ::std::ffi::c_void) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_isNumeric(fmt: *const *const ::std::ffi::c_void) -> i8;
         }
@@ -45360,7 +45360,7 @@ pub unsafe fn ufmt_isNumeric(fmt: *const *const ::std::ffi::c_void) -> i8 {
 pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::std::ffi::c_void;
         }
@@ -45376,7 +45376,7 @@ pub unsafe fn ufmtval_getString(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmtval_getString(
                 ufmtval: *const UFormattedValue,
@@ -45400,7 +45400,7 @@ pub unsafe fn ufmtval_nextPosition(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ufmtval_nextPosition(
                 ufmtval: *const UFormattedValue,
@@ -45427,7 +45427,7 @@ pub unsafe fn ugender_getInstance<
 ) -> *mut UGenderInfo {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ugender_getInstance(
                 locale: super::Foundation::PSTR,
@@ -45450,7 +45450,7 @@ pub unsafe fn ugender_getListGender(
 ) -> UGender {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ugender_getListGender(
                 genderinfo: *const UGenderInfo,
@@ -45472,7 +45472,7 @@ pub unsafe fn ugender_getListGender(
 pub unsafe fn uidna_close(idna: *mut UIDNA) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_close(idna: *mut UIDNA);
         }
@@ -45492,7 +45492,7 @@ pub unsafe fn uidna_labelToASCII(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_labelToASCII(
                 idna: *const UIDNA,
@@ -45533,7 +45533,7 @@ pub unsafe fn uidna_labelToASCII_UTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_labelToASCII_UTF8(
                 idna: *const UIDNA,
@@ -45569,7 +45569,7 @@ pub unsafe fn uidna_labelToUnicode(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_labelToUnicode(
                 idna: *const UIDNA,
@@ -45610,7 +45610,7 @@ pub unsafe fn uidna_labelToUnicodeUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_labelToUnicodeUTF8(
                 idna: *const UIDNA,
@@ -45646,7 +45646,7 @@ pub unsafe fn uidna_nameToASCII(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_nameToASCII(
                 idna: *const UIDNA,
@@ -45687,7 +45687,7 @@ pub unsafe fn uidna_nameToASCII_UTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_nameToASCII_UTF8(
                 idna: *const UIDNA,
@@ -45723,7 +45723,7 @@ pub unsafe fn uidna_nameToUnicode(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_nameToUnicode(
                 idna: *const UIDNA,
@@ -45764,7 +45764,7 @@ pub unsafe fn uidna_nameToUnicodeUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_nameToUnicodeUTF8(
                 idna: *const UIDNA,
@@ -45792,7 +45792,7 @@ pub unsafe fn uidna_nameToUnicodeUTF8<
 pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA;
         }
@@ -45807,7 +45807,7 @@ pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut
 pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_current32(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
         }
@@ -45819,7 +45819,7 @@ pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
 pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_getState(iter: *const ::std::mem::ManuallyDrop<UCharIterator>) -> u32;
         }
@@ -45831,7 +45831,7 @@ pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
 pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_next32(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
         }
@@ -45843,7 +45843,7 @@ pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
 pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_previous32(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
         }
@@ -45855,7 +45855,7 @@ pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
 pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_setState(
                 iter: *mut ::std::mem::ManuallyDrop<UCharIterator>,
@@ -45875,7 +45875,7 @@ pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *
 pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_setString(
                 iter: *mut ::std::mem::ManuallyDrop<UCharIterator>,
@@ -45903,7 +45903,7 @@ pub unsafe fn uiter_setUTF16BE<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_setUTF16BE(
                 iter: *mut ::std::mem::ManuallyDrop<UCharIterator>,
@@ -45931,7 +45931,7 @@ pub unsafe fn uiter_setUTF8<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uiter_setUTF8(
                 iter: *mut ::std::mem::ManuallyDrop<UCharIterator>,
@@ -45951,7 +45951,7 @@ pub unsafe fn uiter_setUTF8<
 pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_close(ldn: *mut ULocaleDisplayNames);
         }
@@ -45967,7 +45967,7 @@ pub unsafe fn uldn_getContext(
 ) -> UDisplayContext {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_getContext(
                 ldn: *const ULocaleDisplayNames,
@@ -45987,7 +45987,7 @@ pub unsafe fn uldn_getContext(
 pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling;
         }
@@ -46000,7 +46000,7 @@ pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDiale
 pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> super::Foundation::PSTR;
         }
@@ -46022,7 +46022,7 @@ pub unsafe fn uldn_keyDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_keyDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46058,7 +46058,7 @@ pub unsafe fn uldn_keyValueDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_keyValueDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46094,7 +46094,7 @@ pub unsafe fn uldn_languageDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_languageDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46128,7 +46128,7 @@ pub unsafe fn uldn_localeDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_localeDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46157,7 +46157,7 @@ pub unsafe fn uldn_open<'a, Param0: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut ULocaleDisplayNames {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_open(
                 locale: super::Foundation::PSTR,
@@ -46186,7 +46186,7 @@ pub unsafe fn uldn_openForContext<
 ) -> *mut ULocaleDisplayNames {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_openForContext(
                 locale: super::Foundation::PSTR,
@@ -46218,7 +46218,7 @@ pub unsafe fn uldn_regionDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_regionDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46248,7 +46248,7 @@ pub unsafe fn uldn_scriptCodeDisplayName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_scriptCodeDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46282,7 +46282,7 @@ pub unsafe fn uldn_scriptDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_scriptDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46316,7 +46316,7 @@ pub unsafe fn uldn_variantDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uldn_variantDisplayName(
                 ldn: *const ULocaleDisplayNames,
@@ -46340,7 +46340,7 @@ pub unsafe fn uldn_variantDisplayName<
 pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_close(listfmt: *mut UListFormatter);
         }
@@ -46352,7 +46352,7 @@ pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
 pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_closeResult(uresult: *mut UFormattedList);
         }
@@ -46372,7 +46372,7 @@ pub unsafe fn ulistfmt_format(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_format(
                 listfmt: *const UListFormatter,
@@ -46407,7 +46407,7 @@ pub unsafe fn ulistfmt_formatStringsToResult(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_formatStringsToResult(
                 listfmt: *const UListFormatter,
@@ -46440,7 +46440,7 @@ pub unsafe fn ulistfmt_open<
 ) -> *mut UListFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_open(
                 locale: super::Foundation::PSTR,
@@ -46467,7 +46467,7 @@ pub unsafe fn ulistfmt_openForType<
 ) -> *mut UListFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_openForType(
                 locale: super::Foundation::PSTR,
@@ -46489,7 +46489,7 @@ pub unsafe fn ulistfmt_openForType<
 pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList;
         }
@@ -46504,7 +46504,7 @@ pub unsafe fn ulistfmt_resultAsValue(
 ) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulistfmt_resultAsValue(
                 uresult: *const UFormattedList,
@@ -46534,7 +46534,7 @@ pub unsafe fn uloc_acceptLanguage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_acceptLanguage(
                 result: super::Foundation::PSTR,
@@ -46574,7 +46574,7 @@ pub unsafe fn uloc_acceptLanguageFromHTTP<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_acceptLanguageFromHTTP(
                 result: super::Foundation::PSTR,
@@ -46610,7 +46610,7 @@ pub unsafe fn uloc_addLikelySubtags<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_addLikelySubtags(
                 localeid: super::Foundation::PSTR,
@@ -46642,7 +46642,7 @@ pub unsafe fn uloc_canonicalize<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_canonicalize(
                 localeid: super::Foundation::PSTR,
@@ -46664,7 +46664,7 @@ pub unsafe fn uloc_canonicalize<
 pub unsafe fn uloc_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_countAvailable() -> i32;
         }
@@ -46687,7 +46687,7 @@ pub unsafe fn uloc_forLanguageTag<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_forLanguageTag(
                 langtag: super::Foundation::PSTR,
@@ -46712,7 +46712,7 @@ pub unsafe fn uloc_forLanguageTag<
 pub unsafe fn uloc_getAvailable(n: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getAvailable(n: i32) -> super::Foundation::PSTR;
         }
@@ -46734,7 +46734,7 @@ pub unsafe fn uloc_getBaseName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getBaseName(
                 localeid: super::Foundation::PSTR,
@@ -46763,7 +46763,7 @@ pub unsafe fn uloc_getCharacterOrientation<
 ) -> ULayoutType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getCharacterOrientation(
                 localeid: super::Foundation::PSTR,
@@ -46791,7 +46791,7 @@ pub unsafe fn uloc_getCountry<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getCountry(
                 localeid: super::Foundation::PSTR,
@@ -46814,7 +46814,7 @@ pub unsafe fn uloc_getCountry<
 pub unsafe fn uloc_getDefault() -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDefault() -> super::Foundation::PSTR;
         }
@@ -46837,7 +46837,7 @@ pub unsafe fn uloc_getDisplayCountry<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDisplayCountry(
                 locale: super::Foundation::PSTR,
@@ -46872,7 +46872,7 @@ pub unsafe fn uloc_getDisplayKeyword<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDisplayKeyword(
                 keyword: super::Foundation::PSTR,
@@ -46909,7 +46909,7 @@ pub unsafe fn uloc_getDisplayKeywordValue<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDisplayKeywordValue(
                 locale: super::Foundation::PSTR,
@@ -46946,7 +46946,7 @@ pub unsafe fn uloc_getDisplayLanguage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDisplayLanguage(
                 locale: super::Foundation::PSTR,
@@ -46981,7 +46981,7 @@ pub unsafe fn uloc_getDisplayName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDisplayName(
                 localeid: super::Foundation::PSTR,
@@ -47016,7 +47016,7 @@ pub unsafe fn uloc_getDisplayScript<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDisplayScript(
                 locale: super::Foundation::PSTR,
@@ -47051,7 +47051,7 @@ pub unsafe fn uloc_getDisplayVariant<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getDisplayVariant(
                 locale: super::Foundation::PSTR,
@@ -47081,7 +47081,7 @@ pub unsafe fn uloc_getISO3Country<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getISO3Country(localeid: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -47099,7 +47099,7 @@ pub unsafe fn uloc_getISO3Language<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getISO3Language(localeid: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -47111,7 +47111,7 @@ pub unsafe fn uloc_getISO3Language<
 pub unsafe fn uloc_getISOCountries() -> *mut *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getISOCountries() -> *mut *mut i8;
         }
@@ -47123,7 +47123,7 @@ pub unsafe fn uloc_getISOCountries() -> *mut *mut i8 {
 pub unsafe fn uloc_getISOLanguages() -> *mut *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getISOLanguages() -> *mut *mut i8;
         }
@@ -47147,7 +47147,7 @@ pub unsafe fn uloc_getKeywordValue<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getKeywordValue(
                 localeid: super::Foundation::PSTR,
@@ -47177,7 +47177,7 @@ pub unsafe fn uloc_getLCID<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getLCID(localeid: super::Foundation::PSTR) -> u32;
         }
@@ -47199,7 +47199,7 @@ pub unsafe fn uloc_getLanguage<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getLanguage(
                 localeid: super::Foundation::PSTR,
@@ -47228,7 +47228,7 @@ pub unsafe fn uloc_getLineOrientation<
 ) -> ULayoutType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getLineOrientation(
                 localeid: super::Foundation::PSTR,
@@ -47255,7 +47255,7 @@ pub unsafe fn uloc_getLocaleForLCID<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getLocaleForLCID(
                 hostid: u32,
@@ -47287,7 +47287,7 @@ pub unsafe fn uloc_getName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getName(
                 localeid: super::Foundation::PSTR,
@@ -47319,7 +47319,7 @@ pub unsafe fn uloc_getParent<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getParent(
                 localeid: super::Foundation::PSTR,
@@ -47351,7 +47351,7 @@ pub unsafe fn uloc_getScript<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getScript(
                 localeid: super::Foundation::PSTR,
@@ -47383,7 +47383,7 @@ pub unsafe fn uloc_getVariant<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_getVariant(
                 localeid: super::Foundation::PSTR,
@@ -47411,7 +47411,7 @@ pub unsafe fn uloc_isRightToLeft<
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_isRightToLeft(locale: super::Foundation::PSTR) -> i8;
         }
@@ -47433,7 +47433,7 @@ pub unsafe fn uloc_minimizeSubtags<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_minimizeSubtags(
                 localeid: super::Foundation::PSTR,
@@ -47458,7 +47458,7 @@ pub unsafe fn uloc_openAvailableByType(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_openAvailableByType(
                 r#type: ULocAvailableType,
@@ -47483,7 +47483,7 @@ pub unsafe fn uloc_openKeywords<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_openKeywords(
                 localeid: super::Foundation::PSTR,
@@ -47508,7 +47508,7 @@ pub unsafe fn uloc_setDefault<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_setDefault(localeid: super::Foundation::PSTR, status: *mut UErrorCode);
         }
@@ -47535,7 +47535,7 @@ pub unsafe fn uloc_setKeywordValue<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_setKeywordValue(
                 keywordname: super::Foundation::PSTR,
@@ -47570,7 +47570,7 @@ pub unsafe fn uloc_toLanguageTag<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_toLanguageTag(
                 localeid: super::Foundation::PSTR,
@@ -47600,7 +47600,7 @@ pub unsafe fn uloc_toLegacyKey<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_toLegacyKey(keyword: super::Foundation::PSTR) -> super::Foundation::PSTR;
         }
@@ -47620,7 +47620,7 @@ pub unsafe fn uloc_toLegacyType<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_toLegacyType(
                 keyword: super::Foundation::PSTR,
@@ -47644,7 +47644,7 @@ pub unsafe fn uloc_toUnicodeLocaleKey<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_toUnicodeLocaleKey(keyword: super::Foundation::PSTR)
                 -> super::Foundation::PSTR;
@@ -47665,7 +47665,7 @@ pub unsafe fn uloc_toUnicodeLocaleType<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uloc_toUnicodeLocaleType(
                 keyword: super::Foundation::PSTR,
@@ -47683,7 +47683,7 @@ pub unsafe fn uloc_toUnicodeLocaleType<
 pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_close(uld: *mut ULocaleData);
         }
@@ -47695,7 +47695,7 @@ pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
 pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode);
         }
@@ -47716,7 +47716,7 @@ pub unsafe fn ulocdata_getDelimiter(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getDelimiter(
                 uld: *mut ULocaleData,
@@ -47746,7 +47746,7 @@ pub unsafe fn ulocdata_getExemplarSet(
 ) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getExemplarSet(
                 uld: *mut ULocaleData,
@@ -47775,7 +47775,7 @@ pub unsafe fn ulocdata_getLocaleDisplayPattern(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getLocaleDisplayPattern(
                 uld: *mut ULocaleData,
@@ -47802,7 +47802,7 @@ pub unsafe fn ulocdata_getLocaleSeparator(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getLocaleSeparator(
                 uld: *mut ULocaleData,
@@ -47831,7 +47831,7 @@ pub unsafe fn ulocdata_getMeasurementSystem<
 ) -> UMeasurementSystem {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getMeasurementSystem(
                 localeid: super::Foundation::PSTR,
@@ -47849,7 +47849,7 @@ pub unsafe fn ulocdata_getMeasurementSystem<
 pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8;
         }
@@ -47870,7 +47870,7 @@ pub unsafe fn ulocdata_getPaperSize<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_getPaperSize(
                 localeid: super::Foundation::PSTR,
@@ -47899,7 +47899,7 @@ pub unsafe fn ulocdata_open<
 ) -> *mut ULocaleData {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_open(
                 localeid: super::Foundation::PSTR,
@@ -47917,7 +47917,7 @@ pub unsafe fn ulocdata_open<
 pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8);
         }
@@ -47938,7 +47938,7 @@ pub unsafe fn umsg_applyPattern(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_applyPattern(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -47968,7 +47968,7 @@ pub unsafe fn umsg_autoQuoteApostrophe(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_autoQuoteApostrophe(
                 pattern: *const u16,
@@ -47995,7 +47995,7 @@ pub unsafe fn umsg_clone(
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_clone(
                 fmt: *const *const ::std::ffi::c_void,
@@ -48013,7 +48013,7 @@ pub unsafe fn umsg_clone(
 pub unsafe fn umsg_close(format: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_close(format: *mut *mut ::std::ffi::c_void);
         }
@@ -48030,7 +48030,7 @@ pub unsafe fn umsg_format(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_format(
                 fmt: *const *const ::std::ffi::c_void,
@@ -48053,7 +48053,7 @@ pub unsafe fn umsg_format(
 pub unsafe fn umsg_getLocale(fmt: *const *const ::std::ffi::c_void) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_getLocale(fmt: *const *const ::std::ffi::c_void) -> super::Foundation::PSTR;
         }
@@ -48072,7 +48072,7 @@ pub unsafe fn umsg_open<'a, Param2: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_open(
                 pattern: *const u16,
@@ -48102,7 +48102,7 @@ pub unsafe fn umsg_parse(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_parse(
                 fmt: *const *const ::std::ffi::c_void,
@@ -48133,7 +48133,7 @@ pub unsafe fn umsg_setLocale<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_setLocale(fmt: *mut *mut ::std::ffi::c_void, locale: super::Foundation::PSTR);
         }
@@ -48153,7 +48153,7 @@ pub unsafe fn umsg_toPattern(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_toPattern(
                 fmt: *const *const ::std::ffi::c_void,
@@ -48181,7 +48181,7 @@ pub unsafe fn umsg_vformat(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_vformat(
                 fmt: *const *const ::std::ffi::c_void,
@@ -48212,7 +48212,7 @@ pub unsafe fn umsg_vparse(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umsg_vparse(
                 fmt: *const *const ::std::ffi::c_void,
@@ -48243,7 +48243,7 @@ pub unsafe fn umutablecptrie_buildImmutable(
 ) -> *mut UCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_buildImmutable(
                 trie: *mut UMutableCPTrie,
@@ -48268,7 +48268,7 @@ pub unsafe fn umutablecptrie_clone(
 ) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_clone(
                 other: *const UMutableCPTrie,
@@ -48286,7 +48286,7 @@ pub unsafe fn umutablecptrie_clone(
 pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_close(trie: *mut UMutableCPTrie);
         }
@@ -48301,7 +48301,7 @@ pub unsafe fn umutablecptrie_fromUCPMap(
 ) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_fromUCPMap(
                 map: *const UCPMap,
@@ -48322,7 +48322,7 @@ pub unsafe fn umutablecptrie_fromUCPTrie(
 ) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_fromUCPTrie(
                 trie: *const UCPTrie,
@@ -48340,7 +48340,7 @@ pub unsafe fn umutablecptrie_fromUCPTrie(
 pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32;
         }
@@ -48363,7 +48363,7 @@ pub unsafe fn umutablecptrie_getRange(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_getRange(
                 trie: *const UMutableCPTrie,
@@ -48395,7 +48395,7 @@ pub unsafe fn umutablecptrie_open(
 ) -> *mut UMutableCPTrie {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_open(
                 initialvalue: u32,
@@ -48420,7 +48420,7 @@ pub unsafe fn umutablecptrie_set(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_set(
                 trie: *mut UMutableCPTrie,
@@ -48448,7 +48448,7 @@ pub unsafe fn umutablecptrie_setRange(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn umutablecptrie_setRange(
                 trie: *mut UMutableCPTrie,
@@ -48480,7 +48480,7 @@ pub unsafe fn unorm2_append(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_append(
                 norm2: *const UNormalizer2,
@@ -48508,7 +48508,7 @@ pub unsafe fn unorm2_append(
 pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_close(norm2: *mut UNormalizer2);
         }
@@ -48520,7 +48520,7 @@ pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
 pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32;
         }
@@ -48536,7 +48536,7 @@ pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> 
 pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8;
         }
@@ -48557,7 +48557,7 @@ pub unsafe fn unorm2_getDecomposition(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getDecomposition(
                 norm2: *const UNormalizer2,
@@ -48591,7 +48591,7 @@ pub unsafe fn unorm2_getInstance<
 ) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getInstance(
                 packagename: super::Foundation::PSTR,
@@ -48613,7 +48613,7 @@ pub unsafe fn unorm2_getInstance<
 pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -48625,7 +48625,7 @@ pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
 pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -48637,7 +48637,7 @@ pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
 pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -48651,7 +48651,7 @@ pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mu
 pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -48663,7 +48663,7 @@ pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
 pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2;
         }
@@ -48681,7 +48681,7 @@ pub unsafe fn unorm2_getRawDecomposition(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_getRawDecomposition(
                 norm2: *const UNormalizer2,
@@ -48705,7 +48705,7 @@ pub unsafe fn unorm2_getRawDecomposition(
 pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8;
         }
@@ -48720,7 +48720,7 @@ pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 
 pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8;
         }
@@ -48735,7 +48735,7 @@ pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8
 pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8;
         }
@@ -48755,7 +48755,7 @@ pub unsafe fn unorm2_isNormalized(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_isNormalized(
                 norm2: *const UNormalizer2,
@@ -48784,7 +48784,7 @@ pub unsafe fn unorm2_normalize(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_normalize(
                 norm2: *const UNormalizer2,
@@ -48818,7 +48818,7 @@ pub unsafe fn unorm2_normalizeSecondAndAppend(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_normalizeSecondAndAppend(
                 norm2: *const UNormalizer2,
@@ -48850,7 +48850,7 @@ pub unsafe fn unorm2_openFiltered(
 ) -> *mut UNormalizer2 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_openFiltered(
                 norm2: *const UNormalizer2,
@@ -48875,7 +48875,7 @@ pub unsafe fn unorm2_quickCheck(
 ) -> UNormalizationCheckResult {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_quickCheck(
                 norm2: *const UNormalizer2,
@@ -48902,7 +48902,7 @@ pub unsafe fn unorm2_spanQuickCheckYes(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm2_spanQuickCheckYes(
                 norm2: *const UNormalizer2,
@@ -48931,7 +48931,7 @@ pub unsafe fn unorm_compare(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unorm_compare(
                 s1: *const u16,
@@ -48964,7 +48964,7 @@ pub unsafe fn unum_applyPattern(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_applyPattern(
                 format: *mut *mut ::std::ffi::c_void,
@@ -48993,7 +48993,7 @@ pub unsafe fn unum_clone(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_clone(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49011,7 +49011,7 @@ pub unsafe fn unum_clone(
 pub unsafe fn unum_close(fmt: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_close(fmt: *mut *mut ::std::ffi::c_void);
         }
@@ -49023,7 +49023,7 @@ pub unsafe fn unum_close(fmt: *mut *mut ::std::ffi::c_void) {
 pub unsafe fn unum_countAvailable() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_countAvailable() -> i32;
         }
@@ -49042,7 +49042,7 @@ pub unsafe fn unum_format(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_format(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49080,7 +49080,7 @@ pub unsafe fn unum_formatDecimal<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_formatDecimal(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49115,7 +49115,7 @@ pub unsafe fn unum_formatDouble(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_formatDouble(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49149,7 +49149,7 @@ pub unsafe fn unum_formatDoubleCurrency(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_formatDoubleCurrency(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49184,7 +49184,7 @@ pub unsafe fn unum_formatDoubleForFields(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_formatDoubleForFields(
                 format: *const *const ::std::ffi::c_void,
@@ -49217,7 +49217,7 @@ pub unsafe fn unum_formatInt64(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_formatInt64(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49250,7 +49250,7 @@ pub unsafe fn unum_formatUFormattable(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_formatUFormattable(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49279,7 +49279,7 @@ pub unsafe fn unum_getAttribute(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_getAttribute(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49298,7 +49298,7 @@ pub unsafe fn unum_getAttribute(
 pub unsafe fn unum_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_getAvailable(localeindex: i32) -> super::Foundation::PSTR;
         }
@@ -49314,7 +49314,7 @@ pub unsafe fn unum_getContext(
 ) -> UDisplayContext {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_getContext(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49337,7 +49337,7 @@ pub unsafe fn unum_getDoubleAttribute(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_getDoubleAttribute(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49360,7 +49360,7 @@ pub unsafe fn unum_getLocaleByType(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_getLocaleByType(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49386,7 +49386,7 @@ pub unsafe fn unum_getSymbol(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_getSymbol(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49416,7 +49416,7 @@ pub unsafe fn unum_getTextAttribute(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_getTextAttribute(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49448,7 +49448,7 @@ pub unsafe fn unum_open<'a, Param3: ::windows::runtime::IntoParam<'a, super::Fou
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_open(
                 style: UNumberFormatStyle,
@@ -49480,7 +49480,7 @@ pub unsafe fn unum_parse(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_parse(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49516,7 +49516,7 @@ pub unsafe fn unum_parseDecimal<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_parseDecimal(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49550,7 +49550,7 @@ pub unsafe fn unum_parseDouble(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_parseDouble(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49581,7 +49581,7 @@ pub unsafe fn unum_parseDoubleCurrency(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_parseDoubleCurrency(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49613,7 +49613,7 @@ pub unsafe fn unum_parseInt64(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_parseInt64(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49644,7 +49644,7 @@ pub unsafe fn unum_parseToUFormattable(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_parseToUFormattable(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49674,7 +49674,7 @@ pub unsafe fn unum_setAttribute(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_setAttribute(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -49698,7 +49698,7 @@ pub unsafe fn unum_setContext(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_setContext(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -49722,7 +49722,7 @@ pub unsafe fn unum_setDoubleAttribute(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_setDoubleAttribute(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -49748,7 +49748,7 @@ pub unsafe fn unum_setSymbol(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_setSymbol(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -49778,7 +49778,7 @@ pub unsafe fn unum_setTextAttribute(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_setTextAttribute(
                 fmt: *mut *mut ::std::ffi::c_void,
@@ -49808,7 +49808,7 @@ pub unsafe fn unum_toPattern(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unum_toPattern(
                 fmt: *const *const ::std::ffi::c_void,
@@ -49832,7 +49832,7 @@ pub unsafe fn unum_toPattern(
 pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_close(uformatter: *mut UNumberFormatter);
         }
@@ -49844,7 +49844,7 @@ pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
 pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_closeResult(uresult: *mut UFormattedNumber);
         }
@@ -49866,7 +49866,7 @@ pub unsafe fn unumf_formatDecimal<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_formatDecimal(
                 uformatter: *const UNumberFormatter,
@@ -49895,7 +49895,7 @@ pub unsafe fn unumf_formatDouble(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_formatDouble(
                 uformatter: *const UNumberFormatter,
@@ -49922,7 +49922,7 @@ pub unsafe fn unumf_formatInt(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_formatInt(
                 uformatter: *const UNumberFormatter,
@@ -49953,7 +49953,7 @@ pub unsafe fn unumf_openForSkeletonAndLocale<
 ) -> *mut UNumberFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_openForSkeletonAndLocale(
                 skeleton: *const u16,
@@ -49985,7 +49985,7 @@ pub unsafe fn unumf_openForSkeletonAndLocaleWithError<
 ) -> *mut UNumberFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_openForSkeletonAndLocaleWithError(
                 skeleton: *const u16,
@@ -50009,7 +50009,7 @@ pub unsafe fn unumf_openForSkeletonAndLocaleWithError<
 pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber;
         }
@@ -50024,7 +50024,7 @@ pub unsafe fn unumf_resultAsValue(
 ) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_resultAsValue(
                 uresult: *const UFormattedNumber,
@@ -50046,7 +50046,7 @@ pub unsafe fn unumf_resultGetAllFieldPositions(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_resultGetAllFieldPositions(
                 uresult: *const UFormattedNumber,
@@ -50070,7 +50070,7 @@ pub unsafe fn unumf_resultNextFieldPosition(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_resultNextFieldPosition(
                 uresult: *const UFormattedNumber,
@@ -50095,7 +50095,7 @@ pub unsafe fn unumf_resultToString(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumf_resultToString(
                 uresult: *const UFormattedNumber,
@@ -50117,7 +50117,7 @@ pub unsafe fn unumf_resultToString(
 pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_close(unumsys: *mut UNumberingSystem);
         }
@@ -50134,7 +50134,7 @@ pub unsafe fn unumsys_getDescription(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_getDescription(
                 unumsys: *const UNumberingSystem,
@@ -50157,7 +50157,7 @@ pub unsafe fn unumsys_getDescription(
 pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Foundation::PSTR;
         }
@@ -50169,7 +50169,7 @@ pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Founda
 pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32;
         }
@@ -50181,7 +50181,7 @@ pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
 pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8;
         }
@@ -50200,7 +50200,7 @@ pub unsafe fn unumsys_open<
 ) -> *mut UNumberingSystem {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_open(
                 locale: super::Foundation::PSTR,
@@ -50218,7 +50218,7 @@ pub unsafe fn unumsys_open<
 pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -50237,7 +50237,7 @@ pub unsafe fn unumsys_openByName<
 ) -> *mut UNumberingSystem {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn unumsys_openByName(
                 name: super::Foundation::PSTR,
@@ -50255,7 +50255,7 @@ pub unsafe fn unumsys_openByName<
 pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uplrules_close(uplrules: *mut UPluralRules);
         }
@@ -50270,7 +50270,7 @@ pub unsafe fn uplrules_getKeywords(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uplrules_getKeywords(
                 uplrules: *const UPluralRules,
@@ -50295,7 +50295,7 @@ pub unsafe fn uplrules_open<
 ) -> *mut UPluralRules {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uplrules_open(
                 locale: super::Foundation::PSTR,
@@ -50321,7 +50321,7 @@ pub unsafe fn uplrules_openForType<
 ) -> *mut UPluralRules {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uplrules_openForType(
                 locale: super::Foundation::PSTR,
@@ -50347,7 +50347,7 @@ pub unsafe fn uplrules_select(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uplrules_select(
                 uplrules: *const UPluralRules,
@@ -50377,7 +50377,7 @@ pub unsafe fn uplrules_selectFormatted(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uplrules_selectFormatted(
                 uplrules: *const UPluralRules,
@@ -50408,7 +50408,7 @@ pub unsafe fn uregex_appendReplacement(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_appendReplacement(
                 regexp: *mut URegularExpression,
@@ -50439,7 +50439,7 @@ pub unsafe fn uregex_appendReplacementUText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_appendReplacementUText(
                 regexp: *mut URegularExpression,
@@ -50466,7 +50466,7 @@ pub unsafe fn uregex_appendTail(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_appendTail(
                 regexp: *mut URegularExpression,
@@ -50492,7 +50492,7 @@ pub unsafe fn uregex_appendTailUText(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_appendTailUText(
                 regexp: *mut URegularExpression,
@@ -50515,7 +50515,7 @@ pub unsafe fn uregex_clone(
 ) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_clone(
                 regexp: *const URegularExpression,
@@ -50533,7 +50533,7 @@ pub unsafe fn uregex_clone(
 pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_close(regexp: *mut URegularExpression);
         }
@@ -50549,7 +50549,7 @@ pub unsafe fn uregex_end(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_end(
                 regexp: *mut URegularExpression,
@@ -50573,7 +50573,7 @@ pub unsafe fn uregex_end64(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_end64(
                 regexp: *mut URegularExpression,
@@ -50597,7 +50597,7 @@ pub unsafe fn uregex_find(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_find(
                 regexp: *mut URegularExpression,
@@ -50621,7 +50621,7 @@ pub unsafe fn uregex_find64(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_find64(
                 regexp: *mut URegularExpression,
@@ -50641,7 +50641,7 @@ pub unsafe fn uregex_find64(
 pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -50656,7 +50656,7 @@ pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErr
 pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -50676,7 +50676,7 @@ pub unsafe fn uregex_getFindProgressCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_getFindProgressCallback(
                 regexp: *const URegularExpression,
@@ -50703,7 +50703,7 @@ pub unsafe fn uregex_getMatchCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_getMatchCallback(
                 regexp: *const URegularExpression,
@@ -50728,7 +50728,7 @@ pub unsafe fn uregex_getStackLimit(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_getStackLimit(
                 regexp: *const URegularExpression,
@@ -50750,7 +50750,7 @@ pub unsafe fn uregex_getText(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_getText(
                 regexp: *mut URegularExpression,
@@ -50773,7 +50773,7 @@ pub unsafe fn uregex_getTimeLimit(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_getTimeLimit(
                 regexp: *const URegularExpression,
@@ -50795,7 +50795,7 @@ pub unsafe fn uregex_getUText(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_getUText(
                 regexp: *mut URegularExpression,
@@ -50821,7 +50821,7 @@ pub unsafe fn uregex_group(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_group(
                 regexp: *mut URegularExpression,
@@ -50845,7 +50845,7 @@ pub unsafe fn uregex_group(
 pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -50869,7 +50869,7 @@ pub unsafe fn uregex_groupNumberFromCName<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_groupNumberFromCName(
                 regexp: *mut URegularExpression,
@@ -50896,7 +50896,7 @@ pub unsafe fn uregex_groupNumberFromName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_groupNumberFromName(
                 regexp: *mut URegularExpression,
@@ -50924,7 +50924,7 @@ pub unsafe fn uregex_groupUText(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_groupUText(
                 regexp: *mut URegularExpression,
@@ -50951,7 +50951,7 @@ pub unsafe fn uregex_hasAnchoringBounds(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_hasAnchoringBounds(
                 regexp: *const URegularExpression,
@@ -50972,7 +50972,7 @@ pub unsafe fn uregex_hasTransparentBounds(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_hasTransparentBounds(
                 regexp: *const URegularExpression,
@@ -50990,7 +50990,7 @@ pub unsafe fn uregex_hasTransparentBounds(
 pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -51009,7 +51009,7 @@ pub unsafe fn uregex_lookingAt(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_lookingAt(
                 regexp: *mut URegularExpression,
@@ -51033,7 +51033,7 @@ pub unsafe fn uregex_lookingAt64(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_lookingAt64(
                 regexp: *mut URegularExpression,
@@ -51057,7 +51057,7 @@ pub unsafe fn uregex_matches(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_matches(
                 regexp: *mut URegularExpression,
@@ -51081,7 +51081,7 @@ pub unsafe fn uregex_matches64(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_matches64(
                 regexp: *mut URegularExpression,
@@ -51107,7 +51107,7 @@ pub unsafe fn uregex_open(
 ) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_open(
                 pattern: *const u16,
@@ -51140,7 +51140,7 @@ pub unsafe fn uregex_openC<
 ) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_openC(
                 pattern: super::Foundation::PSTR,
@@ -51167,7 +51167,7 @@ pub unsafe fn uregex_openUText(
 ) -> *mut URegularExpression {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_openUText(
                 pattern: *mut UText,
@@ -51193,7 +51193,7 @@ pub unsafe fn uregex_pattern(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_pattern(
                 regexp: *const URegularExpression,
@@ -51216,7 +51216,7 @@ pub unsafe fn uregex_patternUText(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_patternUText(
                 regexp: *const URegularExpression,
@@ -51238,7 +51238,7 @@ pub unsafe fn uregex_refreshUText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_refreshUText(
                 regexp: *mut URegularExpression,
@@ -51258,7 +51258,7 @@ pub unsafe fn uregex_refreshUText(
 pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
         }
@@ -51276,7 +51276,7 @@ pub unsafe fn uregex_regionEnd64(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_regionEnd64(
                 regexp: *const URegularExpression,
@@ -51297,7 +51297,7 @@ pub unsafe fn uregex_regionStart(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_regionStart(
                 regexp: *const URegularExpression,
@@ -51318,7 +51318,7 @@ pub unsafe fn uregex_regionStart64(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_regionStart64(
                 regexp: *const URegularExpression,
@@ -51343,7 +51343,7 @@ pub unsafe fn uregex_replaceAll(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_replaceAll(
                 regexp: *mut URegularExpression,
@@ -51374,7 +51374,7 @@ pub unsafe fn uregex_replaceAllUText(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_replaceAllUText(
                 regexp: *mut URegularExpression,
@@ -51403,7 +51403,7 @@ pub unsafe fn uregex_replaceFirst(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_replaceFirst(
                 regexp: *mut URegularExpression,
@@ -51434,7 +51434,7 @@ pub unsafe fn uregex_replaceFirstUText(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_replaceFirstUText(
                 regexp: *mut URegularExpression,
@@ -51456,7 +51456,7 @@ pub unsafe fn uregex_replaceFirstUText(
 pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
         }
@@ -51471,7 +51471,7 @@ pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut 
 pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode);
         }
@@ -51487,7 +51487,7 @@ pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: 
 pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode);
         }
@@ -51508,7 +51508,7 @@ pub unsafe fn uregex_setFindProgressCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setFindProgressCallback(
                 regexp: *mut URegularExpression,
@@ -51535,7 +51535,7 @@ pub unsafe fn uregex_setMatchCallback(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setMatchCallback(
                 regexp: *mut URegularExpression,
@@ -51562,7 +51562,7 @@ pub unsafe fn uregex_setRegion(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setRegion(
                 regexp: *mut URegularExpression,
@@ -51589,7 +51589,7 @@ pub unsafe fn uregex_setRegion64(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setRegion64(
                 regexp: *mut URegularExpression,
@@ -51617,7 +51617,7 @@ pub unsafe fn uregex_setRegionAndStart(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setRegionAndStart(
                 regexp: *mut URegularExpression,
@@ -51645,7 +51645,7 @@ pub unsafe fn uregex_setStackLimit(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setStackLimit(
                 regexp: *mut URegularExpression,
@@ -51670,7 +51670,7 @@ pub unsafe fn uregex_setText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setText(
                 regexp: *mut URegularExpression,
@@ -51696,7 +51696,7 @@ pub unsafe fn uregex_setTimeLimit(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setTimeLimit(
                 regexp: *mut URegularExpression,
@@ -51720,7 +51720,7 @@ pub unsafe fn uregex_setUText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_setUText(
                 regexp: *mut URegularExpression,
@@ -51748,7 +51748,7 @@ pub unsafe fn uregex_split(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_split(
                 regexp: *mut URegularExpression,
@@ -51781,7 +51781,7 @@ pub unsafe fn uregex_splitUText(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_splitUText(
                 regexp: *mut URegularExpression,
@@ -51807,7 +51807,7 @@ pub unsafe fn uregex_start(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_start(
                 regexp: *mut URegularExpression,
@@ -51831,7 +51831,7 @@ pub unsafe fn uregex_start64(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_start64(
                 regexp: *mut URegularExpression,
@@ -51855,7 +51855,7 @@ pub unsafe fn uregex_useAnchoringBounds(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_useAnchoringBounds(
                 regexp: *mut URegularExpression,
@@ -51879,7 +51879,7 @@ pub unsafe fn uregex_useTransparentBounds(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregex_useTransparentBounds(
                 regexp: *mut URegularExpression,
@@ -51899,7 +51899,7 @@ pub unsafe fn uregex_useTransparentBounds(
 pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8;
         }
@@ -51914,7 +51914,7 @@ pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const UReg
 pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8;
         }
@@ -51932,7 +51932,7 @@ pub unsafe fn uregion_getAvailable(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getAvailable(
                 r#type: URegionType,
@@ -51953,7 +51953,7 @@ pub unsafe fn uregion_getContainedRegions(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getContainedRegions(
                 uregion: *const URegion,
@@ -51975,7 +51975,7 @@ pub unsafe fn uregion_getContainedRegionsOfType(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getContainedRegionsOfType(
                 uregion: *const URegion,
@@ -51995,7 +51995,7 @@ pub unsafe fn uregion_getContainedRegionsOfType(
 pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion;
         }
@@ -52010,7 +52010,7 @@ pub unsafe fn uregion_getContainingRegionOfType(
 ) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getContainingRegionOfType(
                 uregion: *const URegion,
@@ -52028,7 +52028,7 @@ pub unsafe fn uregion_getContainingRegionOfType(
 pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getNumericCode(uregion: *const URegion) -> i32;
         }
@@ -52043,7 +52043,7 @@ pub unsafe fn uregion_getPreferredValues(
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getPreferredValues(
                 uregion: *const URegion,
@@ -52062,7 +52062,7 @@ pub unsafe fn uregion_getPreferredValues(
 pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getRegionCode(uregion: *const URegion) -> super::Foundation::PSTR;
         }
@@ -52081,7 +52081,7 @@ pub unsafe fn uregion_getRegionFromCode<
 ) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getRegionFromCode(
                 regioncode: super::Foundation::PSTR,
@@ -52099,7 +52099,7 @@ pub unsafe fn uregion_getRegionFromCode<
 pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode)
                 -> *mut URegion;
@@ -52115,7 +52115,7 @@ pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCod
 pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uregion_getType(uregion: *const URegion) -> URegionType;
         }
@@ -52127,7 +52127,7 @@ pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
 pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter);
         }
@@ -52139,7 +52139,7 @@ pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
 pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime);
         }
@@ -52160,7 +52160,7 @@ pub unsafe fn ureldatefmt_combineDateAndTime(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_combineDateAndTime(
                 reldatefmt: *const URelativeDateTimeFormatter,
@@ -52197,7 +52197,7 @@ pub unsafe fn ureldatefmt_format(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_format(
                 reldatefmt: *const URelativeDateTimeFormatter,
@@ -52230,7 +52230,7 @@ pub unsafe fn ureldatefmt_formatNumeric(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_formatNumeric(
                 reldatefmt: *const URelativeDateTimeFormatter,
@@ -52262,7 +52262,7 @@ pub unsafe fn ureldatefmt_formatNumericToResult(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_formatNumericToResult(
                 reldatefmt: *const URelativeDateTimeFormatter,
@@ -52292,7 +52292,7 @@ pub unsafe fn ureldatefmt_formatToResult(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_formatToResult(
                 reldatefmt: *const URelativeDateTimeFormatter,
@@ -52326,7 +52326,7 @@ pub unsafe fn ureldatefmt_open<
 ) -> *mut URelativeDateTimeFormatter {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_open(
                 locale: super::Foundation::PSTR,
@@ -52350,7 +52350,7 @@ pub unsafe fn ureldatefmt_open<
 pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime;
         }
@@ -52365,7 +52365,7 @@ pub unsafe fn ureldatefmt_resultAsValue(
 ) -> *mut UFormattedValue {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ureldatefmt_resultAsValue(
                 ufrdt: *const UFormattedRelativeDateTime,
@@ -52383,7 +52383,7 @@ pub unsafe fn ureldatefmt_resultAsValue(
 pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_close(resourcebundle: *mut UResourceBundle);
         }
@@ -52399,7 +52399,7 @@ pub unsafe fn ures_getBinary(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getBinary(
                 resourcebundle: *const UResourceBundle,
@@ -52424,7 +52424,7 @@ pub unsafe fn ures_getByIndex(
 ) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getByIndex(
                 resourcebundle: *const UResourceBundle,
@@ -52455,7 +52455,7 @@ pub unsafe fn ures_getByKey<
 ) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getByKey(
                 resourcebundle: *const UResourceBundle,
@@ -52477,7 +52477,7 @@ pub unsafe fn ures_getByKey<
 pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32;
         }
@@ -52496,7 +52496,7 @@ pub unsafe fn ures_getIntVector(
 ) -> *mut i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getIntVector(
                 resourcebundle: *const UResourceBundle,
@@ -52517,7 +52517,7 @@ pub unsafe fn ures_getIntVector(
 pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getKey(resourcebundle: *const UResourceBundle) -> super::Foundation::PSTR;
         }
@@ -52534,7 +52534,7 @@ pub unsafe fn ures_getLocaleByType(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getLocaleByType(
                 resourcebundle: *const UResourceBundle,
@@ -52558,7 +52558,7 @@ pub unsafe fn ures_getNextResource(
 ) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getNextResource(
                 resourcebundle: *mut UResourceBundle,
@@ -52583,7 +52583,7 @@ pub unsafe fn ures_getNextString(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getNextString(
                 resourcebundle: *mut UResourceBundle,
@@ -52605,7 +52605,7 @@ pub unsafe fn ures_getNextString(
 pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32;
         }
@@ -52621,7 +52621,7 @@ pub unsafe fn ures_getString(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getString(
                 resourcebundle: *const UResourceBundle,
@@ -52646,7 +52646,7 @@ pub unsafe fn ures_getStringByIndex(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getStringByIndex(
                 resourcebundle: *const UResourceBundle,
@@ -52677,7 +52677,7 @@ pub unsafe fn ures_getStringByKey<
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getStringByKey(
                 resb: *const UResourceBundle,
@@ -52699,7 +52699,7 @@ pub unsafe fn ures_getStringByKey<
 pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType;
         }
@@ -52711,7 +52711,7 @@ pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
 pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode)
                 -> u32;
@@ -52737,7 +52737,7 @@ pub unsafe fn ures_getUTF8String<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getUTF8String(
                 resb: *const UResourceBundle,
@@ -52772,7 +52772,7 @@ pub unsafe fn ures_getUTF8StringByIndex<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getUTF8StringByIndex(
                 resb: *const UResourceBundle,
@@ -52810,7 +52810,7 @@ pub unsafe fn ures_getUTF8StringByKey<
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getUTF8StringByKey(
                 resb: *const UResourceBundle,
@@ -52836,7 +52836,7 @@ pub unsafe fn ures_getUTF8StringByKey<
 pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8);
         }
@@ -52851,7 +52851,7 @@ pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8
 pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8;
         }
@@ -52872,7 +52872,7 @@ pub unsafe fn ures_open<
 ) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_open(
                 packagename: super::Foundation::PSTR,
@@ -52899,7 +52899,7 @@ pub unsafe fn ures_openAvailableLocales<
 ) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_openAvailableLocales(
                 packagename: super::Foundation::PSTR,
@@ -52926,7 +52926,7 @@ pub unsafe fn ures_openDirect<
 ) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_openDirect(
                 packagename: super::Foundation::PSTR,
@@ -52951,7 +52951,7 @@ pub unsafe fn ures_openU<'a, Param1: ::windows::runtime::IntoParam<'a, super::Fo
 ) -> *mut UResourceBundle {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_openU(
                 packagename: *const u16,
@@ -52971,7 +52971,7 @@ pub unsafe fn ures_openU<'a, Param1: ::windows::runtime::IntoParam<'a, super::Fo
 pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn ures_resetIterator(resourcebundle: *mut UResourceBundle);
         }
@@ -52983,7 +52983,7 @@ pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
 pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8;
         }
@@ -53004,7 +53004,7 @@ pub unsafe fn uscript_getCode<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_getCode(
                 nameorabbrorlocale: super::Foundation::PSTR,
@@ -53027,7 +53027,7 @@ pub unsafe fn uscript_getCode<
 pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_getName(scriptcode: UScriptCode) -> super::Foundation::PSTR;
         }
@@ -53044,7 +53044,7 @@ pub unsafe fn uscript_getSampleString(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_getSampleString(
                 script: UScriptCode,
@@ -53066,7 +53066,7 @@ pub unsafe fn uscript_getSampleString(
 pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode;
         }
@@ -53086,7 +53086,7 @@ pub unsafe fn uscript_getScriptExtensions(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_getScriptExtensions(
                 c: i32,
@@ -53109,7 +53109,7 @@ pub unsafe fn uscript_getScriptExtensions(
 pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation::PSTR;
         }
@@ -53121,7 +53121,7 @@ pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation
 pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_getUsage(script: UScriptCode) -> UScriptUsage;
         }
@@ -53133,7 +53133,7 @@ pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
 pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8;
         }
@@ -53148,7 +53148,7 @@ pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
 pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_isCased(script: UScriptCode) -> i8;
         }
@@ -53160,7 +53160,7 @@ pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
 pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uscript_isRightToLeft(script: UScriptCode) -> i8;
         }
@@ -53172,7 +53172,7 @@ pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
 pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_close(searchiter: *mut UStringSearch);
         }
@@ -53184,7 +53184,7 @@ pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
 pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -53203,7 +53203,7 @@ pub unsafe fn usearch_following(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_following(
                 strsrch: *mut UStringSearch,
@@ -53226,7 +53226,7 @@ pub unsafe fn usearch_getAttribute(
 ) -> USearchAttributeValue {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getAttribute(
                 strsrch: *const UStringSearch,
@@ -53244,7 +53244,7 @@ pub unsafe fn usearch_getAttribute(
 pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator;
         }
@@ -53256,7 +53256,7 @@ pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UB
 pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator;
         }
@@ -53268,7 +53268,7 @@ pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollat
 pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32;
         }
@@ -53280,7 +53280,7 @@ pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
 pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32;
         }
@@ -53297,7 +53297,7 @@ pub unsafe fn usearch_getMatchedText(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getMatchedText(
                 strsrch: *const UStringSearch,
@@ -53319,7 +53319,7 @@ pub unsafe fn usearch_getMatchedText(
 pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getOffset(strsrch: *const UStringSearch) -> i32;
         }
@@ -53331,7 +53331,7 @@ pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
 pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
         }
@@ -53346,7 +53346,7 @@ pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32
 pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16;
         }
@@ -53361,7 +53361,7 @@ pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -
 pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -53376,7 +53376,7 @@ pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode)
 pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -53403,7 +53403,7 @@ pub unsafe fn usearch_open<
 ) -> *mut UStringSearch {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_open(
                 pattern: *const u16,
@@ -53439,7 +53439,7 @@ pub unsafe fn usearch_openFromCollator(
 ) -> *mut UStringSearch {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_openFromCollator(
                 pattern: *const u16,
@@ -53471,7 +53471,7 @@ pub unsafe fn usearch_preceding(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_preceding(
                 strsrch: *mut UStringSearch,
@@ -53491,7 +53491,7 @@ pub unsafe fn usearch_preceding(
 pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32;
         }
@@ -53506,7 +53506,7 @@ pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorC
 pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_reset(strsrch: *mut UStringSearch);
         }
@@ -53523,7 +53523,7 @@ pub unsafe fn usearch_setAttribute(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_setAttribute(
                 strsrch: *mut UStringSearch,
@@ -53549,7 +53549,7 @@ pub unsafe fn usearch_setBreakIterator(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_setBreakIterator(
                 strsrch: *mut UStringSearch,
@@ -53573,7 +53573,7 @@ pub unsafe fn usearch_setCollator(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_setCollator(
                 strsrch: *mut UStringSearch,
@@ -53597,7 +53597,7 @@ pub unsafe fn usearch_setOffset(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_setOffset(
                 strsrch: *mut UStringSearch,
@@ -53622,7 +53622,7 @@ pub unsafe fn usearch_setPattern(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_setPattern(
                 strsrch: *mut UStringSearch,
@@ -53649,7 +53649,7 @@ pub unsafe fn usearch_setText(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usearch_setText(
                 strsrch: *mut UStringSearch,
@@ -53671,7 +53671,7 @@ pub unsafe fn usearch_setText(
 pub unsafe fn uset_add(set: *mut USet, c: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_add(set: *mut USet, c: i32);
         }
@@ -53686,7 +53686,7 @@ pub unsafe fn uset_add(set: *mut USet, c: i32) {
 pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_addAll(set: *mut USet, additionalset: *const USet);
         }
@@ -53701,7 +53701,7 @@ pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
 pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32);
         }
@@ -53717,7 +53717,7 @@ pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32
 pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_addRange(set: *mut USet, start: i32, end: i32);
         }
@@ -53733,7 +53733,7 @@ pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_addString(set: *mut USet, str: *const u16, strlen: i32);
         }
@@ -53754,7 +53754,7 @@ pub unsafe fn uset_applyIntPropertyValue(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_applyIntPropertyValue(
                 set: *mut USet,
@@ -53782,7 +53782,7 @@ pub unsafe fn uset_applyPattern(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_applyPattern(
                 set: *mut USet,
@@ -53813,7 +53813,7 @@ pub unsafe fn uset_applyPropertyAlias(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_applyPropertyAlias(
                 set: *mut USet,
@@ -53839,7 +53839,7 @@ pub unsafe fn uset_applyPropertyAlias(
 pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_charAt(set: *const USet, charindex: i32) -> i32;
         }
@@ -53854,7 +53854,7 @@ pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
 pub unsafe fn uset_clear(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_clear(set: *mut USet);
         }
@@ -53866,7 +53866,7 @@ pub unsafe fn uset_clear(set: *mut USet) {
 pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_clone(set: *const USet) -> *mut USet;
         }
@@ -53878,7 +53878,7 @@ pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
 pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_cloneAsThawed(set: *const USet) -> *mut USet;
         }
@@ -53890,7 +53890,7 @@ pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
 pub unsafe fn uset_close(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_close(set: *mut USet);
         }
@@ -53902,7 +53902,7 @@ pub unsafe fn uset_close(set: *mut USet) {
 pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_closeOver(set: *mut USet, attributes: i32);
         }
@@ -53917,7 +53917,7 @@ pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
 pub unsafe fn uset_compact(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_compact(set: *mut USet);
         }
@@ -53929,7 +53929,7 @@ pub unsafe fn uset_compact(set: *mut USet) {
 pub unsafe fn uset_complement(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_complement(set: *mut USet);
         }
@@ -53941,7 +53941,7 @@ pub unsafe fn uset_complement(set: *mut USet) {
 pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_complementAll(set: *mut USet, complement: *const USet);
         }
@@ -53956,7 +53956,7 @@ pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
 pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_contains(set: *const USet, c: i32) -> i8;
         }
@@ -53971,7 +53971,7 @@ pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
 pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -53986,7 +53986,7 @@ pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8;
         }
@@ -54002,7 +54002,7 @@ pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strl
 pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -54017,7 +54017,7 @@ pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8;
         }
@@ -54033,7 +54033,7 @@ pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
 pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -54048,7 +54048,7 @@ pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8;
         }
@@ -54064,7 +54064,7 @@ pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32
 pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_equals(set1: *const USet, set2: *const USet) -> i8;
         }
@@ -54079,7 +54079,7 @@ pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
 pub unsafe fn uset_freeze(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_freeze(set: *mut USet);
         }
@@ -54099,7 +54099,7 @@ pub unsafe fn uset_getItem(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_getItem(
                 set: *const USet,
@@ -54127,7 +54127,7 @@ pub unsafe fn uset_getItem(
 pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_getItemCount(set: *const USet) -> i32;
         }
@@ -54144,7 +54144,7 @@ pub unsafe fn uset_getSerializedRange(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_getSerializedRange(
                 set: *const USerializedSet,
@@ -54166,7 +54166,7 @@ pub unsafe fn uset_getSerializedRange(
 pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32;
         }
@@ -54182,7 +54182,7 @@ pub unsafe fn uset_getSerializedSet(
 ) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_getSerializedSet(
                 fillset: *mut USerializedSet,
@@ -54202,7 +54202,7 @@ pub unsafe fn uset_getSerializedSet(
 pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_indexOf(set: *const USet, c: i32) -> i32;
         }
@@ -54217,7 +54217,7 @@ pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
 pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_isEmpty(set: *const USet) -> i8;
         }
@@ -54229,7 +54229,7 @@ pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
 pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_isFrozen(set: *const USet) -> i8;
         }
@@ -54241,7 +54241,7 @@ pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
 pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_open(start: i32, end: i32) -> *mut USet;
         }
@@ -54256,7 +54256,7 @@ pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
 pub unsafe fn uset_openEmpty() -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_openEmpty() -> *mut USet;
         }
@@ -54272,7 +54272,7 @@ pub unsafe fn uset_openPattern(
 ) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_openPattern(
                 pattern: *const u16,
@@ -54297,7 +54297,7 @@ pub unsafe fn uset_openPatternOptions(
 ) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_openPatternOptions(
                 pattern: *const u16,
@@ -54319,7 +54319,7 @@ pub unsafe fn uset_openPatternOptions(
 pub unsafe fn uset_remove(set: *mut USet, c: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_remove(set: *mut USet, c: i32);
         }
@@ -54334,7 +54334,7 @@ pub unsafe fn uset_remove(set: *mut USet, c: i32) {
 pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_removeAll(set: *mut USet, removeset: *const USet);
         }
@@ -54349,7 +54349,7 @@ pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
 pub unsafe fn uset_removeAllStrings(set: *mut USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_removeAllStrings(set: *mut USet);
         }
@@ -54361,7 +54361,7 @@ pub unsafe fn uset_removeAllStrings(set: *mut USet) {
 pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_removeRange(set: *mut USet, start: i32, end: i32);
         }
@@ -54377,7 +54377,7 @@ pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32);
         }
@@ -54393,7 +54393,7 @@ pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
 pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8;
         }
@@ -54409,7 +54409,7 @@ pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos
 pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_retain(set: *mut USet, start: i32, end: i32);
         }
@@ -54425,7 +54425,7 @@ pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_retainAll(set: *mut USet, retain: *const USet);
         }
@@ -54445,7 +54445,7 @@ pub unsafe fn uset_serialize(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_serialize(
                 set: *const USet,
@@ -54467,7 +54467,7 @@ pub unsafe fn uset_serialize(
 pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8;
         }
@@ -54482,7 +54482,7 @@ pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 
 pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_set(set: *mut USet, start: i32, end: i32);
         }
@@ -54498,7 +54498,7 @@ pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32);
         }
@@ -54513,7 +54513,7 @@ pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
 pub unsafe fn uset_size(set: *const USet) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_size(set: *const USet) -> i32;
         }
@@ -54530,7 +54530,7 @@ pub unsafe fn uset_span(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_span(
                 set: *const USet,
@@ -54557,7 +54557,7 @@ pub unsafe fn uset_spanBack(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_spanBack(
                 set: *const USet,
@@ -54588,7 +54588,7 @@ pub unsafe fn uset_spanBackUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_spanBackUTF8(
                 set: *const USet,
@@ -54619,7 +54619,7 @@ pub unsafe fn uset_spanUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_spanUTF8(
                 set: *const USet,
@@ -54647,7 +54647,7 @@ pub unsafe fn uset_toPattern(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uset_toPattern(
                 set: *const USet,
@@ -54678,7 +54678,7 @@ pub unsafe fn uspoof_areConfusable(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_areConfusable(
                 sc: *const USpoofChecker,
@@ -54716,7 +54716,7 @@ pub unsafe fn uspoof_areConfusableUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_areConfusableUTF8(
                 sc: *const USpoofChecker,
@@ -54748,7 +54748,7 @@ pub unsafe fn uspoof_check(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_check(
                 sc: *const USpoofChecker,
@@ -54778,7 +54778,7 @@ pub unsafe fn uspoof_check2(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_check2(
                 sc: *const USpoofChecker,
@@ -54812,7 +54812,7 @@ pub unsafe fn uspoof_check2UTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_check2UTF8(
                 sc: *const USpoofChecker,
@@ -54846,7 +54846,7 @@ pub unsafe fn uspoof_checkUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_checkUTF8(
                 sc: *const USpoofChecker,
@@ -54873,7 +54873,7 @@ pub unsafe fn uspoof_clone(
 ) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_clone(
                 sc: *const USpoofChecker,
@@ -54891,7 +54891,7 @@ pub unsafe fn uspoof_clone(
 pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_close(sc: *mut USpoofChecker);
         }
@@ -54903,7 +54903,7 @@ pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
 pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult);
         }
@@ -54918,7 +54918,7 @@ pub unsafe fn uspoof_getAllowedChars(
 ) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getAllowedChars(
                 sc: *const USpoofChecker,
@@ -54940,7 +54940,7 @@ pub unsafe fn uspoof_getAllowedLocales(
 ) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getAllowedLocales(
                 sc: *mut USpoofChecker,
@@ -54961,7 +54961,7 @@ pub unsafe fn uspoof_getCheckResultChecks(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getCheckResultChecks(
                 checkresult: *const USpoofCheckResult,
@@ -54982,7 +54982,7 @@ pub unsafe fn uspoof_getCheckResultNumerics(
 ) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getCheckResultNumerics(
                 checkresult: *const USpoofCheckResult,
@@ -55003,7 +55003,7 @@ pub unsafe fn uspoof_getCheckResultRestrictionLevel(
 ) -> URestrictionLevel {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getCheckResultRestrictionLevel(
                 checkresult: *const USpoofCheckResult,
@@ -55021,7 +55021,7 @@ pub unsafe fn uspoof_getCheckResultRestrictionLevel(
 pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32;
         }
@@ -55036,7 +55036,7 @@ pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode
 pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet;
         }
@@ -55048,7 +55048,7 @@ pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
 pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet;
         }
@@ -55060,7 +55060,7 @@ pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
 pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel;
         }
@@ -55080,7 +55080,7 @@ pub unsafe fn uspoof_getSkeleton(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getSkeleton(
                 sc: *const USpoofChecker,
@@ -55121,7 +55121,7 @@ pub unsafe fn uspoof_getSkeletonUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_getSkeletonUTF8(
                 sc: *const USpoofChecker,
@@ -55149,7 +55149,7 @@ pub unsafe fn uspoof_getSkeletonUTF8<
 pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker;
         }
@@ -55161,7 +55161,7 @@ pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
 pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult;
         }
@@ -55178,7 +55178,7 @@ pub unsafe fn uspoof_openFromSerialized(
 ) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_openFromSerialized(
                 data: *const ::std::ffi::c_void,
@@ -55213,7 +55213,7 @@ pub unsafe fn uspoof_openFromSource<
 ) -> *mut USpoofChecker {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_openFromSource(
                 confusables: super::Foundation::PSTR,
@@ -55246,7 +55246,7 @@ pub unsafe fn uspoof_serialize(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_serialize(
                 sc: *mut USpoofChecker,
@@ -55272,7 +55272,7 @@ pub unsafe fn uspoof_setAllowedChars(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_setAllowedChars(
                 sc: *mut USpoofChecker,
@@ -55300,7 +55300,7 @@ pub unsafe fn uspoof_setAllowedLocales<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_setAllowedLocales(
                 sc: *mut USpoofChecker,
@@ -55320,7 +55320,7 @@ pub unsafe fn uspoof_setAllowedLocales<
 pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode);
         }
@@ -55339,7 +55339,7 @@ pub unsafe fn uspoof_setRestrictionLevel(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn uspoof_setRestrictionLevel(
                 sc: *mut USpoofChecker,
@@ -55357,7 +55357,7 @@ pub unsafe fn uspoof_setRestrictionLevel(
 pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usprep_close(profile: *mut UStringPrepProfile);
         }
@@ -55378,7 +55378,7 @@ pub unsafe fn usprep_open<
 ) -> *mut UStringPrepProfile {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usprep_open(
                 path: super::Foundation::PSTR,
@@ -55401,7 +55401,7 @@ pub unsafe fn usprep_openByType(
 ) -> *mut UStringPrepProfile {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usprep_openByType(
                 r#type: UStringPrepProfileType,
@@ -55428,7 +55428,7 @@ pub unsafe fn usprep_prepare(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn usprep_prepare(
                 prep: *const UStringPrepProfile,
@@ -55458,7 +55458,7 @@ pub unsafe fn usprep_prepare(
 pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32;
         }
@@ -55479,7 +55479,7 @@ pub unsafe fn utext_clone(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_clone(
                 dest: *mut UText,
@@ -55503,7 +55503,7 @@ pub unsafe fn utext_clone(
 pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_close(ut: *mut UText) -> *mut UText;
         }
@@ -55522,7 +55522,7 @@ pub unsafe fn utext_copy(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_copy(
                 ut: *mut UText,
@@ -55548,7 +55548,7 @@ pub unsafe fn utext_copy(
 pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_current32(ut: *mut UText) -> i32;
         }
@@ -55560,7 +55560,7 @@ pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
 pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_equals(a: *const UText, b: *const UText) -> i8;
         }
@@ -55582,7 +55582,7 @@ pub unsafe fn utext_extract(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_extract(
                 ut: *mut UText,
@@ -55608,7 +55608,7 @@ pub unsafe fn utext_extract(
 pub unsafe fn utext_freeze(ut: *mut UText) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_freeze(ut: *mut UText);
         }
@@ -55620,7 +55620,7 @@ pub unsafe fn utext_freeze(ut: *mut UText) {
 pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_getNativeIndex(ut: *const UText) -> i64;
         }
@@ -55632,7 +55632,7 @@ pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
 pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64;
         }
@@ -55644,7 +55644,7 @@ pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
 pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_hasMetaData(ut: *const UText) -> i8;
         }
@@ -55656,7 +55656,7 @@ pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
 pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_isLengthExpensive(ut: *const UText) -> i8;
         }
@@ -55668,7 +55668,7 @@ pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
 pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_isWritable(ut: *const UText) -> i8;
         }
@@ -55680,7 +55680,7 @@ pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
 pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8;
         }
@@ -55695,7 +55695,7 @@ pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
 pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_nativeLength(ut: *mut UText) -> i64;
         }
@@ -55707,7 +55707,7 @@ pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
 pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_next32(ut: *mut UText) -> i32;
         }
@@ -55719,7 +55719,7 @@ pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
 pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32;
         }
@@ -55739,7 +55739,7 @@ pub unsafe fn utext_openUChars(
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_openUChars(
                 ut: *mut UText,
@@ -55770,7 +55770,7 @@ pub unsafe fn utext_openUTF8<
 ) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_openUTF8(
                 ut: *mut UText,
@@ -55792,7 +55792,7 @@ pub unsafe fn utext_openUTF8<
 pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_previous32(ut: *mut UText) -> i32;
         }
@@ -55804,7 +55804,7 @@ pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
 pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32;
         }
@@ -55826,7 +55826,7 @@ pub unsafe fn utext_replace(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_replace(
                 ut: *mut UText,
@@ -55852,7 +55852,7 @@ pub unsafe fn utext_replace(
 pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64);
         }
@@ -55867,7 +55867,7 @@ pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
 pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText;
         }
@@ -55889,7 +55889,7 @@ pub unsafe fn utf8_appendCharSafeBody(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utf8_appendCharSafeBody(
                 s: *mut u8,
@@ -55913,7 +55913,7 @@ pub unsafe fn utf8_appendCharSafeBody(
 pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32;
         }
@@ -55935,7 +55935,7 @@ pub unsafe fn utf8_nextCharSafeBody(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utf8_nextCharSafeBody(
                 s: *const u8,
@@ -55965,7 +55965,7 @@ pub unsafe fn utf8_prevCharSafeBody(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utf8_prevCharSafeBody(
                 s: *const u8,
@@ -55993,7 +55993,7 @@ pub unsafe fn utmscale_fromInt64(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utmscale_fromInt64(
                 othertime: i64,
@@ -56017,7 +56017,7 @@ pub unsafe fn utmscale_getTimeScaleValue(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utmscale_getTimeScaleValue(
                 timescale: UDateTimeScale,
@@ -56041,7 +56041,7 @@ pub unsafe fn utmscale_toInt64(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utmscale_toInt64(
                 universaltime: i64,
@@ -56071,7 +56071,7 @@ pub unsafe fn utrace_format<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrace_format(
                 outbuf: super::Foundation::PSTR,
@@ -56094,7 +56094,7 @@ pub unsafe fn utrace_format<
 pub unsafe fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR;
         }
@@ -56112,7 +56112,7 @@ pub unsafe fn utrace_getFunctions(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrace_getFunctions(
                 context: *const *const ::std::ffi::c_void,
@@ -56134,7 +56134,7 @@ pub unsafe fn utrace_getFunctions(
 pub unsafe fn utrace_getLevel() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrace_getLevel() -> i32;
         }
@@ -56152,7 +56152,7 @@ pub unsafe fn utrace_setFunctions(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrace_setFunctions(
                 context: *const ::std::ffi::c_void,
@@ -56174,7 +56174,7 @@ pub unsafe fn utrace_setFunctions(
 pub unsafe fn utrace_setLevel(tracelevel: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrace_setLevel(tracelevel: i32);
         }
@@ -56197,7 +56197,7 @@ pub unsafe fn utrace_vformat<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrace_vformat(
                 outbuf: super::Foundation::PSTR,
@@ -56224,7 +56224,7 @@ pub unsafe fn utrans_clone(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_clone(
                 trans: *const *const ::std::ffi::c_void,
@@ -56242,7 +56242,7 @@ pub unsafe fn utrans_clone(
 pub unsafe fn utrans_close(trans: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_close(trans: *mut *mut ::std::ffi::c_void);
         }
@@ -56254,7 +56254,7 @@ pub unsafe fn utrans_close(trans: *mut *mut ::std::ffi::c_void) {
 pub unsafe fn utrans_countAvailableIDs() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_countAvailableIDs() -> i32;
         }
@@ -56271,7 +56271,7 @@ pub unsafe fn utrans_getSourceSet(
 ) -> *mut USet {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_getSourceSet(
                 trans: *const *const ::std::ffi::c_void,
@@ -56296,7 +56296,7 @@ pub unsafe fn utrans_getUnicodeID(
 ) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_getUnicodeID(
                 trans: *const *const ::std::ffi::c_void,
@@ -56314,7 +56314,7 @@ pub unsafe fn utrans_getUnicodeID(
 pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration;
         }
@@ -56329,7 +56329,7 @@ pub unsafe fn utrans_openInverse(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_openInverse(
                 trans: *const *const ::std::ffi::c_void,
@@ -56355,7 +56355,7 @@ pub unsafe fn utrans_openU(
 ) -> *mut *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_openU(
                 id: *const u16,
@@ -56383,7 +56383,7 @@ pub unsafe fn utrans_openU(
 pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_register(adoptedtrans: *mut *mut ::std::ffi::c_void, status: *mut UErrorCode);
         }
@@ -56403,7 +56403,7 @@ pub unsafe fn utrans_setFilter(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_setFilter(
                 trans: *mut *mut ::std::ffi::c_void,
@@ -56431,7 +56431,7 @@ pub unsafe fn utrans_toRules(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_toRules(
                 trans: *const *const ::std::ffi::c_void,
@@ -56462,7 +56462,7 @@ pub unsafe fn utrans_trans(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_trans(
                 trans: *const *const ::std::ffi::c_void,
@@ -56494,7 +56494,7 @@ pub unsafe fn utrans_transIncremental(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_transIncremental(
                 trans: *const *const ::std::ffi::c_void,
@@ -56525,7 +56525,7 @@ pub unsafe fn utrans_transIncrementalUChars(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_transIncrementalUChars(
                 trans: *const *const ::std::ffi::c_void,
@@ -56559,7 +56559,7 @@ pub unsafe fn utrans_transUChars(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_transUChars(
                 trans: *const *const ::std::ffi::c_void,
@@ -56587,7 +56587,7 @@ pub unsafe fn utrans_transUChars(
 pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "icu")]
+        #[link(name = "windows")]
         extern "system" {
             fn utrans_unregisterID(id: *const u16, idlength: i32);
         }

@@ -179,7 +179,7 @@ pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
 pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
         }
@@ -194,7 +194,7 @@ pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC
 pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
         }
@@ -451,7 +451,7 @@ pub unsafe fn IUnknown_AddRef_Proxy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn IUnknown_AddRef_Proxy(this: ::windows::runtime::RawPtr) -> u32;
         }
@@ -470,7 +470,7 @@ pub unsafe fn IUnknown_QueryInterface_Proxy<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn IUnknown_QueryInterface_Proxy(
                 this: ::windows::runtime::RawPtr,
@@ -496,7 +496,7 @@ pub unsafe fn IUnknown_Release_Proxy<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn IUnknown_Release_Proxy(this: ::windows::runtime::RawPtr) -> u32;
         }
@@ -508,7 +508,7 @@ pub unsafe fn IUnknown_Release_Proxy<
 pub unsafe fn I_RpcAllocate(size: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcAllocate(size: u32) -> *mut ::std::ffi::c_void;
         }
@@ -524,7 +524,7 @@ pub unsafe fn I_RpcAsyncAbortCall(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcAsyncAbortCall(
                 pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -546,7 +546,7 @@ pub unsafe fn I_RpcAsyncSetHandle(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcAsyncSetHandle(
                 message: *const RPC_MESSAGE,
@@ -567,7 +567,7 @@ pub unsafe fn I_RpcBindingCopy(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingCopy(
                 sourcebinding: *mut ::std::ffi::c_void,
@@ -590,7 +590,7 @@ pub unsafe fn I_RpcBindingCreateNP(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingCreateNP(
                 servername: *const u16,
@@ -615,7 +615,7 @@ pub unsafe fn I_RpcBindingHandleToAsyncHandle(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingHandleToAsyncHandle(
                 binding: *mut ::std::ffi::c_void,
@@ -639,7 +639,7 @@ pub unsafe fn I_RpcBindingInqClientTokenAttributes(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqClientTokenAttributes(
                 binding: *const ::std::ffi::c_void,
@@ -664,7 +664,7 @@ pub unsafe fn I_RpcBindingInqDynamicEndpointA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqDynamicEndpointA(
                 binding: *const ::std::ffi::c_void,
@@ -685,7 +685,7 @@ pub unsafe fn I_RpcBindingInqDynamicEndpointW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqDynamicEndpointW(
                 binding: *const ::std::ffi::c_void,
@@ -706,7 +706,7 @@ pub unsafe fn I_RpcBindingInqLocalClientPID(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqLocalClientPID(
                 binding: *mut ::std::ffi::c_void,
@@ -728,7 +728,7 @@ pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqMarshalledTargetInfo(
                 binding: *const ::std::ffi::c_void,
@@ -751,7 +751,7 @@ pub unsafe fn I_RpcBindingInqSecurityContext(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqSecurityContext(
                 binding: *mut ::std::ffi::c_void,
@@ -772,7 +772,7 @@ pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqSecurityContextKeyInfo(
                 binding: *const ::std::ffi::c_void,
@@ -793,7 +793,7 @@ pub unsafe fn I_RpcBindingInqTransportType(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqTransportType(
                 binding: *mut ::std::ffi::c_void,
@@ -814,7 +814,7 @@ pub unsafe fn I_RpcBindingInqWireIdForSnego(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingInqWireIdForSnego(
                 binding: *const ::std::ffi::c_void,
@@ -835,7 +835,7 @@ pub unsafe fn I_RpcBindingIsClientLocal(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingIsClientLocal(
                 bindinghandle: *mut ::std::ffi::c_void,
@@ -856,7 +856,7 @@ pub unsafe fn I_RpcBindingIsServerLocal(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingIsServerLocal(
                 binding: *const ::std::ffi::c_void,
@@ -878,7 +878,7 @@ pub unsafe fn I_RpcBindingSetPrivateOption(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingSetPrivateOption(
                 hbinding: *const ::std::ffi::c_void,
@@ -901,7 +901,7 @@ pub unsafe fn I_RpcBindingToStaticStringBindingW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcBindingToStaticStringBindingW(
                 binding: *mut ::std::ffi::c_void,
@@ -919,7 +919,7 @@ pub unsafe fn I_RpcBindingToStaticStringBindingW(
 pub unsafe fn I_RpcClearMutex(mutex: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcClearMutex(mutex: *mut ::std::ffi::c_void);
         }
@@ -931,7 +931,7 @@ pub unsafe fn I_RpcClearMutex(mutex: *mut ::std::ffi::c_void) {
 pub unsafe fn I_RpcDeleteMutex(mutex: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcDeleteMutex(mutex: *mut ::std::ffi::c_void);
         }
@@ -943,7 +943,7 @@ pub unsafe fn I_RpcDeleteMutex(mutex: *mut ::std::ffi::c_void) {
 pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcExceptionFilter(exceptioncode: u32) -> i32;
         }
@@ -955,7 +955,7 @@ pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
 pub unsafe fn I_RpcFree(object: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcFree(object: *mut ::std::ffi::c_void);
         }
@@ -967,7 +967,7 @@ pub unsafe fn I_RpcFree(object: *mut ::std::ffi::c_void) {
 pub unsafe fn I_RpcFreeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcFreeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
         }
@@ -980,7 +980,7 @@ pub type I_RpcFreeCalloutStateFn = unsafe extern "system" fn(calloutstate: *mut 
 pub unsafe fn I_RpcFreePipeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcFreePipeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
         }
@@ -992,7 +992,7 @@ pub unsafe fn I_RpcFreePipeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
 pub unsafe fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
         }
@@ -1007,7 +1007,7 @@ pub unsafe fn I_RpcGetBufferWithObject(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcGetBufferWithObject(
                 message: *mut RPC_MESSAGE,
@@ -1025,7 +1025,7 @@ pub unsafe fn I_RpcGetBufferWithObject(
 pub unsafe fn I_RpcGetCurrentCallHandle() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcGetCurrentCallHandle() -> *mut ::std::ffi::c_void;
         }
@@ -1037,7 +1037,7 @@ pub unsafe fn I_RpcGetCurrentCallHandle() -> *mut ::std::ffi::c_void {
 pub unsafe fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -1051,7 +1051,7 @@ pub unsafe fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::std::ffi::c_vo
 pub unsafe fn I_RpcGetExtendedError() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcGetExtendedError() -> RPC_STATUS;
         }
@@ -1068,7 +1068,7 @@ pub unsafe fn I_RpcIfInqTransferSyntaxes(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcIfInqTransferSyntaxes(
                 rpcifhandle: *mut ::std::ffi::c_void,
@@ -1090,7 +1090,7 @@ pub unsafe fn I_RpcIfInqTransferSyntaxes(
 pub unsafe fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32;
         }
@@ -1102,7 +1102,7 @@ pub unsafe fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32 {
 pub unsafe fn I_RpcMgmtEnableDedicatedThreadPool() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcMgmtEnableDedicatedThreadPool() -> RPC_STATUS;
         }
@@ -1114,7 +1114,7 @@ pub unsafe fn I_RpcMgmtEnableDedicatedThreadPool() -> RPC_STATUS {
 pub unsafe fn I_RpcNegotiateTransferSyntax(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNegotiateTransferSyntax(message: *mut RPC_MESSAGE) -> RPC_STATUS;
         }
@@ -1130,7 +1130,7 @@ pub unsafe fn I_RpcNsBindingSetEntryNameA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNsBindingSetEntryNameA(
                 binding: *const ::std::ffi::c_void,
@@ -1154,7 +1154,7 @@ pub unsafe fn I_RpcNsBindingSetEntryNameW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNsBindingSetEntryNameW(
                 binding: *const ::std::ffi::c_void,
@@ -1178,7 +1178,7 @@ pub unsafe fn I_RpcNsInterfaceExported(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNsInterfaceExported(
                 entrynamesyntax: u32,
@@ -1202,7 +1202,7 @@ pub unsafe fn I_RpcNsInterfaceUnexported(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcNsInterfaceUnexported(
                 entrynamesyntax: u32,
@@ -1226,7 +1226,7 @@ pub unsafe fn I_RpcOpenClientProcess(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcOpenClientProcess(
                 binding: *const ::std::ffi::c_void,
@@ -1246,7 +1246,7 @@ pub unsafe fn I_RpcOpenClientProcess(
 pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcPauseExecution(milliseconds: u32);
         }
@@ -1355,7 +1355,7 @@ pub type I_RpcProxyUpdatePerfCounterFn =
 pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS;
         }
@@ -1370,7 +1370,7 @@ pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) 
 pub unsafe fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS;
         }
@@ -1389,7 +1389,7 @@ pub unsafe fn I_RpcRecordCalloutFailure(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcRecordCalloutFailure(
                 rpcstatus: RPC_STATUS,
@@ -1409,7 +1409,7 @@ pub unsafe fn I_RpcRecordCalloutFailure(
 pub unsafe fn I_RpcRequestMutex(mutex: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcRequestMutex(mutex: *mut *mut ::std::ffi::c_void);
         }
@@ -1421,7 +1421,7 @@ pub unsafe fn I_RpcRequestMutex(mutex: *mut *mut ::std::ffi::c_void) {
 pub unsafe fn I_RpcSend(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcSend(message: *mut RPC_MESSAGE) -> RPC_STATUS;
         }
@@ -1433,7 +1433,7 @@ pub unsafe fn I_RpcSend(message: *mut RPC_MESSAGE) -> RPC_STATUS {
 pub unsafe fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> RPC_STATUS;
         }
@@ -1445,7 +1445,7 @@ pub unsafe fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> RPC_STATUS {
 pub unsafe fn I_RpcServerCheckClientRestriction(context: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerCheckClientRestriction(context: *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -1459,7 +1459,7 @@ pub unsafe fn I_RpcServerCheckClientRestriction(context: *mut ::std::ffi::c_void
 pub unsafe fn I_RpcServerDisableExceptionFilter() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerDisableExceptionFilter() -> i32;
         }
@@ -1474,7 +1474,7 @@ pub unsafe fn I_RpcServerGetAssociationID(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerGetAssociationID(
                 binding: *const ::std::ffi::c_void,
@@ -1492,7 +1492,7 @@ pub unsafe fn I_RpcServerGetAssociationID(
 pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut ::std::option::Option<RPC_ADDRESS_CHANGE_FN> {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerInqAddressChangeFn() -> *mut ::std::option::Option<RPC_ADDRESS_CHANGE_FN>;
         }
@@ -1509,7 +1509,7 @@ pub unsafe fn I_RpcServerInqLocalConnAddress(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerInqLocalConnAddress(
                 binding: *mut ::std::ffi::c_void,
@@ -1536,7 +1536,7 @@ pub unsafe fn I_RpcServerInqRemoteConnAddress(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerInqRemoteConnAddress(
                 binding: *mut ::std::ffi::c_void,
@@ -1558,7 +1558,7 @@ pub unsafe fn I_RpcServerInqRemoteConnAddress(
 pub unsafe fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS;
         }
@@ -1572,7 +1572,7 @@ pub unsafe fn I_RpcServerRegisterForwardFunction(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerRegisterForwardFunction(
                 pforwardfunction: *mut ::windows::runtime::RawPtr,
@@ -1590,7 +1590,7 @@ pub unsafe fn I_RpcServerSetAddressChangeFn(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerSetAddressChangeFn(
                 paddresschangefn: *mut ::windows::runtime::RawPtr,
@@ -1610,7 +1610,7 @@ pub unsafe fn I_RpcServerStartService(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerStartService(
                 protseq: *const u16,
@@ -1633,7 +1633,7 @@ pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerSubscribeForDisconnectNotification(
                 binding: *const ::std::ffi::c_void,
@@ -1655,7 +1655,7 @@ pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerSubscribeForDisconnectNotification2(
                 binding: *const ::std::ffi::c_void,
@@ -1681,7 +1681,7 @@ pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification<
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerUnsubscribeForDisconnectNotification(
                 binding: *const ::std::ffi::c_void,
@@ -1705,7 +1705,7 @@ pub unsafe fn I_RpcServerUseProtseq2A(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerUseProtseq2A(
                 networkaddress: *const u8,
@@ -1735,7 +1735,7 @@ pub unsafe fn I_RpcServerUseProtseq2W(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerUseProtseq2W(
                 networkaddress: *const u16,
@@ -1766,7 +1766,7 @@ pub unsafe fn I_RpcServerUseProtseqEp2A(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerUseProtseqEp2A(
                 networkaddress: *const u8,
@@ -1799,7 +1799,7 @@ pub unsafe fn I_RpcServerUseProtseqEp2W(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcServerUseProtseqEp2W(
                 networkaddress: *const u16,
@@ -1825,7 +1825,7 @@ pub unsafe fn I_RpcServerUseProtseqEp2W(
 pub unsafe fn I_RpcSessionStrictContextHandle() {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcSessionStrictContextHandle();
         }
@@ -1837,7 +1837,7 @@ pub unsafe fn I_RpcSessionStrictContextHandle() {
 pub unsafe fn I_RpcSsDontSerializeContext() {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcSsDontSerializeContext();
         }
@@ -1854,7 +1854,7 @@ pub unsafe fn I_RpcSystemHandleTypeSpecificWork(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcSystemHandleTypeSpecificWork(
                 handle: *mut ::std::ffi::c_void,
@@ -1876,7 +1876,7 @@ pub unsafe fn I_RpcSystemHandleTypeSpecificWork(
 pub unsafe fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS;
         }
@@ -1888,7 +1888,7 @@ pub unsafe fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS {
 pub unsafe fn I_UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn I_UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
@@ -2694,7 +2694,7 @@ pub unsafe fn MesBufferHandleReset(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesBufferHandleReset(
                 handle: *const ::std::ffi::c_void,
@@ -2728,7 +2728,7 @@ pub unsafe fn MesDecodeBufferHandleCreate<
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesDecodeBufferHandleCreate(
                 buffer: super::super::Foundation::PSTR,
@@ -2752,7 +2752,7 @@ pub unsafe fn MesDecodeIncrementalHandleCreate(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesDecodeIncrementalHandleCreate(
                 userstate: *mut ::std::ffi::c_void,
@@ -2776,7 +2776,7 @@ pub unsafe fn MesEncodeDynBufferHandleCreate(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesEncodeDynBufferHandleCreate(
                 pbuffer: *mut *mut i8,
@@ -2802,7 +2802,7 @@ pub unsafe fn MesEncodeFixedBufferHandleCreate(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesEncodeFixedBufferHandleCreate(
                 pbuffer: super::super::Foundation::PSTR,
@@ -2830,7 +2830,7 @@ pub unsafe fn MesEncodeIncrementalHandleCreate(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesEncodeIncrementalHandleCreate(
                 userstate: *mut ::std::ffi::c_void,
@@ -2852,7 +2852,7 @@ pub unsafe fn MesEncodeIncrementalHandleCreate(
 pub unsafe fn MesHandleFree(handle: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesHandleFree(handle: *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -2872,7 +2872,7 @@ pub unsafe fn MesIncrementalHandleReset(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesIncrementalHandleReset(
                 handle: *mut ::std::ffi::c_void,
@@ -2902,7 +2902,7 @@ pub unsafe fn MesInqProcEncodingId(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn MesInqProcEncodingId(
                 handle: *mut ::std::ffi::c_void,
@@ -5291,7 +5291,7 @@ unsafe impl ::windows::runtime::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
 pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRCContextBinding(ccontext: isize) -> *mut ::std::ffi::c_void;
         }
@@ -5303,7 +5303,7 @@ pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut ::std::ffi::c_void {
 pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::std::ffi::c_void);
         }
@@ -5323,7 +5323,7 @@ pub unsafe fn NDRCContextUnmarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRCContextUnmarshall(
                 pccontext: *mut isize,
@@ -5349,7 +5349,7 @@ pub unsafe fn NDRSContextMarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRSContextMarshall(
                 ccontext: *const NDR_SCONTEXT_1,
@@ -5376,7 +5376,7 @@ pub unsafe fn NDRSContextMarshall2(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRSContextMarshall2(
                 bindinghandle: *const ::std::ffi::c_void,
@@ -5407,7 +5407,7 @@ pub unsafe fn NDRSContextMarshallEx(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRSContextMarshallEx(
                 bindinghandle: *const ::std::ffi::c_void,
@@ -5432,7 +5432,7 @@ pub unsafe fn NDRSContextUnmarshall(
 ) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRSContextUnmarshall(
                 pbuff: *const ::std::ffi::c_void,
@@ -5456,7 +5456,7 @@ pub unsafe fn NDRSContextUnmarshall2(
 ) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRSContextUnmarshall2(
                 bindinghandle: *const ::std::ffi::c_void,
@@ -5484,7 +5484,7 @@ pub unsafe fn NDRSContextUnmarshallEx(
 ) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NDRSContextUnmarshallEx(
                 bindinghandle: *const ::std::ffi::c_void,
@@ -5772,7 +5772,7 @@ pub unsafe fn Ndr64AsyncClientCall(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn Ndr64AsyncClientCall(
                 pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
@@ -5792,7 +5792,7 @@ pub unsafe fn Ndr64AsyncClientCall(
 pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE);
         }
@@ -5804,7 +5804,7 @@ pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE) {
 pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE);
         }
@@ -5821,7 +5821,7 @@ pub unsafe fn Ndr64DcomAsyncClientCall(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn Ndr64DcomAsyncClientCall(
                 pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
@@ -5851,7 +5851,7 @@ pub unsafe fn Ndr64DcomAsyncStubCall<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn Ndr64DcomAsyncStubCall(
                 pthis: ::windows::runtime::RawPtr,
@@ -5874,7 +5874,7 @@ pub unsafe fn Ndr64DcomAsyncStubCall<
 pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrAllocate(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -5896,7 +5896,7 @@ pub unsafe fn NdrAsyncClientCall(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrAsyncClientCall(
                 pstubdescriptor: *mut MIDL_STUB_DESC,
@@ -5914,7 +5914,7 @@ pub unsafe fn NdrAsyncClientCall(
 pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE);
         }
@@ -5931,7 +5931,7 @@ pub unsafe fn NdrByteCountPointerBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrByteCountPointerBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -5956,7 +5956,7 @@ pub unsafe fn NdrByteCountPointerFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrByteCountPointerFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -5981,7 +5981,7 @@ pub unsafe fn NdrByteCountPointerMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrByteCountPointerMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6007,7 +6007,7 @@ pub unsafe fn NdrByteCountPointerUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrByteCountPointerUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6034,7 +6034,7 @@ pub unsafe fn NdrClearOutParameters(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrClearOutParameters(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6058,7 +6058,7 @@ pub unsafe fn NdrClientCall2(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrClientCall2(
                 pstubdescriptor: *mut MIDL_STUB_DESC,
@@ -6081,7 +6081,7 @@ pub unsafe fn NdrClientCall3(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrClientCall3(
                 pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
@@ -6106,7 +6106,7 @@ pub unsafe fn NdrClientContextMarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrClientContextMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6131,7 +6131,7 @@ pub unsafe fn NdrClientContextUnmarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrClientContextUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6157,7 +6157,7 @@ pub unsafe fn NdrClientInitialize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrClientInitialize(
                 prpcmsg: *mut RPC_MESSAGE,
@@ -6185,7 +6185,7 @@ pub unsafe fn NdrClientInitializeNew(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrClientInitializeNew(
                 prpcmsg: *mut RPC_MESSAGE,
@@ -6212,7 +6212,7 @@ pub unsafe fn NdrComplexArrayBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexArrayBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6237,7 +6237,7 @@ pub unsafe fn NdrComplexArrayFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexArrayFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6262,7 +6262,7 @@ pub unsafe fn NdrComplexArrayMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexArrayMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6283,7 +6283,7 @@ pub unsafe fn NdrComplexArrayMarshall(
 pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexArrayMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6307,7 +6307,7 @@ pub unsafe fn NdrComplexArrayUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexArrayUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6334,7 +6334,7 @@ pub unsafe fn NdrComplexStructBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexStructBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6359,7 +6359,7 @@ pub unsafe fn NdrComplexStructFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexStructFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6384,7 +6384,7 @@ pub unsafe fn NdrComplexStructMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexStructMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6408,7 +6408,7 @@ pub unsafe fn NdrComplexStructMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexStructMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6432,7 +6432,7 @@ pub unsafe fn NdrComplexStructUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrComplexStructUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6459,7 +6459,7 @@ pub unsafe fn NdrConformantArrayBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantArrayBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6484,7 +6484,7 @@ pub unsafe fn NdrConformantArrayFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantArrayFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6509,7 +6509,7 @@ pub unsafe fn NdrConformantArrayMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantArrayMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6533,7 +6533,7 @@ pub unsafe fn NdrConformantArrayMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantArrayMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6557,7 +6557,7 @@ pub unsafe fn NdrConformantArrayUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantArrayUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6584,7 +6584,7 @@ pub unsafe fn NdrConformantStringBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStringBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6609,7 +6609,7 @@ pub unsafe fn NdrConformantStringMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStringMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6633,7 +6633,7 @@ pub unsafe fn NdrConformantStringMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStringMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6657,7 +6657,7 @@ pub unsafe fn NdrConformantStringUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStringUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6684,7 +6684,7 @@ pub unsafe fn NdrConformantStructBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStructBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6709,7 +6709,7 @@ pub unsafe fn NdrConformantStructFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStructFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6734,7 +6734,7 @@ pub unsafe fn NdrConformantStructMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStructMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6758,7 +6758,7 @@ pub unsafe fn NdrConformantStructMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStructMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6782,7 +6782,7 @@ pub unsafe fn NdrConformantStructUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantStructUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6809,7 +6809,7 @@ pub unsafe fn NdrConformantVaryingArrayBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingArrayBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6834,7 +6834,7 @@ pub unsafe fn NdrConformantVaryingArrayFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingArrayFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6859,7 +6859,7 @@ pub unsafe fn NdrConformantVaryingArrayMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingArrayMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6883,7 +6883,7 @@ pub unsafe fn NdrConformantVaryingArrayMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingArrayMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6907,7 +6907,7 @@ pub unsafe fn NdrConformantVaryingArrayUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingArrayUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6934,7 +6934,7 @@ pub unsafe fn NdrConformantVaryingStructBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingStructBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6959,7 +6959,7 @@ pub unsafe fn NdrConformantVaryingStructFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingStructFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -6984,7 +6984,7 @@ pub unsafe fn NdrConformantVaryingStructMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingStructMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7008,7 +7008,7 @@ pub unsafe fn NdrConformantVaryingStructMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingStructMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7032,7 +7032,7 @@ pub unsafe fn NdrConformantVaryingStructUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConformantVaryingStructUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7058,7 +7058,7 @@ pub unsafe fn NdrContextHandleInitialize(
 ) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrContextHandleInitialize(
                 pstubmsg: *const ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7081,7 +7081,7 @@ pub unsafe fn NdrContextHandleSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrContextHandleSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7102,7 +7102,7 @@ pub unsafe fn NdrContextHandleSize(
 pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConvert(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7121,7 +7121,7 @@ pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
 pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, numberparams: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrConvert2(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7142,7 +7142,7 @@ pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, nu
 pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrCorrelationFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
         }
@@ -7160,7 +7160,7 @@ pub unsafe fn NdrCorrelationInitialize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrCorrelationInitialize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7183,7 +7183,7 @@ pub unsafe fn NdrCorrelationInitialize(
 pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrCorrelationPass(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
         }
@@ -7202,7 +7202,7 @@ pub unsafe fn NdrCreateServerInterfaceFromStub<
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrCreateServerInterfaceFromStub(
                 pstub: ::windows::runtime::RawPtr,
@@ -7224,7 +7224,7 @@ pub unsafe fn NdrDcomAsyncClientCall(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrDcomAsyncClientCall(
                 pstubdescriptor: *mut MIDL_STUB_DESC,
@@ -7252,7 +7252,7 @@ pub unsafe fn NdrDcomAsyncStubCall<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrDcomAsyncStubCall(
                 pthis: ::windows::runtime::RawPtr,
@@ -7279,7 +7279,7 @@ pub unsafe fn NdrEncapsulatedUnionBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrEncapsulatedUnionBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7304,7 +7304,7 @@ pub unsafe fn NdrEncapsulatedUnionFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrEncapsulatedUnionFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7329,7 +7329,7 @@ pub unsafe fn NdrEncapsulatedUnionMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrEncapsulatedUnionMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7353,7 +7353,7 @@ pub unsafe fn NdrEncapsulatedUnionMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrEncapsulatedUnionMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7377,7 +7377,7 @@ pub unsafe fn NdrEncapsulatedUnionUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrEncapsulatedUnionUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7404,7 +7404,7 @@ pub unsafe fn NdrFixedArrayBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFixedArrayBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7429,7 +7429,7 @@ pub unsafe fn NdrFixedArrayFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFixedArrayFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7454,7 +7454,7 @@ pub unsafe fn NdrFixedArrayMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFixedArrayMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7475,7 +7475,7 @@ pub unsafe fn NdrFixedArrayMarshall(
 pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFixedArrayMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7499,7 +7499,7 @@ pub unsafe fn NdrFixedArrayUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFixedArrayUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7522,7 +7522,7 @@ pub unsafe fn NdrFixedArrayUnmarshall(
 pub unsafe fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFreeBuffer(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
         }
@@ -7534,7 +7534,7 @@ pub unsafe fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 pub unsafe fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES);
         }
@@ -7549,7 +7549,7 @@ pub unsafe fn NdrFullPointerXlatInit(
 ) -> *mut FULL_PTR_XLAT_TABLES {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrFullPointerXlatInit(
                 numberofpointers: u32,
@@ -7572,7 +7572,7 @@ pub unsafe fn NdrGetBuffer(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrGetBuffer(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7596,7 +7596,7 @@ pub unsafe fn NdrGetDcomProtocolVersion(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrGetDcomProtocolVersion(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7620,7 +7620,7 @@ pub unsafe fn NdrGetUserMarshalInfo(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrGetUserMarshalInfo(
                 pflags: *const u32,
@@ -7645,7 +7645,7 @@ pub unsafe fn NdrInterfacePointerBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrInterfacePointerBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7670,7 +7670,7 @@ pub unsafe fn NdrInterfacePointerFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrInterfacePointerFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7695,7 +7695,7 @@ pub unsafe fn NdrInterfacePointerMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrInterfacePointerMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7719,7 +7719,7 @@ pub unsafe fn NdrInterfacePointerMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrInterfacePointerMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7743,7 +7743,7 @@ pub unsafe fn NdrInterfacePointerUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrInterfacePointerUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7771,7 +7771,7 @@ pub unsafe fn NdrMapCommAndFaultStatus(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMapCommAndFaultStatus(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -7798,7 +7798,7 @@ pub unsafe fn NdrMesProcEncodeDecode(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesProcEncodeDecode(
                 handle: *mut ::std::ffi::c_void,
@@ -7823,7 +7823,7 @@ pub unsafe fn NdrMesProcEncodeDecode2(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesProcEncodeDecode2(
                 handle: *mut ::std::ffi::c_void,
@@ -7849,7 +7849,7 @@ pub unsafe fn NdrMesProcEncodeDecode3(
 ) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesProcEncodeDecode3(
                 handle: *mut ::std::ffi::c_void,
@@ -7871,7 +7871,7 @@ pub unsafe fn NdrMesProcEncodeDecode3(
 pub unsafe fn NdrMesSimpleTypeAlignSize(param0: *mut ::std::ffi::c_void) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesSimpleTypeAlignSize(param0: *mut ::std::ffi::c_void) -> usize;
         }
@@ -7887,7 +7887,7 @@ pub unsafe fn NdrMesSimpleTypeAlignSizeAll(
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesSimpleTypeAlignSizeAll(
                 handle: *mut ::std::ffi::c_void,
@@ -7909,7 +7909,7 @@ pub unsafe fn NdrMesSimpleTypeDecode(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesSimpleTypeDecode(
                 handle: *mut ::std::ffi::c_void,
@@ -7935,7 +7935,7 @@ pub unsafe fn NdrMesSimpleTypeDecodeAll(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesSimpleTypeDecodeAll(
                 handle: *mut ::std::ffi::c_void,
@@ -7963,7 +7963,7 @@ pub unsafe fn NdrMesSimpleTypeEncode(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesSimpleTypeEncode(
                 handle: *mut ::std::ffi::c_void,
@@ -7991,7 +7991,7 @@ pub unsafe fn NdrMesSimpleTypeEncodeAll(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesSimpleTypeEncodeAll(
                 handle: *mut ::std::ffi::c_void,
@@ -8019,7 +8019,7 @@ pub unsafe fn NdrMesTypeAlignSize(
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeAlignSize(
                 handle: *mut ::std::ffi::c_void,
@@ -8048,7 +8048,7 @@ pub unsafe fn NdrMesTypeAlignSize2(
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeAlignSize2(
                 handle: *mut ::std::ffi::c_void,
@@ -8080,7 +8080,7 @@ pub unsafe fn NdrMesTypeAlignSize3(
 ) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeAlignSize3(
                 handle: *mut ::std::ffi::c_void,
@@ -8112,7 +8112,7 @@ pub unsafe fn NdrMesTypeDecode(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeDecode(
                 handle: *mut ::std::ffi::c_void,
@@ -8141,7 +8141,7 @@ pub unsafe fn NdrMesTypeDecode2(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeDecode2(
                 handle: *mut ::std::ffi::c_void,
@@ -8173,7 +8173,7 @@ pub unsafe fn NdrMesTypeDecode3(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeDecode3(
                 handle: *mut ::std::ffi::c_void,
@@ -8205,7 +8205,7 @@ pub unsafe fn NdrMesTypeEncode(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeEncode(
                 handle: *mut ::std::ffi::c_void,
@@ -8234,7 +8234,7 @@ pub unsafe fn NdrMesTypeEncode2(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeEncode2(
                 handle: *mut ::std::ffi::c_void,
@@ -8266,7 +8266,7 @@ pub unsafe fn NdrMesTypeEncode3(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeEncode3(
                 handle: *mut ::std::ffi::c_void,
@@ -8299,7 +8299,7 @@ pub unsafe fn NdrMesTypeFree2(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeFree2(
                 handle: *mut ::std::ffi::c_void,
@@ -8331,7 +8331,7 @@ pub unsafe fn NdrMesTypeFree3(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrMesTypeFree3(
                 handle: *mut ::std::ffi::c_void,
@@ -8362,7 +8362,7 @@ pub unsafe fn NdrNonConformantStringBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonConformantStringBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8387,7 +8387,7 @@ pub unsafe fn NdrNonConformantStringMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonConformantStringMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8411,7 +8411,7 @@ pub unsafe fn NdrNonConformantStringMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonConformantStringMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8435,7 +8435,7 @@ pub unsafe fn NdrNonConformantStringUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonConformantStringUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8462,7 +8462,7 @@ pub unsafe fn NdrNonEncapsulatedUnionBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonEncapsulatedUnionBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8487,7 +8487,7 @@ pub unsafe fn NdrNonEncapsulatedUnionFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonEncapsulatedUnionFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8512,7 +8512,7 @@ pub unsafe fn NdrNonEncapsulatedUnionMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonEncapsulatedUnionMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8536,7 +8536,7 @@ pub unsafe fn NdrNonEncapsulatedUnionMemorySize(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonEncapsulatedUnionMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8560,7 +8560,7 @@ pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNonEncapsulatedUnionUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8587,7 +8587,7 @@ pub unsafe fn NdrNsGetBuffer(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNsGetBuffer(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8612,7 +8612,7 @@ pub unsafe fn NdrNsSendReceive(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrNsSendReceive(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8632,7 +8632,7 @@ pub unsafe fn NdrNsSendReceive(
 pub unsafe fn NdrOleAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrOleAllocate(size: usize) -> *mut ::std::ffi::c_void;
         }
@@ -8644,7 +8644,7 @@ pub unsafe fn NdrOleAllocate(size: usize) -> *mut ::std::ffi::c_void {
 pub unsafe fn NdrOleFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrOleFree(nodetofree: *const ::std::ffi::c_void);
         }
@@ -8660,7 +8660,7 @@ pub unsafe fn NdrPartialIgnoreClientBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPartialIgnoreClientBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8682,7 +8682,7 @@ pub unsafe fn NdrPartialIgnoreClientMarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPartialIgnoreClientMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8705,7 +8705,7 @@ pub unsafe fn NdrPartialIgnoreServerInitialize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPartialIgnoreServerInitialize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8729,7 +8729,7 @@ pub unsafe fn NdrPartialIgnoreServerUnmarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPartialIgnoreServerUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8752,7 +8752,7 @@ pub unsafe fn NdrPointerBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPointerBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8773,7 +8773,7 @@ pub unsafe fn NdrPointerBufferSize(
 pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPointerFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8798,7 +8798,7 @@ pub unsafe fn NdrPointerMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPointerMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8819,7 +8819,7 @@ pub unsafe fn NdrPointerMarshall(
 pub unsafe fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPointerMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8843,7 +8843,7 @@ pub unsafe fn NdrPointerUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrPointerUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8871,7 +8871,7 @@ pub unsafe fn NdrRangeUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRangeUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8893,7 +8893,7 @@ pub unsafe fn NdrRangeUnmarshall(
 pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRpcSmClientAllocate(size: usize) -> *mut ::std::ffi::c_void;
         }
@@ -8905,7 +8905,7 @@ pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut ::std::ffi::c_void {
 pub unsafe fn NdrRpcSmClientFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRpcSmClientFree(nodetofree: *const ::std::ffi::c_void);
         }
@@ -8918,7 +8918,7 @@ pub unsafe fn NdrRpcSmClientFree(nodetofree: *const ::std::ffi::c_void) {
 pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRpcSmSetClientToOsf(pmessage: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
         }
@@ -8930,7 +8930,7 @@ pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
 pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::std::ffi::c_void;
         }
@@ -8942,7 +8942,7 @@ pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::std::ffi::c_void {
 pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRpcSsDefaultFree(nodetofree: *const ::std::ffi::c_void);
         }
@@ -8955,7 +8955,7 @@ pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const ::std::ffi::c_void) {
 pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRpcSsDisableAllocate(pmessage: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
         }
@@ -8968,7 +8968,7 @@ pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
 pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrRpcSsEnableAllocate(pmessage: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
         }
@@ -8981,7 +8981,7 @@ pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
 pub unsafe fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSendReceive(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -8999,7 +8999,7 @@ pub unsafe fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut 
 pub unsafe fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE);
         }
@@ -9011,7 +9011,7 @@ pub unsafe fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE) {
 pub unsafe fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE);
         }
@@ -9023,7 +9023,7 @@ pub unsafe fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
 pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE);
         }
@@ -9040,7 +9040,7 @@ pub unsafe fn NdrServerContextMarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerContextMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9066,7 +9066,7 @@ pub unsafe fn NdrServerContextNewMarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerContextNewMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9092,7 +9092,7 @@ pub unsafe fn NdrServerContextNewUnmarshall(
 ) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerContextNewUnmarshall(
                 pstubmsg: *const ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9111,7 +9111,7 @@ pub unsafe fn NdrServerContextNewUnmarshall(
 pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerContextUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9130,7 +9130,7 @@ pub unsafe fn NdrServerInitialize(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerInitialize(
                 prpcmsg: *mut RPC_MESSAGE,
@@ -9154,7 +9154,7 @@ pub unsafe fn NdrServerInitializeMarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerInitializeMarshall(
                 prpcmsg: *mut RPC_MESSAGE,
@@ -9177,7 +9177,7 @@ pub unsafe fn NdrServerInitializeNew(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerInitializeNew(
                 prpcmsg: *mut RPC_MESSAGE,
@@ -9203,7 +9203,7 @@ pub unsafe fn NdrServerInitializePartial(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerInitializePartial(
                 prpcmsg: *mut RPC_MESSAGE,
@@ -9230,7 +9230,7 @@ pub unsafe fn NdrServerInitializeUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrServerInitializeUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9255,7 +9255,7 @@ pub unsafe fn NdrSimpleStructBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSimpleStructBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9280,7 +9280,7 @@ pub unsafe fn NdrSimpleStructFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSimpleStructFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9305,7 +9305,7 @@ pub unsafe fn NdrSimpleStructMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSimpleStructMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9326,7 +9326,7 @@ pub unsafe fn NdrSimpleStructMarshall(
 pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSimpleStructMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9350,7 +9350,7 @@ pub unsafe fn NdrSimpleStructUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSimpleStructUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9377,7 +9377,7 @@ pub unsafe fn NdrSimpleTypeMarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSimpleTypeMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9402,7 +9402,7 @@ pub unsafe fn NdrSimpleTypeUnmarshall(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrSimpleTypeUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9427,7 +9427,7 @@ pub unsafe fn NdrStubCall2(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrStubCall2(
                 pthis: *mut ::std::ffi::c_void,
@@ -9454,7 +9454,7 @@ pub unsafe fn NdrStubCall3(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrStubCall3(
                 pthis: *mut ::std::ffi::c_void,
@@ -9481,7 +9481,7 @@ pub unsafe fn NdrUserMarshalBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrUserMarshalBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9506,7 +9506,7 @@ pub unsafe fn NdrUserMarshalFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrUserMarshalFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9531,7 +9531,7 @@ pub unsafe fn NdrUserMarshalMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrUserMarshalMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9552,7 +9552,7 @@ pub unsafe fn NdrUserMarshalMarshall(
 pub unsafe fn NdrUserMarshalMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrUserMarshalMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9574,7 +9574,7 @@ pub unsafe fn NdrUserMarshalSimpleTypeConvert(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrUserMarshalSimpleTypeConvert(
                 pflags: *mut u32,
@@ -9600,7 +9600,7 @@ pub unsafe fn NdrUserMarshalUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrUserMarshalUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9627,7 +9627,7 @@ pub unsafe fn NdrVaryingArrayBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrVaryingArrayBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9652,7 +9652,7 @@ pub unsafe fn NdrVaryingArrayFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrVaryingArrayFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9677,7 +9677,7 @@ pub unsafe fn NdrVaryingArrayMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrVaryingArrayMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9698,7 +9698,7 @@ pub unsafe fn NdrVaryingArrayMarshall(
 pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrVaryingArrayMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9722,7 +9722,7 @@ pub unsafe fn NdrVaryingArrayUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrVaryingArrayUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9749,7 +9749,7 @@ pub unsafe fn NdrXmitOrRepAsBufferSize(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrXmitOrRepAsBufferSize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9774,7 +9774,7 @@ pub unsafe fn NdrXmitOrRepAsFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrXmitOrRepAsFree(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9799,7 +9799,7 @@ pub unsafe fn NdrXmitOrRepAsMarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrXmitOrRepAsMarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9820,7 +9820,7 @@ pub unsafe fn NdrXmitOrRepAsMarshall(
 pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrXmitOrRepAsMemorySize(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -9844,7 +9844,7 @@ pub unsafe fn NdrXmitOrRepAsUnmarshall(
 ) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn NdrXmitOrRepAsUnmarshall(
                 pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
@@ -13508,7 +13508,7 @@ unsafe impl ::windows::runtime::Abi for RPC_VERSION {
 pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcAsyncAbortCall(
                 pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -13533,7 +13533,7 @@ pub unsafe fn RpcAsyncCancelCall<
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcAsyncCancelCall(
                 pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -13555,7 +13555,7 @@ pub unsafe fn RpcAsyncCompleteCall(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcAsyncCompleteCall(
                 pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -13574,7 +13574,7 @@ pub unsafe fn RpcAsyncCompleteCall(
 pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcAsyncGetCallStatus(
                 pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -13589,7 +13589,7 @@ pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATU
 pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcAsyncInitializeHandle(
                 pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -13608,7 +13608,7 @@ pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) 
 pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcAsyncRegisterInfo(
                 pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -13627,7 +13627,7 @@ pub unsafe fn RpcBindingBind(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingBind(
                 pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
@@ -13650,7 +13650,7 @@ pub unsafe fn RpcBindingCopy(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingCopy(
                 sourcebinding: *const ::std::ffi::c_void,
@@ -13674,7 +13674,7 @@ pub unsafe fn RpcBindingCreateA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingCreateA(
                 template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A,
@@ -13702,7 +13702,7 @@ pub unsafe fn RpcBindingCreateW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingCreateW(
                 template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W,
@@ -13724,7 +13724,7 @@ pub unsafe fn RpcBindingCreateW(
 pub unsafe fn RpcBindingFree(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingFree(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -13739,7 +13739,7 @@ pub unsafe fn RpcBindingFromStringBindingA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingFromStringBindingA(
                 stringbinding: *const u8,
@@ -13760,7 +13760,7 @@ pub unsafe fn RpcBindingFromStringBindingW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingFromStringBindingW(
                 stringbinding: *const u16,
@@ -13785,7 +13785,7 @@ pub unsafe fn RpcBindingInqAuthClientA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthClientA(
                 clientbinding: *const ::std::ffi::c_void,
@@ -13819,7 +13819,7 @@ pub unsafe fn RpcBindingInqAuthClientExA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthClientExA(
                 clientbinding: *const ::std::ffi::c_void,
@@ -13855,7 +13855,7 @@ pub unsafe fn RpcBindingInqAuthClientExW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthClientExW(
                 clientbinding: *const ::std::ffi::c_void,
@@ -13890,7 +13890,7 @@ pub unsafe fn RpcBindingInqAuthClientW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthClientW(
                 clientbinding: *const ::std::ffi::c_void,
@@ -13923,7 +13923,7 @@ pub unsafe fn RpcBindingInqAuthInfoA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthInfoA(
                 binding: *const ::std::ffi::c_void,
@@ -13959,7 +13959,7 @@ pub unsafe fn RpcBindingInqAuthInfoExA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthInfoExA(
                 binding: *const ::std::ffi::c_void,
@@ -13999,7 +13999,7 @@ pub unsafe fn RpcBindingInqAuthInfoExW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthInfoExW(
                 binding: *const ::std::ffi::c_void,
@@ -14036,7 +14036,7 @@ pub unsafe fn RpcBindingInqAuthInfoW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqAuthInfoW(
                 binding: *const ::std::ffi::c_void,
@@ -14065,7 +14065,7 @@ pub unsafe fn RpcBindingInqMaxCalls(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqMaxCalls(
                 binding: *const ::std::ffi::c_void,
@@ -14086,7 +14086,7 @@ pub unsafe fn RpcBindingInqObject(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqObject(
                 binding: *const ::std::ffi::c_void,
@@ -14108,7 +14108,7 @@ pub unsafe fn RpcBindingInqOption(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingInqOption(
                 hbinding: *const ::std::ffi::c_void,
@@ -14128,7 +14128,7 @@ pub unsafe fn RpcBindingInqOption(
 pub unsafe fn RpcBindingReset(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingReset(binding: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -14143,7 +14143,7 @@ pub unsafe fn RpcBindingServerFromClient(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingServerFromClient(
                 clientbinding: *const ::std::ffi::c_void,
@@ -14168,7 +14168,7 @@ pub unsafe fn RpcBindingSetAuthInfoA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingSetAuthInfoA(
                 binding: *const ::std::ffi::c_void,
@@ -14203,7 +14203,7 @@ pub unsafe fn RpcBindingSetAuthInfoExA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingSetAuthInfoExA(
                 binding: *const ::std::ffi::c_void,
@@ -14240,7 +14240,7 @@ pub unsafe fn RpcBindingSetAuthInfoExW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingSetAuthInfoExW(
                 binding: *const ::std::ffi::c_void,
@@ -14275,7 +14275,7 @@ pub unsafe fn RpcBindingSetAuthInfoW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingSetAuthInfoW(
                 binding: *const ::std::ffi::c_void,
@@ -14304,7 +14304,7 @@ pub unsafe fn RpcBindingSetObject(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingSetObject(
                 binding: *const ::std::ffi::c_void,
@@ -14326,7 +14326,7 @@ pub unsafe fn RpcBindingSetOption(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingSetOption(
                 hbinding: *const ::std::ffi::c_void,
@@ -14349,7 +14349,7 @@ pub unsafe fn RpcBindingToStringBindingA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingToStringBindingA(
                 binding: *const ::std::ffi::c_void,
@@ -14370,7 +14370,7 @@ pub unsafe fn RpcBindingToStringBindingW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingToStringBindingW(
                 binding: *const ::std::ffi::c_void,
@@ -14388,7 +14388,7 @@ pub unsafe fn RpcBindingToStringBindingW(
 pub unsafe fn RpcBindingUnbind(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingUnbind(binding: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -14400,7 +14400,7 @@ pub unsafe fn RpcBindingUnbind(binding: *const ::std::ffi::c_void) -> RPC_STATUS
 pub unsafe fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
         }
@@ -14458,7 +14458,7 @@ unsafe impl ::windows::runtime::Abi for RpcCallType {
 pub unsafe fn RpcCancelThread(thread: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcCancelThread(thread: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -14470,7 +14470,7 @@ pub unsafe fn RpcCancelThread(thread: *const ::std::ffi::c_void) -> RPC_STATUS {
 pub unsafe fn RpcCancelThreadEx(thread: *const ::std::ffi::c_void, timeout: i32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcCancelThreadEx(thread: *const ::std::ffi::c_void, timeout: i32) -> RPC_STATUS;
         }
@@ -14493,7 +14493,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcCertGeneratePrincipalNameA(
                 context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
@@ -14521,7 +14521,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcCertGeneratePrincipalNameW(
                 context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
@@ -14546,7 +14546,7 @@ pub unsafe fn RpcEpRegisterA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcEpRegisterA(
                 ifspec: *const ::std::ffi::c_void,
@@ -14573,7 +14573,7 @@ pub unsafe fn RpcEpRegisterNoReplaceA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcEpRegisterNoReplaceA(
                 ifspec: *const ::std::ffi::c_void,
@@ -14600,7 +14600,7 @@ pub unsafe fn RpcEpRegisterNoReplaceW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcEpRegisterNoReplaceW(
                 ifspec: *const ::std::ffi::c_void,
@@ -14627,7 +14627,7 @@ pub unsafe fn RpcEpRegisterW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcEpRegisterW(
                 ifspec: *const ::std::ffi::c_void,
@@ -14652,7 +14652,7 @@ pub unsafe fn RpcEpResolveBinding(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcEpResolveBinding(
                 binding: *const ::std::ffi::c_void,
@@ -14674,7 +14674,7 @@ pub unsafe fn RpcEpUnregister(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcEpUnregister(
                 ifspec: *const ::std::ffi::c_void,
@@ -14695,7 +14695,7 @@ pub unsafe fn RpcEpUnregister(
 pub unsafe fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
         }
@@ -14707,7 +14707,7 @@ pub unsafe fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RP
 pub unsafe fn RpcErrorClearInformation() {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorClearInformation();
         }
@@ -14719,7 +14719,7 @@ pub unsafe fn RpcErrorClearInformation() {
 pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         }
@@ -14739,7 +14739,7 @@ pub unsafe fn RpcErrorGetNextRecord<
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorGetNextRecord(
                 enumhandle: *const RPC_ERROR_ENUM_HANDLE,
@@ -14762,7 +14762,7 @@ pub unsafe fn RpcErrorGetNumberOfRecords(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorGetNumberOfRecords(
                 enumhandle: *const RPC_ERROR_ENUM_HANDLE,
@@ -14784,7 +14784,7 @@ pub unsafe fn RpcErrorLoadErrorInfo(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorLoadErrorInfo(
                 errorblob: *const ::std::ffi::c_void,
@@ -14804,7 +14804,7 @@ pub unsafe fn RpcErrorLoadErrorInfo(
 pub unsafe fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         }
@@ -14820,7 +14820,7 @@ pub unsafe fn RpcErrorSaveErrorInfo(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorSaveErrorInfo(
                 enumhandle: *const RPC_ERROR_ENUM_HANDLE,
@@ -14840,7 +14840,7 @@ pub unsafe fn RpcErrorSaveErrorInfo(
 pub unsafe fn RpcErrorStartEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcErrorStartEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         }
@@ -14852,7 +14852,7 @@ pub unsafe fn RpcErrorStartEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -
 pub unsafe fn RpcExceptionFilter(exceptioncode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcExceptionFilter(exceptioncode: u32) -> i32;
         }
@@ -14866,7 +14866,7 @@ pub unsafe fn RpcFreeAuthorizationContext(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcFreeAuthorizationContext(
                 pauthzclientcontext: *mut *mut ::std::ffi::c_void,
@@ -14896,7 +14896,7 @@ pub unsafe fn RpcGetAuthorizationContextForClient<
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcGetAuthorizationContextForClient(
                 clientbinding: *const ::std::ffi::c_void,
@@ -14926,7 +14926,7 @@ pub unsafe fn RpcGetAuthorizationContextForClient<
 pub unsafe fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
         }
@@ -14941,7 +14941,7 @@ pub unsafe fn RpcIfInqId(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcIfInqId(
                 rpcifhandle: *const ::std::ffi::c_void,
@@ -14959,7 +14959,7 @@ pub unsafe fn RpcIfInqId(
 pub unsafe fn RpcImpersonateClient(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcImpersonateClient(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -14971,7 +14971,7 @@ pub unsafe fn RpcImpersonateClient(bindinghandle: *const ::std::ffi::c_void) -> 
 pub unsafe fn RpcImpersonateClient2(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcImpersonateClient2(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -14985,7 +14985,7 @@ pub unsafe fn RpcImpersonateClientContainer(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcImpersonateClientContainer(
                 bindinghandle: *const ::std::ffi::c_void,
@@ -15023,7 +15023,7 @@ unsafe impl ::windows::runtime::Abi for RpcLocalAddressFormat {
 pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS;
         }
@@ -15042,7 +15042,7 @@ pub unsafe fn RpcMgmtEpEltInqBegin(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtEpEltInqBegin(
                 epbinding: *const ::std::ffi::c_void,
@@ -15068,7 +15068,7 @@ pub unsafe fn RpcMgmtEpEltInqBegin(
 pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_void)
                 -> RPC_STATUS;
@@ -15087,7 +15087,7 @@ pub unsafe fn RpcMgmtEpEltInqNextA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtEpEltInqNextA(
                 inquirycontext: *const *const ::std::ffi::c_void,
@@ -15117,7 +15117,7 @@ pub unsafe fn RpcMgmtEpEltInqNextW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtEpEltInqNextW(
                 inquirycontext: *const *const ::std::ffi::c_void,
@@ -15146,7 +15146,7 @@ pub unsafe fn RpcMgmtEpUnregister(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtEpUnregister(
                 epbinding: *const ::std::ffi::c_void,
@@ -15171,7 +15171,7 @@ pub unsafe fn RpcMgmtInqComTimeout(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtInqComTimeout(
                 binding: *const ::std::ffi::c_void,
@@ -15189,7 +15189,7 @@ pub unsafe fn RpcMgmtInqComTimeout(
 pub unsafe fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32) -> RPC_STATUS;
         }
@@ -15207,7 +15207,7 @@ pub unsafe fn RpcMgmtInqIfIds(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtInqIfIds(
                 binding: *const ::std::ffi::c_void,
@@ -15229,7 +15229,7 @@ pub unsafe fn RpcMgmtInqServerPrincNameA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtInqServerPrincNameA(
                 binding: *const ::std::ffi::c_void,
@@ -15253,7 +15253,7 @@ pub unsafe fn RpcMgmtInqServerPrincNameW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtInqServerPrincNameW(
                 binding: *const ::std::ffi::c_void,
@@ -15276,7 +15276,7 @@ pub unsafe fn RpcMgmtInqStats(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtInqStats(
                 binding: *const ::std::ffi::c_void,
@@ -15294,7 +15294,7 @@ pub unsafe fn RpcMgmtInqStats(
 pub unsafe fn RpcMgmtIsServerListening(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtIsServerListening(binding: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -15308,7 +15308,7 @@ pub unsafe fn RpcMgmtSetAuthorizationFn(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtSetAuthorizationFn(authorizationfn: ::windows::runtime::RawPtr)
                 -> RPC_STATUS;
@@ -15323,7 +15323,7 @@ pub unsafe fn RpcMgmtSetAuthorizationFn(
 pub unsafe fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS;
         }
@@ -15335,7 +15335,7 @@ pub unsafe fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS {
 pub unsafe fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: u32)
                 -> RPC_STATUS;
@@ -15351,7 +15351,7 @@ pub unsafe fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: 
 pub unsafe fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS;
         }
@@ -15365,7 +15365,7 @@ pub unsafe fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS {
 pub unsafe fn RpcMgmtStatsVectorFree(statsvector: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtStatsVectorFree(statsvector: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
         }
@@ -15377,7 +15377,7 @@ pub unsafe fn RpcMgmtStatsVectorFree(statsvector: *mut *mut RPC_STATS_VECTOR) ->
 pub unsafe fn RpcMgmtStopServerListening(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtStopServerListening(binding: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -15389,7 +15389,7 @@ pub unsafe fn RpcMgmtStopServerListening(binding: *const ::std::ffi::c_void) -> 
 pub unsafe fn RpcMgmtWaitServerListen() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcMgmtWaitServerListen() -> RPC_STATUS;
         }
@@ -15401,7 +15401,7 @@ pub unsafe fn RpcMgmtWaitServerListen() -> RPC_STATUS {
 pub unsafe fn RpcNetworkInqProtseqsA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNetworkInqProtseqsA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
         }
@@ -15413,7 +15413,7 @@ pub unsafe fn RpcNetworkInqProtseqsA(protseqvector: *mut *mut RPC_PROTSEQ_VECTOR
 pub unsafe fn RpcNetworkInqProtseqsW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNetworkInqProtseqsW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
         }
@@ -15425,7 +15425,7 @@ pub unsafe fn RpcNetworkInqProtseqsW(protseqvector: *mut *mut RPC_PROTSEQ_VECTOR
 pub unsafe fn RpcNetworkIsProtseqValidA(protseq: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNetworkIsProtseqValidA(protseq: *const u8) -> RPC_STATUS;
         }
@@ -15437,7 +15437,7 @@ pub unsafe fn RpcNetworkIsProtseqValidA(protseq: *const u8) -> RPC_STATUS {
 pub unsafe fn RpcNetworkIsProtseqValidW(protseq: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNetworkIsProtseqValidW(protseq: *const u16) -> RPC_STATUS;
         }
@@ -15455,7 +15455,7 @@ pub unsafe fn RpcNsBindingExportA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingExportA(
                 entrynamesyntax: u32,
@@ -15484,7 +15484,7 @@ pub unsafe fn RpcNsBindingExportPnPA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingExportPnPA(
                 entrynamesyntax: u32,
@@ -15511,7 +15511,7 @@ pub unsafe fn RpcNsBindingExportPnPW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingExportPnPW(
                 entrynamesyntax: u32,
@@ -15539,7 +15539,7 @@ pub unsafe fn RpcNsBindingExportW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingExportW(
                 entrynamesyntax: u32,
@@ -15569,7 +15569,7 @@ pub unsafe fn RpcNsBindingImportBeginA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingImportBeginA(
                 entrynamesyntax: u32,
@@ -15599,7 +15599,7 @@ pub unsafe fn RpcNsBindingImportBeginW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingImportBeginW(
                 entrynamesyntax: u32,
@@ -15623,7 +15623,7 @@ pub unsafe fn RpcNsBindingImportBeginW(
 pub unsafe fn RpcNsBindingImportDone(importcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingImportDone(importcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -15638,7 +15638,7 @@ pub unsafe fn RpcNsBindingImportNext(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingImportNext(
                 importcontext: *mut ::std::ffi::c_void,
@@ -15660,7 +15660,7 @@ pub unsafe fn RpcNsBindingInqEntryNameA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingInqEntryNameA(
                 binding: *const ::std::ffi::c_void,
@@ -15684,7 +15684,7 @@ pub unsafe fn RpcNsBindingInqEntryNameW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingInqEntryNameW(
                 binding: *const ::std::ffi::c_void,
@@ -15711,7 +15711,7 @@ pub unsafe fn RpcNsBindingLookupBeginA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingLookupBeginA(
                 entrynamesyntax: u32,
@@ -15744,7 +15744,7 @@ pub unsafe fn RpcNsBindingLookupBeginW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingLookupBeginW(
                 entrynamesyntax: u32,
@@ -15770,7 +15770,7 @@ pub unsafe fn RpcNsBindingLookupBeginW(
 pub unsafe fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -15785,7 +15785,7 @@ pub unsafe fn RpcNsBindingLookupNext(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingLookupNext(
                 lookupcontext: *mut ::std::ffi::c_void,
@@ -15806,7 +15806,7 @@ pub unsafe fn RpcNsBindingSelect(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingSelect(
                 bindingvec: *mut RPC_BINDING_VECTOR,
@@ -15829,7 +15829,7 @@ pub unsafe fn RpcNsBindingUnexportA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingUnexportA(
                 entrynamesyntax: u32,
@@ -15856,7 +15856,7 @@ pub unsafe fn RpcNsBindingUnexportPnPA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingUnexportPnPA(
                 entrynamesyntax: u32,
@@ -15883,7 +15883,7 @@ pub unsafe fn RpcNsBindingUnexportPnPW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingUnexportPnPW(
                 entrynamesyntax: u32,
@@ -15910,7 +15910,7 @@ pub unsafe fn RpcNsBindingUnexportW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsBindingUnexportW(
                 entrynamesyntax: u32,
@@ -15936,7 +15936,7 @@ pub unsafe fn RpcNsEntryExpandNameA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsEntryExpandNameA(
                 entrynamesyntax: u32,
@@ -15960,7 +15960,7 @@ pub unsafe fn RpcNsEntryExpandNameW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsEntryExpandNameW(
                 entrynamesyntax: u32,
@@ -15984,7 +15984,7 @@ pub unsafe fn RpcNsEntryObjectInqBeginA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsEntryObjectInqBeginA(
                 entrynamesyntax: u32,
@@ -16008,7 +16008,7 @@ pub unsafe fn RpcNsEntryObjectInqBeginW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsEntryObjectInqBeginW(
                 entrynamesyntax: u32,
@@ -16028,7 +16028,7 @@ pub unsafe fn RpcNsEntryObjectInqBeginW(
 pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -16045,7 +16045,7 @@ pub unsafe fn RpcNsEntryObjectInqNext(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsEntryObjectInqNext(
                 inquirycontext: *mut ::std::ffi::c_void,
@@ -16066,7 +16066,7 @@ pub unsafe fn RpcNsGroupDeleteA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupDeleteA(
                 groupnamesyntax: GROUP_NAME_SYNTAX,
@@ -16087,7 +16087,7 @@ pub unsafe fn RpcNsGroupDeleteW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupDeleteW(
                 groupnamesyntax: GROUP_NAME_SYNTAX,
@@ -16110,7 +16110,7 @@ pub unsafe fn RpcNsGroupMbrAddA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrAddA(
                 groupnamesyntax: u32,
@@ -16137,7 +16137,7 @@ pub unsafe fn RpcNsGroupMbrAddW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrAddW(
                 groupnamesyntax: u32,
@@ -16164,7 +16164,7 @@ pub unsafe fn RpcNsGroupMbrInqBeginA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrInqBeginA(
                 groupnamesyntax: u32,
@@ -16191,7 +16191,7 @@ pub unsafe fn RpcNsGroupMbrInqBeginW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrInqBeginW(
                 groupnamesyntax: u32,
@@ -16213,7 +16213,7 @@ pub unsafe fn RpcNsGroupMbrInqBeginW(
 pub unsafe fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -16228,7 +16228,7 @@ pub unsafe fn RpcNsGroupMbrInqNextA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrInqNextA(
                 inquirycontext: *mut ::std::ffi::c_void,
@@ -16249,7 +16249,7 @@ pub unsafe fn RpcNsGroupMbrInqNextW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrInqNextW(
                 inquirycontext: *mut ::std::ffi::c_void,
@@ -16272,7 +16272,7 @@ pub unsafe fn RpcNsGroupMbrRemoveA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrRemoveA(
                 groupnamesyntax: u32,
@@ -16299,7 +16299,7 @@ pub unsafe fn RpcNsGroupMbrRemoveW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsGroupMbrRemoveW(
                 groupnamesyntax: u32,
@@ -16327,7 +16327,7 @@ pub unsafe fn RpcNsMgmtBindingUnexportA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtBindingUnexportA(
                 entrynamesyntax: u32,
@@ -16357,7 +16357,7 @@ pub unsafe fn RpcNsMgmtBindingUnexportW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtBindingUnexportW(
                 entrynamesyntax: u32,
@@ -16381,7 +16381,7 @@ pub unsafe fn RpcNsMgmtBindingUnexportW(
 pub unsafe fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
         }
@@ -16396,7 +16396,7 @@ pub unsafe fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) 
 pub unsafe fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
         }
@@ -16411,7 +16411,7 @@ pub unsafe fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16)
 pub unsafe fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
         }
@@ -16426,7 +16426,7 @@ pub unsafe fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) 
 pub unsafe fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
         }
@@ -16445,7 +16445,7 @@ pub unsafe fn RpcNsMgmtEntryInqIfIdsA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtEntryInqIfIdsA(
                 entrynamesyntax: u32,
@@ -16469,7 +16469,7 @@ pub unsafe fn RpcNsMgmtEntryInqIfIdsW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtEntryInqIfIdsW(
                 entrynamesyntax: u32,
@@ -16492,7 +16492,7 @@ pub unsafe fn RpcNsMgmtHandleSetExpAge(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtHandleSetExpAge(
                 nshandle: *mut ::std::ffi::c_void,
@@ -16510,7 +16510,7 @@ pub unsafe fn RpcNsMgmtHandleSetExpAge(
 pub unsafe fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS;
         }
@@ -16522,7 +16522,7 @@ pub unsafe fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS {
 pub unsafe fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS;
         }
@@ -16534,7 +16534,7 @@ pub unsafe fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS {
 pub unsafe fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS;
         }
@@ -16549,7 +16549,7 @@ pub unsafe fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8
 pub unsafe fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS;
         }
@@ -16572,7 +16572,7 @@ pub unsafe fn RpcNsProfileEltAddA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltAddA(
                 profilenamesyntax: u32,
@@ -16608,7 +16608,7 @@ pub unsafe fn RpcNsProfileEltAddW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltAddW(
                 profilenamesyntax: u32,
@@ -16645,7 +16645,7 @@ pub unsafe fn RpcNsProfileEltInqBeginA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltInqBeginA(
                 profilenamesyntax: u32,
@@ -16684,7 +16684,7 @@ pub unsafe fn RpcNsProfileEltInqBeginW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltInqBeginW(
                 profilenamesyntax: u32,
@@ -16714,7 +16714,7 @@ pub unsafe fn RpcNsProfileEltInqBeginW(
 pub unsafe fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -16734,7 +16734,7 @@ pub unsafe fn RpcNsProfileEltInqNextA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltInqNextA(
                 inquirycontext: *const ::std::ffi::c_void,
@@ -16764,7 +16764,7 @@ pub unsafe fn RpcNsProfileEltInqNextW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltInqNextW(
                 inquirycontext: *const ::std::ffi::c_void,
@@ -16794,7 +16794,7 @@ pub unsafe fn RpcNsProfileEltRemoveA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltRemoveA(
                 profilenamesyntax: u32,
@@ -16824,7 +16824,7 @@ pub unsafe fn RpcNsProfileEltRemoveW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcns4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcNsProfileEltRemoveW(
                 profilenamesyntax: u32,
@@ -16851,7 +16851,7 @@ pub unsafe fn RpcObjectInqType(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcObjectInqType(
                 objuuid: *const ::windows::runtime::GUID,
@@ -16869,7 +16869,7 @@ pub unsafe fn RpcObjectInqType(
 pub unsafe fn RpcObjectSetInqFn(inquiryfn: ::std::option::Option<RPC_OBJECT_INQ_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcObjectSetInqFn(inquiryfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
@@ -16884,7 +16884,7 @@ pub unsafe fn RpcObjectSetType(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcObjectSetType(
                 objuuid: *const ::windows::runtime::GUID,
@@ -16902,7 +16902,7 @@ pub unsafe fn RpcObjectSetType(
 pub unsafe fn RpcProtseqVectorFreeA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcProtseqVectorFreeA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
         }
@@ -16914,7 +16914,7 @@ pub unsafe fn RpcProtseqVectorFreeA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA
 pub unsafe fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
         }
@@ -16957,7 +16957,7 @@ unsafe impl ::windows::runtime::Abi for RpcProxyPerfCounters {
 pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcRaiseException(exception: RPC_STATUS);
         }
@@ -16969,7 +16969,7 @@ pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
 pub unsafe fn RpcRevertContainerImpersonation() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcRevertContainerImpersonation() -> RPC_STATUS;
         }
@@ -16981,7 +16981,7 @@ pub unsafe fn RpcRevertContainerImpersonation() -> RPC_STATUS {
 pub unsafe fn RpcRevertToSelf() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcRevertToSelf() -> RPC_STATUS;
         }
@@ -16993,7 +16993,7 @@ pub unsafe fn RpcRevertToSelf() -> RPC_STATUS {
 pub unsafe fn RpcRevertToSelfEx(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcRevertToSelfEx(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -17008,7 +17008,7 @@ pub unsafe fn RpcServerCompleteSecurityCallback(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerCompleteSecurityCallback(
                 bindinghandle: *const ::std::ffi::c_void,
@@ -17026,7 +17026,7 @@ pub unsafe fn RpcServerCompleteSecurityCallback(
 pub unsafe fn RpcServerInqBindingHandle(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqBindingHandle(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -17038,7 +17038,7 @@ pub unsafe fn RpcServerInqBindingHandle(binding: *mut *mut ::std::ffi::c_void) -
 pub unsafe fn RpcServerInqBindings(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqBindings(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
         }
@@ -17053,7 +17053,7 @@ pub unsafe fn RpcServerInqBindingsEx(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqBindingsEx(
                 securitydescriptor: *const ::std::ffi::c_void,
@@ -17074,7 +17074,7 @@ pub unsafe fn RpcServerInqCallAttributesA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqCallAttributesA(
                 clientbinding: *const ::std::ffi::c_void,
@@ -17095,7 +17095,7 @@ pub unsafe fn RpcServerInqCallAttributesW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqCallAttributesW(
                 clientbinding: *const ::std::ffi::c_void,
@@ -17113,7 +17113,7 @@ pub unsafe fn RpcServerInqCallAttributesW(
 pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut u8) -> RPC_STATUS;
         }
@@ -17128,7 +17128,7 @@ pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut 
 pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut u16)
                 -> RPC_STATUS;
@@ -17148,7 +17148,7 @@ pub unsafe fn RpcServerInqIf(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInqIf(
                 ifspec: *const ::std::ffi::c_void,
@@ -17168,7 +17168,7 @@ pub unsafe fn RpcServerInqIf(
 pub unsafe fn RpcServerInterfaceGroupActivate(ifgroup: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInterfaceGroupActivate(ifgroup: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -17182,7 +17182,7 @@ pub unsafe fn RpcServerInterfaceGroupActivate(ifgroup: *const ::std::ffi::c_void
 pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInterfaceGroupClose(ifgroup: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -17203,7 +17203,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInterfaceGroupCreateA(
                 interfaces: *const ::std::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEA>,
@@ -17242,7 +17242,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInterfaceGroupCreateW(
                 interfaces: *const ::std::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEW>,
@@ -17275,7 +17275,7 @@ pub unsafe fn RpcServerInterfaceGroupDeactivate(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInterfaceGroupDeactivate(
                 ifgroup: *const ::std::ffi::c_void,
@@ -17296,7 +17296,7 @@ pub unsafe fn RpcServerInterfaceGroupInqBindings(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerInterfaceGroupInqBindings(
                 ifgroup: *const ::std::ffi::c_void,
@@ -17314,7 +17314,7 @@ pub unsafe fn RpcServerInterfaceGroupInqBindings(
 pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: u32)
                 -> RPC_STATUS;
@@ -17336,7 +17336,7 @@ pub unsafe fn RpcServerRegisterAuthInfoA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerRegisterAuthInfoA(
                 serverprincname: *const u8,
@@ -17363,7 +17363,7 @@ pub unsafe fn RpcServerRegisterAuthInfoW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerRegisterAuthInfoW(
                 serverprincname: *const u16,
@@ -17389,7 +17389,7 @@ pub unsafe fn RpcServerRegisterIf(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerRegisterIf(
                 ifspec: *const ::std::ffi::c_void,
@@ -17417,7 +17417,7 @@ pub unsafe fn RpcServerRegisterIf2(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerRegisterIf2(
                 ifspec: *const ::std::ffi::c_void,
@@ -17454,7 +17454,7 @@ pub unsafe fn RpcServerRegisterIf3(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerRegisterIf3(
                 ifspec: *const ::std::ffi::c_void,
@@ -17491,7 +17491,7 @@ pub unsafe fn RpcServerRegisterIfEx(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerRegisterIfEx(
                 ifspec: *const ::std::ffi::c_void,
@@ -17523,7 +17523,7 @@ pub unsafe fn RpcServerSubscribeForNotification(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerSubscribeForNotification(
                 binding: *const ::std::ffi::c_void,
@@ -17545,7 +17545,7 @@ pub unsafe fn RpcServerSubscribeForNotification(
 pub unsafe fn RpcServerTestCancel(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerTestCancel(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -17561,7 +17561,7 @@ pub unsafe fn RpcServerUnregisterIf(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUnregisterIf(
                 ifspec: *const ::std::ffi::c_void,
@@ -17585,7 +17585,7 @@ pub unsafe fn RpcServerUnregisterIfEx(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUnregisterIfEx(
                 ifspec: *const ::std::ffi::c_void,
@@ -17609,7 +17609,7 @@ pub unsafe fn RpcServerUnsubscribeForNotification(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUnsubscribeForNotification(
                 binding: *const ::std::ffi::c_void,
@@ -17632,7 +17632,7 @@ pub unsafe fn RpcServerUseAllProtseqs(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseAllProtseqs(
                 maxcalls: u32,
@@ -17654,7 +17654,7 @@ pub unsafe fn RpcServerUseAllProtseqsEx(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseAllProtseqsEx(
                 maxcalls: u32,
@@ -17678,7 +17678,7 @@ pub unsafe fn RpcServerUseAllProtseqsIf(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseAllProtseqsIf(
                 maxcalls: u32,
@@ -17703,7 +17703,7 @@ pub unsafe fn RpcServerUseAllProtseqsIfEx(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseAllProtseqsIfEx(
                 maxcalls: u32,
@@ -17729,7 +17729,7 @@ pub unsafe fn RpcServerUseProtseqA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqA(
                 protseq: *const u8,
@@ -17754,7 +17754,7 @@ pub unsafe fn RpcServerUseProtseqEpA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqEpA(
                 protseq: *const u8,
@@ -17782,7 +17782,7 @@ pub unsafe fn RpcServerUseProtseqEpExA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqEpExA(
                 protseq: *const u8,
@@ -17812,7 +17812,7 @@ pub unsafe fn RpcServerUseProtseqEpExW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqEpExW(
                 protseq: *const u16,
@@ -17841,7 +17841,7 @@ pub unsafe fn RpcServerUseProtseqEpW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqEpW(
                 protseq: *const u16,
@@ -17868,7 +17868,7 @@ pub unsafe fn RpcServerUseProtseqExA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqExA(
                 protseq: *const u8,
@@ -17895,7 +17895,7 @@ pub unsafe fn RpcServerUseProtseqExW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqExW(
                 protseq: *const u16,
@@ -17922,7 +17922,7 @@ pub unsafe fn RpcServerUseProtseqIfA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqIfA(
                 protseq: *const u8,
@@ -17950,7 +17950,7 @@ pub unsafe fn RpcServerUseProtseqIfExA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqIfExA(
                 protseq: *const u8,
@@ -17980,7 +17980,7 @@ pub unsafe fn RpcServerUseProtseqIfExW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqIfExW(
                 protseq: *const u16,
@@ -18009,7 +18009,7 @@ pub unsafe fn RpcServerUseProtseqIfW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqIfW(
                 protseq: *const u16,
@@ -18035,7 +18035,7 @@ pub unsafe fn RpcServerUseProtseqW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerUseProtseqW(
                 protseq: *const u16,
@@ -18055,7 +18055,7 @@ pub unsafe fn RpcServerUseProtseqW(
 pub unsafe fn RpcServerYield() {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcServerYield();
         }
@@ -18067,7 +18067,7 @@ pub unsafe fn RpcServerYield() {
 pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::std::ffi::c_void;
         }
@@ -18082,7 +18082,7 @@ pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::std
 pub unsafe fn RpcSmClientFree(pnodetofree: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmClientFree(pnodetofree: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -18096,7 +18096,7 @@ pub unsafe fn RpcSmDestroyClientContext(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmDestroyClientContext(
                 contexthandle: *const *const ::std::ffi::c_void,
@@ -18112,7 +18112,7 @@ pub unsafe fn RpcSmDestroyClientContext(
 pub unsafe fn RpcSmDisableAllocate() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmDisableAllocate() -> RPC_STATUS;
         }
@@ -18124,7 +18124,7 @@ pub unsafe fn RpcSmDisableAllocate() -> RPC_STATUS {
 pub unsafe fn RpcSmEnableAllocate() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmEnableAllocate() -> RPC_STATUS;
         }
@@ -18136,7 +18136,7 @@ pub unsafe fn RpcSmEnableAllocate() -> RPC_STATUS {
 pub unsafe fn RpcSmFree(nodetofree: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmFree(nodetofree: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -18148,7 +18148,7 @@ pub unsafe fn RpcSmFree(nodetofree: *const ::std::ffi::c_void) -> RPC_STATUS {
 pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::std::ffi::c_void;
         }
@@ -18163,7 +18163,7 @@ pub unsafe fn RpcSmSetClientAllocFree(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmSetClientAllocFree(
                 clientalloc: ::windows::runtime::RawPtr,
@@ -18181,7 +18181,7 @@ pub unsafe fn RpcSmSetClientAllocFree(
 pub unsafe fn RpcSmSetThreadHandle(id: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmSetThreadHandle(id: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
@@ -18198,7 +18198,7 @@ pub unsafe fn RpcSmSwapClientAllocFree(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSmSwapClientAllocFree(
                 clientalloc: ::windows::runtime::RawPtr,
@@ -18220,7 +18220,7 @@ pub unsafe fn RpcSmSwapClientAllocFree(
 pub unsafe fn RpcSsAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsAllocate(size: usize) -> *mut ::std::ffi::c_void;
         }
@@ -18235,7 +18235,7 @@ pub unsafe fn RpcSsContextLockExclusive(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsContextLockExclusive(
                 serverbindinghandle: *const ::std::ffi::c_void,
@@ -18256,7 +18256,7 @@ pub unsafe fn RpcSsContextLockShared(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsContextLockShared(
                 serverbindinghandle: *const ::std::ffi::c_void,
@@ -18274,7 +18274,7 @@ pub unsafe fn RpcSsContextLockShared(
 pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsDestroyClientContext(contexthandle: *const *const ::std::ffi::c_void);
         }
@@ -18288,7 +18288,7 @@ pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const ::std::ffi:
 pub unsafe fn RpcSsDisableAllocate() {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsDisableAllocate();
         }
@@ -18300,7 +18300,7 @@ pub unsafe fn RpcSsDisableAllocate() {
 pub unsafe fn RpcSsDontSerializeContext() {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsDontSerializeContext();
         }
@@ -18312,7 +18312,7 @@ pub unsafe fn RpcSsDontSerializeContext() {
 pub unsafe fn RpcSsEnableAllocate() {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsEnableAllocate();
         }
@@ -18324,7 +18324,7 @@ pub unsafe fn RpcSsEnableAllocate() {
 pub unsafe fn RpcSsFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsFree(nodetofree: *const ::std::ffi::c_void);
         }
@@ -18339,7 +18339,7 @@ pub unsafe fn RpcSsGetContextBinding(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsGetContextBinding(
                 contexthandle: *const ::std::ffi::c_void,
@@ -18357,7 +18357,7 @@ pub unsafe fn RpcSsGetContextBinding(
 pub unsafe fn RpcSsGetThreadHandle() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsGetThreadHandle() -> *mut ::std::ffi::c_void;
         }
@@ -18372,7 +18372,7 @@ pub unsafe fn RpcSsSetClientAllocFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsSetClientAllocFree(
                 clientalloc: ::windows::runtime::RawPtr,
@@ -18390,7 +18390,7 @@ pub unsafe fn RpcSsSetClientAllocFree(
 pub unsafe fn RpcSsSetThreadHandle(id: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsSetThreadHandle(id: *const ::std::ffi::c_void);
         }
@@ -18407,7 +18407,7 @@ pub unsafe fn RpcSsSwapClientAllocFree(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcSsSwapClientAllocFree(
                 clientalloc: ::windows::runtime::RawPtr,
@@ -18436,7 +18436,7 @@ pub unsafe fn RpcStringBindingComposeA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcStringBindingComposeA(
                 objuuid: *const u8,
@@ -18469,7 +18469,7 @@ pub unsafe fn RpcStringBindingComposeW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcStringBindingComposeW(
                 objuuid: *const u16,
@@ -18502,7 +18502,7 @@ pub unsafe fn RpcStringBindingParseA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcStringBindingParseA(
                 stringbinding: *const u8,
@@ -18535,7 +18535,7 @@ pub unsafe fn RpcStringBindingParseW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcStringBindingParseW(
                 stringbinding: *const u16,
@@ -18561,7 +18561,7 @@ pub unsafe fn RpcStringBindingParseW(
 pub unsafe fn RpcStringFreeA(string: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcStringFreeA(string: *mut *mut u8) -> RPC_STATUS;
         }
@@ -18573,7 +18573,7 @@ pub unsafe fn RpcStringFreeA(string: *mut *mut u8) -> RPC_STATUS {
 pub unsafe fn RpcStringFreeW(string: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcStringFreeW(string: *mut *mut u16) -> RPC_STATUS;
         }
@@ -18585,7 +18585,7 @@ pub unsafe fn RpcStringFreeW(string: *mut *mut u16) -> RPC_STATUS {
 pub unsafe fn RpcTestCancel() -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcTestCancel() -> RPC_STATUS;
         }
@@ -18597,7 +18597,7 @@ pub unsafe fn RpcTestCancel() -> RPC_STATUS {
 pub unsafe fn RpcUserFree(asynchandle: *mut ::std::ffi::c_void, pbuffer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn RpcUserFree(asynchandle: *mut ::std::ffi::c_void, pbuffer: *mut ::std::ffi::c_void);
         }
@@ -18996,7 +18996,7 @@ pub unsafe fn UuidCompare(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidCompare(
                 uuid1: *const ::windows::runtime::GUID,
@@ -19016,7 +19016,7 @@ pub unsafe fn UuidCompare(
 pub unsafe fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
@@ -19028,7 +19028,7 @@ pub unsafe fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
 pub unsafe fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
@@ -19040,7 +19040,7 @@ pub unsafe fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATU
 pub unsafe fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
@@ -19056,7 +19056,7 @@ pub unsafe fn UuidEqual(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidEqual(
                 uuid1: *const ::windows::runtime::GUID,
@@ -19079,7 +19079,7 @@ pub unsafe fn UuidFromStringA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidFromStringA(
                 stringuuid: *const u8,
@@ -19100,7 +19100,7 @@ pub unsafe fn UuidFromStringW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidFromStringW(
                 stringuuid: *const u16,
@@ -19118,7 +19118,7 @@ pub unsafe fn UuidFromStringW(
 pub unsafe fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> u16;
         }
@@ -19133,7 +19133,7 @@ pub unsafe fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_S
 pub unsafe fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
         }
@@ -19151,7 +19151,7 @@ pub unsafe fn UuidToStringA(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidToStringA(
                 uuid: *const ::windows::runtime::GUID,
@@ -19172,7 +19172,7 @@ pub unsafe fn UuidToStringW(
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "rpcrt4")]
+        #[link(name = "windows")]
         extern "system" {
             fn UuidToStringW(
                 uuid: *const ::windows::runtime::GUID,

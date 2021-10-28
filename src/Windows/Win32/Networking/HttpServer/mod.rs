@@ -5468,7 +5468,7 @@ pub unsafe fn HttpAddFragmentToCache<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpAddFragmentToCache(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -5501,7 +5501,7 @@ pub unsafe fn HttpAddUrl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpAddUrl(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -5530,7 +5530,7 @@ pub unsafe fn HttpAddUrlToUrlGroup<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpAddUrlToUrlGroup(
                 urlgroupid: u64,
@@ -5560,7 +5560,7 @@ pub unsafe fn HttpCancelHttpRequest<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCancelHttpRequest(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -5586,7 +5586,7 @@ pub unsafe fn HttpCloseRequestQueue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCloseRequestQueue(requestqueuehandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -5598,7 +5598,7 @@ pub unsafe fn HttpCloseRequestQueue<
 pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCloseServerSession(serversessionid: u64) -> u32;
         }
@@ -5612,7 +5612,7 @@ pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
 pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCloseUrlGroup(urlgroupid: u64) -> u32;
         }
@@ -5628,7 +5628,7 @@ pub unsafe fn HttpCreateHttpHandle(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCreateHttpHandle(
                 requestqueuehandle: *mut super::super::Foundation::HANDLE,
@@ -5657,7 +5657,7 @@ pub unsafe fn HttpCreateRequestQueue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCreateRequestQueue(
                 version: HTTPAPI_VERSION,
@@ -5688,7 +5688,7 @@ pub unsafe fn HttpCreateServerSession<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCreateServerSession(
                 version: HTTPAPI_VERSION,
@@ -5712,7 +5712,7 @@ pub unsafe fn HttpCreateUrlGroup(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpCreateUrlGroup(
                 serversessionid: u64,
@@ -5745,7 +5745,7 @@ pub unsafe fn HttpDeclarePush<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpDeclarePush(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -5783,7 +5783,7 @@ pub unsafe fn HttpDelegateRequestEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpDelegateRequestEx(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -5819,7 +5819,7 @@ pub unsafe fn HttpDeleteServiceConfiguration<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpDeleteServiceConfiguration(
                 servicehandle: super::super::Foundation::HANDLE,
@@ -5852,7 +5852,7 @@ pub unsafe fn HttpFindUrlGroupId<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpFindUrlGroupId(
                 fullyqualifiedurl: super::super::Foundation::PWSTR,
@@ -5882,7 +5882,7 @@ pub unsafe fn HttpFlushResponseCache<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpFlushResponseCache(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -5909,7 +5909,7 @@ pub unsafe fn HttpGetExtension<'a, Param0: ::windows::runtime::IntoParam<'a, HTT
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpGetExtension(
                 version: HTTPAPI_VERSION,
@@ -5935,7 +5935,7 @@ pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPA
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpInitialize(
                 version: HTTPAPI_VERSION,
@@ -5956,7 +5956,7 @@ pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPA
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID)
                 -> super::super::Foundation::BOOL;
@@ -5978,7 +5978,7 @@ pub unsafe fn HttpPrepareUrl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpPrepareUrl(
                 reserved: *mut ::std::ffi::c_void,
@@ -6012,7 +6012,7 @@ pub unsafe fn HttpQueryRequestQueueProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpQueryRequestQueueProperty(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6046,7 +6046,7 @@ pub unsafe fn HttpQueryServerSessionProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpQueryServerSessionProperty(
                 serversessionid: u64,
@@ -6083,7 +6083,7 @@ pub unsafe fn HttpQueryServiceConfiguration<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpQueryServiceConfiguration(
                 servicehandle: super::super::Foundation::HANDLE,
@@ -6119,7 +6119,7 @@ pub unsafe fn HttpQueryUrlGroupProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpQueryUrlGroupProperty(
                 urlgroupid: u64,
@@ -6156,7 +6156,7 @@ pub unsafe fn HttpReadFragmentFromCache<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpReadFragmentFromCache(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6196,7 +6196,7 @@ pub unsafe fn HttpReceiveClientCertificate<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpReceiveClientCertificate(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6240,7 +6240,7 @@ pub unsafe fn HttpReceiveHttpRequest<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpReceiveHttpRequest(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6280,7 +6280,7 @@ pub unsafe fn HttpReceiveRequestEntityBody<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpReceiveRequestEntityBody(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6316,7 +6316,7 @@ pub unsafe fn HttpRemoveUrl<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpRemoveUrl(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6342,7 +6342,7 @@ pub unsafe fn HttpRemoveUrlFromUrlGroup<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpRemoveUrlFromUrlGroup(
                 urlgroupid: u64,
@@ -6377,7 +6377,7 @@ pub unsafe fn HttpSendHttpResponse<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpSendHttpResponse(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6426,7 +6426,7 @@ pub unsafe fn HttpSendResponseEntityBody<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpSendResponseEntityBody(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6471,7 +6471,7 @@ pub unsafe fn HttpSetRequestProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpSetRequestProperty(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6508,7 +6508,7 @@ pub unsafe fn HttpSetRequestQueueProperty<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpSetRequestQueueProperty(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6539,7 +6539,7 @@ pub unsafe fn HttpSetServerSessionProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpSetServerSessionProperty(
                 serversessionid: u64,
@@ -6571,7 +6571,7 @@ pub unsafe fn HttpSetServiceConfiguration<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpSetServiceConfiguration(
                 servicehandle: super::super::Foundation::HANDLE,
@@ -6600,7 +6600,7 @@ pub unsafe fn HttpSetUrlGroupProperty(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpSetUrlGroupProperty(
                 urlgroupid: u64,
@@ -6628,7 +6628,7 @@ pub unsafe fn HttpShutdownRequestQueue<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpShutdownRequestQueue(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6644,7 +6644,7 @@ pub unsafe fn HttpShutdownRequestQueue<
 pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::c_void) -> u32;
         }
@@ -6669,7 +6669,7 @@ pub unsafe fn HttpUpdateServiceConfiguration<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpUpdateServiceConfiguration(
                 handle: super::super::Foundation::HANDLE,
@@ -6700,7 +6700,7 @@ pub unsafe fn HttpWaitForDemandStart<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpWaitForDemandStart(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6726,7 +6726,7 @@ pub unsafe fn HttpWaitForDisconnect<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpWaitForDisconnect(
                 requestqueuehandle: super::super::Foundation::HANDLE,
@@ -6755,7 +6755,7 @@ pub unsafe fn HttpWaitForDisconnectEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "httpapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn HttpWaitForDisconnectEx(
                 requestqueuehandle: super::super::Foundation::HANDLE,

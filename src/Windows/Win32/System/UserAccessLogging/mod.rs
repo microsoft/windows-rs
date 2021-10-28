@@ -82,7 +82,7 @@ unsafe impl ::windows::runtime::Abi for UAL_DATA_BLOB {
 pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ualapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::HRESULT;
         }
@@ -104,7 +104,7 @@ pub unsafe fn UalRegisterProduct<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ualapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn UalRegisterProduct(
                 wszproductname: super::super::Foundation::PWSTR,
@@ -129,7 +129,7 @@ pub unsafe fn UalRegisterProduct<
 pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ualapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::HRESULT;
         }
@@ -145,7 +145,7 @@ pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result
 pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ualapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::runtime::HRESULT;
         }

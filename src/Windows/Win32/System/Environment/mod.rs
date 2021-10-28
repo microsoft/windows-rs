@@ -19,7 +19,7 @@ pub unsafe fn CallEnclave<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn CallEnclave(
                 lproutine: isize,
@@ -54,7 +54,7 @@ pub unsafe fn CreateEnclave<
 ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEnclave(
                 hprocess: super::super::Foundation::HANDLE,
@@ -93,7 +93,7 @@ pub unsafe fn CreateEnvironmentBlock<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEnvironmentBlock(
                 lpenvironment: *mut *mut ::std::ffi::c_void,
@@ -116,7 +116,7 @@ pub unsafe fn DeleteEnclave(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-enclave-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteEnclave(
                 lpaddress: *const ::std::ffi::c_void,
@@ -133,7 +133,7 @@ pub unsafe fn DestroyEnvironmentBlock(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn DestroyEnvironmentBlock(
                 lpenvironment: *const ::std::ffi::c_void,
@@ -292,7 +292,7 @@ pub unsafe fn EnclaveGetAttestationReport(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnclaveGetAttestationReport(
                 enclavedata: *const u8,
@@ -317,7 +317,7 @@ pub unsafe fn EnclaveGetEnclaveInformation(
 ) -> ::windows::runtime::Result<ENCLAVE_INFORMATION> {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnclaveGetEnclaveInformation(
                 informationsize: u32,
@@ -343,7 +343,7 @@ pub unsafe fn EnclaveSealData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnclaveSealData(
                 datatoencrypt: *const ::std::ffi::c_void,
@@ -380,7 +380,7 @@ pub unsafe fn EnclaveUnsealData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnclaveUnsealData(
                 protectedblob: *const ::std::ffi::c_void,
@@ -413,7 +413,7 @@ pub unsafe fn EnclaveVerifyAttestationReport(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnclaveVerifyAttestationReport(
                 enclavetype: u32,
@@ -442,7 +442,7 @@ pub unsafe fn ExpandEnvironmentStringsA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExpandEnvironmentStringsA(
                 lpsrc: super::super::Foundation::PSTR,
@@ -472,7 +472,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExpandEnvironmentStringsForUserA(
                 htoken: super::super::Foundation::HANDLE,
@@ -504,7 +504,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "userenv")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExpandEnvironmentStringsForUserW(
                 htoken: super::super::Foundation::HANDLE,
@@ -534,7 +534,7 @@ pub unsafe fn ExpandEnvironmentStringsW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExpandEnvironmentStringsW(
                 lpsrc: super::super::Foundation::PWSTR,
@@ -560,7 +560,7 @@ pub unsafe fn FreeEnvironmentStringsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeEnvironmentStringsA(
                 penv: super::super::Foundation::PSTR,
@@ -580,7 +580,7 @@ pub unsafe fn FreeEnvironmentStringsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeEnvironmentStringsW(
                 penv: super::super::Foundation::PWSTR,
@@ -595,7 +595,7 @@ pub unsafe fn FreeEnvironmentStringsW<
 pub unsafe fn GetCommandLineA() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommandLineA() -> super::super::Foundation::PSTR;
         }
@@ -608,7 +608,7 @@ pub unsafe fn GetCommandLineA() -> super::super::Foundation::PSTR {
 pub unsafe fn GetCommandLineW() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCommandLineW() -> super::super::Foundation::PWSTR;
         }
@@ -624,7 +624,7 @@ pub unsafe fn GetCurrentDirectoryA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentDirectoryA(
                 nbufferlength: u32,
@@ -646,7 +646,7 @@ pub unsafe fn GetCurrentDirectoryW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentDirectoryW(
                 nbufferlength: u32,
@@ -665,7 +665,7 @@ pub unsafe fn GetCurrentDirectoryW(
 pub unsafe fn GetEnvironmentStrings() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnvironmentStrings() -> super::super::Foundation::PSTR;
         }
@@ -678,7 +678,7 @@ pub unsafe fn GetEnvironmentStrings() -> super::super::Foundation::PSTR {
 pub unsafe fn GetEnvironmentStringsW() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnvironmentStringsW() -> super::super::Foundation::PWSTR;
         }
@@ -698,7 +698,7 @@ pub unsafe fn GetEnvironmentVariableA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnvironmentVariableA(
                 lpname: super::super::Foundation::PSTR,
@@ -726,7 +726,7 @@ pub unsafe fn GetEnvironmentVariableW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnvironmentVariableW(
                 lpname: super::super::Foundation::PWSTR,
@@ -756,7 +756,7 @@ pub unsafe fn InitializeEnclave<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeEnclave(
                 hprocess: super::super::Foundation::HANDLE,
@@ -781,7 +781,7 @@ pub unsafe fn InitializeEnclave<
 pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Foundation::BOOL;
         }
@@ -807,7 +807,7 @@ pub unsafe fn LoadEnclaveData<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadEnclaveData(
                 hprocess: super::super::Foundation::HANDLE,
@@ -846,7 +846,7 @@ pub unsafe fn LoadEnclaveImageA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-enclave-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadEnclaveImageA(
                 lpenclaveaddress: *const ::std::ffi::c_void,
@@ -871,7 +871,7 @@ pub unsafe fn LoadEnclaveImageW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-enclave-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadEnclaveImageW(
                 lpenclaveaddress: *const ::std::ffi::c_void,
@@ -895,7 +895,7 @@ pub unsafe fn NeedCurrentDirectoryForExePathA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NeedCurrentDirectoryForExePathA(
                 exename: super::super::Foundation::PSTR,
@@ -915,7 +915,7 @@ pub unsafe fn NeedCurrentDirectoryForExePathW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NeedCurrentDirectoryForExePathW(
                 exename: super::super::Foundation::PWSTR,
@@ -935,7 +935,7 @@ pub unsafe fn SetCurrentDirectoryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCurrentDirectoryA(
                 lppathname: super::super::Foundation::PSTR,
@@ -955,7 +955,7 @@ pub unsafe fn SetCurrentDirectoryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetCurrentDirectoryW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -975,7 +975,7 @@ pub unsafe fn SetEnvironmentStringsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEnvironmentStringsW(
                 newenvironment: super::super::Foundation::PWSTR,
@@ -997,7 +997,7 @@ pub unsafe fn SetEnvironmentVariableA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEnvironmentVariableA(
                 lpname: super::super::Foundation::PSTR,
@@ -1023,7 +1023,7 @@ pub unsafe fn SetEnvironmentVariableW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEnvironmentVariableW(
                 lpname: super::super::Foundation::PWSTR,
@@ -1048,7 +1048,7 @@ pub unsafe fn TerminateEnclave<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "vertdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn TerminateEnclave(
                 lpaddress: *const ::std::ffi::c_void,

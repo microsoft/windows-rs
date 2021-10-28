@@ -1547,7 +1547,7 @@ pub unsafe fn ActivateAudioInterfaceAsync<
 ) -> ::windows::runtime::Result<IActivateAudioInterfaceAsyncOperation> {
     #[cfg(windows)]
     {
-        #[link(name = "mmdevapi")]
+        #[link(name = "windows")]
         extern "system" {
             fn ActivateAudioInterfaceAsync(
                 deviceinterfacepath: super::super::super::Foundation::PWSTR,
@@ -2045,7 +2045,7 @@ unsafe impl ::windows::runtime::Abi for ConnectorType {
 pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCaptureAudioStateMonitor(
                 audiostatemonitor: *mut ::windows::runtime::RawPtr,
@@ -2063,7 +2063,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategory(
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCaptureAudioStateMonitorForCategory(
                 category: AUDIO_STREAM_CATEGORY,
@@ -2088,7 +2088,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(
                 category: AUDIO_STREAM_CATEGORY,
@@ -2114,7 +2114,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(
                 category: AUDIO_STREAM_CATEGORY,
@@ -2137,7 +2137,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(
 pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRenderAudioStateMonitor(
                 audiostatemonitor: *mut ::windows::runtime::RawPtr,
@@ -2155,7 +2155,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategory(
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRenderAudioStateMonitorForCategory(
                 category: AUDIO_STREAM_CATEGORY,
@@ -2180,7 +2180,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(
                 category: AUDIO_STREAM_CATEGORY,
@@ -2206,7 +2206,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.media.mediacontrol")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(
                 category: AUDIO_STREAM_CATEGORY,
@@ -33474,7 +33474,7 @@ pub unsafe fn KsCreateAllocator<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreateAllocator(
                 connectionhandle: super::super::super::Foundation::HANDLE,
@@ -33501,7 +33501,7 @@ pub unsafe fn KsCreateAllocator2<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreateAllocator2(
                 connectionhandle: super::super::super::Foundation::HANDLE,
@@ -33531,7 +33531,7 @@ pub unsafe fn KsCreateClock<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreateClock(
                 connectionhandle: super::super::super::Foundation::HANDLE,
@@ -33558,7 +33558,7 @@ pub unsafe fn KsCreateClock2<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreateClock2(
                 connectionhandle: super::super::super::Foundation::HANDLE,
@@ -33589,7 +33589,7 @@ pub unsafe fn KsCreatePin<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreatePin(
                 filterhandle: super::super::super::Foundation::HANDLE,
@@ -33619,7 +33619,7 @@ pub unsafe fn KsCreatePin2<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreatePin2(
                 filterhandle: super::super::super::Foundation::HANDLE,
@@ -33652,7 +33652,7 @@ pub unsafe fn KsCreateTopologyNode<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreateTopologyNode(
                 parenthandle: super::super::super::Foundation::HANDLE,
@@ -33682,7 +33682,7 @@ pub unsafe fn KsCreateTopologyNode2<
 ) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "ksuser")]
+        #[link(name = "windows")]
         extern "system" {
             fn KsCreateTopologyNode2(
                 parenthandle: super::super::super::Foundation::HANDLE,
@@ -37857,7 +37857,7 @@ pub unsafe fn mciDriverNotify<
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciDriverNotify(
                 hwndcallback: super::super::super::Foundation::HANDLE,
@@ -37877,7 +37877,7 @@ pub unsafe fn mciDriverNotify<
 pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciDriverYield(wdeviceid: u32) -> u32;
         }
@@ -37890,7 +37890,7 @@ pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciFreeCommandResource(wtable: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -37902,7 +37902,7 @@ pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::super::Founda
 pub unsafe fn mciGetCreatorTask(mciid: u32) -> HTASK {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetCreatorTask(mciid: u32) -> HTASK;
         }
@@ -37920,7 +37920,7 @@ pub unsafe fn mciGetDeviceIDA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetDeviceIDA(pszdevice: super::super::super::Foundation::PSTR) -> u32;
         }
@@ -37939,7 +37939,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetDeviceIDFromElementIDA(
                 dwelementid: u32,
@@ -37964,7 +37964,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetDeviceIDFromElementIDW(
                 dwelementid: u32,
@@ -37988,7 +37988,7 @@ pub unsafe fn mciGetDeviceIDW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetDeviceIDW(pszdevice: super::super::super::Foundation::PWSTR) -> u32;
         }
@@ -38000,7 +38000,7 @@ pub unsafe fn mciGetDeviceIDW<
 pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetDriverData(wdeviceid: u32) -> usize;
         }
@@ -38017,7 +38017,7 @@ pub unsafe fn mciGetErrorStringA(
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetErrorStringA(
                 mcierr: u32,
@@ -38042,7 +38042,7 @@ pub unsafe fn mciGetErrorStringW(
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetErrorStringW(
                 mcierr: u32,
@@ -38065,7 +38065,7 @@ pub unsafe fn mciGetYieldProc(
 ) -> ::std::option::Option<YIELDPROC> {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciGetYieldProc(
                 mciid: u32,
@@ -38092,7 +38092,7 @@ pub unsafe fn mciLoadCommandResource<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciLoadCommandResource(
                 hinstance: super::super::super::Foundation::HANDLE,
@@ -38112,7 +38112,7 @@ pub unsafe fn mciLoadCommandResource<
 pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
@@ -38129,7 +38129,7 @@ pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
 pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
@@ -38156,7 +38156,7 @@ pub unsafe fn mciSendStringA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciSendStringA(
                 lpstrcommand: super::super::super::Foundation::PSTR,
@@ -38188,7 +38188,7 @@ pub unsafe fn mciSendStringW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciSendStringW(
                 lpstrcommand: super::super::super::Foundation::PWSTR,
@@ -38214,7 +38214,7 @@ pub unsafe fn mciSetDriverData(
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciSetDriverData(
                 wdeviceid: u32,
@@ -38237,7 +38237,7 @@ pub unsafe fn mciSetYieldProc(
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn mciSetYieldProc(
                 mciid: u32,

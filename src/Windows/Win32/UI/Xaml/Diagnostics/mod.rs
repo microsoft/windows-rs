@@ -1960,7 +1960,7 @@ pub unsafe fn InitializeXamlDiagnostic<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.ui.xaml")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeXamlDiagnostic(
                 endpointname: super::super::super::Foundation::PWSTR,
@@ -2000,7 +2000,7 @@ pub unsafe fn InitializeXamlDiagnosticsEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows.ui.xaml")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeXamlDiagnosticsEx(
                 endpointname: super::super::super::Foundation::PWSTR,

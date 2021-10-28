@@ -20,7 +20,7 @@ pub unsafe fn ClearPropVariantArray(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClearPropVariantArray(
                 rgpropvar: *mut ::std::mem::ManuallyDrop<
@@ -45,7 +45,7 @@ pub unsafe fn ClearPropVariantArray(
 pub unsafe fn ClearVariantArray(pvars: *mut super::OleAutomation::VARIANT, cvars: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClearVariantArray(
                 pvars: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -6082,7 +6082,7 @@ pub unsafe fn InitPropVariantFromBooleanVector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromBooleanVector(
                 prgf: *const super::super::Foundation::BOOL,
@@ -6116,7 +6116,7 @@ pub unsafe fn InitPropVariantFromBuffer(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromBuffer(
                 pv: *const ::std::ffi::c_void,
@@ -6149,7 +6149,7 @@ pub unsafe fn InitPropVariantFromCLSID(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromCLSID(
                 clsid: *const ::windows::runtime::GUID,
@@ -6178,7 +6178,7 @@ pub unsafe fn InitPropVariantFromDoubleVector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromDoubleVector(
                 prgn: *const f64,
@@ -6211,7 +6211,7 @@ pub unsafe fn InitPropVariantFromFileTime(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromFileTime(
                 pftin: *const super::super::Foundation::FILETIME,
@@ -6240,7 +6240,7 @@ pub unsafe fn InitPropVariantFromFileTimeVector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromFileTimeVector(
                 prgft: *const super::super::Foundation::FILETIME,
@@ -6273,7 +6273,7 @@ pub unsafe fn InitPropVariantFromGUIDAsString(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromGUIDAsString(
                 guid: *const ::windows::runtime::GUID,
@@ -6302,7 +6302,7 @@ pub unsafe fn InitPropVariantFromInt16Vector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromInt16Vector(
                 prgn: *const i16,
@@ -6336,7 +6336,7 @@ pub unsafe fn InitPropVariantFromInt32Vector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromInt32Vector(
                 prgn: *const i32,
@@ -6370,7 +6370,7 @@ pub unsafe fn InitPropVariantFromInt64Vector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromInt64Vector(
                 prgn: *const i64,
@@ -6404,7 +6404,7 @@ pub unsafe fn InitPropVariantFromPropVariantVectorElem(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromPropVariantVectorElem(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -6443,7 +6443,7 @@ pub unsafe fn InitPropVariantFromResource<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromResource(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -6479,7 +6479,7 @@ pub unsafe fn InitPropVariantFromStrRet(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromStrRet(
                 pstrret: *mut super::super::UI::Shell::STRRET,
@@ -6514,7 +6514,7 @@ pub unsafe fn InitPropVariantFromStringAsVector<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromStringAsVector(
                 psz: super::super::Foundation::PWSTR,
@@ -6543,7 +6543,7 @@ pub unsafe fn InitPropVariantFromStringVector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromStringVector(
                 prgsz: *const super::super::Foundation::PWSTR,
@@ -6577,7 +6577,7 @@ pub unsafe fn InitPropVariantFromUInt16Vector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromUInt16Vector(
                 prgn: *const u16,
@@ -6611,7 +6611,7 @@ pub unsafe fn InitPropVariantFromUInt32Vector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromUInt32Vector(
                 prgn: *const u32,
@@ -6645,7 +6645,7 @@ pub unsafe fn InitPropVariantFromUInt64Vector(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromUInt64Vector(
                 prgn: *const u64,
@@ -6678,7 +6678,7 @@ pub unsafe fn InitPropVariantVectorFromPropVariant(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantVectorFromPropVariant(
                 propvarsingle: *const ::std::mem::ManuallyDrop<
@@ -6707,7 +6707,7 @@ pub unsafe fn InitVariantFromBooleanArray(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromBooleanArray(
                 prgf: *const super::super::Foundation::BOOL,
@@ -6738,7 +6738,7 @@ pub unsafe fn InitVariantFromBuffer(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromBuffer(
                 pv: *const ::std::ffi::c_void,
@@ -6769,7 +6769,7 @@ pub unsafe fn InitVariantFromDoubleArray(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromDoubleArray(
                 prgn: *const f64,
@@ -6799,7 +6799,7 @@ pub unsafe fn InitVariantFromFileTime(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromFileTime(
                 pft: *const super::super::Foundation::FILETIME,
@@ -6825,7 +6825,7 @@ pub unsafe fn InitVariantFromFileTimeArray(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromFileTimeArray(
                 prgft: *const super::super::Foundation::FILETIME,
@@ -6855,7 +6855,7 @@ pub unsafe fn InitVariantFromGUIDAsString(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromGUIDAsString(
                 guid: *const ::windows::runtime::GUID,
@@ -6881,7 +6881,7 @@ pub unsafe fn InitVariantFromInt16Array(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromInt16Array(
                 prgn: *const i16,
@@ -6912,7 +6912,7 @@ pub unsafe fn InitVariantFromInt32Array(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromInt32Array(
                 prgn: *const i32,
@@ -6943,7 +6943,7 @@ pub unsafe fn InitVariantFromInt64Array(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromInt64Array(
                 prgn: *const i64,
@@ -6977,7 +6977,7 @@ pub unsafe fn InitVariantFromResource<
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromResource(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -7009,7 +7009,7 @@ pub unsafe fn InitVariantFromStrRet(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromStrRet(
                 pstrret: *const super::super::UI::Shell::STRRET,
@@ -7040,7 +7040,7 @@ pub unsafe fn InitVariantFromStringArray(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromStringArray(
                 prgsz: *const super::super::Foundation::PWSTR,
@@ -7071,7 +7071,7 @@ pub unsafe fn InitVariantFromUInt16Array(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromUInt16Array(
                 prgn: *const u16,
@@ -7102,7 +7102,7 @@ pub unsafe fn InitVariantFromUInt32Array(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromUInt32Array(
                 prgn: *const u32,
@@ -7133,7 +7133,7 @@ pub unsafe fn InitVariantFromUInt64Array(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromUInt64Array(
                 prgn: *const u64,
@@ -7164,7 +7164,7 @@ pub unsafe fn InitVariantFromVariantArrayElem(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromVariantArrayElem(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -7799,7 +7799,7 @@ pub unsafe fn PSCoerceToCanonicalValue(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCoerceToCanonicalValue(
                 key: *const PROPERTYKEY,
@@ -7823,7 +7823,7 @@ pub unsafe fn PSCreateAdapterFromPropertyStore<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreateAdapterFromPropertyStore(
                 pps: ::windows::runtime::RawPtr,
@@ -7854,7 +7854,7 @@ pub unsafe fn PSCreateDelayedMultiplexPropertyStore<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreateDelayedMultiplexPropertyStore(
                 flags: GETPROPERTYSTOREFLAGS,
@@ -7884,7 +7884,7 @@ pub unsafe fn PSCreateMemoryPropertyStore(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreateMemoryPropertyStore(
                 riid: *const ::windows::runtime::GUID,
@@ -7904,7 +7904,7 @@ pub unsafe fn PSCreateMultiplexPropertyStore(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreateMultiplexPropertyStore(
                 prgpunkstores: *const ::windows::runtime::RawPtr,
@@ -7941,7 +7941,7 @@ pub unsafe fn PSCreatePropertyChangeArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreatePropertyChangeArray(
                 rgpropkey: *const PROPERTYKEY,
@@ -7978,7 +7978,7 @@ pub unsafe fn PSCreatePropertyStoreFromObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreatePropertyStoreFromObject(
                 punk: ::windows::runtime::RawPtr,
@@ -8013,7 +8013,7 @@ pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreatePropertyStoreFromPropertySetStorage(
                 ppss: ::windows::runtime::RawPtr,
@@ -8049,7 +8049,7 @@ pub unsafe fn PSCreateSimplePropertyChange(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSCreateSimplePropertyChange(
                 flags: PKA_FLAGS,
@@ -8080,7 +8080,7 @@ pub unsafe fn PSEnumeratePropertyDescriptions(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSEnumeratePropertyDescriptions(
                 filteron: PROPDESC_ENUMFILTER,
@@ -8114,7 +8114,7 @@ pub unsafe fn PSFormatForDisplay(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSFormatForDisplay(
                 propkey: *const PROPERTYKEY,
@@ -8152,7 +8152,7 @@ pub unsafe fn PSFormatForDisplayAlloc(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSFormatForDisplayAlloc(
                 key: *const PROPERTYKEY,
@@ -8188,7 +8188,7 @@ pub unsafe fn PSFormatPropertyValue<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSFormatPropertyValue(
                 pps: ::windows::runtime::RawPtr,
@@ -8223,7 +8223,7 @@ pub unsafe fn PSGetImageReferenceForValue(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetImageReferenceForValue(
                 propkey: *const PROPERTYKEY,
@@ -8258,7 +8258,7 @@ pub unsafe fn PSGetItemPropertyHandler<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetItemPropertyHandler(
                 punkitem: ::windows::runtime::RawPtr,
@@ -8293,7 +8293,7 @@ pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetItemPropertyHandlerWithCreateObject(
                 punkitem: ::windows::runtime::RawPtr,
@@ -8321,7 +8321,7 @@ pub unsafe fn PSGetNameFromPropertyKey(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetNameFromPropertyKey(
                 propkey: *const PROPERTYKEY,
@@ -8353,7 +8353,7 @@ pub unsafe fn PSGetNamedPropertyFromPropertyStorage<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetNamedPropertyFromPropertyStorage(
                 psps: *const SERIALIZEDPROPSTORAGE,
@@ -8383,7 +8383,7 @@ pub unsafe fn PSGetPropertyDescription(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetPropertyDescription(
                 propkey: *const PROPERTYKEY,
@@ -8412,7 +8412,7 @@ pub unsafe fn PSGetPropertyDescriptionByName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetPropertyDescriptionByName(
                 pszcanonicalname: super::super::Foundation::PWSTR,
@@ -8441,7 +8441,7 @@ pub unsafe fn PSGetPropertyDescriptionListFromString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetPropertyDescriptionListFromString(
                 pszproplist: super::super::Foundation::PWSTR,
@@ -8473,7 +8473,7 @@ pub unsafe fn PSGetPropertyFromPropertyStorage(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetPropertyFromPropertyStorage(
                 psps: *const SERIALIZEDPROPSTORAGE,
@@ -8505,7 +8505,7 @@ pub unsafe fn PSGetPropertyKeyFromName<
 ) -> ::windows::runtime::Result<PROPERTYKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetPropertyKeyFromName(
                 pszname: super::super::Foundation::PWSTR,
@@ -8525,7 +8525,7 @@ pub unsafe fn PSGetPropertySystem(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetPropertySystem(
                 riid: *const ::windows::runtime::GUID,
@@ -8554,7 +8554,7 @@ pub unsafe fn PSGetPropertyValue<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSGetPropertyValue(
                 pps: ::windows::runtime::RawPtr,
@@ -8584,7 +8584,7 @@ pub unsafe fn PSLookupPropertyHandlerCLSID<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSLookupPropertyHandlerCLSID(
                 pszfilepath: super::super::Foundation::PWSTR,
@@ -8610,7 +8610,7 @@ pub unsafe fn PSPropertyBag_Delete<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_Delete(
                 propbag: ::windows::runtime::RawPtr,
@@ -8633,7 +8633,7 @@ pub unsafe fn PSPropertyBag_ReadBOOL<
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadBOOL(
                 propbag: ::windows::runtime::RawPtr,
@@ -8664,7 +8664,7 @@ pub unsafe fn PSPropertyBag_ReadBSTR<
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadBSTR(
                 propbag: ::windows::runtime::RawPtr,
@@ -8695,7 +8695,7 @@ pub unsafe fn PSPropertyBag_ReadDWORD<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadDWORD(
                 propbag: ::windows::runtime::RawPtr,
@@ -8725,7 +8725,7 @@ pub unsafe fn PSPropertyBag_ReadGUID<
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadGUID(
                 propbag: ::windows::runtime::RawPtr,
@@ -8756,7 +8756,7 @@ pub unsafe fn PSPropertyBag_ReadInt<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadInt(
                 propbag: ::windows::runtime::RawPtr,
@@ -8786,7 +8786,7 @@ pub unsafe fn PSPropertyBag_ReadLONG<
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadLONG(
                 propbag: ::windows::runtime::RawPtr,
@@ -8816,7 +8816,7 @@ pub unsafe fn PSPropertyBag_ReadPOINTL<
 ) -> ::windows::runtime::Result<super::super::Foundation::POINTL> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadPOINTL(
                 propbag: ::windows::runtime::RawPtr,
@@ -8847,7 +8847,7 @@ pub unsafe fn PSPropertyBag_ReadPOINTS<
 ) -> ::windows::runtime::Result<super::super::Foundation::POINTS> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadPOINTS(
                 propbag: ::windows::runtime::RawPtr,
@@ -8878,7 +8878,7 @@ pub unsafe fn PSPropertyBag_ReadPropertyKey<
 ) -> ::windows::runtime::Result<PROPERTYKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadPropertyKey(
                 propbag: ::windows::runtime::RawPtr,
@@ -8908,7 +8908,7 @@ pub unsafe fn PSPropertyBag_ReadRECTL<
 ) -> ::windows::runtime::Result<super::super::Foundation::RECTL> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadRECTL(
                 propbag: ::windows::runtime::RawPtr,
@@ -8939,7 +8939,7 @@ pub unsafe fn PSPropertyBag_ReadSHORT<
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadSHORT(
                 propbag: ::windows::runtime::RawPtr,
@@ -8971,7 +8971,7 @@ pub unsafe fn PSPropertyBag_ReadStr<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadStr(
                 propbag: ::windows::runtime::RawPtr,
@@ -9002,7 +9002,7 @@ pub unsafe fn PSPropertyBag_ReadStrAlloc<
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadStrAlloc(
                 propbag: ::windows::runtime::RawPtr,
@@ -9037,7 +9037,7 @@ pub unsafe fn PSPropertyBag_ReadStream<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadStream(
                 propbag: ::windows::runtime::RawPtr,
@@ -9073,7 +9073,7 @@ pub unsafe fn PSPropertyBag_ReadType<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadType(
                 propbag: ::windows::runtime::RawPtr,
@@ -9104,7 +9104,7 @@ pub unsafe fn PSPropertyBag_ReadULONGLONG<
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadULONGLONG(
                 propbag: ::windows::runtime::RawPtr,
@@ -9136,7 +9136,7 @@ pub unsafe fn PSPropertyBag_ReadUnknown<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_ReadUnknown(
                 propbag: ::windows::runtime::RawPtr,
@@ -9169,7 +9169,7 @@ pub unsafe fn PSPropertyBag_WriteBOOL<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteBOOL(
                 propbag: ::windows::runtime::RawPtr,
@@ -9200,7 +9200,7 @@ pub unsafe fn PSPropertyBag_WriteBSTR<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteBSTR(
                 propbag: ::windows::runtime::RawPtr,
@@ -9230,7 +9230,7 @@ pub unsafe fn PSPropertyBag_WriteDWORD<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteDWORD(
                 propbag: ::windows::runtime::RawPtr,
@@ -9260,7 +9260,7 @@ pub unsafe fn PSPropertyBag_WriteGUID<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteGUID(
                 propbag: ::windows::runtime::RawPtr,
@@ -9290,7 +9290,7 @@ pub unsafe fn PSPropertyBag_WriteInt<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteInt(
                 propbag: ::windows::runtime::RawPtr,
@@ -9320,7 +9320,7 @@ pub unsafe fn PSPropertyBag_WriteLONG<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteLONG(
                 propbag: ::windows::runtime::RawPtr,
@@ -9350,7 +9350,7 @@ pub unsafe fn PSPropertyBag_WritePOINTL<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WritePOINTL(
                 propbag: ::windows::runtime::RawPtr,
@@ -9380,7 +9380,7 @@ pub unsafe fn PSPropertyBag_WritePOINTS<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WritePOINTS(
                 propbag: ::windows::runtime::RawPtr,
@@ -9410,7 +9410,7 @@ pub unsafe fn PSPropertyBag_WritePropertyKey<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WritePropertyKey(
                 propbag: ::windows::runtime::RawPtr,
@@ -9440,7 +9440,7 @@ pub unsafe fn PSPropertyBag_WriteRECTL<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteRECTL(
                 propbag: ::windows::runtime::RawPtr,
@@ -9470,7 +9470,7 @@ pub unsafe fn PSPropertyBag_WriteSHORT<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteSHORT(
                 propbag: ::windows::runtime::RawPtr,
@@ -9501,7 +9501,7 @@ pub unsafe fn PSPropertyBag_WriteStr<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteStr(
                 propbag: ::windows::runtime::RawPtr,
@@ -9536,7 +9536,7 @@ pub unsafe fn PSPropertyBag_WriteStream<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteStream(
                 propbag: ::windows::runtime::RawPtr,
@@ -9566,7 +9566,7 @@ pub unsafe fn PSPropertyBag_WriteULONGLONG<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteULONGLONG(
                 propbag: ::windows::runtime::RawPtr,
@@ -9597,7 +9597,7 @@ pub unsafe fn PSPropertyBag_WriteUnknown<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyBag_WriteUnknown(
                 propbag: ::windows::runtime::RawPtr,
@@ -9624,7 +9624,7 @@ pub unsafe fn PSPropertyKeyFromString<
 ) -> ::windows::runtime::Result<PROPERTYKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSPropertyKeyFromString(
                 pszstring: super::super::Foundation::PWSTR,
@@ -9641,7 +9641,7 @@ pub unsafe fn PSPropertyKeyFromString<
 pub unsafe fn PSRefreshPropertySchema() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSRefreshPropertySchema() -> ::windows::runtime::HRESULT;
         }
@@ -9659,7 +9659,7 @@ pub unsafe fn PSRegisterPropertySchema<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSRegisterPropertySchema(
                 pszpath: super::super::Foundation::PWSTR,
@@ -9688,7 +9688,7 @@ pub unsafe fn PSSetPropertyValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSSetPropertyValue(
                 pps: ::windows::runtime::RawPtr,
@@ -9716,7 +9716,7 @@ pub unsafe fn PSStringFromPropertyKey(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSStringFromPropertyKey(
                 pkey: *const PROPERTYKEY,
@@ -9764,7 +9764,7 @@ pub unsafe fn PSUnregisterPropertySchema<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PSUnregisterPropertySchema(
                 pszpath: super::super::Foundation::PWSTR,
@@ -9785,7 +9785,7 @@ pub unsafe fn PifMgr_CloseProperties<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PifMgr_CloseProperties(
                 hprops: super::super::Foundation::HANDLE,
@@ -9814,7 +9814,7 @@ pub unsafe fn PifMgr_GetProperties<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PifMgr_GetProperties(
                 hprops: super::super::Foundation::HANDLE,
@@ -9848,7 +9848,7 @@ pub unsafe fn PifMgr_OpenProperties<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PifMgr_OpenProperties(
                 pszapp: super::super::Foundation::PWSTR,
@@ -9881,7 +9881,7 @@ pub unsafe fn PifMgr_SetProperties<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PifMgr_SetProperties(
                 hprops: super::super::Foundation::HANDLE,
@@ -9917,7 +9917,7 @@ pub unsafe fn PropVariantChangeType(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantChangeType(
                 ppropvardest: *mut ::std::mem::ManuallyDrop<
@@ -9956,7 +9956,7 @@ pub unsafe fn PropVariantCompareEx(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantCompareEx(
                 propvar1: *const ::std::mem::ManuallyDrop<
@@ -9992,7 +9992,7 @@ pub unsafe fn PropVariantGetBooleanElem(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetBooleanElem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10027,7 +10027,7 @@ pub unsafe fn PropVariantGetDoubleElem(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetDoubleElem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10060,7 +10060,7 @@ pub unsafe fn PropVariantGetElementCount(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetElementCount(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10086,7 +10086,7 @@ pub unsafe fn PropVariantGetFileTimeElem(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetFileTimeElem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10121,7 +10121,7 @@ pub unsafe fn PropVariantGetInt16Elem(
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetInt16Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10155,7 +10155,7 @@ pub unsafe fn PropVariantGetInt32Elem(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetInt32Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10189,7 +10189,7 @@ pub unsafe fn PropVariantGetInt64Elem(
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetInt64Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10223,7 +10223,7 @@ pub unsafe fn PropVariantGetStringElem(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetStringElem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10258,7 +10258,7 @@ pub unsafe fn PropVariantGetUInt16Elem(
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetUInt16Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10292,7 +10292,7 @@ pub unsafe fn PropVariantGetUInt32Elem(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetUInt32Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10326,7 +10326,7 @@ pub unsafe fn PropVariantGetUInt64Elem(
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantGetUInt64Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10359,7 +10359,7 @@ pub unsafe fn PropVariantToBSTR(
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToBSTR(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10388,7 +10388,7 @@ pub unsafe fn PropVariantToBoolean(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToBoolean(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -10420,7 +10420,7 @@ pub unsafe fn PropVariantToBooleanVector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToBooleanVector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10456,7 +10456,7 @@ pub unsafe fn PropVariantToBooleanVectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToBooleanVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10492,7 +10492,7 @@ pub unsafe fn PropVariantToBooleanWithDefault<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToBooleanWithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -10523,7 +10523,7 @@ pub unsafe fn PropVariantToBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToBuffer(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10555,7 +10555,7 @@ pub unsafe fn PropVariantToDouble(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToDouble(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -10586,7 +10586,7 @@ pub unsafe fn PropVariantToDoubleVector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToDoubleVector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10622,7 +10622,7 @@ pub unsafe fn PropVariantToDoubleVectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToDoubleVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10655,7 +10655,7 @@ pub unsafe fn PropVariantToDoubleWithDefault(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToDoubleWithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -10685,7 +10685,7 @@ pub unsafe fn PropVariantToFileTime(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToFileTime(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10722,7 +10722,7 @@ pub unsafe fn PropVariantToFileTimeVector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToFileTimeVector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10758,7 +10758,7 @@ pub unsafe fn PropVariantToFileTimeVectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToFileTimeVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10790,7 +10790,7 @@ pub unsafe fn PropVariantToGUID(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToGUID(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10819,7 +10819,7 @@ pub unsafe fn PropVariantToInt16(
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt16(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -10850,7 +10850,7 @@ pub unsafe fn PropVariantToInt16Vector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt16Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10886,7 +10886,7 @@ pub unsafe fn PropVariantToInt16VectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt16VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -10919,7 +10919,7 @@ pub unsafe fn PropVariantToInt16WithDefault(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt16WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -10948,7 +10948,7 @@ pub unsafe fn PropVariantToInt32(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt32(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -10979,7 +10979,7 @@ pub unsafe fn PropVariantToInt32Vector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt32Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11015,7 +11015,7 @@ pub unsafe fn PropVariantToInt32VectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt32VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11048,7 +11048,7 @@ pub unsafe fn PropVariantToInt32WithDefault(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt32WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11077,7 +11077,7 @@ pub unsafe fn PropVariantToInt64(
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt64(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11108,7 +11108,7 @@ pub unsafe fn PropVariantToInt64Vector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt64Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11144,7 +11144,7 @@ pub unsafe fn PropVariantToInt64VectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt64VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11177,7 +11177,7 @@ pub unsafe fn PropVariantToInt64WithDefault(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToInt64WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11207,7 +11207,7 @@ pub unsafe fn PropVariantToStrRet(
 ) -> ::windows::runtime::Result<super::super::UI::Shell::STRRET> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToStrRet(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11238,7 +11238,7 @@ pub unsafe fn PropVariantToString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToString(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11270,7 +11270,7 @@ pub unsafe fn PropVariantToStringAlloc(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToStringAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11302,7 +11302,7 @@ pub unsafe fn PropVariantToStringVector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToStringVector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11338,7 +11338,7 @@ pub unsafe fn PropVariantToStringVectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToStringVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11374,7 +11374,7 @@ pub unsafe fn PropVariantToStringWithDefault<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToStringWithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11403,7 +11403,7 @@ pub unsafe fn PropVariantToUInt16(
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt16(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11434,7 +11434,7 @@ pub unsafe fn PropVariantToUInt16Vector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt16Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11470,7 +11470,7 @@ pub unsafe fn PropVariantToUInt16VectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt16VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11503,7 +11503,7 @@ pub unsafe fn PropVariantToUInt16WithDefault(
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt16WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11532,7 +11532,7 @@ pub unsafe fn PropVariantToUInt32(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt32(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11563,7 +11563,7 @@ pub unsafe fn PropVariantToUInt32Vector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt32Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11599,7 +11599,7 @@ pub unsafe fn PropVariantToUInt32VectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt32VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11632,7 +11632,7 @@ pub unsafe fn PropVariantToUInt32WithDefault(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt32WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11661,7 +11661,7 @@ pub unsafe fn PropVariantToUInt64(
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt64(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11692,7 +11692,7 @@ pub unsafe fn PropVariantToUInt64Vector(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt64Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11728,7 +11728,7 @@ pub unsafe fn PropVariantToUInt64VectorAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt64VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11761,7 +11761,7 @@ pub unsafe fn PropVariantToUInt64WithDefault(
 ) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToUInt64WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
@@ -11790,7 +11790,7 @@ pub unsafe fn PropVariantToVariant(
 ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToVariant(
                 ppropvar: *const ::std::mem::ManuallyDrop<
@@ -11820,7 +11820,7 @@ pub unsafe fn PropVariantToWinRTPropertyValue<T: ::windows::runtime::Interface>(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn PropVariantToWinRTPropertyValue(
                 propvar: *const ::std::mem::ManuallyDrop<
@@ -11867,7 +11867,7 @@ pub unsafe fn SHAddDefaultPropertiesByExt<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SHAddDefaultPropertiesByExt(
                 pszext: super::super::Foundation::PWSTR,
@@ -11890,7 +11890,7 @@ pub unsafe fn SHGetPropertyStoreForWindow<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SHGetPropertyStoreForWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -11917,7 +11917,7 @@ pub unsafe fn SHGetPropertyStoreFromIDList(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SHGetPropertyStoreFromIDList(
                 pidl: *const super::super::UI::Shell::ITEMIDLIST,
@@ -11951,7 +11951,7 @@ pub unsafe fn SHGetPropertyStoreFromParsingName<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SHGetPropertyStoreFromParsingName(
                 pszpath: super::super::Foundation::PWSTR,
@@ -11992,7 +11992,7 @@ pub unsafe fn SHPropStgCreate<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SHPropStgCreate(
                 psstg: ::windows::runtime::RawPtr,
@@ -12038,7 +12038,7 @@ pub unsafe fn SHPropStgReadMultiple<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SHPropStgReadMultiple(
                 pps: ::windows::runtime::RawPtr,
@@ -12083,7 +12083,7 @@ pub unsafe fn SHPropStgWriteMultiple<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "shell32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SHPropStgWriteMultiple(
                 pps: ::windows::runtime::RawPtr,
@@ -12187,7 +12187,7 @@ pub unsafe fn VariantCompare(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantCompare(
                 var1: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12213,7 +12213,7 @@ pub unsafe fn VariantGetBooleanElem(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetBooleanElem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12244,7 +12244,7 @@ pub unsafe fn VariantGetDoubleElem(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetDoubleElem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12271,7 +12271,7 @@ pub unsafe fn VariantGetDoubleElem(
 pub unsafe fn VariantGetElementCount(varin: *const super::OleAutomation::VARIANT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetElementCount(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12293,7 +12293,7 @@ pub unsafe fn VariantGetInt16Elem(
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetInt16Elem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12323,7 +12323,7 @@ pub unsafe fn VariantGetInt32Elem(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetInt32Elem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12353,7 +12353,7 @@ pub unsafe fn VariantGetInt64Elem(
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetInt64Elem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12383,7 +12383,7 @@ pub unsafe fn VariantGetStringElem(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetStringElem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12414,7 +12414,7 @@ pub unsafe fn VariantGetUInt16Elem(
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetUInt16Elem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12444,7 +12444,7 @@ pub unsafe fn VariantGetUInt32Elem(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetUInt32Elem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12474,7 +12474,7 @@ pub unsafe fn VariantGetUInt64Elem(
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantGetUInt64Elem(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12503,7 +12503,7 @@ pub unsafe fn VariantToBoolean(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToBoolean(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12531,7 +12531,7 @@ pub unsafe fn VariantToBooleanArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToBooleanArray(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12563,7 +12563,7 @@ pub unsafe fn VariantToBooleanArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToBooleanArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12595,7 +12595,7 @@ pub unsafe fn VariantToBooleanWithDefault<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToBooleanWithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12622,7 +12622,7 @@ pub unsafe fn VariantToBuffer(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToBuffer(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12652,7 +12652,7 @@ pub unsafe fn VariantToDosDateTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToDosDateTime(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12680,7 +12680,7 @@ pub unsafe fn VariantToDouble(
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToDouble(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12706,7 +12706,7 @@ pub unsafe fn VariantToDoubleArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToDoubleArray(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12738,7 +12738,7 @@ pub unsafe fn VariantToDoubleArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToDoubleArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12767,7 +12767,7 @@ pub unsafe fn VariantToDoubleWithDefault(
 ) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToDoubleWithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12793,7 +12793,7 @@ pub unsafe fn VariantToFileTime(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToFileTime(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12823,7 +12823,7 @@ pub unsafe fn VariantToGUID(
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToGUID(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12848,7 +12848,7 @@ pub unsafe fn VariantToInt16(
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12874,7 +12874,7 @@ pub unsafe fn VariantToInt16Array(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16Array(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12906,7 +12906,7 @@ pub unsafe fn VariantToInt16ArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16ArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12935,7 +12935,7 @@ pub unsafe fn VariantToInt16WithDefault(
 ) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16WithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12960,7 +12960,7 @@ pub unsafe fn VariantToInt32(
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -12986,7 +12986,7 @@ pub unsafe fn VariantToInt32Array(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32Array(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13018,7 +13018,7 @@ pub unsafe fn VariantToInt32ArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32ArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13047,7 +13047,7 @@ pub unsafe fn VariantToInt32WithDefault(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32WithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13072,7 +13072,7 @@ pub unsafe fn VariantToInt64(
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13098,7 +13098,7 @@ pub unsafe fn VariantToInt64Array(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64Array(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13130,7 +13130,7 @@ pub unsafe fn VariantToInt64ArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64ArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13159,7 +13159,7 @@ pub unsafe fn VariantToInt64WithDefault(
 ) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64WithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13186,7 +13186,7 @@ pub unsafe fn VariantToPropVariant(
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToPropVariant(
                 pvar: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13213,7 +13213,7 @@ pub unsafe fn VariantToStrRet(
 ) -> ::windows::runtime::Result<super::super::UI::Shell::STRRET> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToStrRet(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13240,7 +13240,7 @@ pub unsafe fn VariantToString(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToString(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13268,7 +13268,7 @@ pub unsafe fn VariantToStringAlloc(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToStringAlloc(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13296,7 +13296,7 @@ pub unsafe fn VariantToStringArray(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToStringArray(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13328,7 +13328,7 @@ pub unsafe fn VariantToStringArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToStringArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13360,7 +13360,7 @@ pub unsafe fn VariantToStringWithDefault<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToStringWithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13385,7 +13385,7 @@ pub unsafe fn VariantToUInt16(
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13411,7 +13411,7 @@ pub unsafe fn VariantToUInt16Array(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16Array(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13443,7 +13443,7 @@ pub unsafe fn VariantToUInt16ArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16ArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13472,7 +13472,7 @@ pub unsafe fn VariantToUInt16WithDefault(
 ) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16WithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13497,7 +13497,7 @@ pub unsafe fn VariantToUInt32(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13523,7 +13523,7 @@ pub unsafe fn VariantToUInt32Array(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32Array(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13555,7 +13555,7 @@ pub unsafe fn VariantToUInt32ArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32ArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13584,7 +13584,7 @@ pub unsafe fn VariantToUInt32WithDefault(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32WithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13609,7 +13609,7 @@ pub unsafe fn VariantToUInt64(
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13635,7 +13635,7 @@ pub unsafe fn VariantToUInt64Array(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64Array(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13667,7 +13667,7 @@ pub unsafe fn VariantToUInt64ArrayAlloc(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64ArrayAlloc(
                 var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13696,7 +13696,7 @@ pub unsafe fn VariantToUInt64WithDefault(
 ) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64WithDefault(
                 varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
@@ -13726,7 +13726,7 @@ pub unsafe fn WinRTPropertyValueToPropVariant<
 ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "propsys")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinRTPropertyValueToPropVariant(
                 punkpropertyvalue: ::windows::runtime::RawPtr,

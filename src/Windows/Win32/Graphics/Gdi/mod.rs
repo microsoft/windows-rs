@@ -297,7 +297,7 @@ pub unsafe fn AbortPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AbortPath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -315,7 +315,7 @@ pub unsafe fn AddFontMemResourceEx(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddFontMemResourceEx(
                 pfileview: *const ::std::ffi::c_void,
@@ -343,7 +343,7 @@ pub unsafe fn AddFontResourceA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddFontResourceA(param0: super::super::Foundation::PSTR) -> i32;
         }
@@ -363,7 +363,7 @@ pub unsafe fn AddFontResourceExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddFontResourceExA(
                 name: super::super::Foundation::PSTR,
@@ -391,7 +391,7 @@ pub unsafe fn AddFontResourceExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddFontResourceExW(
                 name: super::super::Foundation::PWSTR,
@@ -417,7 +417,7 @@ pub unsafe fn AddFontResourceW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddFontResourceW(param0: super::super::Foundation::PWSTR) -> i32;
         }
@@ -447,7 +447,7 @@ pub unsafe fn AlphaBlend<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msimg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AlphaBlend(
                 hdcdest: HDC,
@@ -491,7 +491,7 @@ pub unsafe fn AngleArc<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AngleArc(
                 hdc: HDC,
@@ -523,7 +523,7 @@ pub unsafe fn AnimatePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HPALE
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AnimatePalette(
                 hpal: HPALETTE,
@@ -556,7 +556,7 @@ pub unsafe fn Arc<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Arc(
                 hdc: HDC,
@@ -599,7 +599,7 @@ pub unsafe fn ArcTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ArcTo(
                 hdc: HDC,
@@ -1170,7 +1170,7 @@ pub unsafe fn BeginPaint<
 ) -> HDC {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginPaint(hwnd: super::super::Foundation::HWND, lppaint: *mut PAINTSTRUCT) -> HDC;
         }
@@ -1188,7 +1188,7 @@ pub unsafe fn BeginPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BeginPath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -1215,7 +1215,7 @@ pub unsafe fn BitBlt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BitBlt(
                 hdc: HDC,
@@ -1646,7 +1646,7 @@ pub unsafe fn CancelDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelDC(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -1662,7 +1662,7 @@ pub unsafe fn ChangeDisplaySettingsA(
 ) -> DISP_CHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeDisplaySettingsA(
                 lpdevmode: *const super::super::UI::DisplayDevices::DEVMODEA,
@@ -1691,7 +1691,7 @@ pub unsafe fn ChangeDisplaySettingsExA<
 ) -> DISP_CHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeDisplaySettingsExA(
                 lpszdevicename: super::super::Foundation::PSTR,
@@ -1726,7 +1726,7 @@ pub unsafe fn ChangeDisplaySettingsExW<
 ) -> DISP_CHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeDisplaySettingsExW(
                 lpszdevicename: super::super::Foundation::PWSTR,
@@ -1754,7 +1754,7 @@ pub unsafe fn ChangeDisplaySettingsW(
 ) -> DISP_CHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ChangeDisplaySettingsW(
                 lpdevmode: *const super::super::UI::DisplayDevices::DEVMODEW,
@@ -1783,7 +1783,7 @@ pub unsafe fn Chord<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Chord(
                 hdc: HDC,
@@ -1822,7 +1822,7 @@ pub unsafe fn ClientToScreen<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ClientToScreen(
                 hwnd: super::super::Foundation::HWND,
@@ -1842,7 +1842,7 @@ pub unsafe fn CloseEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseEnhMetaFile(hdc: HDC) -> HENHMETAFILE;
         }
@@ -1857,7 +1857,7 @@ pub unsafe fn CloseFigure<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseFigure(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -1871,7 +1871,7 @@ pub unsafe fn CloseMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> HMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseMetaFile(hdc: HDC) -> HMETAFILE;
         }
@@ -1893,7 +1893,7 @@ pub unsafe fn CombineRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CombineRgn(
                 hrgndst: HRGN,
@@ -1920,7 +1920,7 @@ pub unsafe fn CombineTransform(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CombineTransform(
                 lpxfout: *mut XFORM,
@@ -1948,7 +1948,7 @@ pub unsafe fn CopyEnhMetaFileA<
 ) -> HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyEnhMetaFileA(
                 henh: HENHMETAFILE,
@@ -1974,7 +1974,7 @@ pub unsafe fn CopyEnhMetaFileW<
 ) -> HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyEnhMetaFileW(
                 henh: HENHMETAFILE,
@@ -2000,7 +2000,7 @@ pub unsafe fn CopyMetaFileA<
 ) -> HMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyMetaFileA(
                 param0: HMETAFILE,
@@ -2026,7 +2026,7 @@ pub unsafe fn CopyMetaFileW<
 ) -> HMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyMetaFileW(
                 param0: HMETAFILE,
@@ -2048,7 +2048,7 @@ pub unsafe fn CopyRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyRect(
                 lprcdst: *mut super::super::Foundation::RECT,
@@ -2072,7 +2072,7 @@ pub unsafe fn CreateBitmap(
 ) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateBitmap(
                 nwidth: i32,
@@ -2096,7 +2096,7 @@ pub unsafe fn CreateBitmap(
 pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP;
         }
@@ -2108,7 +2108,7 @@ pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
 pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH;
         }
@@ -2124,7 +2124,7 @@ pub unsafe fn CreateCompatibleBitmap<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCompatibleBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
         }
@@ -2142,7 +2142,7 @@ pub unsafe fn CreateCompatibleDC<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> CreatedHDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateCompatibleDC(hdc: HDC) -> CreatedHDC;
         }
@@ -2165,7 +2165,7 @@ pub unsafe fn CreateDCA<
 ) -> CreatedHDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDCA(
                 pwszdriver: super::super::Foundation::PSTR,
@@ -2198,7 +2198,7 @@ pub unsafe fn CreateDCW<
 ) -> CreatedHDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDCW(
                 pwszdriver: super::super::Foundation::PWSTR,
@@ -2220,7 +2220,7 @@ pub unsafe fn CreateDCW<
 pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH;
         }
@@ -2238,7 +2238,7 @@ pub unsafe fn CreateDIBPatternBrushPt(
 ) -> HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDIBPatternBrushPt(
                 lppackeddib: *const ::std::ffi::c_void,
@@ -2268,7 +2268,7 @@ pub unsafe fn CreateDIBSection<
 ) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDIBSection(
                 hdc: HDC,
@@ -2301,7 +2301,7 @@ pub unsafe fn CreateDIBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDIBitmap(
                 hdc: HDC,
@@ -2331,7 +2331,7 @@ pub unsafe fn CreateDiscardableBitmap<'a, Param0: ::windows::runtime::IntoParam<
 ) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDiscardableBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
         }
@@ -2347,7 +2347,7 @@ pub unsafe fn CreateDiscardableBitmap<'a, Param0: ::windows::runtime::IntoParam<
 pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN;
         }
@@ -2365,7 +2365,7 @@ pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
 pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN;
         }
@@ -2388,7 +2388,7 @@ pub unsafe fn CreateEnhMetaFileA<
 ) -> HdcMetdataEnhFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEnhMetaFileA(
                 hdc: HDC,
@@ -2421,7 +2421,7 @@ pub unsafe fn CreateEnhMetaFileW<
 ) -> HdcMetdataEnhFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEnhMetaFileW(
                 hdc: HDC,
@@ -2462,7 +2462,7 @@ pub unsafe fn CreateFontA<
 ) -> HFONT {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFontA(
                 cheight: i32,
@@ -2505,7 +2505,7 @@ pub unsafe fn CreateFontA<
 pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT;
         }
@@ -2518,7 +2518,7 @@ pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
 pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT;
         }
@@ -2530,7 +2530,7 @@ pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
 pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT;
         }
@@ -2542,7 +2542,7 @@ pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
 pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT;
         }
@@ -2572,7 +2572,7 @@ pub unsafe fn CreateFontPackage(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fontsub")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFontPackage(
                 puchsrcbuffer: *const u8,
@@ -2639,7 +2639,7 @@ pub unsafe fn CreateFontW<
 ) -> HFONT {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFontW(
                 cheight: i32,
@@ -2683,7 +2683,7 @@ pub unsafe fn CreateHalftonePalette<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> HPALETTE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateHalftonePalette(hdc: HDC) -> HPALETTE;
         }
@@ -2695,7 +2695,7 @@ pub unsafe fn CreateHalftonePalette<'a, Param0: ::windows::runtime::IntoParam<'a
 pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH;
         }
@@ -2721,7 +2721,7 @@ pub unsafe fn CreateICA<
 ) -> CreatedHDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateICA(
                 pszdriver: super::super::Foundation::PSTR,
@@ -2754,7 +2754,7 @@ pub unsafe fn CreateICW<
 ) -> CreatedHDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateICW(
                 pszdriver: super::super::Foundation::PWSTR,
@@ -2782,7 +2782,7 @@ pub unsafe fn CreateMetaFileA<
 ) -> HdcMetdataFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMetaFileA(pszfile: super::super::Foundation::PSTR) -> HdcMetdataFileHandle;
         }
@@ -2800,7 +2800,7 @@ pub unsafe fn CreateMetaFileW<
 ) -> HdcMetdataFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateMetaFileW(pszfile: super::super::Foundation::PWSTR) -> HdcMetdataFileHandle;
         }
@@ -2812,7 +2812,7 @@ pub unsafe fn CreateMetaFileW<
 pub unsafe fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE;
         }
@@ -2826,7 +2826,7 @@ pub unsafe fn CreatePatternBrush<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePatternBrush(hbm: HBITMAP) -> HBRUSH;
         }
@@ -2838,7 +2838,7 @@ pub unsafe fn CreatePatternBrush<'a, Param0: ::windows::runtime::IntoParam<'a, H
 pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN;
         }
@@ -2855,7 +2855,7 @@ pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
 pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN;
         }
@@ -2873,7 +2873,7 @@ pub unsafe fn CreatePolyPolygonRgn(
 ) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePolyPolygonRgn(
                 pptl: *const super::super::Foundation::POINT,
@@ -2900,7 +2900,7 @@ pub unsafe fn CreatePolygonRgn(
 ) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreatePolygonRgn(
                 pptl: *const super::super::Foundation::POINT,
@@ -2920,7 +2920,7 @@ pub unsafe fn CreatePolygonRgn(
 pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN;
         }
@@ -2938,7 +2938,7 @@ pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
 pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN;
         }
@@ -2950,7 +2950,7 @@ pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::REC
 pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN;
         }
@@ -2980,7 +2980,7 @@ pub unsafe fn CreateScalableFontResourceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateScalableFontResourceA(
                 fdwhidden: u32,
@@ -3013,7 +3013,7 @@ pub unsafe fn CreateScalableFontResourceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateScalableFontResourceW(
                 fdwhidden: u32,
@@ -3035,7 +3035,7 @@ pub unsafe fn CreateScalableFontResourceW<
 pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSolidBrush(color: u32) -> HBRUSH;
         }
@@ -4259,7 +4259,7 @@ pub unsafe fn DPtoLP<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DPtoLP(
                 hdc: HDC,
@@ -4648,7 +4648,7 @@ pub unsafe fn DeleteDC<'a, Param0: ::windows::runtime::IntoParam<'a, CreatedHDC>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteDC(hdc: CreatedHDC) -> super::super::Foundation::BOOL;
         }
@@ -4663,7 +4663,7 @@ pub unsafe fn DeleteEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HE
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteEnhMetaFile(hmf: HENHMETAFILE) -> super::super::Foundation::BOOL;
         }
@@ -4678,7 +4678,7 @@ pub unsafe fn DeleteMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HMETA
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteMetaFile(hmf: HMETAFILE) -> super::super::Foundation::BOOL;
         }
@@ -4693,7 +4693,7 @@ pub unsafe fn DeleteObject<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOBJ
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteObject(ho: HGDIOBJ) -> super::super::Foundation::BOOL;
         }
@@ -4714,7 +4714,7 @@ pub unsafe fn DrawAnimatedRects<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawAnimatedRects(
                 hwnd: super::super::Foundation::HWND,
@@ -4746,7 +4746,7 @@ pub unsafe fn DrawCaption<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawCaption(
                 hwnd: super::super::Foundation::HWND,
@@ -4774,7 +4774,7 @@ pub unsafe fn DrawEdge<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawEdge(
                 hdc: HDC,
@@ -4806,7 +4806,7 @@ pub unsafe fn DrawEscape<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawEscape(
                 hdc: HDC,
@@ -4832,7 +4832,7 @@ pub unsafe fn DrawFocusRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawFocusRect(
                 hdc: HDC,
@@ -4856,7 +4856,7 @@ pub unsafe fn DrawFrameControl<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawFrameControl(
                 param0: HDC,
@@ -4896,7 +4896,7 @@ pub unsafe fn DrawStateA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawStateA(
                 hdc: HDC,
@@ -4948,7 +4948,7 @@ pub unsafe fn DrawStateW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawStateW(
                 hdc: HDC,
@@ -4993,7 +4993,7 @@ pub unsafe fn DrawTextA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawTextA(
                 hdc: HDC,
@@ -5029,7 +5029,7 @@ pub unsafe fn DrawTextExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawTextExA(
                 hdc: HDC,
@@ -5067,7 +5067,7 @@ pub unsafe fn DrawTextExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawTextExW(
                 hdc: HDC,
@@ -5104,7 +5104,7 @@ pub unsafe fn DrawTextW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DrawTextW(
                 hdc: HDC,
@@ -9348,7 +9348,7 @@ pub unsafe fn Ellipse<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Ellipse(
                 hdc: HDC,
@@ -9379,7 +9379,7 @@ pub unsafe fn EndPaint<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndPaint(
                 hwnd: super::super::Foundation::HWND,
@@ -9400,7 +9400,7 @@ pub unsafe fn EndPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EndPath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -9421,7 +9421,7 @@ pub unsafe fn EnumDisplayDevicesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDisplayDevicesA(
                 lpdevice: super::super::Foundation::PSTR,
@@ -9452,7 +9452,7 @@ pub unsafe fn EnumDisplayDevicesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDisplayDevicesW(
                 lpdevice: super::super::Foundation::PWSTR,
@@ -9484,7 +9484,7 @@ pub unsafe fn EnumDisplayMonitors<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDisplayMonitors(
                 hdc: HDC,
@@ -9514,7 +9514,7 @@ pub unsafe fn EnumDisplaySettingsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDisplaySettingsA(
                 lpszdevicename: super::super::Foundation::PSTR,
@@ -9543,7 +9543,7 @@ pub unsafe fn EnumDisplaySettingsExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDisplaySettingsExA(
                 lpszdevicename: super::super::Foundation::PSTR,
@@ -9574,7 +9574,7 @@ pub unsafe fn EnumDisplaySettingsExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDisplaySettingsExW(
                 lpszdevicename: super::super::Foundation::PWSTR,
@@ -9604,7 +9604,7 @@ pub unsafe fn EnumDisplaySettingsW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumDisplaySettingsW(
                 lpszdevicename: super::super::Foundation::PWSTR,
@@ -9635,7 +9635,7 @@ pub unsafe fn EnumEnhMetaFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumEnhMetaFile(
                 hdc: HDC,
@@ -9670,7 +9670,7 @@ pub unsafe fn EnumFontFamiliesA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFontFamiliesA(
                 hdc: HDC,
@@ -9703,7 +9703,7 @@ pub unsafe fn EnumFontFamiliesExA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFontFamiliesExA(
                 hdc: HDC,
@@ -9738,7 +9738,7 @@ pub unsafe fn EnumFontFamiliesExW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFontFamiliesExW(
                 hdc: HDC,
@@ -9773,7 +9773,7 @@ pub unsafe fn EnumFontFamiliesW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFontFamiliesW(
                 hdc: HDC,
@@ -9806,7 +9806,7 @@ pub unsafe fn EnumFontsA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFontsA(
                 hdc: HDC,
@@ -9839,7 +9839,7 @@ pub unsafe fn EnumFontsW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumFontsW(
                 hdc: HDC,
@@ -9872,7 +9872,7 @@ pub unsafe fn EnumMetaFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumMetaFile(
                 hdc: HDC,
@@ -9904,7 +9904,7 @@ pub unsafe fn EnumObjects<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnumObjects(
                 hdc: HDC,
@@ -9930,7 +9930,7 @@ pub unsafe fn EqualRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EqualRect(
                 lprc1: *const super::super::Foundation::RECT,
@@ -9956,7 +9956,7 @@ pub unsafe fn EqualRgn<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EqualRgn(hrgn1: HRGN, hrgn2: HRGN) -> super::super::Foundation::BOOL;
         }
@@ -9974,7 +9974,7 @@ pub unsafe fn ExcludeClipRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExcludeClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
         }
@@ -10000,7 +10000,7 @@ pub unsafe fn ExcludeUpdateRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExcludeUpdateRgn(hdc: HDC, hwnd: super::super::Foundation::HWND) -> i32;
         }
@@ -10021,7 +10021,7 @@ pub unsafe fn ExtCreatePen(
 ) -> HPEN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtCreatePen(
                 ipenstyle: PEN_STYLE,
@@ -10046,7 +10046,7 @@ pub unsafe fn ExtCreatePen(
 pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGNDATA) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGNDATA) -> HRGN;
         }
@@ -10069,7 +10069,7 @@ pub unsafe fn ExtFloodFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtFloodFill(
                 hdc: HDC,
@@ -10101,7 +10101,7 @@ pub unsafe fn ExtSelectClipRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE) -> i32;
         }
@@ -10131,7 +10131,7 @@ pub unsafe fn ExtTextOutA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtTextOutA(
                 hdc: HDC,
@@ -10175,7 +10175,7 @@ pub unsafe fn ExtTextOutW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtTextOutW(
                 hdc: HDC,
@@ -10616,7 +10616,7 @@ pub unsafe fn FillPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FillPath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -10637,7 +10637,7 @@ pub unsafe fn FillRect<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FillRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH) -> i32;
         }
@@ -10663,7 +10663,7 @@ pub unsafe fn FillRgn<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH) -> super::super::Foundation::BOOL;
         }
@@ -10685,7 +10685,7 @@ pub unsafe fn FixBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FixBrushOrgEx(
                 hdc: HDC,
@@ -10710,7 +10710,7 @@ pub unsafe fn FlattenPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlattenPath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -10728,7 +10728,7 @@ pub unsafe fn FloodFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FloodFill(hdc: HDC, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL;
         }
@@ -10754,7 +10754,7 @@ pub unsafe fn FrameRect<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FrameRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH)
                 -> i32;
@@ -10783,7 +10783,7 @@ pub unsafe fn FrameRgn<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FrameRgn(
                 hdc: HDC,
@@ -11593,7 +11593,7 @@ pub unsafe fn GdiAlphaBlend<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiAlphaBlend(
                 hdcdest: HDC,
@@ -11634,7 +11634,7 @@ pub unsafe fn GdiComment<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiComment(
                 hdc: HDC,
@@ -11655,7 +11655,7 @@ pub unsafe fn GdiComment<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiFlush() -> super::super::Foundation::BOOL;
         }
@@ -11667,7 +11667,7 @@ pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
 pub unsafe fn GdiGetBatchLimit() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiGetBatchLimit() -> u32;
         }
@@ -11687,7 +11687,7 @@ pub unsafe fn GdiGradientFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiGradientFill(
                 hdc: HDC,
@@ -11713,7 +11713,7 @@ pub unsafe fn GdiGradientFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiSetBatchLimit(dw: u32) -> u32;
         }
@@ -11742,7 +11742,7 @@ pub unsafe fn GdiTransparentBlt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiTransparentBlt(
                 hdcdest: HDC,
@@ -11780,7 +11780,7 @@ pub unsafe fn GetArcDirection<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetArcDirection(hdc: HDC) -> i32;
         }
@@ -11796,7 +11796,7 @@ pub unsafe fn GetAspectRatioFilterEx<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetAspectRatioFilterEx(
                 hdc: HDC,
@@ -11818,7 +11818,7 @@ pub unsafe fn GetBitmapBits<'a, Param0: ::windows::runtime::IntoParam<'a, HBITMA
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBitmapBits(hbit: HBITMAP, cb: i32, lpvbits: *mut ::std::ffi::c_void) -> i32;
         }
@@ -11838,7 +11838,7 @@ pub unsafe fn GetBitmapDimensionEx<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBitmapDimensionEx(
                 hbit: HBITMAP,
@@ -11856,7 +11856,7 @@ pub unsafe fn GetBitmapDimensionEx<'a, Param0: ::windows::runtime::IntoParam<'a,
 pub unsafe fn GetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBkColor(hdc: HDC) -> u32;
         }
@@ -11868,7 +11868,7 @@ pub unsafe fn GetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
 pub unsafe fn GetBkMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBkMode(hdc: HDC) -> i32;
         }
@@ -11885,7 +11885,7 @@ pub unsafe fn GetBoundsRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBoundsRect(
                 hdc: HDC,
@@ -11909,7 +11909,7 @@ pub unsafe fn GetBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBrushOrgEx(
                 hdc: HDC,
@@ -11933,7 +11933,7 @@ pub unsafe fn GetCharABCWidthsA<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharABCWidthsA(
                 hdc: HDC,
@@ -11961,7 +11961,7 @@ pub unsafe fn GetCharABCWidthsFloatA<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharABCWidthsFloatA(
                 hdc: HDC,
@@ -11989,7 +11989,7 @@ pub unsafe fn GetCharABCWidthsFloatW<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharABCWidthsFloatW(
                 hdc: HDC,
@@ -12018,7 +12018,7 @@ pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharABCWidthsI(
                 hdc: HDC,
@@ -12048,7 +12048,7 @@ pub unsafe fn GetCharABCWidthsW<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharABCWidthsW(
                 hdc: HDC,
@@ -12076,7 +12076,7 @@ pub unsafe fn GetCharWidth32A<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharWidth32A(
                 hdc: HDC,
@@ -12104,7 +12104,7 @@ pub unsafe fn GetCharWidth32W<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharWidth32W(
                 hdc: HDC,
@@ -12132,7 +12132,7 @@ pub unsafe fn GetCharWidthA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharWidthA(
                 hdc: HDC,
@@ -12160,7 +12160,7 @@ pub unsafe fn GetCharWidthFloatA<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharWidthFloatA(
                 hdc: HDC,
@@ -12188,7 +12188,7 @@ pub unsafe fn GetCharWidthFloatW<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharWidthFloatW(
                 hdc: HDC,
@@ -12217,7 +12217,7 @@ pub unsafe fn GetCharWidthI<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharWidthI(
                 hdc: HDC,
@@ -12247,7 +12247,7 @@ pub unsafe fn GetCharWidthW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharWidthW(
                 hdc: HDC,
@@ -12281,7 +12281,7 @@ pub unsafe fn GetCharacterPlacementA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharacterPlacementA(
                 hdc: HDC,
@@ -12319,7 +12319,7 @@ pub unsafe fn GetCharacterPlacementW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCharacterPlacementW(
                 hdc: HDC,
@@ -12349,7 +12349,7 @@ pub unsafe fn GetClipBox<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClipBox(hdc: HDC, lprect: *mut super::super::Foundation::RECT) -> i32;
         }
@@ -12371,7 +12371,7 @@ pub unsafe fn GetClipRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetClipRgn(hdc: HDC, hrgn: HRGN) -> i32;
         }
@@ -12387,7 +12387,7 @@ pub unsafe fn GetColorAdjustment<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetColorAdjustment(
                 hdc: HDC,
@@ -12408,7 +12408,7 @@ pub unsafe fn GetCurrentObject<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> HGDIOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentObject(hdc: HDC, r#type: OBJ_TYPE) -> HGDIOBJ;
         }
@@ -12427,7 +12427,7 @@ pub unsafe fn GetCurrentPositionEx<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentPositionEx(
                 hdc: HDC,
@@ -12451,7 +12451,7 @@ pub unsafe fn GetDC<
 ) -> HDC {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDC(hwnd: super::super::Foundation::HWND) -> HDC;
         }
@@ -12465,7 +12465,7 @@ pub unsafe fn GetDCBrushColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDCBrushColor(hdc: HDC) -> u32;
         }
@@ -12486,7 +12486,7 @@ pub unsafe fn GetDCEx<
 ) -> HDC {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDCEx(
                 hwnd: super::super::Foundation::HWND,
@@ -12510,7 +12510,7 @@ pub unsafe fn GetDCOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDCOrgEx(
                 hdc: HDC,
@@ -12530,7 +12530,7 @@ pub unsafe fn GetDCPenColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDCPenColor(hdc: HDC) -> u32;
         }
@@ -12547,7 +12547,7 @@ pub unsafe fn GetDIBColorTable<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDIBColorTable(hdc: HDC, istart: u32, centries: u32, prgbq: *mut RGBQUAD) -> u32;
         }
@@ -12576,7 +12576,7 @@ pub unsafe fn GetDIBits<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDIBits(
                 hdc: HDC,
@@ -12607,7 +12607,7 @@ pub unsafe fn GetDeviceCaps<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDeviceCaps(hdc: HDC, index: GET_DEVICE_CAPS_INDEX) -> i32;
         }
@@ -12628,7 +12628,7 @@ pub unsafe fn GetEnhMetaFileA<
 ) -> HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFileA(lpname: super::super::Foundation::PSTR) -> HENHMETAFILE;
         }
@@ -12644,7 +12644,7 @@ pub unsafe fn GetEnhMetaFileBits<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFileBits(hemf: HENHMETAFILE, nsize: u32, lpdata: *mut u8) -> u32;
         }
@@ -12668,7 +12668,7 @@ pub unsafe fn GetEnhMetaFileDescriptionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFileDescriptionA(
                 hemf: HENHMETAFILE,
@@ -12696,7 +12696,7 @@ pub unsafe fn GetEnhMetaFileDescriptionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFileDescriptionW(
                 hemf: HENHMETAFILE,
@@ -12721,7 +12721,7 @@ pub unsafe fn GetEnhMetaFileHeader<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFileHeader(
                 hemf: HENHMETAFILE,
@@ -12748,7 +12748,7 @@ pub unsafe fn GetEnhMetaFilePaletteEntries<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFilePaletteEntries(
                 hemf: HENHMETAFILE,
@@ -12774,7 +12774,7 @@ pub unsafe fn GetEnhMetaFileW<
 ) -> HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFileW(lpname: super::super::Foundation::PWSTR) -> HENHMETAFILE;
         }
@@ -12792,7 +12792,7 @@ pub unsafe fn GetFontData<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFontData(
                 hdc: HDC,
@@ -12818,7 +12818,7 @@ pub unsafe fn GetFontLanguageInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFontLanguageInfo(hdc: HDC) -> u32;
         }
@@ -12833,7 +12833,7 @@ pub unsafe fn GetFontUnicodeRanges<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFontUnicodeRanges(hdc: HDC, lpgs: *mut GLYPHSET) -> u32;
         }
@@ -12859,7 +12859,7 @@ pub unsafe fn GetGlyphIndicesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGlyphIndicesA(
                 hdc: HDC,
@@ -12894,7 +12894,7 @@ pub unsafe fn GetGlyphIndicesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGlyphIndicesW(
                 hdc: HDC,
@@ -12927,7 +12927,7 @@ pub unsafe fn GetGlyphOutlineA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGlyphOutlineA(
                 hdc: HDC,
@@ -12964,7 +12964,7 @@ pub unsafe fn GetGlyphOutlineW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGlyphOutlineW(
                 hdc: HDC,
@@ -12994,7 +12994,7 @@ pub unsafe fn GetGraphicsMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGraphicsMode(hdc: HDC) -> i32;
         }
@@ -13010,7 +13010,7 @@ pub unsafe fn GetKerningPairsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKerningPairsA(hdc: HDC, npairs: u32, lpkernpair: *mut KERNINGPAIR) -> u32;
         }
@@ -13030,7 +13030,7 @@ pub unsafe fn GetKerningPairsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetKerningPairsW(hdc: HDC, npairs: u32, lpkernpair: *mut KERNINGPAIR) -> u32;
         }
@@ -13046,7 +13046,7 @@ pub unsafe fn GetKerningPairsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 pub unsafe fn GetLayout<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLayout(hdc: HDC) -> u32;
         }
@@ -13058,7 +13058,7 @@ pub unsafe fn GetLayout<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
 pub unsafe fn GetMapMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMapMode(hdc: HDC) -> i32;
         }
@@ -13076,7 +13076,7 @@ pub unsafe fn GetMetaFileA<
 ) -> HMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMetaFileA(lpname: super::super::Foundation::PSTR) -> HMETAFILE;
         }
@@ -13092,7 +13092,7 @@ pub unsafe fn GetMetaFileBitsEx<'a, Param0: ::windows::runtime::IntoParam<'a, HM
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMetaFileBitsEx(
                 hmf: HMETAFILE,
@@ -13118,7 +13118,7 @@ pub unsafe fn GetMetaFileW<
 ) -> HMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMetaFileW(lpname: super::super::Foundation::PWSTR) -> HMETAFILE;
         }
@@ -13137,7 +13137,7 @@ pub unsafe fn GetMetaRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMetaRgn(hdc: HDC, hrgn: HRGN) -> i32;
         }
@@ -13153,7 +13153,7 @@ pub unsafe fn GetMiterLimit<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMiterLimit(hdc: HDC, plimit: *mut f32) -> super::super::Foundation::BOOL;
         }
@@ -13172,7 +13172,7 @@ pub unsafe fn GetMonitorInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMON
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorInfoA(
                 hmonitor: HMONITOR,
@@ -13194,7 +13194,7 @@ pub unsafe fn GetMonitorInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMON
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetMonitorInfoW(
                 hmonitor: HMONITOR,
@@ -13215,7 +13215,7 @@ pub unsafe fn GetNearestColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNearestColor(hdc: HDC, color: u32) -> u32;
         }
@@ -13233,7 +13233,7 @@ pub unsafe fn GetNearestPaletteIndex<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNearestPaletteIndex(h: HPALETTE, color: u32) -> u32;
         }
@@ -13252,7 +13252,7 @@ pub unsafe fn GetObjectA<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOBJ>>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetObjectA(h: HGDIOBJ, c: i32, pv: *mut ::std::ffi::c_void) -> i32;
         }
@@ -13270,7 +13270,7 @@ pub unsafe fn GetObjectType<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOB
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetObjectType(h: HGDIOBJ) -> u32;
         }
@@ -13286,7 +13286,7 @@ pub unsafe fn GetObjectW<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOBJ>>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetObjectW(h: HGDIOBJ, c: i32, pv: *mut ::std::ffi::c_void) -> i32;
         }
@@ -13307,7 +13307,7 @@ pub unsafe fn GetOutlineTextMetricsA<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOutlineTextMetricsA(hdc: HDC, cjcopy: u32, potm: *mut OUTLINETEXTMETRICA) -> u32;
         }
@@ -13328,7 +13328,7 @@ pub unsafe fn GetOutlineTextMetricsW<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetOutlineTextMetricsW(hdc: HDC, cjcopy: u32, potm: *mut OUTLINETEXTMETRICW) -> u32;
         }
@@ -13349,7 +13349,7 @@ pub unsafe fn GetPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<'a, HP
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPaletteEntries(
                 hpal: HPALETTE,
@@ -13377,7 +13377,7 @@ pub unsafe fn GetPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPath(
                 hdc: HDC,
@@ -13403,7 +13403,7 @@ pub unsafe fn GetPixel<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPixel(hdc: HDC, x: i32, y: i32) -> u32;
         }
@@ -13421,7 +13421,7 @@ pub unsafe fn GetPolyFillMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPolyFillMode(hdc: HDC) -> i32;
         }
@@ -13433,7 +13433,7 @@ pub unsafe fn GetPolyFillMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 pub unsafe fn GetROP2<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetROP2(hdc: HDC) -> i32;
         }
@@ -13453,7 +13453,7 @@ pub unsafe fn GetRandomRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRandomRgn(hdc: HDC, hrgn: HRGN, i: i32) -> i32;
         }
@@ -13473,7 +13473,7 @@ pub unsafe fn GetRasterizerCaps(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRasterizerCaps(
                 lpraststat: *mut RASTERIZER_STATUS,
@@ -13496,7 +13496,7 @@ pub unsafe fn GetRegionData<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRegionData(hrgn: HRGN, ncount: u32, lprgndata: *mut RGNDATA) -> u32;
         }
@@ -13516,7 +13516,7 @@ pub unsafe fn GetRgnBox<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetRgnBox(hrgn: HRGN, lprc: *mut super::super::Foundation::RECT) -> i32;
         }
@@ -13531,7 +13531,7 @@ pub unsafe fn GetRgnBox<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(
 pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ;
         }
@@ -13545,7 +13545,7 @@ pub unsafe fn GetStretchBltMode<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStretchBltMode(hdc: HDC) -> i32;
         }
@@ -13557,7 +13557,7 @@ pub unsafe fn GetStretchBltMode<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 pub unsafe fn GetSysColorBrush(nindex: i32) -> HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSysColorBrush(nindex: i32) -> HBRUSH;
         }
@@ -13574,7 +13574,7 @@ pub unsafe fn GetSystemPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemPaletteEntries(
                 hdc: HDC,
@@ -13598,7 +13598,7 @@ pub unsafe fn GetSystemPaletteUse<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemPaletteUse(hdc: HDC) -> u32;
         }
@@ -13621,7 +13621,7 @@ pub unsafe fn GetTabbedTextExtentA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTabbedTextExtentA(
                 hdc: HDC,
@@ -13656,7 +13656,7 @@ pub unsafe fn GetTabbedTextExtentW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTabbedTextExtentW(
                 hdc: HDC,
@@ -13680,7 +13680,7 @@ pub unsafe fn GetTabbedTextExtentW<
 pub unsafe fn GetTextAlign<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextAlign(hdc: HDC) -> u32;
         }
@@ -13694,7 +13694,7 @@ pub unsafe fn GetTextCharacterExtra<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextCharacterExtra(hdc: HDC) -> i32;
         }
@@ -13706,7 +13706,7 @@ pub unsafe fn GetTextCharacterExtra<'a, Param0: ::windows::runtime::IntoParam<'a
 pub unsafe fn GetTextColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextColor(hdc: HDC) -> u32;
         }
@@ -13731,7 +13731,7 @@ pub unsafe fn GetTextExtentExPointA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentExPointA(
                 hdc: HDC,
@@ -13768,7 +13768,7 @@ pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentExPointI(
                 hdc: HDC,
@@ -13809,7 +13809,7 @@ pub unsafe fn GetTextExtentExPointW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentExPointW(
                 hdc: HDC,
@@ -13847,7 +13847,7 @@ pub unsafe fn GetTextExtentPoint32A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentPoint32A(
                 hdc: HDC,
@@ -13879,7 +13879,7 @@ pub unsafe fn GetTextExtentPoint32W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentPoint32W(
                 hdc: HDC,
@@ -13911,7 +13911,7 @@ pub unsafe fn GetTextExtentPointA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentPointA(
                 hdc: HDC,
@@ -13939,7 +13939,7 @@ pub unsafe fn GetTextExtentPointI<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentPointI(
                 hdc: HDC,
@@ -13971,7 +13971,7 @@ pub unsafe fn GetTextExtentPointW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentPointW(
                 hdc: HDC,
@@ -13998,7 +13998,7 @@ pub unsafe fn GetTextFaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextFaceA(hdc: HDC, c: i32, lpname: super::super::Foundation::PSTR) -> i32;
         }
@@ -14019,7 +14019,7 @@ pub unsafe fn GetTextFaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextFaceW(hdc: HDC, c: i32, lpname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -14039,7 +14039,7 @@ pub unsafe fn GetTextMetricsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextMetricsA(hdc: HDC, lptm: *mut TEXTMETRICA) -> super::super::Foundation::BOOL;
         }
@@ -14058,7 +14058,7 @@ pub unsafe fn GetTextMetricsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTextMetricsW(hdc: HDC, lptm: *mut TEXTMETRICW) -> super::super::Foundation::BOOL;
         }
@@ -14082,7 +14082,7 @@ pub unsafe fn GetUpdateRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUpdateRect(
                 hwnd: super::super::Foundation::HWND,
@@ -14112,7 +14112,7 @@ pub unsafe fn GetUpdateRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUpdateRgn(
                 hwnd: super::super::Foundation::HWND,
@@ -14136,7 +14136,7 @@ pub unsafe fn GetViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetViewportExtEx(
                 hdc: HDC,
@@ -14158,7 +14158,7 @@ pub unsafe fn GetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetViewportOrgEx(
                 hdc: HDC,
@@ -14186,7 +14186,7 @@ pub unsafe fn GetWinMetaFileBits<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWinMetaFileBits(
                 hemf: HENHMETAFILE,
@@ -14216,7 +14216,7 @@ pub unsafe fn GetWindowDC<
 ) -> HDC {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowDC(hwnd: super::super::Foundation::HWND) -> HDC;
         }
@@ -14232,7 +14232,7 @@ pub unsafe fn GetWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowExtEx(
                 hdc: HDC,
@@ -14254,7 +14254,7 @@ pub unsafe fn GetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowOrgEx(
                 hdc: HDC,
@@ -14280,7 +14280,7 @@ pub unsafe fn GetWindowRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN) -> i32;
         }
@@ -14302,7 +14302,7 @@ pub unsafe fn GetWindowRgnBox<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowRgnBox(
                 hwnd: super::super::Foundation::HWND,
@@ -14324,7 +14324,7 @@ pub unsafe fn GetWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWorldTransform(hdc: HDC, lpxf: *mut XFORM) -> super::super::Foundation::BOOL;
         }
@@ -14347,7 +14347,7 @@ pub unsafe fn GradientFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msimg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GradientFill(
                 hdc: HDC,
@@ -14389,7 +14389,7 @@ pub unsafe fn GrayStringA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GrayStringA(
                 hdc: HDC,
@@ -14437,7 +14437,7 @@ pub unsafe fn GrayStringW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GrayStringW(
                 hdc: HDC,
@@ -14909,7 +14909,7 @@ pub unsafe fn InflateRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InflateRect(
                 lprc: *mut super::super::Foundation::RECT,
@@ -14935,7 +14935,7 @@ pub unsafe fn IntersectClipRect<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
         }
@@ -14958,7 +14958,7 @@ pub unsafe fn IntersectRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IntersectRect(
                 lprcdst: *mut super::super::Foundation::RECT,
@@ -14987,7 +14987,7 @@ pub unsafe fn InvalidateRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InvalidateRect(
                 hwnd: super::super::Foundation::HWND,
@@ -15017,7 +15017,7 @@ pub unsafe fn InvalidateRgn<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InvalidateRgn(
                 hwnd: super::super::Foundation::HWND,
@@ -15041,7 +15041,7 @@ pub unsafe fn InvertRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InvertRect(
                 hdc: HDC,
@@ -15067,7 +15067,7 @@ pub unsafe fn InvertRgn<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InvertRgn(hdc: HDC, hrgn: HRGN) -> super::super::Foundation::BOOL;
         }
@@ -15082,7 +15082,7 @@ pub unsafe fn IsRectEmpty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsRectEmpty(
                 lprc: *const super::super::Foundation::RECT,
@@ -15471,7 +15471,7 @@ pub unsafe fn LPtoDP<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LPtoDP(
                 hdc: HDC,
@@ -15502,7 +15502,7 @@ pub unsafe fn LineDDA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LineDDA(
                 xstart: i32,
@@ -15533,7 +15533,7 @@ pub unsafe fn LineTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LineTo(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -15557,7 +15557,7 @@ pub unsafe fn LoadBitmapA<
 ) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadBitmapA(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -15583,7 +15583,7 @@ pub unsafe fn LoadBitmapW<
 ) -> HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LoadBitmapW(
                 hinstance: super::super::Foundation::HINSTANCE,
@@ -15607,7 +15607,7 @@ pub unsafe fn LockWindowUpdate<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LockWindowUpdate(
                 hwndlock: super::super::Foundation::HWND,
@@ -16049,7 +16049,7 @@ pub unsafe fn MapWindowPoints<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MapWindowPoints(
                 hwndfrom: super::super::Foundation::HWND,
@@ -16090,7 +16090,7 @@ pub unsafe fn MaskBlt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MaskBlt(
                 hdcdest: HDC,
@@ -16141,7 +16141,7 @@ pub unsafe fn MergeFontPackage(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "fontsub")]
+        #[link(name = "windows")]
         extern "system" {
             fn MergeFontPackage(
                 puchmergefontbuffer: *const u8,
@@ -16184,7 +16184,7 @@ pub unsafe fn ModifyWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ModifyWorldTransform(
                 hdc: HDC,
@@ -16211,7 +16211,7 @@ pub unsafe fn MonitorFromPoint<
 ) -> HMONITOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MonitorFromPoint(
                 pt: super::super::Foundation::POINT,
@@ -16233,7 +16233,7 @@ pub unsafe fn MonitorFromRect(
 ) -> HMONITOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MonitorFromRect(
                 lprc: *const super::super::Foundation::RECT,
@@ -16258,7 +16258,7 @@ pub unsafe fn MonitorFromWindow<
 ) -> HMONITOR {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MonitorFromWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -16282,7 +16282,7 @@ pub unsafe fn MoveToEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveToEx(
                 hdc: HDC,
@@ -16881,7 +16881,7 @@ pub unsafe fn OffsetClipRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OffsetClipRgn(hdc: HDC, x: i32, y: i32) -> i32;
         }
@@ -16902,7 +16902,7 @@ pub unsafe fn OffsetRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OffsetRect(
                 lprc: *mut super::super::Foundation::RECT,
@@ -16926,7 +16926,7 @@ pub unsafe fn OffsetRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> i32;
         }
@@ -16948,7 +16948,7 @@ pub unsafe fn OffsetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OffsetViewportOrgEx(
                 hdc: HDC,
@@ -16976,7 +16976,7 @@ pub unsafe fn OffsetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OffsetWindowOrgEx(
                 hdc: HDC,
@@ -17556,7 +17556,7 @@ pub unsafe fn PaintDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PaintDesktop(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -17576,7 +17576,7 @@ pub unsafe fn PaintRgn<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PaintRgn(hdc: HDC, hrgn: HRGN) -> super::super::Foundation::BOOL;
         }
@@ -17596,7 +17596,7 @@ pub unsafe fn PatBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PatBlt(
                 hdc: HDC,
@@ -17624,7 +17624,7 @@ pub unsafe fn PathToRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> HRGN {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PathToRegion(hdc: HDC) -> HRGN;
         }
@@ -17647,7 +17647,7 @@ pub unsafe fn Pie<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Pie(
                 hdc: HDC,
@@ -17688,7 +17688,7 @@ pub unsafe fn PlayEnhMetaFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlayEnhMetaFile(
                 hdc: HDC,
@@ -17714,7 +17714,7 @@ pub unsafe fn PlayEnhMetaFileRecord<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlayEnhMetaFileRecord(
                 hdc: HDC,
@@ -17744,7 +17744,7 @@ pub unsafe fn PlayMetaFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlayMetaFile(hdc: HDC, hmf: HMETAFILE) -> super::super::Foundation::BOOL;
         }
@@ -17762,7 +17762,7 @@ pub unsafe fn PlayMetaFileRecord<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlayMetaFileRecord(
                 hdc: HDC,
@@ -17801,7 +17801,7 @@ pub unsafe fn PlgBlt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PlgBlt(
                 hdcdest: HDC,
@@ -17840,7 +17840,7 @@ pub unsafe fn PolyBezier<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolyBezier(
                 hdc: HDC,
@@ -17865,7 +17865,7 @@ pub unsafe fn PolyBezierTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolyBezierTo(
                 hdc: HDC,
@@ -17891,7 +17891,7 @@ pub unsafe fn PolyDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolyDraw(
                 hdc: HDC,
@@ -17919,7 +17919,7 @@ pub unsafe fn PolyPolygon<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolyPolygon(
                 hdc: HDC,
@@ -17947,7 +17947,7 @@ pub unsafe fn PolyPolyline<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolyPolyline(
                 hdc: HDC,
@@ -17974,7 +17974,7 @@ pub unsafe fn PolyTextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolyTextOutA(
                 hdc: HDC,
@@ -17999,7 +17999,7 @@ pub unsafe fn PolyTextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolyTextOutW(
                 hdc: HDC,
@@ -18024,7 +18024,7 @@ pub unsafe fn Polygon<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Polygon(
                 hdc: HDC,
@@ -18049,7 +18049,7 @@ pub unsafe fn Polyline<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Polyline(
                 hdc: HDC,
@@ -18074,7 +18074,7 @@ pub unsafe fn PolylineTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PolylineTo(
                 hdc: HDC,
@@ -18101,7 +18101,7 @@ pub unsafe fn PtInRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PtInRect(
                 lprc: *const super::super::Foundation::RECT,
@@ -18121,7 +18121,7 @@ pub unsafe fn PtInRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PtInRegion(hrgn: HRGN, x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -18142,7 +18142,7 @@ pub unsafe fn PtVisible<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PtVisible(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -18574,7 +18574,7 @@ pub unsafe fn RealizePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RealizePalette(hdc: HDC) -> u32;
         }
@@ -18590,7 +18590,7 @@ pub unsafe fn RectInRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RectInRegion(
                 hrgn: HRGN,
@@ -18612,7 +18612,7 @@ pub unsafe fn RectVisible<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RectVisible(
                 hdc: HDC,
@@ -18637,7 +18637,7 @@ pub unsafe fn Rectangle<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Rectangle(
                 hdc: HDC,
@@ -18671,7 +18671,7 @@ pub unsafe fn RedrawWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RedrawWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -18701,7 +18701,7 @@ pub unsafe fn ReleaseDC<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReleaseDC(hwnd: super::super::Foundation::HWND, hdc: HDC) -> i32;
         }
@@ -18719,7 +18719,7 @@ pub unsafe fn RemoveFontMemResourceEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveFontMemResourceEx(
                 h: super::super::Foundation::HANDLE,
@@ -18739,7 +18739,7 @@ pub unsafe fn RemoveFontResourceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveFontResourceA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -18761,7 +18761,7 @@ pub unsafe fn RemoveFontResourceExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveFontResourceExA(
                 name: super::super::Foundation::PSTR,
@@ -18789,7 +18789,7 @@ pub unsafe fn RemoveFontResourceExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveFontResourceExW(
                 name: super::super::Foundation::PWSTR,
@@ -18815,7 +18815,7 @@ pub unsafe fn RemoveFontResourceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveFontResourceW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -18833,7 +18833,7 @@ pub unsafe fn ResetDCA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> HDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetDCA(hdc: HDC, lpdm: *const super::super::UI::DisplayDevices::DEVMODEA) -> HDC;
         }
@@ -18852,7 +18852,7 @@ pub unsafe fn ResetDCW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> HDC {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResetDCW(hdc: HDC, lpdm: *const super::super::UI::DisplayDevices::DEVMODEW) -> HDC;
         }
@@ -18871,7 +18871,7 @@ pub unsafe fn ResizePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HPALET
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ResizePalette(hpal: HPALETTE, n: u32) -> super::super::Foundation::BOOL;
         }
@@ -18890,7 +18890,7 @@ pub unsafe fn RestoreDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RestoreDC(hdc: HDC, nsaveddc: i32) -> super::super::Foundation::BOOL;
         }
@@ -18914,7 +18914,7 @@ pub unsafe fn RoundRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RoundRect(
                 hdc: HDC,
@@ -19158,7 +19158,7 @@ impl ::std::ops::Not for SYSTEM_PALETTE_USE {
 pub unsafe fn SaveDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SaveDC(hdc: HDC) -> i32;
         }
@@ -19178,7 +19178,7 @@ pub unsafe fn ScaleViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScaleViewportExtEx(
                 hdc: HDC,
@@ -19212,7 +19212,7 @@ pub unsafe fn ScaleWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScaleWindowExtEx(
                 hdc: HDC,
@@ -19245,7 +19245,7 @@ pub unsafe fn ScreenToClient<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScreenToClient(
                 hwnd: super::super::Foundation::HWND,
@@ -19267,7 +19267,7 @@ pub unsafe fn SelectClipPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL;
         }
@@ -19289,7 +19289,7 @@ pub unsafe fn SelectClipRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectClipRgn(hdc: HDC, hrgn: HRGN) -> i32;
         }
@@ -19311,7 +19311,7 @@ pub unsafe fn SelectObject<
 ) -> HGDIOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectObject(hdc: HDC, h: HGDIOBJ) -> HGDIOBJ;
         }
@@ -19333,7 +19333,7 @@ pub unsafe fn SelectPalette<
 ) -> HPALETTE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SelectPalette(
                 hdc: HDC,
@@ -19356,7 +19356,7 @@ pub unsafe fn SetArcDirection<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetArcDirection(hdc: HDC, dir: ARC_DIRECTION) -> i32;
         }
@@ -19375,7 +19375,7 @@ pub unsafe fn SetBitmapBits<'a, Param0: ::windows::runtime::IntoParam<'a, HBITMA
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetBitmapBits(hbm: HBITMAP, cb: u32, pvbits: *const ::std::ffi::c_void) -> i32;
         }
@@ -19397,7 +19397,7 @@ pub unsafe fn SetBitmapDimensionEx<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetBitmapDimensionEx(
                 hbm: HBITMAP,
@@ -19422,7 +19422,7 @@ pub unsafe fn SetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetBkColor(hdc: HDC, color: u32) -> u32;
         }
@@ -19440,7 +19440,7 @@ pub unsafe fn SetBkMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetBkMode(hdc: HDC, mode: BACKGROUND_MODE) -> i32;
         }
@@ -19460,7 +19460,7 @@ pub unsafe fn SetBoundsRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetBoundsRect(
                 hdc: HDC,
@@ -19486,7 +19486,7 @@ pub unsafe fn SetBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetBrushOrgEx(
                 hdc: HDC,
@@ -19512,7 +19512,7 @@ pub unsafe fn SetColorAdjustment<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetColorAdjustment(
                 hdc: HDC,
@@ -19533,7 +19533,7 @@ pub unsafe fn SetDCBrushColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDCBrushColor(hdc: HDC, color: u32) -> u32;
         }
@@ -19551,7 +19551,7 @@ pub unsafe fn SetDCPenColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDCPenColor(hdc: HDC, color: u32) -> u32;
         }
@@ -19571,7 +19571,7 @@ pub unsafe fn SetDIBColorTable<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDIBColorTable(hdc: HDC, istart: u32, centries: u32, prgbq: *const RGBQUAD)
                 -> u32;
@@ -19601,7 +19601,7 @@ pub unsafe fn SetDIBits<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDIBits(
                 hdc: HDC,
@@ -19642,7 +19642,7 @@ pub unsafe fn SetDIBitsToDevice<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetDIBitsToDevice(
                 hdc: HDC,
@@ -19680,7 +19680,7 @@ pub unsafe fn SetDIBitsToDevice<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE;
         }
@@ -19698,7 +19698,7 @@ pub unsafe fn SetGraphicsMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetGraphicsMode(hdc: HDC, imode: GRAPHICS_MODE) -> i32;
         }
@@ -19716,7 +19716,7 @@ pub unsafe fn SetLayout<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLayout(hdc: HDC, l: DC_LAYOUT) -> u32;
         }
@@ -19731,7 +19731,7 @@ pub unsafe fn SetMapMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMapMode(hdc: HDC, imode: HDC_MAP_MODE) -> i32;
         }
@@ -19749,7 +19749,7 @@ pub unsafe fn SetMapperFlags<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMapperFlags(hdc: HDC, flags: u32) -> u32;
         }
@@ -19764,7 +19764,7 @@ pub unsafe fn SetMapperFlags<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE;
         }
@@ -19779,7 +19779,7 @@ pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
 pub unsafe fn SetMetaRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMetaRgn(hdc: HDC) -> i32;
         }
@@ -19796,7 +19796,7 @@ pub unsafe fn SetMiterLimit<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMiterLimit(hdc: HDC, limit: f32, old: *mut f32)
                 -> super::super::Foundation::BOOL;
@@ -19818,7 +19818,7 @@ pub unsafe fn SetPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<'a, HP
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPaletteEntries(
                 hpal: HPALETTE,
@@ -19845,7 +19845,7 @@ pub unsafe fn SetPixel<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPixel(hdc: HDC, x: i32, y: i32, color: u32) -> u32;
         }
@@ -19868,7 +19868,7 @@ pub unsafe fn SetPixelV<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPixelV(hdc: HDC, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL;
         }
@@ -19888,7 +19888,7 @@ pub unsafe fn SetPolyFillMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE) -> i32;
         }
@@ -19906,7 +19906,7 @@ pub unsafe fn SetROP2<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetROP2(hdc: HDC, rop2: R2_MODE) -> i32;
         }
@@ -19925,7 +19925,7 @@ pub unsafe fn SetRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetRect(
                 lprc: *mut super::super::Foundation::RECT,
@@ -19952,7 +19952,7 @@ pub unsafe fn SetRectEmpty(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetRectEmpty(
                 lprc: *mut super::super::Foundation::RECT,
@@ -19973,7 +19973,7 @@ pub unsafe fn SetRectRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetRectRgn(
                 hrgn: HRGN,
@@ -20000,7 +20000,7 @@ pub unsafe fn SetStretchBltMode<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE) -> i32;
         }
@@ -20018,7 +20018,7 @@ pub unsafe fn SetSystemPaletteUse<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSystemPaletteUse(hdc: HDC, r#use: SYSTEM_PALETTE_USE) -> u32;
         }
@@ -20037,7 +20037,7 @@ pub unsafe fn SetTextAlign<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTextAlign(hdc: HDC, align: super::super::UI::Controls::TEXT_ALIGN_OPTIONS)
                 -> u32;
@@ -20056,7 +20056,7 @@ pub unsafe fn SetTextCharacterExtra<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTextCharacterExtra(hdc: HDC, extra: i32) -> i32;
         }
@@ -20074,7 +20074,7 @@ pub unsafe fn SetTextColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTextColor(hdc: HDC, color: u32) -> u32;
         }
@@ -20094,7 +20094,7 @@ pub unsafe fn SetTextJustification<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTextJustification(
                 hdc: HDC,
@@ -20120,7 +20120,7 @@ pub unsafe fn SetViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetViewportExtEx(
                 hdc: HDC,
@@ -20148,7 +20148,7 @@ pub unsafe fn SetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetViewportOrgEx(
                 hdc: HDC,
@@ -20176,7 +20176,7 @@ pub unsafe fn SetWinMetaFileBits<'a, Param2: ::windows::runtime::IntoParam<'a, H
 ) -> HENHMETAFILE {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWinMetaFileBits(
                 nsize: u32,
@@ -20204,7 +20204,7 @@ pub unsafe fn SetWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowExtEx(
                 hdc: HDC,
@@ -20232,7 +20232,7 @@ pub unsafe fn SetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowOrgEx(
                 hdc: HDC,
@@ -20264,7 +20264,7 @@ pub unsafe fn SetWindowRgn<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWindowRgn(
                 hwnd: super::super::Foundation::HWND,
@@ -20288,7 +20288,7 @@ pub unsafe fn SetWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetWorldTransform(hdc: HDC, lpxf: *const XFORM) -> super::super::Foundation::BOOL;
         }
@@ -20320,7 +20320,7 @@ pub unsafe fn StretchBlt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StretchBlt(
                 hdcdest: HDC,
@@ -20370,7 +20370,7 @@ pub unsafe fn StretchDIBits<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StretchDIBits(
                 hdc: HDC,
@@ -20413,7 +20413,7 @@ pub unsafe fn StrokeAndFillPath<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StrokeAndFillPath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -20428,7 +20428,7 @@ pub unsafe fn StrokePath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn StrokePath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -20445,7 +20445,7 @@ pub unsafe fn SubtractRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SubtractRect(
                 lprcdst: *mut super::super::Foundation::RECT,
@@ -20709,7 +20709,7 @@ pub unsafe fn TTCharToUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTCharToUnicode(
                 hdc: HDC,
@@ -20744,7 +20744,7 @@ pub unsafe fn TTDeleteEmbeddedFont<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTDeleteEmbeddedFont(
                 hfontreference: super::super::Foundation::HANDLE,
@@ -20867,7 +20867,7 @@ pub unsafe fn TTEmbedFont<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTEmbedFont(
                 hdc: HDC,
@@ -20915,7 +20915,7 @@ pub unsafe fn TTEmbedFontEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTEmbedFontEx(
                 hdc: HDC,
@@ -20970,7 +20970,7 @@ pub unsafe fn TTEmbedFontFromFileA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTEmbedFontFromFileA(
                 hdc: HDC,
@@ -21018,7 +21018,7 @@ pub unsafe fn TTEnableEmbeddingForFacename<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTEnableEmbeddingForFacename(
                 lpszfacename: super::super::Foundation::PSTR,
@@ -21058,7 +21058,7 @@ pub unsafe fn TTGetEmbeddedFontInfo(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTGetEmbeddedFontInfo(
                 ulflags: TTEMBED_FLAGS,
@@ -21089,7 +21089,7 @@ pub unsafe fn TTGetEmbeddingType<'a, Param0: ::windows::runtime::IntoParam<'a, H
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTGetEmbeddingType(hdc: HDC, pulembedtype: *mut EMBEDDED_FONT_PRIV_STATUS) -> i32;
         }
@@ -21111,7 +21111,7 @@ pub unsafe fn TTGetNewFontName(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTGetNewFontName(
                 phfontreference: *const super::super::Foundation::HANDLE,
@@ -21139,7 +21139,7 @@ pub unsafe fn TTIsEmbeddingEnabled<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTIsEmbeddingEnabled(
                 hdc: HDC,
@@ -21164,7 +21164,7 @@ pub unsafe fn TTIsEmbeddingEnabledForFacename<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTIsEmbeddingEnabledForFacename(
                 lpszfacename: super::super::Foundation::PSTR,
@@ -21285,7 +21285,7 @@ pub unsafe fn TTLoadEmbeddedFont<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTLoadEmbeddedFont(
                 phfontreference: *mut super::super::Foundation::HANDLE,
@@ -21386,7 +21386,7 @@ pub unsafe fn TTRunValidationTests<'a, Param0: ::windows::runtime::IntoParam<'a,
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTRunValidationTests(hdc: HDC, ptestparam: *const TTVALIDATIONTESTSPARAMS) -> i32;
         }
@@ -21404,7 +21404,7 @@ pub unsafe fn TTRunValidationTestsEx<'a, Param0: ::windows::runtime::IntoParam<'
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "t2embed")]
+        #[link(name = "windows")]
         extern "system" {
             fn TTRunValidationTestsEx(
                 hdc: HDC,
@@ -21535,7 +21535,7 @@ pub unsafe fn TabbedTextOutA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TabbedTextOutA(
                 hdc: HDC,
@@ -21579,7 +21579,7 @@ pub unsafe fn TabbedTextOutW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TabbedTextOutW(
                 hdc: HDC,
@@ -21620,7 +21620,7 @@ pub unsafe fn TextOutA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextOutA(
                 hdc: HDC,
@@ -21655,7 +21655,7 @@ pub unsafe fn TextOutW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TextOutW(
                 hdc: HDC,
@@ -21696,7 +21696,7 @@ pub unsafe fn TransparentBlt<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "msimg32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TransparentBlt(
                 hdcdest: HDC,
@@ -21737,7 +21737,7 @@ pub unsafe fn UnionRect(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnionRect(
                 lprcdst: *mut super::super::Foundation::RECT,
@@ -21760,7 +21760,7 @@ pub unsafe fn UnrealizeObject<'a, Param0: ::windows::runtime::IntoParam<'a, HGDI
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnrealizeObject(h: HGDIOBJ) -> super::super::Foundation::BOOL;
         }
@@ -21775,7 +21775,7 @@ pub unsafe fn UpdateColors<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateColors(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -21793,7 +21793,7 @@ pub unsafe fn UpdateWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UpdateWindow(hwnd: super::super::Foundation::HWND)
                 -> super::super::Foundation::BOOL;
@@ -21815,7 +21815,7 @@ pub unsafe fn ValidateRect<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ValidateRect(
                 hwnd: super::super::Foundation::HWND,
@@ -21841,7 +21841,7 @@ pub unsafe fn ValidateRgn<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ValidateRgn(
                 hwnd: super::super::Foundation::HWND,
@@ -21961,7 +21961,7 @@ pub unsafe fn WidenPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "gdi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WidenPath(hdc: HDC) -> super::super::Foundation::BOOL;
         }
@@ -21976,7 +21976,7 @@ pub unsafe fn WindowFromDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
 ) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WindowFromDC(hdc: HDC) -> super::super::Foundation::HWND;
         }
@@ -22031,7 +22031,7 @@ unsafe impl ::windows::runtime::Abi for XFORM {
 pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "opengl32")]
+        #[link(name = "windows")]
         extern "system" {
             fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32;
         }

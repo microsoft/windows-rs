@@ -4696,7 +4696,7 @@ pub unsafe fn DirectInput8Create<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "dinput8")]
+        #[link(name = "windows")]
         extern "system" {
             fn DirectInput8Create(
                 hinst: super::super::Foundation::HINSTANCE,
@@ -6482,7 +6482,7 @@ pub unsafe fn HidD_FlushQueue<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_FlushQueue(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6497,7 +6497,7 @@ pub unsafe fn HidD_FlushQueue<
 pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN;
         }
@@ -6516,7 +6516,7 @@ pub unsafe fn HidD_GetAttributes<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetAttributes(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6542,7 +6542,7 @@ pub unsafe fn HidD_GetConfiguration<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetConfiguration(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6570,7 +6570,7 @@ pub unsafe fn HidD_GetFeature<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetFeature(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6590,7 +6590,7 @@ pub unsafe fn HidD_GetFeature<
 pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID) {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID);
         }
@@ -6611,7 +6611,7 @@ pub unsafe fn HidD_GetIndexedString<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetIndexedString(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6641,7 +6641,7 @@ pub unsafe fn HidD_GetInputReport<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetInputReport(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6669,7 +6669,7 @@ pub unsafe fn HidD_GetManufacturerString<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetManufacturerString(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6697,7 +6697,7 @@ pub unsafe fn HidD_GetMsGenreDescriptor<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetMsGenreDescriptor(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6724,7 +6724,7 @@ pub unsafe fn HidD_GetNumInputBuffers<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetNumInputBuffers(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6750,7 +6750,7 @@ pub unsafe fn HidD_GetPhysicalDescriptor<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetPhysicalDescriptor(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6777,7 +6777,7 @@ pub unsafe fn HidD_GetPreparsedData<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetPreparsedData(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6803,7 +6803,7 @@ pub unsafe fn HidD_GetProductString<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetProductString(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6831,7 +6831,7 @@ pub unsafe fn HidD_GetSerialNumberString<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_GetSerialNumberString(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6859,7 +6859,7 @@ pub unsafe fn HidD_SetConfiguration<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_SetConfiguration(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6887,7 +6887,7 @@ pub unsafe fn HidD_SetFeature<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_SetFeature(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6914,7 +6914,7 @@ pub unsafe fn HidD_SetNumInputBuffers<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_SetNumInputBuffers(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6940,7 +6940,7 @@ pub unsafe fn HidD_SetOutputReport<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidD_SetOutputReport(
                 hiddeviceobject: super::super::Foundation::HANDLE,
@@ -6974,7 +6974,7 @@ pub unsafe fn HidP_GetButtonArray<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetButtonArray(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7013,7 +7013,7 @@ pub unsafe fn HidP_GetButtonCaps(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetButtonCaps(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7040,7 +7040,7 @@ pub unsafe fn HidP_GetCaps(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetCaps(
                 preparseddata: isize,
@@ -7067,7 +7067,7 @@ pub unsafe fn HidP_GetData(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetData(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7101,7 +7101,7 @@ pub unsafe fn HidP_GetExtendedAttributes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetExtendedAttributes(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7131,7 +7131,7 @@ pub unsafe fn HidP_GetLinkCollectionNodes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetLinkCollectionNodes(
                 linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE,
@@ -7165,7 +7165,7 @@ pub unsafe fn HidP_GetScaledUsageValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetScaledUsageValue(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7205,7 +7205,7 @@ pub unsafe fn HidP_GetSpecificButtonCaps(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetSpecificButtonCaps(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7243,7 +7243,7 @@ pub unsafe fn HidP_GetSpecificValueCaps(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetSpecificValueCaps(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7285,7 +7285,7 @@ pub unsafe fn HidP_GetUsageValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetUsageValue(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7331,7 +7331,7 @@ pub unsafe fn HidP_GetUsageValueArray<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetUsageValueArray(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7374,7 +7374,7 @@ pub unsafe fn HidP_GetUsages(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetUsages(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7417,7 +7417,7 @@ pub unsafe fn HidP_GetUsagesEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetUsagesEx(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7452,7 +7452,7 @@ pub unsafe fn HidP_GetValueCaps(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_GetValueCaps(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7482,7 +7482,7 @@ pub unsafe fn HidP_InitializeReportForID(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_InitializeReportForID(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7507,7 +7507,7 @@ pub unsafe fn HidP_InitializeReportForID(
 pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32;
         }
@@ -7526,7 +7526,7 @@ pub unsafe fn HidP_MaxUsageListLength(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_MaxUsageListLength(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7560,7 +7560,7 @@ pub unsafe fn HidP_SetButtonArray<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_SetButtonArray(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7604,7 +7604,7 @@ pub unsafe fn HidP_SetData<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_SetData(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7644,7 +7644,7 @@ pub unsafe fn HidP_SetScaledUsageValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_SetScaledUsageValue(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7688,7 +7688,7 @@ pub unsafe fn HidP_SetUsageValue<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_SetUsageValue(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7734,7 +7734,7 @@ pub unsafe fn HidP_SetUsageValueArray<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_SetUsageValueArray(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7780,7 +7780,7 @@ pub unsafe fn HidP_SetUsages<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_SetUsages(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7819,7 +7819,7 @@ pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_TranslateUsagesToI8042ScanCodes(
                 changedusagelist: *const u16,
@@ -7859,7 +7859,7 @@ pub unsafe fn HidP_UnsetUsages<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_UnsetUsages(
                 reporttype: HIDP_REPORT_TYPE,
@@ -7897,7 +7897,7 @@ pub unsafe fn HidP_UsageListDifference(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "hid")]
+        #[link(name = "windows")]
         extern "system" {
             fn HidP_UsageListDifference(
                 previoususagelist: *const u16,
@@ -15612,7 +15612,7 @@ pub struct _HIDP_PREPARSED_DATA(pub u8);
 pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "winmm")]
+        #[link(name = "windows")]
         extern "system" {
             fn joyConfigChanged(dwflags: u32) -> u32;
         }

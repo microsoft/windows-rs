@@ -504,7 +504,7 @@ pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
 pub unsafe fn LdapGetLastError() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LdapGetLastError() -> u32;
         }
@@ -516,7 +516,7 @@ pub unsafe fn LdapGetLastError() -> u32 {
 pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LdapMapErrorToWin32(ldaperror: u32) -> u32;
         }
@@ -537,7 +537,7 @@ pub unsafe fn LdapUTF8ToUnicode<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LdapUTF8ToUnicode(
                 lpsrcstr: super::super::Foundation::PSTR,
@@ -568,7 +568,7 @@ pub unsafe fn LdapUnicodeToUTF8<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LdapUnicodeToUTF8(
                 lpsrcstr: super::super::Foundation::PWSTR,
@@ -630,7 +630,7 @@ pub type VERIFYSERVERCERT = unsafe extern "system" fn(
 pub unsafe fn ber_alloc_t(options: i32) -> *mut berelement {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_alloc_t(options: i32) -> *mut berelement;
         }
@@ -643,7 +643,7 @@ pub unsafe fn ber_alloc_t(options: i32) -> *mut berelement {
 pub unsafe fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL;
         }
@@ -656,7 +656,7 @@ pub unsafe fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
 pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL);
         }
@@ -669,7 +669,7 @@ pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
 pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_bvfree(bv: *mut LDAP_BERVAL);
         }
@@ -686,7 +686,7 @@ pub unsafe fn ber_first_element(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_first_element(
                 pberelement: *mut berelement,
@@ -707,7 +707,7 @@ pub unsafe fn ber_first_element(
 pub unsafe fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_BERVAL) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_BERVAL) -> i32;
         }
@@ -723,7 +723,7 @@ pub unsafe fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_
 pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_free(pberelement: *mut berelement, fbuf: i32);
         }
@@ -739,7 +739,7 @@ pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
 pub unsafe fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement;
         }
@@ -759,7 +759,7 @@ pub unsafe fn ber_next_element<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_next_element(
                 pberelement: *mut berelement,
@@ -780,7 +780,7 @@ pub unsafe fn ber_next_element<
 pub unsafe fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
         }
@@ -802,7 +802,7 @@ pub unsafe fn ber_printf<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_printf(pberelement: *mut berelement, fmt: super::super::Foundation::PSTR)
                 -> i32;
@@ -825,7 +825,7 @@ pub unsafe fn ber_scanf<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_scanf(pberelement: *mut berelement, fmt: super::super::Foundation::PSTR) -> u32;
         }
@@ -841,7 +841,7 @@ pub unsafe fn ber_scanf<
 pub unsafe fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
         }
@@ -898,7 +898,7 @@ pub unsafe fn cldap_open<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn cldap_open(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
         }
@@ -920,7 +920,7 @@ pub unsafe fn cldap_openA<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn cldap_openA(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
         }
@@ -942,7 +942,7 @@ pub unsafe fn cldap_openW<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn cldap_openW(hostname: super::super::Foundation::PWSTR, portnumber: u32)
                 -> *mut ldap;
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::runtime::Abi for ldap_0 {
 pub unsafe fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32;
         }
@@ -1099,7 +1099,7 @@ pub unsafe fn ldap_add<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add(
                 ld: *mut ldap,
@@ -1127,7 +1127,7 @@ pub unsafe fn ldap_addA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_addA(
                 ld: *mut ldap,
@@ -1155,7 +1155,7 @@ pub unsafe fn ldap_addW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_addW(
                 ld: *mut ldap,
@@ -1186,7 +1186,7 @@ pub unsafe fn ldap_add_ext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_ext(
                 ld: *mut ldap,
@@ -1223,7 +1223,7 @@ pub unsafe fn ldap_add_extA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_extA(
                 ld: *mut ldap,
@@ -1260,7 +1260,7 @@ pub unsafe fn ldap_add_extW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_extW(
                 ld: *mut ldap,
@@ -1296,7 +1296,7 @@ pub unsafe fn ldap_add_ext_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_ext_s(
                 ld: *mut ldap,
@@ -1330,7 +1330,7 @@ pub unsafe fn ldap_add_ext_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_ext_sA(
                 ld: *mut ldap,
@@ -1364,7 +1364,7 @@ pub unsafe fn ldap_add_ext_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_ext_sW(
                 ld: *mut ldap,
@@ -1396,7 +1396,7 @@ pub unsafe fn ldap_add_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_s(
                 ld: *mut ldap,
@@ -1424,7 +1424,7 @@ pub unsafe fn ldap_add_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_sA(
                 ld: *mut ldap,
@@ -1452,7 +1452,7 @@ pub unsafe fn ldap_add_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_add_sW(
                 ld: *mut ldap,
@@ -1482,7 +1482,7 @@ pub unsafe fn ldap_bind<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_bind(
                 ld: *mut ldap,
@@ -1514,7 +1514,7 @@ pub unsafe fn ldap_bindA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_bindA(
                 ld: *mut ldap,
@@ -1546,7 +1546,7 @@ pub unsafe fn ldap_bindW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_bindW(
                 ld: *mut ldap,
@@ -1578,7 +1578,7 @@ pub unsafe fn ldap_bind_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_bind_s(
                 ld: *mut ldap,
@@ -1610,7 +1610,7 @@ pub unsafe fn ldap_bind_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_bind_sA(
                 ld: *mut ldap,
@@ -1642,7 +1642,7 @@ pub unsafe fn ldap_bind_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_bind_sW(
                 ld: *mut ldap,
@@ -1671,7 +1671,7 @@ pub unsafe fn ldap_check_filterA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_check_filterA(
                 ld: *mut ldap,
@@ -1696,7 +1696,7 @@ pub unsafe fn ldap_check_filterW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_check_filterW(
                 ld: *mut ldap,
@@ -1720,7 +1720,7 @@ pub unsafe fn ldap_cleanup<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_cleanup(hinstance: super::super::Foundation::HANDLE) -> u32;
         }
@@ -1733,7 +1733,7 @@ pub unsafe fn ldap_cleanup<
 pub unsafe fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32;
         }
@@ -1759,7 +1759,7 @@ pub unsafe fn ldap_compare<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare(
                 ld: *mut ldap,
@@ -1792,7 +1792,7 @@ pub unsafe fn ldap_compareA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compareA(
                 ld: *mut ldap,
@@ -1825,7 +1825,7 @@ pub unsafe fn ldap_compareW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compareW(
                 ld: *mut ldap,
@@ -1862,7 +1862,7 @@ pub unsafe fn ldap_compare_ext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_ext(
                 ld: *mut ldap,
@@ -1907,7 +1907,7 @@ pub unsafe fn ldap_compare_extA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_extA(
                 ld: *mut ldap,
@@ -1952,7 +1952,7 @@ pub unsafe fn ldap_compare_extW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_extW(
                 ld: *mut ldap,
@@ -1996,7 +1996,7 @@ pub unsafe fn ldap_compare_ext_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_ext_s(
                 ld: *mut ldap,
@@ -2038,7 +2038,7 @@ pub unsafe fn ldap_compare_ext_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_ext_sA(
                 ld: *mut ldap,
@@ -2080,7 +2080,7 @@ pub unsafe fn ldap_compare_ext_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_ext_sW(
                 ld: *mut ldap,
@@ -2119,7 +2119,7 @@ pub unsafe fn ldap_compare_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_s(
                 ld: *mut ldap,
@@ -2152,7 +2152,7 @@ pub unsafe fn ldap_compare_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_sA(
                 ld: *mut ldap,
@@ -2185,7 +2185,7 @@ pub unsafe fn ldap_compare_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_compare_sW(
                 ld: *mut ldap,
@@ -2208,7 +2208,7 @@ pub unsafe fn ldap_compare_sW<
 pub unsafe fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) -> *mut ldap;
         }
@@ -2224,7 +2224,7 @@ pub unsafe fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) 
 pub unsafe fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32;
         }
@@ -2240,7 +2240,7 @@ pub unsafe fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32 {
 pub unsafe fn ldap_control_free(control: *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_control_free(control: *mut ldapcontrolA) -> u32;
         }
@@ -2253,7 +2253,7 @@ pub unsafe fn ldap_control_free(control: *mut ldapcontrolA) -> u32 {
 pub unsafe fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32;
         }
@@ -2266,7 +2266,7 @@ pub unsafe fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32 {
 pub unsafe fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32;
         }
@@ -2279,7 +2279,7 @@ pub unsafe fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32 {
 pub unsafe fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32;
         }
@@ -2292,7 +2292,7 @@ pub unsafe fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32 {
 pub unsafe fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32;
         }
@@ -2305,7 +2305,7 @@ pub unsafe fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32 {
 pub unsafe fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32;
         }
@@ -2318,7 +2318,7 @@ pub unsafe fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32 {
 pub unsafe fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
         }
@@ -2334,7 +2334,7 @@ pub unsafe fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32 {
 pub unsafe fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
         }
@@ -2350,7 +2350,7 @@ pub unsafe fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32
 pub unsafe fn ldap_count_values(vals: *const super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_count_values(vals: *const super::super::Foundation::PSTR) -> u32;
         }
@@ -2363,7 +2363,7 @@ pub unsafe fn ldap_count_values(vals: *const super::super::Foundation::PSTR) -> 
 pub unsafe fn ldap_count_valuesA(vals: *const super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_count_valuesA(vals: *const super::super::Foundation::PSTR) -> u32;
         }
@@ -2376,7 +2376,7 @@ pub unsafe fn ldap_count_valuesA(vals: *const super::super::Foundation::PSTR) ->
 pub unsafe fn ldap_count_valuesW(vals: *const super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_count_valuesW(vals: *const super::super::Foundation::PWSTR) -> u32;
         }
@@ -2389,7 +2389,7 @@ pub unsafe fn ldap_count_valuesW(vals: *const super::super::Foundation::PWSTR) -
 pub unsafe fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32;
         }
@@ -2408,7 +2408,7 @@ pub unsafe fn ldap_create_page_control(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_page_control(
                 externalhandle: *mut ldap,
@@ -2439,7 +2439,7 @@ pub unsafe fn ldap_create_page_controlA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_page_controlA(
                 externalhandle: *mut ldap,
@@ -2470,7 +2470,7 @@ pub unsafe fn ldap_create_page_controlW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_page_controlW(
                 externalhandle: *mut ldap,
@@ -2500,7 +2500,7 @@ pub unsafe fn ldap_create_sort_control(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_sort_control(
                 externalhandle: *mut ldap,
@@ -2528,7 +2528,7 @@ pub unsafe fn ldap_create_sort_controlA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_sort_controlA(
                 externalhandle: *mut ldap,
@@ -2556,7 +2556,7 @@ pub unsafe fn ldap_create_sort_controlW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_sort_controlW(
                 externalhandle: *mut ldap,
@@ -2584,7 +2584,7 @@ pub unsafe fn ldap_create_vlv_controlA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_vlv_controlA(
                 externalhandle: *mut ldap,
@@ -2612,7 +2612,7 @@ pub unsafe fn ldap_create_vlv_controlW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_create_vlv_controlW(
                 externalhandle: *mut ldap,
@@ -2641,7 +2641,7 @@ pub unsafe fn ldap_delete<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
         }
@@ -2663,7 +2663,7 @@ pub unsafe fn ldap_deleteA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_deleteA(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
         }
@@ -2685,7 +2685,7 @@ pub unsafe fn ldap_deleteW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_deleteW(ld: *mut ldap, dn: super::super::Foundation::PWSTR) -> u32;
         }
@@ -2710,7 +2710,7 @@ pub unsafe fn ldap_delete_ext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_ext(
                 ld: *mut ldap,
@@ -2744,7 +2744,7 @@ pub unsafe fn ldap_delete_extA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_extA(
                 ld: *mut ldap,
@@ -2778,7 +2778,7 @@ pub unsafe fn ldap_delete_extW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_extW(
                 ld: *mut ldap,
@@ -2811,7 +2811,7 @@ pub unsafe fn ldap_delete_ext_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_ext_s(
                 ld: *mut ldap,
@@ -2842,7 +2842,7 @@ pub unsafe fn ldap_delete_ext_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_ext_sA(
                 ld: *mut ldap,
@@ -2873,7 +2873,7 @@ pub unsafe fn ldap_delete_ext_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_ext_sW(
                 ld: *mut ldap,
@@ -2902,7 +2902,7 @@ pub unsafe fn ldap_delete_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_s(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
         }
@@ -2924,7 +2924,7 @@ pub unsafe fn ldap_delete_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
         }
@@ -2946,7 +2946,7 @@ pub unsafe fn ldap_delete_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_delete_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR) -> u32;
         }
@@ -2967,7 +2967,7 @@ pub unsafe fn ldap_dn2ufn<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_dn2ufn(dn: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -2985,7 +2985,7 @@ pub unsafe fn ldap_dn2ufnA<
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_dn2ufnA(dn: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
@@ -3003,7 +3003,7 @@ pub unsafe fn ldap_dn2ufnW<
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_dn2ufnW(dn: super::super::Foundation::PWSTR)
                 -> super::super::Foundation::PWSTR;
@@ -3025,7 +3025,7 @@ pub unsafe fn ldap_encode_sort_controlA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_encode_sort_controlA(
                 externalhandle: *mut ldap,
@@ -3056,7 +3056,7 @@ pub unsafe fn ldap_encode_sort_controlW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_encode_sort_controlW(
                 externalhandle: *mut ldap,
@@ -3079,7 +3079,7 @@ pub unsafe fn ldap_encode_sort_controlW<
 pub unsafe fn ldap_err2string(err: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_err2string(err: u32) -> super::super::Foundation::PSTR;
         }
@@ -3092,7 +3092,7 @@ pub unsafe fn ldap_err2string(err: u32) -> super::super::Foundation::PSTR {
 pub unsafe fn ldap_err2stringA(err: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_err2stringA(err: u32) -> super::super::Foundation::PSTR;
         }
@@ -3105,7 +3105,7 @@ pub unsafe fn ldap_err2stringA(err: u32) -> super::super::Foundation::PSTR {
 pub unsafe fn ldap_err2stringW(err: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_err2stringW(err: u32) -> super::super::Foundation::PWSTR;
         }
@@ -3126,7 +3126,7 @@ pub unsafe fn ldap_escape_filter_element<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_escape_filter_element(
                 sourcefilterelement: super::super::Foundation::PSTR,
@@ -3157,7 +3157,7 @@ pub unsafe fn ldap_escape_filter_elementA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_escape_filter_elementA(
                 sourcefilterelement: super::super::Foundation::PSTR,
@@ -3188,7 +3188,7 @@ pub unsafe fn ldap_escape_filter_elementW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_escape_filter_elementW(
                 sourcefilterelement: super::super::Foundation::PSTR,
@@ -3217,7 +3217,7 @@ pub unsafe fn ldap_explode_dn<
 ) -> *mut super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_explode_dn(
                 dn: super::super::Foundation::PSTR,
@@ -3242,7 +3242,7 @@ pub unsafe fn ldap_explode_dnA<
 ) -> *mut super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_explode_dnA(
                 dn: super::super::Foundation::PSTR,
@@ -3267,7 +3267,7 @@ pub unsafe fn ldap_explode_dnW<
 ) -> *mut super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_explode_dnW(
                 dn: super::super::Foundation::PWSTR,
@@ -3296,7 +3296,7 @@ pub unsafe fn ldap_extended_operation<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_extended_operation(
                 ld: *mut ldap,
@@ -3333,7 +3333,7 @@ pub unsafe fn ldap_extended_operationA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_extended_operationA(
                 ld: *mut ldap,
@@ -3370,7 +3370,7 @@ pub unsafe fn ldap_extended_operationW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_extended_operationW(
                 ld: *mut ldap,
@@ -3408,7 +3408,7 @@ pub unsafe fn ldap_extended_operation_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_extended_operation_sA(
                 externalhandle: *mut ldap,
@@ -3448,7 +3448,7 @@ pub unsafe fn ldap_extended_operation_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_extended_operation_sW(
                 externalhandle: *mut ldap,
@@ -3481,7 +3481,7 @@ pub unsafe fn ldap_first_attribute(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_first_attribute(
                 ld: *mut ldap,
@@ -3506,7 +3506,7 @@ pub unsafe fn ldap_first_attributeA(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_first_attributeA(
                 ld: *mut ldap,
@@ -3531,7 +3531,7 @@ pub unsafe fn ldap_first_attributeW(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_first_attributeW(
                 ld: *mut ldap,
@@ -3552,7 +3552,7 @@ pub unsafe fn ldap_first_attributeW(
 pub unsafe fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
         }
@@ -3568,7 +3568,7 @@ pub unsafe fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDA
 pub unsafe fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
         }
@@ -3584,7 +3584,7 @@ pub unsafe fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut
 pub unsafe fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32;
         }
@@ -3597,7 +3597,7 @@ pub unsafe fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32 {
 pub unsafe fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32;
         }
@@ -3610,7 +3610,7 @@ pub unsafe fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32 {
 pub unsafe fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32;
         }
@@ -3626,7 +3626,7 @@ pub unsafe fn ldap_get_dn(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_dn(
                 ld: *mut ldap,
@@ -3648,7 +3648,7 @@ pub unsafe fn ldap_get_dnA(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_dnA(
                 ld: *mut ldap,
@@ -3670,7 +3670,7 @@ pub unsafe fn ldap_get_dnW(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_dnW(
                 ld: *mut ldap,
@@ -3694,7 +3694,7 @@ pub unsafe fn ldap_get_next_page(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_next_page(
                 externalhandle: *mut ldap,
@@ -3724,7 +3724,7 @@ pub unsafe fn ldap_get_next_page_s(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_next_page_s(
                 externalhandle: *mut ldap,
@@ -3755,7 +3755,7 @@ pub unsafe fn ldap_get_option(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_option(
                 ld: *mut ldap,
@@ -3780,7 +3780,7 @@ pub unsafe fn ldap_get_optionW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_optionW(
                 ld: *mut ldap,
@@ -3806,7 +3806,7 @@ pub unsafe fn ldap_get_paged_count(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_paged_count(
                 externalhandle: *mut ldap,
@@ -3836,7 +3836,7 @@ pub unsafe fn ldap_get_values<
 ) -> *mut super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_values(
                 ld: *mut ldap,
@@ -3864,7 +3864,7 @@ pub unsafe fn ldap_get_valuesA<
 ) -> *mut super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_valuesA(
                 ld: *mut ldap,
@@ -3892,7 +3892,7 @@ pub unsafe fn ldap_get_valuesW<
 ) -> *mut super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_valuesW(
                 ld: *mut ldap,
@@ -3920,7 +3920,7 @@ pub unsafe fn ldap_get_values_len<
 ) -> *mut *mut LDAP_BERVAL {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_values_len(
                 externalhandle: *mut ldap,
@@ -3948,7 +3948,7 @@ pub unsafe fn ldap_get_values_lenA<
 ) -> *mut *mut LDAP_BERVAL {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_values_lenA(
                 externalhandle: *mut ldap,
@@ -3976,7 +3976,7 @@ pub unsafe fn ldap_get_values_lenW<
 ) -> *mut *mut LDAP_BERVAL {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_get_values_lenW(
                 externalhandle: *mut ldap,
@@ -4003,7 +4003,7 @@ pub unsafe fn ldap_init<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_init(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
         }
@@ -4025,7 +4025,7 @@ pub unsafe fn ldap_initA<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_initA(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
         }
@@ -4047,7 +4047,7 @@ pub unsafe fn ldap_initW<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_initW(hostname: super::super::Foundation::PWSTR, portnumber: u32) -> *mut ldap;
         }
@@ -4068,7 +4068,7 @@ pub unsafe fn ldap_memfree<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_memfree(block: super::super::Foundation::PSTR);
         }
@@ -4086,7 +4086,7 @@ pub unsafe fn ldap_memfreeA<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_memfreeA(block: super::super::Foundation::PSTR);
         }
@@ -4104,7 +4104,7 @@ pub unsafe fn ldap_memfreeW<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_memfreeW(block: super::super::Foundation::PWSTR);
         }
@@ -4124,7 +4124,7 @@ pub unsafe fn ldap_modify<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify(
                 ld: *mut ldap,
@@ -4152,7 +4152,7 @@ pub unsafe fn ldap_modifyA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modifyA(
                 ld: *mut ldap,
@@ -4180,7 +4180,7 @@ pub unsafe fn ldap_modifyW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modifyW(
                 ld: *mut ldap,
@@ -4211,7 +4211,7 @@ pub unsafe fn ldap_modify_ext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_ext(
                 ld: *mut ldap,
@@ -4248,7 +4248,7 @@ pub unsafe fn ldap_modify_extA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_extA(
                 ld: *mut ldap,
@@ -4285,7 +4285,7 @@ pub unsafe fn ldap_modify_extW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_extW(
                 ld: *mut ldap,
@@ -4321,7 +4321,7 @@ pub unsafe fn ldap_modify_ext_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_ext_s(
                 ld: *mut ldap,
@@ -4355,7 +4355,7 @@ pub unsafe fn ldap_modify_ext_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_ext_sA(
                 ld: *mut ldap,
@@ -4389,7 +4389,7 @@ pub unsafe fn ldap_modify_ext_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_ext_sW(
                 ld: *mut ldap,
@@ -4421,7 +4421,7 @@ pub unsafe fn ldap_modify_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_s(
                 ld: *mut ldap,
@@ -4449,7 +4449,7 @@ pub unsafe fn ldap_modify_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_sA(
                 ld: *mut ldap,
@@ -4477,7 +4477,7 @@ pub unsafe fn ldap_modify_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modify_sW(
                 ld: *mut ldap,
@@ -4506,7 +4506,7 @@ pub unsafe fn ldap_modrdn<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn(
                 externalhandle: *mut ldap,
@@ -4536,7 +4536,7 @@ pub unsafe fn ldap_modrdn2<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn2(
                 externalhandle: *mut ldap,
@@ -4568,7 +4568,7 @@ pub unsafe fn ldap_modrdn2A<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn2A(
                 externalhandle: *mut ldap,
@@ -4600,7 +4600,7 @@ pub unsafe fn ldap_modrdn2W<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn2W(
                 externalhandle: *mut ldap,
@@ -4632,7 +4632,7 @@ pub unsafe fn ldap_modrdn2_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn2_s(
                 externalhandle: *mut ldap,
@@ -4664,7 +4664,7 @@ pub unsafe fn ldap_modrdn2_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn2_sA(
                 externalhandle: *mut ldap,
@@ -4696,7 +4696,7 @@ pub unsafe fn ldap_modrdn2_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn2_sW(
                 externalhandle: *mut ldap,
@@ -4727,7 +4727,7 @@ pub unsafe fn ldap_modrdnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdnA(
                 externalhandle: *mut ldap,
@@ -4756,7 +4756,7 @@ pub unsafe fn ldap_modrdnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdnW(
                 externalhandle: *mut ldap,
@@ -4785,7 +4785,7 @@ pub unsafe fn ldap_modrdn_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn_s(
                 externalhandle: *mut ldap,
@@ -4814,7 +4814,7 @@ pub unsafe fn ldap_modrdn_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn_sA(
                 externalhandle: *mut ldap,
@@ -4843,7 +4843,7 @@ pub unsafe fn ldap_modrdn_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_modrdn_sW(
                 externalhandle: *mut ldap,
@@ -4864,7 +4864,7 @@ pub unsafe fn ldap_modrdn_sW<
 pub unsafe fn ldap_msgfree(res: *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_msgfree(res: *mut LDAPMessage) -> u32;
         }
@@ -4881,7 +4881,7 @@ pub unsafe fn ldap_next_attribute(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_next_attribute(
                 ld: *mut ldap,
@@ -4906,7 +4906,7 @@ pub unsafe fn ldap_next_attributeA(
 ) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_next_attributeA(
                 ld: *mut ldap,
@@ -4931,7 +4931,7 @@ pub unsafe fn ldap_next_attributeW(
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_next_attributeW(
                 ld: *mut ldap,
@@ -4952,7 +4952,7 @@ pub unsafe fn ldap_next_attributeW(
 pub unsafe fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
         }
@@ -4968,7 +4968,7 @@ pub unsafe fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LD
 pub unsafe fn ldap_next_reference(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_next_reference(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
         }
@@ -4990,7 +4990,7 @@ pub unsafe fn ldap_open<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_open(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
         }
@@ -5012,7 +5012,7 @@ pub unsafe fn ldap_openA<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_openA(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
         }
@@ -5034,7 +5034,7 @@ pub unsafe fn ldap_openW<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_openW(hostname: super::super::Foundation::PWSTR, portnumber: u32) -> *mut ldap;
         }
@@ -5059,7 +5059,7 @@ pub unsafe fn ldap_parse_extended_resultA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_extended_resultA(
                 connection: *mut ldap,
@@ -5093,7 +5093,7 @@ pub unsafe fn ldap_parse_extended_resultW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_extended_resultW(
                 connection: *mut ldap,
@@ -5123,7 +5123,7 @@ pub unsafe fn ldap_parse_page_control(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_page_control(
                 externalhandle: *mut ldap,
@@ -5151,7 +5151,7 @@ pub unsafe fn ldap_parse_page_controlA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_page_controlA(
                 externalhandle: *mut ldap,
@@ -5179,7 +5179,7 @@ pub unsafe fn ldap_parse_page_controlW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_page_controlW(
                 externalhandle: *mut ldap,
@@ -5206,7 +5206,7 @@ pub unsafe fn ldap_parse_reference(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_reference(
                 connection: *mut ldap,
@@ -5231,7 +5231,7 @@ pub unsafe fn ldap_parse_referenceA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_referenceA(
                 connection: *mut ldap,
@@ -5256,7 +5256,7 @@ pub unsafe fn ldap_parse_referenceW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_referenceW(
                 connection: *mut ldap,
@@ -5289,7 +5289,7 @@ pub unsafe fn ldap_parse_result<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_result(
                 connection: *mut ldap,
@@ -5332,7 +5332,7 @@ pub unsafe fn ldap_parse_resultA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_resultA(
                 connection: *mut ldap,
@@ -5375,7 +5375,7 @@ pub unsafe fn ldap_parse_resultW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_resultW(
                 connection: *mut ldap,
@@ -5411,7 +5411,7 @@ pub unsafe fn ldap_parse_sort_control(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_sort_control(
                 externalhandle: *mut ldap,
@@ -5439,7 +5439,7 @@ pub unsafe fn ldap_parse_sort_controlA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_sort_controlA(
                 externalhandle: *mut ldap,
@@ -5467,7 +5467,7 @@ pub unsafe fn ldap_parse_sort_controlW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_sort_controlW(
                 externalhandle: *mut ldap,
@@ -5497,7 +5497,7 @@ pub unsafe fn ldap_parse_vlv_controlA(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_vlv_controlA(
                 externalhandle: *mut ldap,
@@ -5531,7 +5531,7 @@ pub unsafe fn ldap_parse_vlv_controlW(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_parse_vlv_controlW(
                 externalhandle: *mut ldap,
@@ -5564,7 +5564,7 @@ pub unsafe fn ldap_perror<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_perror(ld: *mut ldap, msg: super::super::Foundation::PSTR);
         }
@@ -5594,7 +5594,7 @@ pub unsafe fn ldap_rename_ext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_rename_ext(
                 ld: *mut ldap,
@@ -5639,7 +5639,7 @@ pub unsafe fn ldap_rename_extA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_rename_extA(
                 ld: *mut ldap,
@@ -5684,7 +5684,7 @@ pub unsafe fn ldap_rename_extW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_rename_extW(
                 ld: *mut ldap,
@@ -5728,7 +5728,7 @@ pub unsafe fn ldap_rename_ext_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_rename_ext_s(
                 ld: *mut ldap,
@@ -5770,7 +5770,7 @@ pub unsafe fn ldap_rename_ext_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_rename_ext_sA(
                 ld: *mut ldap,
@@ -5812,7 +5812,7 @@ pub unsafe fn ldap_rename_ext_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_rename_ext_sW(
                 ld: *mut ldap,
@@ -5847,7 +5847,7 @@ pub unsafe fn ldap_result(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_result(
                 ld: *mut ldap,
@@ -5872,7 +5872,7 @@ pub unsafe fn ldap_result(
 pub unsafe fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u32) -> u32;
         }
@@ -5901,7 +5901,7 @@ pub unsafe fn ldap_sasl_bindA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_sasl_bindA(
                 externalhandle: *mut ldap,
@@ -5942,7 +5942,7 @@ pub unsafe fn ldap_sasl_bindW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_sasl_bindW(
                 externalhandle: *mut ldap,
@@ -5983,7 +5983,7 @@ pub unsafe fn ldap_sasl_bind_sA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_sasl_bind_sA(
                 externalhandle: *mut ldap,
@@ -6024,7 +6024,7 @@ pub unsafe fn ldap_sasl_bind_sW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_sasl_bind_sW(
                 externalhandle: *mut ldap,
@@ -6064,7 +6064,7 @@ pub unsafe fn ldap_search<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search(
                 ld: *mut ldap,
@@ -6102,7 +6102,7 @@ pub unsafe fn ldap_searchA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_searchA(
                 ld: *mut ldap,
@@ -6140,7 +6140,7 @@ pub unsafe fn ldap_searchW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_searchW(
                 ld: *mut ldap,
@@ -6170,7 +6170,7 @@ pub unsafe fn ldap_search_abandon_page(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_abandon_page(
                 externalhandle: *mut ldap,
@@ -6205,7 +6205,7 @@ pub unsafe fn ldap_search_ext<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_ext(
                 ld: *mut ldap,
@@ -6258,7 +6258,7 @@ pub unsafe fn ldap_search_extA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_extA(
                 ld: *mut ldap,
@@ -6311,7 +6311,7 @@ pub unsafe fn ldap_search_extW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_extW(
                 ld: *mut ldap,
@@ -6364,7 +6364,7 @@ pub unsafe fn ldap_search_ext_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_ext_s(
                 ld: *mut ldap,
@@ -6417,7 +6417,7 @@ pub unsafe fn ldap_search_ext_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_ext_sA(
                 ld: *mut ldap,
@@ -6470,7 +6470,7 @@ pub unsafe fn ldap_search_ext_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_ext_sW(
                 ld: *mut ldap,
@@ -6523,7 +6523,7 @@ pub unsafe fn ldap_search_init_page<
 ) -> *mut ldapsearch {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_init_page(
                 externalhandle: *mut ldap,
@@ -6576,7 +6576,7 @@ pub unsafe fn ldap_search_init_pageA<
 ) -> *mut ldapsearch {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_init_pageA(
                 externalhandle: *mut ldap,
@@ -6629,7 +6629,7 @@ pub unsafe fn ldap_search_init_pageW<
 ) -> *mut ldapsearch {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_init_pageW(
                 externalhandle: *mut ldap,
@@ -6678,7 +6678,7 @@ pub unsafe fn ldap_search_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_s(
                 ld: *mut ldap,
@@ -6719,7 +6719,7 @@ pub unsafe fn ldap_search_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_sA(
                 ld: *mut ldap,
@@ -6760,7 +6760,7 @@ pub unsafe fn ldap_search_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_sW(
                 ld: *mut ldap,
@@ -6802,7 +6802,7 @@ pub unsafe fn ldap_search_st<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_st(
                 ld: *mut ldap,
@@ -6846,7 +6846,7 @@ pub unsafe fn ldap_search_stA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_stA(
                 ld: *mut ldap,
@@ -6890,7 +6890,7 @@ pub unsafe fn ldap_search_stW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_search_stW(
                 ld: *mut ldap,
@@ -6920,7 +6920,7 @@ pub unsafe fn ldap_search_stW<
 pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_set_dbg_flags(newflags: u32) -> u32;
         }
@@ -6933,7 +6933,7 @@ pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
 pub unsafe fn ldap_set_dbg_routine(debugprintroutine: ::std::option::Option<DBGPRINT>) {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_set_dbg_routine(debugprintroutine: ::windows::runtime::RawPtr);
         }
@@ -6952,7 +6952,7 @@ pub unsafe fn ldap_set_option(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_set_option(
                 ld: *mut ldap,
@@ -6977,7 +6977,7 @@ pub unsafe fn ldap_set_optionW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_set_optionW(
                 ld: *mut ldap,
@@ -7006,7 +7006,7 @@ pub unsafe fn ldap_simple_bind<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_simple_bind(
                 ld: *mut ldap,
@@ -7035,7 +7035,7 @@ pub unsafe fn ldap_simple_bindA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_simple_bindA(
                 ld: *mut ldap,
@@ -7064,7 +7064,7 @@ pub unsafe fn ldap_simple_bindW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_simple_bindW(
                 ld: *mut ldap,
@@ -7093,7 +7093,7 @@ pub unsafe fn ldap_simple_bind_s<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_simple_bind_s(
                 ld: *mut ldap,
@@ -7122,7 +7122,7 @@ pub unsafe fn ldap_simple_bind_sA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_simple_bind_sA(
                 ld: *mut ldap,
@@ -7151,7 +7151,7 @@ pub unsafe fn ldap_simple_bind_sW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_simple_bind_sW(
                 ld: *mut ldap,
@@ -7179,7 +7179,7 @@ pub unsafe fn ldap_sslinit<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_sslinit(
                 hostname: super::super::Foundation::PSTR,
@@ -7207,7 +7207,7 @@ pub unsafe fn ldap_sslinitA<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_sslinitA(
                 hostname: super::super::Foundation::PSTR,
@@ -7235,7 +7235,7 @@ pub unsafe fn ldap_sslinitW<
 ) -> *mut ldap {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_sslinitW(
                 hostname: super::super::Foundation::PWSTR,
@@ -7262,7 +7262,7 @@ pub unsafe fn ldap_start_tls_sA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_start_tls_sA(
                 externalhandle: *mut ldap,
@@ -7293,7 +7293,7 @@ pub unsafe fn ldap_start_tls_sW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_start_tls_sW(
                 externalhandle: *mut ldap,
@@ -7321,7 +7321,7 @@ pub unsafe fn ldap_startup(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_startup(
                 version: *mut ldap_version_info,
@@ -7340,7 +7340,7 @@ pub unsafe fn ldap_startup(
 pub unsafe fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Foundation::BOOLEAN;
         }
@@ -7359,7 +7359,7 @@ pub unsafe fn ldap_ufn2dn<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_ufn2dn(
                 ufn: super::super::Foundation::PSTR,
@@ -7384,7 +7384,7 @@ pub unsafe fn ldap_ufn2dnA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_ufn2dnA(
                 ufn: super::super::Foundation::PSTR,
@@ -7409,7 +7409,7 @@ pub unsafe fn ldap_ufn2dnW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_ufn2dnW(
                 ufn: super::super::Foundation::PWSTR,
@@ -7428,7 +7428,7 @@ pub unsafe fn ldap_ufn2dnW<
 pub unsafe fn ldap_unbind(ld: *mut ldap) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_unbind(ld: *mut ldap) -> u32;
         }
@@ -7441,7 +7441,7 @@ pub unsafe fn ldap_unbind(ld: *mut ldap) -> u32 {
 pub unsafe fn ldap_unbind_s(ld: *mut ldap) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_unbind_s(ld: *mut ldap) -> u32;
         }
@@ -7454,7 +7454,7 @@ pub unsafe fn ldap_unbind_s(ld: *mut ldap) -> u32 {
 pub unsafe fn ldap_value_free(vals: *const super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_value_free(vals: *const super::super::Foundation::PSTR) -> u32;
         }
@@ -7467,7 +7467,7 @@ pub unsafe fn ldap_value_free(vals: *const super::super::Foundation::PSTR) -> u3
 pub unsafe fn ldap_value_freeA(vals: *const super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_value_freeA(vals: *const super::super::Foundation::PSTR) -> u32;
         }
@@ -7480,7 +7480,7 @@ pub unsafe fn ldap_value_freeA(vals: *const super::super::Foundation::PSTR) -> u
 pub unsafe fn ldap_value_freeW(vals: *const super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_value_freeW(vals: *const super::super::Foundation::PWSTR) -> u32;
         }
@@ -7493,7 +7493,7 @@ pub unsafe fn ldap_value_freeW(vals: *const super::super::Foundation::PWSTR) -> 
 pub unsafe fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "wldap32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32;
         }

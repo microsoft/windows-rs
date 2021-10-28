@@ -54,10 +54,6 @@ jobs:
           rust: nightly
           other: i686-pc-windows-msvc
           platform: x86
-        - os: ubuntu-latest
-          rust: stable
-          other: i686-unknown-linux-gnu
-          platform: x86
     steps:
     - name: Checkout
       uses: actions/checkout@v2

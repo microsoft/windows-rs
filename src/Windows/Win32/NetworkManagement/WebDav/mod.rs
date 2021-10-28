@@ -172,7 +172,7 @@ pub unsafe fn DavAddConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavAddConnection(
                 connectionhandle: *mut super::super::Foundation::HANDLE,
@@ -206,7 +206,7 @@ pub unsafe fn DavCancelConnectionsToServer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavCancelConnectionsToServer(
                 lpname: super::super::Foundation::PWSTR,
@@ -230,7 +230,7 @@ pub unsafe fn DavDeleteConnection<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -248,7 +248,7 @@ pub unsafe fn DavFlushFile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32;
         }
@@ -269,7 +269,7 @@ pub unsafe fn DavGetExtendedError<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavGetExtendedError(
                 hfile: super::super::Foundation::HANDLE,
@@ -299,7 +299,7 @@ pub unsafe fn DavGetHTTPFromUNCPath<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavGetHTTPFromUNCPath(
                 uncpath: super::super::Foundation::PWSTR,
@@ -327,7 +327,7 @@ pub unsafe fn DavGetTheLockOwnerOfTheFile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavGetTheLockOwnerOfTheFile(
                 filename: super::super::Foundation::PWSTR,
@@ -355,7 +355,7 @@ pub unsafe fn DavGetUNCFromHTTPPath<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavGetUNCFromHTTPPath(
                 url: super::super::Foundation::PWSTR,
@@ -381,7 +381,7 @@ pub unsafe fn DavInvalidateCache<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavInvalidateCache(urlname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -397,7 +397,7 @@ pub unsafe fn DavRegisterAuthCallback(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavRegisterAuthCallback(callback: ::windows::runtime::RawPtr, version: u32) -> u32;
         }
@@ -412,7 +412,7 @@ pub unsafe fn DavRegisterAuthCallback(
 pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "davclnt")]
+        #[link(name = "windows")]
         extern "system" {
             fn DavUnregisterAuthCallback(hcallback: u32);
         }

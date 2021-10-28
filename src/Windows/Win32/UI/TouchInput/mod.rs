@@ -16,7 +16,7 @@ pub unsafe fn CloseGestureInfoHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseGestureInfoHandle(hgestureinfo: HGESTUREINFO)
                 -> super::super::Foundation::BOOL;
@@ -32,7 +32,7 @@ pub unsafe fn CloseTouchInputHandle<'a, Param0: ::windows::runtime::IntoParam<'a
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> super::super::Foundation::BOOL;
         }
@@ -248,7 +248,7 @@ pub unsafe fn GetGestureConfig<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGestureConfig(
                 hwnd: super::super::Foundation::HWND,
@@ -279,7 +279,7 @@ pub unsafe fn GetGestureExtraArgs<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGestureExtraArgs(
                 hgestureinfo: HGESTUREINFO,
@@ -303,7 +303,7 @@ pub unsafe fn GetGestureInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HGEST
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetGestureInfo(
                 hgestureinfo: HGESTUREINFO,
@@ -327,7 +327,7 @@ pub unsafe fn GetTouchInputInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HT
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTouchInputInfo(
                 htouchinput: HTOUCHINPUT,
@@ -1401,7 +1401,7 @@ pub unsafe fn IsTouchWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsTouchWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -1512,7 +1512,7 @@ pub unsafe fn RegisterTouchWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterTouchWindow(
                 hwnd: super::super::Foundation::HWND,
@@ -1540,7 +1540,7 @@ pub unsafe fn SetGestureConfig<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetGestureConfig(
                 hwnd: super::super::Foundation::HWND,
@@ -1737,7 +1737,7 @@ pub unsafe fn UnregisterTouchWindow<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnregisterTouchWindow(
                 hwnd: super::super::Foundation::HWND,

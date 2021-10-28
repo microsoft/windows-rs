@@ -20,7 +20,7 @@ pub unsafe fn AddLogContainer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddLogContainer(
                 hlog: super::super::Foundation::HANDLE,
@@ -52,7 +52,7 @@ pub unsafe fn AddLogContainerSet<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddLogContainerSet(
                 hlog: super::super::Foundation::HANDLE,
@@ -83,7 +83,7 @@ pub unsafe fn AddUsersToEncryptedFile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddUsersToEncryptedFile(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -107,7 +107,7 @@ pub unsafe fn AdvanceLogBase(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdvanceLogBase(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -135,7 +135,7 @@ pub unsafe fn AlignReservedLog(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AlignReservedLog(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -162,7 +162,7 @@ pub unsafe fn AllocReservedLog(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AllocReservedLog(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -183,7 +183,7 @@ pub unsafe fn AllocReservedLog(
 pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AreFileApisANSI() -> super::super::Foundation::BOOL;
         }
@@ -202,7 +202,7 @@ pub unsafe fn AreShortNamesEnabled<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn AreShortNamesEnabled(
                 handle: super::super::Foundation::HANDLE,
@@ -354,7 +354,7 @@ pub unsafe fn BackupRead<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BackupRead(
                 hfile: super::super::Foundation::HANDLE,
@@ -393,7 +393,7 @@ pub unsafe fn BackupSeek<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BackupSeek(
                 hfile: super::super::Foundation::HANDLE,
@@ -433,7 +433,7 @@ pub unsafe fn BackupWrite<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn BackupWrite(
                 hfile: super::super::Foundation::HANDLE,
@@ -470,7 +470,7 @@ pub unsafe fn BuildIoRingCancelRequest<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildIoRingCancelRequest(
                 ioring: *const HIORING__,
@@ -506,7 +506,7 @@ pub unsafe fn BuildIoRingReadFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildIoRingReadFile(
                 ioring: *const HIORING__,
@@ -540,7 +540,7 @@ pub unsafe fn BuildIoRingRegisterBuffers(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildIoRingRegisterBuffers(
                 ioring: *const HIORING__,
@@ -569,7 +569,7 @@ pub unsafe fn BuildIoRingRegisterFileHandles(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn BuildIoRingRegisterFileHandles(
                 ioring: *const HIORING__,
@@ -2857,7 +2857,7 @@ pub unsafe fn CancelIo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelIo(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2876,7 +2876,7 @@ pub unsafe fn CancelIoEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelIoEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -2900,7 +2900,7 @@ pub unsafe fn CancelSynchronousIo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelSynchronousIo(
                 hthread: super::super::Foundation::HANDLE,
@@ -2924,7 +2924,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3A<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckNameLegalDOS8Dot3A(
                 lpname: super::super::Foundation::PSTR,
@@ -2958,7 +2958,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3W<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CheckNameLegalDOS8Dot3W(
                 lpname: super::super::Foundation::PWSTR,
@@ -2998,7 +2998,7 @@ pub unsafe fn CloseAndResetLogFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseAndResetLogFile(
                 hlog: super::super::Foundation::HANDLE,
@@ -3012,7 +3012,7 @@ pub unsafe fn CloseAndResetLogFile<
 pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void);
         }
@@ -3024,7 +3024,7 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void) {
 pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::HRESULT;
         }
@@ -3049,7 +3049,7 @@ pub unsafe fn CommitComplete<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommitComplete(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -3074,7 +3074,7 @@ pub unsafe fn CommitEnlistment<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommitEnlistment(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -3098,7 +3098,7 @@ pub unsafe fn CommitTransaction<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommitTransaction(
                 transactionhandle: super::super::Foundation::HANDLE,
@@ -3118,7 +3118,7 @@ pub unsafe fn CommitTransactionAsync<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CommitTransactionAsync(
                 transactionhandle: super::super::Foundation::HANDLE,
@@ -3136,7 +3136,7 @@ pub unsafe fn CompareFileTime(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CompareFileTime(
                 lpfiletime1: *const super::super::Foundation::FILETIME,
@@ -3163,7 +3163,7 @@ pub unsafe fn CopyFile2<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFile2(
                 pwszexistingfilename: super::super::Foundation::PWSTR,
@@ -3194,7 +3194,7 @@ pub unsafe fn CopyFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFileA(
                 lpexistingfilename: super::super::Foundation::PSTR,
@@ -3226,7 +3226,7 @@ pub unsafe fn CopyFileExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFileExA(
                 lpexistingfilename: super::super::Foundation::PSTR,
@@ -3264,7 +3264,7 @@ pub unsafe fn CopyFileExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFileExW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -3300,7 +3300,7 @@ pub unsafe fn CopyFileFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFileFromAppW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -3334,7 +3334,7 @@ pub unsafe fn CopyFileTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFileTransactedA(
                 lpexistingfilename: super::super::Foundation::PSTR,
@@ -3376,7 +3376,7 @@ pub unsafe fn CopyFileTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFileTransactedW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -3414,7 +3414,7 @@ pub unsafe fn CopyFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyFileW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -3434,7 +3434,7 @@ pub unsafe fn CopyFileW<
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32;
         }
@@ -3456,7 +3456,7 @@ pub unsafe fn CreateDirectoryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirectoryA(
                 lppathname: super::super::Foundation::PSTR,
@@ -3483,7 +3483,7 @@ pub unsafe fn CreateDirectoryExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirectoryExA(
                 lptemplatedirectory: super::super::Foundation::PSTR,
@@ -3512,7 +3512,7 @@ pub unsafe fn CreateDirectoryExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirectoryExW(
                 lptemplatedirectory: super::super::Foundation::PWSTR,
@@ -3539,7 +3539,7 @@ pub unsafe fn CreateDirectoryFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirectoryFromAppW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -3568,7 +3568,7 @@ pub unsafe fn CreateDirectoryTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirectoryTransactedA(
                 lptemplatedirectory: super::super::Foundation::PSTR,
@@ -3601,7 +3601,7 @@ pub unsafe fn CreateDirectoryTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirectoryTransactedW(
                 lptemplatedirectory: super::super::Foundation::PWSTR,
@@ -3630,7 +3630,7 @@ pub unsafe fn CreateDirectoryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateDirectoryW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -3660,7 +3660,7 @@ pub unsafe fn CreateEnlistment<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateEnlistment(
                 lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
@@ -3696,7 +3696,7 @@ pub unsafe fn CreateFile2<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFile2(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -3730,7 +3730,7 @@ pub unsafe fn CreateFile2FromAppW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFile2FromAppW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -3767,7 +3767,7 @@ pub unsafe fn CreateFileA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -3808,7 +3808,7 @@ pub unsafe fn CreateFileFromAppW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileFromAppW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -3853,7 +3853,7 @@ pub unsafe fn CreateFileTransactedA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -3904,7 +3904,7 @@ pub unsafe fn CreateFileTransactedW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -3951,7 +3951,7 @@ pub unsafe fn CreateFileW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateFileW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -3988,7 +3988,7 @@ pub unsafe fn CreateHardLinkA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateHardLinkA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -4019,7 +4019,7 @@ pub unsafe fn CreateHardLinkTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateHardLinkTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -4052,7 +4052,7 @@ pub unsafe fn CreateHardLinkTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateHardLinkTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -4083,7 +4083,7 @@ pub unsafe fn CreateHardLinkW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateHardLinkW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -4113,7 +4113,7 @@ pub unsafe fn CreateIoCompletionPort<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIoCompletionPort(
                 filehandle: super::super::Foundation::HANDLE,
@@ -4140,7 +4140,7 @@ pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_
 ) -> ::windows::runtime::Result<*mut HIORING__> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateIoRing(
                 ioringversion: IORING_VERSION,
@@ -4177,7 +4177,7 @@ pub unsafe fn CreateLogContainerScanContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateLogContainerScanContext(
                 hlog: super::super::Foundation::HANDLE,
@@ -4214,7 +4214,7 @@ pub unsafe fn CreateLogFile<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateLogFile(
                 pszlogfilename: super::super::Foundation::PWSTR,
@@ -4253,7 +4253,7 @@ pub unsafe fn CreateLogMarshallingArea<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateLogMarshallingArea(
                 hlog: super::super::Foundation::HANDLE,
@@ -4294,7 +4294,7 @@ pub unsafe fn CreateResourceManager<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateResourceManager(
                 lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
@@ -4327,7 +4327,7 @@ pub unsafe fn CreateSymbolicLinkA<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSymbolicLinkA(
                 lpsymlinkfilename: super::super::Foundation::PSTR,
@@ -4358,7 +4358,7 @@ pub unsafe fn CreateSymbolicLinkTransactedA<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSymbolicLinkTransactedA(
                 lpsymlinkfilename: super::super::Foundation::PSTR,
@@ -4391,7 +4391,7 @@ pub unsafe fn CreateSymbolicLinkTransactedW<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSymbolicLinkTransactedW(
                 lpsymlinkfilename: super::super::Foundation::PWSTR,
@@ -4422,7 +4422,7 @@ pub unsafe fn CreateSymbolicLinkW<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateSymbolicLinkW(
                 lpsymlinkfilename: super::super::Foundation::PWSTR,
@@ -4451,7 +4451,7 @@ pub unsafe fn CreateTapePartition<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTapePartition(
                 hdevice: super::super::Foundation::HANDLE,
@@ -4485,7 +4485,7 @@ pub unsafe fn CreateTransaction<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTransaction(
                 lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
@@ -4522,7 +4522,7 @@ pub unsafe fn CreateTransactionManager<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateTransactionManager(
                 lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
@@ -5939,7 +5939,7 @@ pub unsafe fn DecryptFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DecryptFileA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -5964,7 +5964,7 @@ pub unsafe fn DecryptFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DecryptFileW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -5991,7 +5991,7 @@ pub unsafe fn DefineDosDeviceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefineDosDeviceA(
                 dwflags: DEFINE_DOS_DEVICE_FLAGS,
@@ -6020,7 +6020,7 @@ pub unsafe fn DefineDosDeviceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DefineDosDeviceW(
                 dwflags: DEFINE_DOS_DEVICE_FLAGS,
@@ -6046,7 +6046,7 @@ pub unsafe fn DeleteFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFileA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -6066,7 +6066,7 @@ pub unsafe fn DeleteFileFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFileFromAppW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -6088,7 +6088,7 @@ pub unsafe fn DeleteFileTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFileTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -6114,7 +6114,7 @@ pub unsafe fn DeleteFileTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFileTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -6138,7 +6138,7 @@ pub unsafe fn DeleteFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteFileW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -6158,7 +6158,7 @@ pub unsafe fn DeleteLogByHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteLogByHandle(
                 hlog: super::super::Foundation::HANDLE,
@@ -6179,7 +6179,7 @@ pub unsafe fn DeleteLogFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteLogFile(
                 pszlogfilename: super::super::Foundation::PWSTR,
@@ -6200,7 +6200,7 @@ pub unsafe fn DeleteLogMarshallingArea(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteLogMarshallingArea(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -6220,7 +6220,7 @@ pub unsafe fn DeleteVolumeMountPointA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteVolumeMountPointA(
                 lpszvolumemountpoint: super::super::Foundation::PSTR,
@@ -6242,7 +6242,7 @@ pub unsafe fn DeleteVolumeMountPointW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeleteVolumeMountPointW(
                 lpszvolumemountpoint: super::super::Foundation::PWSTR,
@@ -6264,7 +6264,7 @@ pub unsafe fn DeregisterManageableLogClient<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DeregisterManageableLogClient(
                 hlog: super::super::Foundation::HANDLE,
@@ -6289,7 +6289,7 @@ pub unsafe fn DuplicateEncryptionInfoFile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DuplicateEncryptionInfoFile(
                 srcfilename: super::super::Foundation::PWSTR,
@@ -6980,7 +6980,7 @@ pub unsafe fn EncryptFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EncryptFileA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -7000,7 +7000,7 @@ pub unsafe fn EncryptFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EncryptFileW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -7022,7 +7022,7 @@ pub unsafe fn EncryptionDisable<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EncryptionDisable(
                 dirpath: super::super::Foundation::PWSTR,
@@ -7049,7 +7049,7 @@ pub unsafe fn EraseTape<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EraseTape(
                 hdevice: super::super::Foundation::HANDLE,
@@ -10325,7 +10325,7 @@ pub unsafe fn FileEncryptionStatusA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileEncryptionStatusA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -10350,7 +10350,7 @@ pub unsafe fn FileEncryptionStatusW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileEncryptionStatusW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10372,7 +10372,7 @@ pub unsafe fn FileTimeToLocalFileTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileTimeToLocalFileTime(
                 lpfiletime: *const super::super::Foundation::FILETIME,
@@ -10412,7 +10412,7 @@ pub unsafe fn FindClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHa
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindClose(hfindfile: FindFileHandle) -> super::super::Foundation::BOOL;
         }
@@ -10430,7 +10430,7 @@ pub unsafe fn FindCloseChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindCloseChangeNotification(
                 hchangehandle: FindChangeNotificationHandle,
@@ -10493,7 +10493,7 @@ pub unsafe fn FindFirstChangeNotificationA<
 ) -> FindChangeNotificationHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstChangeNotificationA(
                 lppathname: super::super::Foundation::PSTR,
@@ -10522,7 +10522,7 @@ pub unsafe fn FindFirstChangeNotificationW<
 ) -> FindChangeNotificationHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstChangeNotificationW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -10549,7 +10549,7 @@ pub unsafe fn FindFirstFileA<
 ) -> FindFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -10578,7 +10578,7 @@ pub unsafe fn FindFirstFileExA<
 ) -> FindFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileExA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -10615,7 +10615,7 @@ pub unsafe fn FindFirstFileExFromAppW<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileExFromAppW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10652,7 +10652,7 @@ pub unsafe fn FindFirstFileExW<
 ) -> FindFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileExW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10689,7 +10689,7 @@ pub unsafe fn FindFirstFileNameTransactedW<
 ) -> FindFileNameHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileNameTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10722,7 +10722,7 @@ pub unsafe fn FindFirstFileNameW<
 ) -> FindFileNameHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileNameW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10757,7 +10757,7 @@ pub unsafe fn FindFirstFileTransactedA<
 ) -> FindFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -10798,7 +10798,7 @@ pub unsafe fn FindFirstFileTransactedW<
 ) -> FindFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10833,7 +10833,7 @@ pub unsafe fn FindFirstFileW<
 ) -> FindFileHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstFileW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10862,7 +10862,7 @@ pub unsafe fn FindFirstStreamTransactedW<
 ) -> FindStreamHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstStreamTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10895,7 +10895,7 @@ pub unsafe fn FindFirstStreamW<
 ) -> FindStreamHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstStreamW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -10921,7 +10921,7 @@ pub unsafe fn FindFirstVolumeA(
 ) -> FindVolumeHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstVolumeA(
                 lpszvolumename: super::super::Foundation::PSTR,
@@ -10947,7 +10947,7 @@ pub unsafe fn FindFirstVolumeMountPointA<
 ) -> FindVolumeMointPointHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstVolumeMountPointA(
                 lpszrootpathname: super::super::Foundation::PSTR,
@@ -10975,7 +10975,7 @@ pub unsafe fn FindFirstVolumeMountPointW<
 ) -> FindVolumeMointPointHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstVolumeMountPointW(
                 lpszrootpathname: super::super::Foundation::PWSTR,
@@ -10999,7 +10999,7 @@ pub unsafe fn FindFirstVolumeW(
 ) -> FindVolumeHandle {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindFirstVolumeW(
                 lpszvolumename: super::super::Foundation::PWSTR,
@@ -11023,7 +11023,7 @@ pub unsafe fn FindNextChangeNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextChangeNotification(
                 hchangehandle: FindChangeNotificationHandle,
@@ -11041,7 +11041,7 @@ pub unsafe fn FindNextFileA<'a, Param0: ::windows::runtime::IntoParam<'a, FindFi
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextFileA(
                 hfindfile: FindFileHandle,
@@ -11067,7 +11067,7 @@ pub unsafe fn FindNextFileNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextFileNameW(
                 hfindstream: FindFileNameHandle,
@@ -11094,7 +11094,7 @@ pub unsafe fn FindNextFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextFileW(
                 hfindfile: super::super::Foundation::HANDLE,
@@ -11116,7 +11116,7 @@ pub unsafe fn FindNextStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, Find
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextStreamW(
                 hfindstream: FindStreamHandle,
@@ -11139,7 +11139,7 @@ pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::runtime::IntoParam<'a, Find
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextVolumeA(
                 hfindvolume: FindVolumeHandle,
@@ -11167,7 +11167,7 @@ pub unsafe fn FindNextVolumeMountPointA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextVolumeMountPointA(
                 hfindvolumemountpoint: FindVolumeMointPointHandle,
@@ -11195,7 +11195,7 @@ pub unsafe fn FindNextVolumeMountPointW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextVolumeMountPointW(
                 hfindvolumemountpoint: FindVolumeMointPointHandle,
@@ -11220,7 +11220,7 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::runtime::IntoParam<'a, Find
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindNextVolumeW(
                 hfindvolume: FindVolumeHandle,
@@ -11262,7 +11262,7 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::runtime::IntoParam<'a, Find
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindVolumeClose(hfindvolume: FindVolumeHandle) -> super::super::Foundation::BOOL;
         }
@@ -11318,7 +11318,7 @@ pub unsafe fn FindVolumeMountPointClose<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FindVolumeMountPointClose(
                 hfindvolumemountpoint: FindVolumeMointPointHandle,
@@ -11340,7 +11340,7 @@ pub unsafe fn FlushFileBuffers<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushFileBuffers(
                 hfile: super::super::Foundation::HANDLE,
@@ -11358,7 +11358,7 @@ pub unsafe fn FlushLogBuffers(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushLogBuffers(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -11382,7 +11382,7 @@ pub unsafe fn FlushLogToLsn(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FlushLogToLsn(
                 pvmarshalcontext: *mut ::std::ffi::c_void,
@@ -11404,7 +11404,7 @@ pub unsafe fn FlushLogToLsn(
 pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeEncryptedFileMetadata(pbmetadata: *const u8);
         }
@@ -11417,7 +11417,7 @@ pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
         }
@@ -11436,7 +11436,7 @@ pub unsafe fn FreeReservedLog(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FreeReservedLog(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -11702,7 +11702,7 @@ pub unsafe fn GetBinaryTypeA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBinaryTypeA(
                 lpapplicationname: super::super::Foundation::PSTR,
@@ -11727,7 +11727,7 @@ pub unsafe fn GetBinaryTypeW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetBinaryTypeW(
                 lpapplicationname: super::super::Foundation::PWSTR,
@@ -11752,7 +11752,7 @@ pub unsafe fn GetCompressedFileSizeA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCompressedFileSizeA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -11779,7 +11779,7 @@ pub unsafe fn GetCompressedFileSizeTransactedA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCompressedFileSizeTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -11808,7 +11808,7 @@ pub unsafe fn GetCompressedFileSizeTransactedW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCompressedFileSizeTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -11835,7 +11835,7 @@ pub unsafe fn GetCompressedFileSizeW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCompressedFileSizeW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -11860,7 +11860,7 @@ pub unsafe fn GetCurrentClockTransactionManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentClockTransactionManager(
                 transactionmanagerhandle: super::super::Foundation::HANDLE,
@@ -11888,7 +11888,7 @@ pub unsafe fn GetDiskFreeSpaceA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDiskFreeSpaceA(
                 lprootpathname: super::super::Foundation::PSTR,
@@ -11921,7 +11921,7 @@ pub unsafe fn GetDiskFreeSpaceExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDiskFreeSpaceExA(
                 lpdirectoryname: super::super::Foundation::PSTR,
@@ -11952,7 +11952,7 @@ pub unsafe fn GetDiskFreeSpaceExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDiskFreeSpaceExW(
                 lpdirectoryname: super::super::Foundation::PWSTR,
@@ -11984,7 +11984,7 @@ pub unsafe fn GetDiskFreeSpaceW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDiskFreeSpaceW(
                 lprootpathname: super::super::Foundation::PWSTR,
@@ -12014,7 +12014,7 @@ pub unsafe fn GetDiskSpaceInformationA<
 ) -> ::windows::runtime::Result<DISK_SPACE_INFORMATION> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDiskSpaceInformationA(
                 rootpath: super::super::Foundation::PSTR,
@@ -12038,7 +12038,7 @@ pub unsafe fn GetDiskSpaceInformationW<
 ) -> ::windows::runtime::Result<DISK_SPACE_INFORMATION> {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDiskSpaceInformationW(
                 rootpath: super::super::Foundation::PWSTR,
@@ -12062,7 +12062,7 @@ pub unsafe fn GetDriveTypeA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDriveTypeA(lprootpathname: super::super::Foundation::PSTR) -> u32;
         }
@@ -12080,7 +12080,7 @@ pub unsafe fn GetDriveTypeW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDriveTypeW(lprootpathname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12100,7 +12100,7 @@ pub unsafe fn GetEncryptedFileMetadata<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEncryptedFileMetadata(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -12127,7 +12127,7 @@ pub unsafe fn GetEnlistmentId<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnlistmentId(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -12154,7 +12154,7 @@ pub unsafe fn GetEnlistmentRecoveryInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetEnlistmentRecoveryInformation(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -12183,7 +12183,7 @@ pub unsafe fn GetExpandedNameA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExpandedNameA(
                 lpszsource: super::super::Foundation::PSTR,
@@ -12208,7 +12208,7 @@ pub unsafe fn GetExpandedNameW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetExpandedNameW(
                 lpszsource: super::super::Foundation::PWSTR,
@@ -12232,7 +12232,7 @@ pub unsafe fn GetFileAttributesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileAttributesA(lpfilename: super::super::Foundation::PSTR) -> u32;
         }
@@ -12252,7 +12252,7 @@ pub unsafe fn GetFileAttributesExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileAttributesExA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -12280,7 +12280,7 @@ pub unsafe fn GetFileAttributesExFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileAttributesExFromAppW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -12308,7 +12308,7 @@ pub unsafe fn GetFileAttributesExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileAttributesExW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -12338,7 +12338,7 @@ pub unsafe fn GetFileAttributesTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileAttributesTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -12370,7 +12370,7 @@ pub unsafe fn GetFileAttributesTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileAttributesTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -12398,7 +12398,7 @@ pub unsafe fn GetFileAttributesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileAttributesW(lpfilename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12421,7 +12421,7 @@ pub unsafe fn GetFileBandwidthReservation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileBandwidthReservation(
                 hfile: super::super::Foundation::HANDLE,
@@ -12454,7 +12454,7 @@ pub unsafe fn GetFileInformationByHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileInformationByHandle(
                 hfile: super::super::Foundation::HANDLE,
@@ -12481,7 +12481,7 @@ pub unsafe fn GetFileInformationByHandleEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileInformationByHandleEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -12510,7 +12510,7 @@ pub unsafe fn GetFileSize<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileSize(
                 hfile: super::super::Foundation::HANDLE,
@@ -12535,7 +12535,7 @@ pub unsafe fn GetFileSizeEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileSizeEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -12562,7 +12562,7 @@ pub unsafe fn GetFileTime<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileTime(
                 hfile: super::super::Foundation::HANDLE,
@@ -12590,7 +12590,7 @@ pub unsafe fn GetFileType<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileType(hfile: super::super::Foundation::HANDLE) -> u32;
         }
@@ -12611,7 +12611,7 @@ pub unsafe fn GetFileVersionInfoA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoA(
                 lptstrfilename: super::super::Foundation::PSTR,
@@ -12643,7 +12643,7 @@ pub unsafe fn GetFileVersionInfoExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoExA(
                 dwflags: GET_FILE_VERSION_INFO_FLAGS,
@@ -12677,7 +12677,7 @@ pub unsafe fn GetFileVersionInfoExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoExW(
                 dwflags: GET_FILE_VERSION_INFO_FLAGS,
@@ -12708,7 +12708,7 @@ pub unsafe fn GetFileVersionInfoSizeA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoSizeA(
                 lptstrfilename: super::super::Foundation::PSTR,
@@ -12734,7 +12734,7 @@ pub unsafe fn GetFileVersionInfoSizeExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoSizeExA(
                 dwflags: GET_FILE_VERSION_INFO_FLAGS,
@@ -12762,7 +12762,7 @@ pub unsafe fn GetFileVersionInfoSizeExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoSizeExW(
                 dwflags: GET_FILE_VERSION_INFO_FLAGS,
@@ -12789,7 +12789,7 @@ pub unsafe fn GetFileVersionInfoSizeW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoSizeW(
                 lptstrfilename: super::super::Foundation::PWSTR,
@@ -12816,7 +12816,7 @@ pub unsafe fn GetFileVersionInfoW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFileVersionInfoW(
                 lptstrfilename: super::super::Foundation::PWSTR,
@@ -12847,7 +12847,7 @@ pub unsafe fn GetFinalPathNameByHandleA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFinalPathNameByHandleA(
                 hfile: super::super::Foundation::HANDLE,
@@ -12878,7 +12878,7 @@ pub unsafe fn GetFinalPathNameByHandleW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFinalPathNameByHandleW(
                 hfile: super::super::Foundation::HANDLE,
@@ -12909,7 +12909,7 @@ pub unsafe fn GetFullPathNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFullPathNameA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -12942,7 +12942,7 @@ pub unsafe fn GetFullPathNameTransactedA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFullPathNameTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -12977,7 +12977,7 @@ pub unsafe fn GetFullPathNameTransactedW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFullPathNameTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -13010,7 +13010,7 @@ pub unsafe fn GetFullPathNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFullPathNameW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -13032,7 +13032,7 @@ pub unsafe fn GetFullPathNameW<
 pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::runtime::Result<IORING_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetIoRingInfo(
                 ioring: *const HIORING__,
@@ -13060,7 +13060,7 @@ pub unsafe fn GetLogContainerName<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogContainerName(
                 hlog: super::super::Foundation::HANDLE,
@@ -13092,7 +13092,7 @@ pub unsafe fn GetLogFileInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogFileInformation(
                 hlog: super::super::Foundation::HANDLE,
@@ -13122,7 +13122,7 @@ pub unsafe fn GetLogIoStatistics<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogIoStatistics(
                 hlog: super::super::Foundation::HANDLE,
@@ -13152,7 +13152,7 @@ pub unsafe fn GetLogReservationInfo(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogReservationInfo(
                 pvmarshal: *const ::std::ffi::c_void,
@@ -13178,7 +13178,7 @@ pub unsafe fn GetLogicalDriveStringsA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogicalDriveStringsA(
                 nbufferlength: u32,
@@ -13200,7 +13200,7 @@ pub unsafe fn GetLogicalDriveStringsW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogicalDriveStringsW(
                 nbufferlength: u32,
@@ -13218,7 +13218,7 @@ pub unsafe fn GetLogicalDriveStringsW(
 pub unsafe fn GetLogicalDrives() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLogicalDrives() -> u32;
         }
@@ -13238,7 +13238,7 @@ pub unsafe fn GetLongPathNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLongPathNameA(
                 lpszshortpath: super::super::Foundation::PSTR,
@@ -13268,7 +13268,7 @@ pub unsafe fn GetLongPathNameTransactedA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLongPathNameTransactedA(
                 lpszshortpath: super::super::Foundation::PSTR,
@@ -13300,7 +13300,7 @@ pub unsafe fn GetLongPathNameTransactedW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLongPathNameTransactedW(
                 lpszshortpath: super::super::Foundation::PWSTR,
@@ -13330,7 +13330,7 @@ pub unsafe fn GetLongPathNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetLongPathNameW(
                 lpszshortpath: super::super::Foundation::PWSTR,
@@ -13356,7 +13356,7 @@ pub unsafe fn GetNextLogArchiveExtent(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNextLogArchiveExtent(
                 pvarchivecontext: *mut ::std::ffi::c_void,
@@ -13388,7 +13388,7 @@ pub unsafe fn GetNotificationResourceManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNotificationResourceManager(
                 resourcemanagerhandle: super::super::Foundation::HANDLE,
@@ -13422,7 +13422,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetNotificationResourceManagerAsync(
                 resourcemanagerhandle: super::super::Foundation::HANDLE,
@@ -13456,7 +13456,7 @@ pub unsafe fn GetQueuedCompletionStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetQueuedCompletionStatus(
                 completionport: super::super::Foundation::HANDLE,
@@ -13492,7 +13492,7 @@ pub unsafe fn GetQueuedCompletionStatusEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetQueuedCompletionStatusEx(
                 completionport: super::super::Foundation::HANDLE,
@@ -13526,7 +13526,7 @@ pub unsafe fn GetShortPathNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetShortPathNameA(
                 lpszlongpath: super::super::Foundation::PSTR,
@@ -13554,7 +13554,7 @@ pub unsafe fn GetShortPathNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetShortPathNameW(
                 lpszlongpath: super::super::Foundation::PWSTR,
@@ -13583,7 +13583,7 @@ pub unsafe fn GetTapeParameters<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTapeParameters(
                 hdevice: super::super::Foundation::HANDLE,
@@ -13615,7 +13615,7 @@ pub unsafe fn GetTapePosition<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTapePosition(
                 hdevice: super::super::Foundation::HANDLE,
@@ -13645,7 +13645,7 @@ pub unsafe fn GetTapeStatus<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTapeStatus(hdevice: super::super::Foundation::HANDLE) -> u32;
         }
@@ -13667,7 +13667,7 @@ pub unsafe fn GetTempFileNameA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTempFileNameA(
                 lppathname: super::super::Foundation::PSTR,
@@ -13699,7 +13699,7 @@ pub unsafe fn GetTempFileNameW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTempFileNameW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -13722,7 +13722,7 @@ pub unsafe fn GetTempFileNameW<
 pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -13738,7 +13738,7 @@ pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation:
 pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -13754,7 +13754,7 @@ pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation:
 pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -13770,7 +13770,7 @@ pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundatio
 pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -13792,7 +13792,7 @@ pub unsafe fn GetTransactionId<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTransactionId(
                 transactionhandle: super::super::Foundation::HANDLE,
@@ -13822,7 +13822,7 @@ pub unsafe fn GetTransactionInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTransactionInformation(
                 transactionhandle: super::super::Foundation::HANDLE,
@@ -13857,7 +13857,7 @@ pub unsafe fn GetTransactionManagerId<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetTransactionManagerId(
                 transactionmanagerhandle: super::super::Foundation::HANDLE,
@@ -13888,7 +13888,7 @@ pub unsafe fn GetVolumeInformationA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumeInformationA(
                 lprootpathname: super::super::Foundation::PSTR,
@@ -13931,7 +13931,7 @@ pub unsafe fn GetVolumeInformationByHandleW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumeInformationByHandleW(
                 hfile: super::super::Foundation::HANDLE,
@@ -13974,7 +13974,7 @@ pub unsafe fn GetVolumeInformationW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumeInformationW(
                 lprootpathname: super::super::Foundation::PWSTR,
@@ -14012,7 +14012,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumeNameForVolumeMountPointA(
                 lpszvolumemountpoint: super::super::Foundation::PSTR,
@@ -14040,7 +14040,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumeNameForVolumeMountPointW(
                 lpszvolumemountpoint: super::super::Foundation::PWSTR,
@@ -14068,7 +14068,7 @@ pub unsafe fn GetVolumePathNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumePathNameA(
                 lpszfilename: super::super::Foundation::PSTR,
@@ -14096,7 +14096,7 @@ pub unsafe fn GetVolumePathNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumePathNameW(
                 lpszfilename: super::super::Foundation::PWSTR,
@@ -14125,7 +14125,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumePathNamesForVolumeNameA(
                 lpszvolumename: super::super::Foundation::PSTR,
@@ -14156,7 +14156,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVolumePathNamesForVolumeNameW(
                 lpszvolumename: super::super::Foundation::PWSTR,
@@ -14212,7 +14212,7 @@ pub unsafe fn HandleLogFull<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn HandleLogFull(
                 hlog: super::super::Foundation::HANDLE,
@@ -15769,7 +15769,7 @@ pub unsafe fn InstallLogPolicy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InstallLogPolicy(
                 hlog: super::super::Foundation::HANDLE,
@@ -15791,7 +15791,7 @@ pub unsafe fn IsIoRingOpSupported(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsIoRingOpSupported(
                 ioring: *const HIORING__,
@@ -16203,7 +16203,7 @@ impl ::std::ops::Not for LPPROGRESS_ROUTINE_CALLBACK_REASON {
 pub unsafe fn LZClose(hfile: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZClose(hfile: i32);
         }
@@ -16215,7 +16215,7 @@ pub unsafe fn LZClose(hfile: i32) {
 pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZCopy(hfsource: i32, hfdest: i32) -> i32;
         }
@@ -16230,7 +16230,7 @@ pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
 pub unsafe fn LZDone() {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZDone();
         }
@@ -16250,7 +16250,7 @@ pub const LZERROR_WRITE: i32 = -4i32;
 pub unsafe fn LZInit(hfsource: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZInit(hfsource: i32) -> i32;
         }
@@ -16333,7 +16333,7 @@ pub unsafe fn LZOpenFileA<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZOpenFileA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -16361,7 +16361,7 @@ pub unsafe fn LZOpenFileW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZOpenFileW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -16382,7 +16382,7 @@ pub unsafe fn LZOpenFileW<
 pub unsafe fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbread: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbread: i32) -> i32;
         }
@@ -16398,7 +16398,7 @@ pub unsafe fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbrea
 pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
         }
@@ -16414,7 +16414,7 @@ pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
 pub unsafe fn LZStart() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LZStart() -> i32;
         }
@@ -16430,7 +16430,7 @@ pub unsafe fn LocalFileTimeToFileTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalFileTimeToFileTime(
                 lplocalfiletime: *const super::super::Foundation::FILETIME,
@@ -16458,7 +16458,7 @@ pub unsafe fn LockFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LockFile(
                 hfile: super::super::Foundation::HANDLE,
@@ -16493,7 +16493,7 @@ pub unsafe fn LockFileEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LockFileEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -16526,7 +16526,7 @@ pub unsafe fn LogTailAdvanceFailure<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LogTailAdvanceFailure(
                 hlog: super::super::Foundation::HANDLE,
@@ -16544,7 +16544,7 @@ pub unsafe fn LogTailAdvanceFailure<
 pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32;
         }
@@ -16556,7 +16556,7 @@ pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
 pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnContainer(plsn: *const CLS_LSN) -> u32;
         }
@@ -16568,7 +16568,7 @@ pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
 pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN;
         }
@@ -16588,7 +16588,7 @@ pub unsafe fn LsnEqual(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnEqual(
                 plsn1: *const CLS_LSN,
@@ -16610,7 +16610,7 @@ pub unsafe fn LsnGreater(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnGreater(
                 plsn1: *const CLS_LSN,
@@ -16628,7 +16628,7 @@ pub unsafe fn LsnGreater(
 pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN;
         }
@@ -16641,7 +16641,7 @@ pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
 pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
         }
@@ -16657,7 +16657,7 @@ pub unsafe fn LsnLess(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnLess(
                 plsn1: *const CLS_LSN,
@@ -16676,7 +16676,7 @@ pub unsafe fn LsnLess(
 pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN;
         }
@@ -16688,7 +16688,7 @@ pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN
 pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32;
         }
@@ -17061,7 +17061,7 @@ pub unsafe fn MoveFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileA(
                 lpexistingfilename: super::super::Foundation::PSTR,
@@ -17088,7 +17088,7 @@ pub unsafe fn MoveFileExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileExA(
                 lpexistingfilename: super::super::Foundation::PSTR,
@@ -17117,7 +17117,7 @@ pub unsafe fn MoveFileExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileExW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -17145,7 +17145,7 @@ pub unsafe fn MoveFileFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileFromAppW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -17176,7 +17176,7 @@ pub unsafe fn MoveFileTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileTransactedA(
                 lpexistingfilename: super::super::Foundation::PSTR,
@@ -17215,7 +17215,7 @@ pub unsafe fn MoveFileTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileTransactedW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -17249,7 +17249,7 @@ pub unsafe fn MoveFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -17278,7 +17278,7 @@ pub unsafe fn MoveFileWithProgressA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileWithProgressA(
                 lpexistingfilename: super::super::Foundation::PSTR,
@@ -17313,7 +17313,7 @@ pub unsafe fn MoveFileWithProgressW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MoveFileWithProgressW(
                 lpexistingfilename: super::super::Foundation::PWSTR,
@@ -20903,7 +20903,7 @@ pub unsafe fn NetConnectionEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetConnectionEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -20940,7 +20940,7 @@ pub unsafe fn NetFileClose<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetFileClose(servername: super::super::Foundation::PWSTR, fileid: u32) -> u32;
         }
@@ -20971,7 +20971,7 @@ pub unsafe fn NetFileEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetFileEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -21012,7 +21012,7 @@ pub unsafe fn NetFileGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetFileGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -21042,7 +21042,7 @@ pub unsafe fn NetServerAliasAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerAliasAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -21070,7 +21070,7 @@ pub unsafe fn NetServerAliasDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerAliasDel(
                 servername: super::super::Foundation::PWSTR,
@@ -21102,7 +21102,7 @@ pub unsafe fn NetServerAliasEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetServerAliasEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -21140,7 +21140,7 @@ pub unsafe fn NetSessionDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetSessionDel(
                 servername: super::super::Foundation::PWSTR,
@@ -21176,7 +21176,7 @@ pub unsafe fn NetSessionEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetSessionEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -21220,7 +21220,7 @@ pub unsafe fn NetSessionGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetSessionGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -21253,7 +21253,7 @@ pub unsafe fn NetShareAdd<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareAdd(
                 servername: super::super::Foundation::PWSTR,
@@ -21284,7 +21284,7 @@ pub unsafe fn NetShareCheck<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareCheck(
                 servername: super::super::Foundation::PWSTR,
@@ -21313,7 +21313,7 @@ pub unsafe fn NetShareDel<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareDel(
                 servername: super::super::Foundation::PWSTR,
@@ -21341,7 +21341,7 @@ pub unsafe fn NetShareDelEx<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareDelEx(
                 servername: super::super::Foundation::PWSTR,
@@ -21370,7 +21370,7 @@ pub unsafe fn NetShareDelSticky<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareDelSticky(
                 servername: super::super::Foundation::PWSTR,
@@ -21402,7 +21402,7 @@ pub unsafe fn NetShareEnum<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareEnum(
                 servername: super::super::Foundation::PWSTR,
@@ -21442,7 +21442,7 @@ pub unsafe fn NetShareEnumSticky<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareEnumSticky(
                 servername: super::super::Foundation::PWSTR,
@@ -21480,7 +21480,7 @@ pub unsafe fn NetShareGetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareGetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -21513,7 +21513,7 @@ pub unsafe fn NetShareSetInfo<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetShareSetInfo(
                 servername: super::super::Foundation::PWSTR,
@@ -21543,7 +21543,7 @@ pub unsafe fn NetStatisticsGet(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "netapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn NetStatisticsGet(
                 servername: *const i8,
@@ -22657,7 +22657,7 @@ pub unsafe fn OpenEncryptedFileRawA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenEncryptedFileRawA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -22685,7 +22685,7 @@ pub unsafe fn OpenEncryptedFileRawW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenEncryptedFileRawW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -22713,7 +22713,7 @@ pub unsafe fn OpenEnlistment<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenEnlistment(
                 dwdesiredaccess: u32,
@@ -22741,7 +22741,7 @@ pub unsafe fn OpenFile<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenFile(
                 lpfilename: super::super::Foundation::PSTR,
@@ -22772,7 +22772,7 @@ pub unsafe fn OpenFileById<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenFileById(
                 hvolumehint: super::super::Foundation::HANDLE,
@@ -22806,7 +22806,7 @@ pub unsafe fn OpenResourceManager<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenResourceManager(
                 dwdesiredaccess: u32,
@@ -22830,7 +22830,7 @@ pub unsafe fn OpenTransaction(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenTransaction(
                 dwdesiredaccess: u32,
@@ -22856,7 +22856,7 @@ pub unsafe fn OpenTransactionManager<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenTransactionManager(
                 logfilename: super::super::Foundation::PWSTR,
@@ -22881,7 +22881,7 @@ pub unsafe fn OpenTransactionManagerById(
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenTransactionManagerById(
                 transactionmanagerid: *const ::windows::runtime::GUID,
@@ -23404,7 +23404,7 @@ pub unsafe fn PopIoRingCompletion(
 ) -> ::windows::runtime::Result<IORING_CQE> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn PopIoRingCompletion(
                 ioring: *const HIORING__,
@@ -23430,7 +23430,7 @@ pub unsafe fn PostQueuedCompletionStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PostQueuedCompletionStatus(
                 completionport: super::super::Foundation::HANDLE,
@@ -23459,7 +23459,7 @@ pub unsafe fn PrePrepareComplete<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrePrepareComplete(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -23484,7 +23484,7 @@ pub unsafe fn PrePrepareEnlistment<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrePrepareEnlistment(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -23509,7 +23509,7 @@ pub unsafe fn PrepareComplete<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrepareComplete(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -23534,7 +23534,7 @@ pub unsafe fn PrepareEnlistment<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrepareEnlistment(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -23570,7 +23570,7 @@ pub unsafe fn PrepareLogArchive<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrepareLogArchive(
                 hlog: super::super::Foundation::HANDLE,
@@ -23617,7 +23617,7 @@ pub unsafe fn PrepareTape<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn PrepareTape(
                 hdevice: super::super::Foundation::HANDLE,
@@ -23645,7 +23645,7 @@ pub unsafe fn QueryDosDeviceA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryDosDeviceA(
                 lpdevicename: super::super::Foundation::PSTR,
@@ -23673,7 +23673,7 @@ pub unsafe fn QueryDosDeviceW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryDosDeviceW(
                 lpdevicename: super::super::Foundation::PWSTR,
@@ -23693,7 +23693,7 @@ pub unsafe fn QueryDosDeviceW<
 pub unsafe fn QueryIoRingCapabilities() -> ::windows::runtime::Result<IORING_CAPABILITIES> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryIoRingCapabilities(
                 capabilities: *mut IORING_CAPABILITIES,
@@ -23718,7 +23718,7 @@ pub unsafe fn QueryLogPolicy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryLogPolicy(
                 hlog: super::super::Foundation::HANDLE,
@@ -23747,7 +23747,7 @@ pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryRecoveryAgentsOnEncryptedFile(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -23772,7 +23772,7 @@ pub unsafe fn QueryUsersOnEncryptedFile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryUsersOnEncryptedFile(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -24378,7 +24378,7 @@ pub unsafe fn ReOpenFile<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReOpenFile(
                 horiginalfile: super::super::Foundation::HANDLE,
@@ -24415,7 +24415,7 @@ pub unsafe fn ReadDirectoryChangesExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadDirectoryChangesExW(
                 hdirectory: super::super::Foundation::HANDLE,
@@ -24461,7 +24461,7 @@ pub unsafe fn ReadDirectoryChangesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadDirectoryChangesW(
                 hdirectory: super::super::Foundation::HANDLE,
@@ -24495,7 +24495,7 @@ pub unsafe fn ReadEncryptedFileRaw(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadEncryptedFileRaw(
                 pfexportcallback: ::windows::runtime::RawPtr,
@@ -24525,7 +24525,7 @@ pub unsafe fn ReadFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadFile(
                 hfile: super::super::Foundation::HANDLE,
@@ -24559,7 +24559,7 @@ pub unsafe fn ReadFileEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadFileEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -24593,7 +24593,7 @@ pub unsafe fn ReadFileScatter<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadFileScatter(
                 hfile: super::super::Foundation::HANDLE,
@@ -24624,7 +24624,7 @@ pub unsafe fn ReadLogArchiveMetadata(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadLogArchiveMetadata(
                 pvarchivecontext: *mut ::std::ffi::c_void,
@@ -24656,7 +24656,7 @@ pub unsafe fn ReadLogNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadLogNotification(
                 hlog: super::super::Foundation::HANDLE,
@@ -24688,7 +24688,7 @@ pub unsafe fn ReadLogRecord(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadLogRecord(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -24730,7 +24730,7 @@ pub unsafe fn ReadLogRestartArea(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadLogRestartArea(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -24767,7 +24767,7 @@ pub unsafe fn ReadNextLogRecord(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadNextLogRecord(
                 pvreadcontext: *mut ::std::ffi::c_void,
@@ -24806,7 +24806,7 @@ pub unsafe fn ReadOnlyEnlistment<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadOnlyEnlistment(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -24831,7 +24831,7 @@ pub unsafe fn ReadPreviousLogRestartArea(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReadPreviousLogRestartArea(
                 pvreadcontext: *mut ::std::ffi::c_void,
@@ -24862,7 +24862,7 @@ pub unsafe fn RecoverEnlistment<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RecoverEnlistment(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -24886,7 +24886,7 @@ pub unsafe fn RecoverResourceManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RecoverResourceManager(
                 resourcemanagerhandle: super::super::Foundation::HANDLE,
@@ -24908,7 +24908,7 @@ pub unsafe fn RecoverTransactionManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RecoverTransactionManager(
                 transactionmanagerhandle: super::super::Foundation::HANDLE,
@@ -24933,7 +24933,7 @@ pub unsafe fn RegisterForLogWriteNotification<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterForLogWriteNotification(
                 hlog: super::super::Foundation::HANDLE,
@@ -24960,7 +24960,7 @@ pub unsafe fn RegisterManageableLogClient<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegisterManageableLogClient(
                 hlog: super::super::Foundation::HANDLE,
@@ -24984,7 +24984,7 @@ pub unsafe fn RemoveDirectoryA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveDirectoryA(
                 lppathname: super::super::Foundation::PSTR,
@@ -25004,7 +25004,7 @@ pub unsafe fn RemoveDirectoryFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveDirectoryFromAppW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -25026,7 +25026,7 @@ pub unsafe fn RemoveDirectoryTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveDirectoryTransactedA(
                 lppathname: super::super::Foundation::PSTR,
@@ -25052,7 +25052,7 @@ pub unsafe fn RemoveDirectoryTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveDirectoryTransactedW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -25076,7 +25076,7 @@ pub unsafe fn RemoveDirectoryW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveDirectoryW(
                 lppathname: super::super::Foundation::PWSTR,
@@ -25101,7 +25101,7 @@ pub unsafe fn RemoveLogContainer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveLogContainer(
                 hlog: super::super::Foundation::HANDLE,
@@ -25134,7 +25134,7 @@ pub unsafe fn RemoveLogContainerSet<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveLogContainerSet(
                 hlog: super::super::Foundation::HANDLE,
@@ -25165,7 +25165,7 @@ pub unsafe fn RemoveLogPolicy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveLogPolicy(
                 hlog: super::super::Foundation::HANDLE,
@@ -25190,7 +25190,7 @@ pub unsafe fn RemoveUsersFromEncryptedFile<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RemoveUsersFromEncryptedFile(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -25215,7 +25215,7 @@ pub unsafe fn RenameTransactionManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RenameTransactionManager(
                 logfilename: super::super::Foundation::PWSTR,
@@ -25246,7 +25246,7 @@ pub unsafe fn ReplaceFileA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplaceFileA(
                 lpreplacedfilename: super::super::Foundation::PSTR,
@@ -25285,7 +25285,7 @@ pub unsafe fn ReplaceFileFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplaceFileFromAppW(
                 lpreplacedfilename: super::super::Foundation::PWSTR,
@@ -25324,7 +25324,7 @@ pub unsafe fn ReplaceFileW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplaceFileW(
                 lpreplacedfilename: super::super::Foundation::PWSTR,
@@ -25362,7 +25362,7 @@ pub unsafe fn ReserveAndAppendLog(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReserveAndAppendLog(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -25409,7 +25409,7 @@ pub unsafe fn ReserveAndAppendLogAligned(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReserveAndAppendLogAligned(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -25452,7 +25452,7 @@ pub unsafe fn RollbackComplete<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RollbackComplete(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -25477,7 +25477,7 @@ pub unsafe fn RollbackEnlistment<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RollbackEnlistment(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -25501,7 +25501,7 @@ pub unsafe fn RollbackTransaction<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RollbackTransaction(
                 transactionhandle: super::super::Foundation::HANDLE,
@@ -25521,7 +25521,7 @@ pub unsafe fn RollbackTransactionAsync<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RollbackTransactionAsync(
                 transactionhandle: super::super::Foundation::HANDLE,
@@ -25544,7 +25544,7 @@ pub unsafe fn RollforwardTransactionManager<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RollforwardTransactionManager(
                 transactionmanagerhandle: super::super::Foundation::HANDLE,
@@ -28770,7 +28770,7 @@ pub unsafe fn ScanLogContainers(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ScanLogContainers(
                 pcxscan: *mut CLS_SCAN_CONTEXT,
@@ -28803,7 +28803,7 @@ pub unsafe fn SearchPathA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SearchPathA(
                 lppath: super::super::Foundation::PSTR,
@@ -28842,7 +28842,7 @@ pub unsafe fn SearchPathW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SearchPathW(
                 lppath: super::super::Foundation::PWSTR,
@@ -28879,7 +28879,7 @@ pub unsafe fn SetEncryptedFileMetadata<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEncryptedFileMetadata(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -28911,7 +28911,7 @@ pub unsafe fn SetEndOfFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEndOfFile(
                 hfile: super::super::Foundation::HANDLE,
@@ -28933,7 +28933,7 @@ pub unsafe fn SetEndOfLog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEndOfLog(
                 hlog: super::super::Foundation::HANDLE,
@@ -28961,7 +28961,7 @@ pub unsafe fn SetEnlistmentRecoveryInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEnlistmentRecoveryInformation(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -28981,7 +28981,7 @@ pub unsafe fn SetEnlistmentRecoveryInformation<
 pub unsafe fn SetFileApisToANSI() {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileApisToANSI();
         }
@@ -28993,7 +28993,7 @@ pub unsafe fn SetFileApisToANSI() {
 pub unsafe fn SetFileApisToOEM() {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileApisToOEM();
         }
@@ -29012,7 +29012,7 @@ pub unsafe fn SetFileAttributesA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileAttributesA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -29037,7 +29037,7 @@ pub unsafe fn SetFileAttributesFromAppW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-file-fromapp-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileAttributesFromAppW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -29064,7 +29064,7 @@ pub unsafe fn SetFileAttributesTransactedA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileAttributesTransactedA(
                 lpfilename: super::super::Foundation::PSTR,
@@ -29093,7 +29093,7 @@ pub unsafe fn SetFileAttributesTransactedW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileAttributesTransactedW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -29120,7 +29120,7 @@ pub unsafe fn SetFileAttributesW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileAttributesW(
                 lpfilename: super::super::Foundation::PWSTR,
@@ -29150,7 +29150,7 @@ pub unsafe fn SetFileBandwidthReservation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileBandwidthReservation(
                 hfile: super::super::Foundation::HANDLE,
@@ -29183,7 +29183,7 @@ pub unsafe fn SetFileCompletionNotificationModes<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileCompletionNotificationModes(
                 filehandle: super::super::Foundation::HANDLE,
@@ -29210,7 +29210,7 @@ pub unsafe fn SetFileInformationByHandle<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileInformationByHandle(
                 hfile: super::super::Foundation::HANDLE,
@@ -29240,7 +29240,7 @@ pub unsafe fn SetFileIoOverlappedRange<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileIoOverlappedRange(
                 filehandle: super::super::Foundation::HANDLE,
@@ -29269,7 +29269,7 @@ pub unsafe fn SetFilePointer<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFilePointer(
                 hfile: super::super::Foundation::HANDLE,
@@ -29300,7 +29300,7 @@ pub unsafe fn SetFilePointerEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFilePointerEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -29330,7 +29330,7 @@ pub unsafe fn SetFileShortNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileShortNameA(
                 hfile: super::super::Foundation::HANDLE,
@@ -29356,7 +29356,7 @@ pub unsafe fn SetFileShortNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileShortNameW(
                 hfile: super::super::Foundation::HANDLE,
@@ -29383,7 +29383,7 @@ pub unsafe fn SetFileTime<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileTime(
                 hfile: super::super::Foundation::HANDLE,
@@ -29412,7 +29412,7 @@ pub unsafe fn SetFileValidData<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFileValidData(
                 hfile: super::super::Foundation::HANDLE,
@@ -29437,7 +29437,7 @@ pub unsafe fn SetIoRingCompletionEvent<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetIoRingCompletionEvent(
                 ioring: *const HIORING__,
@@ -29459,7 +29459,7 @@ pub unsafe fn SetLogArchiveMode<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLogArchiveMode(
                 hlog: super::super::Foundation::HANDLE,
@@ -29485,7 +29485,7 @@ pub unsafe fn SetLogArchiveTail<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLogArchiveTail(
                 hlog: super::super::Foundation::HANDLE,
@@ -29513,7 +29513,7 @@ pub unsafe fn SetLogFileSizeWithPolicy<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetLogFileSizeWithPolicy(
                 hlog: super::super::Foundation::HANDLE,
@@ -29542,7 +29542,7 @@ pub unsafe fn SetResourceManagerCompletionPort<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetResourceManagerCompletionPort(
                 resourcemanagerhandle: super::super::Foundation::HANDLE,
@@ -29563,7 +29563,7 @@ pub unsafe fn SetResourceManagerCompletionPort<
 pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -29583,7 +29583,7 @@ pub unsafe fn SetTapeParameters<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTapeParameters(
                 hdevice: super::super::Foundation::HANDLE,
@@ -29615,7 +29615,7 @@ pub unsafe fn SetTapePosition<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTapePosition(
                 hdevice: super::super::Foundation::HANDLE,
@@ -29652,7 +29652,7 @@ pub unsafe fn SetTransactionInformation<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTransactionInformation(
                 transactionhandle: super::super::Foundation::HANDLE,
@@ -29679,7 +29679,7 @@ pub unsafe fn SetUserFileEncryptionKey(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUserFileEncryptionKey(
                 pencryptioncertificate: *const ENCRYPTION_CERTIFICATE,
@@ -29701,7 +29701,7 @@ pub unsafe fn SetUserFileEncryptionKeyEx(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetUserFileEncryptionKeyEx(
                 pencryptioncertificate: *const ENCRYPTION_CERTIFICATE,
@@ -29731,7 +29731,7 @@ pub unsafe fn SetVolumeLabelA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetVolumeLabelA(
                 lprootpathname: super::super::Foundation::PSTR,
@@ -29757,7 +29757,7 @@ pub unsafe fn SetVolumeLabelW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetVolumeLabelW(
                 lprootpathname: super::super::Foundation::PWSTR,
@@ -29783,7 +29783,7 @@ pub unsafe fn SetVolumeMountPointA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetVolumeMountPointA(
                 lpszvolumemountpoint: super::super::Foundation::PSTR,
@@ -29809,7 +29809,7 @@ pub unsafe fn SetVolumeMountPointW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetVolumeMountPointW(
                 lpszvolumemountpoint: super::super::Foundation::PWSTR,
@@ -29834,7 +29834,7 @@ pub unsafe fn SinglePhaseReject<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "ktmw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SinglePhaseReject(
                 enlistmenthandle: super::super::Foundation::HANDLE,
@@ -29856,7 +29856,7 @@ pub unsafe fn SubmitIoRing(
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-ioring-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn SubmitIoRing(
                 ioring: *const HIORING__,
@@ -31160,7 +31160,7 @@ pub unsafe fn TerminateLogArchive(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TerminateLogArchive(
                 pvarchivecontext: *mut ::std::ffi::c_void,
@@ -31177,7 +31177,7 @@ pub unsafe fn TerminateReadLog(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TerminateReadLog(
                 pvcursorcontext: *mut ::std::ffi::c_void,
@@ -31196,7 +31196,7 @@ pub unsafe fn TruncateLog(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TruncateLog(
                 pvmarshal: *const ::std::ffi::c_void,
@@ -31216,7 +31216,7 @@ pub unsafe fn TruncateLog(
 pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16);
         }
@@ -31242,7 +31242,7 @@ pub unsafe fn TxfLogCreateFileReadContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfLogCreateFileReadContext(
                 logpath: super::super::Foundation::PWSTR,
@@ -31280,7 +31280,7 @@ pub unsafe fn TxfLogCreateRangeReadContext<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfLogCreateRangeReadContext(
                 logpath: super::super::Foundation::PWSTR,
@@ -31311,7 +31311,7 @@ pub unsafe fn TxfLogDestroyReadContext(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfLogDestroyReadContext(
                 txflogcontext: *const ::std::ffi::c_void,
@@ -31334,7 +31334,7 @@ pub unsafe fn TxfLogReadRecords(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfLogReadRecords(
                 txflogcontext: *const ::std::ffi::c_void,
@@ -31365,7 +31365,7 @@ pub unsafe fn TxfLogRecordGetFileName(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfLogRecordGetFileName(
                 recordbuffer: *const ::std::ffi::c_void,
@@ -31395,7 +31395,7 @@ pub unsafe fn TxfLogRecordGetGenericType(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfLogRecordGetGenericType(
                 recordbuffer: *const ::std::ffi::c_void,
@@ -31427,7 +31427,7 @@ pub unsafe fn TxfReadMetadataInfo<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfReadMetadataInfo(
                 filehandle: super::super::Foundation::HANDLE,
@@ -31451,7 +31451,7 @@ pub unsafe fn TxfReadMetadataInfo<
 pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "txfw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn TxfSetThreadMiniVersionForCreate(miniversion: u16);
         }
@@ -32079,7 +32079,7 @@ pub unsafe fn UnlockFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnlockFile(
                 hfile: super::super::Foundation::HANDLE,
@@ -32113,7 +32113,7 @@ pub unsafe fn UnlockFileEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnlockFileEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -33239,7 +33239,7 @@ pub unsafe fn ValidateLog<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ValidateLog(
                 pszlogfilename: super::super::Foundation::PWSTR,
@@ -33276,7 +33276,7 @@ pub unsafe fn VerFindFileA<
 ) -> VER_FIND_FILE_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerFindFileA(
                 uflags: VER_FIND_FILE_FLAGS,
@@ -33321,7 +33321,7 @@ pub unsafe fn VerFindFileW<
 ) -> VER_FIND_FILE_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerFindFileW(
                 uflags: VER_FIND_FILE_FLAGS,
@@ -33368,7 +33368,7 @@ pub unsafe fn VerInstallFileA<
 ) -> VER_INSTALL_FILE_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerInstallFileA(
                 uflags: VER_INSTALL_FILE_FLAGS,
@@ -33415,7 +33415,7 @@ pub unsafe fn VerInstallFileW<
 ) -> VER_INSTALL_FILE_STATUS {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerInstallFileW(
                 uflags: VER_INSTALL_FILE_FLAGS,
@@ -33450,7 +33450,7 @@ pub unsafe fn VerLanguageNameA(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerLanguageNameA(
                 wlang: u32,
@@ -33475,7 +33475,7 @@ pub unsafe fn VerLanguageNameW(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerLanguageNameW(
                 wlang: u32,
@@ -33504,7 +33504,7 @@ pub unsafe fn VerQueryValueA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerQueryValueA(
                 pblock: *const ::std::ffi::c_void,
@@ -33535,7 +33535,7 @@ pub unsafe fn VerQueryValueW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "version")]
+        #[link(name = "windows")]
         extern "system" {
             fn VerQueryValueW(
                 pblock: *const ::std::ffi::c_void,
@@ -34106,7 +34106,7 @@ pub unsafe fn WofEnumEntries<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofEnumEntries(
                 volumename: super::super::Foundation::PWSTR,
@@ -34149,7 +34149,7 @@ pub unsafe fn WofFileEnumFiles<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofFileEnumFiles(
                 volumename: super::super::Foundation::PWSTR,
@@ -34179,7 +34179,7 @@ pub unsafe fn WofGetDriverVersion<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofGetDriverVersion(
                 fileorvolumehandle: super::super::Foundation::HANDLE,
@@ -34211,7 +34211,7 @@ pub unsafe fn WofIsExternalFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofIsExternalFile(
                 filepath: super::super::Foundation::PWSTR,
@@ -34245,7 +34245,7 @@ pub unsafe fn WofSetFileDataLocation<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofSetFileDataLocation(
                 filehandle: super::super::Foundation::HANDLE,
@@ -34275,7 +34275,7 @@ pub unsafe fn WofShouldCompressBinaries<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofShouldCompressBinaries(
                 volume: super::super::Foundation::PWSTR,
@@ -34303,7 +34303,7 @@ pub unsafe fn WofWimAddEntry<
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofWimAddEntry(
                 volumename: super::super::Foundation::PWSTR,
@@ -34338,7 +34338,7 @@ pub unsafe fn WofWimEnumFiles<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofWimEnumFiles(
                 volumename: super::super::Foundation::PWSTR,
@@ -34368,7 +34368,7 @@ pub unsafe fn WofWimRemoveEntry<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofWimRemoveEntry(
                 volumename: super::super::Foundation::PWSTR,
@@ -34394,7 +34394,7 @@ pub unsafe fn WofWimSuspendEntry<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofWimSuspendEntry(
                 volumename: super::super::Foundation::PWSTR,
@@ -34422,7 +34422,7 @@ pub unsafe fn WofWimUpdateEntry<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wofutil")]
+        #[link(name = "windows")]
         extern "system" {
             fn WofWimUpdateEntry(
                 volumename: super::super::Foundation::PWSTR,
@@ -34446,7 +34446,7 @@ pub unsafe fn Wow64DisableWow64FsRedirection(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Wow64DisableWow64FsRedirection(
                 oldvalue: *mut *mut ::std::ffi::c_void,
@@ -34468,7 +34468,7 @@ pub unsafe fn Wow64EnableWow64FsRedirection<
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Wow64EnableWow64FsRedirection(
                 wow64fsenableredirection: super::super::Foundation::BOOLEAN,
@@ -34487,7 +34487,7 @@ pub unsafe fn Wow64RevertWow64FsRedirection(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn Wow64RevertWow64FsRedirection(
                 olvalue: *const ::std::ffi::c_void,
@@ -34507,7 +34507,7 @@ pub unsafe fn WriteEncryptedFileRaw(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteEncryptedFileRaw(
                 pfimportcallback: ::windows::runtime::RawPtr,
@@ -34537,7 +34537,7 @@ pub unsafe fn WriteFile<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteFile(
                 hfile: super::super::Foundation::HANDLE,
@@ -34571,7 +34571,7 @@ pub unsafe fn WriteFileEx<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteFileEx(
                 hfile: super::super::Foundation::HANDLE,
@@ -34605,7 +34605,7 @@ pub unsafe fn WriteFileGather<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteFileGather(
                 hfile: super::super::Foundation::HANDLE,
@@ -34639,7 +34639,7 @@ pub unsafe fn WriteLogRestartArea(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "clfsw32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteLogRestartArea(
                 pvmarshal: *mut ::std::ffi::c_void,
@@ -34679,7 +34679,7 @@ pub unsafe fn WriteTapemark<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteTapemark(
                 hdevice: super::super::Foundation::HANDLE,

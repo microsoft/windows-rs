@@ -64,7 +64,7 @@ pub unsafe fn PTCloseProvider<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTCloseProvider(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
@@ -94,7 +94,7 @@ pub unsafe fn PTConvertDevModeToPrintTicket<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTConvertDevModeToPrintTicket(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
@@ -137,7 +137,7 @@ pub unsafe fn PTConvertPrintTicketToDevMode<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTConvertPrintTicketToDevMode(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
@@ -183,7 +183,7 @@ pub unsafe fn PTGetPrintCapabilities<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTGetPrintCapabilities(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
@@ -223,7 +223,7 @@ pub unsafe fn PTGetPrintDeviceCapabilities<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTGetPrintDeviceCapabilities(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
@@ -265,7 +265,7 @@ pub unsafe fn PTGetPrintDeviceResources<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTGetPrintDeviceResources(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
@@ -310,7 +310,7 @@ pub unsafe fn PTMergeAndValidatePrintTicket<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTMergeAndValidatePrintTicket(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
@@ -346,7 +346,7 @@ pub unsafe fn PTOpenProvider<
 ) -> ::windows::runtime::Result<super::super::super::Storage::Xps::HPTPROVIDER> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTOpenProvider(
                 pszprintername: super::super::super::Foundation::PWSTR,
@@ -378,7 +378,7 @@ pub unsafe fn PTOpenProviderEx<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTOpenProviderEx(
                 pszprintername: super::super::super::Foundation::PWSTR,
@@ -409,7 +409,7 @@ pub unsafe fn PTQuerySchemaVersionSupport<
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTQuerySchemaVersionSupport(
                 pszprintername: super::super::super::Foundation::PWSTR,
@@ -428,7 +428,7 @@ pub unsafe fn PTReleaseMemory(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "prntvpt")]
+        #[link(name = "windows")]
         extern "system" {
             fn PTReleaseMemory(pbuffer: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }

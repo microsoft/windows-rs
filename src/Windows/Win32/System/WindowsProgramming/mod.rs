@@ -213,7 +213,7 @@ pub unsafe fn AddDelBackupEntryA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddDelBackupEntryA(
                 lpcszfilelist: super::super::Foundation::PSTR,
@@ -247,7 +247,7 @@ pub unsafe fn AddDelBackupEntryW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn AddDelBackupEntryW(
                 lpcszfilelist: super::super::Foundation::PWSTR,
@@ -286,7 +286,7 @@ pub unsafe fn AdvInstallFileA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdvInstallFileA(
                 hwnd: super::super::Foundation::HWND,
@@ -331,7 +331,7 @@ pub unsafe fn AdvInstallFileW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn AdvInstallFileW(
                 hwnd: super::super::Foundation::HWND,
@@ -368,7 +368,7 @@ pub unsafe fn ApphelpCheckShellObject<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "apphelp")]
+        #[link(name = "windows")]
         extern "system" {
             fn ApphelpCheckShellObject(
                 objectclsid: *const ::windows::runtime::GUID,
@@ -882,7 +882,7 @@ pub unsafe fn CancelDeviceWakeupRequest<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelDeviceWakeupRequest(
                 hdevice: super::super::Foundation::HANDLE,
@@ -904,7 +904,7 @@ pub unsafe fn CancelTimerQueueTimer<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CancelTimerQueueTimer(
                 timerqueue: super::super::Foundation::HANDLE,
@@ -922,7 +922,7 @@ pub unsafe fn CancelTimerQueueTimer<
 pub unsafe fn CloseINFEngine(hinf: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn CloseINFEngine(hinf: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
@@ -960,7 +960,7 @@ pub unsafe fn ConvertAuxiliaryCounterToPerformanceCounter(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-realtime-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertAuxiliaryCounterToPerformanceCounter(
                 ullauxiliarycountervalue: u64,
@@ -985,7 +985,7 @@ pub unsafe fn ConvertPerformanceCounterToAuxiliaryCounter(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-realtime-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn ConvertPerformanceCounterToAuxiliaryCounter(
                 ullperformancecountervalue: u64,
@@ -1011,7 +1011,7 @@ pub unsafe fn CreateJobSet(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateJobSet(
                 numjob: u32,
@@ -1040,7 +1040,7 @@ pub unsafe fn CreateWaitableTimerA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWaitableTimerA(
                 lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1069,7 +1069,7 @@ pub unsafe fn CreateWaitableTimerExA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn CreateWaitableTimerExA(
                 lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -1134,7 +1134,7 @@ unsafe impl ::windows::runtime::Abi for DATETIME {
 pub unsafe fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32, dy: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32, dy: i32) -> i32;
         }
@@ -1250,7 +1250,7 @@ pub unsafe fn DCICloseProvider<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCICloseProvider(hdc: super::super::Graphics::Gdi::HDC);
         }
@@ -1277,7 +1277,7 @@ pub unsafe fn DCICreateOffscreen<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCICreateOffscreen(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -1319,7 +1319,7 @@ pub unsafe fn DCICreateOverlay<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCICreateOverlay(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -1346,7 +1346,7 @@ pub unsafe fn DCICreatePrimary<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCICreatePrimary(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -1364,7 +1364,7 @@ pub unsafe fn DCICreatePrimary<
 pub unsafe fn DCIDestroy(pdci: *mut DCISURFACEINFO) {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCIDestroy(pdci: *mut DCISURFACEINFO);
         }
@@ -1376,7 +1376,7 @@ pub unsafe fn DCIDestroy(pdci: *mut DCISURFACEINFO) {
 pub unsafe fn DCIDraw(pdci: *mut DCIOFFSCREEN) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCIDraw(pdci: *mut DCIOFFSCREEN) -> i32;
         }
@@ -1437,7 +1437,7 @@ pub const DCIESCAPE: u32 = 5u32;
 pub unsafe fn DCIEndAccess(pdci: *mut DCISURFACEINFO) {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCIEndAccess(pdci: *mut DCISURFACEINFO);
         }
@@ -1459,7 +1459,7 @@ pub unsafe fn DCIEnum<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCIEnum(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -1555,7 +1555,7 @@ unsafe impl ::windows::runtime::Abi for DCIOVERLAY {
 pub unsafe fn DCIOpenProvider() -> super::super::Graphics::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCIOpenProvider() -> super::super::Graphics::Gdi::HDC;
         }
@@ -1651,7 +1651,7 @@ pub unsafe fn DCISetClipList(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCISetClipList(
                 pdci: *mut DCIOFFSCREEN,
@@ -1674,7 +1674,7 @@ pub unsafe fn DCISetDestination(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCISetDestination(
                 pdci: *mut DCIOFFSCREEN,
@@ -1704,7 +1704,7 @@ pub unsafe fn DCISetSrcDestClip(
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DCISetSrcDestClip(
                 pdci: *mut DCIOFFSCREEN,
@@ -2758,7 +2758,7 @@ pub unsafe fn DelNodeA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn DelNodeA(
                 pszfileordirname: super::super::Foundation::PSTR,
@@ -2788,7 +2788,7 @@ pub unsafe fn DelNodeRunDLL32W<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn DelNodeRunDLL32W(
                 hwnd: super::super::Foundation::HWND,
@@ -2818,7 +2818,7 @@ pub unsafe fn DelNodeW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn DelNodeW(
                 pszfileordirname: super::super::Foundation::PWSTR,
@@ -2845,7 +2845,7 @@ pub unsafe fn DnsHostnameToComputerNameA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsHostnameToComputerNameA(
                 hostname: super::super::Foundation::PSTR,
@@ -2873,7 +2873,7 @@ pub unsafe fn DnsHostnameToComputerNameW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DnsHostnameToComputerNameW(
                 hostname: super::super::Foundation::PWSTR,
@@ -2898,7 +2898,7 @@ pub unsafe fn DosDateTimeToFileTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn DosDateTimeToFileTime(
                 wfatdate: u16,
@@ -2943,7 +2943,7 @@ pub const EditionUpgradeHelper: ::windows::runtime::GUID = ::windows::runtime::G
 pub unsafe fn EnableProcessOptionalXStateFeatures(features: u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn EnableProcessOptionalXStateFeatures(features: u64)
                 -> super::super::Foundation::BOOL;
@@ -2966,7 +2966,7 @@ pub unsafe fn ExecuteCabA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExecuteCabA(
                 hwnd: super::super::Foundation::HWND,
@@ -2995,7 +2995,7 @@ pub unsafe fn ExecuteCabW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExecuteCabW(
                 hwnd: super::super::Foundation::HWND,
@@ -3029,7 +3029,7 @@ pub unsafe fn ExtractFilesA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtractFilesA(
                 pszcabname: super::super::Foundation::PSTR,
@@ -3069,7 +3069,7 @@ pub unsafe fn ExtractFilesW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn ExtractFilesW(
                 pszcabname: super::super::Foundation::PWSTR,
@@ -3415,7 +3415,7 @@ pub unsafe fn FileSaveMarkNotExistA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileSaveMarkNotExistA(
                 lpfilelist: super::super::Foundation::PSTR,
@@ -3446,7 +3446,7 @@ pub unsafe fn FileSaveMarkNotExistW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileSaveMarkNotExistW(
                 lpfilelist: super::super::Foundation::PWSTR,
@@ -3484,7 +3484,7 @@ pub unsafe fn FileSaveRestoreOnINFA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileSaveRestoreOnINFA(
                 hwnd: super::super::Foundation::HWND,
@@ -3530,7 +3530,7 @@ pub unsafe fn FileSaveRestoreOnINFW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileSaveRestoreOnINFW(
                 hwnd: super::super::Foundation::HWND,
@@ -3572,7 +3572,7 @@ pub unsafe fn FileSaveRestoreW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileSaveRestoreW(
                 hdlg: super::super::Foundation::HWND,
@@ -3602,7 +3602,7 @@ pub unsafe fn FileTimeToDosDateTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn FileTimeToDosDateTime(
                 lpfiletime: *const super::super::Foundation::FILETIME,
@@ -3635,7 +3635,7 @@ pub const GMEM_VALID_FLAGS: u32 = 32626u32;
 pub unsafe fn GdiEntry13() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-dx-d3dkmt-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GdiEntry13() -> u32;
         }
@@ -3651,7 +3651,7 @@ pub unsafe fn GetComputerNameA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComputerNameA(
                 lpbuffer: super::super::Foundation::PSTR,
@@ -3673,7 +3673,7 @@ pub unsafe fn GetComputerNameW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetComputerNameW(
                 lpbuffer: super::super::Foundation::PWSTR,
@@ -3694,7 +3694,7 @@ pub unsafe fn GetCurrentHwProfileA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentHwProfileA(
                 lphwprofileinfo: *mut HW_PROFILE_INFOA,
@@ -3711,7 +3711,7 @@ pub unsafe fn GetCurrentHwProfileW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetCurrentHwProfileW(
                 lphwprofileinfo: *mut HW_PROFILE_INFOW,
@@ -3737,7 +3737,7 @@ pub unsafe fn GetDCRegionData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetDCRegionData(
                 hdc: super::super::Graphics::Gdi::HDC,
@@ -3760,7 +3760,7 @@ pub unsafe fn GetFeatureEnabledState(
 ) -> FEATURE_ENABLED_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-featurestaging-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFeatureEnabledState(
                 featureid: u32,
@@ -3784,7 +3784,7 @@ pub unsafe fn GetFeatureVariant(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-featurestaging-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFeatureVariant(
                 featureid: u32,
@@ -3816,7 +3816,7 @@ pub unsafe fn GetFirmwareEnvironmentVariableA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFirmwareEnvironmentVariableA(
                 lpname: super::super::Foundation::PSTR,
@@ -3849,7 +3849,7 @@ pub unsafe fn GetFirmwareEnvironmentVariableExA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFirmwareEnvironmentVariableExA(
                 lpname: super::super::Foundation::PSTR,
@@ -3884,7 +3884,7 @@ pub unsafe fn GetFirmwareEnvironmentVariableExW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFirmwareEnvironmentVariableExW(
                 lpname: super::super::Foundation::PWSTR,
@@ -3918,7 +3918,7 @@ pub unsafe fn GetFirmwareEnvironmentVariableW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetFirmwareEnvironmentVariableW(
                 lpname: super::super::Foundation::PWSTR,
@@ -3951,7 +3951,7 @@ pub unsafe fn GetPrivateProfileIntA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileIntA(
                 lpappname: super::super::Foundation::PSTR,
@@ -3984,7 +3984,7 @@ pub unsafe fn GetPrivateProfileIntW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileIntW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -4016,7 +4016,7 @@ pub unsafe fn GetPrivateProfileSectionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileSectionA(
                 lpappname: super::super::Foundation::PSTR,
@@ -4046,7 +4046,7 @@ pub unsafe fn GetPrivateProfileSectionNamesA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileSectionNamesA(
                 lpszreturnbuffer: super::super::Foundation::PSTR,
@@ -4074,7 +4074,7 @@ pub unsafe fn GetPrivateProfileSectionNamesW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileSectionNamesW(
                 lpszreturnbuffer: super::super::Foundation::PWSTR,
@@ -4104,7 +4104,7 @@ pub unsafe fn GetPrivateProfileSectionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileSectionW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -4140,7 +4140,7 @@ pub unsafe fn GetPrivateProfileStringA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileStringA(
                 lpappname: super::super::Foundation::PSTR,
@@ -4180,7 +4180,7 @@ pub unsafe fn GetPrivateProfileStringW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileStringW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -4218,7 +4218,7 @@ pub unsafe fn GetPrivateProfileStructA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileStructA(
                 lpszsection: super::super::Foundation::PSTR,
@@ -4254,7 +4254,7 @@ pub unsafe fn GetPrivateProfileStructW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetPrivateProfileStructW(
                 lpszsection: super::super::Foundation::PWSTR,
@@ -4287,7 +4287,7 @@ pub unsafe fn GetProfileIntA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProfileIntA(
                 lpappname: super::super::Foundation::PSTR,
@@ -4316,7 +4316,7 @@ pub unsafe fn GetProfileIntW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProfileIntW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -4344,7 +4344,7 @@ pub unsafe fn GetProfileSectionA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProfileSectionA(
                 lpappname: super::super::Foundation::PSTR,
@@ -4372,7 +4372,7 @@ pub unsafe fn GetProfileSectionW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProfileSectionW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -4404,7 +4404,7 @@ pub unsafe fn GetProfileStringA<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProfileStringA(
                 lpappname: super::super::Foundation::PSTR,
@@ -4440,7 +4440,7 @@ pub unsafe fn GetProfileStringW<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetProfileStringW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -4465,7 +4465,7 @@ pub unsafe fn GetProfileStringW<
 pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut super::Threading::STARTUPINFOA) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetStartupInfoA(lpstartupinfo: *mut super::Threading::STARTUPINFOA);
         }
@@ -4481,7 +4481,7 @@ pub unsafe fn GetSystemRegistryQuota(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetSystemRegistryQuota(
                 pdwquotaallowed: *mut u32,
@@ -4499,7 +4499,7 @@ pub unsafe fn GetSystemRegistryQuota(
 pub unsafe fn GetThreadEnabledXStateFeatures() -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetThreadEnabledXStateFeatures() -> u64;
         }
@@ -4515,7 +4515,7 @@ pub unsafe fn GetUserNameA(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserNameA(
                 lpbuffer: super::super::Foundation::PSTR,
@@ -4537,7 +4537,7 @@ pub unsafe fn GetUserNameW(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetUserNameW(
                 lpbuffer: super::super::Foundation::PWSTR,
@@ -4565,7 +4565,7 @@ pub unsafe fn GetVersionFromFileA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVersionFromFileA(
                 lpszfilename: super::super::Foundation::PSTR,
@@ -4598,7 +4598,7 @@ pub unsafe fn GetVersionFromFileExA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVersionFromFileExA(
                 lpszfilename: super::super::Foundation::PSTR,
@@ -4631,7 +4631,7 @@ pub unsafe fn GetVersionFromFileExW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVersionFromFileExW(
                 lpszfilename: super::super::Foundation::PWSTR,
@@ -4664,7 +4664,7 @@ pub unsafe fn GetVersionFromFileW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetVersionFromFileW(
                 lpszfilename: super::super::Foundation::PWSTR,
@@ -4699,7 +4699,7 @@ pub unsafe fn GetWindowRegionData<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GetWindowRegionData(
                 hwnd: super::super::Foundation::HWND,
@@ -4719,7 +4719,7 @@ pub unsafe fn GetWindowRegionData<
 pub unsafe fn GlobalCompact(dwminfree: u32) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalCompact(dwminfree: u32) -> usize;
         }
@@ -4731,7 +4731,7 @@ pub unsafe fn GlobalCompact(dwminfree: u32) -> usize {
 pub unsafe fn GlobalFix(hmem: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalFix(hmem: isize);
         }
@@ -4744,7 +4744,7 @@ pub unsafe fn GlobalFix(hmem: isize) {
 pub unsafe fn GlobalUnWire(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalUnWire(hmem: isize) -> super::super::Foundation::BOOL;
         }
@@ -4756,7 +4756,7 @@ pub unsafe fn GlobalUnWire(hmem: isize) -> super::super::Foundation::BOOL {
 pub unsafe fn GlobalUnfix(hmem: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalUnfix(hmem: isize);
         }
@@ -4768,7 +4768,7 @@ pub unsafe fn GlobalUnfix(hmem: isize) {
 pub unsafe fn GlobalWire(hmem: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn GlobalWire(hmem: isize) -> *mut ::std::ffi::c_void;
         }
@@ -5958,7 +5958,7 @@ pub unsafe fn IMPGetIMEA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IMPGetIMEA(
                 param0: super::super::Foundation::HWND,
@@ -5983,7 +5983,7 @@ pub unsafe fn IMPGetIMEW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IMPGetIMEW(
                 param0: super::super::Foundation::HWND,
@@ -6002,7 +6002,7 @@ pub unsafe fn IMPGetIMEW<
 pub unsafe fn IMPQueryIMEA(param0: *mut IMEPROA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IMPQueryIMEA(param0: *mut IMEPROA) -> super::super::Foundation::BOOL;
         }
@@ -6015,7 +6015,7 @@ pub unsafe fn IMPQueryIMEA(param0: *mut IMEPROA) -> super::super::Foundation::BO
 pub unsafe fn IMPQueryIMEW(param0: *mut IMEPROW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IMPQueryIMEW(param0: *mut IMEPROW) -> super::super::Foundation::BOOL;
         }
@@ -6034,7 +6034,7 @@ pub unsafe fn IMPSetIMEA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IMPSetIMEA(
                 param0: super::super::Foundation::HWND,
@@ -6059,7 +6059,7 @@ pub unsafe fn IMPSetIMEW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IMPSetIMEW(
                 param0: super::super::Foundation::HWND,
@@ -23462,7 +23462,7 @@ pub unsafe fn InitializeContext2(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn InitializeContext2(
                 buffer: *mut ::std::ffi::c_void,
@@ -23500,7 +23500,7 @@ pub unsafe fn IsApiSetImplemented<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-apiquery-l2-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsApiSetImplemented(
                 contract: super::super::Foundation::PSTR,
@@ -23518,7 +23518,7 @@ pub unsafe fn IsBadHugeReadPtr(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsBadHugeReadPtr(
                 lp: *const ::std::ffi::c_void,
@@ -23540,7 +23540,7 @@ pub unsafe fn IsBadHugeWritePtr(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsBadHugeWritePtr(
                 lp: *const ::std::ffi::c_void,
@@ -23559,7 +23559,7 @@ pub unsafe fn IsBadHugeWritePtr(
 pub unsafe fn IsNTAdmin(dwreserved: u32, lpdwreserved: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsNTAdmin(dwreserved: u32, lpdwreserved: *mut u32)
                 -> super::super::Foundation::BOOL;
@@ -23578,7 +23578,7 @@ pub unsafe fn IsNativeVhdBoot(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsNativeVhdBoot(
                 nativevhdboot: *mut super::super::Foundation::BOOL,
@@ -23598,7 +23598,7 @@ pub unsafe fn IsTokenUntrusted<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advapi32")]
+        #[link(name = "windows")]
         extern "system" {
             fn IsTokenUntrusted(
                 tokenhandle: super::super::Foundation::HANDLE,
@@ -23874,7 +23874,7 @@ pub unsafe fn LaunchINFSectionExW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn LaunchINFSectionExW(
                 hwnd: super::super::Foundation::HWND,
@@ -23908,7 +23908,7 @@ pub unsafe fn LaunchINFSectionW<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn LaunchINFSectionW(
                 hwndowner: super::super::Foundation::HWND,
@@ -23930,7 +23930,7 @@ pub unsafe fn LaunchINFSectionW<
 pub unsafe fn LocalCompact(uminfree: u32) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalCompact(uminfree: u32) -> usize;
         }
@@ -23942,7 +23942,7 @@ pub unsafe fn LocalCompact(uminfree: u32) -> usize {
 pub unsafe fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize;
         }
@@ -23970,7 +23970,7 @@ pub const MODE_WINDOW: u32 = 1u32;
 pub unsafe fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32;
         }
@@ -24041,7 +24041,7 @@ impl ::std::ops::Not for NT_CREATE_FILE_DISPOSITION {
 pub unsafe fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL;
         }
@@ -24053,7 +24053,7 @@ pub unsafe fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn NeedRebootInit() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn NeedRebootInit() -> u32;
         }
@@ -24091,7 +24091,7 @@ pub unsafe fn NtClose<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtClose(
                 handle: super::super::Foundation::HANDLE,
@@ -24122,7 +24122,7 @@ pub unsafe fn NtCreateFile(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtCreateFile(
                 filehandle: *mut super::super::Foundation::HANDLE,
@@ -24175,7 +24175,7 @@ pub unsafe fn NtDeviceIoControlFile<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtDeviceIoControlFile(
                 filehandle: super::super::Foundation::HANDLE,
@@ -24230,7 +24230,7 @@ pub unsafe fn NtNotifyChangeMultipleKeys<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtNotifyChangeMultipleKeys(
                 masterkeyhandle: super::super::Foundation::HANDLE,
@@ -24277,7 +24277,7 @@ pub unsafe fn NtOpenFile(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtOpenFile(
                 filehandle: *mut super::super::Foundation::HANDLE,
@@ -24315,7 +24315,7 @@ pub unsafe fn NtQueryMultipleValueKey<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtQueryMultipleValueKey(
                 keyhandle: super::super::Foundation::HANDLE,
@@ -24352,7 +24352,7 @@ pub unsafe fn NtQueryObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtQueryObject(
                 handle: super::super::Foundation::HANDLE,
@@ -24383,7 +24383,7 @@ pub unsafe fn NtQuerySystemInformation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtQuerySystemInformation(
                 systeminformationclass: SYSTEM_INFORMATION_CLASS,
@@ -24407,7 +24407,7 @@ pub unsafe fn NtQuerySystemInformation(
 pub unsafe fn NtQuerySystemTime(systemtime: *mut i64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtQuerySystemTime(systemtime: *mut i64) -> super::super::Foundation::NTSTATUS;
         }
@@ -24424,7 +24424,7 @@ pub unsafe fn NtQueryTimerResolution(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtQueryTimerResolution(
                 maximumtime: *mut u32,
@@ -24452,7 +24452,7 @@ pub unsafe fn NtRenameKey<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtRenameKey(
                 keyhandle: super::super::Foundation::HANDLE,
@@ -24476,7 +24476,7 @@ pub unsafe fn NtSetInformationKey<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtSetInformationKey(
                 keyhandle: super::super::Foundation::HANDLE,
@@ -24508,7 +24508,7 @@ pub unsafe fn NtSetInformationThread<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtSetInformationThread(
                 threadhandle: super::super::Foundation::HANDLE,
@@ -24540,7 +24540,7 @@ pub unsafe fn NtWaitForSingleObject<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn NtWaitForSingleObject(
                 handle: super::super::Foundation::HANDLE,
@@ -24649,7 +24649,7 @@ pub unsafe fn OpenINFEngineA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenINFEngineA(
                 pszinffilename: super::super::Foundation::PSTR,
@@ -24685,7 +24685,7 @@ pub unsafe fn OpenINFEngineW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenINFEngineW(
                 pszinffilename: super::super::Foundation::PWSTR,
@@ -24719,7 +24719,7 @@ pub unsafe fn OpenMutexA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenMutexA(
                 dwdesiredaccess: u32,
@@ -24748,7 +24748,7 @@ pub unsafe fn OpenSemaphoreA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenSemaphoreA(
                 dwdesiredaccess: u32,
@@ -24777,7 +24777,7 @@ pub unsafe fn OpenWaitableTimerA<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn OpenWaitableTimerA(
                 dwdesiredaccess: u32,
@@ -25168,7 +25168,7 @@ pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
 pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-realtime-l1-1-2")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryAuxiliaryCounterFrequency(
                 lpauxiliarycounterfrequency: *mut u64,
@@ -25187,7 +25187,7 @@ pub unsafe fn QueryIdleProcessorCycleTime(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryIdleProcessorCycleTime(
                 bufferlength: *mut u32,
@@ -25210,7 +25210,7 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryIdleProcessorCycleTimeEx(
                 group: u16,
@@ -25230,7 +25230,7 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(
 pub unsafe fn QueryInterruptTime(lpinterrupttime: *mut u64) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-realtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryInterruptTime(lpinterrupttime: *mut u64);
         }
@@ -25242,7 +25242,7 @@ pub unsafe fn QueryInterruptTime(lpinterrupttime: *mut u64) {
 pub unsafe fn QueryInterruptTimePrecise(lpinterrupttimeprecise: *mut u64) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-realtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryInterruptTimePrecise(lpinterrupttimeprecise: *mut u64);
         }
@@ -25263,7 +25263,7 @@ pub unsafe fn QueryProcessCycleTime<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryProcessCycleTime(
                 processhandle: super::super::Foundation::HANDLE,
@@ -25288,7 +25288,7 @@ pub unsafe fn QueryThreadCycleTime<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryThreadCycleTime(
                 threadhandle: super::super::Foundation::HANDLE,
@@ -25307,7 +25307,7 @@ pub unsafe fn QueryThreadCycleTime<
 pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64)
                 -> super::super::Foundation::BOOL;
@@ -25322,7 +25322,7 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super
 pub unsafe fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: *mut u64) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-realtime-l1-1-1")]
+        #[link(name = "windows")]
         extern "system" {
             fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: *mut u64);
         }
@@ -25376,7 +25376,7 @@ pub unsafe fn RaiseCustomSystemEventTrigger(
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-backgroundtask-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RaiseCustomSystemEventTrigger(
                 customsystemeventtriggerconfig : * const super::SystemServices:: CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG,
@@ -25403,7 +25403,7 @@ pub unsafe fn RebootCheckOnInstallA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RebootCheckOnInstallA(
                 hwnd: super::super::Foundation::HWND,
@@ -25437,7 +25437,7 @@ pub unsafe fn RebootCheckOnInstallW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RebootCheckOnInstallW(
                 hwnd: super::super::Foundation::HWND,
@@ -25461,7 +25461,7 @@ pub unsafe fn RebootCheckOnInstallW<
 pub unsafe fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-featurestaging-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
         }
@@ -25485,7 +25485,7 @@ pub unsafe fn RecordFeatureUsage<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-featurestaging-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn RecordFeatureUsage(
                 featureid: u32,
@@ -25538,7 +25538,7 @@ pub unsafe fn RegInstallA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegInstallA(
                 hmod: super::super::Foundation::HINSTANCE,
@@ -25568,7 +25568,7 @@ pub unsafe fn RegInstallW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegInstallW(
                 hmod: super::super::Foundation::HINSTANCE,
@@ -25599,7 +25599,7 @@ pub unsafe fn RegRestoreAllA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegRestoreAllA(
                 hwnd: super::super::Foundation::HWND,
@@ -25630,7 +25630,7 @@ pub unsafe fn RegRestoreAllW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegRestoreAllW(
                 hwnd: super::super::Foundation::HWND,
@@ -25668,7 +25668,7 @@ pub unsafe fn RegSaveRestoreA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveRestoreA(
                 hwnd: super::super::Foundation::HWND,
@@ -25714,7 +25714,7 @@ pub unsafe fn RegSaveRestoreOnINFA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveRestoreOnINFA(
                 hwnd: super::super::Foundation::HWND,
@@ -25760,7 +25760,7 @@ pub unsafe fn RegSaveRestoreOnINFW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveRestoreOnINFW(
                 hwnd: super::super::Foundation::HWND,
@@ -25806,7 +25806,7 @@ pub unsafe fn RegSaveRestoreW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RegSaveRestoreW(
                 hwnd: super::super::Foundation::HWND,
@@ -25844,7 +25844,7 @@ pub unsafe fn ReplacePartitionUnit<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn ReplacePartitionUnit(
                 targetpartition: super::super::Foundation::PWSTR,
@@ -25870,7 +25870,7 @@ pub unsafe fn RequestDeviceWakeup<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn RequestDeviceWakeup(
                 hdevice: super::super::Foundation::HANDLE,
@@ -25892,7 +25892,7 @@ pub unsafe fn RtlAnsiStringToUnicodeString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlAnsiStringToUnicodeString(
                 destinationstring: *mut super::Kernel::UNICODE_STRING,
@@ -25918,7 +25918,7 @@ pub unsafe fn RtlCharToInteger(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlCharToInteger(
                 string: *mut i8,
@@ -25940,7 +25940,7 @@ pub unsafe fn RtlCharToInteger(
 pub unsafe fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING);
         }
@@ -25953,7 +25953,7 @@ pub unsafe fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING) {
 pub unsafe fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING);
         }
@@ -25966,7 +25966,7 @@ pub unsafe fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING) {
 pub unsafe fn RtlFreeUnicodeString(unicodestring: *mut super::Kernel::UNICODE_STRING) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlFreeUnicodeString(unicodestring: *mut super::Kernel::UNICODE_STRING);
         }
@@ -25982,7 +25982,7 @@ pub unsafe fn RtlInitAnsiString(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInitAnsiString(
                 destinationstring: *mut super::Kernel::STRING,
@@ -26004,7 +26004,7 @@ pub unsafe fn RtlInitAnsiStringEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInitAnsiStringEx(
                 destinationstring: *mut super::Kernel::STRING,
@@ -26024,7 +26024,7 @@ pub unsafe fn RtlInitAnsiStringEx(
 pub unsafe fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8);
         }
@@ -26043,7 +26043,7 @@ pub unsafe fn RtlInitStringEx(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInitStringEx(
                 destinationstring: *mut super::Kernel::STRING,
@@ -26069,7 +26069,7 @@ pub unsafe fn RtlInitUnicodeString<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlInitUnicodeString(
                 destinationstring: *mut super::Kernel::UNICODE_STRING,
@@ -26092,7 +26092,7 @@ pub unsafe fn RtlIsNameLegalDOS8Dot3(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlIsNameLegalDOS8Dot3(
                 name: *mut super::Kernel::UNICODE_STRING,
@@ -26116,7 +26116,7 @@ pub unsafe fn RtlLocalTimeToSystemTime(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlLocalTimeToSystemTime(
                 localtime: *mut i64,
@@ -26139,7 +26139,7 @@ pub unsafe fn RtlTimeToSecondsSince1970(
 ) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlTimeToSecondsSince1970(
                 time: *mut i64,
@@ -26165,7 +26165,7 @@ pub unsafe fn RtlUnicodeStringToAnsiString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlUnicodeStringToAnsiString(
                 destinationstring: *mut super::Kernel::STRING,
@@ -26194,7 +26194,7 @@ pub unsafe fn RtlUnicodeStringToOemString<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlUnicodeStringToOemString(
                 destinationstring: *mut super::Kernel::STRING,
@@ -26223,7 +26223,7 @@ pub unsafe fn RtlUnicodeToMultiByteSize<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlUnicodeToMultiByteSize(
                 bytesinmultibytestring: *mut u32,
@@ -26244,7 +26244,7 @@ pub unsafe fn RtlUnicodeToMultiByteSize<
 pub unsafe fn RtlUniform(seed: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "ntdll")]
+        #[link(name = "windows")]
         extern "system" {
             fn RtlUniform(seed: *mut u32) -> u32;
         }
@@ -26273,7 +26273,7 @@ pub unsafe fn RunSetupCommandA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RunSetupCommandA(
                 hwnd: super::super::Foundation::HWND,
@@ -26321,7 +26321,7 @@ pub unsafe fn RunSetupCommandW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn RunSetupCommandW(
                 hwnd: super::super::Foundation::HWND,
@@ -27125,7 +27125,7 @@ pub unsafe fn SendIMEMessageExA<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendIMEMessageExA(
                 param0: super::super::Foundation::HWND,
@@ -27151,7 +27151,7 @@ pub unsafe fn SendIMEMessageExW<
 ) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SendIMEMessageExW(
                 param0: super::super::Foundation::HWND,
@@ -27175,7 +27175,7 @@ pub unsafe fn SetEnvironmentStringsA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetEnvironmentStringsA(
                 newenvironment: super::super::Foundation::PSTR,
@@ -27199,7 +27199,7 @@ pub unsafe fn SetFirmwareEnvironmentVariableA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFirmwareEnvironmentVariableA(
                 lpname: super::super::Foundation::PSTR,
@@ -27232,7 +27232,7 @@ pub unsafe fn SetFirmwareEnvironmentVariableExA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFirmwareEnvironmentVariableExA(
                 lpname: super::super::Foundation::PSTR,
@@ -27267,7 +27267,7 @@ pub unsafe fn SetFirmwareEnvironmentVariableExW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFirmwareEnvironmentVariableExW(
                 lpname: super::super::Foundation::PWSTR,
@@ -27301,7 +27301,7 @@ pub unsafe fn SetFirmwareEnvironmentVariableW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetFirmwareEnvironmentVariableW(
                 lpname: super::super::Foundation::PWSTR,
@@ -27323,7 +27323,7 @@ pub unsafe fn SetFirmwareEnvironmentVariableW<
 pub unsafe fn SetHandleCount(unumber: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetHandleCount(unumber: u32) -> u32;
         }
@@ -27342,7 +27342,7 @@ pub unsafe fn SetMessageWaitingIndicator<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetMessageWaitingIndicator(
                 hmsgindicator: super::super::Foundation::HANDLE,
@@ -27363,7 +27363,7 @@ pub unsafe fn SetPerUserSecValuesA(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPerUserSecValuesA(pperuser: *mut PERUSERSECTIONA) -> ::windows::runtime::HRESULT;
         }
@@ -27378,7 +27378,7 @@ pub unsafe fn SetPerUserSecValuesW(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows::runtime::HRESULT;
         }
@@ -27402,7 +27402,7 @@ pub unsafe fn SetTimerQueueTimer<
 ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SetTimerQueueTimer(
                 timerqueue: super::super::Foundation::HANDLE,
@@ -27463,7 +27463,7 @@ pub unsafe fn SignalObjectAndWait<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn SignalObjectAndWait(
                 hobjecttosignal: super::super::Foundation::HANDLE,
@@ -27489,7 +27489,7 @@ pub unsafe fn SubscribeFeatureStateChangeNotification(
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-featurestaging-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn SubscribeFeatureStateChangeNotification(
                 subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION,
@@ -27760,7 +27760,7 @@ pub unsafe fn TranslateInfStringA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateInfStringA(
                 pszinffilename: super::super::Foundation::PSTR,
@@ -27806,7 +27806,7 @@ pub unsafe fn TranslateInfStringExA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateInfStringExA(
                 hinf: *mut ::std::ffi::c_void,
@@ -27852,7 +27852,7 @@ pub unsafe fn TranslateInfStringExW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateInfStringExW(
                 hinf: *mut ::std::ffi::c_void,
@@ -27899,7 +27899,7 @@ pub unsafe fn TranslateInfStringW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn TranslateInfStringW(
                 pszinffilename: super::super::Foundation::PWSTR,
@@ -28003,7 +28003,7 @@ pub unsafe fn UnsubscribeFeatureStateChangeNotification<
 ) {
     #[cfg(windows)]
     {
-        #[link(name = "api-ms-win-core-featurestaging-l1-1-0")]
+        #[link(name = "windows")]
         extern "system" {
             fn UnsubscribeFeatureStateChangeNotification(
                 subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION,
@@ -28030,7 +28030,7 @@ pub unsafe fn UserInstStubWrapperA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn UserInstStubWrapperA(
                 hwnd: super::super::Foundation::HWND,
@@ -28064,7 +28064,7 @@ pub unsafe fn UserInstStubWrapperW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn UserInstStubWrapperW(
                 hwnd: super::super::Foundation::HWND,
@@ -28098,7 +28098,7 @@ pub unsafe fn UserUnInstStubWrapperA<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn UserUnInstStubWrapperA(
                 hwnd: super::super::Foundation::HWND,
@@ -28132,7 +28132,7 @@ pub unsafe fn UserUnInstStubWrapperW<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "advpack")]
+        #[link(name = "windows")]
         extern "system" {
             fn UserUnInstStubWrapperW(
                 hwnd: super::super::Foundation::HWND,
@@ -28189,7 +28189,7 @@ pub unsafe fn WINNLSEnableIME<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WINNLSEnableIME(
                 param0: super::super::Foundation::HWND,
@@ -28213,7 +28213,7 @@ pub unsafe fn WINNLSGetEnableStatus<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WINNLSGetEnableStatus(
                 param0: super::super::Foundation::HWND,
@@ -28233,7 +28233,7 @@ pub unsafe fn WINNLSGetIMEHotkey<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "user32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WINNLSGetIMEHotkey(param0: super::super::Foundation::HWND) -> u32;
         }
@@ -28574,7 +28574,7 @@ pub const WebBrowser_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 pub unsafe fn WinWatchClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWINWATCH>>(hww: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinWatchClose(hww: HWINWATCH);
         }
@@ -28589,7 +28589,7 @@ pub unsafe fn WinWatchDidStatusChange<'a, Param0: ::windows::runtime::IntoParam<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinWatchDidStatusChange(hww: HWINWATCH) -> super::super::Foundation::BOOL;
         }
@@ -28611,7 +28611,7 @@ pub unsafe fn WinWatchGetClipList<'a, Param0: ::windows::runtime::IntoParam<'a, 
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinWatchGetClipList(
                 hww: HWINWATCH,
@@ -28642,7 +28642,7 @@ pub unsafe fn WinWatchNotify<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinWatchNotify(
                 hww: HWINWATCH,
@@ -28668,7 +28668,7 @@ pub unsafe fn WinWatchOpen<
 ) -> HWINWATCH {
     #[cfg(windows)]
     {
-        #[link(name = "dciman32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WinWatchOpen(hwnd: super::super::Foundation::HWND) -> HWINWATCH;
         }
@@ -28685,7 +28685,7 @@ pub unsafe fn WldpGetLockdownPolicy(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wldp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WldpGetLockdownPolicy(
                 hostinformation: *const WLDP_HOST_INFORMATION,
@@ -28712,7 +28712,7 @@ pub unsafe fn WldpIsClassInApprovedList(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wldp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WldpIsClassInApprovedList(
                 classid: *const ::windows::runtime::GUID,
@@ -28737,7 +28737,7 @@ pub unsafe fn WldpIsDynamicCodePolicyEnabled(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "wldp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WldpIsDynamicCodePolicyEnabled(
                 isenabled: *mut super::super::Foundation::BOOL,
@@ -28759,7 +28759,7 @@ pub unsafe fn WldpQueryDeviceSecurityInformation(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wldp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WldpQueryDeviceSecurityInformation(
                 information: *mut WLDP_DEVICE_SECURITY_INFORMATION,
@@ -28788,7 +28788,7 @@ pub unsafe fn WldpQueryDynamicCodeTrust<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wldp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WldpQueryDynamicCodeTrust(
                 filehandle: super::super::Foundation::HANDLE,
@@ -28815,7 +28815,7 @@ pub unsafe fn WldpSetDynamicCodeTrust<
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "wldp")]
+        #[link(name = "windows")]
         extern "system" {
             fn WldpSetDynamicCodeTrust(
                 filehandle: super::super::Foundation::HANDLE,
@@ -28839,7 +28839,7 @@ pub unsafe fn WritePrivateProfileSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePrivateProfileSectionA(
                 lpappname: super::super::Foundation::PSTR,
@@ -28869,7 +28869,7 @@ pub unsafe fn WritePrivateProfileSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePrivateProfileSectionW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -28901,7 +28901,7 @@ pub unsafe fn WritePrivateProfileStringA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePrivateProfileStringA(
                 lpappname: super::super::Foundation::PSTR,
@@ -28935,7 +28935,7 @@ pub unsafe fn WritePrivateProfileStringW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePrivateProfileStringW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -28969,7 +28969,7 @@ pub unsafe fn WritePrivateProfileStructA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePrivateProfileStructA(
                 lpszsection: super::super::Foundation::PSTR,
@@ -29005,7 +29005,7 @@ pub unsafe fn WritePrivateProfileStructW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WritePrivateProfileStructW(
                 lpszsection: super::super::Foundation::PWSTR,
@@ -29037,7 +29037,7 @@ pub unsafe fn WriteProfileSectionA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteProfileSectionA(
                 lpappname: super::super::Foundation::PSTR,
@@ -29063,7 +29063,7 @@ pub unsafe fn WriteProfileSectionW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteProfileSectionW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -29091,7 +29091,7 @@ pub unsafe fn WriteProfileStringA<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteProfileStringA(
                 lpappname: super::super::Foundation::PSTR,
@@ -29121,7 +29121,7 @@ pub unsafe fn WriteProfileStringW<
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn WriteProfileStringW(
                 lpappname: super::super::Foundation::PWSTR,
@@ -29161,7 +29161,7 @@ pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
 pub unsafe fn _hread(hfile: i32, lpbuffer: *mut ::std::ffi::c_void, lbytes: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _hread(hfile: i32, lpbuffer: *mut ::std::ffi::c_void, lbytes: i32) -> i32;
         }
@@ -29185,7 +29185,7 @@ pub unsafe fn _hwrite<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _hwrite(hfile: i32, lpbuffer: super::super::Foundation::PSTR, lbytes: i32) -> i32;
         }
@@ -29201,7 +29201,7 @@ pub unsafe fn _hwrite<
 pub unsafe fn _lclose(hfile: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _lclose(hfile: i32) -> i32;
         }
@@ -29220,7 +29220,7 @@ pub unsafe fn _lcreat<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _lcreat(lppathname: super::super::Foundation::PSTR, iattribute: i32) -> i32;
         }
@@ -29235,7 +29235,7 @@ pub unsafe fn _lcreat<
 pub unsafe fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
         }
@@ -29258,7 +29258,7 @@ pub unsafe fn _lopen<
 ) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _lopen(lppathname: super::super::Foundation::PSTR, ireadwrite: i32) -> i32;
         }
@@ -29273,7 +29273,7 @@ pub unsafe fn _lopen<
 pub unsafe fn _lread(hfile: i32, lpbuffer: *mut ::std::ffi::c_void, ubytes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _lread(hfile: i32, lpbuffer: *mut ::std::ffi::c_void, ubytes: u32) -> u32;
         }
@@ -29297,7 +29297,7 @@ pub unsafe fn _lwrite<
 ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn _lwrite(hfile: i32, lpbuffer: super::super::Foundation::PSTR, ubytes: u32) -> u32;
         }
@@ -29435,7 +29435,7 @@ unsafe impl ::windows::runtime::Abi for tcp_request_set_information_ex {
 pub unsafe fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32;
         }
@@ -29450,7 +29450,7 @@ pub unsafe fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32 {
 pub unsafe fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32;
         }
@@ -29465,7 +29465,7 @@ pub unsafe fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32 {
 pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_lstrlenW(string: *const u16) -> i32;
         }
@@ -29477,7 +29477,7 @@ pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
 pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
         }
@@ -29492,7 +29492,7 @@ pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16 {
 pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
         }
@@ -29507,7 +29507,7 @@ pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16 
 pub unsafe fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
         }
@@ -29522,7 +29522,7 @@ pub unsafe fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32 {
 pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_wcslen(string: *const u16) -> usize;
         }
@@ -29534,7 +29534,7 @@ pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
 pub unsafe fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16 {
     #[cfg(windows)]
     {
-        #[link(name = "kernel32")]
+        #[link(name = "windows")]
         extern "system" {
             fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
         }
