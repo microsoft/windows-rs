@@ -80,6 +80,30 @@ jobs:
     - name: Add toolchain target
       run: rustup target add ${{ matrix.other }}
 
+    - name: Configure Cargo for GNU toolchain
+      shell: pwsh
+      run: |
+        Add-Content $env:USERPROFILE\.cargo\config @"
+          [target.x86_64-pc-windows-gnu]
+          linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
+          ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
+          [target.i686-pc-windows-gnu]
+          linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
+          ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
+        "@
+      if: contains(matrix.other, 'windows-gnu')
+
+    - name: Configure environment for GNU toolchain
+      shell: pwsh
+      run: |
+        if("${{ matrix.other }}" -eq "i686-pc-windows-gnu") {
+          $MingwPath = "C:\msys64\mingw32\bin"
+        } else {
+          $MingwPath = "C:\msys64\mingw64\bin"
+        }
+        $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      if: contains(matrix.other, 'windows-gnu')
+
     - name: Build (${{ matrix.os }})
       run: cargo build
       if: matrix.os == 'ubuntu-latest'
