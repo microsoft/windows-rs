@@ -270,7 +270,7 @@ impl ::std::default::Default for BSTR {
 }
 impl ::std::fmt::Display for BSTR {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        use ::std::fmt::Write;
+        use std::fmt::Write;
         for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
             f.write_char(c.map_err(|_| ::std::fmt::Error)?)?
         }
