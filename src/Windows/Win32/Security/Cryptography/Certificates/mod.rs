@@ -2551,6 +2551,7 @@ pub const CX509SCEPEnrollmentHelper: ::windows::runtime::GUID =
         4570,
         [178, 164, 0, 14, 123, 187, 43, 9],
     );
+#[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2563,6 +2564,7 @@ pub unsafe fn CertSrvBackupClose(hbc: *mut ::std::ffi::c_void) -> ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2589,6 +2591,7 @@ pub unsafe fn CertSrvBackupFree(pv: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(
     hbc: *const ::std::ffi::c_void,
     ppwszzbackuplogfiles: *mut super::super::super::Foundation::PWSTR,
@@ -2615,6 +2618,7 @@ pub unsafe fn CertSrvBackupGetBackupLogsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(
     hbc: *const ::std::ffi::c_void,
     ppwszzattachmentinformation: *mut super::super::super::Foundation::PWSTR,
@@ -2641,6 +2645,7 @@ pub unsafe fn CertSrvBackupGetDatabaseNamesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvBackupGetDynamicFileListW(
     hbc: *const ::std::ffi::c_void,
     ppwszzfilelist: *mut super::super::super::Foundation::PWSTR,
@@ -2667,6 +2672,7 @@ pub unsafe fn CertSrvBackupGetDynamicFileListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvBackupOpenFileW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2699,6 +2705,7 @@ pub unsafe fn CertSrvBackupOpenFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvBackupPrepareW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2730,6 +2737,7 @@ pub unsafe fn CertSrvBackupPrepareW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CertSrvBackupRead(
     hbc: *mut ::std::ffi::c_void,
     pvbuffer: *mut ::std::ffi::c_void,
@@ -2758,6 +2766,7 @@ pub unsafe fn CertSrvBackupRead(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(
     hbc: *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -2775,6 +2784,7 @@ pub unsafe fn CertSrvBackupTruncateLogs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvIsServerOnlineW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2800,6 +2810,7 @@ pub unsafe fn CertSrvIsServerOnlineW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2813,6 +2824,7 @@ pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(
     hbc: *const ::std::ffi::c_void,
     ppwszzdatabaselocationlist: *mut super::super::super::Foundation::PWSTR,
@@ -2839,6 +2851,7 @@ pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvRestorePrepareW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2867,6 +2880,7 @@ pub unsafe fn CertSrvRestorePrepareW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CertSrvRestoreRegisterComplete(
     hbc: *mut ::std::ffi::c_void,
     hrrestorestate: ::windows::runtime::HRESULT,
@@ -2890,6 +2904,7 @@ pub unsafe fn CertSrvRestoreRegisterComplete(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvRestoreRegisterThroughFile<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2936,6 +2951,7 @@ pub unsafe fn CertSrvRestoreRegisterThroughFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvRestoreRegisterW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2982,6 +2998,7 @@ pub unsafe fn CertSrvRestoreRegisterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSrvServerControlW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -78261,6 +78278,7 @@ unsafe impl ::windows::runtime::Abi for PolicyServerUrlPropertyID {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PstAcquirePrivateKey(
     pcert: *const super::CERT_CONTEXT,
 ) -> ::windows::runtime::Result<()> {
@@ -78281,6 +78299,7 @@ pub unsafe fn PstAcquirePrivateKey(
     feature = "Win32_Foundation",
     feature = "Win32_Security_Authentication_Identity"
 ))]
+#[inline]
 pub unsafe fn PstGetCertificateChain(
     pcert: *const super::CERT_CONTEXT,
     ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx,
@@ -78307,6 +78326,7 @@ pub unsafe fn PstGetCertificateChain(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PstGetCertificates<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
@@ -78348,6 +78368,7 @@ pub unsafe fn PstGetCertificates<
     feature = "Win32_Foundation",
     feature = "Win32_Security_Authentication_Identity"
 ))]
+#[inline]
 pub unsafe fn PstGetTrustAnchors(
     ptargetname: *const super::super::super::Foundation::UNICODE_STRING,
     ccriteria: u32,
@@ -78380,6 +78401,7 @@ pub unsafe fn PstGetTrustAnchors(
     feature = "Win32_Foundation",
     feature = "Win32_Security_Authentication_Identity"
 ))]
+#[inline]
 pub unsafe fn PstGetTrustAnchorsEx(
     ptargetname: *const super::super::super::Foundation::UNICODE_STRING,
     ccriteria: u32,
@@ -78412,6 +78434,7 @@ pub unsafe fn PstGetTrustAnchorsEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PstGetUserNameForCertificate(
     pcertcontext: *const super::CERT_CONTEXT,
     username: *mut super::super::super::Foundation::UNICODE_STRING,
@@ -78438,6 +78461,7 @@ pub unsafe fn PstGetUserNameForCertificate(
     feature = "Win32_Foundation",
     feature = "Win32_Security_Authentication_Identity"
 ))]
+#[inline]
 pub unsafe fn PstMapCertificate(
     pcert: *const super::CERT_CONTEXT,
     ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE,
@@ -78464,6 +78488,7 @@ pub unsafe fn PstMapCertificate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PstValidate<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,

@@ -354,6 +354,7 @@ pub unsafe fn GetDpiAwarenessContextForProcess<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetDpiForMonitor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>,
@@ -436,6 +437,7 @@ pub unsafe fn GetDpiFromDpiAwarenessContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessDpiAwareness<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -768,6 +770,7 @@ pub unsafe fn SetDialogDpiChangeBehavior<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetProcessDpiAwareness(
     value: PROCESS_DPI_AWARENESS,
 ) -> ::windows::runtime::Result<()> {

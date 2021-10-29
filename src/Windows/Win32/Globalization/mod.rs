@@ -2718,6 +2718,7 @@ pub unsafe fn GetDateFormatW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDistanceOfClosestLanguageInList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
@@ -11812,6 +11813,7 @@ impl ::std::ops::Not for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MappingDoAction<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
@@ -11841,6 +11843,7 @@ pub unsafe fn MappingDoAction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MappingFreePropertyBag(
     pbag: *const MAPPING_PROPERTY_BAG,
 ) -> ::windows::runtime::Result<()> {
@@ -11858,6 +11861,7 @@ pub unsafe fn MappingFreePropertyBag(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MappingFreeServices(
     pserviceinfo: *const MAPPING_SERVICE_INFO,
 ) -> ::windows::runtime::Result<()> {
@@ -11875,6 +11879,7 @@ pub unsafe fn MappingFreeServices(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MappingGetServices(
     poptions: *const MAPPING_ENUM_OPTIONS,
     prgservices: *mut *mut MAPPING_SERVICE_INFO,
@@ -11901,6 +11906,7 @@ pub unsafe fn MappingGetServices(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MappingRecognizeText<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
@@ -13058,6 +13064,7 @@ unsafe impl ::windows::runtime::Abi for SYSNLS_FUNCTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ScriptApplyDigitSubstitution(
     psds: *const SCRIPT_DIGITSUBSTITUTE,
     psc: *mut SCRIPT_CONTROL,
@@ -13084,6 +13091,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptApplyLogicalWidth(
     pidx: *const i32,
     cchars: i32,
@@ -13128,6 +13136,7 @@ pub unsafe fn ScriptApplyLogicalWidth(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScriptBreak<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
@@ -13160,6 +13169,7 @@ pub unsafe fn ScriptBreak<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScriptCPtoX<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>,
@@ -13207,6 +13217,7 @@ pub unsafe fn ScriptCPtoX<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptCacheGetHeight<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13235,6 +13246,7 @@ pub unsafe fn ScriptCacheGetHeight<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptFreeCache(psc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -13248,6 +13260,7 @@ pub unsafe fn ScriptFreeCache(psc: *mut *mut ::std::ffi::c_void) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ScriptGetCMap<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13287,6 +13300,7 @@ pub unsafe fn ScriptGetCMap<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptGetFontAlternateGlyphs<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13337,6 +13351,7 @@ pub unsafe fn ScriptGetFontAlternateGlyphs<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptGetFontFeatureTags<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13381,6 +13396,7 @@ pub unsafe fn ScriptGetFontFeatureTags<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptGetFontLanguageTags<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13422,6 +13438,7 @@ pub unsafe fn ScriptGetFontLanguageTags<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptGetFontProperties<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13451,6 +13468,7 @@ pub unsafe fn ScriptGetFontProperties<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptGetFontScriptTags<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13489,6 +13507,7 @@ pub unsafe fn ScriptGetFontScriptTags<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptGetGlyphABCWidth<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13520,6 +13539,7 @@ pub unsafe fn ScriptGetGlyphABCWidth<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptGetLogicalWidths(
     psa: *const SCRIPT_ANALYSIS,
     cchars: i32,
@@ -13557,6 +13577,7 @@ pub unsafe fn ScriptGetLogicalWidths(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptGetProperties(
     ppsp: *mut *mut *mut SCRIPT_PROPERTIES,
     pinumscripts: *mut i32,
@@ -13580,6 +13601,7 @@ pub unsafe fn ScriptGetProperties(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScriptIsComplex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
@@ -13609,6 +13631,7 @@ pub unsafe fn ScriptIsComplex<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScriptItemize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
@@ -13650,6 +13673,7 @@ pub unsafe fn ScriptItemize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScriptItemizeOpenType<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Foundation::PWSTR>,
@@ -13693,6 +13717,7 @@ pub unsafe fn ScriptItemizeOpenType<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptJustify(
     psva: *const SCRIPT_VISATTR,
     piadvance: *const i32,
@@ -13727,6 +13752,7 @@ pub unsafe fn ScriptJustify(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptLayout(
     cruns: i32,
     pblevel: *const u8,
@@ -13756,6 +13782,7 @@ pub unsafe fn ScriptLayout(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptPlace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13803,6 +13830,7 @@ pub unsafe fn ScriptPlace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ScriptPlaceOpenType<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13878,6 +13906,7 @@ pub unsafe fn ScriptPlaceOpenType<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptPositionSingleGlyph<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -13934,6 +13963,7 @@ pub unsafe fn ScriptPositionSingleGlyph<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptRecordDigitSubstitution(
     locale: u32,
 ) -> ::windows::runtime::Result<SCRIPT_DIGITSUBSTITUTE> {
@@ -13955,6 +13985,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ScriptShape<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -14006,6 +14037,7 @@ pub unsafe fn ScriptShape<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ScriptShapeOpenType<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -14075,6 +14107,7 @@ pub unsafe fn ScriptShapeOpenType<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptStringAnalyse<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -14134,6 +14167,7 @@ pub unsafe fn ScriptStringAnalyse<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScriptStringCPtoX<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>,
@@ -14165,6 +14199,7 @@ pub unsafe fn ScriptStringCPtoX<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptStringFree(
     pssa: *mut *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -14179,6 +14214,7 @@ pub unsafe fn ScriptStringFree(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptStringGetLogicalWidths(
     ssa: *const ::std::ffi::c_void,
     pidx: *mut i32,
@@ -14197,6 +14233,7 @@ pub unsafe fn ScriptStringGetLogicalWidths(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptStringGetOrder(
     ssa: *const ::std::ffi::c_void,
     puorder: *mut u32,
@@ -14216,6 +14253,7 @@ pub unsafe fn ScriptStringGetOrder(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ScriptStringOut<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>,
@@ -14259,6 +14297,7 @@ pub unsafe fn ScriptStringOut<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptStringValidate(
     ssa: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -14273,6 +14312,7 @@ pub unsafe fn ScriptStringValidate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptStringXtoCP(
     ssa: *const ::std::ffi::c_void,
     ix: i32,
@@ -14342,6 +14382,7 @@ pub unsafe fn ScriptString_pcOutChars(ssa: *const ::std::ffi::c_void) -> *mut i3
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ScriptSubstituteSingleGlyph<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -14389,6 +14430,7 @@ pub unsafe fn ScriptSubstituteSingleGlyph<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ScriptTextOut<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Gdi::HDC>,
@@ -14451,6 +14493,7 @@ pub unsafe fn ScriptTextOut<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScriptXtoCP(
     ix: i32,
     cchars: i32,

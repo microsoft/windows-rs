@@ -795,6 +795,7 @@ unsafe impl ::windows::runtime::Abi for FULLDUPLEX_SUPPORT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn GetTnefStreamCodepage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
@@ -36852,6 +36853,7 @@ unsafe impl ::windows::runtime::Abi for NSID_0 {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn OpenTnefStream<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
@@ -36894,6 +36896,7 @@ pub unsafe fn OpenTnefStream<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn OpenTnefStreamEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,

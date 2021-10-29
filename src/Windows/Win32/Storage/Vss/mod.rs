@@ -7,6 +7,7 @@
     dead_code,
     clippy::all
 )]
+#[inline]
 pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::runtime::Result<IVssExpressWriter> {
     #[cfg(windows)]
     {

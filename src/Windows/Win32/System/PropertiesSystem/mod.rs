@@ -5865,6 +5865,7 @@ pub const InMemoryPropertyStoreMarshalByValue: ::windows::runtime::GUID =
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromBooleanVector(
     prgf: *const super::super::Foundation::BOOL,
     celems: u32,
@@ -5896,6 +5897,7 @@ pub unsafe fn InitPropVariantFromBooleanVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromBuffer(
     pv: *const ::std::ffi::c_void,
     cb: u32,
@@ -5927,6 +5929,7 @@ pub unsafe fn InitPropVariantFromBuffer(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromCLSID(
     clsid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
@@ -5952,6 +5955,7 @@ pub unsafe fn InitPropVariantFromCLSID(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromDoubleVector(
     prgn: *const f64,
     celems: u32,
@@ -5983,6 +5987,7 @@ pub unsafe fn InitPropVariantFromDoubleVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromFileTime(
     pftin: *const super::super::Foundation::FILETIME,
 ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
@@ -6008,6 +6013,7 @@ pub unsafe fn InitPropVariantFromFileTime(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromFileTimeVector(
     prgft: *const super::super::Foundation::FILETIME,
     celems: u32,
@@ -6039,6 +6045,7 @@ pub unsafe fn InitPropVariantFromFileTimeVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromGUIDAsString(
     guid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
@@ -6064,6 +6071,7 @@ pub unsafe fn InitPropVariantFromGUIDAsString(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromInt16Vector(
     prgn: *const i16,
     celems: u32,
@@ -6095,6 +6103,7 @@ pub unsafe fn InitPropVariantFromInt16Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromInt32Vector(
     prgn: *const i32,
     celems: u32,
@@ -6126,6 +6135,7 @@ pub unsafe fn InitPropVariantFromInt32Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromInt64Vector(
     prgn: *const i64,
     celems: u32,
@@ -6157,6 +6167,7 @@ pub unsafe fn InitPropVariantFromInt64Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -6190,6 +6201,7 @@ pub unsafe fn InitPropVariantFromPropVariantVectorElem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -6225,6 +6237,7 @@ pub unsafe fn InitPropVariantFromResource<
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromStrRet(
     pstrret: *mut super::super::UI::Shell::STRRET,
     pidl: *const super::super::UI::Shell::ITEMIDLIST,
@@ -6256,6 +6269,7 @@ pub unsafe fn InitPropVariantFromStrRet(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromStringAsVector<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6284,6 +6298,7 @@ pub unsafe fn InitPropVariantFromStringAsVector<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromStringVector(
     prgsz: *const super::super::Foundation::PWSTR,
     celems: u32,
@@ -6315,6 +6330,7 @@ pub unsafe fn InitPropVariantFromStringVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromUInt16Vector(
     prgn: *const u16,
     celems: u32,
@@ -6346,6 +6362,7 @@ pub unsafe fn InitPropVariantFromUInt16Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromUInt32Vector(
     prgn: *const u32,
     celems: u32,
@@ -6377,6 +6394,7 @@ pub unsafe fn InitPropVariantFromUInt32Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromUInt64Vector(
     prgn: *const u64,
     celems: u32,
@@ -6408,6 +6426,7 @@ pub unsafe fn InitPropVariantFromUInt64Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantVectorFromPropVariant(
     propvarsingle: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
@@ -6436,6 +6455,7 @@ pub unsafe fn InitPropVariantVectorFromPropVariant(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromBooleanArray(
     prgf: *const super::super::Foundation::BOOL,
     celems: u32,
@@ -6467,6 +6487,7 @@ pub unsafe fn InitVariantFromBooleanArray(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromBuffer(
     pv: *const ::std::ffi::c_void,
     cb: u32,
@@ -6498,6 +6519,7 @@ pub unsafe fn InitVariantFromBuffer(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromDoubleArray(
     prgn: *const f64,
     celems: u32,
@@ -6529,6 +6551,7 @@ pub unsafe fn InitVariantFromDoubleArray(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromFileTime(
     pft: *const super::super::Foundation::FILETIME,
 ) -> ::windows::runtime::Result<super::Com::VARIANT> {
@@ -6554,6 +6577,7 @@ pub unsafe fn InitVariantFromFileTime(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromFileTimeArray(
     prgft: *const super::super::Foundation::FILETIME,
     celems: u32,
@@ -6585,6 +6609,7 @@ pub unsafe fn InitVariantFromFileTimeArray(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromGUIDAsString(
     guid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<super::Com::VARIANT> {
@@ -6610,6 +6635,7 @@ pub unsafe fn InitVariantFromGUIDAsString(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromInt16Array(
     prgn: *const i16,
     celems: u32,
@@ -6641,6 +6667,7 @@ pub unsafe fn InitVariantFromInt16Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromInt32Array(
     prgn: *const i32,
     celems: u32,
@@ -6672,6 +6699,7 @@ pub unsafe fn InitVariantFromInt32Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromInt64Array(
     prgn: *const i64,
     celems: u32,
@@ -6703,6 +6731,7 @@ pub unsafe fn InitVariantFromInt64Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -6738,6 +6767,7 @@ pub unsafe fn InitVariantFromResource<
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromStrRet(
     pstrret: *const super::super::UI::Shell::STRRET,
     pidl: *const super::super::UI::Shell::ITEMIDLIST,
@@ -6769,6 +6799,7 @@ pub unsafe fn InitVariantFromStrRet(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromStringArray(
     prgsz: *const super::super::Foundation::PWSTR,
     celems: u32,
@@ -6800,6 +6831,7 @@ pub unsafe fn InitVariantFromStringArray(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromUInt16Array(
     prgn: *const u16,
     celems: u32,
@@ -6831,6 +6863,7 @@ pub unsafe fn InitVariantFromUInt16Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromUInt32Array(
     prgn: *const u32,
     celems: u32,
@@ -6862,6 +6895,7 @@ pub unsafe fn InitVariantFromUInt32Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromUInt64Array(
     prgn: *const u64,
     celems: u32,
@@ -6893,6 +6927,7 @@ pub unsafe fn InitVariantFromUInt64Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromVariantArrayElem(
     varin: *const super::Com::VARIANT,
     ielem: u32,
@@ -7527,6 +7562,7 @@ unsafe impl ::windows::runtime::Abi for PSC_STATE {
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSCoerceToCanonicalValue(
     key: *const PROPERTYKEY,
     ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
@@ -7545,6 +7581,7 @@ pub unsafe fn PSCoerceToCanonicalValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateAdapterFromPropertyStore<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -7573,6 +7610,7 @@ pub unsafe fn PSCreateAdapterFromPropertyStore<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateDelayedMultiplexPropertyStore<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IDelayedPropertyStoreFactory>,
@@ -7610,6 +7648,7 @@ pub unsafe fn PSCreateDelayedMultiplexPropertyStore<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateMemoryPropertyStore(
     riid: *const ::windows::runtime::GUID,
     ppv: *mut *mut ::std::ffi::c_void,
@@ -7628,6 +7667,7 @@ pub unsafe fn PSCreateMemoryPropertyStore(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateMultiplexPropertyStore(
     prgpunkstores: *const ::std::option::Option<::windows::runtime::IUnknown>,
     cstores: u32,
@@ -7662,6 +7702,7 @@ pub unsafe fn PSCreateMultiplexPropertyStore(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSCreatePropertyChangeArray(
     rgpropkey: *const PROPERTYKEY,
     rgflags: *const PKA_FLAGS,
@@ -7698,6 +7739,7 @@ pub unsafe fn PSCreatePropertyChangeArray(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreatePropertyStoreFromObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -7730,6 +7772,7 @@ pub unsafe fn PSCreatePropertyStoreFromObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertySetStorage>,
@@ -7767,6 +7810,7 @@ pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSCreateSimplePropertyChange(
     flags: PKA_FLAGS,
     key: *const PROPERTYKEY,
@@ -7800,6 +7844,7 @@ pub unsafe fn PSCreateSimplePropertyChange(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSEnumeratePropertyDescriptions(
     filteron: PROPDESC_ENUMFILTER,
     riid: *const ::windows::runtime::GUID,
@@ -7831,6 +7876,7 @@ pub unsafe fn PSEnumeratePropertyDescriptions(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSFormatForDisplay(
     propkey: *const PROPERTYKEY,
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
@@ -7870,6 +7916,7 @@ pub unsafe fn PSFormatForDisplay(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSFormatForDisplayAlloc(
     key: *const PROPERTYKEY,
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
@@ -7902,6 +7949,7 @@ pub unsafe fn PSFormatForDisplayAlloc(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSFormatPropertyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -7941,6 +7989,7 @@ pub unsafe fn PSFormatPropertyValue<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetImageReferenceForValue(
     propkey: *const PROPERTYKEY,
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
@@ -7970,6 +8019,7 @@ pub unsafe fn PSGetImageReferenceForValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetItemPropertyHandler<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -8003,6 +8053,7 @@ pub unsafe fn PSGetItemPropertyHandler<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -8040,6 +8091,7 @@ pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetNameFromPropertyKey(
     propkey: *const PROPERTYKEY,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -8066,6 +8118,7 @@ pub unsafe fn PSGetNameFromPropertyKey(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetNamedPropertyFromPropertyStorage<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8097,6 +8150,7 @@ pub unsafe fn PSGetNamedPropertyFromPropertyStorage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSGetPropertyDescription(
     propkey: *const PROPERTYKEY,
     riid: *const ::windows::runtime::GUID,
@@ -8123,6 +8177,7 @@ pub unsafe fn PSGetPropertyDescription(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetPropertyDescriptionByName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8152,6 +8207,7 @@ pub unsafe fn PSGetPropertyDescriptionByName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetPropertyDescriptionListFromString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8186,6 +8242,7 @@ pub unsafe fn PSGetPropertyDescriptionListFromString<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetPropertyFromPropertyStorage(
     psps: *const SERIALIZEDPROPSTORAGE,
     cb: u32,
@@ -8215,6 +8272,7 @@ pub unsafe fn PSGetPropertyFromPropertyStorage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetPropertyKeyFromName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8237,6 +8295,7 @@ pub unsafe fn PSGetPropertyKeyFromName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSGetPropertySystem(
     riid: *const ::windows::runtime::GUID,
     ppv: *mut *mut ::std::ffi::c_void,
@@ -8261,6 +8320,7 @@ pub unsafe fn PSGetPropertySystem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetPropertyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -8291,6 +8351,7 @@ pub unsafe fn PSGetPropertyValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSLookupPropertyHandlerCLSID<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8315,6 +8376,7 @@ pub unsafe fn PSLookupPropertyHandlerCLSID<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_Delete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8338,6 +8400,7 @@ pub unsafe fn PSPropertyBag_Delete<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadBOOL<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8369,6 +8432,7 @@ pub unsafe fn PSPropertyBag_ReadBOOL<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadBSTR<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8400,6 +8464,7 @@ pub unsafe fn PSPropertyBag_ReadBSTR<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadDWORD<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8430,6 +8495,7 @@ pub unsafe fn PSPropertyBag_ReadDWORD<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadGUID<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8461,6 +8527,7 @@ pub unsafe fn PSPropertyBag_ReadGUID<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadInt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8491,6 +8558,7 @@ pub unsafe fn PSPropertyBag_ReadInt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadLONG<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8521,6 +8589,7 @@ pub unsafe fn PSPropertyBag_ReadLONG<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTL<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8552,6 +8621,7 @@ pub unsafe fn PSPropertyBag_ReadPOINTL<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTS<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8583,6 +8653,7 @@ pub unsafe fn PSPropertyBag_ReadPOINTS<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadPropertyKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8613,6 +8684,7 @@ pub unsafe fn PSPropertyBag_ReadPropertyKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadRECTL<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8644,6 +8716,7 @@ pub unsafe fn PSPropertyBag_ReadRECTL<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadSHORT<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8674,6 +8747,7 @@ pub unsafe fn PSPropertyBag_ReadSHORT<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8707,6 +8781,7 @@ pub unsafe fn PSPropertyBag_ReadStr<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadStrAlloc<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8742,6 +8817,7 @@ pub unsafe fn PSPropertyBag_ReadStrAlloc<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadStream<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8777,6 +8853,7 @@ pub unsafe fn PSPropertyBag_ReadStream<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadType<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8810,6 +8887,7 @@ pub unsafe fn PSPropertyBag_ReadType<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadULONGLONG<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8840,6 +8918,7 @@ pub unsafe fn PSPropertyBag_ReadULONGLONG<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadUnknown<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8873,6 +8952,7 @@ pub unsafe fn PSPropertyBag_ReadUnknown<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteBOOL<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8904,6 +8984,7 @@ pub unsafe fn PSPropertyBag_WriteBOOL<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteBSTR<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8935,6 +9016,7 @@ pub unsafe fn PSPropertyBag_WriteBSTR<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteDWORD<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8965,6 +9047,7 @@ pub unsafe fn PSPropertyBag_WriteDWORD<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteGUID<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -8995,6 +9078,7 @@ pub unsafe fn PSPropertyBag_WriteGUID<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteInt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9025,6 +9109,7 @@ pub unsafe fn PSPropertyBag_WriteInt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteLONG<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9055,6 +9140,7 @@ pub unsafe fn PSPropertyBag_WriteLONG<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WritePOINTL<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9085,6 +9171,7 @@ pub unsafe fn PSPropertyBag_WritePOINTL<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WritePOINTS<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9115,6 +9202,7 @@ pub unsafe fn PSPropertyBag_WritePOINTS<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WritePropertyKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9145,6 +9233,7 @@ pub unsafe fn PSPropertyBag_WritePropertyKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteRECTL<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9175,6 +9264,7 @@ pub unsafe fn PSPropertyBag_WriteRECTL<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteSHORT<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9205,6 +9295,7 @@ pub unsafe fn PSPropertyBag_WriteSHORT<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9240,6 +9331,7 @@ pub unsafe fn PSPropertyBag_WriteStr<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteStream<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9271,6 +9363,7 @@ pub unsafe fn PSPropertyBag_WriteStream<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteULONGLONG<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9301,6 +9394,7 @@ pub unsafe fn PSPropertyBag_WriteULONGLONG<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteUnknown<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
@@ -9332,6 +9426,7 @@ pub unsafe fn PSPropertyBag_WriteUnknown<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSPropertyKeyFromString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9354,6 +9449,7 @@ pub unsafe fn PSPropertyKeyFromString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSRefreshPropertySchema() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -9367,6 +9463,7 @@ pub unsafe fn PSRefreshPropertySchema() -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSRegisterPropertySchema<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9392,6 +9489,7 @@ pub unsafe fn PSRegisterPropertySchema<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSSetPropertyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -9424,6 +9522,7 @@ pub unsafe fn PSSetPropertyValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSStringFromPropertyKey(
     pkey: *const PROPERTYKEY,
     psz: super::super::Foundation::PWSTR,
@@ -9471,6 +9570,7 @@ unsafe impl ::windows::runtime::Abi for PSTIME_FLAGS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSUnregisterPropertySchema<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9627,6 +9727,7 @@ pub unsafe fn PifMgr_SetProperties<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantChangeType(
     ppropvardest: *mut super::Com::StructuredStorage::PROPVARIANT,
     propvarsrc: *const super::Com::StructuredStorage::PROPVARIANT,
@@ -9703,6 +9804,7 @@ pub unsafe fn PropVariantCompareEx(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetBooleanElem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9737,6 +9839,7 @@ pub unsafe fn PropVariantGetBooleanElem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetDoubleElem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9795,6 +9898,7 @@ pub unsafe fn PropVariantGetElementCount(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetFileTimeElem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9829,6 +9933,7 @@ pub unsafe fn PropVariantGetFileTimeElem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInt16Elem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9862,6 +9967,7 @@ pub unsafe fn PropVariantGetInt16Elem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInt32Elem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9895,6 +10001,7 @@ pub unsafe fn PropVariantGetInt32Elem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInt64Elem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9928,6 +10035,7 @@ pub unsafe fn PropVariantGetInt64Elem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetStringElem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9962,6 +10070,7 @@ pub unsafe fn PropVariantGetStringElem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetUInt16Elem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -9995,6 +10104,7 @@ pub unsafe fn PropVariantGetUInt16Elem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetUInt32Elem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -10028,6 +10138,7 @@ pub unsafe fn PropVariantGetUInt32Elem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetUInt64Elem(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
@@ -10061,6 +10172,7 @@ pub unsafe fn PropVariantGetUInt64Elem(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBSTR(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -10089,6 +10201,7 @@ pub unsafe fn PropVariantToBSTR(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBoolean(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
@@ -10117,6 +10230,7 @@ pub unsafe fn PropVariantToBoolean(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBooleanVector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgf: *mut super::super::Foundation::BOOL,
@@ -10153,6 +10267,7 @@ pub unsafe fn PropVariantToBooleanVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBooleanVectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgf: *mut *mut super::super::Foundation::BOOL,
@@ -10219,6 +10334,7 @@ pub unsafe fn PropVariantToBooleanWithDefault<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBuffer(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pv: *mut ::std::ffi::c_void,
@@ -10252,6 +10368,7 @@ pub unsafe fn PropVariantToBuffer(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToDouble(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<f64> {
@@ -10279,6 +10396,7 @@ pub unsafe fn PropVariantToDouble(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToDoubleVector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut f64,
@@ -10315,6 +10433,7 @@ pub unsafe fn PropVariantToDoubleVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToDoubleVectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut f64,
@@ -10378,6 +10497,7 @@ pub unsafe fn PropVariantToDoubleWithDefault(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToFileTime(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pstfout: PSTIME_FLAGS,
@@ -10412,6 +10532,7 @@ pub unsafe fn PropVariantToFileTime(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToFileTimeVector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgft: *mut super::super::Foundation::FILETIME,
@@ -10448,6 +10569,7 @@ pub unsafe fn PropVariantToFileTimeVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToFileTimeVectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgft: *mut *mut super::super::Foundation::FILETIME,
@@ -10481,6 +10603,7 @@ pub unsafe fn PropVariantToFileTimeVectorAlloc(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToGUID(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -10509,6 +10632,7 @@ pub unsafe fn PropVariantToGUID(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt16(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<i16> {
@@ -10536,6 +10660,7 @@ pub unsafe fn PropVariantToInt16(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt16Vector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut i16,
@@ -10572,6 +10697,7 @@ pub unsafe fn PropVariantToInt16Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt16VectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut i16,
@@ -10635,6 +10761,7 @@ pub unsafe fn PropVariantToInt16WithDefault(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt32(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<i32> {
@@ -10662,6 +10789,7 @@ pub unsafe fn PropVariantToInt32(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt32Vector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut i32,
@@ -10698,6 +10826,7 @@ pub unsafe fn PropVariantToInt32Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt32VectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut i32,
@@ -10761,6 +10890,7 @@ pub unsafe fn PropVariantToInt32WithDefault(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt64(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<i64> {
@@ -10788,6 +10918,7 @@ pub unsafe fn PropVariantToInt64(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt64Vector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut i64,
@@ -10824,6 +10955,7 @@ pub unsafe fn PropVariantToInt64Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt64VectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut i64,
@@ -10888,6 +11020,7 @@ pub unsafe fn PropVariantToInt64WithDefault(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStrRet(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::UI::Shell::STRRET> {
@@ -10916,6 +11049,7 @@ pub unsafe fn PropVariantToStrRet(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToString(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     psz: super::super::Foundation::PWSTR,
@@ -10949,6 +11083,7 @@ pub unsafe fn PropVariantToString(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStringAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -10977,6 +11112,7 @@ pub unsafe fn PropVariantToStringAlloc(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStringVector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgsz: *mut super::super::Foundation::PWSTR,
@@ -11013,6 +11149,7 @@ pub unsafe fn PropVariantToStringVector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStringVectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgsz: *mut *mut super::super::Foundation::PWSTR,
@@ -11079,6 +11216,7 @@ pub unsafe fn PropVariantToStringWithDefault<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt16(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<u16> {
@@ -11106,6 +11244,7 @@ pub unsafe fn PropVariantToUInt16(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt16Vector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut u16,
@@ -11142,6 +11281,7 @@ pub unsafe fn PropVariantToUInt16Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt16VectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut u16,
@@ -11205,6 +11345,7 @@ pub unsafe fn PropVariantToUInt16WithDefault(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt32(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<u32> {
@@ -11232,6 +11373,7 @@ pub unsafe fn PropVariantToUInt32(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt32Vector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut u32,
@@ -11268,6 +11410,7 @@ pub unsafe fn PropVariantToUInt32Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt32VectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut u32,
@@ -11331,6 +11474,7 @@ pub unsafe fn PropVariantToUInt32WithDefault(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt64(
     propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<u64> {
@@ -11358,6 +11502,7 @@ pub unsafe fn PropVariantToUInt64(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt64Vector(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut u64,
@@ -11394,6 +11539,7 @@ pub unsafe fn PropVariantToUInt64Vector(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt64VectorAlloc(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut u64,
@@ -11457,6 +11603,7 @@ pub unsafe fn PropVariantToUInt64WithDefault(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToVariant(
     ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::Com::VARIANT> {
@@ -11485,6 +11632,7 @@ pub unsafe fn PropVariantToVariant(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToWinRTPropertyValue<T: ::windows::runtime::Interface>(
     propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     result__: *mut ::std::option::Option<T>,
@@ -11528,6 +11676,7 @@ pub const PropertySystem: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 )]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SHAddDefaultPropertiesByExt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11551,6 +11700,7 @@ pub unsafe fn SHAddDefaultPropertiesByExt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SHGetPropertyStoreForWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -11580,6 +11730,7 @@ pub unsafe fn SHGetPropertyStoreForWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_Shell")]
+#[inline]
 pub unsafe fn SHGetPropertyStoreFromIDList(
     pidl: *const super::super::UI::Shell::ITEMIDLIST,
     flags: GETPROPERTYSTOREFLAGS,
@@ -11609,6 +11760,7 @@ pub unsafe fn SHGetPropertyStoreFromIDList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn SHGetPropertyStoreFromParsingName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11645,6 +11797,7 @@ pub unsafe fn SHGetPropertyStoreFromParsingName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn SHPropStgCreate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertySetStorage>,
@@ -11694,6 +11847,7 @@ pub unsafe fn SHPropStgCreate<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn SHPropStgReadMultiple<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertyStorage>,
@@ -11734,6 +11888,7 @@ pub unsafe fn SHPropStgReadMultiple<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn SHPropStgWriteMultiple<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertyStorage>,
@@ -11870,6 +12025,7 @@ pub unsafe fn VariantCompare(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetBooleanElem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -11901,6 +12057,7 @@ pub unsafe fn VariantGetBooleanElem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetDoubleElem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -11951,6 +12108,7 @@ pub unsafe fn VariantGetElementCount(varin: *const super::Com::VARIANT) -> u32 {
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetInt16Elem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -11981,6 +12139,7 @@ pub unsafe fn VariantGetInt16Elem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetInt32Elem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -12011,6 +12170,7 @@ pub unsafe fn VariantGetInt32Elem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetInt64Elem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -12041,6 +12201,7 @@ pub unsafe fn VariantGetInt64Elem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetStringElem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -12072,6 +12233,7 @@ pub unsafe fn VariantGetStringElem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetUInt16Elem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -12102,6 +12264,7 @@ pub unsafe fn VariantGetUInt16Elem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetUInt32Elem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -12132,6 +12295,7 @@ pub unsafe fn VariantGetUInt32Elem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetUInt64Elem(
     var: *const super::Com::VARIANT,
     ielem: u32,
@@ -12162,6 +12326,7 @@ pub unsafe fn VariantGetUInt64Elem(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBoolean(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
@@ -12187,6 +12352,7 @@ pub unsafe fn VariantToBoolean(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBooleanArray(
     var: *const super::Com::VARIANT,
     prgf: *mut super::super::Foundation::BOOL,
@@ -12220,6 +12386,7 @@ pub unsafe fn VariantToBooleanArray(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBooleanArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgf: *mut *mut super::super::Foundation::BOOL,
@@ -12280,6 +12447,7 @@ pub unsafe fn VariantToBooleanWithDefault<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBuffer(
     varin: *const super::Com::VARIANT,
     pv: *mut ::std::ffi::c_void,
@@ -12310,6 +12478,7 @@ pub unsafe fn VariantToBuffer(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDosDateTime(
     varin: *const super::Com::VARIANT,
     pwdate: *mut u16,
@@ -12340,6 +12509,7 @@ pub unsafe fn VariantToDosDateTime(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDouble(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<f64> {
@@ -12363,6 +12533,7 @@ pub unsafe fn VariantToDouble(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDoubleArray(
     var: *const super::Com::VARIANT,
     prgn: *mut f64,
@@ -12396,6 +12567,7 @@ pub unsafe fn VariantToDoubleArray(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDoubleArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgn: *mut *mut f64,
@@ -12453,6 +12625,7 @@ pub unsafe fn VariantToDoubleWithDefault(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToFileTime(
     varin: *const super::Com::VARIANT,
     stfout: PSTIME_FLAGS,
@@ -12484,6 +12657,7 @@ pub unsafe fn VariantToFileTime(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToGUID(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -12509,6 +12683,7 @@ pub unsafe fn VariantToGUID(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt16(varin: *const super::Com::VARIANT) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12530,6 +12705,7 @@ pub unsafe fn VariantToInt16(varin: *const super::Com::VARIANT) -> ::windows::ru
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt16Array(
     var: *const super::Com::VARIANT,
     prgn: *mut i16,
@@ -12563,6 +12739,7 @@ pub unsafe fn VariantToInt16Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt16ArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgn: *mut *mut i16,
@@ -12617,6 +12794,7 @@ pub unsafe fn VariantToInt16WithDefault(varin: *const super::Com::VARIANT, idefa
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt32(varin: *const super::Com::VARIANT) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12638,6 +12816,7 @@ pub unsafe fn VariantToInt32(varin: *const super::Com::VARIANT) -> ::windows::ru
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt32Array(
     var: *const super::Com::VARIANT,
     prgn: *mut i32,
@@ -12671,6 +12850,7 @@ pub unsafe fn VariantToInt32Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt32ArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgn: *mut *mut i32,
@@ -12725,6 +12905,7 @@ pub unsafe fn VariantToInt32WithDefault(varin: *const super::Com::VARIANT, ldefa
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt64(varin: *const super::Com::VARIANT) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12746,6 +12927,7 @@ pub unsafe fn VariantToInt64(varin: *const super::Com::VARIANT) -> ::windows::ru
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt64Array(
     var: *const super::Com::VARIANT,
     prgn: *mut i64,
@@ -12779,6 +12961,7 @@ pub unsafe fn VariantToInt64Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt64ArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgn: *mut *mut i64,
@@ -12834,6 +13017,7 @@ pub unsafe fn VariantToInt64WithDefault(varin: *const super::Com::VARIANT, lldef
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToPropVariant(
     pvar: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
@@ -12859,6 +13043,7 @@ pub unsafe fn VariantToPropVariant(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn VariantToStrRet(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::UI::Shell::STRRET> {
@@ -12884,6 +13069,7 @@ pub unsafe fn VariantToStrRet(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToString(
     varin: *const super::Com::VARIANT,
     pszbuf: super::super::Foundation::PWSTR,
@@ -12914,6 +13100,7 @@ pub unsafe fn VariantToString(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToStringAlloc(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -12939,6 +13126,7 @@ pub unsafe fn VariantToStringAlloc(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToStringArray(
     var: *const super::Com::VARIANT,
     prgsz: *mut super::super::Foundation::PWSTR,
@@ -12972,6 +13160,7 @@ pub unsafe fn VariantToStringArray(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToStringArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgsz: *mut *mut super::super::Foundation::PWSTR,
@@ -13032,6 +13221,7 @@ pub unsafe fn VariantToStringWithDefault<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt16(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<u16> {
@@ -13055,6 +13245,7 @@ pub unsafe fn VariantToUInt16(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt16Array(
     var: *const super::Com::VARIANT,
     prgn: *mut u16,
@@ -13088,6 +13279,7 @@ pub unsafe fn VariantToUInt16Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt16ArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgn: *mut *mut u16,
@@ -13142,6 +13334,7 @@ pub unsafe fn VariantToUInt16WithDefault(varin: *const super::Com::VARIANT, uide
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt32(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<u32> {
@@ -13165,6 +13358,7 @@ pub unsafe fn VariantToUInt32(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt32Array(
     var: *const super::Com::VARIANT,
     prgn: *mut u32,
@@ -13198,6 +13392,7 @@ pub unsafe fn VariantToUInt32Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt32ArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgn: *mut *mut u32,
@@ -13252,6 +13447,7 @@ pub unsafe fn VariantToUInt32WithDefault(varin: *const super::Com::VARIANT, ulde
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt64(
     varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<u64> {
@@ -13275,6 +13471,7 @@ pub unsafe fn VariantToUInt64(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt64Array(
     var: *const super::Com::VARIANT,
     prgn: *mut u64,
@@ -13308,6 +13505,7 @@ pub unsafe fn VariantToUInt64Array(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt64ArrayAlloc(
     var: *const super::Com::VARIANT,
     pprgn: *mut *mut u64,
@@ -13366,6 +13564,7 @@ pub unsafe fn VariantToUInt64WithDefault(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn WinRTPropertyValueToPropVariant<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,

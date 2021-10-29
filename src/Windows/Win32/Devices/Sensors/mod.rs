@@ -86,6 +86,7 @@ unsafe impl ::windows::runtime::Abi for AXIS {
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListAllocateBufferAndSerialize(
     sourcecollection: *const SENSOR_COLLECTION_LIST,
     ptargetbuffersizeinbytes: *mut u32,
@@ -118,6 +119,7 @@ pub unsafe fn CollectionsListAllocateBufferAndSerialize(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListCopyAndMarshall(
     target: *mut SENSOR_COLLECTION_LIST,
     source: *const SENSOR_COLLECTION_LIST,
@@ -144,6 +146,7 @@ pub unsafe fn CollectionsListCopyAndMarshall(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListDeserializeFromBuffer(
     sourcebuffersizeinbytes: u32,
     sourcebuffer: *const u8,
@@ -265,6 +268,7 @@ pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECT
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListMarshall(
     target: *mut SENSOR_COLLECTION_LIST,
 ) -> ::windows::runtime::Result<()> {
@@ -288,6 +292,7 @@ pub unsafe fn CollectionsListMarshall(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListSerializeToBuffer(
     sourcecollection: *const SENSOR_COLLECTION_LIST,
     targetbuffersizeinbytes: u32,
@@ -320,6 +325,7 @@ pub unsafe fn CollectionsListSerializeToBuffer(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(
     thresholds: *const SENSOR_COLLECTION_LIST,
     pcollection: *mut SENSOR_COLLECTION_LIST,
@@ -349,6 +355,7 @@ pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListUpdateMarshalledPointer(
     collection: *mut SENSOR_COLLECTION_LIST,
 ) -> ::windows::runtime::Result<()> {
@@ -652,6 +659,7 @@ pub const GUID_SensorType_Temperature: ::windows::runtime::GUID =
         [149, 169, 93, 179, 142, 225, 147, 6],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1763,6 +1771,7 @@ pub struct ISensorManagerEvents_abi(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromCLSIDArray(
     members: *const ::windows::runtime::GUID,
     size: u32,
@@ -1796,6 +1805,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromFloat(
     fltval: f32,
 ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2257,6 +2267,7 @@ unsafe impl ::windows::runtime::Abi for PROXIMITY_TYPE {
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetBool(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2289,6 +2300,7 @@ pub unsafe fn PropKeyFindKeyGetBool(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetDouble(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2321,6 +2333,7 @@ pub unsafe fn PropKeyFindKeyGetDouble(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetFileTime(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2353,6 +2366,7 @@ pub unsafe fn PropKeyFindKeyGetFileTime(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetFloat(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2385,6 +2399,7 @@ pub unsafe fn PropKeyFindKeyGetFloat(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetGuid(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2417,6 +2432,7 @@ pub unsafe fn PropKeyFindKeyGetGuid(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetInt32(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2449,6 +2465,7 @@ pub unsafe fn PropKeyFindKeyGetInt32(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetInt64(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2481,6 +2498,7 @@ pub unsafe fn PropKeyFindKeyGetInt64(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetNthInt64(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2516,6 +2534,7 @@ pub unsafe fn PropKeyFindKeyGetNthInt64(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetNthUlong(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2551,6 +2570,7 @@ pub unsafe fn PropKeyFindKeyGetNthUlong(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetNthUshort(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2586,6 +2606,7 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetPropVariant<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -2626,6 +2647,7 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetUlong(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2658,6 +2680,7 @@ pub unsafe fn PropKeyFindKeyGetUlong(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetUshort(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2690,6 +2713,7 @@ pub unsafe fn PropKeyFindKeyGetUshort(
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeySetPropVariant<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -2729,6 +2753,7 @@ pub unsafe fn PropKeyFindKeySetPropVariant<
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInformation(
     propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     propvariantoffset: *mut u32,
@@ -2766,6 +2791,7 @@ pub unsafe fn PropVariantGetInformation(
     feature = "Win32_Foundation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropertiesListCopy(
     target: *mut SENSOR_PROPERTY_LIST,
     source: *const SENSOR_PROPERTY_LIST,
@@ -3698,6 +3724,7 @@ pub const SensorCollection: ::windows::runtime::GUID = ::windows::runtime::GUID:
     feature = "Win32_System_Ole_Automation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn SensorCollectionGetAt(
     index: u32,
     psensorslist: *const SENSOR_COLLECTION_LIST,
@@ -3790,6 +3817,7 @@ unsafe impl ::windows::runtime::Abi for SensorState {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SerializationBufferAllocate(
     sizeinbytes: u32,
     pbuffer: *mut *mut u8,

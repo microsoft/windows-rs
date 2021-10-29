@@ -15865,6 +15865,7 @@ unsafe impl ::windows::runtime::Abi for WICComponentType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WICConvertBitmapSource<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IWICBitmapSource>,
@@ -15894,6 +15895,7 @@ pub unsafe fn WICConvertBitmapSource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WICCreateBitmapFromSection<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -15935,6 +15937,7 @@ pub unsafe fn WICCreateBitmapFromSection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WICCreateBitmapFromSectionEx<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16149,6 +16152,7 @@ unsafe impl ::windows::runtime::Abi for WICDecodeOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WICGetMetadataContentSize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IWICMetadataWriter>,
@@ -17075,6 +17079,7 @@ unsafe impl ::windows::runtime::Abi for WICJpegYCrCbSubsamplingOption {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WICMapGuidToShortName<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17107,6 +17112,7 @@ pub unsafe fn WICMapGuidToShortName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WICMapSchemaToName<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17143,6 +17149,7 @@ pub unsafe fn WICMapSchemaToName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WICMapShortNameToGuid<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17167,6 +17174,7 @@ pub unsafe fn WICMapShortNameToGuid<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn WICMatchMetadataContent<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
@@ -18285,6 +18293,7 @@ impl ::std::ops::Not for WICSectionAccessLevel {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn WICSerializeMetadataContent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IWICMetadataWriter>,

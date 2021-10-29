@@ -412,6 +412,7 @@ pub unsafe fn BackupWrite<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildIoRingCancelRequest<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IORING_HANDLE_REF>,
@@ -444,6 +445,7 @@ pub unsafe fn BuildIoRingCancelRequest<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildIoRingReadFile<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IORING_HANDLE_REF>,
@@ -485,6 +487,7 @@ pub unsafe fn BuildIoRingReadFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BuildIoRingRegisterBuffers(
     ioring: *const HIORING__,
     count: u32,
@@ -514,6 +517,7 @@ pub unsafe fn BuildIoRingRegisterBuffers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildIoRingRegisterFileHandles(
     ioring: *const HIORING__,
     count: u32,
@@ -2495,6 +2499,7 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2631,6 +2636,7 @@ pub unsafe fn CompareFileTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFile2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3606,6 +3612,7 @@ pub unsafe fn CreateHardLinkW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_CREATE_FLAGS>>(
     ioringversion: IORING_VERSION,
     flags: Param1,
@@ -9048,6 +9055,7 @@ pub unsafe fn GetDiskFreeSpaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskSpaceInformationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9072,6 +9080,7 @@ pub unsafe fn GetDiskSpaceInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskSpaceInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10106,6 +10115,7 @@ pub unsafe fn GetFullPathNameW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::runtime::Result<IORING_INFO> {
     #[cfg(windows)]
     {
@@ -18842,6 +18852,7 @@ unsafe impl ::windows::runtime::Abi for PRIORITY_HINT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn PopIoRingCompletion(
     ioring: *const HIORING__,
 ) -> ::windows::runtime::Result<IORING_CQE> {
@@ -19110,6 +19121,7 @@ pub unsafe fn QueryDosDeviceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn QueryIoRingCapabilities() -> ::windows::runtime::Result<IORING_CAPABILITIES> {
     #[cfg(windows)]
     {
@@ -22711,6 +22723,7 @@ pub unsafe fn SetFileValidData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIoRingCompletionEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23147,6 +23160,7 @@ pub unsafe fn SinglePhaseReject<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SubmitIoRing(
     ioring: *const HIORING__,
     waitoperations: u32,
@@ -25942,6 +25956,7 @@ unsafe impl ::windows::runtime::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofEnumEntries<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25985,6 +26000,7 @@ pub type WofEnumFilesProc = unsafe extern "system" fn(
     userdata: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofFileEnumFiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -26017,6 +26033,7 @@ pub unsafe fn WofFileEnumFiles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofGetDriverVersion<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -26046,6 +26063,7 @@ pub unsafe fn WofGetDriverVersion<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofIsExternalFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -26081,6 +26099,7 @@ pub unsafe fn WofIsExternalFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofSetFileDataLocation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -26139,6 +26158,7 @@ pub unsafe fn WofShouldCompressBinaries<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimAddEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -26175,6 +26195,7 @@ pub unsafe fn WofWimAddEntry<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimEnumFiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -26207,6 +26228,7 @@ pub unsafe fn WofWimEnumFiles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimRemoveEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -26233,6 +26255,7 @@ pub unsafe fn WofWimRemoveEntry<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimSuspendEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -26259,6 +26282,7 @@ pub unsafe fn WofWimSuspendEntry<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimUpdateEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

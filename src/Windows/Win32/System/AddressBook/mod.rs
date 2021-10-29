@@ -170,6 +170,7 @@ unsafe impl ::windows::runtime::Abi for ADRPARM {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn BuildDisplayTable<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::Com::IMalloc>,
@@ -1589,6 +1590,7 @@ unsafe impl ::windows::runtime::Abi for Gender {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn HrAddColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITable>>(
     lptbl: Param0,
     lpproptagcolumnsnew: *mut SPropTagArray,
@@ -1617,6 +1619,7 @@ pub unsafe fn HrAddColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITable>>(
     lptbl: Param0,
     lpproptagcolumnsnew: *mut SPropTagArray,
@@ -1649,6 +1652,7 @@ pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrAllocAdviseSink(
     lpfncallback: ::std::option::Option<LPNOTIFCALLBACK>,
     lpvcontext: *mut ::std::ffi::c_void,
@@ -1674,6 +1678,7 @@ pub unsafe fn HrAllocAdviseSink(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1687,6 +1692,7 @@ pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::runtime::Resul
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrGetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(
     lpmapiprop: Param0,
     ulproptag: u32,
@@ -1713,6 +1719,7 @@ pub unsafe fn HrGetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn HrIStorageFromStream<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -1745,6 +1752,7 @@ pub unsafe fn HrIStorageFromStream<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITable>>(
     lptable: Param0,
     lpproptags: *mut SPropTagArray,
@@ -1780,6 +1788,7 @@ pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrSetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(
     lpmapiprop: Param0,
     lpprop: *mut SPropValue,
@@ -1798,6 +1807,7 @@ pub unsafe fn HrSetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HrThisThreadAdviseSink<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IMAPIAdviseSink>,
@@ -10837,6 +10847,7 @@ unsafe impl ::windows::runtime::Abi for OBJECT_NOTIFICATION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn OpenStreamOnFile(
     lpallocatebuffer: ::std::option::Option<LPALLOCATEBUFFER>,
     lpfreebuffer: ::std::option::Option<LPFREEBUFFER>,
@@ -10937,6 +10948,7 @@ pub unsafe fn PropCopyMore(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RTFSync<'a, Param0: ::windows::runtime::IntoParam<'a, IMessage>>(
     lpmessage: Param0,
     ulflags: u32,
@@ -12782,6 +12794,7 @@ pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
 pub const WAB_VCARD_FILE: u32 = 0u32;
 pub const WAB_VCARD_STREAM: u32 = 1u32;
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn WrapCompressedRTFStream<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
@@ -12811,6 +12824,7 @@ pub unsafe fn WrapCompressedRTFStream<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WrapStoreEntryID(
     ulflags: u32,
     lpszdllname: *const i8,

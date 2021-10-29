@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyLocalManagementSyncML<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -37,6 +38,7 @@ pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiscoverManagementService<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -61,6 +63,7 @@ pub unsafe fn DiscoverManagementService<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiscoverManagementServiceEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -92,6 +95,7 @@ pub unsafe fn DiscoverManagementServiceEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeviceManagementConfigInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -120,6 +124,7 @@ pub unsafe fn GetDeviceManagementConfigInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetDeviceRegistrationInfo(
     deviceinformationclass: REGISTRATION_INFORMATION_CLASS,
     ppdeviceregistrationinfo: *mut *mut ::std::ffi::c_void,
@@ -143,6 +148,7 @@ pub unsafe fn GetDeviceRegistrationInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetManagementAppHyperlink(
     cchhyperlink: u32,
     pszhyperlink: super::super::Foundation::PWSTR,
@@ -166,6 +172,7 @@ pub unsafe fn GetManagementAppHyperlink(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsDeviceRegisteredWithManagement(
     pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL,
     cchupn: u32,
@@ -192,6 +199,7 @@ pub unsafe fn IsDeviceRegisteredWithManagement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsManagementRegistrationAllowed(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -211,6 +219,7 @@ pub unsafe fn IsManagementRegistrationAllowed(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsMdmUxWithoutAadAllowed(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -457,6 +466,7 @@ unsafe impl ::windows::runtime::Abi for REGISTRATION_INFORMATION_CLASS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterDeviceWithLocalManagement(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -476,6 +486,7 @@ pub unsafe fn RegisterDeviceWithLocalManagement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterDeviceWithManagement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -507,6 +518,7 @@ pub unsafe fn RegisterDeviceWithManagement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -526,6 +538,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials(
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -540,6 +553,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -561,6 +575,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDeviceManagementConfigInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -588,6 +603,7 @@ pub unsafe fn SetDeviceManagementConfigInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetManagedExternally<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -607,6 +623,7 @@ pub unsafe fn SetManagedExternally<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -620,6 +637,7 @@ pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::runtime::Resul
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterDeviceWithManagement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

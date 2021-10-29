@@ -520,6 +520,7 @@ pub unsafe fn BeginPanningFeedback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BufferedPaintClear(
     hbufferedpaint: isize,
     prc: *const super::super::Foundation::RECT,
@@ -542,6 +543,7 @@ pub unsafe fn BufferedPaintClear(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BufferedPaintInit() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -582,6 +584,7 @@ pub unsafe fn BufferedPaintRenderAnimation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BufferedPaintSetAlpha(
     hbufferedpaint: isize,
     prc: *const super::super::Foundation::RECT,
@@ -608,6 +611,7 @@ pub unsafe fn BufferedPaintSetAlpha(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BufferedPaintStopAllAnimations<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -627,6 +631,7 @@ pub unsafe fn BufferedPaintStopAllAnimations<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BufferedPaintUnInit() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1572,6 +1577,7 @@ pub unsafe fn CheckRadioButton<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CloseThemeData(htheme: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2407,6 +2413,7 @@ pub unsafe fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: *const ::std::ffi::c_voi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn DPA_LoadStream<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
@@ -2477,6 +2484,7 @@ pub unsafe fn DPA_Merge<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn DPA_SaveStream<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
@@ -3726,6 +3734,7 @@ pub unsafe fn DrawStatusTextW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeBackground<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -3764,6 +3773,7 @@ pub unsafe fn DrawThemeBackground<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeBackgroundEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -3802,6 +3812,7 @@ pub unsafe fn DrawThemeBackgroundEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeEdge<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -3847,6 +3858,7 @@ pub unsafe fn DrawThemeEdge<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeIcon<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -3889,6 +3901,7 @@ pub unsafe fn DrawThemeIcon<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeParentBackground<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3919,6 +3932,7 @@ pub unsafe fn DrawThemeParentBackground<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeParentBackgroundEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3952,6 +3966,7 @@ pub unsafe fn DrawThemeParentBackgroundEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeText<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4000,6 +4015,7 @@ pub unsafe fn DrawThemeText<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawThemeTextEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4379,6 +4395,7 @@ pub unsafe fn EnableScrollBar<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnableThemeDialogTexture<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4401,6 +4418,7 @@ pub unsafe fn EnableThemeDialogTexture<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnableTheming<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4421,6 +4439,7 @@ pub unsafe fn EnableTheming<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EndBufferedAnimation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4447,6 +4466,7 @@ pub unsafe fn EndBufferedAnimation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EndBufferedPaint<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -5104,6 +5124,7 @@ unsafe impl ::windows::runtime::Abi for GRIDCELLUPPERSTATES {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetBufferedPaintBits(
     hbufferedpaint: isize,
     ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD,
@@ -5160,6 +5181,7 @@ pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::G
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetBufferedPaintTargetRect(
     hbufferedpaint: isize,
 ) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
@@ -5207,6 +5229,7 @@ pub unsafe fn GetComboBoxInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentThemeName(
     pszthemefilename: super::super::Foundation::PWSTR,
     cchmaxnamechars: i32,
@@ -5302,6 +5325,7 @@ pub unsafe fn GetMUILanguage() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeAnimationProperty(
     htheme: isize,
     istoryboardid: i32,
@@ -5339,6 +5363,7 @@ pub unsafe fn GetThemeAnimationProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeAnimationTransform(
     htheme: isize,
     istoryboardid: i32,
@@ -5390,6 +5415,7 @@ pub unsafe fn GetThemeAppProperties() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetThemeBackgroundContentRect<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5429,6 +5455,7 @@ pub unsafe fn GetThemeBackgroundContentRect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetThemeBackgroundExtent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5468,6 +5495,7 @@ pub unsafe fn GetThemeBackgroundExtent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetThemeBackgroundRegion<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5507,6 +5535,7 @@ pub unsafe fn GetThemeBackgroundRegion<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetThemeBitmap(
     htheme: isize,
     ipartid: i32,
@@ -5543,6 +5572,7 @@ pub unsafe fn GetThemeBitmap(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeBool(
     htheme: isize,
     ipartid: i32,
@@ -5575,6 +5605,7 @@ pub unsafe fn GetThemeBool(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeColor(
     htheme: isize,
     ipartid: i32,
@@ -5607,6 +5638,7 @@ pub unsafe fn GetThemeColor(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeDocumentationProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5639,6 +5671,7 @@ pub unsafe fn GetThemeDocumentationProperty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeEnumValue(
     htheme: isize,
     ipartid: i32,
@@ -5671,6 +5704,7 @@ pub unsafe fn GetThemeEnumValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeFilename(
     htheme: isize,
     ipartid: i32,
@@ -5706,6 +5740,7 @@ pub unsafe fn GetThemeFilename(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetThemeFont<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5744,6 +5779,7 @@ pub unsafe fn GetThemeFont<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeInt(
     htheme: isize,
     ipartid: i32,
@@ -5775,6 +5811,7 @@ pub unsafe fn GetThemeInt(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeIntList(
     htheme: isize,
     ipartid: i32,
@@ -5807,6 +5844,7 @@ pub unsafe fn GetThemeIntList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetThemeMargins<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5848,6 +5886,7 @@ pub unsafe fn GetThemeMargins<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetThemeMetric<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5886,6 +5925,7 @@ pub unsafe fn GetThemeMetric<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetThemePartSize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5928,6 +5968,7 @@ pub unsafe fn GetThemePartSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemePosition(
     htheme: isize,
     ipartid: i32,
@@ -5960,6 +6001,7 @@ pub unsafe fn GetThemePosition(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemePropertyOrigin(
     htheme: isize,
     ipartid: i32,
@@ -5992,6 +6034,7 @@ pub unsafe fn GetThemePropertyOrigin(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeRect(
     htheme: isize,
     ipartid: i32,
@@ -6025,6 +6068,7 @@ pub unsafe fn GetThemeRect(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeStream<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -6066,6 +6110,7 @@ pub unsafe fn GetThemeStream<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeString(
     htheme: isize,
     ipartid: i32,
@@ -6157,6 +6202,7 @@ pub unsafe fn GetThemeSysColorBrush(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetThemeSysFont(
     htheme: isize,
     ifontid: THEME_PROPERTY_SYMBOL_ID,
@@ -6183,6 +6229,7 @@ pub unsafe fn GetThemeSysFont(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -6222,6 +6269,7 @@ pub unsafe fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeSysString(
     htheme: isize,
     istringid: THEME_PROPERTY_SYMBOL_ID,
@@ -6251,6 +6299,7 @@ pub unsafe fn GetThemeSysString(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetThemeTextExtent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -6300,6 +6349,7 @@ pub unsafe fn GetThemeTextExtent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetThemeTextMetrics<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -6334,6 +6384,7 @@ pub unsafe fn GetThemeTextMetrics<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeTimingFunction(
     htheme: isize,
     itimingfunctionid: i32,
@@ -6365,6 +6416,7 @@ pub unsafe fn GetThemeTimingFunction(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeTransitionDuration(
     htheme: isize,
     ipartid: i32,
@@ -6971,6 +7023,7 @@ unsafe impl ::windows::runtime::Abi for HIMAGELIST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn HIMAGELIST_QueryInterface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -7108,6 +7161,7 @@ unsafe impl ::windows::runtime::Abi for HYPERLINKSTATES {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn HitTestThemeBackground<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -9367,6 +9421,7 @@ pub unsafe fn ImageList_BeginDrag<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_CoCreateInstance<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -9978,6 +10033,7 @@ pub unsafe fn ImageList_Read<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn ImageList_ReadEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
@@ -10250,6 +10306,7 @@ pub unsafe fn ImageList_Write<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn ImageList_WriteEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -12483,6 +12540,7 @@ pub const LWS_TRANSPARENT: u32 = 1u32;
 pub const LWS_USECUSTOMTEXT: u32 = 16u32;
 pub const LWS_USEVISUALSTYLE: u32 = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn LoadIconMetric<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -12517,6 +12575,7 @@ pub unsafe fn LoadIconMetric<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn LoadIconWithScaleDown<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -21281,6 +21340,7 @@ pub unsafe fn SetWindowFeedbackSetting<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetWindowTheme<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -21312,6 +21372,7 @@ pub unsafe fn SetWindowTheme<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetWindowThemeAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -25020,6 +25081,7 @@ pub const TVS_SINGLEEXPAND: u32 = 1024u32;
 pub const TVS_TRACKSELECT: u32 = 512u32;
 pub const TV_FIRST: u32 = 4352u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TaskDialog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -25069,6 +25131,7 @@ pub unsafe fn TaskDialog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn TaskDialogIndirect(
     ptaskconfig: *const TASKDIALOGCONFIG,
     pnbutton: *mut i32,
@@ -25209,6 +25272,7 @@ unsafe impl ::windows::runtime::Abi for USAGE_PROPERTIES {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UninitializeFlatSB<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

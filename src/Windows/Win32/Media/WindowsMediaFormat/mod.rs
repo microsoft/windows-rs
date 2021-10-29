@@ -26316,6 +26316,7 @@ unsafe impl ::windows::runtime::Abi for WEBSTREAM_SAMPLE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WMCreateBackupRestorer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -26338,6 +26339,7 @@ pub unsafe fn WMCreateBackupRestorer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateEditor() -> ::windows::runtime::Result<IWMMetadataEditor> {
     #[cfg(windows)]
     {
@@ -26354,6 +26356,7 @@ pub unsafe fn WMCreateEditor() -> ::windows::runtime::Result<IWMMetadataEditor> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateIndexer() -> ::windows::runtime::Result<IWMIndexer> {
     #[cfg(windows)]
     {
@@ -26369,6 +26372,7 @@ pub unsafe fn WMCreateIndexer() -> ::windows::runtime::Result<IWMIndexer> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateProfileManager() -> ::windows::runtime::Result<IWMProfileManager> {
     #[cfg(windows)]
     {
@@ -26385,6 +26389,7 @@ pub unsafe fn WMCreateProfileManager() -> ::windows::runtime::Result<IWMProfileM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateReader<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -26413,6 +26418,7 @@ pub unsafe fn WMCreateReader<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateSyncReader<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -26441,6 +26447,7 @@ pub unsafe fn WMCreateSyncReader<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateWriter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -26462,6 +26469,7 @@ pub unsafe fn WMCreateWriter<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::runtime::Result<IWMWriterFileSink> {
     #[cfg(windows)]
     {
@@ -26478,6 +26486,7 @@ pub unsafe fn WMCreateWriterFileSink() -> ::windows::runtime::Result<IWMWriterFi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::runtime::Result<IWMWriterNetworkSink> {
     #[cfg(windows)]
     {
@@ -26494,6 +26503,7 @@ pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::runtime::Result<IWMWrite
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::runtime::Result<IWMWriterPushSink> {
     #[cfg(windows)]
     {
@@ -26580,6 +26590,7 @@ pub const WMFORMAT_WebStream: ::windows::runtime::GUID = ::windows::runtime::GUI
     [179, 152, 56, 142, 150, 91, 240, 12],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WMIsContentProtected<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

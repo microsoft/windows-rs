@@ -6236,6 +6236,7 @@ pub unsafe fn WSDAttachLinkedMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceHost<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6266,6 +6267,7 @@ pub unsafe fn WSDCreateDeviceHost<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceHost2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6302,6 +6304,7 @@ pub unsafe fn WSDCreateDeviceHost2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceHostAdvanced<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6338,6 +6341,7 @@ pub unsafe fn WSDCreateDeviceHostAdvanced<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceProxy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6372,6 +6376,7 @@ pub unsafe fn WSDCreateDeviceProxy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceProxy2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6412,6 +6417,7 @@ pub unsafe fn WSDCreateDeviceProxy2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceProxyAdvanced<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6449,6 +6455,7 @@ pub unsafe fn WSDCreateDeviceProxyAdvanced<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6472,6 +6479,7 @@ pub unsafe fn WSDCreateDiscoveryProvider<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryProvider2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6504,6 +6512,7 @@ pub unsafe fn WSDCreateDiscoveryProvider2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryPublisher<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6527,6 +6536,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryPublisher2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6559,6 +6569,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateHttpAddress() -> ::windows::runtime::Result<IWSDHttpAddress> {
     #[cfg(windows)]
     {
@@ -6574,6 +6585,7 @@ pub unsafe fn WSDCreateHttpAddress() -> ::windows::runtime::Result<IWSDHttpAddre
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateHttpMessageParameters(
 ) -> ::windows::runtime::Result<IWSDHttpMessageParameters> {
     #[cfg(windows)]
@@ -6592,6 +6604,7 @@ pub unsafe fn WSDCreateHttpMessageParameters(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::runtime::Result<IWSDOutboundAttachment> {
     #[cfg(windows)]
     {
@@ -6608,6 +6621,7 @@ pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::runtime::Result<IWSDOu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateUdpAddress() -> ::windows::runtime::Result<IWSDUdpAddress> {
     #[cfg(windows)]
     {
@@ -6623,6 +6637,7 @@ pub unsafe fn WSDCreateUdpAddress() -> ::windows::runtime::Result<IWSDUdpAddress
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::runtime::Result<IWSDUdpMessageParameters>
 {
     #[cfg(windows)]
@@ -6691,6 +6706,7 @@ pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDGenerateFault<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6734,6 +6750,7 @@ pub unsafe fn WSDGenerateFault<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDGenerateFaultEx<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6769,6 +6786,7 @@ pub unsafe fn WSDGenerateFaultEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDGetConfigurationOption(
     dwoption: u32,
     pvoid: *mut ::std::ffi::c_void,
@@ -6794,6 +6812,7 @@ pub unsafe fn WSDGetConfigurationOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDSetConfigurationOption(
     dwoption: u32,
     pvoid: *const ::std::ffi::c_void,
@@ -6881,6 +6900,7 @@ unsafe impl ::windows::runtime::Abi for WSDUdpRetransmitParams {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDUriDecode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6913,6 +6933,7 @@ pub unsafe fn WSDUriDecode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDUriEncode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6945,6 +6966,7 @@ pub unsafe fn WSDUriEncode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLAddChild(
     pparent: *mut WSDXML_ELEMENT,
     pchild: *mut WSDXML_ELEMENT,
@@ -6968,6 +6990,7 @@ pub unsafe fn WSDXMLAddChild(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLAddSibling(
     pfirst: *mut WSDXML_ELEMENT,
     psecond: *mut WSDXML_ELEMENT,
@@ -6991,6 +7014,7 @@ pub unsafe fn WSDXMLAddSibling(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLBuildAnyForSingleElement<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7020,6 +7044,7 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -7032,6 +7057,7 @@ pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDXMLCreateContext() -> ::windows::runtime::Result<IWSDXMLContext> {
     #[cfg(windows)]
     {
@@ -7048,6 +7074,7 @@ pub unsafe fn WSDXMLCreateContext() -> ::windows::runtime::Result<IWSDXMLContext
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7078,6 +7105,7 @@ pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLGetValueFromAny<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

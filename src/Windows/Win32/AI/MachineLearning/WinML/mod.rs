@@ -2302,6 +2302,7 @@ pub struct IWinMLRuntimeFactory_abi(
         ppruntime: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
 );
+#[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::runtime::Result<IMLOperatorRegistry> {
     #[cfg(windows)]
     {
@@ -3750,6 +3751,7 @@ unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WinMLCreateRuntime() -> ::windows::runtime::Result<IWinMLRuntime> {
     #[cfg(windows)]
     {

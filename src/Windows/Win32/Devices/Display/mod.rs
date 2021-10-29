@@ -2075,6 +2075,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[inline]
 pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>,
@@ -2130,6 +2131,7 @@ pub unsafe fn GetPhysicalMonitorsFromHMONITOR<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[inline]
 pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>,

@@ -1613,6 +1613,7 @@ pub const ClrAssemblyLocator: ::windows::runtime::GUID = ::windows::runtime::GUI
     19317,
     [188, 5, 155, 234, 70, 48, 207, 24],
 );
+#[inline]
 pub unsafe fn CoCreateActivity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -1641,6 +1642,7 @@ pub unsafe fn CoCreateActivity<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoEnterServiceDomain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -1661,6 +1663,7 @@ pub unsafe fn CoEnterServiceDomain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn CoGetDefaultContext(
     apttype: super::Com::APTTYPE,
     riid: *const ::windows::runtime::GUID,
@@ -2649,6 +2652,7 @@ unsafe impl ::windows::runtime::Abi for GetAppTrackerDataFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn GetDispenserManager() -> ::windows::runtime::Result<IDispenserManager> {
     #[cfg(windows)]
     {
@@ -2665,6 +2669,7 @@ pub unsafe fn GetDispenserManager() -> ::windows::runtime::Result<IDispenserMana
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -23727,6 +23732,7 @@ unsafe impl ::windows::runtime::Abi for LockModes {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn MTSCreateActivity(
     riid: *const ::windows::runtime::GUID,
     ppobj: *mut *mut ::std::ffi::c_void,
@@ -24273,6 +24279,7 @@ unsafe impl ::windows::runtime::Abi for RECYCLE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {

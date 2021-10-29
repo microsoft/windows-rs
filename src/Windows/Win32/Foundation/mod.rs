@@ -9742,6 +9742,7 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysAddRefString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
     bstrstring: Param0,
 ) -> ::windows::runtime::Result<()> {

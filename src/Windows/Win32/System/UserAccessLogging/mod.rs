@@ -55,6 +55,7 @@ unsafe impl ::windows::runtime::Abi for UAL_DATA_BLOB {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -68,6 +69,7 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::R
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UalRegisterProduct<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -99,6 +101,7 @@ pub unsafe fn UalRegisterProduct<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -112,6 +115,7 @@ pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {

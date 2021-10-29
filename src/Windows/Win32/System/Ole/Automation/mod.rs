@@ -73,6 +73,7 @@ unsafe impl ::windows::runtime::Abi for BINDPTR {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn BstrFromVector(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
@@ -269,6 +270,7 @@ pub unsafe fn ClearCustData(pcustdata: *mut CUSTDATA) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateDispTypeInfo(
     pidata: *mut INTERFACEDATA,
     lcid: u32,
@@ -294,6 +296,7 @@ pub unsafe fn CreateDispTypeInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateErrorInfo() -> ::windows::runtime::Result<ICreateErrorInfo> {
     #[cfg(windows)]
     {
@@ -309,6 +312,7 @@ pub unsafe fn CreateErrorInfo() -> ::windows::runtime::Result<ICreateErrorInfo> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateStdDispatch<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -342,6 +346,7 @@ pub unsafe fn CreateStdDispatch<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateTypeLib<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -371,6 +376,7 @@ pub unsafe fn CreateTypeLib<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateTypeLib2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -484,6 +490,7 @@ unsafe impl ::windows::runtime::Abi for DISPPARAMS {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn DispCallFunc(
     pvinstance: *const ::std::ffi::c_void,
     ovft: usize,
@@ -526,6 +533,7 @@ pub unsafe fn DispCallFunc(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(
     ptinfo: Param0,
     rgsznames: *const super::super::super::Foundation::PWSTR,
@@ -555,6 +563,7 @@ pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::runtime::IntoParam<'a, IT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn DispGetParam(
     pdispparams: *const DISPPARAMS,
     position: u32,
@@ -587,6 +596,7 @@ pub unsafe fn DispGetParam(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>>(
     _this: *mut ::std::ffi::c_void,
     ptinfo: Param1,
@@ -865,6 +875,7 @@ unsafe impl ::windows::runtime::Abi for FUNCKIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn GetActiveObject(
     rclsid: *const ::windows::runtime::GUID,
     pvreserved: *mut ::std::ffi::c_void,
@@ -891,6 +902,7 @@ pub unsafe fn GetActiveObject(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAltMonthNames(
     lcid: u32,
 ) -> ::windows::runtime::Result<*mut super::super::super::Foundation::PWSTR> {
@@ -910,6 +922,7 @@ pub unsafe fn GetAltMonthNames(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IErrorInfo> {
     #[cfg(windows)]
     {
@@ -927,6 +940,7 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetRecordInfoFromGuids(
     rguidtypelib: *const ::windows::runtime::GUID,
     uvermajor: u32,
@@ -961,6 +975,7 @@ pub unsafe fn GetRecordInfoFromGuids(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetRecordInfoFromTypeInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>,
@@ -7175,6 +7190,7 @@ pub const LOCALE_USE_NLS: u32 = 268435456u32;
 pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(
     pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>,
 ) -> ::windows::runtime::HRESULT;
+#[inline]
 pub unsafe fn LoadRegTypeLib(
     rguid: *const ::windows::runtime::GUID,
     wvermajor: u16,
@@ -7207,6 +7223,7 @@ pub unsafe fn LoadRegTypeLib(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadTypeLib<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -7229,6 +7246,7 @@ pub unsafe fn LoadTypeLib<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadTypeLibEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -7514,6 +7532,7 @@ pub const PARAMFLAG_FOPT: u32 = 16u32;
 pub const PARAMFLAG_FOUT: u32 = 2u32;
 pub const PARAMFLAG_FRETVAL: u32 = 8u32;
 pub const PARAMFLAG_NONE: u32 = 0u32;
+#[inline]
 pub unsafe fn QueryPathOfRegTypeLib(
     guid: *const ::windows::runtime::GUID,
     wmaj: u16,
@@ -7567,6 +7586,7 @@ unsafe impl ::windows::runtime::Abi for REGKIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn RegisterActiveObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -7599,6 +7619,7 @@ pub unsafe fn RegisterActiveObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterTypeLib<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ITypeLib>,
@@ -7630,6 +7651,7 @@ pub unsafe fn RegisterTypeLib<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterTypeLibForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ITypeLib>,
@@ -7660,6 +7682,7 @@ pub unsafe fn RegisterTypeLibForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RevokeActiveObject(
     dwregister: u32,
     pvreserved: *mut ::std::ffi::c_void,
@@ -7761,6 +7784,7 @@ unsafe impl ::windows::runtime::Abi for SYSKIND {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayAccessData(
     psa: *const super::super::Com::SAFEARRAY,
     ppvdata: *mut *mut ::std::ffi::c_void,
@@ -7780,6 +7804,7 @@ pub unsafe fn SafeArrayAccessData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayAddRef(
     psa: *const super::super::Com::SAFEARRAY,
     ppdatatorelease: *mut *mut ::std::ffi::c_void,
@@ -7803,6 +7828,7 @@ pub unsafe fn SafeArrayAddRef(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayAllocData(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
@@ -7820,6 +7846,7 @@ pub unsafe fn SafeArrayAllocData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayAllocDescriptor(
     cdims: u32,
 ) -> ::windows::runtime::Result<*mut super::super::Com::SAFEARRAY> {
@@ -7841,6 +7868,7 @@ pub unsafe fn SafeArrayAllocDescriptor(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayAllocDescriptorEx(
     vt: u16,
     cdims: u32,
@@ -7868,6 +7896,7 @@ pub unsafe fn SafeArrayAllocDescriptorEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayCopy(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<*mut super::super::Com::SAFEARRAY> {
@@ -7889,6 +7918,7 @@ pub unsafe fn SafeArrayCopy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayCopyData(
     psasource: *const super::super::Com::SAFEARRAY,
     psatarget: *const super::super::Com::SAFEARRAY,
@@ -8022,6 +8052,7 @@ pub unsafe fn SafeArrayCreateVectorEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayDestroy(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
@@ -8039,6 +8070,7 @@ pub unsafe fn SafeArrayDestroy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayDestroyData(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
@@ -8056,6 +8088,7 @@ pub unsafe fn SafeArrayDestroyData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayDestroyDescriptor(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
@@ -8087,6 +8120,7 @@ pub unsafe fn SafeArrayGetDim(psa: *const super::super::Com::SAFEARRAY) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayGetElement(
     psa: *const super::super::Com::SAFEARRAY,
     rgindices: *const i32,
@@ -8127,6 +8161,7 @@ pub unsafe fn SafeArrayGetElemsize(psa: *const super::super::Com::SAFEARRAY) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayGetIID(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -8148,6 +8183,7 @@ pub unsafe fn SafeArrayGetIID(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayGetLBound(
     psa: *const super::super::Com::SAFEARRAY,
     ndim: u32,
@@ -8174,6 +8210,7 @@ pub unsafe fn SafeArrayGetLBound(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayGetRecordInfo(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<IRecordInfo> {
@@ -8194,6 +8231,7 @@ pub unsafe fn SafeArrayGetRecordInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayGetUBound(
     psa: *const super::super::Com::SAFEARRAY,
     ndim: u32,
@@ -8220,6 +8258,7 @@ pub unsafe fn SafeArrayGetUBound(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayGetVartype(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<u16> {
@@ -8239,6 +8278,7 @@ pub unsafe fn SafeArrayGetVartype(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayLock(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
@@ -8256,6 +8296,7 @@ pub unsafe fn SafeArrayLock(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayPtrOfIndex(
     psa: *const super::super::Com::SAFEARRAY,
     rgindices: *const i32,
@@ -8282,6 +8323,7 @@ pub unsafe fn SafeArrayPtrOfIndex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayPutElement(
     psa: *const super::super::Com::SAFEARRAY,
     rgindices: *const i32,
@@ -8308,6 +8350,7 @@ pub unsafe fn SafeArrayPutElement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayRedim(
     psa: *mut super::super::Com::SAFEARRAY,
     psaboundnew: *const super::super::Com::SAFEARRAYBOUND,
@@ -8358,6 +8401,7 @@ pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::super::Com::SAFEARRA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArraySetIID(
     psa: *const super::super::Com::SAFEARRAY,
     guid: *const ::windows::runtime::GUID,
@@ -8377,6 +8421,7 @@ pub unsafe fn SafeArraySetIID(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IRecordInfo>>(
     psa: *const super::super::Com::SAFEARRAY,
     prinfo: Param1,
@@ -8396,6 +8441,7 @@ pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayUnaccessData(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
@@ -8413,6 +8459,7 @@ pub unsafe fn SafeArrayUnaccessData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn SafeArrayUnlock(
     psa: *const super::super::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
@@ -8429,6 +8476,7 @@ pub unsafe fn SafeArrayUnlock(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorInfo>>(
     dwreserved: u32,
     perrinfo: Param1,
@@ -8717,6 +8765,7 @@ unsafe impl ::windows::runtime::Abi for UDATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn UnRegisterTypeLib(
     libid: *const ::windows::runtime::GUID,
     wvermajor: u16,
@@ -8748,6 +8797,7 @@ pub unsafe fn UnRegisterTypeLib(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UnRegisterTypeLibForUser(
     libid: *const ::windows::runtime::GUID,
     wmajorvernum: u16,
@@ -8980,6 +9030,7 @@ unsafe impl ::windows::runtime::Abi for VARKIND {
 pub const VTDATEGRE_MAX: u32 = 2958465u32;
 pub const VTDATEGRE_MIN: i32 = -657434i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarAbs(
     pvarin: *const super::super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
@@ -9001,6 +9052,7 @@ pub unsafe fn VarAbs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarAdd(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -9028,6 +9080,7 @@ pub unsafe fn VarAdd(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarAnd(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -9055,6 +9108,7 @@ pub unsafe fn VarAnd(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarBoolFromCy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>,
@@ -9076,6 +9130,7 @@ pub unsafe fn VarBoolFromCy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9090,6 +9145,7 @@ pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBoolFromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<i16> {
@@ -9108,6 +9164,7 @@ pub unsafe fn VarBoolFromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -9134,6 +9191,7 @@ pub unsafe fn VarBoolFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBoolFromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -9155,6 +9213,7 @@ pub unsafe fn VarBoolFromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9168,6 +9227,7 @@ pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9181,6 +9241,7 @@ pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9194,6 +9255,7 @@ pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9207,6 +9269,7 @@ pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9221,6 +9284,7 @@ pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBoolFromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -9252,6 +9316,7 @@ pub unsafe fn VarBoolFromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9265,6 +9330,7 @@ pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9278,6 +9344,7 @@ pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9291,6 +9358,7 @@ pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -9305,6 +9373,7 @@ pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrCat<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>,
@@ -9335,6 +9404,7 @@ pub unsafe fn VarBstrCat<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrCmp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>,
@@ -9368,6 +9438,7 @@ pub unsafe fn VarBstrCmp<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromBool(
     boolin: i16,
     lcid: u32,
@@ -9398,6 +9469,7 @@ pub unsafe fn VarBstrFromBool(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarBstrFromCy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>,
@@ -9431,6 +9503,7 @@ pub unsafe fn VarBstrFromCy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromDate(
     datein: f64,
     lcid: u32,
@@ -9461,6 +9534,7 @@ pub unsafe fn VarBstrFromDate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
     lcid: u32,
@@ -9491,6 +9565,7 @@ pub unsafe fn VarBstrFromDec(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -9521,6 +9596,7 @@ pub unsafe fn VarBstrFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -9554,6 +9630,7 @@ pub unsafe fn VarBstrFromI1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromI2(
     ival: i16,
     lcid: u32,
@@ -9584,6 +9661,7 @@ pub unsafe fn VarBstrFromI2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromI4(
     lin: i32,
     lcid: u32,
@@ -9614,6 +9692,7 @@ pub unsafe fn VarBstrFromI4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromI8(
     i64in: i64,
     lcid: u32,
@@ -9644,6 +9723,7 @@ pub unsafe fn VarBstrFromI8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromR4(
     fltin: f32,
     lcid: u32,
@@ -9674,6 +9754,7 @@ pub unsafe fn VarBstrFromR4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromR8(
     dblin: f64,
     lcid: u32,
@@ -9704,6 +9785,7 @@ pub unsafe fn VarBstrFromR8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromUI1(
     bval: u8,
     lcid: u32,
@@ -9734,6 +9816,7 @@ pub unsafe fn VarBstrFromUI1(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromUI2(
     uiin: u16,
     lcid: u32,
@@ -9764,6 +9847,7 @@ pub unsafe fn VarBstrFromUI2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromUI4(
     ulin: u32,
     lcid: u32,
@@ -9794,6 +9878,7 @@ pub unsafe fn VarBstrFromUI4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarBstrFromUI8(
     ui64in: u64,
     lcid: u32,
@@ -9824,6 +9909,7 @@ pub unsafe fn VarBstrFromUI8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarCat(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -9851,6 +9937,7 @@ pub unsafe fn VarCat(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarCmp(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -9880,6 +9967,7 @@ pub unsafe fn VarCmp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyAbs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<super::super::Com::CY> {
@@ -9900,6 +9988,7 @@ pub unsafe fn VarCyAbs<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>,
@@ -9931,6 +10020,7 @@ pub unsafe fn VarCyAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyCmp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>,
@@ -9954,6 +10044,7 @@ pub unsafe fn VarCyCmp<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyCmpR8<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyleft: Param0,
     dblright: f64,
@@ -9973,6 +10064,7 @@ pub unsafe fn VarCyCmpR8<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<super::super::Com::CY> {
@@ -9993,6 +10085,7 @@ pub unsafe fn VarCyFix<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10012,6 +10105,7 @@ pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::runtime::Result<super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10031,6 +10125,7 @@ pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::runtime::Result<super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarCyFromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<super::super::Com::CY> {
@@ -10052,6 +10147,7 @@ pub unsafe fn VarCyFromDec(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -10079,6 +10175,7 @@ pub unsafe fn VarCyFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarCyFromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -10103,6 +10200,7 @@ pub unsafe fn VarCyFromI1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10122,6 +10220,7 @@ pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::runtime::Result<super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10141,6 +10240,7 @@ pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::runtime::Result<super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10160,6 +10260,7 @@ pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10179,6 +10280,7 @@ pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10198,6 +10300,7 @@ pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarCyFromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -10231,6 +10334,7 @@ pub unsafe fn VarCyFromStr<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10250,6 +10354,7 @@ pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::runtime::Result<super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10269,6 +10374,7 @@ pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10288,6 +10394,7 @@ pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
     {
@@ -10307,6 +10414,7 @@ pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<super::super::Com::CY> {
@@ -10327,6 +10435,7 @@ pub unsafe fn VarCyInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyMul<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>,
@@ -10358,6 +10467,7 @@ pub unsafe fn VarCyMul<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyMulI4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyleft: Param0,
     lright: i32,
@@ -10385,6 +10495,7 @@ pub unsafe fn VarCyMulI4<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyMulI8<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyleft: Param0,
     lright: i64,
@@ -10412,6 +10523,7 @@ pub unsafe fn VarCyMulI8<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyNeg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<super::super::Com::CY> {
@@ -10432,6 +10544,7 @@ pub unsafe fn VarCyNeg<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCyRound<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
     cdecimals: i32,
@@ -10459,6 +10572,7 @@ pub unsafe fn VarCyRound<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarCySub<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>,
@@ -10489,6 +10603,7 @@ pub unsafe fn VarCySub<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10503,6 +10618,7 @@ pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarDateFromCy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>,
@@ -10525,6 +10641,7 @@ pub unsafe fn VarDateFromCy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDateFromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<f64> {
@@ -10543,6 +10660,7 @@ pub unsafe fn VarDateFromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -10569,6 +10687,7 @@ pub unsafe fn VarDateFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDateFromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -10590,6 +10709,7 @@ pub unsafe fn VarDateFromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10603,6 +10723,7 @@ pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10616,6 +10737,7 @@ pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10629,6 +10751,7 @@ pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10642,6 +10765,7 @@ pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10656,6 +10780,7 @@ pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDateFromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -10687,6 +10812,7 @@ pub unsafe fn VarDateFromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10700,6 +10826,7 @@ pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10713,6 +10840,7 @@ pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10726,6 +10854,7 @@ pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10740,6 +10869,7 @@ pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDateFromUdate(
     pudatein: *const UDATE,
     dwflags: u32,
@@ -10766,6 +10896,7 @@ pub unsafe fn VarDateFromUdate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDateFromUdateEx(
     pudatein: *const UDATE,
     lcid: u32,
@@ -10795,6 +10926,7 @@ pub unsafe fn VarDateFromUdateEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecAbs(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -10815,6 +10947,7 @@ pub unsafe fn VarDecAbs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecAdd(
     pdecleft: *const super::super::super::Foundation::DECIMAL,
     pdecright: *const super::super::super::Foundation::DECIMAL,
@@ -10841,6 +10974,7 @@ pub unsafe fn VarDecAdd(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecCmp(
     pdecleft: *const super::super::super::Foundation::DECIMAL,
     pdecright: *const super::super::super::Foundation::DECIMAL,
@@ -10864,6 +10998,7 @@ pub unsafe fn VarDecCmp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecCmpR8(
     pdecleft: *const super::super::super::Foundation::DECIMAL,
     dblright: f64,
@@ -10887,6 +11022,7 @@ pub unsafe fn VarDecCmpR8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecDiv(
     pdecleft: *const super::super::super::Foundation::DECIMAL,
     pdecright: *const super::super::super::Foundation::DECIMAL,
@@ -10913,6 +11049,7 @@ pub unsafe fn VarDecDiv(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFix(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -10933,6 +11070,7 @@ pub unsafe fn VarDecFix(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromBool(
     boolin: i16,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -10953,6 +11091,7 @@ pub unsafe fn VarDecFromBool(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarDecFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -10973,6 +11112,7 @@ pub unsafe fn VarDecFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromDate(
     datein: f64,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -10993,6 +11133,7 @@ pub unsafe fn VarDecFromDate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -11019,6 +11160,7 @@ pub unsafe fn VarDecFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -11042,6 +11184,7 @@ pub unsafe fn VarDecFromI1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromI2(
     uiin: i16,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11062,6 +11205,7 @@ pub unsafe fn VarDecFromI2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromI4(
     lin: i32,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11082,6 +11226,7 @@ pub unsafe fn VarDecFromI4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromI8(
     i64in: i64,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11102,6 +11247,7 @@ pub unsafe fn VarDecFromI8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromR4(
     fltin: f32,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11122,6 +11268,7 @@ pub unsafe fn VarDecFromR4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromR8(
     dblin: f64,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11142,6 +11289,7 @@ pub unsafe fn VarDecFromR8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -11174,6 +11322,7 @@ pub unsafe fn VarDecFromStr<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromUI1(
     bin: u8,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11194,6 +11343,7 @@ pub unsafe fn VarDecFromUI1(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromUI2(
     uiin: u16,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11214,6 +11364,7 @@ pub unsafe fn VarDecFromUI2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromUI4(
     ulin: u32,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11234,6 +11385,7 @@ pub unsafe fn VarDecFromUI4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecFromUI8(
     ui64in: u64,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11254,6 +11406,7 @@ pub unsafe fn VarDecFromUI8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecInt(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11274,6 +11427,7 @@ pub unsafe fn VarDecInt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecMul(
     pdecleft: *const super::super::super::Foundation::DECIMAL,
     pdecright: *const super::super::super::Foundation::DECIMAL,
@@ -11300,6 +11454,7 @@ pub unsafe fn VarDecMul(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecNeg(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
@@ -11320,6 +11475,7 @@ pub unsafe fn VarDecNeg(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecRound(
     pdecin: *const super::super::super::Foundation::DECIMAL,
     cdecimals: i32,
@@ -11346,6 +11502,7 @@ pub unsafe fn VarDecRound(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarDecSub(
     pdecleft: *const super::super::super::Foundation::DECIMAL,
     pdecright: *const super::super::super::Foundation::DECIMAL,
@@ -11372,6 +11529,7 @@ pub unsafe fn VarDecSub(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarDiv(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -11399,6 +11557,7 @@ pub unsafe fn VarDiv(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarEqv(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -11426,6 +11585,7 @@ pub unsafe fn VarEqv(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarFix(
     pvarin: *const super::super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
@@ -11447,6 +11607,7 @@ pub unsafe fn VarFix(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarFormat<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -11486,6 +11647,7 @@ pub unsafe fn VarFormat<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarFormatCurrency(
     pvarin: *const super::super::Com::VARIANT,
     inumdig: i32,
@@ -11525,6 +11687,7 @@ pub unsafe fn VarFormatCurrency(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarFormatDateTime(
     pvarin: *const super::super::Com::VARIANT,
     inamedformat: i32,
@@ -11555,6 +11718,7 @@ pub unsafe fn VarFormatDateTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarFormatFromTokens<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -11593,6 +11757,7 @@ pub unsafe fn VarFormatFromTokens<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarFormatNumber(
     pvarin: *const super::super::Com::VARIANT,
     inumdig: i32,
@@ -11632,6 +11797,7 @@ pub unsafe fn VarFormatNumber(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarFormatPercent(
     pvarin: *const super::super::Com::VARIANT,
     inumdig: i32,
@@ -11671,6 +11837,7 @@ pub unsafe fn VarFormatPercent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromBool(
     boolin: i16,
     pcout: super::super::super::Foundation::PSTR,
@@ -11690,6 +11857,7 @@ pub unsafe fn VarI1FromBool(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
     pcout: super::super::super::Foundation::PSTR,
@@ -11709,6 +11877,7 @@ pub unsafe fn VarI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromDate(
     datein: f64,
     pcout: super::super::super::Foundation::PSTR,
@@ -11728,6 +11897,7 @@ pub unsafe fn VarI1FromDate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
     pcout: super::super::super::Foundation::PSTR,
@@ -11747,6 +11917,7 @@ pub unsafe fn VarI1FromDec(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -11773,6 +11944,7 @@ pub unsafe fn VarI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromI2(
     uiin: i16,
     pcout: super::super::super::Foundation::PSTR,
@@ -11792,6 +11964,7 @@ pub unsafe fn VarI1FromI2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromI4(
     lin: i32,
     pcout: super::super::super::Foundation::PSTR,
@@ -11811,6 +11984,7 @@ pub unsafe fn VarI1FromI4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromI8(
     i64in: i64,
     pcout: super::super::super::Foundation::PSTR,
@@ -11830,6 +12004,7 @@ pub unsafe fn VarI1FromI8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromR4(
     fltin: f32,
     pcout: super::super::super::Foundation::PSTR,
@@ -11849,6 +12024,7 @@ pub unsafe fn VarI1FromR4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromR8(
     dblin: f64,
     pcout: super::super::super::Foundation::PSTR,
@@ -11868,6 +12044,7 @@ pub unsafe fn VarI1FromR8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -11900,6 +12077,7 @@ pub unsafe fn VarI1FromStr<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromUI1(
     bin: u8,
     pcout: super::super::super::Foundation::PSTR,
@@ -11919,6 +12097,7 @@ pub unsafe fn VarI1FromUI1(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromUI2(
     uiin: u16,
     pcout: super::super::super::Foundation::PSTR,
@@ -11938,6 +12117,7 @@ pub unsafe fn VarI1FromUI2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromUI4(
     ulin: u32,
     pcout: super::super::super::Foundation::PSTR,
@@ -11957,6 +12137,7 @@ pub unsafe fn VarI1FromUI4(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI1FromUI8(
     i64in: u64,
     pcout: super::super::super::Foundation::PSTR,
@@ -11975,6 +12156,7 @@ pub unsafe fn VarI1FromUI8(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -11989,6 +12171,7 @@ pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
     psout: *mut i16,
@@ -12007,6 +12190,7 @@ pub unsafe fn VarI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12021,6 +12205,7 @@ pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI2FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<i16> {
@@ -12039,6 +12224,7 @@ pub unsafe fn VarI2FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -12065,6 +12251,7 @@ pub unsafe fn VarI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI2FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -12086,6 +12273,7 @@ pub unsafe fn VarI2FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12099,6 +12287,7 @@ pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12112,6 +12301,7 @@ pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12125,6 +12315,7 @@ pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12139,6 +12330,7 @@ pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI2FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -12170,6 +12362,7 @@ pub unsafe fn VarI2FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12183,6 +12376,7 @@ pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12196,6 +12390,7 @@ pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12209,6 +12404,7 @@ pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -12222,6 +12418,7 @@ pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12236,6 +12433,7 @@ pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::runtime::Result<i32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<i32> {
@@ -12254,6 +12452,7 @@ pub unsafe fn VarI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12268,6 +12467,7 @@ pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::runtime::Result<i32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI4FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<i32> {
@@ -12286,6 +12486,7 @@ pub unsafe fn VarI4FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -12312,6 +12513,7 @@ pub unsafe fn VarI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI4FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -12333,6 +12535,7 @@ pub unsafe fn VarI4FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12346,6 +12549,7 @@ pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12359,6 +12563,7 @@ pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12372,6 +12577,7 @@ pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12386,6 +12592,7 @@ pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::runtime::Result<i32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI4FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -12417,6 +12624,7 @@ pub unsafe fn VarI4FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12430,6 +12638,7 @@ pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12443,6 +12652,7 @@ pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12456,6 +12666,7 @@ pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -12469,6 +12680,7 @@ pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12483,6 +12695,7 @@ pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<i64> {
@@ -12501,6 +12714,7 @@ pub unsafe fn VarI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12515,6 +12729,7 @@ pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI8FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<i64> {
@@ -12533,6 +12748,7 @@ pub unsafe fn VarI8FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -12559,6 +12775,7 @@ pub unsafe fn VarI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI8FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -12580,6 +12797,7 @@ pub unsafe fn VarI8FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12593,6 +12811,7 @@ pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12606,6 +12825,7 @@ pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12620,6 +12840,7 @@ pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarI8FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -12651,6 +12872,7 @@ pub unsafe fn VarI8FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12664,6 +12886,7 @@ pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12677,6 +12900,7 @@ pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12690,6 +12914,7 @@ pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -12704,6 +12929,7 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarIdiv(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -12731,6 +12957,7 @@ pub unsafe fn VarIdiv(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarImp(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -12758,6 +12985,7 @@ pub unsafe fn VarImp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarInt(
     pvarin: *const super::super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
@@ -12779,6 +13007,7 @@ pub unsafe fn VarInt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarMod(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -12806,6 +13035,7 @@ pub unsafe fn VarMod(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarMonthName(
     imonth: i32,
     fabbrev: i32,
@@ -12836,6 +13066,7 @@ pub unsafe fn VarMonthName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarMul(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -12863,6 +13094,7 @@ pub unsafe fn VarMul(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarNeg(
     pvarin: *const super::super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
@@ -12884,6 +13116,7 @@ pub unsafe fn VarNeg(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarNot(
     pvarin: *const super::super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
@@ -12905,6 +13138,7 @@ pub unsafe fn VarNot(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarNumFromParseNum(
     pnumprs: *const NUMPARSE,
     rgbdig: *const u8,
@@ -12935,6 +13169,7 @@ pub unsafe fn VarNumFromParseNum(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarOr(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -12962,6 +13197,7 @@ pub unsafe fn VarOr(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarParseNumFromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -12997,6 +13233,7 @@ pub unsafe fn VarParseNumFromStr<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarPow(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -13023,6 +13260,7 @@ pub unsafe fn VarPow(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -13039,6 +13277,7 @@ pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13053,6 +13292,7 @@ pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::runtime::Result<f32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarR4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
     pfltout: *mut f32,
@@ -13071,6 +13311,7 @@ pub unsafe fn VarR4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13085,6 +13326,7 @@ pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::runtime::Result<f32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarR4FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<f32> {
@@ -13103,6 +13345,7 @@ pub unsafe fn VarR4FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -13129,6 +13372,7 @@ pub unsafe fn VarR4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarR4FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -13150,6 +13394,7 @@ pub unsafe fn VarR4FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13163,6 +13408,7 @@ pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13176,6 +13422,7 @@ pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13189,6 +13436,7 @@ pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13203,6 +13451,7 @@ pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::runtime::Result<f32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarR4FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -13234,6 +13483,7 @@ pub unsafe fn VarR4FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13247,6 +13497,7 @@ pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13260,6 +13511,7 @@ pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13273,6 +13525,7 @@ pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
     {
@@ -13286,6 +13539,7 @@ pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13300,6 +13554,7 @@ pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarR8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
     pdblout: *mut f64,
@@ -13318,6 +13573,7 @@ pub unsafe fn VarR8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13332,6 +13588,7 @@ pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarR8FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<f64> {
@@ -13350,6 +13607,7 @@ pub unsafe fn VarR8FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -13376,6 +13634,7 @@ pub unsafe fn VarR8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarR8FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -13397,6 +13656,7 @@ pub unsafe fn VarR8FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13410,6 +13670,7 @@ pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13423,6 +13684,7 @@ pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13436,6 +13698,7 @@ pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13450,6 +13713,7 @@ pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarR8FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -13481,6 +13745,7 @@ pub unsafe fn VarR8FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13494,6 +13759,7 @@ pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13507,6 +13773,7 @@ pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13520,6 +13787,7 @@ pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13533,6 +13801,7 @@ pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13555,6 +13824,7 @@ pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::runtime::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -13578,6 +13848,7 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::runtime::Resu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarRound(
     pvarin: *const super::super::Com::VARIANT,
     cdecimals: i32,
@@ -13605,6 +13876,7 @@ pub unsafe fn VarRound(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarSub(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -13632,6 +13904,7 @@ pub unsafe fn VarSub(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarTokenizeFormatString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -13672,6 +13945,7 @@ pub unsafe fn VarTokenizeFormatString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13686,6 +13960,7 @@ pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::runtime::Result<u8> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarUI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<u8> {
@@ -13704,6 +13979,7 @@ pub unsafe fn VarUI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13718,6 +13994,7 @@ pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::runtime::Result<u8> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI1FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<u8> {
@@ -13736,6 +14013,7 @@ pub unsafe fn VarUI1FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -13762,6 +14040,7 @@ pub unsafe fn VarUI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI1FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -13783,6 +14062,7 @@ pub unsafe fn VarUI1FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13796,6 +14076,7 @@ pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13809,6 +14090,7 @@ pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13822,6 +14104,7 @@ pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13835,6 +14118,7 @@ pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13849,6 +14133,7 @@ pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::runtime::Result<u8> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI1FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -13880,6 +14165,7 @@ pub unsafe fn VarUI1FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13893,6 +14179,7 @@ pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13906,6 +14193,7 @@ pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
     {
@@ -13919,6 +14207,7 @@ pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -13933,6 +14222,7 @@ pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::runtime::Result<u16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarUI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<u16> {
@@ -13951,6 +14241,7 @@ pub unsafe fn VarUI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -13965,6 +14256,7 @@ pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::runtime::Result<u16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI2FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<u16> {
@@ -13983,6 +14275,7 @@ pub unsafe fn VarUI2FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -14009,6 +14302,7 @@ pub unsafe fn VarUI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI2FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -14030,6 +14324,7 @@ pub unsafe fn VarUI2FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -14043,6 +14338,7 @@ pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -14056,6 +14352,7 @@ pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -14069,6 +14366,7 @@ pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -14082,6 +14380,7 @@ pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -14095,6 +14394,7 @@ pub unsafe fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI2FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -14126,6 +14426,7 @@ pub unsafe fn VarUI2FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -14139,6 +14440,7 @@ pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -14152,6 +14454,7 @@ pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -14165,6 +14468,7 @@ pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14179,6 +14483,7 @@ pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarUI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<u32> {
@@ -14197,6 +14502,7 @@ pub unsafe fn VarUI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14211,6 +14517,7 @@ pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI4FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<u32> {
@@ -14229,6 +14536,7 @@ pub unsafe fn VarUI4FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -14255,6 +14563,7 @@ pub unsafe fn VarUI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI4FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -14276,6 +14585,7 @@ pub unsafe fn VarUI4FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14289,6 +14599,7 @@ pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14302,6 +14613,7 @@ pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14315,6 +14627,7 @@ pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14328,6 +14641,7 @@ pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14342,6 +14656,7 @@ pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI4FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -14373,6 +14688,7 @@ pub unsafe fn VarUI4FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14386,6 +14702,7 @@ pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14399,6 +14716,7 @@ pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -14412,6 +14730,7 @@ pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14426,6 +14745,7 @@ pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn VarUI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(
     cyin: Param0,
 ) -> ::windows::runtime::Result<u64> {
@@ -14444,6 +14764,7 @@ pub unsafe fn VarUI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14458,6 +14779,7 @@ pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI8FromDec(
     pdecin: *const super::super::super::Foundation::DECIMAL,
 ) -> ::windows::runtime::Result<u64> {
@@ -14476,6 +14798,7 @@ pub unsafe fn VarUI8FromDec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(
     pdispin: Param0,
     lcid: u32,
@@ -14502,6 +14825,7 @@ pub unsafe fn VarUI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI8FromI1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
@@ -14523,6 +14847,7 @@ pub unsafe fn VarUI8FromI1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14536,6 +14861,7 @@ pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14549,6 +14875,7 @@ pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14562,6 +14889,7 @@ pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14576,6 +14904,7 @@ pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUI8FromStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -14607,6 +14936,7 @@ pub unsafe fn VarUI8FromStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14620,6 +14950,7 @@ pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14633,6 +14964,7 @@ pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -14647,6 +14979,7 @@ pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::runtime::Result<UDATE> {
     #[cfg(windows)]
     {
@@ -14670,6 +15003,7 @@ pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VarWeekdayName(
     iweekday: i32,
     fabbrev: i32,
@@ -14703,6 +15037,7 @@ pub unsafe fn VarWeekdayName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VarXor(
     pvarleft: *const super::super::Com::VARIANT,
     pvarright: *const super::super::Com::VARIANT,
@@ -14730,6 +15065,7 @@ pub unsafe fn VarXor(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VariantChangeType(
     pvargdest: *mut super::super::Com::VARIANT,
     pvarsrc: *const super::super::Com::VARIANT,
@@ -14759,6 +15095,7 @@ pub unsafe fn VariantChangeType(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VariantChangeTypeEx(
     pvargdest: *mut super::super::Com::VARIANT,
     pvarsrc: *const super::super::Com::VARIANT,
@@ -14791,6 +15128,7 @@ pub unsafe fn VariantChangeTypeEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VariantClear(
     pvarg: *mut super::super::Com::VARIANT,
 ) -> ::windows::runtime::Result<()> {
@@ -14808,6 +15146,7 @@ pub unsafe fn VariantClear(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VariantCopy(
     pvargdest: *mut super::super::Com::VARIANT,
     pvargsrc: *const super::super::Com::VARIANT,
@@ -14831,6 +15170,7 @@ pub unsafe fn VariantCopy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VariantCopyInd(
     pvardest: *mut super::super::Com::VARIANT,
     pvargsrc: *const super::super::Com::VARIANT,
@@ -14916,6 +15256,7 @@ pub unsafe fn VariantTimeToSystemTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn VectorFromBstr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>,

@@ -1873,6 +1873,7 @@ pub unsafe fn CompleteAuthToken(
 pub type CredFreeCredentialsFn =
     unsafe extern "system" fn(count: u32, credentials: *mut *mut ENCRYPTED_CREDENTIALW);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn CredMarshalTargetInfo(
     intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW,
     buffer: *mut *mut u16,
@@ -1918,6 +1919,7 @@ pub type CredReadFn = unsafe extern "system" fn(
     credential: *mut *mut ENCRYPTED_CREDENTIALW,
 ) -> super::super::super::Foundation::NTSTATUS;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn CredUnmarshalTargetInfo(
     buffer: *const u16,
     buffersize: u32,
@@ -7819,6 +7821,7 @@ unsafe impl ::windows::runtime::Abi for LSA_TRUST_INFORMATION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaAddAccountRights<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
@@ -7851,6 +7854,7 @@ pub unsafe fn LsaAddAccountRights<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaCallAuthenticationPackage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -7892,6 +7896,7 @@ pub unsafe fn LsaCallAuthenticationPackage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaClose(objecthandle: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -7907,6 +7912,7 @@ pub unsafe fn LsaClose(objecthandle: *const ::std::ffi::c_void) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaConnectUntrusted(
     lsahandle: *mut super::super::super::Foundation::HANDLE,
 ) -> ::windows::runtime::Result<()> {
@@ -7924,6 +7930,7 @@ pub unsafe fn LsaConnectUntrusted(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaCreateTrustedDomainEx(
     policyhandle: *const ::std::ffi::c_void,
     trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX,
@@ -7956,6 +7963,7 @@ pub unsafe fn LsaCreateTrustedDomainEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaDeleteTrustedDomain<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
@@ -7982,6 +7990,7 @@ pub unsafe fn LsaDeleteTrustedDomain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaDeregisterLogonProcess<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, LsaHandle>,
@@ -8002,6 +8011,7 @@ pub unsafe fn LsaDeregisterLogonProcess<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaEnumerateAccountRights<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
@@ -8034,6 +8044,7 @@ pub unsafe fn LsaEnumerateAccountRights<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaEnumerateAccountsWithUserRight(
     policyhandle: *const ::std::ffi::c_void,
     userright: *const super::super::super::Foundation::UNICODE_STRING,
@@ -8063,6 +8074,7 @@ pub unsafe fn LsaEnumerateAccountsWithUserRight(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaEnumerateLogonSessions(
     logonsessioncount: *mut u32,
     logonsessionlist: *mut *mut super::super::super::Foundation::LUID,
@@ -8086,6 +8098,7 @@ pub unsafe fn LsaEnumerateLogonSessions(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaEnumerateTrustedDomains(
     policyhandle: *const ::std::ffi::c_void,
     enumerationcontext: *mut u32,
@@ -8118,6 +8131,7 @@ pub unsafe fn LsaEnumerateTrustedDomains(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaEnumerateTrustedDomainsEx(
     policyhandle: *const ::std::ffi::c_void,
     enumerationcontext: *mut u32,
@@ -8150,6 +8164,7 @@ pub unsafe fn LsaEnumerateTrustedDomainsEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaFreeMemory(buffer: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -8165,6 +8180,7 @@ pub unsafe fn LsaFreeMemory(buffer: *const ::std::ffi::c_void) -> ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaFreeReturnBuffer(
     buffer: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -8182,6 +8198,7 @@ pub unsafe fn LsaFreeReturnBuffer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaGetAppliedCAPIDs(
     systemname: *const super::super::super::Foundation::UNICODE_STRING,
     capids: *mut *mut super::super::super::Foundation::PSID,
@@ -8208,6 +8225,7 @@ pub unsafe fn LsaGetAppliedCAPIDs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaGetLogonSessionData(
     logonid: *const super::super::super::Foundation::LUID,
     pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA,
@@ -8250,6 +8268,7 @@ unsafe impl ::windows::runtime::Abi for LsaHandle {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn LsaLogonUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -8312,6 +8331,7 @@ pub unsafe fn LsaLogonUser<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn LsaLookupAuthenticationPackage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -8341,6 +8361,7 @@ pub unsafe fn LsaLookupAuthenticationPackage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaLookupNames(
     policyhandle: *const ::std::ffi::c_void,
     count: u32,
@@ -8373,6 +8394,7 @@ pub unsafe fn LsaLookupNames(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaLookupNames2(
     policyhandle: *const ::std::ffi::c_void,
     flags: u32,
@@ -8408,6 +8430,7 @@ pub unsafe fn LsaLookupNames2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaLookupSids(
     policyhandle: *const ::std::ffi::c_void,
     count: u32,
@@ -8440,6 +8463,7 @@ pub unsafe fn LsaLookupSids(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaLookupSids2(
     policyhandle: *const ::std::ffi::c_void,
     lookupoptions: u32,
@@ -8497,6 +8521,7 @@ pub unsafe fn LsaNtStatusToWinError<
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn LsaOpenPolicy(
     systemname: *const super::super::super::Foundation::UNICODE_STRING,
     objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES,
@@ -8526,6 +8551,7 @@ pub unsafe fn LsaOpenPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaOpenTrustedDomainByName(
     policyhandle: *const ::std::ffi::c_void,
     trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING,
@@ -8555,6 +8581,7 @@ pub unsafe fn LsaOpenTrustedDomainByName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaQueryCAPs(
     capids: *const super::super::super::Foundation::PSID,
     capidcount: u32,
@@ -8584,6 +8611,7 @@ pub unsafe fn LsaQueryCAPs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaQueryDomainInformationPolicy(
     policyhandle: *const ::std::ffi::c_void,
     informationclass: POLICY_DOMAIN_INFORMATION_CLASS,
@@ -8610,6 +8638,7 @@ pub unsafe fn LsaQueryDomainInformationPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaQueryForestTrustInformation(
     policyhandle: *const ::std::ffi::c_void,
     trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING,
@@ -8636,6 +8665,7 @@ pub unsafe fn LsaQueryForestTrustInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaQueryInformationPolicy(
     policyhandle: *const ::std::ffi::c_void,
     informationclass: POLICY_INFORMATION_CLASS,
@@ -8662,6 +8692,7 @@ pub unsafe fn LsaQueryInformationPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaQueryTrustedDomainInfo<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
@@ -8694,6 +8725,7 @@ pub unsafe fn LsaQueryTrustedDomainInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaQueryTrustedDomainInfoByName(
     policyhandle: *const ::std::ffi::c_void,
     trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING,
@@ -8723,6 +8755,7 @@ pub unsafe fn LsaQueryTrustedDomainInfoByName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn LsaRegisterLogonProcess(
     logonprocessname: *const super::super::super::System::Kernel::STRING,
     lsahandle: *mut LsaHandle,
@@ -8749,6 +8782,7 @@ pub unsafe fn LsaRegisterLogonProcess(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaRegisterPolicyChangeNotification<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -8775,6 +8809,7 @@ pub unsafe fn LsaRegisterPolicyChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaRemoveAccountRights<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
@@ -8811,6 +8846,7 @@ pub unsafe fn LsaRemoveAccountRights<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaRetrievePrivateData(
     policyhandle: *const ::std::ffi::c_void,
     keyname: *const super::super::super::Foundation::UNICODE_STRING,
@@ -8837,6 +8873,7 @@ pub unsafe fn LsaRetrievePrivateData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaSetCAPs(
     capdns: *const super::super::super::Foundation::UNICODE_STRING,
     capdncount: u32,
@@ -8863,6 +8900,7 @@ pub unsafe fn LsaSetCAPs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaSetDomainInformationPolicy(
     policyhandle: *const ::std::ffi::c_void,
     informationclass: POLICY_DOMAIN_INFORMATION_CLASS,
@@ -8889,6 +8927,7 @@ pub unsafe fn LsaSetDomainInformationPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaSetForestTrustInformation<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>,
@@ -8924,6 +8963,7 @@ pub unsafe fn LsaSetForestTrustInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaSetInformationPolicy(
     policyhandle: *const ::std::ffi::c_void,
     informationclass: POLICY_INFORMATION_CLASS,
@@ -8950,6 +8990,7 @@ pub unsafe fn LsaSetInformationPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaSetTrustedDomainInfoByName(
     policyhandle: *const ::std::ffi::c_void,
     trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING,
@@ -8979,6 +9020,7 @@ pub unsafe fn LsaSetTrustedDomainInfoByName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaSetTrustedDomainInformation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
@@ -9011,6 +9053,7 @@ pub unsafe fn LsaSetTrustedDomainInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaStorePrivateData(
     policyhandle: *const ::std::ffi::c_void,
     keyname: *const super::super::super::Foundation::UNICODE_STRING,
@@ -9037,6 +9080,7 @@ pub unsafe fn LsaStorePrivateData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaUnregisterPolicyChangeNotification<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -17602,6 +17646,7 @@ pub const SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN: u32 = 100u32;
 pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32u32;
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLAcquireGenuineTicket<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -17639,6 +17684,7 @@ pub unsafe fn SLAcquireGenuineTicket<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLActivateProduct<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -17679,6 +17725,7 @@ pub unsafe fn SLActivateProduct<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLClose(hslc: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -17692,6 +17739,7 @@ pub unsafe fn SLClose(hslc: *const ::std::ffi::c_void) -> ::windows::runtime::Re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLConsumeRight<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -17780,6 +17828,7 @@ impl ::std::ops::Not for SLDATATYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLDepositOfflineConfirmationId<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -17813,6 +17862,7 @@ pub unsafe fn SLDepositOfflineConfirmationId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLDepositOfflineConfirmationIdEx<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -17849,6 +17899,7 @@ pub unsafe fn SLDepositOfflineConfirmationIdEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLFireEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -17878,6 +17929,7 @@ pub unsafe fn SLFireEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGenerateOfflineInstallationId(
     hslc: *const ::std::ffi::c_void,
     pproductskuid: *const ::windows::runtime::GUID,
@@ -17905,6 +17957,7 @@ pub unsafe fn SLGenerateOfflineInstallationId(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGenerateOfflineInstallationIdEx(
     hslc: *const ::std::ffi::c_void,
     pproductskuid: *const ::windows::runtime::GUID,
@@ -17935,6 +17988,7 @@ pub unsafe fn SLGenerateOfflineInstallationIdEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetApplicationInformation<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -17973,6 +18027,7 @@ pub unsafe fn SLGetApplicationInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetGenuineInformation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18007,6 +18062,7 @@ pub unsafe fn SLGetGenuineInformation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLGetInstalledProductKeyIds(
     hslc: *const ::std::ffi::c_void,
     pproductskuid: *const ::windows::runtime::GUID,
@@ -18035,6 +18091,7 @@ pub unsafe fn SLGetInstalledProductKeyIds(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLGetLicense(
     hslc: *const ::std::ffi::c_void,
     plicensefileid: *const ::windows::runtime::GUID,
@@ -18063,6 +18120,7 @@ pub unsafe fn SLGetLicense(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLGetLicenseFileId(
     hslc: *const ::std::ffi::c_void,
     cblicenseblob: u32,
@@ -18093,6 +18151,7 @@ pub unsafe fn SLGetLicenseFileId(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetLicenseInformation<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18131,6 +18190,7 @@ pub unsafe fn SLGetLicenseInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetLicensingStatusInformation<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18169,6 +18229,7 @@ pub unsafe fn SLGetLicensingStatusInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetPKeyId<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18209,6 +18270,7 @@ pub unsafe fn SLGetPKeyId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetPKeyInformation<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18247,6 +18309,7 @@ pub unsafe fn SLGetPKeyInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetPolicyInformation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18282,6 +18345,7 @@ pub unsafe fn SLGetPolicyInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetPolicyInformationDWORD<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18311,6 +18375,7 @@ pub unsafe fn SLGetPolicyInformationDWORD<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetProductSkuInformation<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18349,6 +18414,7 @@ pub unsafe fn SLGetProductSkuInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetReferralInformation<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18384,6 +18450,7 @@ pub unsafe fn SLGetReferralInformation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLGetSLIDList(
     hslc: *const ::std::ffi::c_void,
     equeryidtype: SLIDTYPE,
@@ -18419,6 +18486,7 @@ pub unsafe fn SLGetSLIDList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetServerStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18457,6 +18525,7 @@ pub unsafe fn SLGetServerStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetServiceInformation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18492,6 +18561,7 @@ pub unsafe fn SLGetServiceInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetWindowsInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18524,6 +18594,7 @@ pub unsafe fn SLGetWindowsInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLGetWindowsInformationDWORD<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18574,6 +18645,7 @@ unsafe impl ::windows::runtime::Abi for SLIDTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SLInstallLicense(
     hslc: *const ::std::ffi::c_void,
     cblicenseblob: u32,
@@ -18604,6 +18676,7 @@ pub unsafe fn SLInstallLicense(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLInstallProofOfPurchase<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18643,6 +18716,7 @@ pub unsafe fn SLInstallProofOfPurchase<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLIsGenuineLocal(
     pappid: *const ::windows::runtime::GUID,
     pgenuinestate: *mut SL_GENUINE_STATE,
@@ -18692,6 +18766,7 @@ unsafe impl ::windows::runtime::Abi for SLLICENSINGSTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SLOpen(phslc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -18705,6 +18780,7 @@ pub unsafe fn SLOpen(phslc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLQueryLicenseValueFromApp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18764,6 +18840,7 @@ unsafe impl ::windows::runtime::Abi for SLREFERRALTYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLRegisterEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18796,6 +18873,7 @@ pub unsafe fn SLRegisterEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLSetCurrentProductKey(
     hslc: *const ::std::ffi::c_void,
     pproductskuid: *const ::windows::runtime::GUID,
@@ -18822,6 +18900,7 @@ pub unsafe fn SLSetCurrentProductKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLSetGenuineInformation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -18856,6 +18935,7 @@ pub unsafe fn SLSetGenuineInformation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLUninstallLicense(
     hslc: *const ::std::ffi::c_void,
     plicensefileid: *const ::windows::runtime::GUID,
@@ -18878,6 +18958,7 @@ pub unsafe fn SLUninstallLicense(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SLUninstallProofOfPurchase(
     hslc: *const ::std::ffi::c_void,
     ppkeyid: *const ::windows::runtime::GUID,
@@ -18897,6 +18978,7 @@ pub unsafe fn SLUninstallProofOfPurchase(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SLUnregisterEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -24789,6 +24871,7 @@ pub unsafe fn SystemFunction036(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SystemFunction040(
     memory: *mut ::std::ffi::c_void,
     memorysize: u32,
@@ -24815,6 +24898,7 @@ pub unsafe fn SystemFunction040(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SystemFunction041(
     memory: *mut ::std::ffi::c_void,
     memorysize: u32,

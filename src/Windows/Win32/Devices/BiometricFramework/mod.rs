@@ -5450,6 +5450,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_VERSION {
 }
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
+#[inline]
 pub unsafe fn WinBioAcquireFocus() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5462,6 +5463,7 @@ pub unsafe fn WinBioAcquireFocus() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioAsyncEnumBiometricUnits(
     frameworkhandle: u32,
     factor: u32,
@@ -5484,6 +5486,7 @@ pub unsafe fn WinBioAsyncEnumBiometricUnits(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioAsyncEnumDatabases(
     frameworkhandle: u32,
     factor: u32,
@@ -5506,6 +5509,7 @@ pub unsafe fn WinBioAsyncEnumDatabases(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioAsyncEnumServiceProviders(
     frameworkhandle: u32,
     factor: u32,
@@ -5528,6 +5532,7 @@ pub unsafe fn WinBioAsyncEnumServiceProviders(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioAsyncMonitorFrameworkChanges(
     frameworkhandle: u32,
     changetypes: u32,
@@ -5551,6 +5556,7 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinBioAsyncOpenFramework<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5593,6 +5599,7 @@ pub unsafe fn WinBioAsyncOpenFramework<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinBioAsyncOpenSession<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5652,6 +5659,7 @@ pub unsafe fn WinBioAsyncOpenSession<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5664,6 +5672,7 @@ pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::Result<()>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioCaptureSample(
     sessionhandle: u32,
     purpose: u8,
@@ -5701,6 +5710,7 @@ pub unsafe fn WinBioCaptureSample(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioCaptureSampleWithCallback(
     sessionhandle: u32,
     purpose: u8,
@@ -5732,6 +5742,7 @@ pub unsafe fn WinBioCaptureSampleWithCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5744,6 +5755,7 @@ pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5756,6 +5768,7 @@ pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::Resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioControlUnit(
     sessionhandle: u32,
     unitid: u32,
@@ -5802,6 +5815,7 @@ pub unsafe fn WinBioControlUnit(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioControlUnitPrivileged(
     sessionhandle: u32,
     unitid: u32,
@@ -5848,6 +5862,7 @@ pub unsafe fn WinBioControlUnitPrivileged(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioDeleteTemplate(
     sessionhandle: u32,
     unitid: u32,
@@ -5876,6 +5891,7 @@ pub unsafe fn WinBioDeleteTemplate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnrollBegin(
     sessionhandle: u32,
     subfactor: u8,
@@ -5901,6 +5917,7 @@ pub unsafe fn WinBioEnrollBegin(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -5918,6 +5935,7 @@ pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnrollCaptureWithCallback(
     sessionhandle: u32,
     enrollcallback: ::std::option::Option<PWINBIO_ENROLL_CAPTURE_CALLBACK>,
@@ -5943,6 +5961,7 @@ pub unsafe fn WinBioEnrollCaptureWithCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnrollCommit(
     sessionhandle: u32,
     identity: *mut WINBIO_IDENTITY,
@@ -5968,6 +5987,7 @@ pub unsafe fn WinBioEnrollCommit(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5980,6 +6000,7 @@ pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnrollSelect(
     sessionhandle: u32,
     selectorvalue: u64,
@@ -6002,6 +6023,7 @@ pub unsafe fn WinBioEnrollSelect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnumBiometricUnits(
     factor: u32,
     unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA,
@@ -6027,6 +6049,7 @@ pub unsafe fn WinBioEnumBiometricUnits(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnumDatabases(
     factor: u32,
     storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA,
@@ -6052,6 +6075,7 @@ pub unsafe fn WinBioEnumDatabases(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnumEnrollments(
     sessionhandle: u32,
     unitid: u32,
@@ -6083,6 +6107,7 @@ pub unsafe fn WinBioEnumEnrollments(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioEnumServiceProviders(
     factor: u32,
     bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA,
@@ -6108,6 +6133,7 @@ pub unsafe fn WinBioEnumServiceProviders(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6120,6 +6146,7 @@ pub unsafe fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioGetCredentialState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WINBIO_IDENTITY>,
@@ -6181,6 +6208,7 @@ pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTIN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioGetEnrolledFactors(
     accountowner: *const WINBIO_IDENTITY,
 ) -> ::windows::runtime::Result<u32> {
@@ -6216,6 +6244,7 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioGetProperty(
     sessionhandle: u32,
     propertytype: u32,
@@ -6256,6 +6285,7 @@ pub unsafe fn WinBioGetProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioIdentify(
     sessionhandle: u32,
     unitid: *mut u32,
@@ -6287,6 +6317,7 @@ pub unsafe fn WinBioIdentify(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioIdentifyWithCallback(
     sessionhandle: u32,
     identifycallback: ::std::option::Option<PWINBIO_IDENTIFY_CALLBACK>,
@@ -6312,6 +6343,7 @@ pub unsafe fn WinBioIdentifyWithCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioImproveBegin(
     sessionhandle: u32,
     unitid: u32,
@@ -6331,6 +6363,7 @@ pub unsafe fn WinBioImproveBegin(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6343,6 +6376,7 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -6360,6 +6394,7 @@ pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::runtime::Resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioLocateSensorWithCallback(
     sessionhandle: u32,
     locatecallback: ::std::option::Option<PWINBIO_LOCATE_SENSOR_CALLBACK>,
@@ -6385,6 +6420,7 @@ pub unsafe fn WinBioLocateSensorWithCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6401,6 +6437,7 @@ pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6413,6 +6450,7 @@ pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioMonitorPresence(
     sessionhandle: u32,
     unitid: u32,
@@ -6435,6 +6473,7 @@ pub unsafe fn WinBioMonitorPresence(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioOpenSession(
     factor: u32,
     pooltype: WINBIO_POOL,
@@ -6472,6 +6511,7 @@ pub unsafe fn WinBioOpenSession(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioRegisterEventMonitor(
     sessionhandle: u32,
     eventmask: u32,
@@ -6500,6 +6540,7 @@ pub unsafe fn WinBioRegisterEventMonitor(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioReleaseFocus() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6512,6 +6553,7 @@ pub unsafe fn WinBioReleaseFocus() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6524,6 +6566,7 @@ pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6536,6 +6579,7 @@ pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::runtime::Result<(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioRemoveCredential<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WINBIO_IDENTITY>,
@@ -6557,6 +6601,7 @@ pub unsafe fn WinBioRemoveCredential<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioSetCredential(
     r#type: WINBIO_CREDENTIAL_TYPE,
     credential: *const u8,
@@ -6585,6 +6630,7 @@ pub unsafe fn WinBioSetCredential(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioSetProperty(
     sessionhandle: u32,
     propertytype: u32,
@@ -6625,6 +6671,7 @@ pub unsafe fn WinBioSetProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6641,6 +6688,7 @@ pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6653,6 +6701,7 @@ pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioVerify(
     sessionhandle: u32,
     identity: *const WINBIO_IDENTITY,
@@ -6688,6 +6737,7 @@ pub unsafe fn WinBioVerify(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinBioVerifyWithCallback(
     sessionhandle: u32,
     identity: *const WINBIO_IDENTITY,
@@ -6719,6 +6769,7 @@ pub unsafe fn WinBioVerifyWithCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioWait(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {

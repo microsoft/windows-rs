@@ -9054,6 +9054,7 @@ pub unsafe fn SetServiceW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetSocketMediaStreamingMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,

@@ -40,6 +40,7 @@ pub const ASYNC_RECO_SETGUIDE_FAILED: u32 = 32u32;
 pub const ASYNC_RECO_SETTEXTCONTEXT_FAILED: u32 = 256u32;
 pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn AddStroke<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     ppacketdesc: *const PACKET_DESCRIPTION,
@@ -72,6 +73,7 @@ pub unsafe fn AddStroke<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddWordsToWordList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOWORDLIST>,
@@ -95,6 +97,7 @@ pub unsafe fn AddWordsToWordList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AdviseInkChange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>,
@@ -260,6 +263,7 @@ unsafe impl ::windows::runtime::Abi for CorrectionPosition {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOGNIZER>>(
     hrec: Param0,
     phrc: *mut HRECOCONTEXT,
@@ -278,6 +282,7 @@ pub unsafe fn CreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOG
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateRecognizer(
     pclsid: *mut ::windows::runtime::GUID,
     phrec: *mut HRECOGNIZER,
@@ -1613,6 +1618,7 @@ unsafe impl ::windows::runtime::Abi for DYNAMIC_RENDERER_CACHED_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn DestroyContext<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -1627,6 +1633,7 @@ pub unsafe fn DestroyContext<'a, Param0: ::windows::runtime::IntoParam<'a, HRECO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DestroyRecognizer<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOGNIZER>>(
     hrec: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -1641,6 +1648,7 @@ pub unsafe fn DestroyRecognizer<'a, Param0: ::windows::runtime::IntoParam<'a, HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DestroyWordList<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOWORDLIST>>(
     hwl: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -1687,6 +1695,7 @@ pub const EM_SETRECOTIMEOUT: u32 = 1544u32;
 pub const EM_SETSELINK: u32 = 1552u32;
 pub const EM_SETSELINKDISPLAYMODE: u32 = 1561u32;
 pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
+#[inline]
 pub unsafe fn EndInkInput<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -2206,6 +2215,7 @@ pub const GestureRecognizer: ::windows::runtime::GUID = ::windows::runtime::GUID
     17439,
     [172, 0, 149, 249, 161, 150, 120, 44],
 );
+#[inline]
 pub unsafe fn GetAllRecognizers(
     recognizerclsids: *mut *mut ::windows::runtime::GUID,
     count: *mut u32,
@@ -2229,6 +2239,7 @@ pub unsafe fn GetAllRecognizers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetBestResultString<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     pcsize: *mut u32,
@@ -2254,6 +2265,7 @@ pub unsafe fn GetBestResultString<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetLatticePtr<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     pplattice: *mut *mut RECO_LATTICE,
@@ -2273,6 +2285,7 @@ pub unsafe fn GetLatticePtr<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     pcsize: *mut u32,
@@ -2298,6 +2311,7 @@ pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HRE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetRecoAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOGNIZER>>(
     hrec: Param0,
     precoattrs: *mut RECO_ATTRS,
@@ -2316,6 +2330,7 @@ pub unsafe fn GetRecoAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOGNIZER>>(
     hrec: Param0,
     ppropertycount: *mut u32,
@@ -2342,6 +2357,7 @@ pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRightSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     pcsize: *mut u32,
@@ -2367,6 +2383,7 @@ pub unsafe fn GetRightSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetUnicodeRanges<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOGNIZER>>(
     hrec: Param0,
     pcranges: *mut u32,
@@ -26184,6 +26201,7 @@ unsafe impl ::windows::runtime::Abi for InteractionMode {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsStringSupported<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>,
@@ -26335,6 +26353,7 @@ unsafe impl ::windows::runtime::Abi for LINE_SEGMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn LoadCachedAttributes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
@@ -26423,6 +26442,7 @@ unsafe impl ::windows::runtime::Abi for MICUIELEMENTSTATE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MakeWordList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOGNIZER>,
@@ -26689,6 +26709,7 @@ pub type PfnRecoCallback = unsafe extern "system" fn(
     param2: HRECOCONTEXT,
 ) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Process<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     pbpartialprocessing: *mut super::super::Foundation::BOOL,
@@ -27296,6 +27317,7 @@ unsafe impl ::windows::runtime::Abi for SelectionHitResult {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SetEnabledUnicodeRanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>,
@@ -27325,6 +27347,7 @@ pub unsafe fn SetEnabledUnicodeRanges<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFactoid<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>,
@@ -27354,6 +27377,7 @@ pub unsafe fn SetFactoid<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetFlags<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     dwflags: u32,
@@ -27369,6 +27393,7 @@ pub unsafe fn SetFlags<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEX
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetGuide<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(
     hrc: Param0,
     pguide: *const RECO_GUIDE,
@@ -27395,6 +27420,7 @@ pub unsafe fn SetGuide<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEX
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetTextContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>,
@@ -27431,6 +27457,7 @@ pub unsafe fn SetTextContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetWordList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>,

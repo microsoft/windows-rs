@@ -29467,6 +29467,7 @@ unsafe impl ::windows::runtime::Abi for SendToMode {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StiCreateInstanceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,

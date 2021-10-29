@@ -32,6 +32,7 @@ unsafe impl ::windows::runtime::Abi for LicenseProtectionStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterLicenseKeyWithExpiration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -62,6 +63,7 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ValidateLicenseKeyProtection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

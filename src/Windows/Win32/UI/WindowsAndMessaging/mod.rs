@@ -2857,6 +2857,7 @@ pub unsafe fn CreatePopupMenu() -> HMENU {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateResourceIndexer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8271,6 +8272,7 @@ pub unsafe fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IndexFilePath<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11721,6 +11723,7 @@ pub unsafe fn MoveWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateConfig<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11751,6 +11754,7 @@ pub unsafe fn MrmCreateConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateConfigInMemory<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11783,6 +11787,7 @@ pub unsafe fn MrmCreateConfigInMemory<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -11815,6 +11820,7 @@ pub unsafe fn MrmCreateResourceFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MrmCreateResourceFileInMemory<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -11850,6 +11856,7 @@ pub unsafe fn MrmCreateResourceFileInMemory<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceFileWithChecksum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -11886,6 +11893,7 @@ pub unsafe fn MrmCreateResourceFileWithChecksum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceIndexer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11923,6 +11931,7 @@ pub unsafe fn MrmCreateResourceIndexer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11962,6 +11971,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11999,6 +12009,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12038,6 +12049,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12075,6 +12087,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmCreateResourceIndexerWithFlags<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12114,6 +12127,7 @@ pub unsafe fn MrmCreateResourceIndexerWithFlags<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MrmDestroyIndexerAndMessages<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -12133,6 +12147,7 @@ pub unsafe fn MrmDestroyIndexerAndMessages<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MrmDumpPriDataInMemory(
     inputpridata: *const u8,
     inputprisize: u32,
@@ -12171,6 +12186,7 @@ pub unsafe fn MrmDumpPriDataInMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmDumpPriFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12205,6 +12221,7 @@ pub unsafe fn MrmDumpPriFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmDumpPriFileInMemory<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12262,6 +12279,7 @@ unsafe impl ::windows::runtime::Abi for MrmDumpType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -12275,6 +12293,7 @@ pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmGetPriFileContentChecksum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12298,6 +12317,7 @@ pub unsafe fn MrmGetPriFileContentChecksum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmIndexEmbeddedData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -12335,6 +12355,7 @@ pub unsafe fn MrmIndexEmbeddedData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmIndexFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -12370,6 +12391,7 @@ pub unsafe fn MrmIndexFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmIndexFileAutoQualifiers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -12393,6 +12415,7 @@ pub unsafe fn MrmIndexFileAutoQualifiers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmIndexResourceContainerAutoQualifiers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -12420,6 +12443,7 @@ pub unsafe fn MrmIndexResourceContainerAutoQualifiers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmIndexString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,
@@ -12522,6 +12546,7 @@ unsafe impl ::windows::runtime::Abi for MrmPackagingOptions {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MrmPeekResourceIndexerMessages<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>,

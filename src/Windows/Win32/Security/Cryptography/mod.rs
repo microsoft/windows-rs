@@ -1795,6 +1795,7 @@ pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4u32;
 pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2u32;
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897u32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptAddContextFunction<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1899,6 +1900,7 @@ unsafe impl ::windows::runtime::Abi for BCryptBufferDesc {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptCloseAlgorithmProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -1925,6 +1927,7 @@ pub unsafe fn BCryptCloseAlgorithmProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptConfigureContext<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1954,6 +1957,7 @@ pub unsafe fn BCryptConfigureContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptConfigureContextFunction<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1990,6 +1994,7 @@ pub unsafe fn BCryptConfigureContextFunction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptCreateContext<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2019,6 +2024,7 @@ pub unsafe fn BCryptCreateContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptCreateHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(
     halgorithm: Param0,
     phhash: *mut *mut ::std::ffi::c_void,
@@ -2057,6 +2063,7 @@ pub unsafe fn BCryptCreateHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptCreateMultiHash<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -2101,6 +2108,7 @@ pub unsafe fn BCryptCreateMultiHash<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDecrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(
     hkey: Param0,
     pbinput: *const u8,
@@ -2148,6 +2156,7 @@ pub unsafe fn BCryptDecrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDeleteContext<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2174,6 +2183,7 @@ pub unsafe fn BCryptDeleteContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDeriveKey<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2215,6 +2225,7 @@ pub unsafe fn BCryptDeriveKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDeriveKeyCapi<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -2250,6 +2261,7 @@ pub unsafe fn BCryptDeriveKeyCapi<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDeriveKeyPBKDF2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -2297,6 +2309,7 @@ pub unsafe fn BCryptDeriveKeyPBKDF2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDestroyHash(hhash: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2312,6 +2325,7 @@ pub unsafe fn BCryptDestroyHash(hhash: *mut ::std::ffi::c_void) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDestroyKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(
     hkey: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -2327,6 +2341,7 @@ pub unsafe fn BCryptDestroyKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDestroySecret(
     hsecret: *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -2344,6 +2359,7 @@ pub unsafe fn BCryptDestroySecret(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDuplicateHash(
     hhash: *const ::std::ffi::c_void,
     phnewhash: *mut *mut ::std::ffi::c_void,
@@ -2376,6 +2392,7 @@ pub unsafe fn BCryptDuplicateHash(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptDuplicateKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>,
@@ -2411,6 +2428,7 @@ pub unsafe fn BCryptDuplicateKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptEncrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(
     hkey: Param0,
     pbinput: *const u8,
@@ -2458,6 +2476,7 @@ pub unsafe fn BCryptEncrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptEnumAlgorithms(
     dwalgoperations: BCRYPT_OPERATION,
     palgcount: *mut u32,
@@ -2487,6 +2506,7 @@ pub unsafe fn BCryptEnumAlgorithms(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptEnumContextFunctionProviders<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2526,6 +2546,7 @@ pub unsafe fn BCryptEnumContextFunctionProviders<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptEnumContextFunctions<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2561,6 +2582,7 @@ pub unsafe fn BCryptEnumContextFunctions<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptEnumContexts(
     dwtable: BCRYPT_TABLE,
     pcbbuffer: *mut u32,
@@ -2587,6 +2609,7 @@ pub unsafe fn BCryptEnumContexts(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptEnumProviders<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2619,6 +2642,7 @@ pub unsafe fn BCryptEnumProviders<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptEnumRegisteredProviders(
     pcbbuffer: *mut u32,
     ppbuffer: *mut *mut CRYPT_PROVIDERS,
@@ -2642,6 +2666,7 @@ pub unsafe fn BCryptEnumRegisteredProviders(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptExportKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>,
@@ -2685,6 +2710,7 @@ pub unsafe fn BCryptExportKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptFinalizeKeyPair<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>,
@@ -2707,6 +2733,7 @@ pub unsafe fn BCryptFinalizeKeyPair<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptFinishHash(
     hhash: *mut ::std::ffi::c_void,
     pboutput: *mut u8,
@@ -2749,6 +2776,7 @@ pub unsafe fn BCryptFreeBuffer(pvbuffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptGenRandom<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(
     halgorithm: Param0,
     pbbuffer: *mut u8,
@@ -2778,6 +2806,7 @@ pub unsafe fn BCryptGenRandom<'a, Param0: ::windows::runtime::IntoParam<'a, BCRY
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptGenerateKeyPair<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -2810,6 +2839,7 @@ pub unsafe fn BCryptGenerateKeyPair<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptGenerateSymmetricKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -2851,6 +2881,7 @@ pub unsafe fn BCryptGenerateSymmetricKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptGetFipsAlgorithmMode(pfenabled: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2865,6 +2896,7 @@ pub unsafe fn BCryptGetFipsAlgorithmMode(pfenabled: *mut u8) -> ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptGetProperty<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2903,6 +2935,7 @@ pub unsafe fn BCryptGetProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(
     halgorithm: Param0,
     pbsecret: *const u8,
@@ -2941,6 +2974,7 @@ pub unsafe fn BCryptHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_AL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptHashData(
     hhash: *mut ::std::ffi::c_void,
     pbinput: *const u8,
@@ -2970,6 +3004,7 @@ pub unsafe fn BCryptHashData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptImportKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -3019,6 +3054,7 @@ pub unsafe fn BCryptImportKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptImportKeyPair<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>,
@@ -3062,6 +3098,7 @@ pub unsafe fn BCryptImportKeyPair<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptKeyDerivation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>,
@@ -3100,6 +3137,7 @@ pub unsafe fn BCryptKeyDerivation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptOpenAlgorithmProvider<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3133,6 +3171,7 @@ pub unsafe fn BCryptOpenAlgorithmProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptProcessMultiOperations(
     hobject: *mut ::std::ffi::c_void,
     operationtype: BCRYPT_MULTI_OPERATION_TYPE,
@@ -3165,6 +3204,7 @@ pub unsafe fn BCryptProcessMultiOperations(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptQueryContextConfiguration<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3197,6 +3237,7 @@ pub unsafe fn BCryptQueryContextConfiguration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptQueryContextFunctionConfiguration<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3236,6 +3277,7 @@ pub unsafe fn BCryptQueryContextFunctionConfiguration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptQueryContextFunctionProperty<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3279,6 +3321,7 @@ pub unsafe fn BCryptQueryContextFunctionProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptQueryProviderRegistration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3314,6 +3357,7 @@ pub unsafe fn BCryptQueryProviderRegistration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptRegisterConfigChangeNotify(
     phevent: *mut super::super::Foundation::HANDLE,
 ) -> ::windows::runtime::Result<()> {
@@ -3331,6 +3375,7 @@ pub unsafe fn BCryptRegisterConfigChangeNotify(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptRemoveContextFunction<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3364,6 +3409,7 @@ pub unsafe fn BCryptRemoveContextFunction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptResolveProviders<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3410,6 +3456,7 @@ pub unsafe fn BCryptResolveProviders<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptSecretAgreement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>,
@@ -3443,6 +3490,7 @@ pub unsafe fn BCryptSecretAgreement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptSetContextFunctionProperty<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3486,6 +3534,7 @@ pub unsafe fn BCryptSetContextFunctionProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptSetProperty<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3521,6 +3570,7 @@ pub unsafe fn BCryptSetProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptSignHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(
     hkey: Param0,
     ppaddinginfo: *const ::std::ffi::c_void,
@@ -3562,6 +3612,7 @@ pub unsafe fn BCryptSignHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptUnregisterConfigChangeNotify<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3582,6 +3633,7 @@ pub unsafe fn BCryptUnregisterConfigChangeNotify<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BCryptVerifySignature<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>,
@@ -25234,6 +25286,7 @@ pub unsafe fn CertSelectCertificateChains(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CertSelectionGetSerializedBlob(
     pcsi: *const CERT_SELECTUI_INPUT,
     ppoutbuffer: *mut *mut ::std::ffi::c_void,
@@ -25877,6 +25930,7 @@ pub unsafe fn CertVerifyValidityNesting(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CloseCryptoHandle(
     hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
 ) -> ::windows::runtime::Result<()> {
@@ -30935,6 +30989,7 @@ pub unsafe fn CryptVerifyTimeStampSignature(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlAddObject(
     hsignatureorobject: *const ::std::ffi::c_void,
     dwflags: u32,
@@ -30970,6 +31025,7 @@ pub unsafe fn CryptXmlAddObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CryptXmlClose(
     hcryptxml: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -30985,6 +31041,7 @@ pub unsafe fn CryptXmlClose(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlCreateReference<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -31033,6 +31090,7 @@ pub unsafe fn CryptXmlCreateReference<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CryptXmlDigestReference(
     hreference: *const ::std::ffi::c_void,
     dwflags: u32,
@@ -31124,6 +31182,7 @@ pub type CryptXmlDllVerifySignature = unsafe extern "system" fn(
     pbsignature: *const u8,
     cbsignature: u32,
 ) -> ::windows::runtime::HRESULT;
+#[inline]
 pub unsafe fn CryptXmlEncode(
     hcryptxml: *const ::std::ffi::c_void,
     dwcharset: CRYPT_XML_CHARSET,
@@ -31159,6 +31218,7 @@ pub unsafe fn CryptXmlEncode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlEnumAlgorithmInfo(
     dwgroupid: u32,
     dwflags: u32,
@@ -31217,6 +31277,7 @@ pub unsafe fn CryptXmlFindAlgorithmInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlGetAlgorithmInfo(
     pxmlalgorithm: *const CRYPT_XML_ALGORITHM,
     dwflags: CRYPT_XML_FLAGS,
@@ -31244,6 +31305,7 @@ pub unsafe fn CryptXmlGetAlgorithmInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlGetDocContext(
     hcryptxml: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut CRYPT_XML_DOC_CTXT> {
@@ -31265,6 +31327,7 @@ pub unsafe fn CryptXmlGetDocContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlGetReference(
     hcryptxml: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut CRYPT_XML_REFERENCE> {
@@ -31286,6 +31349,7 @@ pub unsafe fn CryptXmlGetReference(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlGetSignature(
     hcryptxml: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut CRYPT_XML_SIGNATURE> {
@@ -31306,6 +31370,7 @@ pub unsafe fn CryptXmlGetSignature(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CryptXmlGetStatus(
     hcryptxml: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<CRYPT_XML_STATUS> {
@@ -31326,6 +31391,7 @@ pub unsafe fn CryptXmlGetStatus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlGetTransforms(
 ) -> ::windows::runtime::Result<*mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG> {
     #[cfg(windows)]
@@ -31345,6 +31411,7 @@ pub unsafe fn CryptXmlGetTransforms(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlImportPublicKey(
     dwflags: CRYPT_XML_FLAGS,
     pkeyvalue: *const CRYPT_XML_KEY_VALUE,
@@ -31372,6 +31439,7 @@ pub unsafe fn CryptXmlImportPublicKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlOpenToDecode(
     pconfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG,
     dwflags: CRYPT_XML_FLAGS,
@@ -31407,6 +31475,7 @@ pub unsafe fn CryptXmlOpenToDecode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlOpenToEncode<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -31447,6 +31516,7 @@ pub unsafe fn CryptXmlOpenToEncode<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CryptXmlSetHMACSecret(
     hsignature: *const ::std::ffi::c_void,
     pbsecret: *const u8,
@@ -31473,6 +31543,7 @@ pub unsafe fn CryptXmlSetHMACSecret(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CryptXmlSign(
     hsignature: *const ::std::ffi::c_void,
     hkey: usize,
@@ -31513,6 +31584,7 @@ pub unsafe fn CryptXmlSign(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CryptXmlVerifySignature<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>,
@@ -31593,6 +31665,7 @@ unsafe impl ::windows::runtime::Abi for DSSSEED {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Decrypt<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -31904,6 +31977,7 @@ pub const E_ICARD_UNTRUSTED: ::windows::runtime::HRESULT =
 pub const E_ICARD_USERCANCELLED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-1073413869i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Encrypt<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -31942,6 +32016,7 @@ pub unsafe fn Encrypt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindCertsByIssuer<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -32028,6 +32103,7 @@ unsafe impl ::windows::runtime::Abi for GENERIC_XML_TOKEN {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GenerateDerivedKey<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -32077,6 +32153,7 @@ pub unsafe fn GenerateDerivedKey<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetBrowserToken(
     dwparamtype: u32,
     pparam: *const ::std::ffi::c_void,
@@ -32105,6 +32182,7 @@ pub unsafe fn GetBrowserToken(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCryptoTransform(
     hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     mode: u32,
@@ -32146,6 +32224,7 @@ pub unsafe fn GetCryptoTransform(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetKeyedHash(
     hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
 ) -> ::windows::runtime::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
@@ -32167,6 +32246,7 @@ pub unsafe fn GetKeyedHash(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetToken(
     cpolicychain: u32,
     ppolicychain: *const POLICY_ELEMENT,
@@ -32427,6 +32507,7 @@ unsafe impl ::windows::runtime::Abi for HandleType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn HashCore(
     hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     cbindata: u32,
@@ -32452,6 +32533,7 @@ pub unsafe fn HashCore(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HashFinal(
     hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     cbindata: u32,
@@ -35220,6 +35302,7 @@ unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMET
 }
 pub const INTERNATIONAL_USAGE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImportInformationCard<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -35370,6 +35453,7 @@ unsafe impl ::windows::runtime::Abi for MSCEPSetupProperty {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ManageCardSpace() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -39933,6 +40017,7 @@ unsafe impl ::windows::runtime::Abi for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STAT
 }
 pub const SYMMETRICWRAPKEYBLOB: u32 = 11u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SignHash<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -39981,6 +40066,7 @@ pub const TIMESTAMP_FAILURE_SYSTEM_FAILURE: u32 = 25u32;
 pub const TIMESTAMP_FAILURE_TIME_NOT_AVAILABLE: u32 = 14u32;
 pub const TIMESTAMP_NO_AUTH_RETRIEVAL: u32 = 131072u32;
 pub const TIMESTAMP_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
+#[inline]
 pub unsafe fn TransformBlock(
     hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     cbindata: u32,
@@ -40012,6 +40098,7 @@ pub unsafe fn TransformBlock(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TransformFinalBlock(
     hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     cbindata: u32,
@@ -40046,6 +40133,7 @@ pub unsafe fn TransformFinalBlock(
 pub const USAGE_MATCH_TYPE_AND: u32 = 0u32;
 pub const USAGE_MATCH_TYPE_OR: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerifyHash<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

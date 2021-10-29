@@ -24892,6 +24892,7 @@ pub struct IVersionInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -27441,6 +27442,7 @@ unsafe impl ::windows::runtime::Abi for TsShiftDir {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {

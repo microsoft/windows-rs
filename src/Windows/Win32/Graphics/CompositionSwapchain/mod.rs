@@ -88,6 +88,7 @@ unsafe impl ::windows::runtime::Abi for CompositionFrameInstanceKind {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CreatePresentationFactory<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,

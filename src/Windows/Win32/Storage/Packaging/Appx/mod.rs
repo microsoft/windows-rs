@@ -665,6 +665,7 @@ unsafe impl ::windows::runtime::Abi for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ActivatePackageVirtualizationContext(
     context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__,
 ) -> ::windows::runtime::Result<usize> {
@@ -685,6 +686,7 @@ pub unsafe fn ActivatePackageVirtualizationContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPackageDependency<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -1169,6 +1171,7 @@ pub const AppxPackagingDiagnosticEventSinkManager: ::windows::runtime::GUID =
         [142, 210, 239, 158, 70, 156, 237, 93],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckIsMSIXPackage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -1233,6 +1236,7 @@ unsafe impl ::windows::runtime::Abi for CreatePackageDependencyOptions {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePackageVirtualizationContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -1294,6 +1298,7 @@ pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePackageDependency<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -1313,6 +1318,7 @@ pub unsafe fn DeletePackageDependency<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext(
     sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__,
 ) -> ::windows::runtime::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
@@ -1673,6 +1679,7 @@ pub unsafe fn GetCurrentPackageVirtualizationContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIdForPackageDependencyContext(
     packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__,
 ) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
@@ -2060,6 +2067,7 @@ pub unsafe fn GetPackagesByPackageFamily<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessesInVirtualizationContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2089,6 +2097,7 @@ pub unsafe fn GetProcessesInVirtualizationContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetResolvedPackageFullNameForPackageDependency<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -12573,6 +12582,7 @@ pub unsafe fn ReleasePackageVirtualizationContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RemovePackageDependency(
     packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__,
 ) -> ::windows::runtime::Result<()> {
@@ -12590,6 +12600,7 @@ pub unsafe fn RemovePackageDependency(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TryCreatePackageDependency<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,

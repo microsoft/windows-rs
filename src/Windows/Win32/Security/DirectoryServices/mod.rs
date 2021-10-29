@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[inline]
 pub unsafe fn DSCreateISecurityInfoObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -51,6 +52,7 @@ pub unsafe fn DSCreateISecurityInfoObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[inline]
 pub unsafe fn DSCreateISecurityInfoObjectEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -106,6 +108,7 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[inline]
 pub unsafe fn DSCreateSecurityPage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -149,6 +152,7 @@ pub unsafe fn DSCreateSecurityPage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DSEditSecurity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

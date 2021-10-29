@@ -5663,6 +5663,7 @@ pub unsafe fn RevertToSelf() -> super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RtlConvertSidToUnicodeString<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::Foundation::PSID>,

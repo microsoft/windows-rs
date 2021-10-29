@@ -48,6 +48,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             quote! {
                 #arch
                 #features
+                #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params) -> ::windows::runtime::Result<T> {
                     #[cfg(windows)]
                     {
@@ -71,6 +72,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             quote! {
                 #arch
                 #features
+                #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
                     {
@@ -94,6 +96,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             quote! {
                 #arch
                 #features
+                #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::runtime::Result<#return_type_tokens> {
                     #[cfg(windows)]
                     {
@@ -116,6 +119,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             quote! {
                 #arch
                 #features
+                #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
                     {

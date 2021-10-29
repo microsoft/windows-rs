@@ -7,6 +7,7 @@
     dead_code,
     clippy::all
 )]
+#[inline]
 pub unsafe fn CreateDXGIFactory<T: ::windows::runtime::Interface>() -> ::windows::runtime::Result<T>
 {
     #[cfg(windows)]
@@ -28,6 +29,7 @@ pub unsafe fn CreateDXGIFactory<T: ::windows::runtime::Interface>() -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateDXGIFactory1<T: ::windows::runtime::Interface>() -> ::windows::runtime::Result<T>
 {
     #[cfg(windows)]
@@ -49,6 +51,7 @@ pub unsafe fn CreateDXGIFactory1<T: ::windows::runtime::Interface>() -> ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateDXGIFactory2<T: ::windows::runtime::Interface>(
     flags: u32,
 ) -> ::windows::runtime::Result<T> {
@@ -73,6 +76,7 @@ pub unsafe fn CreateDXGIFactory2<T: ::windows::runtime::Interface>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -85,6 +89,7 @@ pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::runtime::Result<(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DXGIGetDebugInterface1<T: ::windows::runtime::Interface>(
     flags: u32,
 ) -> ::windows::runtime::Result<T> {

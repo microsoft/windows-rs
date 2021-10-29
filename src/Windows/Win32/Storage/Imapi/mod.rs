@@ -2468,6 +2468,7 @@ pub const GUID_SMTP_SOURCE_TYPE: ::windows::runtime::GUID = ::windows::runtime::
     [170, 103, 0, 192, 79, 163, 69, 246],
 );
 #[cfg(feature = "Win32_System_AddressBook")]
+#[inline]
 pub unsafe fn GetAttribIMsgOnIStg(
     lpobject: *mut ::std::ffi::c_void,
     lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray,
@@ -22687,6 +22688,7 @@ unsafe impl ::windows::runtime::Abi for SPropAttrArray {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_AddressBook")]
+#[inline]
 pub unsafe fn SetAttribIMsgOnIStg(
     lpobject: *mut ::std::ffi::c_void,
     lpproptags: *mut super::super::System::AddressBook::SPropTagArray,

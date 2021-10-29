@@ -1945,6 +1945,7 @@ pub struct IXamlDiagnostics_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitializeXamlDiagnostic<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -1983,6 +1984,7 @@ pub unsafe fn InitializeXamlDiagnostic<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitializeXamlDiagnosticsEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,

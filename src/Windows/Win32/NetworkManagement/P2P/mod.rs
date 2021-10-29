@@ -905,6 +905,7 @@ pub unsafe fn DrtClose(hdrt: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtContinueSearch(
     hsearchcontext: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -922,6 +923,7 @@ pub unsafe fn DrtContinueSearch(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
 pub unsafe fn DrtCreateDerivedKey(
     plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
 ) -> ::windows::runtime::Result<DRT_DATA> {
@@ -942,6 +944,7 @@ pub unsafe fn DrtCreateDerivedKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
 pub unsafe fn DrtCreateDerivedKeySecurityProvider(
     prootcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
     plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
@@ -969,6 +972,7 @@ pub unsafe fn DrtCreateDerivedKeySecurityProvider(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrtCreateDnsBootstrapResolver<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -998,6 +1002,7 @@ pub unsafe fn DrtCreateDnsBootstrapResolver<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtCreateIpv6UdpTransport(
     scope: DRT_SCOPE,
     dwscopeid: u32,
@@ -1029,6 +1034,7 @@ pub unsafe fn DrtCreateIpv6UdpTransport(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtCreateNullSecurityProvider(
 ) -> ::windows::runtime::Result<*mut DRT_SECURITY_PROVIDER> {
     #[cfg(windows)]
@@ -1048,6 +1054,7 @@ pub unsafe fn DrtCreateNullSecurityProvider(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrtCreatePnrpBootstrapResolver<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1116,6 +1123,7 @@ pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtDeleteIpv6UdpTransport(
     htransport: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -1162,6 +1170,7 @@ pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PRO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtEndSearch(
     hsearchcontext: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -1179,6 +1188,7 @@ pub unsafe fn DrtEndSearch(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn DrtGetEventData(
     hdrt: *const ::std::ffi::c_void,
     uleventdatalen: u32,
@@ -1204,6 +1214,7 @@ pub unsafe fn DrtGetEventData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtGetEventDataSize(
     hdrt: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -1223,6 +1234,7 @@ pub unsafe fn DrtGetEventDataSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrtGetInstanceName(
     hdrt: *const ::std::ffi::c_void,
     ulcbinstancenamesize: u32,
@@ -1248,6 +1260,7 @@ pub unsafe fn DrtGetInstanceName(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtGetInstanceNameSize(
     hdrt: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -1267,6 +1280,7 @@ pub unsafe fn DrtGetInstanceNameSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn DrtGetSearchPath(
     hsearchcontext: *const ::std::ffi::c_void,
     ulsearchpathsize: u32,
@@ -1292,6 +1306,7 @@ pub unsafe fn DrtGetSearchPath(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtGetSearchPathSize(
     hsearchcontext: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -1311,6 +1326,7 @@ pub unsafe fn DrtGetSearchPathSize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtGetSearchResult(
     hsearchcontext: *const ::std::ffi::c_void,
     ulsearchresultsize: u32,
@@ -1336,6 +1352,7 @@ pub unsafe fn DrtGetSearchResult(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtGetSearchResultSize(
     hsearchcontext: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -1356,6 +1373,7 @@ pub unsafe fn DrtGetSearchResultSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrtOpen<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1387,6 +1405,7 @@ pub unsafe fn DrtOpen<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtRegisterKey(
     hdrt: *const ::std::ffi::c_void,
     pregistration: *const DRT_REGISTRATION,
@@ -1416,6 +1435,7 @@ pub unsafe fn DrtRegisterKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrtStartSearch<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1469,6 +1489,7 @@ pub unsafe fn DrtUnregisterKey(hkeyregistration: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtUpdateKey(
     hkeyregistration: *const ::std::ffi::c_void,
     pappdata: *const DRT_DATA,
@@ -4813,6 +4834,7 @@ unsafe impl ::windows::runtime::Abi for PNRP_SCOPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabAddContact<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4837,6 +4859,7 @@ pub unsafe fn PeerCollabAddContact<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabAsyncInviteContact<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4873,6 +4896,7 @@ pub unsafe fn PeerCollabAsyncInviteContact<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabAsyncInviteEndpoint<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4906,6 +4930,7 @@ pub unsafe fn PeerCollabAsyncInviteEndpoint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabCancelInvitation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4926,6 +4951,7 @@ pub unsafe fn PeerCollabCancelInvitation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabCloseHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4946,6 +4972,7 @@ pub unsafe fn PeerCollabCloseHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabDeleteContact<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4966,6 +4993,7 @@ pub unsafe fn PeerCollabDeleteContact<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabDeleteEndpointData(
     pcendpoint: *const PEER_ENDPOINT,
 ) -> ::windows::runtime::Result<()> {
@@ -4982,6 +5010,7 @@ pub unsafe fn PeerCollabDeleteEndpointData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabDeleteObject(
     pobjectid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<()> {
@@ -4998,6 +5027,7 @@ pub unsafe fn PeerCollabDeleteObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(
     registrationtype: PEER_APPLICATION_REGISTRATION_TYPE,
     phpeerenum: *mut *mut ::std::ffi::c_void,
@@ -5021,6 +5051,7 @@ pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabEnumApplications(
     pcendpoint: *const PEER_ENDPOINT,
     papplicationid: *const ::windows::runtime::GUID,
@@ -5046,6 +5077,7 @@ pub unsafe fn PeerCollabEnumApplications(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabEnumContacts(
     phpeerenum: *mut *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -5063,6 +5095,7 @@ pub unsafe fn PeerCollabEnumContacts(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabEnumEndpoints(
     pccontact: *const PEER_CONTACT,
     phpeerenum: *mut *mut ::std::ffi::c_void,
@@ -5086,6 +5119,7 @@ pub unsafe fn PeerCollabEnumEndpoints(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabEnumObjects(
     pcendpoint: *const PEER_ENDPOINT,
     pobjectid: *const ::windows::runtime::GUID,
@@ -5111,6 +5145,7 @@ pub unsafe fn PeerCollabEnumObjects(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabEnumPeopleNearMe(
     phpeerenum: *mut *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -5128,6 +5163,7 @@ pub unsafe fn PeerCollabEnumPeopleNearMe(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabExportContact<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5152,6 +5188,7 @@ pub unsafe fn PeerCollabExportContact<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabGetAppLaunchInfo() -> ::windows::runtime::Result<*mut PEER_APP_LAUNCH_INFO>
 {
     #[cfg(windows)]
@@ -5170,6 +5207,7 @@ pub unsafe fn PeerCollabGetAppLaunchInfo() -> ::windows::runtime::Result<*mut PE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabGetApplicationRegistrationInfo(
     papplicationid: *const ::windows::runtime::GUID,
     registrationtype: PEER_APPLICATION_REGISTRATION_TYPE,
@@ -5196,6 +5234,7 @@ pub unsafe fn PeerCollabGetApplicationRegistrationInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabGetContact<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5220,6 +5259,7 @@ pub unsafe fn PeerCollabGetContact<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabGetEndpointName(
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5239,6 +5279,7 @@ pub unsafe fn PeerCollabGetEndpointName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabGetEventData(
     hpeerevent: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut PEER_COLLAB_EVENT_DATA> {
@@ -5260,6 +5301,7 @@ pub unsafe fn PeerCollabGetEventData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabGetInvitationResponse<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5284,6 +5326,7 @@ pub unsafe fn PeerCollabGetInvitationResponse<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabGetPresenceInfo(
     pcendpoint: *const PEER_ENDPOINT,
 ) -> ::windows::runtime::Result<*mut PEER_PRESENCE_INFO> {
@@ -5304,6 +5347,7 @@ pub unsafe fn PeerCollabGetPresenceInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabGetSigninOptions() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -5320,6 +5364,7 @@ pub unsafe fn PeerCollabGetSigninOptions() -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabInviteContact(
     pccontact: *const PEER_CONTACT,
     pcendpoint: *const PEER_ENDPOINT,
@@ -5350,6 +5395,7 @@ pub unsafe fn PeerCollabInviteContact(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabInviteEndpoint(
     pcendpoint: *const PEER_ENDPOINT,
     pcinvitation: *const PEER_INVITATION,
@@ -5377,6 +5423,7 @@ pub unsafe fn PeerCollabInviteEndpoint(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabParseContact<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5401,6 +5448,7 @@ pub unsafe fn PeerCollabParseContact<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabQueryContactData(
     pcendpoint: *const PEER_ENDPOINT,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -5422,6 +5470,7 @@ pub unsafe fn PeerCollabQueryContactData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabRefreshEndpointData(
     pcendpoint: *const PEER_ENDPOINT,
 ) -> ::windows::runtime::Result<()> {
@@ -5439,6 +5488,7 @@ pub unsafe fn PeerCollabRefreshEndpointData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabRegisterApplication(
     pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO,
     registrationtype: PEER_APPLICATION_REGISTRATION_TYPE,
@@ -5462,6 +5512,7 @@ pub unsafe fn PeerCollabRegisterApplication(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabRegisterEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5494,6 +5545,7 @@ pub unsafe fn PeerCollabRegisterEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabSetEndpointName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5513,6 +5565,7 @@ pub unsafe fn PeerCollabSetEndpointName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5526,6 +5579,7 @@ pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabSetPresenceInfo(
     pcpresenceinfo: *const PEER_PRESENCE_INFO,
 ) -> ::windows::runtime::Result<()> {
@@ -5542,6 +5596,7 @@ pub unsafe fn PeerCollabSetPresenceInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5555,6 +5610,7 @@ pub unsafe fn PeerCollabShutdown() -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabSignin<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5580,6 +5636,7 @@ pub unsafe fn PeerCollabSignin<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5592,6 +5649,7 @@ pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabStartup(wversionrequested: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5605,6 +5663,7 @@ pub unsafe fn PeerCollabStartup(wversionrequested: u16) -> ::windows::runtime::R
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabSubscribeEndpointData(
     pcendpoint: *const PEER_ENDPOINT,
 ) -> ::windows::runtime::Result<()> {
@@ -5621,6 +5680,7 @@ pub unsafe fn PeerCollabSubscribeEndpointData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabUnregisterApplication(
     papplicationid: *const ::windows::runtime::GUID,
     registrationtype: PEER_APPLICATION_REGISTRATION_TYPE,
@@ -5643,6 +5703,7 @@ pub unsafe fn PeerCollabUnregisterApplication(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerCollabUnregisterEvent(
     hpeerevent: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -5660,6 +5721,7 @@ pub unsafe fn PeerCollabUnregisterEvent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerCollabUnsubscribeEndpointData(
     pcendpoint: *const PEER_ENDPOINT,
 ) -> ::windows::runtime::Result<()> {
@@ -5677,6 +5739,7 @@ pub unsafe fn PeerCollabUnsubscribeEndpointData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCollabUpdateContact(
     pcontact: *const PEER_CONTACT,
 ) -> ::windows::runtime::Result<()> {
@@ -5694,6 +5757,7 @@ pub unsafe fn PeerCollabUpdateContact(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerCreatePeerName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6528,6 +6592,7 @@ pub unsafe fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerEndEnumeration(
     hpeerenum: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -6545,6 +6610,7 @@ pub unsafe fn PeerEndEnumeration(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerEnumGroups<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6570,6 +6636,7 @@ pub unsafe fn PeerEnumGroups<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerEnumIdentities(
     phpeerenum: *mut *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -6599,6 +6666,7 @@ pub unsafe fn PeerFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGetItemCount(
     hpeerenum: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -6617,6 +6685,7 @@ pub unsafe fn PeerGetItemCount(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGetNextItem(
     hpeerenum: *const ::std::ffi::c_void,
     pcount: *mut u32,
@@ -6643,6 +6712,7 @@ pub unsafe fn PeerGetNextItem(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphAddRecord(
     hgraph: *const ::std::ffi::c_void,
     precord: *const PEER_RECORD,
@@ -6669,6 +6739,7 @@ pub unsafe fn PeerGraphAddRecord(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphClose(hgraph: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6681,6 +6752,7 @@ pub unsafe fn PeerGraphClose(hgraph: *const ::std::ffi::c_void) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphCloseDirectConnection(
     hgraph: *const ::std::ffi::c_void,
     ullconnectionid: u64,
@@ -6704,6 +6776,7 @@ pub unsafe fn PeerGraphCloseDirectConnection(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerGraphConnect<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6736,6 +6809,7 @@ pub unsafe fn PeerGraphConnect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphCreate<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6768,6 +6842,7 @@ pub unsafe fn PeerGraphCreate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphDelete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6799,6 +6874,7 @@ pub unsafe fn PeerGraphDelete<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphDeleteRecord<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -6827,6 +6903,7 @@ pub unsafe fn PeerGraphDeleteRecord<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphEndEnumeration(
     hpeerenum: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -6843,6 +6920,7 @@ pub unsafe fn PeerGraphEndEnumeration(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphEnumConnections(
     hgraph: *const ::std::ffi::c_void,
     dwflags: u32,
@@ -6869,6 +6947,7 @@ pub unsafe fn PeerGraphEnumConnections(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphEnumNodes<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6898,6 +6977,7 @@ pub unsafe fn PeerGraphEnumNodes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphEnumRecords<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6930,6 +7010,7 @@ pub unsafe fn PeerGraphEnumRecords<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphExportDatabase<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6969,6 +7050,7 @@ pub unsafe fn PeerGraphFreeData(pvdata: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphGetEventData(
     hpeerevent: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut PEER_GRAPH_EVENT_DATA> {
@@ -6989,6 +7071,7 @@ pub unsafe fn PeerGraphGetEventData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphGetItemCount(
     hpeerenum: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -7008,6 +7091,7 @@ pub unsafe fn PeerGraphGetItemCount(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphGetNextItem(
     hpeerenum: *const ::std::ffi::c_void,
     pcount: *mut u32,
@@ -7034,6 +7118,7 @@ pub unsafe fn PeerGraphGetNextItem(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerGraphGetNodeInfo(
     hgraph: *const ::std::ffi::c_void,
     ullnodeid: u64,
@@ -7061,6 +7146,7 @@ pub unsafe fn PeerGraphGetNodeInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphGetProperties(
     hgraph: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut PEER_GRAPH_PROPERTIES> {
@@ -7082,6 +7168,7 @@ pub unsafe fn PeerGraphGetProperties(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphGetRecord(
     hgraph: *const ::std::ffi::c_void,
     precordid: *const ::windows::runtime::GUID,
@@ -7107,6 +7194,7 @@ pub unsafe fn PeerGraphGetRecord(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphGetStatus(
     hgraph: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -7126,6 +7214,7 @@ pub unsafe fn PeerGraphGetStatus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphImportDatabase<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7151,6 +7240,7 @@ pub unsafe fn PeerGraphImportDatabase<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphListen(
     hgraph: *const ::std::ffi::c_void,
     dwscope: u32,
@@ -7180,6 +7270,7 @@ pub unsafe fn PeerGraphListen(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphOpen<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7223,6 +7314,7 @@ pub unsafe fn PeerGraphOpen<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerGraphOpenDirectConnection<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7255,6 +7347,7 @@ pub unsafe fn PeerGraphOpenDirectConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphPeerTimeToUniversalTime(
     hgraph: *const ::std::ffi::c_void,
     pftpeertime: *const super::super::Foundation::FILETIME,
@@ -7282,6 +7375,7 @@ pub unsafe fn PeerGraphPeerTimeToUniversalTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphRegisterEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7317,6 +7411,7 @@ pub unsafe fn PeerGraphRegisterEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphSearchRecords<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7345,6 +7440,7 @@ pub unsafe fn PeerGraphSearchRecords<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphSendData(
     hgraph: *const ::std::ffi::c_void,
     ullconnectionid: u64,
@@ -7377,6 +7473,7 @@ pub unsafe fn PeerGraphSendData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphSetNodeAttributes<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7403,6 +7500,7 @@ pub unsafe fn PeerGraphSetNodeAttributes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphSetPresence<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -7425,6 +7523,7 @@ pub unsafe fn PeerGraphSetPresence<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphSetProperties(
     hgraph: *const ::std::ffi::c_void,
     pgraphproperties: *const PEER_GRAPH_PROPERTIES,
@@ -7447,6 +7546,7 @@ pub unsafe fn PeerGraphSetProperties(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -7459,6 +7559,7 @@ pub unsafe fn PeerGraphShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphStartup(
     wversionrequested: u16,
 ) -> ::windows::runtime::Result<PEER_VERSION_DATA> {
@@ -7480,6 +7581,7 @@ pub unsafe fn PeerGraphStartup(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphUniversalTimeToPeerTime(
     hgraph: *const ::std::ffi::c_void,
     pftuniversaltime: *const super::super::Foundation::FILETIME,
@@ -7506,6 +7608,7 @@ pub unsafe fn PeerGraphUniversalTimeToPeerTime(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphUnregisterEvent(
     hpeerevent: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -7523,6 +7626,7 @@ pub unsafe fn PeerGraphUnregisterEvent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGraphUpdateRecord(
     hgraph: *const ::std::ffi::c_void,
     precord: *const PEER_RECORD,
@@ -7545,6 +7649,7 @@ pub unsafe fn PeerGraphUpdateRecord(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphValidateDeferredRecords(
     hgraph: *const ::std::ffi::c_void,
     crecordids: u32,
@@ -7571,6 +7676,7 @@ pub unsafe fn PeerGraphValidateDeferredRecords(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupAddRecord(
     hgroup: *const ::std::ffi::c_void,
     precord: *const PEER_RECORD,
@@ -7597,6 +7703,7 @@ pub unsafe fn PeerGroupAddRecord(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupClose(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -7609,6 +7716,7 @@ pub unsafe fn PeerGroupClose(hgroup: *const ::std::ffi::c_void) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupCloseDirectConnection(
     hgroup: *const ::std::ffi::c_void,
     ullconnectionid: u64,
@@ -7631,6 +7739,7 @@ pub unsafe fn PeerGroupCloseDirectConnection(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupConnect(
     hgroup: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -7646,6 +7755,7 @@ pub unsafe fn PeerGroupConnect(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
 pub unsafe fn PeerGroupConnectByAddress(
     hgroup: *const ::std::ffi::c_void,
     caddresses: u32,
@@ -7672,6 +7782,7 @@ pub unsafe fn PeerGroupConnectByAddress(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupCreate(
     pproperties: *const PEER_GROUP_PROPERTIES,
     phgroup: *mut *mut ::std::ffi::c_void,
@@ -7695,6 +7806,7 @@ pub unsafe fn PeerGroupCreate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupCreateInvitation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7734,6 +7846,7 @@ pub unsafe fn PeerGroupCreateInvitation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupCreatePasswordInvitation(
     hgroup: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -7755,6 +7868,7 @@ pub unsafe fn PeerGroupCreatePasswordInvitation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupDelete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7781,6 +7895,7 @@ pub unsafe fn PeerGroupDelete<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupDeleteRecord(
     hgroup: *const ::std::ffi::c_void,
     precordid: *const ::windows::runtime::GUID,
@@ -7803,6 +7918,7 @@ pub unsafe fn PeerGroupDeleteRecord(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupEnumConnections(
     hgroup: *const ::std::ffi::c_void,
     dwflags: u32,
@@ -7829,6 +7945,7 @@ pub unsafe fn PeerGroupEnumConnections(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupEnumMembers<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7860,6 +7977,7 @@ pub unsafe fn PeerGroupEnumMembers<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupEnumRecords(
     hgroup: *const ::std::ffi::c_void,
     precordtype: *const ::windows::runtime::GUID,
@@ -7886,6 +8004,7 @@ pub unsafe fn PeerGroupEnumRecords(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupExportConfig<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7916,6 +8035,7 @@ pub unsafe fn PeerGroupExportConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupExportDatabase<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7942,6 +8062,7 @@ pub unsafe fn PeerGroupExportDatabase<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupGetEventData(
     hpeerevent: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut PEER_GROUP_EVENT_DATA> {
@@ -7963,6 +8084,7 @@ pub unsafe fn PeerGroupGetEventData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupGetProperties(
     hgroup: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut PEER_GROUP_PROPERTIES> {
@@ -7984,6 +8106,7 @@ pub unsafe fn PeerGroupGetProperties(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupGetRecord(
     hgroup: *const ::std::ffi::c_void,
     precordid: *const ::windows::runtime::GUID,
@@ -8009,6 +8132,7 @@ pub unsafe fn PeerGroupGetRecord(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupGetStatus(
     hgroup: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<u32> {
@@ -8028,6 +8152,7 @@ pub unsafe fn PeerGroupGetStatus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupImportConfig<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8065,6 +8190,7 @@ pub unsafe fn PeerGroupImportConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupImportDatabase<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8091,6 +8217,7 @@ pub unsafe fn PeerGroupImportDatabase<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
 pub unsafe fn PeerGroupIssueCredentials<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8127,6 +8254,7 @@ pub unsafe fn PeerGroupIssueCredentials<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupJoin<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8161,6 +8289,7 @@ pub unsafe fn PeerGroupJoin<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupOpen<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8195,6 +8324,7 @@ pub unsafe fn PeerGroupOpen<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerGroupOpenDirectConnection<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8227,6 +8357,7 @@ pub unsafe fn PeerGroupOpenDirectConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
 pub unsafe fn PeerGroupParseInvitation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8251,6 +8382,7 @@ pub unsafe fn PeerGroupParseInvitation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupPasswordJoin<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8289,6 +8421,7 @@ pub unsafe fn PeerGroupPasswordJoin<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupPeerTimeToUniversalTime(
     hgroup: *const ::std::ffi::c_void,
     pftpeertime: *const super::super::Foundation::FILETIME,
@@ -8316,6 +8449,7 @@ pub unsafe fn PeerGroupPeerTimeToUniversalTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupRegisterEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8350,6 +8484,7 @@ pub unsafe fn PeerGroupRegisterEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupResumePasswordAuthentication(
     hgroup: *const ::std::ffi::c_void,
     hpeereventhandle: *const ::std::ffi::c_void,
@@ -8373,6 +8508,7 @@ pub unsafe fn PeerGroupResumePasswordAuthentication(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupSearchRecords<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8401,6 +8537,7 @@ pub unsafe fn PeerGroupSearchRecords<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupSendData(
     hgroup: *const ::std::ffi::c_void,
     ullconnectionid: u64,
@@ -8433,6 +8570,7 @@ pub unsafe fn PeerGroupSendData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupSetProperties(
     hgroup: *const ::std::ffi::c_void,
     pproperties: *const PEER_GROUP_PROPERTIES,
@@ -8455,6 +8593,7 @@ pub unsafe fn PeerGroupSetProperties(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -8467,6 +8606,7 @@ pub unsafe fn PeerGroupShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupStartup(
     wversionrequested: u16,
 ) -> ::windows::runtime::Result<PEER_VERSION_DATA> {
@@ -8488,6 +8628,7 @@ pub unsafe fn PeerGroupStartup(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupUniversalTimeToPeerTime(
     hgroup: *const ::std::ffi::c_void,
     pftuniversaltime: *const super::super::Foundation::FILETIME,
@@ -8514,6 +8655,7 @@ pub unsafe fn PeerGroupUniversalTimeToPeerTime(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGroupUnregisterEvent(
     hpeerevent: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -8531,6 +8673,7 @@ pub unsafe fn PeerGroupUnregisterEvent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerGroupUpdateRecord(
     hgroup: *const ::std::ffi::c_void,
     precord: *const PEER_RECORD,
@@ -8554,6 +8697,7 @@ pub unsafe fn PeerGroupUpdateRecord(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerHostNameToPeerName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8578,6 +8722,7 @@ pub unsafe fn PeerHostNameToPeerName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityCreate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8612,6 +8757,7 @@ pub unsafe fn PeerIdentityCreate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityDelete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8632,6 +8778,7 @@ pub unsafe fn PeerIdentityDelete<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityExport<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8663,6 +8810,7 @@ pub unsafe fn PeerIdentityExport<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityGetCryptKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8686,6 +8834,7 @@ pub unsafe fn PeerIdentityGetCryptKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityGetDefault() -> ::windows::runtime::Result<super::super::Foundation::PWSTR>
 {
     #[cfg(windows)]
@@ -8704,6 +8853,7 @@ pub unsafe fn PeerIdentityGetDefault() -> ::windows::runtime::Result<super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityGetFriendlyName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8728,6 +8878,7 @@ pub unsafe fn PeerIdentityGetFriendlyName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityGetXML<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8752,6 +8903,7 @@ pub unsafe fn PeerIdentityGetXML<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentityImport<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8783,6 +8935,7 @@ pub unsafe fn PeerIdentityImport<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerIdentitySetFriendlyName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8810,6 +8963,7 @@ pub unsafe fn PeerIdentitySetFriendlyName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerNameToPeerHostName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8833,6 +8987,7 @@ pub unsafe fn PeerNameToPeerHostName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerPnrpEndResolve(
     hresolve: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -8850,6 +9005,7 @@ pub unsafe fn PeerPnrpEndResolve(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerPnrpGetCloudInfo(
     pcnumclouds: *mut u32,
     ppcloudinfo: *mut *mut PEER_PNRP_CLOUD_INFO,
@@ -8873,6 +9029,7 @@ pub unsafe fn PeerPnrpGetCloudInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerPnrpGetEndpoint(
     hresolve: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut PEER_PNRP_ENDPOINT_INFO> {
@@ -8894,6 +9051,7 @@ pub unsafe fn PeerPnrpGetEndpoint(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerPnrpRegister<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8923,6 +9081,7 @@ pub unsafe fn PeerPnrpRegister<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerPnrpResolve<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8955,6 +9114,7 @@ pub unsafe fn PeerPnrpResolve<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerPnrpShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -8968,6 +9128,7 @@ pub unsafe fn PeerPnrpShutdown() -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerPnrpStartResolve<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9004,6 +9165,7 @@ pub unsafe fn PeerPnrpStartResolve<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -9016,6 +9178,7 @@ pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerPnrpUnregister(
     hregistration: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -9033,6 +9196,7 @@ pub unsafe fn PeerPnrpUnregister(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn PeerPnrpUpdateRegistration(
     hregistration: *const ::std::ffi::c_void,
     pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO,

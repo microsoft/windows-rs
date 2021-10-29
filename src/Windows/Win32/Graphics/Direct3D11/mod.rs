@@ -18,6 +18,7 @@
 )]
 pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[inline]
 pub unsafe fn D3D11CreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>,
@@ -69,6 +70,7 @@ pub unsafe fn D3D11CreateDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[inline]
 pub unsafe fn D3D11CreateDeviceAndSwapChain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>,
@@ -14608,6 +14610,7 @@ pub const D3D11_VS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
 pub const D3D11_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: u32 = 10u32;
 pub const D3D11_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25u32;
 pub const D3D11_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25u32;
+#[inline]
 pub unsafe fn D3DDisassemble11Trace<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ID3D11ShaderTrace>,
@@ -14648,6 +14651,7 @@ pub unsafe fn D3DDisassemble11Trace<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateFFT<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14682,6 +14686,7 @@ pub unsafe fn D3DX11CreateFFT<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateFFT1DComplex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14716,6 +14721,7 @@ pub unsafe fn D3DX11CreateFFT1DComplex<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateFFT1DReal<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14750,6 +14756,7 @@ pub unsafe fn D3DX11CreateFFT1DReal<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateFFT2DComplex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14787,6 +14794,7 @@ pub unsafe fn D3DX11CreateFFT2DComplex<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateFFT2DReal<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14824,6 +14832,7 @@ pub unsafe fn D3DX11CreateFFT2DReal<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateFFT3DComplex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14864,6 +14873,7 @@ pub unsafe fn D3DX11CreateFFT3DComplex<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateFFT3DReal<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14904,6 +14914,7 @@ pub unsafe fn D3DX11CreateFFT3DReal<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateScan<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,
@@ -14935,6 +14946,7 @@ pub unsafe fn D3DX11CreateScan<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DX11CreateSegmentedScan<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D11DeviceContext>,

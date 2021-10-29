@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[inline]
 pub unsafe fn DMLCreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>,
@@ -40,6 +41,7 @@ pub unsafe fn DMLCreateDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[inline]
 pub unsafe fn DMLCreateDevice1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>,

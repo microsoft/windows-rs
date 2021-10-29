@@ -1889,6 +1889,7 @@ unsafe impl ::windows::runtime::Abi for GROUP_USERS_INFO_1 {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNetScheduleAccountInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8083,6 +8084,7 @@ pub unsafe fn NetAddAlternateComputerName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAddServiceAccount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8540,6 +8542,7 @@ pub unsafe fn NetEnumerateComputerNames<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetEnumerateServiceAccounts<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8714,6 +8717,7 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
 pub unsafe fn NetGetAadJoinInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9213,6 +9217,7 @@ pub unsafe fn NetGroupSetUsers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetIsServiceAccount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9928,6 +9933,7 @@ pub unsafe fn NetQueryDisplayInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetQueryServiceAccount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10054,6 +10060,7 @@ pub unsafe fn NetRemoveAlternateComputerName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetRemoveServiceAccount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18462,6 +18469,7 @@ pub const ServiceAccountPasswordGUID: ::windows::runtime::GUID =
         [172, 236, 78, 97, 115, 107, 111, 33],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetNetScheduleAccountInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

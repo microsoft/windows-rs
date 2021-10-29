@@ -389,6 +389,7 @@ unsafe impl ::windows::runtime::Abi for DCOMPOSITION_OPACITY_MODE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionAttachMouseDragToHwnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IDCompositionVisual>,
@@ -420,6 +421,7 @@ pub unsafe fn DCompositionAttachMouseDragToHwnd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionAttachMouseWheelToHwnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IDCompositionVisual>,
@@ -451,6 +453,7 @@ pub unsafe fn DCompositionAttachMouseWheelToHwnd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionBoostCompositorClock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -471,6 +474,7 @@ pub unsafe fn DCompositionBoostCompositorClock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
 pub unsafe fn DCompositionCreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIDevice>,
@@ -499,6 +503,7 @@ pub unsafe fn DCompositionCreateDevice<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DCompositionCreateDevice2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -527,6 +532,7 @@ pub unsafe fn DCompositionCreateDevice2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DCompositionCreateDevice3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -556,6 +562,7 @@ pub unsafe fn DCompositionCreateDevice3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(
     desiredaccess: u32,
     securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -582,6 +589,7 @@ pub unsafe fn DCompositionCreateSurfaceHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DCompositionGetFrameId(
     frameidtype: COMPOSITION_FRAME_ID_TYPE,
 ) -> ::windows::runtime::Result<u64> {
@@ -602,6 +610,7 @@ pub unsafe fn DCompositionGetFrameId(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionGetStatistics(
     frameid: u64,
     framestats: *mut COMPOSITION_FRAME_STATS,
@@ -634,6 +643,7 @@ pub unsafe fn DCompositionGetStatistics(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionGetTargetStatistics(
     frameid: u64,
     targetid: *const COMPOSITION_TARGET_ID,

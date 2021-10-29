@@ -5926,6 +5926,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::runtime::Result<IDirect3D9Ex> {
     #[cfg(windows)]
     {

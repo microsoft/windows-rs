@@ -640,6 +640,7 @@ pub unsafe fn CreateConsoleScreenBuffer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePseudoConsole<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, COORD>,
@@ -2328,6 +2329,7 @@ pub unsafe fn ReadConsoleW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ResizePseudoConsole<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HPCON>,

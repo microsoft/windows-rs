@@ -1423,6 +1423,7 @@ pub unsafe fn ColorMatchToTarget<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileAddDisplayAssociation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1464,6 +1465,7 @@ pub unsafe fn ColorProfileAddDisplayAssociation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileGetDisplayDefault<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
@@ -1503,6 +1505,7 @@ pub unsafe fn ColorProfileGetDisplayDefault<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileGetDisplayList<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
@@ -1538,6 +1541,7 @@ pub unsafe fn ColorProfileGetDisplayList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileGetDisplayUserScope<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
@@ -1568,6 +1572,7 @@ pub unsafe fn ColorProfileGetDisplayUserScope<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileRemoveDisplayAssociation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1605,6 +1610,7 @@ pub unsafe fn ColorProfileRemoveDisplayAssociation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileSetDisplayDefaultAssociation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

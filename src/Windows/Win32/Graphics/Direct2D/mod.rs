@@ -458,6 +458,7 @@ pub unsafe fn D2D1ConvertColorSpace(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
 pub unsafe fn D2D1CreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIDevice>,
@@ -487,6 +488,7 @@ pub unsafe fn D2D1CreateDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
 pub unsafe fn D2D1CreateDeviceContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGISurface>,
@@ -516,6 +518,7 @@ pub unsafe fn D2D1CreateDeviceContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D2D1CreateFactory(
     factorytype: D2D1_FACTORY_TYPE,
     riid: *const ::windows::runtime::GUID,

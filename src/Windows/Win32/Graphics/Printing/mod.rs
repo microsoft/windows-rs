@@ -580,6 +580,7 @@ pub unsafe fn AddPortW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrintDeviceObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2432,6 +2433,7 @@ pub unsafe fn ConnectToPrinterDlg<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CorePrinterDriverInstalledA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2474,6 +2476,7 @@ pub unsafe fn CorePrinterDriverInstalledA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CorePrinterDriverInstalledW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2516,6 +2519,7 @@ pub unsafe fn CorePrinterDriverInstalledW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePrintAsyncNotifyChannel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5212,6 +5216,7 @@ pub unsafe fn DeletePrinterDriverExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDriverPackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5243,6 +5248,7 @@ pub unsafe fn DeletePrinterDriverPackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDriverPackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7944,6 +7950,7 @@ pub unsafe fn GetCPSUIUserData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCorePrinterDriversA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7981,6 +7988,7 @@ pub unsafe fn GetCorePrinterDriversA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCorePrinterDriversW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8336,6 +8344,7 @@ pub unsafe fn GetPrintExecutionData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrintOutputInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8849,6 +8858,7 @@ pub unsafe fn GetPrinterDriverDirectoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriverPackagePathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8894,6 +8904,7 @@ pub unsafe fn GetPrinterDriverPackagePathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriverPackagePathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -29315,6 +29326,7 @@ pub unsafe fn ImpersonatePrinterClient<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallPrinterDriverFromPackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -29353,6 +29365,7 @@ pub unsafe fn InstallPrinterDriverFromPackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallPrinterDriverFromPackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -36204,6 +36217,7 @@ pub unsafe fn ReadPrinter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterForPrintAsyncNotifications<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -36244,6 +36258,7 @@ pub unsafe fn RegisterForPrintAsyncNotifications<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemovePrintDeviceObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36331,6 +36346,7 @@ pub unsafe fn ReplyPrinterChangeNotificationEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportJobProcessingProgress<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -38166,6 +38182,7 @@ unsafe impl ::windows::runtime::Abi for USERDATA {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnRegisterForPrintAsyncNotifications<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -38186,6 +38203,7 @@ pub unsafe fn UnRegisterForPrintAsyncNotifications<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdatePrintDeviceObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -38213,6 +38231,7 @@ pub unsafe fn UpdatePrintDeviceObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UploadPrinterDriverPackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -38257,6 +38276,7 @@ pub unsafe fn UploadPrinterDriverPackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UploadPrinterDriverPackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

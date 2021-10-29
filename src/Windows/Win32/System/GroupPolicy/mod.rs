@@ -30,6 +30,7 @@ unsafe impl ::windows::runtime::Abi for APPSTATE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -90,6 +91,7 @@ pub unsafe fn CommandLineFromMsiDescriptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateGPOLink<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -140,6 +142,7 @@ unsafe impl ::windows::runtime::Abi for CriticalPolicySectionHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteAllGPOLinks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -160,6 +163,7 @@ pub unsafe fn DeleteAllGPOLinks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteGPOLink<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -204,6 +208,7 @@ pub unsafe fn EnterCriticalPolicySection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExportRSoPData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19524,6 +19529,7 @@ pub struct IRSOPInformation_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImportRSoPData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20096,6 +20102,7 @@ pub unsafe fn RegisterGPNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RsopAccessCheckByType<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -20149,6 +20156,7 @@ pub unsafe fn RsopAccessCheckByType<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RsopFileAccessCheck<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20184,6 +20192,7 @@ pub unsafe fn RsopFileAccessCheck<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Wmi")]
+#[inline]
 pub unsafe fn RsopResetPolicySettingStatus<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemServices>,
@@ -20214,6 +20223,7 @@ pub unsafe fn RsopResetPolicySettingStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
+#[inline]
 pub unsafe fn RsopSetPolicySettingStatus<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemServices>,

@@ -463,6 +463,7 @@ pub unsafe fn IUnknown_AddRef_Proxy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn IUnknown_QueryInterface_Proxy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -7757,6 +7758,7 @@ pub unsafe fn NdrGetBuffer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrGetDcomProtocolVersion(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pversion: *mut RPC_VERSION,

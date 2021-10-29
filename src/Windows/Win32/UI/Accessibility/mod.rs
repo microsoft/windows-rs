@@ -95,6 +95,7 @@ impl ::std::ops::Not for ACC_UTILITY_STATE_FLAGS {
 }
 pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AccNotifyTouchInteraction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -126,6 +127,7 @@ pub unsafe fn AccNotifyTouchInteraction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AccSetRunningUtilityState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -172,6 +174,7 @@ pub const AccessKey_Property_GUID: ::windows::runtime::GUID = ::windows::runtime
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn AccessibleChildren<'a, Param0: ::windows::runtime::IntoParam<'a, IAccessible>>(
     pacccontainer: Param0,
     ichildstart: i32,
@@ -208,6 +211,7 @@ pub unsafe fn AccessibleChildren<'a, Param0: ::windows::runtime::IntoParam<'a, I
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn AccessibleObjectFromEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -247,6 +251,7 @@ pub unsafe fn AccessibleObjectFromEvent<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn AccessibleObjectFromPoint<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>,
@@ -276,6 +281,7 @@ pub unsafe fn AccessibleObjectFromPoint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AccessibleObjectFromWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1033,6 +1039,7 @@ pub const ControllerFor_Property_GUID: ::windows::runtime::GUID =
         [155, 230, 127, 168, 186, 157, 58, 144],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStdAccessibleObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1065,6 +1072,7 @@ pub unsafe fn CreateStdAccessibleObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStdAccessibleProxyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1101,6 +1109,7 @@ pub unsafe fn CreateStdAccessibleProxyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStdAccessibleProxyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1193,6 +1202,7 @@ pub const DescribedBy_Property_GUID: ::windows::runtime::GUID =
         16637,
         [141, 176, 107, 241, 211, 23, 249, 152],
     );
+#[inline]
 pub unsafe fn DockPattern_SetDockPosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -1390,6 +1400,7 @@ unsafe impl ::windows::runtime::Abi for EventArgsType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ExpandCollapsePattern_Collapse<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -1409,6 +1420,7 @@ pub unsafe fn ExpandCollapsePattern_Collapse<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ExpandCollapsePattern_Expand<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -1790,6 +1802,7 @@ pub const GridItem_Row_Property_GUID: ::windows::runtime::GUID =
         17763,
         [147, 41, 253, 201, 116, 175, 37, 83],
     );
+#[inline]
 pub unsafe fn GridPattern_GetItem<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -47994,6 +48007,7 @@ pub const InputReachedTarget_Event_GUID: ::windows::runtime::GUID =
         16624,
         [190, 219, 40, 228, 79, 125, 226, 163],
     );
+#[inline]
 pub unsafe fn InvokePattern_Invoke<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48363,6 +48377,7 @@ pub const IsWindowPatternAvailable_Property_GUID: ::windows::runtime::GUID =
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn ItemContainerPattern_FindItemByProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48494,6 +48509,7 @@ pub const LayoutInvalidated_Event_GUID: ::windows::runtime::GUID =
         17813,
         [155, 174, 61, 40, 148, 108, 199, 21],
     );
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48513,6 +48529,7 @@ pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48535,6 +48552,7 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_Select<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48558,6 +48576,7 @@ pub unsafe fn LegacyIAccessiblePattern_Select<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_SetValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48887,6 +48906,7 @@ pub const Menu_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID
     [179, 116, 193, 234, 111, 80, 60, 209],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MultipleViewPattern_GetViewName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48915,6 +48935,7 @@ pub unsafe fn MultipleViewPattern_GetViewName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MultipleViewPattern_SetCurrentView<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -49117,6 +49138,7 @@ pub unsafe fn NotifyWinEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ObjectFromLresult<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LRESULT>,
@@ -49563,6 +49585,7 @@ pub const RadioButton_Control_GUID: ::windows::runtime::GUID =
         17539,
         [179, 225, 229, 127, 33, 148, 64, 198],
     );
+#[inline]
 pub unsafe fn RangeValuePattern_SetValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50417,6 +50440,7 @@ pub const ScrollBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime:
     18758,
     [178, 47, 146, 89, 95, 192, 117, 26],
 );
+#[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50442,6 +50466,7 @@ pub const ScrollItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime
     19804,
     [180, 213, 141, 40, 0, 249, 6, 167],
 );
+#[inline]
 pub unsafe fn ScrollPattern_Scroll<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50470,6 +50495,7 @@ pub unsafe fn ScrollPattern_Scroll<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScrollPattern_SetScrollPercent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50574,6 +50600,7 @@ pub const Selection2_LastSelectedItem_Property_GUID: ::windows::runtime::GUID =
         18936,
         [134, 12, 156, 227, 148, 207, 137, 180],
     );
+#[inline]
 pub unsafe fn SelectionItemPattern_AddToSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50593,6 +50620,7 @@ pub unsafe fn SelectionItemPattern_AddToSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SelectionItemPattern_RemoveFromSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50612,6 +50640,7 @@ pub unsafe fn SelectionItemPattern_RemoveFromSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SelectionItemPattern_Select<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51095,6 +51124,7 @@ unsafe impl ::windows::runtime::Abi for SupportedTextSelection {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SynchronizedInputPattern_Cancel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51114,6 +51144,7 @@ pub unsafe fn SynchronizedInputPattern_Cancel<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SynchronizedInputPattern_StartListening<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51394,6 +51425,7 @@ unsafe impl ::windows::runtime::Abi for TextPatternRangeEndpoint {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextPattern_GetSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51416,6 +51448,7 @@ pub unsafe fn TextPattern_GetSelection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextPattern_GetVisibleRanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51437,6 +51470,7 @@ pub unsafe fn TextPattern_GetVisibleRanges<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_RangeFromChild<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51466,6 +51500,7 @@ pub unsafe fn TextPattern_RangeFromChild<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_RangeFromPoint<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51495,6 +51530,7 @@ pub unsafe fn TextPattern_RangeFromPoint<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_get_DocumentRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51516,6 +51552,7 @@ pub unsafe fn TextPattern_get_DocumentRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_get_SupportedTextSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51541,6 +51578,7 @@ pub unsafe fn TextPattern_get_SupportedTextSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_AddToSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51558,6 +51596,7 @@ pub unsafe fn TextRange_AddToSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_Clone<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
     pretval: *mut HUIATEXTRANGE,
@@ -51577,6 +51616,7 @@ pub unsafe fn TextRange_Clone<'a, Param0: ::windows::runtime::IntoParam<'a, HUIA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_Compare<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51606,6 +51646,7 @@ pub unsafe fn TextRange_Compare<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_CompareEndpoints<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51641,6 +51682,7 @@ pub unsafe fn TextRange_CompareEndpoints<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_ExpandToEnclosingUnit<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51667,6 +51709,7 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn TextRange_FindAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51704,6 +51747,7 @@ pub unsafe fn TextRange_FindAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_FindText<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51746,6 +51790,7 @@ pub unsafe fn TextRange_FindText<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn TextRange_GetAttributeValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51775,6 +51820,7 @@ pub unsafe fn TextRange_GetAttributeValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextRange_GetBoundingRectangles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51798,6 +51844,7 @@ pub unsafe fn TextRange_GetBoundingRectangles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextRange_GetChildren<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51819,6 +51866,7 @@ pub unsafe fn TextRange_GetChildren<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_GetEnclosingElement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51841,6 +51889,7 @@ pub unsafe fn TextRange_GetEnclosingElement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_GetText<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
     maxlength: i32,
@@ -51866,6 +51915,7 @@ pub unsafe fn TextRange_GetText<'a, Param0: ::windows::runtime::IntoParam<'a, HU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_Move<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
     unit: TextUnit,
@@ -51894,6 +51944,7 @@ pub unsafe fn TextRange_Move<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_MoveEndpointByRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51926,6 +51977,7 @@ pub unsafe fn TextRange_MoveEndpointByRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_MoveEndpointByUnit<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51960,6 +52012,7 @@ pub unsafe fn TextRange_MoveEndpointByUnit<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_RemoveFromSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51978,6 +52031,7 @@ pub unsafe fn TextRange_RemoveFromSelection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_ScrollIntoView<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -52000,6 +52054,7 @@ pub unsafe fn TextRange_ScrollIntoView<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_Select<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -52406,6 +52461,7 @@ pub const TitleBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::
     19301,
     [131, 110, 46, 163, 13, 188, 23, 31],
 );
+#[inline]
 pub unsafe fn TogglePattern_Toggle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -52518,6 +52574,7 @@ pub const Transform2_ZoomMinimum_Property_GUID: ::windows::runtime::GUID =
         19975,
         [150, 254, 177, 34, 198, 230, 178, 43],
     );
+#[inline]
 pub unsafe fn TransformPattern_Move<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -52546,6 +52603,7 @@ pub unsafe fn TransformPattern_Move<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TransformPattern_Resize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -52574,6 +52632,7 @@ pub unsafe fn TransformPattern_Resize<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TransformPattern_Rotate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -53306,6 +53365,7 @@ unsafe impl ::windows::runtime::Abi for UIAutomationType {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaAddEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     eventid: i32,
@@ -53640,6 +53700,7 @@ unsafe impl ::windows::runtime::Abi for UiaCondition {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53652,6 +53713,7 @@ pub unsafe fn UiaDisconnectAllProviders() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaDisconnectProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -53672,6 +53734,7 @@ pub unsafe fn UiaDisconnectProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaEventAddWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAEVENT>,
@@ -53731,6 +53794,7 @@ pub type UiaEventCallback = unsafe extern "system" fn(
     ptreestructure: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaEventRemoveWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAEVENT>,
@@ -53754,6 +53818,7 @@ pub unsafe fn UiaEventRemoveWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaFind<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     pparams: *mut UiaFindParams,
@@ -53850,6 +53915,7 @@ pub unsafe fn UiaGetErrorDescription(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     patternid: i32,
@@ -53880,6 +53946,7 @@ pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::runtime::IntoParam<'a
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     propertyid: i32,
@@ -53905,6 +53972,7 @@ pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue(
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
@@ -53923,6 +53991,7 @@ pub unsafe fn UiaGetReservedMixedAttributeValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetReservedNotSupportedValue(
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
@@ -53941,6 +54010,7 @@ pub unsafe fn UiaGetReservedNotSupportedValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53954,6 +54024,7 @@ pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::runtime::Resul
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY,
@@ -53973,6 +54044,7 @@ pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::runtime::IntoParam<'a, HUIA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     prequest: *mut UiaCacheRequest,
@@ -54012,6 +54084,7 @@ pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::runtime::IntoParam<'a, H
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(
     pvar: *mut super::super::System::Com::VARIANT,
     phobj: *mut HUIAPATTERNOBJECT,
@@ -54035,6 +54108,7 @@ pub unsafe fn UiaHPatternObjectFromVariant(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaHTextRangeFromVariant(
     pvar: *mut super::super::System::Com::VARIANT,
     phtextrange: *mut HUIATEXTRANGE,
@@ -54062,6 +54136,7 @@ pub unsafe fn UiaHTextRangeFromVariant(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(
     pvar: *mut super::super::System::Com::VARIANT,
     phnode: *mut HUIANODE,
@@ -54102,6 +54177,7 @@ pub unsafe fn UiaHasServerSideProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaHostProviderFromHwnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54130,6 +54206,7 @@ pub unsafe fn UiaHostProviderFromHwnd<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaIAccessibleFromProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54184,6 +54261,7 @@ pub unsafe fn UiaLookupId(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     direction: NavigateDirection,
@@ -54219,6 +54297,7 @@ pub unsafe fn UiaNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaNodeFromFocus(
     prequest: *mut UiaCacheRequest,
     pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
@@ -54245,6 +54324,7 @@ pub unsafe fn UiaNodeFromFocus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaNodeFromHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54267,6 +54347,7 @@ pub unsafe fn UiaNodeFromHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaNodeFromPoint(
     x: f64,
     y: f64,
@@ -54298,6 +54379,7 @@ pub unsafe fn UiaNodeFromPoint(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaNodeFromProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54548,6 +54630,7 @@ pub type UiaProviderCallback =
         providertype: ProviderType,
     ) -> *mut super::super::System::Com::SAFEARRAY;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaProviderForNonClient<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54580,6 +54663,7 @@ pub unsafe fn UiaProviderForNonClient<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaProviderFromIAccessible<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAccessible>,
@@ -54612,6 +54696,7 @@ pub unsafe fn UiaProviderFromIAccessible<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54638,6 +54723,7 @@ pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseAsyncContentLoadedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54666,6 +54752,7 @@ pub unsafe fn UiaRaiseAsyncContentLoadedEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseAutomationEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54692,6 +54779,7 @@ pub unsafe fn UiaRaiseAutomationEvent<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54730,6 +54818,7 @@ pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaRaiseChangesEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54759,6 +54848,7 @@ pub unsafe fn UiaRaiseChangesEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaRaiseNotificationEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54795,6 +54885,7 @@ pub unsafe fn UiaRaiseNotificationEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseStructureChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54827,6 +54918,7 @@ pub unsafe fn UiaRaiseStructureChangedEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn UiaRaiseTextEditTextChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54910,6 +55002,7 @@ pub unsafe fn UiaRegisterProviderCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRemoveEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAEVENT>>(
     hevent: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -54960,6 +55053,7 @@ pub unsafe fn UiaReturnRawElementProvider<
     unimplemented!("Unsupported target OS");
 }
 pub const UiaRootObjectId: i32 = -25i32;
+#[inline]
 pub unsafe fn UiaSetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -55180,6 +55274,7 @@ pub unsafe fn UnregisterPointerInputTargetEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ValuePattern_SetValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55222,6 +55317,7 @@ pub const Value_Value_Property_GUID: ::windows::runtime::GUID =
         19077,
         [186, 153, 64, 146, 195, 234, 41, 134],
     );
+#[inline]
 pub unsafe fn VirtualizedItemPattern_Realize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55291,6 +55387,7 @@ pub type WINEVENTPROC = unsafe extern "system" fn(
     dwmseventtime: u32,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowFromAccessibleObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAccessible>,
@@ -55341,6 +55438,7 @@ unsafe impl ::windows::runtime::Abi for WindowInteractionState {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WindowPattern_Close<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55358,6 +55456,7 @@ pub unsafe fn WindowPattern_Close<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowPattern_SetWindowVisualState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55381,6 +55480,7 @@ pub unsafe fn WindowPattern_SetWindowVisualState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowPattern_WaitForInputIdle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,

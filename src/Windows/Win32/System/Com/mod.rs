@@ -1288,6 +1288,7 @@ unsafe impl ::windows::runtime::Abi for BYTE_SIZEDARR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn BindMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, IMoniker>>(
     pmk: Param0,
     grfopt: u32,
@@ -1451,6 +1452,7 @@ impl ::std::ops::Not for CLSCTX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CLSIDFromProgID<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1475,6 +1477,7 @@ pub unsafe fn CLSIDFromProgID<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CLSIDFromProgIDEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1499,6 +1502,7 @@ pub unsafe fn CLSIDFromProgIDEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CLSIDFromString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2041,6 +2045,7 @@ pub unsafe fn CoAddRefServerProcess() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoAllowSetForegroundWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -2062,6 +2067,7 @@ pub unsafe fn CoAllowSetForegroundWindow<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoAllowUnmarshalerCLSID(
     clsid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<()> {
@@ -2091,6 +2097,7 @@ pub unsafe fn CoBuildVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2107,6 +2114,7 @@ pub unsafe fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoCopyProxy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -2130,6 +2138,7 @@ pub unsafe fn CoCopyProxy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoCreateFreeThreadedMarshaler<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -2153,6 +2162,7 @@ pub unsafe fn CoCreateFreeThreadedMarshaler<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoCreateGuid() -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
@@ -2167,6 +2177,7 @@ pub unsafe fn CoCreateGuid() -> ::windows::runtime::Result<::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoCreateInstance<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -2202,6 +2213,7 @@ pub unsafe fn CoCreateInstance<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoCreateInstanceEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -2239,6 +2251,7 @@ pub unsafe fn CoCreateInstanceEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoCreateInstanceFromApp<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -2276,6 +2289,7 @@ pub unsafe fn CoCreateInstanceFromApp<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoDecrementMTAUsage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, CO_MTA_USAGE_COOKIE>,
@@ -2293,6 +2307,7 @@ pub unsafe fn CoDecrementMTAUsage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoDisableCallCancellation(
     preserved: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -2309,6 +2324,7 @@ pub unsafe fn CoDisableCallCancellation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2321,6 +2337,7 @@ pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> ::windows::runtime::Result<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoDisconnectObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -2368,6 +2385,7 @@ pub unsafe fn CoDosDateTimeToFileTime(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoEnableCallCancellation(
     preserved: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -2385,6 +2403,7 @@ pub unsafe fn CoEnableCallCancellation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoFileTimeNow() -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
@@ -2488,6 +2507,7 @@ pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetApartmentType(
     papttype: *mut APTTYPE,
     paptqualifier: *mut APTTYPEQUALIFIER,
@@ -2510,6 +2530,7 @@ pub unsafe fn CoGetApartmentType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetCallContext(
     riid: *const ::windows::runtime::GUID,
     ppinterface: *mut *mut ::std::ffi::c_void,
@@ -2532,6 +2553,7 @@ pub unsafe fn CoGetCallContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetCallerTID() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -2545,6 +2567,7 @@ pub unsafe fn CoGetCallerTID() -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetCancelObject(
     dwthreadid: u32,
     iid: *const ::windows::runtime::GUID,
@@ -2570,6 +2593,7 @@ pub unsafe fn CoGetCancelObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetClassObject(
     rclsid: *const ::windows::runtime::GUID,
     dwclscontext: CLSCTX,
@@ -2601,6 +2625,7 @@ pub unsafe fn CoGetClassObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetContextToken() -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
     {
@@ -2614,6 +2639,7 @@ pub unsafe fn CoGetContextToken() -> ::windows::runtime::Result<usize> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetCurrentLogicalThreadId() -> ::windows::runtime::Result<::windows::runtime::GUID>
 {
     #[cfg(windows)]
@@ -2644,6 +2670,7 @@ pub unsafe fn CoGetCurrentProcess() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> ::windows::runtime::Result<IMalloc> {
     #[cfg(windows)]
     {
@@ -2662,6 +2689,7 @@ pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> ::windows::runtime::Result<IMall
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoGetObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2693,6 +2721,7 @@ pub unsafe fn CoGetObject<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetObjectContext(
     riid: *const ::windows::runtime::GUID,
     ppv: *mut *mut ::std::ffi::c_void,
@@ -2711,6 +2740,7 @@ pub unsafe fn CoGetObjectContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetPSClsid(
     riid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2732,6 +2762,7 @@ pub unsafe fn CoGetPSClsid(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CoGetSystemSecurityPermissions(
     comsdtype: COMSD,
     ppsd: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
@@ -2754,6 +2785,7 @@ pub unsafe fn CoGetSystemSecurityPermissions(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetTreatAsClass(
     clsidold: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -2774,6 +2806,7 @@ pub unsafe fn CoGetTreatAsClass(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoImpersonateClient() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2786,6 +2819,7 @@ pub unsafe fn CoImpersonateClient() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoIncrementMTAUsage() -> ::windows::runtime::Result<CO_MTA_USAGE_COOKIE> {
     #[cfg(windows)]
     {
@@ -2802,6 +2836,7 @@ pub unsafe fn CoIncrementMTAUsage() -> ::windows::runtime::Result<CO_MTA_USAGE_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoInitialize(
     pvreserved: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -2816,6 +2851,7 @@ pub unsafe fn CoInitialize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoInitializeEx(
     pvreserved: *const ::std::ffi::c_void,
     dwcoinit: COINIT,
@@ -2839,6 +2875,7 @@ pub unsafe fn CoInitializeEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CoInitializeSecurity(
     psecdesc: *const super::super::Security::SECURITY_DESCRIPTOR,
     cauthsvc: i32,
@@ -2883,6 +2920,7 @@ pub unsafe fn CoInitializeSecurity(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoInstall<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IBindCtx>,
@@ -2919,6 +2957,7 @@ pub unsafe fn CoInstall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoInvalidateRemoteMachineBindings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3005,6 +3044,7 @@ pub unsafe fn CoLoadLibrary<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoLockObjectExternal<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3036,6 +3076,7 @@ pub unsafe fn CoLockObjectExternal<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoQueryAuthenticationServices(
     pcauthsvc: *mut u32,
     asauthsvc: *mut *mut SOLE_AUTHENTICATION_SERVICE,
@@ -3059,6 +3100,7 @@ pub unsafe fn CoQueryAuthenticationServices(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoQueryClientBlanket(
     pauthnsvc: *mut u32,
     pauthzsvc: *mut u32,
@@ -3097,6 +3139,7 @@ pub unsafe fn CoQueryClientBlanket(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoQueryProxyBlanket<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3140,6 +3183,7 @@ pub unsafe fn CoQueryProxyBlanket<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRegisterActivationFilter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IActivationFilter>,
@@ -3159,6 +3203,7 @@ pub unsafe fn CoRegisterActivationFilter<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRegisterChannelHook<'a, Param1: ::windows::runtime::IntoParam<'a, IChannelHook>>(
     extensionuuid: *const ::windows::runtime::GUID,
     pchannelhook: Param1,
@@ -3181,6 +3226,7 @@ pub unsafe fn CoRegisterChannelHook<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRegisterClassObject<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3216,6 +3262,7 @@ pub unsafe fn CoRegisterClassObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoRegisterDeviceCatalog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3239,6 +3286,7 @@ pub unsafe fn CoRegisterDeviceCatalog<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRegisterInitializeSpy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IInitializeSpy>,
@@ -3260,6 +3308,7 @@ pub unsafe fn CoRegisterInitializeSpy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRegisterMallocSpy<'a, Param0: ::windows::runtime::IntoParam<'a, IMallocSpy>>(
     pmallocspy: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -3276,6 +3325,7 @@ pub unsafe fn CoRegisterMallocSpy<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRegisterPSClsid(
     riid: *const ::windows::runtime::GUID,
     rclsid: *const ::windows::runtime::GUID,
@@ -3294,6 +3344,7 @@ pub unsafe fn CoRegisterPSClsid(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRegisterSurrogate<'a, Param0: ::windows::runtime::IntoParam<'a, ISurrogate>>(
     psurrogate: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -3323,6 +3374,7 @@ pub unsafe fn CoReleaseServerProcess() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoResumeClassObjects() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3335,6 +3387,7 @@ pub unsafe fn CoResumeClassObjects() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRevertToSelf() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3347,6 +3400,7 @@ pub unsafe fn CoRevertToSelf() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRevokeClassObject(dwregister: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3359,6 +3413,7 @@ pub unsafe fn CoRevokeClassObject(dwregister: u32) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRevokeDeviceCatalog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, CO_DEVICE_CATALOG_COOKIE>,
@@ -3378,6 +3433,7 @@ pub unsafe fn CoRevokeDeviceCatalog<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3390,6 +3446,7 @@ pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::runtime::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoRevokeMallocSpy() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3402,6 +3459,7 @@ pub unsafe fn CoRevokeMallocSpy() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoSetCancelObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3420,6 +3478,7 @@ pub unsafe fn CoSetCancelObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoSetProxyBlanket<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3464,6 +3523,7 @@ pub unsafe fn CoSetProxyBlanket<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoSuspendClassObjects() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3476,6 +3536,7 @@ pub unsafe fn CoSuspendClassObjects() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoSwitchCallContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3547,6 +3608,7 @@ pub unsafe fn CoTaskMemRealloc(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoTestCancel() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3559,6 +3621,7 @@ pub unsafe fn CoTestCancel() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoTreatAsClass(
     clsidold: *const ::windows::runtime::GUID,
     clsidnew: *const ::windows::runtime::GUID,
@@ -3595,6 +3658,7 @@ pub unsafe fn CoUninitialize() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoWaitForMultipleHandles(
     dwflags: u32,
     dwtimeout: u32,
@@ -3627,6 +3691,7 @@ pub unsafe fn CoWaitForMultipleHandles(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoWaitForMultipleObjects(
     dwflags: u32,
     dwtimeout: u32,
@@ -3692,6 +3757,7 @@ unsafe impl ::windows::runtime::Abi for ComCallData {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CreateAntiMoniker() -> ::windows::runtime::Result<IMoniker> {
     #[cfg(windows)]
     {
@@ -3707,6 +3773,7 @@ pub unsafe fn CreateAntiMoniker() -> ::windows::runtime::Result<IMoniker> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateBindCtx(reserved: u32) -> ::windows::runtime::Result<IBindCtx> {
     #[cfg(windows)]
     {
@@ -3723,6 +3790,7 @@ pub unsafe fn CreateBindCtx(reserved: u32) -> ::windows::runtime::Result<IBindCt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateClassMoniker(
     rclsid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<IMoniker> {
@@ -3742,6 +3810,7 @@ pub unsafe fn CreateClassMoniker(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateDataAdviseHolder() -> ::windows::runtime::Result<IDataAdviseHolder> {
     #[cfg(windows)]
     {
@@ -3758,6 +3827,7 @@ pub unsafe fn CreateDataAdviseHolder() -> ::windows::runtime::Result<IDataAdvise
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateDataCache<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3790,6 +3860,7 @@ pub unsafe fn CreateDataCache<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateFileMoniker<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3812,6 +3883,7 @@ pub unsafe fn CreateFileMoniker<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateGenericComposite<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IMoniker>,
@@ -3841,6 +3913,7 @@ pub unsafe fn CreateGenericComposite<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateIUriBuilder<'a, Param0: ::windows::runtime::IntoParam<'a, IUri>>(
     piuri: Param0,
     dwflags: u32,
@@ -3870,6 +3943,7 @@ pub unsafe fn CreateIUriBuilder<'a, Param0: ::windows::runtime::IntoParam<'a, IU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateItemMoniker<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3899,6 +3973,7 @@ pub unsafe fn CreateItemMoniker<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateObjrefMoniker<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3920,6 +3995,7 @@ pub unsafe fn CreateObjrefMoniker<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreatePointerMoniker<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3942,6 +4018,7 @@ pub unsafe fn CreatePointerMoniker<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStdProgressIndicator<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3977,6 +4054,7 @@ pub unsafe fn CreateStdProgressIndicator<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateUri<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4009,6 +4087,7 @@ pub unsafe fn CreateUri<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateUriFromMultiByteString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4047,6 +4126,7 @@ pub unsafe fn CreateUriFromMultiByteString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateUriWithFragment<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4228,6 +4308,7 @@ unsafe impl ::windows::runtime::Abi for DWORD_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn DcomChannelSetHResult(
     pvreserved: *const ::std::ffi::c_void,
     pulreserved: *const u32,
@@ -4714,6 +4795,7 @@ unsafe impl ::windows::runtime::Abi for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetClassFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4737,6 +4819,7 @@ pub unsafe fn GetClassFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetRunningObjectTable(
     reserved: u32,
 ) -> ::windows::runtime::Result<IRunningObjectTable> {
@@ -9880,6 +9963,7 @@ pub struct IGlobalOptions_abi(
     ) -> ::windows::runtime::HRESULT,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IIDFromString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16548,6 +16632,7 @@ unsafe impl ::windows::runtime::Abi for MachineGlobalObjectTableRegistrationToke
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MkParseDisplayName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IBindCtx>,
@@ -16580,6 +16665,7 @@ pub unsafe fn MkParseDisplayName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MonikerCommonPrefixWith<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IMoniker>,
@@ -16610,6 +16696,7 @@ pub unsafe fn MonikerCommonPrefixWith<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MonikerRelativePathTo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IMoniker>,
@@ -16689,6 +16776,7 @@ unsafe impl ::windows::runtime::Abi for PENDINGTYPE {
 pub type PFNCONTEXTCALL =
     unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ProgIDFromCLSID(
     clsid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -17669,6 +17757,7 @@ unsafe impl ::windows::runtime::Abi for StorageLayout {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StringFromCLSID(
     rclsid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -17716,6 +17805,7 @@ pub unsafe fn StringFromGUID2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StringFromIID(
     rclsid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {

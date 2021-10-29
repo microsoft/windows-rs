@@ -4683,6 +4683,7 @@ pub const DI_TRUNCATEDANDRESTARTED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(12i32 as _);
 pub const DI_WRITEPROTECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(19i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectInput8Create<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -6977,6 +6978,7 @@ pub unsafe fn HidD_SetOutputReport<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetButtonArray<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7024,6 +7026,7 @@ pub unsafe fn HidP_GetButtonArray<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetButtonCaps(
     reporttype: HIDP_REPORT_TYPE,
     buttoncaps: *mut HIDP_BUTTON_CAPS,
@@ -7053,6 +7056,7 @@ pub unsafe fn HidP_GetButtonCaps(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetCaps(
     preparseddata: isize,
     capabilities: *mut HIDP_CAPS,
@@ -7076,6 +7080,7 @@ pub unsafe fn HidP_GetCaps(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetData(
     reporttype: HIDP_REPORT_TYPE,
     datalist: *mut HIDP_DATA,
@@ -7111,6 +7116,7 @@ pub unsafe fn HidP_GetData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetExtendedAttributes(
     reporttype: HIDP_REPORT_TYPE,
     dataindex: u16,
@@ -7143,6 +7149,7 @@ pub unsafe fn HidP_GetExtendedAttributes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetLinkCollectionNodes(
     linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE,
     linkcollectionnodeslength: *mut u32,
@@ -7169,6 +7176,7 @@ pub unsafe fn HidP_GetLinkCollectionNodes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetScaledUsageValue<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7213,6 +7221,7 @@ pub unsafe fn HidP_GetScaledUsageValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetSpecificButtonCaps(
     reporttype: HIDP_REPORT_TYPE,
     usagepage: u16,
@@ -7251,6 +7260,7 @@ pub unsafe fn HidP_GetSpecificButtonCaps(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetSpecificValueCaps(
     reporttype: HIDP_REPORT_TYPE,
     usagepage: u16,
@@ -7289,6 +7299,7 @@ pub unsafe fn HidP_GetSpecificValueCaps(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetUsageValue<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7333,6 +7344,7 @@ pub unsafe fn HidP_GetUsageValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetUsageValueArray<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7381,6 +7393,7 @@ pub unsafe fn HidP_GetUsageValueArray<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetUsages(
     reporttype: HIDP_REPORT_TYPE,
     usagepage: u16,
@@ -7422,6 +7435,7 @@ pub unsafe fn HidP_GetUsages(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetUsagesEx<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7463,6 +7477,7 @@ pub unsafe fn HidP_GetUsagesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_GetValueCaps(
     reporttype: HIDP_REPORT_TYPE,
     valuecaps: *mut HIDP_VALUE_CAPS,
@@ -7492,6 +7507,7 @@ pub unsafe fn HidP_GetValueCaps(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_InitializeReportForID(
     reporttype: HIDP_REPORT_TYPE,
     reportid: u8,
@@ -7565,6 +7581,7 @@ pub unsafe fn HidP_MaxUsageListLength(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_SetButtonArray<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7612,6 +7629,7 @@ pub unsafe fn HidP_SetButtonArray<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_SetData<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7650,6 +7668,7 @@ pub unsafe fn HidP_SetData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_SetScaledUsageValue<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7694,6 +7713,7 @@ pub unsafe fn HidP_SetScaledUsageValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_SetUsageValue<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7738,6 +7758,7 @@ pub unsafe fn HidP_SetUsageValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_SetUsageValueArray<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7786,6 +7807,7 @@ pub unsafe fn HidP_SetUsageValueArray<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_SetUsages<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7830,6 +7852,7 @@ pub unsafe fn HidP_SetUsages<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(
     changedusagelist: *const u16,
     usagelistlength: u32,
@@ -7865,6 +7888,7 @@ pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_UnsetUsages<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7909,6 +7933,7 @@ pub unsafe fn HidP_UnsetUsages<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidP_UsageListDifference(
     previoususagelist: *const u16,
     currentusagelist: *const u16,

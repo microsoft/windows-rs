@@ -2619,6 +2619,7 @@ pub unsafe fn GetGuiResources<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetMachineTypeAttributes(
     machine: u16,
 ) -> ::windows::runtime::Result<MACHINE_ATTRIBUTES> {
@@ -3475,6 +3476,7 @@ pub unsafe fn GetSystemTimes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadDescription<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4697,6 +4699,7 @@ unsafe impl ::windows::runtime::Abi for NamespaceHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NtQueryInformationProcess<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4732,6 +4735,7 @@ pub unsafe fn NtQueryInformationProcess<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NtQueryInformationThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7466,6 +7470,7 @@ pub unsafe fn SetThreadAffinityMask<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadDescription<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

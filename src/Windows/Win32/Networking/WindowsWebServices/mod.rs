@@ -14359,6 +14359,7 @@ unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_TEXT_ENCODING {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebAuthNAuthenticatorGetAssertion<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -14396,6 +14397,7 @@ pub unsafe fn WebAuthNAuthenticatorGetAssertion<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebAuthNAuthenticatorMakeCredential<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -14437,6 +14439,7 @@ pub unsafe fn WebAuthNAuthenticatorMakeCredential<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebAuthNCancelCurrentOperation(
     pcancellationid: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<()> {
@@ -14502,6 +14505,7 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebAuthNGetCancellationId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
@@ -14536,6 +14540,7 @@ pub unsafe fn WebAuthNGetErrorName(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebAuthNGetW3CExceptionDOMError(
     hr: ::windows::runtime::HRESULT,
 ) -> ::windows::runtime::Result<()> {
@@ -14553,6 +14558,7 @@ pub unsafe fn WebAuthNGetW3CExceptionDOMError(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -14571,6 +14577,7 @@ pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAbandonCall(
     serviceproxy: *const WS_SERVICE_PROXY,
     callid: u32,
@@ -14596,6 +14603,7 @@ pub unsafe fn WsAbandonCall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAbandonMessage(
     channel: *const WS_CHANNEL,
     message: *const WS_MESSAGE,
@@ -14621,6 +14629,7 @@ pub unsafe fn WsAbandonMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAbortChannel(
     channel: *const WS_CHANNEL,
     error: *const WS_ERROR,
@@ -14639,6 +14648,7 @@ pub unsafe fn WsAbortChannel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAbortListener(
     listener: *const WS_LISTENER,
     error: *const WS_ERROR,
@@ -14661,6 +14671,7 @@ pub unsafe fn WsAbortListener(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAbortServiceHost(
     servicehost: *const WS_SERVICE_HOST,
     error: *const WS_ERROR,
@@ -14683,6 +14694,7 @@ pub unsafe fn WsAbortServiceHost(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAbortServiceProxy(
     serviceproxy: *const WS_SERVICE_PROXY,
     error: *const WS_ERROR,
@@ -14705,6 +14717,7 @@ pub unsafe fn WsAbortServiceProxy(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAcceptChannel(
     listener: *const WS_LISTENER,
     channel: *const WS_CHANNEL,
@@ -14734,6 +14747,7 @@ pub unsafe fn WsAcceptChannel(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsAddCustomHeader(
     message: *const WS_MESSAGE,
     headerdescription: *const WS_ELEMENT_DESCRIPTION,
@@ -14772,6 +14786,7 @@ pub unsafe fn WsAddCustomHeader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsAddErrorString(
     error: *const WS_ERROR,
     string: *const WS_STRING,
@@ -14791,6 +14806,7 @@ pub unsafe fn WsAddErrorString(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsAddMappedHeader(
     message: *const WS_MESSAGE,
     headername: *const WS_XML_STRING,
@@ -14829,6 +14845,7 @@ pub unsafe fn WsAddMappedHeader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsAddressMessage(
     message: *const WS_MESSAGE,
     address: *const WS_ENDPOINT_ADDRESS,
@@ -14854,6 +14871,7 @@ pub unsafe fn WsAddressMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAlloc(
     heap: *const WS_HEAP,
     size: usize,
@@ -14882,6 +14900,7 @@ pub unsafe fn WsAlloc(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsAsyncExecute(
     asyncstate: *const WS_ASYNC_STATE,
     operation: ::std::option::Option<WS_ASYNC_FUNCTION>,
@@ -14917,6 +14936,7 @@ pub unsafe fn WsAsyncExecute(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsCall(
     serviceproxy: *const WS_SERVICE_PROXY,
     operation: *const WS_OPERATION_DESCRIPTION,
@@ -14957,6 +14977,7 @@ pub unsafe fn WsCall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCheckMustUnderstandHeaders(
     message: *const WS_MESSAGE,
     error: *const WS_ERROR,
@@ -14976,6 +14997,7 @@ pub unsafe fn WsCheckMustUnderstandHeaders(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCloseChannel(
     channel: *const WS_CHANNEL,
     asynccontext: *const WS_ASYNC_CONTEXT,
@@ -15001,6 +15023,7 @@ pub unsafe fn WsCloseChannel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCloseListener(
     listener: *const WS_LISTENER,
     asynccontext: *const WS_ASYNC_CONTEXT,
@@ -15026,6 +15049,7 @@ pub unsafe fn WsCloseListener(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCloseServiceHost(
     servicehost: *const WS_SERVICE_HOST,
     asynccontext: *const WS_ASYNC_CONTEXT,
@@ -15051,6 +15075,7 @@ pub unsafe fn WsCloseServiceHost(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCloseServiceProxy(
     serviceproxy: *const WS_SERVICE_PROXY,
     asynccontext: *const WS_ASYNC_CONTEXT,
@@ -15077,6 +15102,7 @@ pub unsafe fn WsCloseServiceProxy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsCombineUrl(
     baseurl: *const WS_STRING,
     referenceurl: *const WS_STRING,
@@ -15111,6 +15137,7 @@ pub unsafe fn WsCombineUrl(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCopyError(
     source: *const WS_ERROR,
     destination: *const WS_ERROR,
@@ -15133,6 +15160,7 @@ pub unsafe fn WsCopyError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCopyNode(
     writer: *const WS_XML_WRITER,
     reader: *const WS_XML_READER,
@@ -15158,6 +15186,7 @@ pub unsafe fn WsCopyNode(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateChannel(
     channeltype: WS_CHANNEL_TYPE,
     channelbinding: WS_CHANNEL_BINDING,
@@ -15195,6 +15224,7 @@ pub unsafe fn WsCreateChannel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateChannelForListener(
     listener: *const WS_LISTENER,
     properties: *const WS_CHANNEL_PROPERTY,
@@ -15226,6 +15256,7 @@ pub unsafe fn WsCreateChannelForListener(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateError(
     properties: *const WS_ERROR_PROPERTY,
     propertycount: u32,
@@ -15252,6 +15283,7 @@ pub unsafe fn WsCreateError(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsCreateFaultFromError(
     error: *const WS_ERROR,
     faulterrorcode: ::windows::runtime::HRESULT,
@@ -15283,6 +15315,7 @@ pub unsafe fn WsCreateFaultFromError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateHeap(
     maxsize: usize,
     trimsize: usize,
@@ -15317,6 +15350,7 @@ pub unsafe fn WsCreateHeap(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateListener(
     channeltype: WS_CHANNEL_TYPE,
     channelbinding: WS_CHANNEL_BINDING,
@@ -15354,6 +15388,7 @@ pub unsafe fn WsCreateListener(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateMessage(
     envelopeversion: WS_ENVELOPE_VERSION,
     addressingversion: WS_ADDRESSING_VERSION,
@@ -15388,6 +15423,7 @@ pub unsafe fn WsCreateMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateMessageForChannel(
     channel: *const WS_CHANNEL,
     properties: *const WS_MESSAGE_PROPERTY,
@@ -15419,6 +15455,7 @@ pub unsafe fn WsCreateMessageForChannel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateMetadata(
     properties: *const WS_METADATA_PROPERTY,
     propertycount: u32,
@@ -15447,6 +15484,7 @@ pub unsafe fn WsCreateMetadata(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateReader(
     properties: *const WS_XML_READER_PROPERTY,
     propertycount: u32,
@@ -15476,6 +15514,7 @@ pub unsafe fn WsCreateReader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsCreateServiceEndpointFromTemplate(
     channeltype: WS_CHANNEL_TYPE,
     properties: *const WS_SERVICE_ENDPOINT_PROPERTY,
@@ -15535,6 +15574,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsCreateServiceHost(
     endpoints: *const *const WS_SERVICE_ENDPOINT,
     endpointcount: u16,
@@ -15569,6 +15609,7 @@ pub unsafe fn WsCreateServiceHost(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateServiceProxy(
     channeltype: WS_CHANNEL_TYPE,
     channelbinding: WS_CHANNEL_BINDING,
@@ -15612,6 +15653,7 @@ pub unsafe fn WsCreateServiceProxy(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateServiceProxyFromTemplate(
     channeltype: WS_CHANNEL_TYPE,
     properties: *const WS_PROXY_PROPERTY,
@@ -15658,6 +15700,7 @@ pub unsafe fn WsCreateServiceProxyFromTemplate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateWriter(
     properties: *const WS_XML_WRITER_PROPERTY,
     propertycount: u32,
@@ -15686,6 +15729,7 @@ pub unsafe fn WsCreateWriter(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateXmlBuffer(
     heap: *const WS_HEAP,
     properties: *const WS_XML_BUFFER_PROPERTY,
@@ -15717,6 +15761,7 @@ pub unsafe fn WsCreateXmlBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsCreateXmlSecurityToken(
     tokenxml: *const WS_XML_BUFFER,
     tokenkey: *const WS_SECURITY_KEY_HANDLE,
@@ -15752,6 +15797,7 @@ pub unsafe fn WsCreateXmlSecurityToken(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsDateTimeToFileTime(
     datetime: *const WS_DATETIME,
     filetime: *mut super::super::Foundation::FILETIME,
@@ -15778,6 +15824,7 @@ pub unsafe fn WsDateTimeToFileTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsDecodeUrl(
     url: *const WS_STRING,
     flags: u32,
@@ -15810,6 +15857,7 @@ pub unsafe fn WsDecodeUrl(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsEncodeUrl(
     url: *const WS_URL,
     flags: u32,
@@ -15841,6 +15889,7 @@ pub unsafe fn WsEncodeUrl(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsEndReaderCanonicalization(
     reader: *const WS_XML_READER,
     error: *const WS_ERROR,
@@ -15860,6 +15909,7 @@ pub unsafe fn WsEndReaderCanonicalization(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsEndWriterCanonicalization(
     writer: *const WS_XML_WRITER,
     error: *const WS_ERROR,
@@ -15880,6 +15930,7 @@ pub unsafe fn WsEndWriterCanonicalization(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsFileTimeToDateTime(
     filetime: *const super::super::Foundation::FILETIME,
     datetime: *mut WS_DATETIME,
@@ -15905,6 +15956,7 @@ pub unsafe fn WsFileTimeToDateTime(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFillBody(
     message: *const WS_MESSAGE,
     minsize: u32,
@@ -15933,6 +15985,7 @@ pub unsafe fn WsFillBody(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFillReader(
     reader: *const WS_XML_READER,
     minsize: u32,
@@ -15962,6 +16015,7 @@ pub unsafe fn WsFillReader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsFindAttribute<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -15999,6 +16053,7 @@ pub unsafe fn WsFindAttribute<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFlushBody(
     message: *const WS_MESSAGE,
     minsize: u32,
@@ -16027,6 +16082,7 @@ pub unsafe fn WsFlushBody(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFlushWriter(
     writer: *const WS_XML_WRITER,
     minsize: u32,
@@ -16198,6 +16254,7 @@ pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetChannelProperty(
     channel: *const WS_CHANNEL,
     id: WS_CHANNEL_PROPERTY_ID,
@@ -16230,6 +16287,7 @@ pub unsafe fn WsGetChannelProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetCustomHeader(
     message: *const WS_MESSAGE,
     customheaderdescription: *const WS_ELEMENT_DESCRIPTION,
@@ -16277,6 +16335,7 @@ pub unsafe fn WsGetCustomHeader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetDictionary(
     encoding: WS_ENCODING,
     dictionary: *mut *mut WS_XML_DICTIONARY,
@@ -16302,6 +16361,7 @@ pub unsafe fn WsGetDictionary(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetErrorProperty(
     error: *const WS_ERROR,
     id: WS_ERROR_PROPERTY_ID,
@@ -16331,6 +16391,7 @@ pub unsafe fn WsGetErrorProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetErrorString(
     error: *const WS_ERROR,
     index: u32,
@@ -16357,6 +16418,7 @@ pub unsafe fn WsGetErrorString(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetFaultErrorDetail(
     error: *const WS_ERROR,
     faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION,
@@ -16391,6 +16453,7 @@ pub unsafe fn WsGetFaultErrorDetail(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetFaultErrorProperty(
     error: *const WS_ERROR,
     id: WS_FAULT_ERROR_PROPERTY_ID,
@@ -16419,6 +16482,7 @@ pub unsafe fn WsGetFaultErrorProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetHeader(
     message: *const WS_MESSAGE,
     headertype: WS_HEADER_TYPE,
@@ -16459,6 +16523,7 @@ pub unsafe fn WsGetHeader(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetHeaderAttributes(
     message: *const WS_MESSAGE,
     reader: *const WS_XML_READER,
@@ -16487,6 +16552,7 @@ pub unsafe fn WsGetHeaderAttributes(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetHeapProperty(
     heap: *const WS_HEAP,
     id: WS_HEAP_PROPERTY_ID,
@@ -16518,6 +16584,7 @@ pub unsafe fn WsGetHeapProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetListenerProperty(
     listener: *const WS_LISTENER,
     id: WS_LISTENER_PROPERTY_ID,
@@ -16550,6 +16617,7 @@ pub unsafe fn WsGetListenerProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetMappedHeader(
     message: *const WS_MESSAGE,
     headername: *const WS_XML_STRING,
@@ -16596,6 +16664,7 @@ pub unsafe fn WsGetMappedHeader(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetMessageProperty(
     message: *const WS_MESSAGE,
     id: WS_MESSAGE_PROPERTY_ID,
@@ -16628,6 +16697,7 @@ pub unsafe fn WsGetMessageProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetMetadataEndpoints(
     metadata: *const WS_METADATA,
     endpoints: *mut WS_METADATA_ENDPOINTS,
@@ -16653,6 +16723,7 @@ pub unsafe fn WsGetMetadataEndpoints(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetMetadataProperty(
     metadata: *const WS_METADATA,
     id: WS_METADATA_PROPERTY_ID,
@@ -16685,6 +16756,7 @@ pub unsafe fn WsGetMetadataProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetMissingMetadataDocumentAddress(
     metadata: *const WS_METADATA,
     address: *mut *mut WS_ENDPOINT_ADDRESS,
@@ -16711,6 +16783,7 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetNamespaceFromPrefix<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -16745,6 +16818,7 @@ pub unsafe fn WsGetNamespaceFromPrefix<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetOperationContextProperty(
     context: *const WS_OPERATION_CONTEXT,
     id: WS_OPERATION_CONTEXT_PROPERTY_ID,
@@ -16776,6 +16850,7 @@ pub unsafe fn WsGetOperationContextProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetPolicyAlternativeCount(
     policy: *const WS_POLICY,
     count: *mut u32,
@@ -16801,6 +16876,7 @@ pub unsafe fn WsGetPolicyAlternativeCount(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetPolicyProperty(
     policy: *const WS_POLICY,
     id: WS_POLICY_PROPERTY_ID,
@@ -16833,6 +16909,7 @@ pub unsafe fn WsGetPolicyProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetPrefixFromNamespace<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -16867,6 +16944,7 @@ pub unsafe fn WsGetPrefixFromNamespace<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetReaderNode(
     xmlreader: *const WS_XML_READER,
     node: *mut *mut WS_XML_NODE,
@@ -16892,6 +16970,7 @@ pub unsafe fn WsGetReaderNode(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetReaderPosition(
     reader: *const WS_XML_READER,
     nodeposition: *mut WS_XML_NODE_POSITION,
@@ -16917,6 +16996,7 @@ pub unsafe fn WsGetReaderPosition(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetReaderProperty(
     reader: *const WS_XML_READER,
     id: WS_XML_READER_PROPERTY_ID,
@@ -16948,6 +17028,7 @@ pub unsafe fn WsGetReaderProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetSecurityContextProperty(
     securitycontext: *const WS_SECURITY_CONTEXT,
     id: WS_SECURITY_CONTEXT_PROPERTY_ID,
@@ -16979,6 +17060,7 @@ pub unsafe fn WsGetSecurityContextProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetSecurityTokenProperty(
     securitytoken: *const WS_SECURITY_TOKEN,
     id: WS_SECURITY_TOKEN_PROPERTY_ID,
@@ -17013,6 +17095,7 @@ pub unsafe fn WsGetSecurityTokenProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetServiceHostProperty(
     servicehost: *const WS_SERVICE_HOST,
     id: WS_SERVICE_PROPERTY_ID,
@@ -17044,6 +17127,7 @@ pub unsafe fn WsGetServiceHostProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetServiceProxyProperty(
     serviceproxy: *const WS_SERVICE_PROXY,
     id: WS_PROXY_PROPERTY_ID,
@@ -17075,6 +17159,7 @@ pub unsafe fn WsGetServiceProxyProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetWriterPosition(
     writer: *const WS_XML_WRITER,
     nodeposition: *mut WS_XML_NODE_POSITION,
@@ -17100,6 +17185,7 @@ pub unsafe fn WsGetWriterPosition(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsGetWriterProperty(
     writer: *const WS_XML_WRITER,
     id: WS_XML_WRITER_PROPERTY_ID,
@@ -17132,6 +17218,7 @@ pub unsafe fn WsGetWriterProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsGetXmlAttribute(
     reader: *const WS_XML_READER,
     localname: *const WS_XML_STRING,
@@ -17166,6 +17253,7 @@ pub unsafe fn WsGetXmlAttribute(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsInitializeMessage(
     message: *const WS_MESSAGE,
     initialization: WS_MESSAGE_INITIALIZATION,
@@ -17194,6 +17282,7 @@ pub unsafe fn WsInitializeMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsMarkHeaderAsUnderstood(
     message: *const WS_MESSAGE,
     headerposition: *const WS_XML_NODE_POSITION,
@@ -17220,6 +17309,7 @@ pub unsafe fn WsMarkHeaderAsUnderstood(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsMatchPolicyAlternative<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -17258,6 +17348,7 @@ pub unsafe fn WsMatchPolicyAlternative<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsMoveReader(
     reader: *const WS_XML_READER,
     moveto: WS_MOVE_TO,
@@ -17287,6 +17378,7 @@ pub unsafe fn WsMoveReader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsMoveWriter(
     writer: *const WS_XML_WRITER,
     moveto: WS_MOVE_TO,
@@ -17316,6 +17408,7 @@ pub unsafe fn WsMoveWriter(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsOpenChannel(
     channel: *const WS_CHANNEL,
     endpointaddress: *const WS_ENDPOINT_ADDRESS,
@@ -17345,6 +17438,7 @@ pub unsafe fn WsOpenChannel(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsOpenListener(
     listener: *const WS_LISTENER,
     url: *const WS_STRING,
@@ -17373,6 +17467,7 @@ pub unsafe fn WsOpenListener(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsOpenServiceHost(
     servicehost: *const WS_SERVICE_HOST,
     asynccontext: *const WS_ASYNC_CONTEXT,
@@ -17399,6 +17494,7 @@ pub unsafe fn WsOpenServiceHost(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsOpenServiceProxy(
     serviceproxy: *const WS_SERVICE_PROXY,
     address: *const WS_ENDPOINT_ADDRESS,
@@ -17427,6 +17523,7 @@ pub unsafe fn WsOpenServiceProxy(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsPullBytes(
     writer: *const WS_XML_WRITER,
     callback: ::std::option::Option<WS_PULL_BYTES_CALLBACK>,
@@ -17455,6 +17552,7 @@ pub unsafe fn WsPullBytes(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsPushBytes(
     writer: *const WS_XML_WRITER,
     callback: ::std::option::Option<WS_PUSH_BYTES_CALLBACK>,
@@ -17484,6 +17582,7 @@ pub unsafe fn WsPushBytes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadArray(
     reader: *const WS_XML_READER,
     localname: *const WS_XML_STRING,
@@ -17531,6 +17630,7 @@ pub unsafe fn WsReadArray(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadAttribute(
     reader: *const WS_XML_READER,
     attributedescription: *const WS_ATTRIBUTE_DESCRIPTION,
@@ -17569,6 +17669,7 @@ pub unsafe fn WsReadAttribute(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadBody(
     message: *const WS_MESSAGE,
     bodydescription: *const WS_ELEMENT_DESCRIPTION,
@@ -17606,6 +17707,7 @@ pub unsafe fn WsReadBody(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadBytes(
     reader: *const WS_XML_READER,
     bytes: *mut ::std::ffi::c_void,
@@ -17638,6 +17740,7 @@ pub unsafe fn WsReadBytes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadChars(
     reader: *const WS_XML_READER,
     chars: super::super::Foundation::PWSTR,
@@ -17669,6 +17772,7 @@ pub unsafe fn WsReadChars(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadCharsUtf8(
     reader: *const WS_XML_READER,
     bytes: *mut u8,
@@ -17701,6 +17805,7 @@ pub unsafe fn WsReadCharsUtf8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadElement(
     reader: *const WS_XML_READER,
     elementdescription: *const WS_ELEMENT_DESCRIPTION,
@@ -17738,6 +17843,7 @@ pub unsafe fn WsReadElement(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadEndAttribute(
     reader: *const WS_XML_READER,
     error: *const WS_ERROR,
@@ -17756,6 +17862,7 @@ pub unsafe fn WsReadEndAttribute(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadEndElement(
     reader: *const WS_XML_READER,
     error: *const WS_ERROR,
@@ -17775,6 +17882,7 @@ pub unsafe fn WsReadEndElement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadEndpointAddressExtension(
     reader: *const WS_XML_READER,
     endpointaddress: *const WS_ENDPOINT_ADDRESS,
@@ -17815,6 +17923,7 @@ pub unsafe fn WsReadEndpointAddressExtension(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadEnvelopeEnd(
     message: *const WS_MESSAGE,
     error: *const WS_ERROR,
@@ -17833,6 +17942,7 @@ pub unsafe fn WsReadEnvelopeEnd(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadEnvelopeStart(
     message: *const WS_MESSAGE,
     reader: *const WS_XML_READER,
@@ -17864,6 +17974,7 @@ pub unsafe fn WsReadEnvelopeStart(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadMessageEnd(
     channel: *const WS_CHANNEL,
     message: *const WS_MESSAGE,
@@ -17892,6 +18003,7 @@ pub unsafe fn WsReadMessageEnd(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadMessageStart(
     channel: *const WS_CHANNEL,
     message: *const WS_MESSAGE,
@@ -17921,6 +18033,7 @@ pub unsafe fn WsReadMessageStart(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadMetadata(
     metadata: *const WS_METADATA,
     reader: *const WS_XML_READER,
@@ -17949,6 +18062,7 @@ pub unsafe fn WsReadMetadata(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadNode(
     reader: *const WS_XML_READER,
     error: *const WS_ERROR,
@@ -17968,6 +18082,7 @@ pub unsafe fn WsReadNode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadQualifiedName(
     reader: *const WS_XML_READER,
     heap: *const WS_HEAP,
@@ -18002,6 +18117,7 @@ pub unsafe fn WsReadQualifiedName(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadStartAttribute(
     reader: *const WS_XML_READER,
     attributeindex: u32,
@@ -18027,6 +18143,7 @@ pub unsafe fn WsReadStartAttribute(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadStartElement(
     reader: *const WS_XML_READER,
     error: *const WS_ERROR,
@@ -18046,6 +18163,7 @@ pub unsafe fn WsReadStartElement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReadToStartElement(
     reader: *const WS_XML_READER,
     localname: *const WS_XML_STRING,
@@ -18077,6 +18195,7 @@ pub unsafe fn WsReadToStartElement(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadType(
     reader: *const WS_XML_READER,
     typemapping: WS_TYPE_MAPPING,
@@ -18120,6 +18239,7 @@ pub unsafe fn WsReadType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadValue(
     reader: *const WS_XML_READER,
     valuetype: WS_VALUE_TYPE,
@@ -18151,6 +18271,7 @@ pub unsafe fn WsReadValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadXmlBuffer(
     reader: *const WS_XML_READER,
     heap: *const WS_HEAP,
@@ -18179,6 +18300,7 @@ pub unsafe fn WsReadXmlBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsReadXmlBufferFromBytes(
     reader: *const WS_XML_READER,
     encoding: *const WS_XML_READER_ENCODING,
@@ -18223,6 +18345,7 @@ pub unsafe fn WsReadXmlBufferFromBytes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsReceiveMessage(
     channel: *const WS_CHANNEL,
     message: *const WS_MESSAGE,
@@ -18275,6 +18398,7 @@ pub unsafe fn WsReceiveMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsRegisterOperationForCancel(
     context: *const WS_OPERATION_CONTEXT,
     cancelcallback: ::std::option::Option<WS_OPERATION_CANCEL_CALLBACK>,
@@ -18307,6 +18431,7 @@ pub unsafe fn WsRegisterOperationForCancel(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsRemoveCustomHeader(
     message: *const WS_MESSAGE,
     headername: *const WS_XML_STRING,
@@ -18335,6 +18460,7 @@ pub unsafe fn WsRemoveCustomHeader(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsRemoveHeader(
     message: *const WS_MESSAGE,
     headertype: WS_HEADER_TYPE,
@@ -18361,6 +18487,7 @@ pub unsafe fn WsRemoveHeader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsRemoveMappedHeader(
     message: *const WS_MESSAGE,
     headername: *const WS_XML_STRING,
@@ -18386,6 +18513,7 @@ pub unsafe fn WsRemoveMappedHeader(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsRemoveNode(
     nodeposition: *const WS_XML_NODE_POSITION,
     error: *const WS_ERROR,
@@ -18409,6 +18537,7 @@ pub unsafe fn WsRemoveNode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsRequestReply(
     channel: *const WS_CHANNEL,
     requestmessage: *const WS_MESSAGE,
@@ -18467,6 +18596,7 @@ pub unsafe fn WsRequestReply(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsRequestSecurityToken(
     channel: *const WS_CHANNEL,
     properties: *const WS_REQUEST_SECURITY_TOKEN_PROPERTY,
@@ -18501,6 +18631,7 @@ pub unsafe fn WsRequestSecurityToken(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetChannel(
     channel: *const WS_CHANNEL,
     error: *const WS_ERROR,
@@ -18519,6 +18650,7 @@ pub unsafe fn WsResetChannel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetError(error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -18531,6 +18663,7 @@ pub unsafe fn WsResetError(error: *const WS_ERROR) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetHeap(
     heap: *const WS_HEAP,
     error: *const WS_ERROR,
@@ -18549,6 +18682,7 @@ pub unsafe fn WsResetHeap(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetListener(
     listener: *const WS_LISTENER,
     error: *const WS_ERROR,
@@ -18571,6 +18705,7 @@ pub unsafe fn WsResetListener(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetMessage(
     message: *const WS_MESSAGE,
     error: *const WS_ERROR,
@@ -18589,6 +18724,7 @@ pub unsafe fn WsResetMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetMetadata(
     metadata: *const WS_METADATA,
     error: *const WS_ERROR,
@@ -18611,6 +18747,7 @@ pub unsafe fn WsResetMetadata(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetServiceHost(
     servicehost: *const WS_SERVICE_HOST,
     error: *const WS_ERROR,
@@ -18633,6 +18770,7 @@ pub unsafe fn WsResetServiceHost(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsResetServiceProxy(
     serviceproxy: *const WS_SERVICE_PROXY,
     error: *const WS_ERROR,
@@ -18655,6 +18793,7 @@ pub unsafe fn WsResetServiceProxy(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsRevokeSecurityContext(
     securitycontext: *const WS_SECURITY_CONTEXT,
     error: *const WS_ERROR,
@@ -18677,6 +18816,7 @@ pub unsafe fn WsRevokeSecurityContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSendFaultMessageForError(
     channel: *const WS_CHANNEL,
     replymessage: *const WS_MESSAGE,
@@ -18718,6 +18858,7 @@ pub unsafe fn WsSendFaultMessageForError(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsSendMessage(
     channel: *const WS_CHANNEL,
     message: *const WS_MESSAGE,
@@ -18759,6 +18900,7 @@ pub unsafe fn WsSendMessage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsSendReplyMessage(
     channel: *const WS_CHANNEL,
     replymessage: *const WS_MESSAGE,
@@ -18802,6 +18944,7 @@ pub unsafe fn WsSendReplyMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetChannelProperty(
     channel: *const WS_CHANNEL,
     id: WS_CHANNEL_PROPERTY_ID,
@@ -18833,6 +18976,7 @@ pub unsafe fn WsSetChannelProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetErrorProperty(
     error: *const WS_ERROR,
     id: WS_ERROR_PROPERTY_ID,
@@ -18862,6 +19006,7 @@ pub unsafe fn WsSetErrorProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsSetFaultErrorDetail(
     error: *const WS_ERROR,
     faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION,
@@ -18893,6 +19038,7 @@ pub unsafe fn WsSetFaultErrorDetail(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetFaultErrorProperty(
     error: *const WS_ERROR,
     id: WS_FAULT_ERROR_PROPERTY_ID,
@@ -18921,6 +19067,7 @@ pub unsafe fn WsSetFaultErrorProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetHeader(
     message: *const WS_MESSAGE,
     headertype: WS_HEADER_TYPE,
@@ -18958,6 +19105,7 @@ pub unsafe fn WsSetHeader(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetInput(
     reader: *const WS_XML_READER,
     encoding: *const WS_XML_READER_ENCODING,
@@ -18992,6 +19140,7 @@ pub unsafe fn WsSetInput(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetInputToBuffer(
     reader: *const WS_XML_READER,
     buffer: *const WS_XML_BUFFER,
@@ -19023,6 +19172,7 @@ pub unsafe fn WsSetInputToBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetListenerProperty(
     listener: *const WS_LISTENER,
     id: WS_LISTENER_PROPERTY_ID,
@@ -19054,6 +19204,7 @@ pub unsafe fn WsSetListenerProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetMessageProperty(
     message: *const WS_MESSAGE,
     id: WS_MESSAGE_PROPERTY_ID,
@@ -19085,6 +19236,7 @@ pub unsafe fn WsSetMessageProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetOutput(
     writer: *const WS_XML_WRITER,
     encoding: *const WS_XML_WRITER_ENCODING,
@@ -19119,6 +19271,7 @@ pub unsafe fn WsSetOutput(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetOutputToBuffer(
     writer: *const WS_XML_WRITER,
     buffer: *const WS_XML_BUFFER,
@@ -19150,6 +19303,7 @@ pub unsafe fn WsSetOutputToBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetReaderPosition(
     reader: *const WS_XML_READER,
     nodeposition: *const WS_XML_NODE_POSITION,
@@ -19175,6 +19329,7 @@ pub unsafe fn WsSetReaderPosition(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSetWriterPosition(
     writer: *const WS_XML_WRITER,
     nodeposition: *const WS_XML_NODE_POSITION,
@@ -19200,6 +19355,7 @@ pub unsafe fn WsSetWriterPosition(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsShutdownSessionChannel(
     channel: *const WS_CHANNEL,
     asynccontext: *const WS_ASYNC_CONTEXT,
@@ -19225,6 +19381,7 @@ pub unsafe fn WsShutdownSessionChannel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsSkipNode(
     reader: *const WS_XML_READER,
     error: *const WS_ERROR,
@@ -19243,6 +19400,7 @@ pub unsafe fn WsSkipNode(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsStartReaderCanonicalization(
     reader: *const WS_XML_READER,
     writecallback: ::std::option::Option<WS_WRITE_CALLBACK>,
@@ -19277,6 +19435,7 @@ pub unsafe fn WsStartReaderCanonicalization(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsStartWriterCanonicalization(
     writer: *const WS_XML_WRITER,
     writecallback: ::std::option::Option<WS_WRITE_CALLBACK>,
@@ -19312,6 +19471,7 @@ pub unsafe fn WsStartWriterCanonicalization(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsTrimXmlWhitespace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19347,6 +19507,7 @@ pub unsafe fn WsTrimXmlWhitespace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsVerifyXmlNCName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19376,6 +19537,7 @@ pub unsafe fn WsVerifyXmlNCName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteArray(
     writer: *const WS_XML_WRITER,
     localname: *const WS_XML_STRING,
@@ -19420,6 +19582,7 @@ pub unsafe fn WsWriteArray(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteAttribute(
     writer: *const WS_XML_WRITER,
     attributedescription: *const WS_ATTRIBUTE_DESCRIPTION,
@@ -19455,6 +19618,7 @@ pub unsafe fn WsWriteAttribute(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteBody(
     message: *const WS_MESSAGE,
     bodydescription: *const WS_ELEMENT_DESCRIPTION,
@@ -19489,6 +19653,7 @@ pub unsafe fn WsWriteBody(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteBytes(
     writer: *const WS_XML_WRITER,
     bytes: *const ::std::ffi::c_void,
@@ -19518,6 +19683,7 @@ pub unsafe fn WsWriteBytes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteChars<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19549,6 +19715,7 @@ pub unsafe fn WsWriteChars<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteCharsUtf8(
     writer: *const WS_XML_WRITER,
     bytes: *const u8,
@@ -19578,6 +19745,7 @@ pub unsafe fn WsWriteCharsUtf8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteElement(
     writer: *const WS_XML_WRITER,
     elementdescription: *const WS_ELEMENT_DESCRIPTION,
@@ -19612,6 +19780,7 @@ pub unsafe fn WsWriteElement(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteEndAttribute(
     writer: *const WS_XML_WRITER,
     error: *const WS_ERROR,
@@ -19630,6 +19799,7 @@ pub unsafe fn WsWriteEndAttribute(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteEndCData(
     writer: *const WS_XML_WRITER,
     error: *const WS_ERROR,
@@ -19648,6 +19818,7 @@ pub unsafe fn WsWriteEndCData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteEndElement(
     writer: *const WS_XML_WRITER,
     error: *const WS_ERROR,
@@ -19666,6 +19837,7 @@ pub unsafe fn WsWriteEndElement(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteEndStartElement(
     writer: *const WS_XML_WRITER,
     error: *const WS_ERROR,
@@ -19684,6 +19856,7 @@ pub unsafe fn WsWriteEndStartElement(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteEnvelopeEnd(
     message: *const WS_MESSAGE,
     error: *const WS_ERROR,
@@ -19702,6 +19875,7 @@ pub unsafe fn WsWriteEnvelopeEnd(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteEnvelopeStart(
     message: *const WS_MESSAGE,
     writer: *const WS_XML_WRITER,
@@ -19733,6 +19907,7 @@ pub unsafe fn WsWriteEnvelopeStart(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteMessageEnd(
     channel: *const WS_CHANNEL,
     message: *const WS_MESSAGE,
@@ -19761,6 +19936,7 @@ pub unsafe fn WsWriteMessageEnd(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteMessageStart(
     channel: *const WS_CHANNEL,
     message: *const WS_MESSAGE,
@@ -19789,6 +19965,7 @@ pub unsafe fn WsWriteMessageStart(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteNode(
     writer: *const WS_XML_WRITER,
     node: *const WS_XML_NODE,
@@ -19815,6 +19992,7 @@ pub unsafe fn WsWriteNode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteQualifiedName(
     writer: *const WS_XML_WRITER,
     prefix: *const WS_XML_STRING,
@@ -19847,6 +20025,7 @@ pub unsafe fn WsWriteQualifiedName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteStartAttribute<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -19884,6 +20063,7 @@ pub unsafe fn WsWriteStartAttribute<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteStartCData(
     writer: *const WS_XML_WRITER,
     error: *const WS_ERROR,
@@ -19903,6 +20083,7 @@ pub unsafe fn WsWriteStartCData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteStartElement(
     writer: *const WS_XML_WRITER,
     prefix: *const WS_XML_STRING,
@@ -19934,6 +20115,7 @@ pub unsafe fn WsWriteStartElement(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteText(
     writer: *const WS_XML_WRITER,
     text: *const WS_XML_TEXT,
@@ -19959,6 +20141,7 @@ pub unsafe fn WsWriteText(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteType(
     writer: *const WS_XML_WRITER,
     typemapping: WS_TYPE_MAPPING,
@@ -19999,6 +20182,7 @@ pub unsafe fn WsWriteType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteValue(
     writer: *const WS_XML_WRITER,
     valuetype: WS_VALUE_TYPE,
@@ -20030,6 +20214,7 @@ pub unsafe fn WsWriteValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteXmlBuffer(
     writer: *const WS_XML_WRITER,
     xmlbuffer: *const WS_XML_BUFFER,
@@ -20055,6 +20240,7 @@ pub unsafe fn WsWriteXmlBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsWriteXmlBufferToBytes(
     writer: *const WS_XML_WRITER,
     xmlbuffer: *const WS_XML_BUFFER,
@@ -20099,6 +20285,7 @@ pub unsafe fn WsWriteXmlBufferToBytes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsWriteXmlnsAttribute<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -20134,6 +20321,7 @@ pub unsafe fn WsWriteXmlnsAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WsXmlStringEquals(
     string1: *const WS_XML_STRING,
     string2: *const WS_XML_STRING,

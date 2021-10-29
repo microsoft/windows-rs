@@ -3247,6 +3247,7 @@ unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     feature = "Win32_Security_Cryptography_Catalog",
     feature = "Win32_Security_Cryptography_Sip"
 ))]
+#[inline]
 pub unsafe fn WTHelperCertCheckValidSignature(
     pprovdata: *mut CRYPT_PROVIDER_DATA,
 ) -> ::windows::runtime::Result<()> {

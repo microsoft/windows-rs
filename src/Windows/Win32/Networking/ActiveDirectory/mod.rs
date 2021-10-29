@@ -1981,6 +1981,7 @@ pub const ADSystemInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::fro
     [156, 185, 0, 0, 248, 122, 54, 158],
 );
 #[cfg(feature = "Win32_System_Ole_Automation")]
+#[inline]
 pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, IADsContainer>>(
     padscontainer: Param0,
 ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IEnumVARIANT> {
@@ -2005,6 +2006,7 @@ pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::runtime::IntoParam<'a, I
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn ADsBuildVarArrayInt(
     lpdwobjecttypes: *mut u32,
     dwobjecttypes: u32,
@@ -2035,6 +2037,7 @@ pub unsafe fn ADsBuildVarArrayInt(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn ADsBuildVarArrayStr(
     lpppathnames: *const super::super::Foundation::PWSTR,
     dwpathnames: u32,
@@ -2061,6 +2064,7 @@ pub unsafe fn ADsBuildVarArrayStr(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsDecodeBinaryData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2090,6 +2094,7 @@ pub unsafe fn ADsDecodeBinaryData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsEncodeBinaryData(
     pbsrcdata: *mut u8,
     dwsrclen: u32,
@@ -2120,6 +2125,7 @@ pub unsafe fn ADsEncodeBinaryData(
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn ADsEnumerateNext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IEnumVARIANT>,
@@ -2152,6 +2158,7 @@ pub unsafe fn ADsEnumerateNext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
+#[inline]
 pub unsafe fn ADsFreeEnumerator<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IEnumVARIANT>,
@@ -2172,6 +2179,7 @@ pub unsafe fn ADsFreeEnumerator<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsGetLastError(
     lperror: *mut u32,
     lperrorbuf: super::super::Foundation::PWSTR,
@@ -2204,6 +2212,7 @@ pub unsafe fn ADsGetLastError(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsGetObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2233,6 +2242,7 @@ pub unsafe fn ADsGetObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsOpenObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2299,6 +2309,7 @@ pub unsafe fn ADsPropCheckIfWritable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn ADsPropCreateNotifyObj<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>,
@@ -2534,6 +2545,7 @@ pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn AdsTypeToPropVariant(
     padsvalues: *mut ADSVALUE,
     dwnumvalues: u32,
@@ -2605,6 +2617,7 @@ pub const BackLink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_va
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn BinarySDToSecurityDescriptor<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9485,6 +9498,7 @@ pub unsafe fn DsGetForestTrustInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetFriendlyClassName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -45524,6 +45538,7 @@ pub const PostalAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToAdsType(
     pvariant: *mut super::super::System::Com::VARIANT,
     dwnumvariant: u32,
@@ -45709,6 +45724,7 @@ pub const SecurityDescriptor: ::windows::runtime::GUID = ::windows::runtime::GUI
     feature = "Win32_System_Com",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn SecurityDescriptorToBinarySD<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,

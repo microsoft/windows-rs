@@ -4421,6 +4421,7 @@ pub unsafe fn SwDeviceClose<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEV
     feature = "Win32_Security",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn SwDeviceCreate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -4465,6 +4466,7 @@ pub unsafe fn SwDeviceCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SwDeviceGetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>>(
     hswdevice: Param0,
 ) -> ::windows::runtime::Result<SW_DEVICE_LIFETIME> {
@@ -4486,6 +4488,7 @@ pub unsafe fn SwDeviceGetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SwDeviceInterfacePropertySet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>,
@@ -4519,6 +4522,7 @@ pub unsafe fn SwDeviceInterfacePropertySet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SwDeviceInterfaceRegister<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>,
@@ -4563,6 +4567,7 @@ pub unsafe fn SwDeviceInterfaceRegister<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SwDeviceInterfaceSetState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>,
@@ -4594,6 +4599,7 @@ pub unsafe fn SwDeviceInterfaceSetState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SwDevicePropertySet<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>>(
     hswdevice: Param0,
     cpropertycount: u32,
@@ -4619,6 +4625,7 @@ pub unsafe fn SwDevicePropertySet<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SwDeviceSetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>>(
     hswdevice: Param0,
     lifetime: SW_DEVICE_LIFETIME,

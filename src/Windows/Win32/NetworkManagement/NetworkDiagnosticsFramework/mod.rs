@@ -1112,6 +1112,7 @@ pub const NDF_E_VALIDATION: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2146895610i32 as _);
 pub const NDF_INBOUND_FLAG_EDGETRAVERSAL: u32 = 1u32;
 pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2u32;
+#[inline]
 pub unsafe fn NdfCancelIncident(
     handle: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -1126,6 +1127,7 @@ pub unsafe fn NdfCancelIncident(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdfCloseIncident(handle: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1138,6 +1140,7 @@ pub unsafe fn NdfCloseIncident(handle: *mut ::std::ffi::c_void) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdfCreateConnectivityIncident(
     handle: *mut *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -1155,6 +1158,7 @@ pub unsafe fn NdfCreateConnectivityIncident(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateDNSIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1184,6 +1188,7 @@ pub unsafe fn NdfCreateDNSIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn NdfCreateGroupingIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1229,6 +1234,7 @@ pub unsafe fn NdfCreateGroupingIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1260,6 +1266,7 @@ pub unsafe fn NdfCreateIncident<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdfCreateNetConnectionIncident<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
@@ -1282,6 +1289,7 @@ pub unsafe fn NdfCreateNetConnectionIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreatePnrpIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1320,6 +1328,7 @@ pub unsafe fn NdfCreatePnrpIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateSharingIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1342,6 +1351,7 @@ pub unsafe fn NdfCreateSharingIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateWebIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1364,6 +1374,7 @@ pub unsafe fn NdfCreateWebIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateWebIncidentEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1402,6 +1413,7 @@ pub unsafe fn NdfCreateWebIncidentEx<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_Security"
 ))]
+#[inline]
 pub unsafe fn NdfCreateWinSockIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::SOCKET>,
@@ -1442,6 +1454,7 @@ pub unsafe fn NdfCreateWinSockIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfDiagnoseIncident(
     handle: *const ::std::ffi::c_void,
     rootcausecount: *mut u32,
@@ -1474,6 +1487,7 @@ pub unsafe fn NdfDiagnoseIncident(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfExecuteDiagnosis<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1496,6 +1510,7 @@ pub unsafe fn NdfExecuteDiagnosis<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfGetTraceFile(
     handle: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -1517,6 +1532,7 @@ pub unsafe fn NdfGetTraceFile(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfRepairIncident(
     handle: *const ::std::ffi::c_void,
     repairex: *const RepairInfoEx,

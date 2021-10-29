@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn CreateXmlReader<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>,
@@ -37,6 +38,7 @@ pub unsafe fn CreateXmlReader<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -79,6 +81,7 @@ pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -122,6 +125,7 @@ pub unsafe fn CreateXmlReaderInputWithEncodingName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn CreateXmlWriter<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>,
@@ -151,6 +155,7 @@ pub unsafe fn CreateXmlWriter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -185,6 +190,7 @@ pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,

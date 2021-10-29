@@ -1021,6 +1021,7 @@ pub const AUXDM_SETVOLUME: u32 = 6u32;
 pub const AUXM_INIT: u32 = 100u32;
 pub const AUXM_INIT_EX: u32 = 104u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIBuildFilterA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1050,6 +1051,7 @@ pub unsafe fn AVIBuildFilterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIBuildFilterW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1140,6 +1142,7 @@ unsafe impl ::windows::runtime::Abi for AVICOMPRESSOPTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn AVIClearClipboard() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1310,6 +1313,7 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ppavi: *mut ::std::option::Option<IAVIStream>,
@@ -1336,6 +1340,7 @@ pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ppavi: *mut ::std::option::Option<IAVIStream>,
@@ -1361,6 +1366,7 @@ pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -1388,6 +1394,7 @@ pub unsafe fn AVIFileExit() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ppavi: *mut ::std::option::Option<IAVIStream>,
@@ -1417,6 +1424,7 @@ pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     pfi: *mut AVIFILEINFOA,
@@ -1442,6 +1450,7 @@ pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     pfi: *mut AVIFILEINFOW,
@@ -1481,6 +1490,7 @@ pub unsafe fn AVIFileInit() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileOpenA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1513,6 +1523,7 @@ pub unsafe fn AVIFileOpenA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileOpenW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1544,6 +1555,7 @@ pub unsafe fn AVIFileOpenW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ckid: u32,
@@ -1587,6 +1599,7 @@ pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ckid: u32,
@@ -1616,6 +1629,7 @@ pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
     unimplemented!("Unsupported target OS");
 }
 pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
+#[inline]
 pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
     #[cfg(windows)]
     {
@@ -1633,6 +1647,7 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
 }
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
+#[inline]
 pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     ppscompressed: *mut ::std::option::Option<IAVIStream>,
     ppssource: Param1,
@@ -1661,6 +1676,7 @@ pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIMakeFileFromStreams(
     ppfile: *mut ::std::option::Option<IAVIFile>,
     nstreams: i32,
@@ -1687,6 +1703,7 @@ pub unsafe fn AVIMakeFileFromStreams(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIMakeStreamFromClipboard<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1715,6 +1732,7 @@ pub unsafe fn AVIMakeStreamFromClipboard<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pf: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -1908,6 +1926,7 @@ pub const AVISTREAMINFO_DISABLED: u32 = 1u32;
 pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
 pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1981,6 +2000,7 @@ pub unsafe fn AVISaveOptions<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVISaveOptionsFree(
     nstreams: i32,
     plpoptions: *const *const AVICOMPRESSOPTIONS,
@@ -2004,6 +2024,7 @@ pub unsafe fn AVISaveOptionsFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveVA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2042,6 +2063,7 @@ pub unsafe fn AVISaveVA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveVW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2080,6 +2102,7 @@ pub unsafe fn AVISaveVW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2133,6 +2156,7 @@ pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lstart: i32,
@@ -2161,6 +2185,7 @@ pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamCreate(
     ppavi: *mut ::std::option::Option<IAVIStream>,
     lparam1: i32,
@@ -2189,6 +2214,7 @@ pub unsafe fn AVIStreamCreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -2249,6 +2275,7 @@ pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IG
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(
     pg: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -2289,6 +2316,7 @@ pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     psi: *mut AVISTREAMINFOA,
@@ -2315,6 +2343,7 @@ pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     psi: *mut AVISTREAMINFOW,
@@ -2356,6 +2385,7 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamOpenFromFileA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2394,6 +2424,7 @@ pub unsafe fn AVIStreamOpenFromFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamOpenFromFileW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2431,6 +2462,7 @@ pub unsafe fn AVIStreamOpenFromFileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lstart: i32,
@@ -2468,6 +2500,7 @@ pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVISt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     fcc: u32,
@@ -2496,6 +2529,7 @@ pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpos: i32,
@@ -2558,6 +2592,7 @@ pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpos: i32,
@@ -2620,6 +2655,7 @@ pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lstart: i32,
@@ -2660,6 +2696,7 @@ pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     fcc: u32,
@@ -3327,6 +3364,7 @@ pub unsafe fn CloseDriver<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateEditableStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     ppseditable: *mut ::std::option::Option<IAVIStream>,
     pssource: Param1,
@@ -4296,6 +4334,7 @@ unsafe impl ::windows::runtime::Abi for EXBMINFOHEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> ::windows::runtime::Result<IAVIStream> {
@@ -4314,6 +4353,7 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     plstart: *mut i32,
@@ -4342,6 +4382,7 @@ pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     plstart: *mut i32,
@@ -4370,6 +4411,7 @@ pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVISt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EditStreamPaste<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
@@ -4409,6 +4451,7 @@ pub unsafe fn EditStreamPaste<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpinfo: *const AVISTREAMINFOA,
@@ -4435,6 +4478,7 @@ pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpinfo: *const AVISTREAMINFOW,
@@ -4461,6 +4505,7 @@ pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
@@ -4484,6 +4529,7 @@ pub unsafe fn EditStreamSetNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,

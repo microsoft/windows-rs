@@ -375,6 +375,7 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetMarshalSizeMax<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -412,6 +413,7 @@ pub unsafe fn CoGetMarshalSizeMax<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetStandardMarshal<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -449,6 +451,7 @@ pub unsafe fn CoGetStandardMarshal<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetStdMarshalEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -478,6 +481,7 @@ pub unsafe fn CoGetStdMarshalEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoMarshalHresult<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStream>>(
     pstm: Param0,
     hresult: ::windows::runtime::HRESULT,
@@ -496,6 +500,7 @@ pub unsafe fn CoMarshalHresult<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoMarshalInterThreadInterfaceInStream<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -524,6 +529,7 @@ pub unsafe fn CoMarshalInterThreadInterfaceInStream<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoMarshalInterface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::IStream>,
@@ -562,6 +568,7 @@ pub unsafe fn CoMarshalInterface<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoReleaseMarshalData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::IStream>,
@@ -581,6 +588,7 @@ pub unsafe fn CoReleaseMarshalData<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoUnmarshalHresult<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStream>>(
     pstm: Param0,
 ) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
@@ -601,6 +609,7 @@ pub unsafe fn CoUnmarshalHresult<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoUnmarshalInterface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::IStream>,

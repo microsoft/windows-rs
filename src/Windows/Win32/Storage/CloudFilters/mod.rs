@@ -4136,6 +4136,7 @@ pub unsafe fn CfCloseHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CfConnectSyncRoot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4172,6 +4173,7 @@ pub unsafe fn CfConnectSyncRoot<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
 pub unsafe fn CfConvertToPlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4210,6 +4212,7 @@ pub unsafe fn CfConvertToPlaceholder<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[inline]
 pub unsafe fn CfCreatePlaceholders<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4245,6 +4248,7 @@ pub unsafe fn CfCreatePlaceholders<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
 pub unsafe fn CfDehydratePlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4279,6 +4283,7 @@ pub unsafe fn CfDehydratePlaceholder<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CfDisconnectSyncRoot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
@@ -4303,6 +4308,7 @@ pub unsafe fn CfDisconnectSyncRoot<
     feature = "Win32_Storage_FileSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CfExecute(
     opinfo: *const CF_OPERATION_INFO,
     opparams: *mut CF_OPERATION_PARAMETERS,
@@ -4326,6 +4332,7 @@ pub unsafe fn CfExecute(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CfGetCorrelationVector<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4349,6 +4356,7 @@ pub unsafe fn CfGetCorrelationVector<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfGetPlaceholderInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4384,6 +4392,7 @@ pub unsafe fn CfGetPlaceholderInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfGetPlaceholderRangeInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4489,6 +4498,7 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CfGetPlatformInfo() -> ::windows::runtime::Result<CF_PLATFORM_INFO> {
     #[cfg(windows)]
     {
@@ -4505,6 +4515,7 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::runtime::Result<CF_PLATFORM_INFO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfGetSyncRootInfoByHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4540,6 +4551,7 @@ pub unsafe fn CfGetSyncRootInfoByHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfGetSyncRootInfoByPath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4575,6 +4587,7 @@ pub unsafe fn CfGetSyncRootInfoByPath<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfGetTransferKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4620,6 +4633,7 @@ pub unsafe fn CfGetWin32HandleFromProtectedHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
 pub unsafe fn CfHydratePlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4655,6 +4669,7 @@ pub unsafe fn CfHydratePlaceholder<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfOpenFileWithOplock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4684,6 +4699,7 @@ pub unsafe fn CfOpenFileWithOplock<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CfQuerySyncProviderStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
@@ -4731,6 +4747,7 @@ pub unsafe fn CfReferenceProtectedHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfRegisterSyncRoot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4807,6 +4824,7 @@ pub unsafe fn CfReleaseTransferKey<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CfReportProviderProgress<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
@@ -4838,6 +4856,7 @@ pub unsafe fn CfReportProviderProgress<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CfReportProviderProgress2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
@@ -4876,6 +4895,7 @@ pub unsafe fn CfReportProviderProgress2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfReportSyncStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4902,6 +4922,7 @@ pub unsafe fn CfReportSyncStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
 pub unsafe fn CfRevertPlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4931,6 +4952,7 @@ pub unsafe fn CfRevertPlaceholder<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CfSetCorrelationVector<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4957,6 +4979,7 @@ pub unsafe fn CfSetCorrelationVector<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfSetInSyncState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4989,6 +5012,7 @@ pub unsafe fn CfSetInSyncState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
 pub unsafe fn CfSetPinState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5021,6 +5045,7 @@ pub unsafe fn CfSetPinState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfUnregisterSyncRoot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5045,6 +5070,7 @@ pub unsafe fn CfUnregisterSyncRoot<
     feature = "Win32_Storage_FileSystem",
     feature = "Win32_System_IO"
 ))]
+#[inline]
 pub unsafe fn CfUpdatePlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5091,6 +5117,7 @@ pub unsafe fn CfUpdatePlaceholder<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CfUpdateSyncProviderStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,

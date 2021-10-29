@@ -12765,6 +12765,7 @@ unsafe impl ::windows::runtime::Abi for DX_IRQDATA {
     type DefaultType = Self;
 }
 pub const DX_OK: u32 = 0u32;
+#[inline]
 pub unsafe fn DirectDrawCreate<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -12793,6 +12794,7 @@ pub unsafe fn DirectDrawCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectDrawCreateClipper<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -12821,6 +12823,7 @@ pub unsafe fn DirectDrawCreateClipper<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectDrawCreateEx<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -12853,6 +12856,7 @@ pub unsafe fn DirectDrawCreateEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectDrawEnumerateA(
     lpcallback: ::std::option::Option<LPDDENUMCALLBACKA>,
     lpcontext: *mut ::std::ffi::c_void,
@@ -12876,6 +12880,7 @@ pub unsafe fn DirectDrawEnumerateA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DirectDrawEnumerateExA(
     lpcallback: ::std::option::Option<LPDDENUMCALLBACKEXA>,
     lpcontext: *mut ::std::ffi::c_void,
@@ -12902,6 +12907,7 @@ pub unsafe fn DirectDrawEnumerateExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DirectDrawEnumerateExW(
     lpcallback: ::std::option::Option<LPDDENUMCALLBACKEXW>,
     lpcontext: *mut ::std::ffi::c_void,
@@ -12928,6 +12934,7 @@ pub unsafe fn DirectDrawEnumerateExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectDrawEnumerateW(
     lpcallback: ::std::option::Option<LPDDENUMCALLBACKW>,
     lpcontext: *mut ::std::ffi::c_void,

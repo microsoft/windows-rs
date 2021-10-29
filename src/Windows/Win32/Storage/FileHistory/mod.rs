@@ -276,6 +276,7 @@ pub const FhReassociation: ::windows::runtime::GUID = ::windows::runtime::GUID::
     [158, 139, 191, 215, 16, 10, 136, 70],
 );
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
 pub unsafe fn FhServiceBlockBackup<
     'a,
     Param0: ::windows::runtime::IntoParam<
@@ -299,6 +300,7 @@ pub unsafe fn FhServiceBlockBackup<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
 pub unsafe fn FhServiceClosePipe<
     'a,
     Param0: ::windows::runtime::IntoParam<
@@ -325,6 +327,7 @@ pub unsafe fn FhServiceClosePipe<
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn FhServiceOpenPipe<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -348,6 +351,7 @@ pub unsafe fn FhServiceOpenPipe<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
 pub unsafe fn FhServiceReloadConfiguration<
     'a,
     Param0: ::windows::runtime::IntoParam<
@@ -374,6 +378,7 @@ pub unsafe fn FhServiceReloadConfiguration<
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn FhServiceStartBackup<
     'a,
     Param0: ::windows::runtime::IntoParam<
@@ -403,6 +408,7 @@ pub unsafe fn FhServiceStartBackup<
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn FhServiceStopBackup<
     'a,
     Param0: ::windows::runtime::IntoParam<
@@ -429,6 +435,7 @@ pub unsafe fn FhServiceStopBackup<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
 pub unsafe fn FhServiceUnblockBackup<
     'a,
     Param0: ::windows::runtime::IntoParam<

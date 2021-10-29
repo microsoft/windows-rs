@@ -15631,6 +15631,7 @@ pub unsafe fn MsiGetFileHashW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
 pub unsafe fn MsiGetFileSignatureInformationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15666,6 +15667,7 @@ pub unsafe fn MsiGetFileSignatureInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[inline]
 pub unsafe fn MsiGetFileSignatureInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

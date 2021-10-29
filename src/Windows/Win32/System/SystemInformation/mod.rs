@@ -450,6 +450,7 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIntegratedDisplaySize() -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -1176,6 +1177,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsWow64GuestMachineSupported(
     wowguestmachine: u16,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {

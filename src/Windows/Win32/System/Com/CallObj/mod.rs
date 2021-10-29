@@ -258,6 +258,7 @@ unsafe impl ::windows::runtime::Abi for CALLFRAME_WALK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CoGetInterceptor<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -290,6 +291,7 @@ pub unsafe fn CoGetInterceptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
+#[inline]
 pub unsafe fn CoGetInterceptorFromTypeInfo<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,

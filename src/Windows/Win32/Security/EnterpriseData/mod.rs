@@ -851,6 +851,7 @@ pub struct IProtectionPolicyManagerInterop3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ProtectFileToEnterpriseIdentity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -920,6 +921,7 @@ unsafe impl ::windows::runtime::Abi for SRPHOSTING_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SrpCloseThreadNetworkContext(
     threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT,
 ) -> ::windows::runtime::Result<()> {
@@ -937,6 +939,7 @@ pub unsafe fn SrpCloseThreadNetworkContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SrpCreateThreadNetworkContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -960,6 +963,7 @@ pub unsafe fn SrpCreateThreadNetworkContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -973,6 +977,7 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::runtime::Re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Appx"))]
+#[inline]
 pub unsafe fn SrpDoesPolicyAllowAppExecution(
     packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
@@ -994,6 +999,7 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SrpEnablePermissiveModeFileEncryption<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1014,6 +1020,7 @@ pub unsafe fn SrpEnablePermissiveModeFileEncryption<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SrpGetEnterpriseIds<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1046,6 +1053,7 @@ pub unsafe fn SrpGetEnterpriseIds<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SrpGetEnterprisePolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1069,6 +1077,7 @@ pub unsafe fn SrpGetEnterprisePolicy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SrpHostingInitialize(
     version: SRPHOSTING_VERSION,
     r#type: SRPHOSTING_TYPE,
@@ -1111,6 +1120,7 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SrpIsTokenService<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1137,6 +1147,7 @@ pub unsafe fn SrpIsTokenService<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SrpSetTokenEnterpriseId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1164,6 +1175,7 @@ pub unsafe fn SrpSetTokenEnterpriseId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnprotectFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

@@ -11810,6 +11810,7 @@ pub unsafe fn WdsBpQueryOption<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliAuthorizeSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11832,6 +11833,7 @@ pub unsafe fn WdsCliAuthorizeSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliCancelTransfer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11852,6 +11854,7 @@ pub unsafe fn WdsCliCancelTransfer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11871,6 +11874,7 @@ pub unsafe fn WdsCliClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliCreateSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11901,6 +11905,7 @@ pub unsafe fn WdsCliCreateSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliFindFirstImage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11925,6 +11930,7 @@ pub unsafe fn WdsCliFindFirstImage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliFindNextImage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11947,6 +11953,7 @@ pub unsafe fn WdsCliFindNextImage<
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
 pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliFreeStringArray(
     ppwszarray: *mut super::super::Foundation::PWSTR,
     ulcount: u32,
@@ -11970,6 +11977,7 @@ pub unsafe fn WdsCliFreeStringArray(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11994,6 +12002,7 @@ pub unsafe fn WdsCliGetDriverQueryXml<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetEnumerationFlags<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12017,6 +12026,7 @@ pub unsafe fn WdsCliGetEnumerationFlags<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageArchitecture<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12040,6 +12050,7 @@ pub unsafe fn WdsCliGetImageArchitecture<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageDescription<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12064,6 +12075,7 @@ pub unsafe fn WdsCliGetImageDescription<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageFiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12093,6 +12105,7 @@ pub unsafe fn WdsCliGetImageFiles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageGroup<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12117,6 +12130,7 @@ pub unsafe fn WdsCliGetImageGroup<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageHalName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12141,6 +12155,7 @@ pub unsafe fn WdsCliGetImageHalName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageHandleFromFindHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12165,6 +12180,7 @@ pub unsafe fn WdsCliGetImageHandleFromFindHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageHandleFromTransferHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12189,6 +12205,7 @@ pub unsafe fn WdsCliGetImageHandleFromTransferHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageIndex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12211,6 +12228,7 @@ pub unsafe fn WdsCliGetImageIndex<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageLanguage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12235,6 +12253,7 @@ pub unsafe fn WdsCliGetImageLanguage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageLanguages<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12264,6 +12283,7 @@ pub unsafe fn WdsCliGetImageLanguages<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageLastModifiedTime<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12287,6 +12307,7 @@ pub unsafe fn WdsCliGetImageLastModifiedTime<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12311,6 +12332,7 @@ pub unsafe fn WdsCliGetImageName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageNamespace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12335,6 +12357,7 @@ pub unsafe fn WdsCliGetImageNamespace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageParameter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12367,6 +12390,7 @@ pub unsafe fn WdsCliGetImageParameter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImagePath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12391,6 +12415,7 @@ pub unsafe fn WdsCliGetImagePath<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12413,6 +12438,7 @@ pub unsafe fn WdsCliGetImageSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageType<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12437,6 +12463,7 @@ pub unsafe fn WdsCliGetImageType<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetImageVersion<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12461,6 +12488,7 @@ pub unsafe fn WdsCliGetImageVersion<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliGetTransferSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12483,6 +12511,7 @@ pub unsafe fn WdsCliGetTransferSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliInitializeLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12517,6 +12546,7 @@ pub unsafe fn WdsCliInitializeLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12546,6 +12576,7 @@ pub unsafe fn WdsCliLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliObtainDriverPackages<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12578,6 +12609,7 @@ pub unsafe fn WdsCliObtainDriverPackages<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliObtainDriverPackagesEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12614,6 +12646,7 @@ pub unsafe fn WdsCliObtainDriverPackagesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliRegisterTrace(
     pfn: ::std::option::Option<PFN_WdsCliTraceFunction>,
 ) -> ::windows::runtime::Result<()> {
@@ -12644,6 +12677,7 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliTransferFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12695,6 +12729,7 @@ pub unsafe fn WdsCliTransferFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliTransferImage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12738,6 +12773,7 @@ pub unsafe fn WdsCliTransferImage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsCliWaitForTransfer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13177,6 +13213,7 @@ pub unsafe fn WdsTransportServerAllocateBuffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportServerCompleteRead<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13209,6 +13246,7 @@ pub unsafe fn WdsTransportServerCompleteRead<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportServerFreeBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13235,6 +13273,7 @@ pub unsafe fn WdsTransportServerFreeBuffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportServerRegisterCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13264,6 +13303,7 @@ pub unsafe fn WdsTransportServerRegisterCallback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportServerTrace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13294,6 +13334,7 @@ pub unsafe fn WdsTransportServerTrace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportServerTraceV<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

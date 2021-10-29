@@ -22664,6 +22664,7 @@ pub unsafe fn WTSSetListenerSecurityW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WTSSetRenderHint<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

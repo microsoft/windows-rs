@@ -754,6 +754,7 @@ pub const PrintDocumentPackageTargetFactory: ::windows::runtime::GUID =
         [146, 180, 238, 24, 138, 67, 134, 122],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartXpsPrintJob<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -808,6 +809,7 @@ pub unsafe fn StartXpsPrintJob<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartXpsPrintJob1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,

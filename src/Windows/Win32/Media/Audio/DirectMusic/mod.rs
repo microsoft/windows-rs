@@ -3960,6 +3960,7 @@ pub const DV_SD: u32 = 0u32;
 pub const DV_SL: u32 = 2u32;
 pub const DV_SMCHN: u32 = 57344u32;
 pub const DV_STYPE: u32 = 2031616u32;
+#[inline]
 pub unsafe fn DirectSoundCaptureCreate<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3988,6 +3989,7 @@ pub unsafe fn DirectSoundCaptureCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectSoundCaptureCreate8<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -4017,6 +4019,7 @@ pub unsafe fn DirectSoundCaptureCreate8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>,
     pcontext: *const ::std::ffi::c_void,
@@ -4040,6 +4043,7 @@ pub unsafe fn DirectSoundCaptureEnumerateA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>,
     pcontext: *const ::std::ffi::c_void,
@@ -4062,6 +4066,7 @@ pub unsafe fn DirectSoundCaptureEnumerateW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectSoundCreate<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -4090,6 +4095,7 @@ pub unsafe fn DirectSoundCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectSoundCreate8<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -4119,6 +4125,7 @@ pub unsafe fn DirectSoundCreate8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundEnumerateA(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>,
     pcontext: *const ::std::ffi::c_void,
@@ -4142,6 +4149,7 @@ pub unsafe fn DirectSoundEnumerateA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundEnumerateW(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>,
     pcontext: *const ::std::ffi::c_void,
@@ -4165,6 +4173,7 @@ pub unsafe fn DirectSoundEnumerateW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
+#[inline]
 pub unsafe fn DirectSoundFullDuplexCreate<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
@@ -4495,6 +4504,7 @@ pub const GUID_DSFX_WAVES_REVERB: ::windows::runtime::GUID = ::windows::runtime:
     17248,
     [149, 170, 0, 74, 29, 157, 226, 108],
 );
+#[inline]
 pub unsafe fn GetDeviceID(
     pguidsrc: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {

@@ -4225,6 +4225,7 @@ unsafe impl ::windows::runtime::Abi for DWRITE_WORD_WRAPPING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn DWriteCreateFactory(
     factorytype: DWRITE_FACTORY_TYPE,
     iid: *const ::windows::runtime::GUID,

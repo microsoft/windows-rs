@@ -1533,6 +1533,7 @@ unsafe impl ::windows::runtime::Abi for AUDIO_VOLUME_NOTIFICATION_DATA {
     feature = "Win32_System_Com_StructuredStorage",
     feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn ActivateAudioInterfaceAsync<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2013,6 +2014,7 @@ unsafe impl ::windows::runtime::Abi for CONSTRICTOR_OPTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CoRegisterMessageFilter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IMessageFilter>,
@@ -2062,6 +2064,7 @@ unsafe impl ::windows::runtime::Abi for ConnectorType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
@@ -2078,6 +2081,7 @@ pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::runtime::Result<IAu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategory(
     category: AUDIO_STREAM_CATEGORY,
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
@@ -2099,6 +2103,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2128,6 +2133,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(
     category: AUDIO_STREAM_CATEGORY,
     role: ERole,
@@ -2154,6 +2160,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
     {
@@ -2170,6 +2177,7 @@ pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::runtime::Result<IAud
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategory(
     category: AUDIO_STREAM_CATEGORY,
 ) -> ::windows::runtime::Result<IAudioStateMonitor> {
@@ -2191,6 +2199,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -2220,6 +2229,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(
     category: AUDIO_STREAM_CATEGORY,
     role: ERole,
@@ -33612,6 +33622,7 @@ pub unsafe fn KsCreateAllocator<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreateAllocator2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -33670,6 +33681,7 @@ pub unsafe fn KsCreateClock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreateClock2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -33731,6 +33743,7 @@ pub unsafe fn KsCreatePin<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreatePin2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -33795,6 +33808,7 @@ pub unsafe fn KsCreateTopologyNode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreateTopologyNode2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,

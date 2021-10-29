@@ -158,6 +158,7 @@ unsafe impl ::windows::runtime::Abi for DTC_STATUS_ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DtcGetTransactionManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -200,6 +201,7 @@ pub unsafe fn DtcGetTransactionManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DtcGetTransactionManagerC<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -242,6 +244,7 @@ pub unsafe fn DtcGetTransactionManagerC<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DtcGetTransactionManagerExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -281,6 +284,7 @@ pub unsafe fn DtcGetTransactionManagerExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DtcGetTransactionManagerExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
