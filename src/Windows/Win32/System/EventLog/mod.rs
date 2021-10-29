@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BackupEventLogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -34,6 +35,7 @@ pub unsafe fn BackupEventLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BackupEventLogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -60,6 +62,7 @@ pub unsafe fn BackupEventLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ClearEventLogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -86,6 +89,7 @@ pub unsafe fn ClearEventLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ClearEventLogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -112,6 +116,7 @@ pub unsafe fn ClearEventLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseEventLog<'a, Param0: ::windows::runtime::IntoParam<'a, EventLogHandle>>(
     heventlog: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -127,6 +132,7 @@ pub unsafe fn CloseEventLog<'a, Param0: ::windows::runtime::IntoParam<'a, EventL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeregisterEventSource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, EventSourceHandle>,
@@ -1065,6 +1071,7 @@ unsafe impl ::windows::runtime::Abi for EventSourceHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtArchiveExportedLog<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1096,6 +1103,7 @@ pub unsafe fn EvtArchiveExportedLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1109,6 +1117,7 @@ pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtClearLog<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1141,6 +1150,7 @@ pub unsafe fn EvtClearLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1154,6 +1164,7 @@ pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtCreateBookmark<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1172,6 +1183,7 @@ pub unsafe fn EvtCreateBookmark<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtCreateRenderContext(
     valuepathscount: u32,
     valuepaths: *const super::super::Foundation::PWSTR,
@@ -1197,6 +1209,7 @@ pub unsafe fn EvtCreateRenderContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtExportLog<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1233,6 +1246,7 @@ pub unsafe fn EvtExportLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtFormatMessage(
     publishermetadata: isize,
     event: isize,
@@ -1276,6 +1290,7 @@ pub unsafe fn EvtFormatMessage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetChannelConfigProperty(
     channelconfig: isize,
     propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID,
@@ -1310,6 +1325,7 @@ pub unsafe fn EvtGetChannelConfigProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetEventInfo(
     event: isize,
     propertyid: EVT_EVENT_PROPERTY_ID,
@@ -1341,6 +1357,7 @@ pub unsafe fn EvtGetEventInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetEventMetadataProperty(
     eventmetadata: isize,
     propertyid: EVT_EVENT_METADATA_PROPERTY_ID,
@@ -1375,6 +1392,7 @@ pub unsafe fn EvtGetEventMetadataProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetExtendedStatus(
     buffersize: u32,
     buffer: super::super::Foundation::PWSTR,
@@ -1400,6 +1418,7 @@ pub unsafe fn EvtGetExtendedStatus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetLogInfo(
     log: isize,
     propertyid: EVT_LOG_PROPERTY_ID,
@@ -1431,6 +1450,7 @@ pub unsafe fn EvtGetLogInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetObjectArrayProperty(
     objectarray: isize,
     propertyid: u32,
@@ -1468,6 +1488,7 @@ pub unsafe fn EvtGetObjectArrayProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetObjectArraySize(
     objectarray: isize,
     objectarraysize: *mut u32,
@@ -1490,6 +1511,7 @@ pub unsafe fn EvtGetObjectArraySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetPublisherMetadataProperty(
     publishermetadata: isize,
     propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID,
@@ -1524,6 +1546,7 @@ pub unsafe fn EvtGetPublisherMetadataProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtGetQueryInfo(
     queryorsubscription: isize,
     propertyid: EVT_QUERY_PROPERTY_ID,
@@ -1555,6 +1578,7 @@ pub unsafe fn EvtGetQueryInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtNext(
     resultset: isize,
     eventssize: u32,
@@ -1589,6 +1613,7 @@ pub unsafe fn EvtNext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtNextChannelPath(
     channelenum: isize,
     channelpathbuffersize: u32,
@@ -1616,6 +1641,7 @@ pub unsafe fn EvtNextChannelPath(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
@@ -1632,6 +1658,7 @@ pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isiz
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtNextPublisherId(
     publisherenum: isize,
     publisheridbuffersize: u32,
@@ -1660,6 +1687,7 @@ pub unsafe fn EvtNextPublisherId(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtOpenChannelConfig<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1687,6 +1715,7 @@ pub unsafe fn EvtOpenChannelConfig<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
@@ -1702,6 +1731,7 @@ pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
@@ -1718,6 +1748,7 @@ pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtOpenLog<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1745,6 +1776,7 @@ pub unsafe fn EvtOpenLog<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
@@ -1761,6 +1793,7 @@ pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtOpenPublisherMetadata<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1795,6 +1828,7 @@ pub unsafe fn EvtOpenPublisherMetadata<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EvtOpenSession(
     loginclass: EVT_LOGIN_CLASS,
     login: *const ::std::ffi::c_void,
@@ -1823,6 +1857,7 @@ pub unsafe fn EvtOpenSession(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtQuery<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1855,6 +1890,7 @@ pub unsafe fn EvtQuery<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtRender(
     context: isize,
     fragment: isize,
@@ -1892,6 +1928,7 @@ pub unsafe fn EvtRender(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtSaveChannelConfig(
     channelconfig: isize,
     flags: u32,
@@ -1914,6 +1951,7 @@ pub unsafe fn EvtSaveChannelConfig(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtSeek(
     resultset: isize,
     position: i64,
@@ -1945,6 +1983,7 @@ pub unsafe fn EvtSeek(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtSetChannelConfigProperty(
     channelconfig: isize,
     propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID,
@@ -1973,6 +2012,7 @@ pub unsafe fn EvtSetChannelConfigProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtSubscribe<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2018,6 +2058,7 @@ pub unsafe fn EvtSubscribe<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2034,6 +2075,7 @@ pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEventLogInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2068,6 +2110,7 @@ pub unsafe fn GetEventLogInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumberOfEventLogRecords<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2093,6 +2136,7 @@ pub unsafe fn GetNumberOfEventLogRecords<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetOldestEventLogRecord<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2118,6 +2162,7 @@ pub unsafe fn GetOldestEventLogRecord<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NotifyChangeEventLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2144,6 +2189,7 @@ pub unsafe fn NotifyChangeEventLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenBackupEventLogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2170,6 +2216,7 @@ pub unsafe fn OpenBackupEventLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenBackupEventLogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2196,6 +2243,7 @@ pub unsafe fn OpenBackupEventLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenEventLogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2222,6 +2270,7 @@ pub unsafe fn OpenEventLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenEventLogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2322,6 +2371,7 @@ unsafe impl ::windows::runtime::Abi for REPORT_EVENT_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadEventLogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2362,6 +2412,7 @@ pub unsafe fn ReadEventLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadEventLogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2402,6 +2453,7 @@ pub unsafe fn ReadEventLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterEventSourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2428,6 +2480,7 @@ pub unsafe fn RegisterEventSourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterEventSourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2454,6 +2507,7 @@ pub unsafe fn RegisterEventSourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportEventA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2501,6 +2555,7 @@ pub unsafe fn ReportEventA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportEventW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

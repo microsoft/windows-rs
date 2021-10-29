@@ -2273,6 +2273,7 @@ pub unsafe fn ADsOpenObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsPropCheckIfWritable<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2328,6 +2329,7 @@ pub unsafe fn ADsPropCreateNotifyObj<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsPropGetInitInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2353,6 +2355,7 @@ pub unsafe fn ADsPropGetInitInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsPropSendErrorMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2378,6 +2381,7 @@ pub unsafe fn ADsPropSendErrorMessage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsPropSetHwnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2404,6 +2408,7 @@ pub unsafe fn ADsPropSetHwnd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsPropSetHwndWithTitle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2433,6 +2438,7 @@ pub unsafe fn ADsPropSetHwndWithTitle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsPropShowErrorDialog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2465,6 +2471,7 @@ pub const ADsSecurityUtility: ::windows::runtime::GUID = ::windows::runtime::GUI
     [133, 254, 58, 117, 229, 52, 121, 102],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ADsSetLastError<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2506,6 +2513,7 @@ pub const AccessControlList: ::windows::runtime::GUID = ::windows::runtime::GUID
     [133, 44, 0, 192, 79, 216, 213, 3],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     #[cfg(windows)]
     {
@@ -2553,6 +2561,7 @@ pub unsafe fn AdsTypeToPropVariant(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AllocADsMem(cb: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -2566,6 +2575,7 @@ pub unsafe fn AllocADsMem(cb: u32) -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AllocADsStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7562,6 +7572,7 @@ pub const DS_WRITABLE_FLAG: u32 = 256u32;
 pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
 pub const DS_WS_FLAG: u32 = 8192u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsAddSidHistoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7610,6 +7621,7 @@ pub unsafe fn DsAddSidHistoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsAddSidHistoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7662,6 +7674,7 @@ pub unsafe fn DsAddSidHistoryW<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn DsAddressToSiteNamesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7697,6 +7710,7 @@ pub unsafe fn DsAddressToSiteNamesA<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn DsAddressToSiteNamesExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7735,6 +7749,7 @@ pub unsafe fn DsAddressToSiteNamesExA<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn DsAddressToSiteNamesExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7773,6 +7788,7 @@ pub unsafe fn DsAddressToSiteNamesExW<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn DsAddressToSiteNamesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7804,6 +7820,7 @@ pub unsafe fn DsAddressToSiteNamesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7833,6 +7850,7 @@ pub unsafe fn DsBindA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindByInstanceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7879,6 +7897,7 @@ pub unsafe fn DsBindByInstanceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindByInstanceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7925,6 +7944,7 @@ pub unsafe fn DsBindByInstanceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindToISTGA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7950,6 +7970,7 @@ pub unsafe fn DsBindToISTGA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindToISTGW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7975,6 +7996,7 @@ pub unsafe fn DsBindToISTGW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8004,6 +8026,7 @@ pub unsafe fn DsBindW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindWithCredA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8036,6 +8059,7 @@ pub unsafe fn DsBindWithCredA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindWithCredW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8068,6 +8092,7 @@ pub unsafe fn DsBindWithCredW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindWithSpnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8104,6 +8129,7 @@ pub unsafe fn DsBindWithSpnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindWithSpnExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8143,6 +8169,7 @@ pub unsafe fn DsBindWithSpnExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindWithSpnExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8182,6 +8209,7 @@ pub unsafe fn DsBindWithSpnExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindWithSpnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8218,6 +8246,7 @@ pub unsafe fn DsBindWithSpnW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsBindingSetTimeout<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8241,6 +8270,7 @@ pub unsafe fn DsBindingSetTimeout<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[inline]
 pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     #[cfg(windows)]
     {
@@ -8254,6 +8284,7 @@ pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[inline]
 pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
     #[cfg(windows)]
     {
@@ -8267,6 +8298,7 @@ pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsClientMakeSpnForTargetServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8299,6 +8331,7 @@ pub unsafe fn DsClientMakeSpnForTargetServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsClientMakeSpnForTargetServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8331,6 +8364,7 @@ pub unsafe fn DsClientMakeSpnForTargetServerW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackNamesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8371,6 +8405,7 @@ pub unsafe fn DsCrackNamesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackNamesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8411,6 +8446,7 @@ pub unsafe fn DsCrackNamesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackSpn2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8457,6 +8493,7 @@ pub unsafe fn DsCrackSpn2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackSpn2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8503,6 +8540,7 @@ pub unsafe fn DsCrackSpn2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackSpn3W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8555,6 +8593,7 @@ pub unsafe fn DsCrackSpn3W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackSpn4W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8610,6 +8649,7 @@ pub unsafe fn DsCrackSpn4W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackSpnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8653,6 +8693,7 @@ pub unsafe fn DsCrackSpnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackSpnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8696,6 +8737,7 @@ pub unsafe fn DsCrackSpnW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8727,6 +8769,7 @@ pub unsafe fn DsCrackUnquotedMangledRdnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8758,6 +8801,7 @@ pub unsafe fn DsCrackUnquotedMangledRdnW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsDeregisterDnsHostRecordsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8794,6 +8838,7 @@ pub unsafe fn DsDeregisterDnsHostRecordsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsDeregisterDnsHostRecordsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8830,6 +8875,7 @@ pub unsafe fn DsDeregisterDnsHostRecordsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsEnumerateDomainTrustsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8861,6 +8907,7 @@ pub unsafe fn DsEnumerateDomainTrustsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsEnumerateDomainTrustsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8891,6 +8938,7 @@ pub unsafe fn DsEnumerateDomainTrustsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DsFreeDomainControllerInfoA(
     infolevel: u32,
     cinfo: u32,
@@ -8915,6 +8963,7 @@ pub unsafe fn DsFreeDomainControllerInfoA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DsFreeDomainControllerInfoW(
     infolevel: u32,
     cinfo: u32,
@@ -8940,6 +8989,7 @@ pub unsafe fn DsFreeDomainControllerInfoW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
     #[cfg(windows)]
     {
@@ -8953,6 +9003,7 @@ pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
     #[cfg(windows)]
     {
@@ -8965,6 +9016,7 @@ pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -8980,6 +9032,7 @@ pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::std::ffi::c_void)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
     #[cfg(windows)]
     {
@@ -8993,6 +9046,7 @@ pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
     #[cfg(windows)]
     {
@@ -9006,6 +9060,7 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation::PSTR) {
     #[cfg(windows)]
     {
@@ -9022,6 +9077,7 @@ pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation::PWSTR) {
     #[cfg(windows)]
     {
@@ -9037,6 +9093,7 @@ pub unsafe fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::runtime::IntoParam<'a, GetDcContextHandle>>(
     getdccontexthandle: Param0,
 ) {
@@ -9052,6 +9109,7 @@ pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::runtime::IntoParam<'a, GetDcC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDcNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9091,6 +9149,7 @@ pub unsafe fn DsGetDcNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDcNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9134,6 +9193,7 @@ pub unsafe fn DsGetDcNameW<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn DsGetDcNextA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9169,6 +9229,7 @@ pub unsafe fn DsGetDcNextA<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn DsGetDcNextW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9200,6 +9261,7 @@ pub unsafe fn DsGetDcNextW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDcOpenA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9242,6 +9304,7 @@ pub unsafe fn DsGetDcOpenA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDcOpenW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9284,6 +9347,7 @@ pub unsafe fn DsGetDcOpenW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDcSiteCoverageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9312,6 +9376,7 @@ pub unsafe fn DsGetDcSiteCoverageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDcSiteCoverageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9340,6 +9405,7 @@ pub unsafe fn DsGetDcSiteCoverageW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDomainControllerInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9375,6 +9441,7 @@ pub unsafe fn DsGetDomainControllerInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetDomainControllerInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9414,6 +9481,7 @@ pub unsafe fn DsGetDomainControllerInfoW<
     feature = "Win32_Security_Authentication_Identity_Core",
     feature = "Win32_System_Kernel"
 ))]
+#[inline]
 pub unsafe fn DsGetForestTrustInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9475,6 +9543,7 @@ pub unsafe fn DsGetFriendlyClassName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn DsGetIcon<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9506,6 +9575,7 @@ pub unsafe fn DsGetIcon<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetRdnW(
     ppdn: *mut super::super::Foundation::PWSTR,
     pcdn: *mut u32,
@@ -9540,6 +9610,7 @@ pub unsafe fn DsGetRdnW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetSiteNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9565,6 +9636,7 @@ pub unsafe fn DsGetSiteNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetSiteNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9590,6 +9662,7 @@ pub unsafe fn DsGetSiteNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetSpnA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9637,6 +9710,7 @@ pub unsafe fn DsGetSpnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsGetSpnW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9684,6 +9758,7 @@ pub unsafe fn DsGetSpnW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsInheritSecurityIdentityA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9717,6 +9792,7 @@ pub unsafe fn DsInheritSecurityIdentityA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsInheritSecurityIdentityW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9750,6 +9826,7 @@ pub unsafe fn DsInheritSecurityIdentityW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsIsMangledDnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9775,6 +9852,7 @@ pub unsafe fn DsIsMangledDnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsIsMangledDnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9800,6 +9878,7 @@ pub unsafe fn DsIsMangledDnW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsIsMangledRdnValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9828,6 +9907,7 @@ pub unsafe fn DsIsMangledRdnValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsIsMangledRdnValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9856,6 +9936,7 @@ pub unsafe fn DsIsMangledRdnValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListDomainsInSiteA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9885,6 +9966,7 @@ pub unsafe fn DsListDomainsInSiteA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListDomainsInSiteW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9914,6 +9996,7 @@ pub unsafe fn DsListDomainsInSiteW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListInfoForServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9943,6 +10026,7 @@ pub unsafe fn DsListInfoForServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListInfoForServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9972,6 +10056,7 @@ pub unsafe fn DsListInfoForServerW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListRolesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9997,6 +10082,7 @@ pub unsafe fn DsListRolesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListRolesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10022,6 +10108,7 @@ pub unsafe fn DsListRolesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListServersForDomainInSiteA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10055,6 +10142,7 @@ pub unsafe fn DsListServersForDomainInSiteA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListServersForDomainInSiteW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10088,6 +10176,7 @@ pub unsafe fn DsListServersForDomainInSiteW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListServersInSiteA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10117,6 +10206,7 @@ pub unsafe fn DsListServersInSiteA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListServersInSiteW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10146,6 +10236,7 @@ pub unsafe fn DsListServersInSiteW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListSitesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10171,6 +10262,7 @@ pub unsafe fn DsListSitesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsListSitesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10196,6 +10288,7 @@ pub unsafe fn DsListSitesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsMakePasswordCredentialsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10229,6 +10322,7 @@ pub unsafe fn DsMakePasswordCredentialsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsMakePasswordCredentialsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10262,6 +10356,7 @@ pub unsafe fn DsMakePasswordCredentialsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsMakeSpnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10305,6 +10400,7 @@ pub unsafe fn DsMakeSpnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsMakeSpnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10348,6 +10444,7 @@ pub unsafe fn DsMakeSpnW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsMapSchemaGuidsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10379,6 +10476,7 @@ pub unsafe fn DsMapSchemaGuidsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsMapSchemaGuidsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10414,6 +10512,7 @@ pub unsafe fn DsMapSchemaGuidsW<
     feature = "Win32_Security_Authentication_Identity_Core",
     feature = "Win32_System_Kernel"
 ))]
+#[inline]
 pub unsafe fn DsMergeForestTrustInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10445,6 +10544,7 @@ pub unsafe fn DsMergeForestTrustInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsQuerySitesByCostA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10483,6 +10583,7 @@ pub unsafe fn DsQuerySitesByCostA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsQuerySitesByCostW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10520,6 +10621,7 @@ pub unsafe fn DsQuerySitesByCostW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
     #[cfg(windows)]
     {
@@ -10533,6 +10635,7 @@ pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsQuoteRdnValueA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10564,6 +10667,7 @@ pub unsafe fn DsQuoteRdnValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsQuoteRdnValueW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10595,6 +10699,7 @@ pub unsafe fn DsQuoteRdnValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsRemoveDsDomainA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10621,6 +10726,7 @@ pub unsafe fn DsRemoveDsDomainA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsRemoveDsDomainW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10647,6 +10753,7 @@ pub unsafe fn DsRemoveDsDomainW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsRemoveDsServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10684,6 +10791,7 @@ pub unsafe fn DsRemoveDsServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsRemoveDsServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10721,6 +10829,7 @@ pub unsafe fn DsRemoveDsServerW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaAddA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10765,6 +10874,7 @@ pub unsafe fn DsReplicaAddA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaAddW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10809,6 +10919,7 @@ pub unsafe fn DsReplicaAddW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaConsistencyCheck<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10837,6 +10948,7 @@ pub unsafe fn DsReplicaConsistencyCheck<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaDelA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10870,6 +10982,7 @@ pub unsafe fn DsReplicaDelA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaDelW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10902,6 +11015,7 @@ pub unsafe fn DsReplicaDelW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -10918,6 +11032,7 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::std
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaGetInfo2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10967,6 +11082,7 @@ pub unsafe fn DsReplicaGetInfo2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaGetInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11002,6 +11118,7 @@ pub unsafe fn DsReplicaGetInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaModifyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11051,6 +11168,7 @@ pub unsafe fn DsReplicaModifyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaModifyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11100,6 +11218,7 @@ pub unsafe fn DsReplicaModifyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaSyncA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11132,6 +11251,7 @@ pub unsafe fn DsReplicaSyncA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaSyncAllA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11170,6 +11290,7 @@ pub unsafe fn DsReplicaSyncAllA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaSyncAllW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11208,6 +11329,7 @@ pub unsafe fn DsReplicaSyncAllW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaSyncW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11240,6 +11362,7 @@ pub unsafe fn DsReplicaSyncW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaUpdateRefsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11276,6 +11399,7 @@ pub unsafe fn DsReplicaUpdateRefsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaUpdateRefsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11312,6 +11436,7 @@ pub unsafe fn DsReplicaUpdateRefsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaVerifyObjectsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11344,6 +11469,7 @@ pub unsafe fn DsReplicaVerifyObjectsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsReplicaVerifyObjectsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11375,6 +11501,7 @@ pub unsafe fn DsReplicaVerifyObjectsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DsRoleFreeMemory(buffer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -11388,6 +11515,7 @@ pub unsafe fn DsRoleFreeMemory(buffer: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsRoleGetPrimaryDomainInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11416,6 +11544,7 @@ pub unsafe fn DsRoleGetPrimaryDomainInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsServerRegisterSpnA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11445,6 +11574,7 @@ pub unsafe fn DsServerRegisterSpnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsServerRegisterSpnW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11474,6 +11604,7 @@ pub unsafe fn DsServerRegisterSpnW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
@@ -11487,6 +11618,7 @@ pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
@@ -11500,6 +11632,7 @@ pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsUnquoteRdnValueA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11531,6 +11664,7 @@ pub unsafe fn DsUnquoteRdnValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsUnquoteRdnValueW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11562,6 +11696,7 @@ pub unsafe fn DsUnquoteRdnValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsValidateSubnetNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11580,6 +11715,7 @@ pub unsafe fn DsValidateSubnetNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsValidateSubnetNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11598,6 +11734,7 @@ pub unsafe fn DsValidateSubnetNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsWriteAccountSpnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11633,6 +11770,7 @@ pub unsafe fn DsWriteAccountSpnA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DsWriteAccountSpnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11689,6 +11827,7 @@ pub const FaxNumber: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
     [163, 180, 0, 192, 79, 185, 80, 220],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeADsMem(pmem: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -11702,6 +11841,7 @@ pub unsafe fn FreeADsMem(pmem: *mut ::std::ffi::c_void) -> super::super::Foundat
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeADsStr<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -45369,6 +45509,7 @@ pub const PropertyValue: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 );
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
+#[inline]
 pub unsafe fn ReallocADsMem(
     poldmem: *mut ::std::ffi::c_void,
     cbold: u32,
@@ -45394,6 +45535,7 @@ pub unsafe fn ReallocADsMem(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReallocADsStr<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

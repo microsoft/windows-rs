@@ -226,6 +226,7 @@ pub type CALLERRELEASE = unsafe extern "system" fn(
     lpvue: ::windows::runtime::RawPtr,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ChangeIdleRoutine(
     ftg: *mut ::std::ffi::c_void,
     lpfnidle: ::std::option::Option<PFNIDLE>,
@@ -262,6 +263,7 @@ pub unsafe fn ChangeIdleRoutine(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateIProp(
     lpinterface: *mut ::windows::runtime::GUID,
     lpallocatebuffer: ::std::option::Option<LPALLOCATEBUFFER>,
@@ -295,6 +297,7 @@ pub unsafe fn CreateIProp(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateTable(
     lpinterface: *mut ::windows::runtime::GUID,
     lpallocatebuffer: ::std::option::Option<LPALLOCATEBUFFER>,
@@ -856,6 +859,7 @@ unsafe impl ::windows::runtime::Abi for DTPAGE_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn DeinitMapiUtil() {
     #[cfg(windows)]
     {
@@ -868,6 +872,7 @@ pub unsafe fn DeinitMapiUtil() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeregisterIdleRoutine(ftg: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -1153,6 +1158,7 @@ pub const E_IMAPI_REQUEST_CANCELLED: ::windows::runtime::HRESULT =
 pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-1062599935i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnableIdleRoutine<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1179,6 +1185,7 @@ pub unsafe fn EnableIdleRoutine<
 }
 pub const FACILITY_IMAPI2: u32 = 170u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FEqualNames(
     lpname1: *mut MAPINAMEID,
     lpname2: *mut MAPINAMEID,
@@ -1302,6 +1309,7 @@ unsafe impl ::windows::runtime::Abi for FLATMTSIDLIST {
 pub type FNIDLE =
     unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FPropCompareProp(
     lpspropvalue1: *mut SPropValue,
     ulrelop: u32,
@@ -1327,6 +1335,7 @@ pub unsafe fn FPropCompareProp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FPropContainsProp(
     lpspropvaluedst: *mut SPropValue,
     lpspropvaluesrc: *mut SPropValue,
@@ -1352,6 +1361,7 @@ pub unsafe fn FPropContainsProp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FPropExists<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(
     lpmapiprop: Param0,
     ulproptag: u32,
@@ -1374,6 +1384,7 @@ pub unsafe fn FPropExists<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPro
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     #[cfg(windows)]
     {
@@ -1387,6 +1398,7 @@ pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     #[cfg(windows)]
     {
@@ -1400,6 +1412,7 @@ pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FtAddFt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
@@ -1426,6 +1439,7 @@ pub unsafe fn FtAddFt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FtMulDw<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
@@ -1451,6 +1465,7 @@ pub unsafe fn FtMulDw<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FtMulDwDw(
     ftmultiplicand: u32,
     ftmultiplier: u32,
@@ -1473,6 +1488,7 @@ pub unsafe fn FtMulDwDw(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FtNegFt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
@@ -1493,6 +1509,7 @@ pub unsafe fn FtNegFt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FtSubFt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
@@ -1519,6 +1536,7 @@ pub unsafe fn FtSubFt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FtgRegisterIdleRoutine(
     lpfnidle: ::std::option::Option<PFNIDLE>,
     lpvidleparam: *mut ::std::ffi::c_void,
@@ -10364,6 +10382,7 @@ pub type LPWABOPENEX = unsafe extern "system" fn(
     fnfreebuffer: ::windows::runtime::RawPtr,
 ) -> ::windows::runtime::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn LPropCompareProp(
     lpspropvaluea: *mut SPropValue,
     lpspropvalueb: *mut SPropValue,
@@ -10386,6 +10405,7 @@ pub unsafe fn LPropCompareProp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn LpValFindProp(
     ulproptag: u32,
     cvalues: u32,
@@ -10410,6 +10430,7 @@ pub unsafe fn LpValFindProp(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MAPIDeinitIdle() {
     #[cfg(windows)]
     {
@@ -10463,6 +10484,7 @@ unsafe impl ::windows::runtime::Abi for MAPIERROR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn MAPIGetDefaultMalloc() -> ::std::option::Option<super::Com::IMalloc> {
     #[cfg(windows)]
     {
@@ -10475,6 +10497,7 @@ pub unsafe fn MAPIGetDefaultMalloc() -> ::std::option::Option<super::Com::IMallo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -10858,6 +10881,7 @@ pub const PROP_ID_NULL: u32 = 0u32;
 pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
 pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PpropFindProp(
     lpproparray: *mut SPropValue,
     cvalues: u32,
@@ -10883,6 +10907,7 @@ pub unsafe fn PpropFindProp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PropCopyMore(
     lpspropvaluedest: *mut SPropValue,
     lpspropvaluesrc: *mut SPropValue,
@@ -12149,6 +12174,7 @@ pub const S_IMAPI_SPEEDADJUSTED: ::windows::runtime::HRESULT =
 pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(11141890i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScCopyNotifications(
     cnotification: i32,
     lpnotifications: *mut NOTIFICATION,
@@ -12177,6 +12203,7 @@ pub unsafe fn ScCopyNotifications(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScCopyProps(
     cvalues: i32,
     lpproparray: *mut SPropValue,
@@ -12205,6 +12232,7 @@ pub unsafe fn ScCopyProps(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScCountNotifications(
     cnotifications: i32,
     lpnotifications: *mut NOTIFICATION,
@@ -12230,6 +12258,7 @@ pub unsafe fn ScCountNotifications(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -12246,6 +12275,7 @@ pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScCreateConversationIndex(
     cbparent: u32,
     lpbparent: *mut u8,
@@ -12274,6 +12304,7 @@ pub unsafe fn ScCreateConversationIndex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScDupPropset(
     cvalues: i32,
     lpproparray: *mut SPropValue,
@@ -12301,6 +12332,7 @@ pub unsafe fn ScDupPropset(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -12314,6 +12346,7 @@ pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScLocalPathFromUNC<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12343,6 +12376,7 @@ pub unsafe fn ScLocalPathFromUNC<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScRelocNotifications(
     cnotification: i32,
     lpnotifications: *mut NOTIFICATION,
@@ -12374,6 +12408,7 @@ pub unsafe fn ScRelocNotifications(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScRelocProps(
     cvalues: i32,
     lpproparray: *mut SPropValue,
@@ -12405,6 +12440,7 @@ pub unsafe fn ScRelocProps(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScUNCFromLocalPath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12433,6 +12469,7 @@ pub unsafe fn ScUNCFromLocalPath<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(windows)]
     {
@@ -12448,6 +12485,7 @@ pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(windows)]
     {
@@ -12463,6 +12501,7 @@ pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8 {
     #[cfg(windows)]
     {
@@ -12520,6 +12559,7 @@ pub const TABLE_ROW_MODIFIED: u32 = 5u32;
 pub const TABLE_SETCOL_DONE: u32 = 8u32;
 pub const TABLE_SORT_DONE: u32 = 6u32;
 pub const TAD_ALL_ROWS: u32 = 1u32;
+#[inline]
 pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
     #[cfg(windows)]
     {
@@ -12534,6 +12574,7 @@ pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
 }
 pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4u32;
 pub const UI_SERVICE: u32 = 2u32;
+#[inline]
 pub unsafe fn UlAddRef(lpunk: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -12547,6 +12588,7 @@ pub unsafe fn UlAddRef(lpunk: *mut ::std::ffi::c_void) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     #[cfg(windows)]
     {
@@ -12559,6 +12601,7 @@ pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UlRelease(lpunk: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {

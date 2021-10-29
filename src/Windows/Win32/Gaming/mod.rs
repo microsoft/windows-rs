@@ -2448,6 +2448,7 @@ pub unsafe fn ShowUserSettingsUIForUser<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     #[cfg(windows)]
     {

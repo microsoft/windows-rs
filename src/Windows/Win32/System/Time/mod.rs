@@ -70,6 +70,7 @@ unsafe impl ::windows::runtime::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumDynamicTimeZoneInformation(
     dwindex: u32,
     lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION,
@@ -92,6 +93,7 @@ pub unsafe fn EnumDynamicTimeZoneInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FileTimeToSystemTime(
     lpfiletime: *const super::super::Foundation::FILETIME,
     lpsystemtime: *mut super::super::Foundation::SYSTEMTIME,
@@ -114,6 +116,7 @@ pub unsafe fn FileTimeToSystemTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDynamicTimeZoneInformation(
     ptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION,
 ) -> u32 {
@@ -133,6 +136,7 @@ pub unsafe fn GetDynamicTimeZoneInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(
     lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,
     firstyear: *mut u32,
@@ -158,6 +162,7 @@ pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
@@ -173,6 +178,7 @@ pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFOR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTimeZoneInformationForYear(
     wyear: u16,
     pdtzi: *const DYNAMIC_TIME_ZONE_INFORMATION,
@@ -198,6 +204,7 @@ pub unsafe fn GetTimeZoneInformationForYear(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LocalFileTimeToLocalSystemTime(
     timezoneinformation: *const TIME_ZONE_INFORMATION,
     localfiletime: *const super::super::Foundation::FILETIME,
@@ -223,6 +230,7 @@ pub unsafe fn LocalFileTimeToLocalSystemTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LocalSystemTimeToLocalFileTime(
     timezoneinformation: *const TIME_ZONE_INFORMATION,
     localsystemtime: *const super::super::Foundation::SYSTEMTIME,
@@ -248,6 +256,7 @@ pub unsafe fn LocalSystemTimeToLocalFileTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDynamicTimeZoneInformation(
     lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,
 ) -> super::super::Foundation::BOOL {
@@ -267,6 +276,7 @@ pub unsafe fn SetDynamicTimeZoneInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetTimeZoneInformation(
     lptimezoneinformation: *const TIME_ZONE_INFORMATION,
 ) -> super::super::Foundation::BOOL {
@@ -286,6 +296,7 @@ pub unsafe fn SetTimeZoneInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SystemTimeToFileTime(
     lpsystemtime: *const super::super::Foundation::SYSTEMTIME,
     lpfiletime: *mut super::super::Foundation::FILETIME,
@@ -308,6 +319,7 @@ pub unsafe fn SystemTimeToFileTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SystemTimeToTzSpecificLocalTime(
     lptimezoneinformation: *const TIME_ZONE_INFORMATION,
     lpuniversaltime: *const super::super::Foundation::SYSTEMTIME,
@@ -333,6 +345,7 @@ pub unsafe fn SystemTimeToTzSpecificLocalTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(
     lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,
     lpuniversaltime: *const super::super::Foundation::SYSTEMTIME,
@@ -415,6 +428,7 @@ pub const TSF_Hardware: u32 = 1u32;
 pub const TSF_IPv6: u32 = 4u32;
 pub const TSF_SignatureAuthenticated: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TzSpecificLocalTimeToSystemTime(
     lptimezoneinformation: *const TIME_ZONE_INFORMATION,
     lplocaltime: *const super::super::Foundation::SYSTEMTIME,
@@ -440,6 +454,7 @@ pub unsafe fn TzSpecificLocalTimeToSystemTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(
     lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION,
     lplocaltime: *const super::super::Foundation::SYSTEMTIME,

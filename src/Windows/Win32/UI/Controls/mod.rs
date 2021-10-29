@@ -481,6 +481,7 @@ unsafe impl ::windows::runtime::Abi for BUTTON_SPLITINFO {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn BeginBufferedAnimation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -525,6 +526,7 @@ pub unsafe fn BeginBufferedAnimation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn BeginBufferedPaint<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -559,6 +561,7 @@ pub unsafe fn BeginBufferedPaint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BeginPanningFeedback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -614,6 +617,7 @@ pub unsafe fn BufferedPaintInit() -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn BufferedPaintRenderAnimation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2196,6 +2200,7 @@ pub const CTFMODEBIAS_NAME: u32 = 2u32;
 pub const CTFMODEBIAS_NUMERIC: u32 = 6u32;
 pub const CTFMODEBIAS_READING: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckDlgButton<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2224,6 +2229,7 @@ pub unsafe fn CheckDlgButton<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckRadioButton<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2267,6 +2273,7 @@ pub unsafe fn CloseThemeData(htheme: isize) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn CreateMappedBitmap<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -2305,6 +2312,7 @@ pub unsafe fn CreateMappedBitmap<
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn CreatePropertySheetPageA(
     constpropsheetpagepointer: *mut PROPSHEETPAGEA,
 ) -> HPROPSHEETPAGE {
@@ -2328,6 +2336,7 @@ pub unsafe fn CreatePropertySheetPageA(
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn CreatePropertySheetPageW(
     constpropsheetpagepointer: *mut PROPSHEETPAGEW,
 ) -> HPROPSHEETPAGE {
@@ -2347,6 +2356,7 @@ pub unsafe fn CreatePropertySheetPageW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStatusWindowA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2379,6 +2389,7 @@ pub unsafe fn CreateStatusWindowA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStatusWindowW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2411,6 +2422,7 @@ pub unsafe fn CreateStatusWindowW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn CreateSyntheticPointerDevice(
     pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
     maxcount: u32,
@@ -2436,6 +2448,7 @@ pub unsafe fn CreateSyntheticPointerDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateToolbarEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2495,6 +2508,7 @@ pub unsafe fn CreateToolbarEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateUpDownControl<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2854,6 +2868,7 @@ pub const DPAS_INSERTAFTER: u32 = 4u32;
 pub const DPAS_INSERTBEFORE: u32 = 2u32;
 pub const DPAS_SORTED: u32 = 1u32;
 pub const DPA_APPEND: u32 = 2147483647u32;
+#[inline]
 pub unsafe fn DPA_Clone(hdpa: *const _DPA, hdpanew: *mut _DPA) -> *mut _DPA {
     #[cfg(windows)]
     {
@@ -2869,6 +2884,7 @@ pub unsafe fn DPA_Clone(hdpa: *const _DPA, hdpanew: *mut _DPA) -> *mut _DPA {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DPA_Create(citemgrow: i32) -> *mut _DPA {
     #[cfg(windows)]
     {
@@ -2882,6 +2898,7 @@ pub unsafe fn DPA_Create(citemgrow: i32) -> *mut _DPA {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_CreateEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2904,6 +2921,7 @@ pub unsafe fn DPA_CreateEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2916,6 +2934,7 @@ pub unsafe fn DPA_DeleteAllPtrs(hdpa: *mut _DPA) -> super::super::Foundation::BO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -2932,6 +2951,7 @@ pub unsafe fn DPA_DeletePtr(hdpa: *mut _DPA, i: i32) -> *mut ::std::ffi::c_void 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_Destroy(hdpa: *mut _DPA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2944,6 +2964,7 @@ pub unsafe fn DPA_Destroy(hdpa: *mut _DPA) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DPA_DestroyCallback(
     hdpa: *mut _DPA,
     pfncb: ::std::option::Option<PFNDAENUMCALLBACK>,
@@ -2969,6 +2990,7 @@ pub unsafe fn DPA_DestroyCallback(
     unimplemented!("Unsupported target OS");
 }
 pub const DPA_ERR: i32 = -1i32;
+#[inline]
 pub unsafe fn DPA_EnumCallback(
     hdpa: *const _DPA,
     pfncb: ::std::option::Option<PFNDAENUMCALLBACK>,
@@ -2993,6 +3015,7 @@ pub unsafe fn DPA_EnumCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -3008,6 +3031,7 @@ pub unsafe fn DPA_GetPtr(hdpa: *const _DPA, i: isize) -> *mut ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DPA_GetPtrIndex(hdpa: *const _DPA, p: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -3023,6 +3047,7 @@ pub unsafe fn DPA_GetPtrIndex(hdpa: *const _DPA, p: *const ::std::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DPA_GetSize(hdpa: *const _DPA) -> u64 {
     #[cfg(windows)]
     {
@@ -3036,6 +3061,7 @@ pub unsafe fn DPA_GetSize(hdpa: *const _DPA) -> u64 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3051,6 +3077,7 @@ pub unsafe fn DPA_Grow(pdpa: *mut _DPA, cp: i32) -> super::super::Foundation::BO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DPA_InsertPtr(hdpa: *mut _DPA, i: i32, p: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -3100,6 +3127,7 @@ pub unsafe fn DPA_LoadStream<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_Merge<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -3169,6 +3197,7 @@ pub unsafe fn DPA_SaveStream<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_Search<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -3206,6 +3235,7 @@ pub unsafe fn DPA_Search<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_SetPtr(
     hdpa: *mut _DPA,
     i: i32,
@@ -3231,6 +3261,7 @@ pub unsafe fn DPA_SetPtr(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DPA_Sort<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -3517,6 +3548,7 @@ impl ::std::ops::Not for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     }
 }
 pub const DSA_APPEND: u32 = 2147483647u32;
+#[inline]
 pub unsafe fn DSA_Clone(hdsa: *const _DSA) -> *mut _DSA {
     #[cfg(windows)]
     {
@@ -3529,6 +3561,7 @@ pub unsafe fn DSA_Clone(hdsa: *const _DSA) -> *mut _DSA {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA {
     #[cfg(windows)]
     {
@@ -3545,6 +3578,7 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> *mut _DSA {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3558,6 +3592,7 @@ pub unsafe fn DSA_DeleteAllItems(hdsa: *mut _DSA) -> super::super::Foundation::B
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3574,6 +3609,7 @@ pub unsafe fn DSA_DeleteItem(hdsa: *mut _DSA, i: i32) -> super::super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DSA_Destroy(hdsa: *mut _DSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3586,6 +3622,7 @@ pub unsafe fn DSA_Destroy(hdsa: *mut _DSA) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DSA_DestroyCallback(
     hdsa: *mut _DSA,
     pfncb: ::std::option::Option<PFNDAENUMCALLBACK>,
@@ -3611,6 +3648,7 @@ pub unsafe fn DSA_DestroyCallback(
     unimplemented!("Unsupported target OS");
 }
 pub const DSA_ERR: i32 = -1i32;
+#[inline]
 pub unsafe fn DSA_EnumCallback(
     hdsa: *const _DSA,
     pfncb: ::std::option::Option<PFNDAENUMCALLBACK>,
@@ -3636,6 +3674,7 @@ pub unsafe fn DSA_EnumCallback(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DSA_GetItem(
     hdsa: *const _DSA,
     i: i32,
@@ -3660,6 +3699,7 @@ pub unsafe fn DSA_GetItem(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -3675,6 +3715,7 @@ pub unsafe fn DSA_GetItemPtr(hdsa: *const _DSA, i: i32) -> *mut ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DSA_GetSize(hdsa: *const _DSA) -> u64 {
     #[cfg(windows)]
     {
@@ -3687,6 +3728,7 @@ pub unsafe fn DSA_GetSize(hdsa: *const _DSA) -> u64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -3704,6 +3746,7 @@ pub unsafe fn DSA_InsertItem(hdsa: *mut _DSA, i: i32, pitem: *const ::std::ffi::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DSA_SetItem(
     hdsa: *mut _DSA,
     i: i32,
@@ -3729,6 +3772,7 @@ pub unsafe fn DSA_SetItem(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DSA_Sort<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -3917,6 +3961,7 @@ pub type DTT_CALLBACK_PROC = unsafe extern "system" fn(
 pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
 pub const DTT_GRAYED: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DestroyPropertySheetPage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HPROPSHEETPAGE>,
@@ -3934,6 +3979,7 @@ pub unsafe fn DestroyPropertySheetPage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DestroySyntheticPointerDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSYNTHETICPOINTERDEVICE>,
@@ -3952,6 +3998,7 @@ pub unsafe fn DestroySyntheticPointerDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirListA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3987,6 +4034,7 @@ pub unsafe fn DlgDirListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirListComboBoxA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4022,6 +4070,7 @@ pub unsafe fn DlgDirListComboBoxA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirListComboBoxW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4057,6 +4106,7 @@ pub unsafe fn DlgDirListComboBoxW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirListW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4092,6 +4142,7 @@ pub unsafe fn DlgDirListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirSelectComboBoxExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4123,6 +4174,7 @@ pub unsafe fn DlgDirSelectComboBoxExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirSelectComboBoxExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4154,6 +4206,7 @@ pub unsafe fn DlgDirSelectComboBoxExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirSelectExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4185,6 +4238,7 @@ pub unsafe fn DlgDirSelectExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DlgDirSelectExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4216,6 +4270,7 @@ pub unsafe fn DlgDirSelectExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrawInsert<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4245,6 +4300,7 @@ pub unsafe fn DrawInsert<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawShadowText<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4292,6 +4348,7 @@ pub unsafe fn DrawShadowText<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawStatusTextA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4324,6 +4381,7 @@ pub unsafe fn DrawStatusTextA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawStatusTextW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -5496,6 +5554,7 @@ pub const ETDT_ENABLE: u32 = 2u32;
 pub const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8u32;
 pub const ETDT_USETABTEXTURE: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnableScrollBar<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5618,6 +5677,7 @@ pub unsafe fn EndBufferedPaint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EndPanningFeedback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5644,6 +5704,7 @@ pub unsafe fn EndPanningFeedback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvaluateProximityToPolygon(
     numvertices: u32,
     controlpolygon: *const super::super::Foundation::POINT,
@@ -5672,6 +5733,7 @@ pub unsafe fn EvaluateProximityToPolygon(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EvaluateProximityToRect(
     controlboundingbox: *const super::super::Foundation::RECT,
     phittestinginput: *const TOUCH_HIT_TESTING_INPUT,
@@ -5908,6 +5970,7 @@ pub const FSB_ENCARTA_MODE: u32 = 1u32;
 pub const FSB_FLAT_MODE: u32 = 2u32;
 pub const FSB_REGULAR_MODE: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_EnableScrollBar<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5936,6 +5999,7 @@ pub unsafe fn FlatSB_EnableScrollBar<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_GetScrollInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5964,6 +6028,7 @@ pub unsafe fn FlatSB_GetScrollInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_GetScrollPos<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5989,6 +6054,7 @@ pub unsafe fn FlatSB_GetScrollPos<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_GetScrollProp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6017,6 +6083,7 @@ pub unsafe fn FlatSB_GetScrollProp<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_GetScrollRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6048,6 +6115,7 @@ pub unsafe fn FlatSB_GetScrollRange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_SetScrollInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6080,6 +6148,7 @@ pub unsafe fn FlatSB_SetScrollInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_SetScrollPos<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6112,6 +6181,7 @@ pub unsafe fn FlatSB_SetScrollPos<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_SetScrollProp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6144,6 +6214,7 @@ pub unsafe fn FlatSB_SetScrollProp<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_SetScrollRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6179,6 +6250,7 @@ pub unsafe fn FlatSB_SetScrollRange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlatSB_ShowScrollBar<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6612,6 +6684,7 @@ pub unsafe fn GetBufferedPaintBits(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     #[cfg(windows)]
     {
@@ -6625,6 +6698,7 @@ pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphic
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     #[cfg(windows)]
     {
@@ -6661,6 +6735,7 @@ pub unsafe fn GetBufferedPaintTargetRect(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCIMSSM(
     inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
 ) -> super::super::Foundation::BOOL {
@@ -6678,6 +6753,7 @@ pub unsafe fn GetCIMSSM(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetComboBoxInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6703,6 +6779,7 @@ pub unsafe fn GetComboBoxInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentInputMessageSource(
     inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
 ) -> super::super::Foundation::BOOL {
@@ -6757,6 +6834,7 @@ pub unsafe fn GetCurrentThemeName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEffectiveClientRect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6785,6 +6863,7 @@ pub unsafe fn GetEffectiveClientRect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetListBoxInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6802,6 +6881,7 @@ pub unsafe fn GetListBoxInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetMUILanguage() -> u16 {
     #[cfg(windows)]
     {
@@ -6815,6 +6895,7 @@ pub unsafe fn GetMUILanguage() -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetPointerDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6840,6 +6921,7 @@ pub unsafe fn GetPointerDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPointerDeviceCursors<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6868,6 +6950,7 @@ pub unsafe fn GetPointerDeviceCursors<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPointerDeviceProperties<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6896,6 +6979,7 @@ pub unsafe fn GetPointerDeviceProperties<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPointerDeviceRects<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6924,6 +7008,7 @@ pub unsafe fn GetPointerDeviceRects<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetPointerDevices(
     devicecount: *mut u32,
     pointerdevices: *mut POINTER_DEVICE_INFO,
@@ -6946,6 +7031,7 @@ pub unsafe fn GetPointerDevices(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRawPointerDeviceData(
     pointerid: u32,
     historycount: u32,
@@ -6977,6 +7063,7 @@ pub unsafe fn GetRawPointerDeviceData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetScrollBarInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7005,6 +7092,7 @@ pub unsafe fn GetScrollBarInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetScrollInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7033,6 +7121,7 @@ pub unsafe fn GetScrollInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetScrollPos<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7056,6 +7145,7 @@ pub unsafe fn GetScrollPos<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetScrollRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7160,6 +7250,7 @@ pub unsafe fn GetThemeAnimationTransform(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeAppProperties() -> u32 {
     #[cfg(windows)]
     {
@@ -7884,6 +7975,7 @@ pub unsafe fn GetThemeString(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -7899,6 +7991,7 @@ pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32 {
     #[cfg(windows)]
     {
@@ -7915,6 +8008,7 @@ pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetThemeSysColorBrush(
     htheme: isize,
     icolorid: THEME_PROPERTY_SYMBOL_ID,
@@ -7985,6 +8079,7 @@ pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -8179,6 +8274,7 @@ pub unsafe fn GetThemeTransitionDuration(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetWindowFeedbackSetting<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8213,6 +8309,7 @@ pub unsafe fn GetWindowFeedbackSetting<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetWindowTheme<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -30480,6 +30577,7 @@ pub const ImageList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
     [128, 72, 178, 70, 25, 221, 192, 88],
 );
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ImageList_Add<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -30510,6 +30608,7 @@ pub unsafe fn ImageList_Add<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ImageList_AddMasked<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -30539,6 +30638,7 @@ pub unsafe fn ImageList_AddMasked<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_BeginDrag<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himltrack: Param0,
     itrack: i32,
@@ -30598,6 +30698,7 @@ pub unsafe fn ImageList_CoCreateInstance<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_Copy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -30632,6 +30733,7 @@ pub unsafe fn ImageList_Copy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_Create(
     cx: i32,
     cy: i32,
@@ -30663,6 +30765,7 @@ pub unsafe fn ImageList_Create(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_Destroy<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -30678,6 +30781,7 @@ pub unsafe fn ImageList_Destroy<'a, Param0: ::windows::runtime::IntoParam<'a, HI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_DragEnter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -30706,6 +30810,7 @@ pub unsafe fn ImageList_DragEnter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_DragLeave<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -30726,6 +30831,7 @@ pub unsafe fn ImageList_DragLeave<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -30742,6 +30848,7 @@ pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_DragShowNolock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -30762,6 +30869,7 @@ pub unsafe fn ImageList_DragShowNolock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ImageList_Draw<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -30800,6 +30908,7 @@ pub unsafe fn ImageList_Draw<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ImageList_DrawEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -30850,6 +30959,7 @@ pub unsafe fn ImageList_DrawEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ImageList_DrawIndirect(
     pimldp: *const IMAGELISTDRAWPARAMS,
 ) -> super::super::Foundation::BOOL {
@@ -30866,6 +30976,7 @@ pub unsafe fn ImageList_DrawIndirect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_Duplicate<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
 ) -> HIMAGELIST {
@@ -30880,6 +30991,7 @@ pub unsafe fn ImageList_Duplicate<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_EndDrag() {
     #[cfg(windows)]
     {
@@ -30892,6 +31004,7 @@ pub unsafe fn ImageList_EndDrag() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_GetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
 ) -> u32 {
@@ -30907,6 +31020,7 @@ pub unsafe fn ImageList_GetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_GetDragImage(
     ppt: *mut super::super::Foundation::POINT,
     ppthotspot: *mut super::super::Foundation::POINT,
@@ -30929,6 +31043,7 @@ pub unsafe fn ImageList_GetDragImage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn ImageList_GetIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
     i: i32,
@@ -30954,6 +31069,7 @@ pub unsafe fn ImageList_GetIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_GetIconSize<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
     cx: *mut i32,
@@ -30978,6 +31094,7 @@ pub unsafe fn ImageList_GetIconSize<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_GetImageCount<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
 ) -> i32 {
@@ -30993,6 +31110,7 @@ pub unsafe fn ImageList_GetImageCount<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ImageList_GetImageInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
     i: i32,
@@ -31018,6 +31136,7 @@ pub unsafe fn ImageList_GetImageInfo<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_LoadImageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -31059,6 +31178,7 @@ pub unsafe fn ImageList_LoadImageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_LoadImageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -31099,6 +31219,7 @@ pub unsafe fn ImageList_LoadImageW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_Merge<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -31137,6 +31258,7 @@ pub unsafe fn ImageList_Merge<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[inline]
 pub unsafe fn ImageList_Read<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
@@ -31187,6 +31309,7 @@ pub unsafe fn ImageList_ReadEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_Remove<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
     i: i32,
@@ -31206,6 +31329,7 @@ pub unsafe fn ImageList_Remove<'a, Param0: ::windows::runtime::IntoParam<'a, HIM
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ImageList_Replace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -31239,6 +31363,7 @@ pub unsafe fn ImageList_Replace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn ImageList_ReplaceIcon<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -31267,6 +31392,7 @@ pub unsafe fn ImageList_ReplaceIcon<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ImageList_SetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
     clrbk: u32,
@@ -31286,6 +31412,7 @@ pub unsafe fn ImageList_SetBkColor<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_SetDragCursorImage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -31317,6 +31444,7 @@ pub unsafe fn ImageList_SetDragCursorImage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_SetIconSize<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
     cx: i32,
@@ -31342,6 +31470,7 @@ pub unsafe fn ImageList_SetIconSize<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_SetImageCount<'a, Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>>(
     himl: Param0,
     unewcount: u32,
@@ -31364,6 +31493,7 @@ pub unsafe fn ImageList_SetImageCount<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImageList_SetOverlayImage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -31395,6 +31525,7 @@ pub unsafe fn ImageList_SetOverlayImage<
     feature = "Win32_Foundation",
     feature = "Win32_Storage_StructuredStorage"
 ))]
+#[inline]
 pub unsafe fn ImageList_Write<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIMAGELIST>,
@@ -31450,6 +31581,7 @@ pub unsafe fn ImageList_WriteEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn InitCommonControls() {
     #[cfg(windows)]
     {
@@ -31463,6 +31595,7 @@ pub unsafe fn InitCommonControls() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitCommonControlsEx(
     picce: *const INITCOMMONCONTROLSEX,
 ) -> super::super::Foundation::BOOL {
@@ -31479,6 +31612,7 @@ pub unsafe fn InitCommonControlsEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn InitMUILanguage(uilang: u16) {
     #[cfg(windows)]
     {
@@ -31492,6 +31626,7 @@ pub unsafe fn InitMUILanguage(uilang: u16) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitializeFlatSB<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -31512,6 +31647,7 @@ pub unsafe fn InitializeFlatSB<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitializeTouchInjection(
     maxcount: u32,
     dwmode: TOUCH_FEEDBACK_MODE,
@@ -31538,6 +31674,7 @@ pub unsafe fn InitializeTouchInjection(
     feature = "Win32_UI_PointerInput",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn InjectSyntheticPointerInput<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSYNTHETICPOINTERDEVICE>,
@@ -31570,6 +31707,7 @@ pub unsafe fn InjectSyntheticPointerInput<
     feature = "Win32_UI_PointerInput",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn InjectTouchInput(
     count: u32,
     contacts: *const super::PointerInput::POINTER_TOUCH_INFO,
@@ -31592,6 +31730,7 @@ pub unsafe fn InjectTouchInput(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -31605,6 +31744,7 @@ pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -31618,6 +31758,7 @@ pub unsafe fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -31631,6 +31772,7 @@ pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsDlgButtonChecked<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -31653,6 +31795,7 @@ pub unsafe fn IsDlgButtonChecked<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -31666,6 +31809,7 @@ pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsThemeBackgroundPartiallyTransparent(
     htheme: isize,
     ipartid: i32,
@@ -31691,6 +31835,7 @@ pub unsafe fn IsThemeBackgroundPartiallyTransparent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsThemeDialogTextureEnabled<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -31711,6 +31856,7 @@ pub unsafe fn IsThemeDialogTextureEnabled<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsThemePartDefined(
     htheme: isize,
     ipartid: i32,
@@ -31762,6 +31908,7 @@ unsafe impl ::windows::runtime::Abi for KHYPH {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LBItemFromPt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -34435,6 +34582,7 @@ pub const MSGF_COMMCTRL_SIZEHEADER: u32 = 16897u32;
 pub const MSGF_COMMCTRL_TOOLBARCUST: u32 = 16899u32;
 pub const MULTIFILEOPENORD: u32 = 1537u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MakeDragList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -34453,6 +34601,7 @@ pub unsafe fn MakeDragList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn MenuHelp<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>,
@@ -39284,6 +39433,7 @@ impl ::std::ops::Not for OPEN_THEME_DATA_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenThemeData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39310,6 +39460,7 @@ pub unsafe fn OpenThemeData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenThemeDataEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -42311,6 +42462,7 @@ unsafe impl ::windows::runtime::Abi for PUNCTUATION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PackTouchHitTestingProximityEvaluation(
     phittestinginput: *const TOUCH_HIT_TESTING_INPUT,
     pproximityeval: *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION,
@@ -42337,6 +42489,7 @@ pub unsafe fn PackTouchHitTestingProximityEvaluation(
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
     #[cfg(windows)]
     {
@@ -42354,6 +42507,7 @@ pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
     #[cfg(windows)]
     {
@@ -43118,6 +43272,7 @@ pub const RTO_READINGMODE: u32 = 3u32;
 pub const RTO_SHOWHANDLES: u32 = 1u32;
 pub const RUNDLGORD: u32 = 1545u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterPointerDeviceNotifications<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43144,6 +43299,7 @@ pub unsafe fn RegisterPointerDeviceNotifications<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterTouchHitTestingWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43660,6 +43816,7 @@ pub const ST_UNICODE: u32 = 8u32;
 pub const S_MSG_KEY_IGNORED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(262657i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ScrollDC<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -43701,6 +43858,7 @@ pub unsafe fn ScrollDC<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScrollWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43739,6 +43897,7 @@ pub unsafe fn ScrollWindow<
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn ScrollWindowEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43783,6 +43942,7 @@ pub unsafe fn ScrollWindowEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetScrollInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43815,6 +43975,7 @@ pub unsafe fn SetScrollInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetScrollPos<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43847,6 +44008,7 @@ pub unsafe fn SetScrollPos<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetScrollRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43881,6 +44043,7 @@ pub unsafe fn SetScrollRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetThemeAppProperties(dwflags: u32) {
     #[cfg(windows)]
     {
@@ -43894,6 +44057,7 @@ pub unsafe fn SetThemeAppProperties(dwflags: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetWindowFeedbackSetting<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43991,6 +44155,7 @@ pub unsafe fn SetWindowThemeAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ShowHideMenuCtl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -44019,6 +44184,7 @@ pub unsafe fn ShowHideMenuCtl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ShowScrollBar<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -44048,6 +44214,7 @@ pub unsafe fn ShowScrollBar<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Str_SetPtrW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -48286,6 +48453,7 @@ pub unsafe fn UninitializeFlatSB<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdatePanningFeedback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

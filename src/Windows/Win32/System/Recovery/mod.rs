@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplicationRecoveryFinished<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,

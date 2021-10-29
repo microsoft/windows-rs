@@ -112,6 +112,7 @@ pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
 pub const MW_FILTERMODE_EXCLUDE: u32 = 0u32;
 pub const MW_FILTERMODE_INCLUDE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagGetColorEffect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -137,6 +138,7 @@ pub unsafe fn MagGetColorEffect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagGetFullscreenColorEffect(
     peffect: *mut MAGCOLOREFFECT,
 ) -> super::super::Foundation::BOOL {
@@ -154,6 +156,7 @@ pub unsafe fn MagGetFullscreenColorEffect(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagGetFullscreenTransform(
     pmaglevel: *mut f32,
     pxoffset: *mut i32,
@@ -179,6 +182,7 @@ pub unsafe fn MagGetFullscreenTransform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn MagGetImageScalingCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -199,6 +203,7 @@ pub unsafe fn MagGetImageScalingCallback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagGetInputTransform(
     pfenabled: *mut super::super::Foundation::BOOL,
     prectsource: *mut super::super::Foundation::RECT,
@@ -224,6 +229,7 @@ pub unsafe fn MagGetInputTransform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagGetWindowFilterList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -255,6 +261,7 @@ pub unsafe fn MagGetWindowFilterList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagGetWindowSource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -280,6 +287,7 @@ pub unsafe fn MagGetWindowSource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagGetWindowTransform<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -316,6 +324,7 @@ pub type MagImageScalingCallback = unsafe extern "system" fn(
     dirty: super::super::Graphics::Gdi::HRGN,
 ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -329,6 +338,7 @@ pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagSetColorEffect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -354,6 +364,7 @@ pub unsafe fn MagSetColorEffect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagSetFullscreenColorEffect(
     peffect: *const MAGCOLOREFFECT,
 ) -> super::super::Foundation::BOOL {
@@ -371,6 +382,7 @@ pub unsafe fn MagSetFullscreenColorEffect(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagSetFullscreenTransform(
     maglevel: f32,
     xoffset: i32,
@@ -396,6 +408,7 @@ pub unsafe fn MagSetFullscreenTransform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn MagSetImageScalingCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -421,6 +434,7 @@ pub unsafe fn MagSetImageScalingCallback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagSetInputTransform<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -449,6 +463,7 @@ pub unsafe fn MagSetInputTransform<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagSetWindowFilterList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -480,6 +495,7 @@ pub unsafe fn MagSetWindowFilterList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagSetWindowSource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -506,6 +522,7 @@ pub unsafe fn MagSetWindowSource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagSetWindowTransform<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -531,6 +548,7 @@ pub unsafe fn MagSetWindowTransform<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagShowSystemCursor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -551,6 +569,7 @@ pub unsafe fn MagShowSystemCursor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {

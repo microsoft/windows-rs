@@ -1273,6 +1273,7 @@ pub const CS_E_PACKAGE_NOTFOUND: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2147221148i32 as _);
 pub const CS_E_SCHEMA_MISMATCH: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2147221138i32 as _);
+#[inline]
 pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(
     hobject: Param0,
 ) -> BOOL {
@@ -1287,6 +1288,7 @@ pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CompareObjectHandles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HANDLE>,
@@ -1674,6 +1676,7 @@ pub const DXGI_STATUS_PRESENT_REQUIRED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(142213167i32 as _);
 pub const DXGI_STATUS_UNOCCLUDED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(142213129i32 as _);
+#[inline]
 pub unsafe fn DuplicateHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HANDLE>,
@@ -3446,6 +3449,7 @@ pub const GCN_E_REQUEST_UNSUPPORTED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2143616989i32 as _);
 pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2143616988i32 as _);
+#[inline]
 pub unsafe fn GetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(
     hobject: Param0,
     lpdwflags: *mut u32,
@@ -3464,6 +3468,7 @@ pub unsafe fn GetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
     #[cfg(windows)]
     {
@@ -5654,6 +5659,7 @@ pub const RPC_X_WRONG_ES_VERSION: i32 = 1828i32;
 pub const RPC_X_WRONG_PIPE_ORDER: i32 = 1831i32;
 pub const RPC_X_WRONG_PIPE_VERSION: i32 = 1832i32;
 pub const RPC_X_WRONG_STUB_VERSION: i32 = 1829i32;
+#[inline]
 pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::windows::runtime::IntoParam<'a, NTSTATUS>>(
     status: Param0,
 ) -> u32 {
@@ -9441,6 +9447,7 @@ pub const S_FALSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1i3
 pub const S_OK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(0i32 as _);
 pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(2556504i32 as _);
+#[inline]
 pub unsafe fn SetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(
     hobject: Param0,
     dwmask: u32,
@@ -9461,6 +9468,7 @@ pub unsafe fn SetHandleInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     #[cfg(windows)]
     {
@@ -9473,6 +9481,7 @@ pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     #[cfg(windows)]
     {
@@ -9504,6 +9513,7 @@ pub unsafe fn SysAddRefString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysAllocString<'a, Param0: ::windows::runtime::IntoParam<'a, PWSTR>>(
     psz: Param0,
 ) -> BSTR {
@@ -9518,6 +9528,7 @@ pub unsafe fn SysAllocString<'a, Param0: ::windows::runtime::IntoParam<'a, PWSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a, PSTR>>(
     psz: Param0,
     len: u32,
@@ -9536,6 +9547,7 @@ pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, PWSTR>>(
     strin: Param0,
     ui: u32,
@@ -9554,6 +9566,7 @@ pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, PW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysFreeString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
     bstrstring: Param0,
 ) {
@@ -9568,6 +9581,7 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysReAllocString<'a, Param1: ::windows::runtime::IntoParam<'a, PWSTR>>(
     pbstr: *mut BSTR,
     psz: Param1,
@@ -9586,6 +9600,7 @@ pub unsafe fn SysReAllocString<'a, Param1: ::windows::runtime::IntoParam<'a, PWS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::runtime::IntoParam<'a, PWSTR>>(
     pbstr: *mut BSTR,
     psz: Param1,
@@ -9610,6 +9625,7 @@ pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysReleaseString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
     bstrstring: Param0,
 ) {
@@ -9624,6 +9640,7 @@ pub unsafe fn SysReleaseString<'a, Param0: ::windows::runtime::IntoParam<'a, BST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
     bstr: Param0,
 ) -> u32 {
@@ -9638,6 +9655,7 @@ pub unsafe fn SysStringByteLen<'a, Param0: ::windows::runtime::IntoParam<'a, BST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
     pbstr: Param0,
 ) -> u32 {

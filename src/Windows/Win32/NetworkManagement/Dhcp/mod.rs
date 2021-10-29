@@ -6420,6 +6420,7 @@ unsafe impl ::windows::runtime::Abi for DWORD_DWORD {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAddFilterV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6449,6 +6450,7 @@ pub unsafe fn DhcpAddFilterV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAddSecurityGroup<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6467,6 +6469,7 @@ pub unsafe fn DhcpAddSecurityGroup<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAddServer(
     flags: u32,
     idinfo: *mut ::std::ffi::c_void,
@@ -6498,6 +6501,7 @@ pub unsafe fn DhcpAddServer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAddSubnetElement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6526,6 +6530,7 @@ pub unsafe fn DhcpAddSubnetElement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAddSubnetElementV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6554,6 +6559,7 @@ pub unsafe fn DhcpAddSubnetElementV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAddSubnetElementV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6582,6 +6588,7 @@ pub unsafe fn DhcpAddSubnetElementV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAddSubnetElementV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6611,6 +6618,7 @@ pub unsafe fn DhcpAddSubnetElementV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAuditLogGetParams<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6648,6 +6656,7 @@ pub unsafe fn DhcpAuditLogGetParams<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpAuditLogSetParams<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6685,6 +6694,7 @@ pub unsafe fn DhcpAuditLogSetParams<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpCApiCleanup() {
     #[cfg(windows)]
     {
@@ -6697,6 +6707,7 @@ pub unsafe fn DhcpCApiCleanup() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpCApiInitialize(version: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -6710,6 +6721,7 @@ pub unsafe fn DhcpCApiInitialize(version: *mut u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateClass<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6738,6 +6750,7 @@ pub unsafe fn DhcpCreateClass<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateClassV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6766,6 +6779,7 @@ pub unsafe fn DhcpCreateClassV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6791,6 +6805,7 @@ pub unsafe fn DhcpCreateClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateClientInfoV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6816,6 +6831,7 @@ pub unsafe fn DhcpCreateClientInfoV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateClientInfoVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6841,6 +6857,7 @@ pub unsafe fn DhcpCreateClientInfoVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateOption<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6869,6 +6886,7 @@ pub unsafe fn DhcpCreateOption<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateOptionV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6908,6 +6926,7 @@ pub unsafe fn DhcpCreateOptionV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateOptionV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6947,6 +6966,7 @@ pub unsafe fn DhcpCreateOptionV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateSubnet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6975,6 +6995,7 @@ pub unsafe fn DhcpCreateSubnet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateSubnetV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7004,6 +7025,7 @@ pub unsafe fn DhcpCreateSubnetV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpCreateSubnetVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7031,6 +7053,7 @@ pub unsafe fn DhcpCreateSubnetVQ<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpDeRegisterParamChange(
     flags: u32,
     reserved: *mut ::std::ffi::c_void,
@@ -7056,6 +7079,7 @@ pub unsafe fn DhcpDeRegisterParamChange(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteClass<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7085,6 +7109,7 @@ pub unsafe fn DhcpDeleteClass<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteClassV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7114,6 +7139,7 @@ pub unsafe fn DhcpDeleteClassV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7139,6 +7165,7 @@ pub unsafe fn DhcpDeleteClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteClientInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7164,6 +7191,7 @@ pub unsafe fn DhcpDeleteClientInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteFilterV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7189,6 +7217,7 @@ pub unsafe fn DhcpDeleteFilterV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteServer(
     flags: u32,
     idinfo: *mut ::std::ffi::c_void,
@@ -7220,6 +7249,7 @@ pub unsafe fn DhcpDeleteServer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteSubnet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7248,6 +7278,7 @@ pub unsafe fn DhcpDeleteSubnet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteSubnetV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7277,6 +7308,7 @@ pub unsafe fn DhcpDeleteSubnetV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpDeleteSuperScopeV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7302,6 +7334,7 @@ pub unsafe fn DhcpDeleteSuperScopeV4<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpDsCleanup() {
     #[cfg(windows)]
     {
@@ -7314,6 +7347,7 @@ pub unsafe fn DhcpDsCleanup() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpDsInit() -> u32 {
     #[cfg(windows)]
     {
@@ -7327,6 +7361,7 @@ pub unsafe fn DhcpDsInit() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumClasses<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7367,6 +7402,7 @@ pub unsafe fn DhcpEnumClasses<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumClassesV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7407,6 +7443,7 @@ pub unsafe fn DhcpEnumClassesV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumFilterV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7447,6 +7484,7 @@ pub unsafe fn DhcpEnumFilterV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumOptionValues<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7487,6 +7525,7 @@ pub unsafe fn DhcpEnumOptionValues<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumOptionValuesV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7538,6 +7577,7 @@ pub unsafe fn DhcpEnumOptionValuesV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumOptionValuesV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7589,6 +7629,7 @@ pub unsafe fn DhcpEnumOptionValuesV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumOptions<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7626,6 +7667,7 @@ pub unsafe fn DhcpEnumOptions<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumOptionsV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7674,6 +7716,7 @@ pub unsafe fn DhcpEnumOptionsV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumOptionsV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7722,6 +7765,7 @@ pub unsafe fn DhcpEnumOptionsV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumServers(
     flags: u32,
     idinfo: *mut ::std::ffi::c_void,
@@ -7753,6 +7797,7 @@ pub unsafe fn DhcpEnumServers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetClients<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7793,6 +7838,7 @@ pub unsafe fn DhcpEnumSubnetClients<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7833,6 +7879,7 @@ pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetClientsV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7873,6 +7920,7 @@ pub unsafe fn DhcpEnumSubnetClientsV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetClientsV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7913,6 +7961,7 @@ pub unsafe fn DhcpEnumSubnetClientsV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetClientsV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7954,6 +8003,7 @@ pub unsafe fn DhcpEnumSubnetClientsV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetClientsVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7994,6 +8044,7 @@ pub unsafe fn DhcpEnumSubnetClientsVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetElements<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8037,6 +8088,7 @@ pub unsafe fn DhcpEnumSubnetElements<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetElementsV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8080,6 +8132,7 @@ pub unsafe fn DhcpEnumSubnetElementsV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetElementsV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8123,6 +8176,7 @@ pub unsafe fn DhcpEnumSubnetElementsV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetElementsV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8167,6 +8221,7 @@ pub unsafe fn DhcpEnumSubnetElementsV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnets<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8204,6 +8259,7 @@ pub unsafe fn DhcpEnumSubnets<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpEnumSubnetsV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8241,6 +8297,7 @@ pub unsafe fn DhcpEnumSubnetsV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetAllOptionValues<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8272,6 +8329,7 @@ pub unsafe fn DhcpGetAllOptionValues<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetAllOptionValuesV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8303,6 +8361,7 @@ pub unsafe fn DhcpGetAllOptionValuesV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetAllOptions<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8331,6 +8390,7 @@ pub unsafe fn DhcpGetAllOptions<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetAllOptionsV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8359,6 +8419,7 @@ pub unsafe fn DhcpGetAllOptionsV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetClassInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8390,6 +8451,7 @@ pub unsafe fn DhcpGetClassInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8418,6 +8480,7 @@ pub unsafe fn DhcpGetClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetClientInfoV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8446,6 +8509,7 @@ pub unsafe fn DhcpGetClientInfoV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetClientInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8474,6 +8538,7 @@ pub unsafe fn DhcpGetClientInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetClientInfoVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8502,6 +8567,7 @@ pub unsafe fn DhcpGetClientInfoVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetClientOptions<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8533,6 +8599,7 @@ pub unsafe fn DhcpGetClientOptions<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetFilterV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8558,6 +8625,7 @@ pub unsafe fn DhcpGetFilterV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetMibInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8583,6 +8651,7 @@ pub unsafe fn DhcpGetMibInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetMibInfoV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8608,6 +8677,7 @@ pub unsafe fn DhcpGetMibInfoV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetMibInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8633,6 +8703,7 @@ pub unsafe fn DhcpGetMibInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetOptionInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8661,6 +8732,7 @@ pub unsafe fn DhcpGetOptionInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetOptionInfoV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8700,6 +8772,7 @@ pub unsafe fn DhcpGetOptionInfoV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetOptionInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8739,6 +8812,7 @@ pub unsafe fn DhcpGetOptionInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetOptionValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8770,6 +8844,7 @@ pub unsafe fn DhcpGetOptionValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetOptionValueV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8812,6 +8887,7 @@ pub unsafe fn DhcpGetOptionValueV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetOptionValueV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8854,6 +8930,7 @@ pub unsafe fn DhcpGetOptionValueV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetOriginalSubnetMask<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8879,6 +8956,7 @@ pub unsafe fn DhcpGetOriginalSubnetMask<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetServerBindingInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8907,6 +8985,7 @@ pub unsafe fn DhcpGetServerBindingInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetServerBindingInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8935,6 +9014,7 @@ pub unsafe fn DhcpGetServerBindingInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetServerSpecificStrings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8960,6 +9040,7 @@ pub unsafe fn DhcpGetServerSpecificStrings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetSubnetDelayOffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8988,6 +9069,7 @@ pub unsafe fn DhcpGetSubnetDelayOffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetSubnetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9016,6 +9098,7 @@ pub unsafe fn DhcpGetSubnetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetSubnetInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9045,6 +9128,7 @@ pub unsafe fn DhcpGetSubnetInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetSubnetInfoVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9073,6 +9157,7 @@ pub unsafe fn DhcpGetSubnetInfoVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetSuperScopeInfoV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9097,6 +9182,7 @@ pub unsafe fn DhcpGetSuperScopeInfoV4<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -9113,6 +9199,7 @@ pub unsafe fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::std::ffi::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpGetVersion<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9141,6 +9228,7 @@ pub unsafe fn DhcpGetVersion<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprAddV4PolicyCondition<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9190,6 +9278,7 @@ pub unsafe fn DhcpHlprAddV4PolicyCondition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprAddV4PolicyExpr(
     policy: *mut DHCP_POLICY,
     parentexpr: u32,
@@ -9218,6 +9307,7 @@ pub unsafe fn DhcpHlprAddV4PolicyExpr(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprAddV4PolicyRange(
     policy: *mut DHCP_POLICY,
     range: *const DHCP_IP_RANGE,
@@ -9240,6 +9330,7 @@ pub unsafe fn DhcpHlprAddV4PolicyRange(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprCreateV4Policy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9286,6 +9377,7 @@ pub unsafe fn DhcpHlprCreateV4Policy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprCreateV4PolicyEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9332,6 +9424,7 @@ pub unsafe fn DhcpHlprCreateV4PolicyEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprFindV4DhcpProperty(
     propertyarray: *const DHCP_PROPERTY_ARRAY,
     id: DHCP_PROPERTY_ID,
@@ -9357,6 +9450,7 @@ pub unsafe fn DhcpHlprFindV4DhcpProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
     #[cfg(windows)]
     {
@@ -9370,6 +9464,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY) {
     #[cfg(windows)]
     {
@@ -9385,6 +9480,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
     #[cfg(windows)]
     {
@@ -9398,6 +9494,7 @@ pub unsafe fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
     #[cfg(windows)]
     {
@@ -9413,6 +9510,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
     #[cfg(windows)]
     {
@@ -9426,6 +9524,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY) {
     #[cfg(windows)]
     {
@@ -9441,6 +9540,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprIsV4PolicySingleUC(
     policy: *const DHCP_POLICY,
 ) -> super::super::Foundation::BOOL {
@@ -9458,6 +9558,7 @@ pub unsafe fn DhcpHlprIsV4PolicySingleUC(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
@@ -9471,6 +9572,7 @@ pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprIsV4PolicyWellFormed(
     ppolicy: *const DHCP_POLICY,
 ) -> super::super::Foundation::BOOL {
@@ -9488,6 +9590,7 @@ pub unsafe fn DhcpHlprIsV4PolicyWellFormed(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprModifyV4PolicyExpr(
     policy: *mut DHCP_POLICY,
     operator: DHCP_POL_LOGIC_OPER,
@@ -9510,6 +9613,7 @@ pub unsafe fn DhcpHlprModifyV4PolicyExpr(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
@@ -9523,6 +9627,7 @@ pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpModifyClass<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9551,6 +9656,7 @@ pub unsafe fn DhcpModifyClass<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpModifyClassV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9579,6 +9685,7 @@ pub unsafe fn DhcpModifyClassV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRegisterParamChange<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9616,6 +9723,7 @@ pub unsafe fn DhcpRegisterParamChange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
     #[cfg(windows)]
     {
@@ -9629,6 +9737,7 @@ pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveOption<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9654,6 +9763,7 @@ pub unsafe fn DhcpRemoveOption<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveOptionV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9690,6 +9800,7 @@ pub unsafe fn DhcpRemoveOptionV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveOptionV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9726,6 +9837,7 @@ pub unsafe fn DhcpRemoveOptionV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveOptionValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9754,6 +9866,7 @@ pub unsafe fn DhcpRemoveOptionValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveOptionValueV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9793,6 +9906,7 @@ pub unsafe fn DhcpRemoveOptionValueV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveOptionValueV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9832,6 +9946,7 @@ pub unsafe fn DhcpRemoveOptionValueV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveSubnetElement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9863,6 +9978,7 @@ pub unsafe fn DhcpRemoveSubnetElement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveSubnetElementV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9894,6 +10010,7 @@ pub unsafe fn DhcpRemoveSubnetElementV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveSubnetElementV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9925,6 +10042,7 @@ pub unsafe fn DhcpRemoveSubnetElementV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRemoveSubnetElementV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9957,6 +10075,7 @@ pub unsafe fn DhcpRemoveSubnetElementV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpRequestParams<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10005,6 +10124,7 @@ pub unsafe fn DhcpRequestParams<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -10018,6 +10138,7 @@ pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpScanDatabase<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10049,6 +10170,7 @@ pub unsafe fn DhcpScanDatabase<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) {
     #[cfg(windows)]
     {
@@ -10064,6 +10186,7 @@ pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerBackupDatabase<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10090,6 +10213,7 @@ pub unsafe fn DhcpServerBackupDatabase<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerGetConfig<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10115,6 +10239,7 @@ pub unsafe fn DhcpServerGetConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerGetConfigV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10140,6 +10265,7 @@ pub unsafe fn DhcpServerGetConfigV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerGetConfigV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10168,6 +10294,7 @@ pub unsafe fn DhcpServerGetConfigV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerGetConfigVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10193,6 +10320,7 @@ pub unsafe fn DhcpServerGetConfigVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerQueryAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10224,6 +10352,7 @@ pub unsafe fn DhcpServerQueryAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerQueryAttributes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10258,6 +10387,7 @@ pub unsafe fn DhcpServerQueryAttributes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerQueryDnsRegCredentials<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10292,6 +10422,7 @@ pub unsafe fn DhcpServerQueryDnsRegCredentials<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerRedoAuthorization<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10317,6 +10448,7 @@ pub unsafe fn DhcpServerRedoAuthorization<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerRestoreDatabase<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10343,6 +10475,7 @@ pub unsafe fn DhcpServerRestoreDatabase<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerSetConfig<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10371,6 +10504,7 @@ pub unsafe fn DhcpServerSetConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerSetConfigV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10399,6 +10533,7 @@ pub unsafe fn DhcpServerSetConfigV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerSetConfigV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10430,6 +10565,7 @@ pub unsafe fn DhcpServerSetConfigV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerSetConfigVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10458,6 +10594,7 @@ pub unsafe fn DhcpServerSetConfigVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerSetDnsRegCredentials<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10492,6 +10629,7 @@ pub unsafe fn DhcpServerSetDnsRegCredentials<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpServerSetDnsRegCredentialsV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10526,6 +10664,7 @@ pub unsafe fn DhcpServerSetDnsRegCredentialsV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10551,6 +10690,7 @@ pub unsafe fn DhcpSetClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetClientInfoV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10576,6 +10716,7 @@ pub unsafe fn DhcpSetClientInfoV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetClientInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10601,6 +10742,7 @@ pub unsafe fn DhcpSetClientInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetClientInfoVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10626,6 +10768,7 @@ pub unsafe fn DhcpSetClientInfoVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetFilterV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10651,6 +10794,7 @@ pub unsafe fn DhcpSetFilterV4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10679,6 +10823,7 @@ pub unsafe fn DhcpSetOptionInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionInfoV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10718,6 +10863,7 @@ pub unsafe fn DhcpSetOptionInfoV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10757,6 +10903,7 @@ pub unsafe fn DhcpSetOptionInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10788,6 +10935,7 @@ pub unsafe fn DhcpSetOptionValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionValueV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10830,6 +10978,7 @@ pub unsafe fn DhcpSetOptionValueV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionValueV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10872,6 +11021,7 @@ pub unsafe fn DhcpSetOptionValueV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionValues<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10900,6 +11050,7 @@ pub unsafe fn DhcpSetOptionValues<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetOptionValuesV5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10939,6 +11090,7 @@ pub unsafe fn DhcpSetOptionValuesV5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetServerBindingInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10967,6 +11119,7 @@ pub unsafe fn DhcpSetServerBindingInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetServerBindingInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10995,6 +11148,7 @@ pub unsafe fn DhcpSetServerBindingInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetSubnetDelayOffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11023,6 +11177,7 @@ pub unsafe fn DhcpSetSubnetDelayOffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetSubnetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11051,6 +11206,7 @@ pub unsafe fn DhcpSetSubnetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetSubnetInfoV6<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11080,6 +11236,7 @@ pub unsafe fn DhcpSetSubnetInfoV6<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetSubnetInfoVQ<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11108,6 +11265,7 @@ pub unsafe fn DhcpSetSubnetInfoVQ<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpSetSuperScopeV4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11140,6 +11298,7 @@ pub unsafe fn DhcpSetSuperScopeV4<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -11156,6 +11315,7 @@ pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpUndoRequestParams<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11188,6 +11348,7 @@ pub unsafe fn DhcpUndoRequestParams<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4AddPolicyRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11220,6 +11381,7 @@ pub unsafe fn DhcpV4AddPolicyRange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4CreateClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11245,6 +11407,7 @@ pub unsafe fn DhcpV4CreateClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4CreateClientInfoEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11270,6 +11433,7 @@ pub unsafe fn DhcpV4CreateClientInfoEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4CreatePolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11295,6 +11459,7 @@ pub unsafe fn DhcpV4CreatePolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4CreatePolicyEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11320,6 +11485,7 @@ pub unsafe fn DhcpV4CreatePolicyEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4DeletePolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11353,6 +11519,7 @@ pub unsafe fn DhcpV4DeletePolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4EnumPolicies<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11397,6 +11564,7 @@ pub unsafe fn DhcpV4EnumPolicies<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4EnumPoliciesEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11441,6 +11609,7 @@ pub unsafe fn DhcpV4EnumPoliciesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4EnumSubnetClients<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11481,6 +11650,7 @@ pub unsafe fn DhcpV4EnumSubnetClients<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4EnumSubnetClientsEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11521,6 +11691,7 @@ pub unsafe fn DhcpV4EnumSubnetClientsEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4EnumSubnetReservations<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11561,6 +11732,7 @@ pub unsafe fn DhcpV4EnumSubnetReservations<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverAddScopeToRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11586,6 +11758,7 @@ pub unsafe fn DhcpV4FailoverAddScopeToRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverCreateRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11611,6 +11784,7 @@ pub unsafe fn DhcpV4FailoverCreateRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverDeleteRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11637,6 +11811,7 @@ pub unsafe fn DhcpV4FailoverDeleteRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11662,6 +11837,7 @@ pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverEnumRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11699,6 +11875,7 @@ pub unsafe fn DhcpV4FailoverEnumRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverGetAddressStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11727,6 +11904,7 @@ pub unsafe fn DhcpV4FailoverGetAddressStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverGetClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11755,6 +11933,7 @@ pub unsafe fn DhcpV4FailoverGetClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverGetRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11784,6 +11963,7 @@ pub unsafe fn DhcpV4FailoverGetRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverGetScopeRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11812,6 +11992,7 @@ pub unsafe fn DhcpV4FailoverGetScopeRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverGetScopeStatistics<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11840,6 +12021,7 @@ pub unsafe fn DhcpV4FailoverGetScopeStatistics<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverGetSystemTime<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11868,6 +12050,7 @@ pub unsafe fn DhcpV4FailoverGetSystemTime<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverSetRelationship<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11896,6 +12079,7 @@ pub unsafe fn DhcpV4FailoverSetRelationship<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11922,6 +12106,7 @@ pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4GetAllOptionValues<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11953,6 +12138,7 @@ pub unsafe fn DhcpV4GetAllOptionValues<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4GetClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11981,6 +12167,7 @@ pub unsafe fn DhcpV4GetClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4GetClientInfoEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12009,6 +12196,7 @@ pub unsafe fn DhcpV4GetClientInfoEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4GetFreeIPAddress<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12046,6 +12234,7 @@ pub unsafe fn DhcpV4GetFreeIPAddress<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4GetOptionValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12088,6 +12277,7 @@ pub unsafe fn DhcpV4GetOptionValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4GetPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12124,6 +12314,7 @@ pub unsafe fn DhcpV4GetPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4GetPolicyEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12160,6 +12351,7 @@ pub unsafe fn DhcpV4GetPolicyEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4QueryPolicyEnforcement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12192,6 +12384,7 @@ pub unsafe fn DhcpV4QueryPolicyEnforcement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4RemoveOptionValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12231,6 +12424,7 @@ pub unsafe fn DhcpV4RemoveOptionValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4RemovePolicyRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12263,6 +12457,7 @@ pub unsafe fn DhcpV4RemovePolicyRange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4SetOptionValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12305,6 +12500,7 @@ pub unsafe fn DhcpV4SetOptionValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4SetOptionValues<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12344,6 +12540,7 @@ pub unsafe fn DhcpV4SetOptionValues<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4SetPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12383,6 +12580,7 @@ pub unsafe fn DhcpV4SetPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4SetPolicyEnforcement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12416,6 +12614,7 @@ pub unsafe fn DhcpV4SetPolicyEnforcement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV4SetPolicyEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12455,6 +12654,7 @@ pub unsafe fn DhcpV4SetPolicyEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV6CreateClientInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12480,6 +12680,7 @@ pub unsafe fn DhcpV6CreateClientInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV6GetFreeIPAddress<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12520,6 +12721,7 @@ pub unsafe fn DhcpV6GetFreeIPAddress<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV6GetStatelessStatistics<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12545,6 +12747,7 @@ pub unsafe fn DhcpV6GetStatelessStatistics<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV6GetStatelessStoreParams<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12578,6 +12781,7 @@ pub unsafe fn DhcpV6GetStatelessStoreParams<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DhcpV6SetStatelessStoreParams<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12613,6 +12817,7 @@ pub unsafe fn DhcpV6SetStatelessStoreParams<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Dhcpv6CApiCleanup() {
     #[cfg(windows)]
     {
@@ -12625,6 +12830,7 @@ pub unsafe fn Dhcpv6CApiCleanup() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
     #[cfg(windows)]
     {
@@ -12638,6 +12844,7 @@ pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Dhcpv6ReleasePrefix<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12666,6 +12873,7 @@ pub unsafe fn Dhcpv6ReleasePrefix<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Dhcpv6RenewPrefix<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12700,6 +12908,7 @@ pub unsafe fn Dhcpv6RenewPrefix<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Dhcpv6RequestParams<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -12742,6 +12951,7 @@ pub unsafe fn Dhcpv6RequestParams<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Dhcpv6RequestPrefix<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

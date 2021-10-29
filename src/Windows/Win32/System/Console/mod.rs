@@ -10,6 +10,7 @@
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddConsoleAliasA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40,6 +41,7 @@ pub unsafe fn AddConsoleAliasA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddConsoleAliasW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -70,6 +72,7 @@ pub unsafe fn AddConsoleAliasW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AllocConsole() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -83,6 +86,7 @@ pub unsafe fn AllocConsole() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -588,6 +592,7 @@ pub const CTRL_CLOSE_EVENT: u32 = 2u32;
 pub const CTRL_C_EVENT: u32 = 0u32;
 pub const CTRL_LOGOFF_EVENT: u32 = 5u32;
 pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
+#[inline]
 pub unsafe fn ClosePseudoConsole<'a, Param0: ::windows::runtime::IntoParam<'a, HPCON>>(
     hpc: Param0,
 ) {
@@ -603,6 +608,7 @@ pub unsafe fn ClosePseudoConsole<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateConsoleScreenBuffer(
     dwdesiredaccess: u32,
     dwsharemode: u32,
@@ -673,6 +679,7 @@ pub unsafe fn CreatePseudoConsole<
 pub const DOUBLE_CLICK: u32 = 2u32;
 pub const ENHANCED_KEY: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExpungeConsoleCommandHistoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -691,6 +698,7 @@ pub unsafe fn ExpungeConsoleCommandHistoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExpungeConsoleCommandHistoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -753,6 +761,7 @@ pub const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4u32;
 pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FillConsoleOutputAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -788,6 +797,7 @@ pub unsafe fn FillConsoleOutputAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FillConsoleOutputCharacterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -824,6 +834,7 @@ pub unsafe fn FillConsoleOutputCharacterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FillConsoleOutputCharacterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -859,6 +870,7 @@ pub unsafe fn FillConsoleOutputCharacterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlushConsoleInputBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -879,6 +891,7 @@ pub unsafe fn FlushConsoleInputBuffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeConsole() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -892,6 +905,7 @@ pub unsafe fn FreeConsole() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GenerateConsoleCtrlEvent(
     dwctrlevent: u32,
     dwprocessgroupid: u32,
@@ -914,6 +928,7 @@ pub unsafe fn GenerateConsoleCtrlEvent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -946,6 +961,7 @@ pub unsafe fn GetConsoleAliasA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasExesA(
     exenamebuffer: super::super::Foundation::PSTR,
     exenamebufferlength: u32,
@@ -967,6 +983,7 @@ pub unsafe fn GetConsoleAliasExesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
     #[cfg(windows)]
     {
@@ -979,6 +996,7 @@ pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
     #[cfg(windows)]
     {
@@ -992,6 +1010,7 @@ pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasExesW(
     exenamebuffer: super::super::Foundation::PWSTR,
     exenamebufferlength: u32,
@@ -1014,6 +1033,7 @@ pub unsafe fn GetConsoleAliasExesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1046,6 +1066,7 @@ pub unsafe fn GetConsoleAliasW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasesA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1074,6 +1095,7 @@ pub unsafe fn GetConsoleAliasesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasesLengthA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1092,6 +1114,7 @@ pub unsafe fn GetConsoleAliasesLengthA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasesLengthW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1110,6 +1133,7 @@ pub unsafe fn GetConsoleAliasesLengthW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleAliasesW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1137,6 +1161,7 @@ pub unsafe fn GetConsoleAliasesW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetConsoleCP() -> u32 {
     #[cfg(windows)]
     {
@@ -1150,6 +1175,7 @@ pub unsafe fn GetConsoleCP() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleCommandHistoryA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1178,6 +1204,7 @@ pub unsafe fn GetConsoleCommandHistoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleCommandHistoryLengthA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1196,6 +1223,7 @@ pub unsafe fn GetConsoleCommandHistoryLengthA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleCommandHistoryLengthW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1214,6 +1242,7 @@ pub unsafe fn GetConsoleCommandHistoryLengthW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleCommandHistoryW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1242,6 +1271,7 @@ pub unsafe fn GetConsoleCommandHistoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleCursorInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1267,6 +1297,7 @@ pub unsafe fn GetConsoleCursorInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1280,6 +1311,7 @@ pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleFontSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1305,6 +1337,7 @@ pub unsafe fn GetConsoleFontSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleHistoryInfo(
     lpconsolehistoryinfo: *mut CONSOLE_HISTORY_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -1324,6 +1357,7 @@ pub unsafe fn GetConsoleHistoryInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1349,6 +1383,7 @@ pub unsafe fn GetConsoleMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleOriginalTitleA(
     lpconsoletitle: super::super::Foundation::PSTR,
     nsize: u32,
@@ -1371,6 +1406,7 @@ pub unsafe fn GetConsoleOriginalTitleA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleOriginalTitleW(
     lpconsoletitle: super::super::Foundation::PWSTR,
     nsize: u32,
@@ -1392,6 +1428,7 @@ pub unsafe fn GetConsoleOriginalTitleW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetConsoleOutputCP() -> u32 {
     #[cfg(windows)]
     {
@@ -1404,6 +1441,7 @@ pub unsafe fn GetConsoleOutputCP() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetConsoleProcessList(lpdwprocesslist: *mut u32, dwprocesscount: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1420,6 +1458,7 @@ pub unsafe fn GetConsoleProcessList(lpdwprocesslist: *mut u32, dwprocesscount: u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleScreenBufferInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1445,6 +1484,7 @@ pub unsafe fn GetConsoleScreenBufferInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleScreenBufferInfoEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1470,6 +1510,7 @@ pub unsafe fn GetConsoleScreenBufferInfoEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleSelectionInfo(
     lpconsoleselectioninfo: *mut CONSOLE_SELECTION_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -1489,6 +1530,7 @@ pub unsafe fn GetConsoleSelectionInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1505,6 +1547,7 @@ pub unsafe fn GetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR, n
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1522,6 +1565,7 @@ pub unsafe fn GetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
@@ -1535,6 +1579,7 @@ pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentConsoleFont<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1564,6 +1609,7 @@ pub unsafe fn GetCurrentConsoleFont<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentConsoleFontEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1593,6 +1639,7 @@ pub unsafe fn GetCurrentConsoleFontEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLargestConsoleWindowSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1615,6 +1662,7 @@ pub unsafe fn GetLargestConsoleWindowSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumberOfConsoleInputEvents<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1640,6 +1688,7 @@ pub unsafe fn GetNumberOfConsoleInputEvents<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumberOfConsoleMouseButtons(
     lpnumberofmousebuttons: *mut u32,
 ) -> super::super::Foundation::BOOL {
@@ -1659,6 +1708,7 @@ pub unsafe fn GetNumberOfConsoleMouseButtons(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -1896,6 +1946,7 @@ pub type PHANDLER_ROUTINE =
     unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL;
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeekConsoleInputA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1927,6 +1978,7 @@ pub unsafe fn PeekConsoleInputA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeekConsoleInputW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1961,6 +2013,7 @@ pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
 pub const RIGHT_ALT_PRESSED: u32 = 1u32;
 pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadConsoleA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1995,6 +2048,7 @@ pub unsafe fn ReadConsoleA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadConsoleInputA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2026,6 +2080,7 @@ pub unsafe fn ReadConsoleInputA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadConsoleInputW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2057,6 +2112,7 @@ pub unsafe fn ReadConsoleInputW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadConsoleOutputA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2093,6 +2149,7 @@ pub unsafe fn ReadConsoleOutputA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadConsoleOutputAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2128,6 +2185,7 @@ pub unsafe fn ReadConsoleOutputAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadConsoleOutputCharacterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2163,6 +2221,7 @@ pub unsafe fn ReadConsoleOutputCharacterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadConsoleOutputCharacterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2198,6 +2257,7 @@ pub unsafe fn ReadConsoleOutputCharacterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadConsoleOutputW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2234,6 +2294,7 @@ pub unsafe fn ReadConsoleOutputW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadConsoleW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2376,6 +2437,7 @@ impl ::std::ops::Not for STD_HANDLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScrollConsoleScreenBufferA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2411,6 +2473,7 @@ pub unsafe fn ScrollConsoleScreenBufferA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ScrollConsoleScreenBufferW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2446,6 +2509,7 @@ pub unsafe fn ScrollConsoleScreenBufferW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleActiveScreenBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2468,6 +2532,7 @@ pub unsafe fn SetConsoleActiveScreenBuffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2481,6 +2546,7 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleCtrlHandler<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2506,6 +2572,7 @@ pub unsafe fn SetConsoleCtrlHandler<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleCursorInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2531,6 +2598,7 @@ pub unsafe fn SetConsoleCursorInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleCursorPosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2557,6 +2625,7 @@ pub unsafe fn SetConsoleCursorPosition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleDisplayMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2585,6 +2654,7 @@ pub unsafe fn SetConsoleDisplayMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleHistoryInfo(
     lpconsolehistoryinfo: *const CONSOLE_HISTORY_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -2604,6 +2674,7 @@ pub unsafe fn SetConsoleHistoryInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2629,6 +2700,7 @@ pub unsafe fn SetConsoleMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleNumberOfCommandsA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2654,6 +2726,7 @@ pub unsafe fn SetConsoleNumberOfCommandsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleNumberOfCommandsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2679,6 +2752,7 @@ pub unsafe fn SetConsoleNumberOfCommandsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2692,6 +2766,7 @@ pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleScreenBufferInfoEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2717,6 +2792,7 @@ pub unsafe fn SetConsoleScreenBufferInfoEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleScreenBufferSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2743,6 +2819,7 @@ pub unsafe fn SetConsoleScreenBufferSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleTextAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2768,6 +2845,7 @@ pub unsafe fn SetConsoleTextAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleTitleA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2788,6 +2866,7 @@ pub unsafe fn SetConsoleTitleA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleTitleW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2808,6 +2887,7 @@ pub unsafe fn SetConsoleTitleW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetConsoleWindowInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2837,6 +2917,7 @@ pub unsafe fn SetConsoleWindowInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetCurrentConsoleFontEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2866,6 +2947,7 @@ pub unsafe fn SetCurrentConsoleFontEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetStdHandle<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2891,6 +2973,7 @@ pub unsafe fn SetStdHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetStdHandleEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2948,6 +3031,7 @@ unsafe impl ::windows::runtime::Abi for WINDOW_BUFFER_SIZE_RECORD {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WriteConsoleA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2982,6 +3066,7 @@ pub unsafe fn WriteConsoleA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteConsoleInputA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3013,6 +3098,7 @@ pub unsafe fn WriteConsoleInputA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteConsoleInputW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3044,6 +3130,7 @@ pub unsafe fn WriteConsoleInputW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteConsoleOutputA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3080,6 +3167,7 @@ pub unsafe fn WriteConsoleOutputA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WriteConsoleOutputAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3115,6 +3203,7 @@ pub unsafe fn WriteConsoleOutputAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WriteConsoleOutputCharacterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3151,6 +3240,7 @@ pub unsafe fn WriteConsoleOutputCharacterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WriteConsoleOutputCharacterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3187,6 +3277,7 @@ pub unsafe fn WriteConsoleOutputCharacterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteConsoleOutputW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3223,6 +3314,7 @@ pub unsafe fn WriteConsoleOutputW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WriteConsoleW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

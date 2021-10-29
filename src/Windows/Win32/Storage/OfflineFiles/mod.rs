@@ -8299,6 +8299,7 @@ pub const OfflineFilesCache: ::windows::runtime::GUID = ::windows::runtime::GUID
     [180, 111, 20, 73, 161, 187, 47, 243],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OfflineFilesEnable<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8324,6 +8325,7 @@ pub unsafe fn OfflineFilesEnable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OfflineFilesQueryStatus(
     pbactive: *mut super::super::Foundation::BOOL,
     pbenabled: *mut super::super::Foundation::BOOL,
@@ -8346,6 +8348,7 @@ pub unsafe fn OfflineFilesQueryStatus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(
     pbactive: *mut super::super::Foundation::BOOL,
     pbenabled: *mut super::super::Foundation::BOOL,
@@ -8376,6 +8379,7 @@ pub const OfflineFilesSetting: ::windows::runtime::GUID = ::windows::runtime::GU
     16675,
     [173, 100, 127, 199, 108, 122, 172, 223],
 );
+#[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {
     #[cfg(windows)]
     {

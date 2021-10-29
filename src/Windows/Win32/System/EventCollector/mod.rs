@@ -363,6 +363,7 @@ pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EC_WRITE_ACCESS: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -376,6 +377,7 @@ pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcDeleteSubscription<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -401,6 +403,7 @@ pub unsafe fn EcDeleteSubscription<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcEnumNextSubscription(
     subscriptionenum: isize,
     subscriptionnamebuffersize: u32,
@@ -429,6 +432,7 @@ pub unsafe fn EcEnumNextSubscription(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcGetObjectArrayProperty(
     objectarray: isize,
     propertyid: EC_SUBSCRIPTION_PROPERTY_ID,
@@ -466,6 +470,7 @@ pub unsafe fn EcGetObjectArrayProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcGetObjectArraySize(
     objectarray: isize,
     objectarraysize: *mut u32,
@@ -488,6 +493,7 @@ pub unsafe fn EcGetObjectArraySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcGetSubscriptionProperty(
     subscription: isize,
     propertyid: EC_SUBSCRIPTION_PROPERTY_ID,
@@ -522,6 +528,7 @@ pub unsafe fn EcGetSubscriptionProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcGetSubscriptionRunTimeStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -563,6 +570,7 @@ pub unsafe fn EcGetSubscriptionRunTimeStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcInsertObjectArrayElement(
     objectarray: isize,
     arrayindex: u32,
@@ -585,6 +593,7 @@ pub unsafe fn EcInsertObjectArrayElement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcOpenSubscription<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -612,6 +621,7 @@ pub unsafe fn EcOpenSubscription<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EcOpenSubscriptionEnum(flags: u32) -> isize {
     #[cfg(windows)]
     {
@@ -625,6 +635,7 @@ pub unsafe fn EcOpenSubscriptionEnum(flags: u32) -> isize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcRemoveObjectArrayElement(
     objectarray: isize,
     arrayindex: u32,
@@ -647,6 +658,7 @@ pub unsafe fn EcRemoveObjectArrayElement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcRetrySubscription<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -676,6 +688,7 @@ pub unsafe fn EcRetrySubscription<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcSaveSubscription(
     subscription: isize,
     flags: u32,
@@ -698,6 +711,7 @@ pub unsafe fn EcSaveSubscription(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcSetObjectArrayProperty(
     objectarray: isize,
     propertyid: EC_SUBSCRIPTION_PROPERTY_ID,
@@ -729,6 +743,7 @@ pub unsafe fn EcSetObjectArrayProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EcSetSubscriptionProperty(
     subscription: isize,
     propertyid: EC_SUBSCRIPTION_PROPERTY_ID,

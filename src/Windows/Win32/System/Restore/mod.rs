@@ -185,6 +185,7 @@ impl ::std::ops::Not for RESTOREPOINTINFO_TYPE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SRSetRestorePointA(
     prestoreptspec: *const RESTOREPOINTINFOA,
     psmgrstatus: *mut STATEMGRSTATUS,
@@ -207,6 +208,7 @@ pub unsafe fn SRSetRestorePointA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SRSetRestorePointW(
     prestoreptspec: *const RESTOREPOINTINFOW,
     psmgrstatus: *mut STATEMGRSTATUS,

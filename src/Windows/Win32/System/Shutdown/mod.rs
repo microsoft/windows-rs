@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AbortSystemShutdownA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -28,6 +29,7 @@ pub unsafe fn AbortSystemShutdownA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AbortSystemShutdownW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -48,6 +50,7 @@ pub unsafe fn AbortSystemShutdownW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckForHiberboot<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -126,6 +129,7 @@ impl ::std::ops::Not for EXIT_WINDOWS_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExitWindowsEx(
     uflags: EXIT_WINDOWS_FLAGS,
     dwreason: u32,
@@ -148,6 +152,7 @@ pub unsafe fn ExitWindowsEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitiateShutdownA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -183,6 +188,7 @@ pub unsafe fn InitiateShutdownA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitiateShutdownW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -218,6 +224,7 @@ pub unsafe fn InitiateShutdownW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitiateSystemShutdownA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -255,6 +262,7 @@ pub unsafe fn InitiateSystemShutdownA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitiateSystemShutdownExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -295,6 +303,7 @@ pub unsafe fn InitiateSystemShutdownExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitiateSystemShutdownExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -335,6 +344,7 @@ pub unsafe fn InitiateSystemShutdownExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitiateSystemShutdownW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -372,6 +382,7 @@ pub unsafe fn InitiateSystemShutdownW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LockWorkStation() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -561,6 +572,7 @@ pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
 pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
 pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ShutdownBlockReasonCreate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -587,6 +599,7 @@ pub unsafe fn ShutdownBlockReasonCreate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ShutdownBlockReasonDestroy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -607,6 +620,7 @@ pub unsafe fn ShutdownBlockReasonDestroy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ShutdownBlockReasonQuery<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

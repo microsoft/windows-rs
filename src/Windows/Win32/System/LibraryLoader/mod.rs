@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddDllDirectory<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -28,6 +29,7 @@ pub unsafe fn AddDllDirectory<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BeginUpdateResourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -54,6 +56,7 @@ pub unsafe fn BeginUpdateResourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BeginUpdateResourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -81,6 +84,7 @@ pub unsafe fn BeginUpdateResourceW<
 }
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DisableThreadLibraryCalls<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -177,6 +181,7 @@ unsafe impl ::windows::runtime::Abi for ENUMUILANG {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EndUpdateResourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -203,6 +208,7 @@ pub unsafe fn EndUpdateResourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EndUpdateResourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -229,6 +235,7 @@ pub unsafe fn EndUpdateResourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceLanguagesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -265,6 +272,7 @@ pub unsafe fn EnumResourceLanguagesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceLanguagesExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -307,6 +315,7 @@ pub unsafe fn EnumResourceLanguagesExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceLanguagesExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -349,6 +358,7 @@ pub unsafe fn EnumResourceLanguagesExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceLanguagesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -385,6 +395,7 @@ pub unsafe fn EnumResourceLanguagesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceNamesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -417,6 +428,7 @@ pub unsafe fn EnumResourceNamesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceNamesExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -455,6 +467,7 @@ pub unsafe fn EnumResourceNamesExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceNamesExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -493,6 +506,7 @@ pub unsafe fn EnumResourceNamesExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceNamesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -525,6 +539,7 @@ pub unsafe fn EnumResourceNamesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceTypesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -553,6 +568,7 @@ pub unsafe fn EnumResourceTypesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceTypesExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -587,6 +603,7 @@ pub unsafe fn EnumResourceTypesExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceTypesExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -621,6 +638,7 @@ pub unsafe fn EnumResourceTypesExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumResourceTypesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -652,6 +670,7 @@ pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
 pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
 pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindResourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -682,6 +701,7 @@ pub unsafe fn FindResourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindResourceExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -715,6 +735,7 @@ pub unsafe fn FindResourceExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindResourceExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -748,6 +769,7 @@ pub unsafe fn FindResourceExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindResourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -778,6 +800,7 @@ pub unsafe fn FindResourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeLibrary<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -798,6 +821,7 @@ pub unsafe fn FreeLibrary<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeLibraryAndExitThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -823,6 +847,7 @@ pub unsafe fn FreeLibraryAndExitThread<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -839,6 +864,7 @@ pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
 pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
 pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDllDirectoryA(
     nbufferlength: u32,
     lpbuffer: super::super::Foundation::PSTR,
@@ -861,6 +887,7 @@ pub unsafe fn GetDllDirectoryA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDllDirectoryW(
     nbufferlength: u32,
     lpbuffer: super::super::Foundation::PWSTR,
@@ -883,6 +910,7 @@ pub unsafe fn GetDllDirectoryW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetModuleFileNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -911,6 +939,7 @@ pub unsafe fn GetModuleFileNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetModuleFileNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -939,6 +968,7 @@ pub unsafe fn GetModuleFileNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetModuleHandleA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -959,6 +989,7 @@ pub unsafe fn GetModuleHandleA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetModuleHandleExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -987,6 +1018,7 @@ pub unsafe fn GetModuleHandleExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetModuleHandleExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1015,6 +1047,7 @@ pub unsafe fn GetModuleHandleExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetModuleHandleW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1035,6 +1068,7 @@ pub unsafe fn GetModuleHandleW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcAddress<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -1143,6 +1177,7 @@ impl ::std::ops::Not for LOAD_LIBRARY_FLAGS {
 }
 pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadLibraryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1163,6 +1198,7 @@ pub unsafe fn LoadLibraryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadLibraryExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1192,6 +1228,7 @@ pub unsafe fn LoadLibraryExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadLibraryExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1221,6 +1258,7 @@ pub unsafe fn LoadLibraryExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadLibraryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1241,6 +1279,7 @@ pub unsafe fn LoadLibraryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadModule<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1266,6 +1305,7 @@ pub unsafe fn LoadModule<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadPackagedLibrary<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1291,6 +1331,7 @@ pub unsafe fn LoadPackagedLibrary<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -1314,6 +1355,7 @@ pub unsafe fn LoadResource<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LockResource(hresdata: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -1426,6 +1468,7 @@ pub const RESOURCE_ENUM_MUI: u32 = 2u32;
 pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
 pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveDllDirectory(
     cookie: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -1444,6 +1487,7 @@ pub unsafe fn RemoveDllDirectory(
 }
 pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDefaultDllDirectories(
     directoryflags: LOAD_LIBRARY_FLAGS,
 ) -> super::super::Foundation::BOOL {
@@ -1463,6 +1507,7 @@ pub unsafe fn SetDefaultDllDirectories(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDllDirectoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1483,6 +1528,7 @@ pub unsafe fn SetDllDirectoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDllDirectoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1503,6 +1549,7 @@ pub unsafe fn SetDllDirectoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SizeofResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -1527,6 +1574,7 @@ pub unsafe fn SizeofResource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateResourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1566,6 +1614,7 @@ pub unsafe fn UpdateResourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateResourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

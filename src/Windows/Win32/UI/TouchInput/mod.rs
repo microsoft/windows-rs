@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseGestureInfoHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HGESTUREINFO>,
@@ -27,6 +28,7 @@ pub unsafe fn CloseGestureInfoHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseTouchInputHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HTOUCHINPUT>>(
     htouchinput: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -235,6 +237,7 @@ unsafe impl ::windows::runtime::Abi for GESTURENOTIFYSTRUCT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetGestureConfig<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -272,6 +275,7 @@ pub unsafe fn GetGestureConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetGestureExtraArgs<'a, Param0: ::windows::runtime::IntoParam<'a, HGESTUREINFO>>(
     hgestureinfo: Param0,
     cbextraargs: u32,
@@ -297,6 +301,7 @@ pub unsafe fn GetGestureExtraArgs<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetGestureInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HGESTUREINFO>>(
     hgestureinfo: Param0,
     pgestureinfo: *mut GESTUREINFO,
@@ -319,6 +324,7 @@ pub unsafe fn GetGestureInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HGEST
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTouchInputInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HTOUCHINPUT>>(
     htouchinput: Param0,
     cinputs: u32,
@@ -1392,6 +1398,7 @@ pub const InertiaProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID:
     [160, 203, 226, 77, 249, 104, 20, 190],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsTouchWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1503,6 +1510,7 @@ impl ::std::ops::Not for REGISTER_TOUCH_WINDOW_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterTouchWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1528,6 +1536,7 @@ pub unsafe fn RegisterTouchWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetGestureConfig<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1729,6 +1738,7 @@ impl ::std::ops::Not for TOUCHINPUTMASKF_MASK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterTouchWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

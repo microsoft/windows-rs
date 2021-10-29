@@ -19684,6 +19684,7 @@ unsafe impl ::windows::runtime::Abi for MI_ApplicationFT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn MI_Application_InitializeV1(
     flags: u32,
     applicationid: *const u16,

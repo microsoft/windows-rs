@@ -308,6 +308,7 @@ impl ::std::ops::Not for DISCDLGSTRUCT_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MultinetGetConnectionPerformanceA(
     lpnetresource: *const NETRESOURCEA,
     lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT,
@@ -330,6 +331,7 @@ pub unsafe fn MultinetGetConnectionPerformanceA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MultinetGetConnectionPerformanceW(
     lpnetresource: *const NETRESOURCEW,
     lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT,
@@ -938,6 +940,7 @@ unsafe impl ::windows::runtime::Abi for NOTIFYINFO {
 pub const NOTIFY_POST: u32 = 2u32;
 pub const NOTIFY_PRE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPAddConnection<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -967,6 +970,7 @@ pub unsafe fn NPAddConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPAddConnection3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1003,6 +1007,7 @@ pub unsafe fn NPAddConnection3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPAddConnection4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1043,6 +1048,7 @@ pub unsafe fn NPAddConnection4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPCancelConnection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1069,6 +1075,7 @@ pub unsafe fn NPCancelConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPCancelConnection2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1098,6 +1105,7 @@ pub unsafe fn NPCancelConnection2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPCloseEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1166,6 +1174,7 @@ impl ::std::ops::Not for NPDIRECTORY_NOTIFY_OPERATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPEnumResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1197,6 +1206,7 @@ pub unsafe fn NPEnumResource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPFormatNetworkName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1230,6 +1240,7 @@ pub unsafe fn NPFormatNetworkName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NPGetCaps(ndex: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1243,6 +1254,7 @@ pub unsafe fn NPGetCaps(ndex: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetConnection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1271,6 +1283,7 @@ pub unsafe fn NPGetConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetConnection3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1302,6 +1315,7 @@ pub unsafe fn NPGetConnection3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetConnectionPerformance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1327,6 +1341,7 @@ pub unsafe fn NPGetConnectionPerformance<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetPersistentUseOptionsForConnection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1361,6 +1376,7 @@ pub unsafe fn NPGetPersistentUseOptionsForConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetResourceInformation(
     lpnetresource: *const NETRESOURCEW,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -1389,6 +1405,7 @@ pub unsafe fn NPGetResourceInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetResourceParent(
     lpnetresource: *const NETRESOURCEW,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -1414,6 +1431,7 @@ pub unsafe fn NPGetResourceParent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetUniversalName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1445,6 +1463,7 @@ pub unsafe fn NPGetUniversalName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPGetUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1473,6 +1492,7 @@ pub unsafe fn NPGetUser<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NPOpenEnum(
     dwscope: u32,
     dwtype: u32,
@@ -2146,6 +2166,7 @@ pub const WN_PRIMARY_AUTHENT_CLASS: u32 = 4u32;
 pub const WN_SERVICE_CLASS: u32 = 8u32;
 pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnection2A<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2178,6 +2199,7 @@ pub unsafe fn WNetAddConnection2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnection2W<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2210,6 +2232,7 @@ pub unsafe fn WNetAddConnection2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnection3A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2246,6 +2269,7 @@ pub unsafe fn WNetAddConnection3A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnection3W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2282,6 +2306,7 @@ pub unsafe fn WNetAddConnection3W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnection4A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2322,6 +2347,7 @@ pub unsafe fn WNetAddConnection4A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnection4W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2362,6 +2388,7 @@ pub unsafe fn WNetAddConnection4W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2392,6 +2419,7 @@ pub unsafe fn WNetAddConnectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetAddConnectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2422,6 +2450,7 @@ pub unsafe fn WNetAddConnectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetCancelConnection2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2451,6 +2480,7 @@ pub unsafe fn WNetCancelConnection2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetCancelConnection2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2480,6 +2510,7 @@ pub unsafe fn WNetCancelConnection2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetCancelConnectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2506,6 +2537,7 @@ pub unsafe fn WNetCancelConnectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetCancelConnectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2532,6 +2564,7 @@ pub unsafe fn WNetCancelConnectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetCloseEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2550,6 +2583,7 @@ pub unsafe fn WNetCloseEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetConnectionDialog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2572,6 +2606,7 @@ pub unsafe fn WNetConnectionDialog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetConnectionDialog1A(lpconndlgstruct: *mut CONNECTDLGSTRUCTA) -> u32 {
     #[cfg(windows)]
     {
@@ -2587,6 +2622,7 @@ pub unsafe fn WNetConnectionDialog1A(lpconndlgstruct: *mut CONNECTDLGSTRUCTA) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetConnectionDialog1W(lpconndlgstruct: *mut CONNECTDLGSTRUCTW) -> u32 {
     #[cfg(windows)]
     {
@@ -2602,6 +2638,7 @@ pub unsafe fn WNetConnectionDialog1W(lpconndlgstruct: *mut CONNECTDLGSTRUCTW) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetDisconnectDialog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2624,6 +2661,7 @@ pub unsafe fn WNetDisconnectDialog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetDisconnectDialog1A(lpconndlgstruct: *const DISCDLGSTRUCTA) -> u32 {
     #[cfg(windows)]
     {
@@ -2639,6 +2677,7 @@ pub unsafe fn WNetDisconnectDialog1A(lpconndlgstruct: *const DISCDLGSTRUCTA) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetDisconnectDialog1W(lpconndlgstruct: *const DISCDLGSTRUCTW) -> u32 {
     #[cfg(windows)]
     {
@@ -2654,6 +2693,7 @@ pub unsafe fn WNetDisconnectDialog1W(lpconndlgstruct: *const DISCDLGSTRUCTW) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetEnumResourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2685,6 +2725,7 @@ pub unsafe fn WNetEnumResourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetEnumResourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2716,6 +2757,7 @@ pub unsafe fn WNetEnumResourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetConnectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2744,6 +2786,7 @@ pub unsafe fn WNetGetConnectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetConnectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2772,6 +2815,7 @@ pub unsafe fn WNetGetConnectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetLastErrorA(
     lperror: *mut u32,
     lperrorbuf: super::super::Foundation::PSTR,
@@ -2803,6 +2847,7 @@ pub unsafe fn WNetGetLastErrorA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetLastErrorW(
     lperror: *mut u32,
     lperrorbuf: super::super::Foundation::PWSTR,
@@ -2834,6 +2879,7 @@ pub unsafe fn WNetGetLastErrorW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetNetworkInformationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2859,6 +2905,7 @@ pub unsafe fn WNetGetNetworkInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetNetworkInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2884,6 +2931,7 @@ pub unsafe fn WNetGetNetworkInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetProviderNameA(
     dwnettype: u32,
     lpprovidername: super::super::Foundation::PSTR,
@@ -2909,6 +2957,7 @@ pub unsafe fn WNetGetProviderNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetProviderNameW(
     dwnettype: u32,
     lpprovidername: super::super::Foundation::PWSTR,
@@ -2934,6 +2983,7 @@ pub unsafe fn WNetGetProviderNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetResourceInformationA(
     lpnetresource: *const NETRESOURCEA,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -2962,6 +3012,7 @@ pub unsafe fn WNetGetResourceInformationA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetResourceInformationW(
     lpnetresource: *const NETRESOURCEW,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -2990,6 +3041,7 @@ pub unsafe fn WNetGetResourceInformationW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetResourceParentA(
     lpnetresource: *const NETRESOURCEA,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -3015,6 +3067,7 @@ pub unsafe fn WNetGetResourceParentA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetResourceParentW(
     lpnetresource: *const NETRESOURCEW,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -3040,6 +3093,7 @@ pub unsafe fn WNetGetResourceParentW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetUniversalNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3071,6 +3125,7 @@ pub unsafe fn WNetGetUniversalNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetUniversalNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3102,6 +3157,7 @@ pub unsafe fn WNetGetUniversalNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetUserA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3130,6 +3186,7 @@ pub unsafe fn WNetGetUserA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetGetUserW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3158,6 +3215,7 @@ pub unsafe fn WNetGetUserW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetOpenEnumA(
     dwscope: NET_RESOURCE_SCOPE,
     dwtype: NET_RESOURCE_TYPE,
@@ -3189,6 +3247,7 @@ pub unsafe fn WNetOpenEnumA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetOpenEnumW(
     dwscope: NET_RESOURCE_SCOPE,
     dwtype: NET_RESOURCE_TYPE,
@@ -3220,6 +3279,7 @@ pub unsafe fn WNetOpenEnumW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetSetLastErrorA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3249,6 +3309,7 @@ pub unsafe fn WNetSetLastErrorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetSetLastErrorW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3278,6 +3339,7 @@ pub unsafe fn WNetSetLastErrorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetUseConnection4A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3327,6 +3389,7 @@ pub unsafe fn WNetUseConnection4A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetUseConnection4W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3376,6 +3439,7 @@ pub unsafe fn WNetUseConnection4W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetUseConnectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3421,6 +3485,7 @@ pub unsafe fn WNetUseConnectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WNetUseConnectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

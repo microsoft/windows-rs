@@ -35176,6 +35176,7 @@ pub const NegationCondition: ::windows::runtime::GUID = ::windows::runtime::GUID
     [190, 227, 43, 34, 42, 162, 210, 61],
 );
 pub const OCC_INVALID: u32 = 4294967295u32;
+#[inline]
 pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     #[cfg(windows)]
     {
@@ -35189,6 +35190,7 @@ pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -37348,6 +37350,7 @@ pub const SQLAOPSTDEVP: u32 = 49u32;
 pub const SQLAOPSUM: u32 = 77u32;
 pub const SQLAOPVAR: u32 = 50u32;
 pub const SQLAOPVARP: u32 = 51u32;
+#[inline]
 pub unsafe fn SQLAllocConnect(
     environmenthandle: *mut ::std::ffi::c_void,
     connectionhandle: *mut *mut ::std::ffi::c_void,
@@ -37369,6 +37372,7 @@ pub unsafe fn SQLAllocConnect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -37381,6 +37385,7 @@ pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::std::ffi::c_void) -> i1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLAllocHandle(
     handletype: i16,
     inputhandle: *mut ::std::ffi::c_void,
@@ -37405,6 +37410,7 @@ pub unsafe fn SQLAllocHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLAllocHandleStd(
     fhandletype: i16,
     hinput: *mut ::std::ffi::c_void,
@@ -37429,6 +37435,7 @@ pub unsafe fn SQLAllocHandleStd(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLAllocStmt(
     connectionhandle: *mut ::std::ffi::c_void,
     statementhandle: *mut *mut ::std::ffi::c_void,
@@ -37457,6 +37464,7 @@ pub const SQLBIGVARCHAR: u32 = 167u32;
 pub const SQLBINARY: u32 = 45u32;
 pub const SQLBIT: u32 = 50u32;
 pub const SQLBITN: u32 = 104u32;
+#[inline]
 pub unsafe fn SQLBindCol(
     statementhandle: *mut ::std::ffi::c_void,
     columnnumber: u16,
@@ -37490,6 +37498,7 @@ pub unsafe fn SQLBindCol(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLBindParam(
     statementhandle: *mut ::std::ffi::c_void,
     parameternumber: u16,
@@ -37529,6 +37538,7 @@ pub unsafe fn SQLBindParam(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLBindParameter(
     hstmt: *mut ::std::ffi::c_void,
     ipar: u16,
@@ -37574,6 +37584,7 @@ pub unsafe fn SQLBindParameter(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLBrowseConnect(
     hdbc: *mut ::std::ffi::c_void,
     szconnstrin: *const u8,
@@ -37607,6 +37618,7 @@ pub unsafe fn SQLBrowseConnect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLBrowseConnectA(
     hdbc: *mut ::std::ffi::c_void,
     szconnstrin: *const u8,
@@ -37640,6 +37652,7 @@ pub unsafe fn SQLBrowseConnectA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLBrowseConnectW(
     hdbc: *mut ::std::ffi::c_void,
     szconnstrin: *const u16,
@@ -37673,6 +37686,7 @@ pub unsafe fn SQLBrowseConnectW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLBulkOperations(statementhandle: *mut ::std::ffi::c_void, operation: i16) -> i16 {
     #[cfg(windows)]
     {
@@ -37689,6 +37703,7 @@ pub unsafe fn SQLBulkOperations(statementhandle: *mut ::std::ffi::c_void, operat
     unimplemented!("Unsupported target OS");
 }
 pub const SQLCHARACTER: u32 = 47u32;
+#[inline]
 pub unsafe fn SQLCancel(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -37701,6 +37716,7 @@ pub unsafe fn SQLCancel(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -37716,6 +37732,7 @@ pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLCloseCursor(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -37729,6 +37746,7 @@ pub unsafe fn SQLCloseCursor(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SQLCloseEnumServers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37746,6 +37764,7 @@ pub unsafe fn SQLCloseEnumServers<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColAttribute(
     statementhandle: *mut ::std::ffi::c_void,
     columnnumber: u16,
@@ -37782,6 +37801,7 @@ pub unsafe fn SQLColAttribute(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColAttributeA(
     hstmt: *mut ::std::ffi::c_void,
     icol: i16,
@@ -37818,6 +37838,7 @@ pub unsafe fn SQLColAttributeA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColAttributeW(
     hstmt: *mut ::std::ffi::c_void,
     icol: u16,
@@ -37854,6 +37875,7 @@ pub unsafe fn SQLColAttributeW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColAttributes(
     hstmt: *mut ::std::ffi::c_void,
     icol: u16,
@@ -37890,6 +37912,7 @@ pub unsafe fn SQLColAttributes(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColAttributesA(
     hstmt: *mut ::std::ffi::c_void,
     icol: u16,
@@ -37926,6 +37949,7 @@ pub unsafe fn SQLColAttributesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColAttributesW(
     hstmt: *mut ::std::ffi::c_void,
     icol: u16,
@@ -37962,6 +37986,7 @@ pub unsafe fn SQLColAttributesW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColumnPrivileges(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -38004,6 +38029,7 @@ pub unsafe fn SQLColumnPrivileges(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColumnPrivilegesA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -38046,6 +38072,7 @@ pub unsafe fn SQLColumnPrivilegesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColumnPrivilegesW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -38088,6 +38115,7 @@ pub unsafe fn SQLColumnPrivilegesW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColumns(
     statementhandle: *mut ::std::ffi::c_void,
     catalogname: *const u8,
@@ -38130,6 +38158,7 @@ pub unsafe fn SQLColumns(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColumnsA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -38172,6 +38201,7 @@ pub unsafe fn SQLColumnsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLColumnsW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -38214,6 +38244,7 @@ pub unsafe fn SQLColumnsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLCompleteAsync(
     handletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -38238,6 +38269,7 @@ pub unsafe fn SQLCompleteAsync(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLConnect(
     connectionhandle: *mut ::std::ffi::c_void,
     servername: *const u8,
@@ -38274,6 +38306,7 @@ pub unsafe fn SQLConnect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLConnectA(
     hdbc: *mut ::std::ffi::c_void,
     szdsn: *const u8,
@@ -38310,6 +38343,7 @@ pub unsafe fn SQLConnectA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLConnectW(
     hdbc: *mut ::std::ffi::c_void,
     szdsn: *const u16,
@@ -38346,6 +38380,7 @@ pub unsafe fn SQLConnectW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLCopyDesc(
     sourcedeschandle: *mut ::std::ffi::c_void,
     targetdeschandle: *mut ::std::ffi::c_void,
@@ -38372,6 +38407,7 @@ pub const SQLDATETIME: u32 = 61u32;
 pub const SQLDATETIMN: u32 = 111u32;
 pub const SQLDECIMAL: u32 = 106u32;
 pub const SQLDECIMALN: u32 = 106u32;
+#[inline]
 pub unsafe fn SQLDataSources(
     environmenthandle: *mut ::std::ffi::c_void,
     direction: u16,
@@ -38411,6 +38447,7 @@ pub unsafe fn SQLDataSources(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDataSourcesA(
     henv: *mut ::std::ffi::c_void,
     fdirection: u16,
@@ -38450,6 +38487,7 @@ pub unsafe fn SQLDataSourcesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDataSourcesW(
     henv: *mut ::std::ffi::c_void,
     fdirection: u16,
@@ -38489,6 +38527,7 @@ pub unsafe fn SQLDataSourcesW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDescribeCol(
     statementhandle: *mut ::std::ffi::c_void,
     columnnumber: u16,
@@ -38531,6 +38570,7 @@ pub unsafe fn SQLDescribeCol(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDescribeColA(
     hstmt: *mut ::std::ffi::c_void,
     icol: u16,
@@ -38573,6 +38613,7 @@ pub unsafe fn SQLDescribeColA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDescribeColW(
     hstmt: *mut ::std::ffi::c_void,
     icol: u16,
@@ -38615,6 +38656,7 @@ pub unsafe fn SQLDescribeColW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDescribeParam(
     hstmt: *mut ::std::ffi::c_void,
     ipar: u16,
@@ -38648,6 +38690,7 @@ pub unsafe fn SQLDescribeParam(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDisconnect(connectionhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -38660,6 +38703,7 @@ pub unsafe fn SQLDisconnect(connectionhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDriverConnect(
     hdbc: *mut ::std::ffi::c_void,
     hwnd: isize,
@@ -38699,6 +38743,7 @@ pub unsafe fn SQLDriverConnect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDriverConnectA(
     hdbc: *mut ::std::ffi::c_void,
     hwnd: isize,
@@ -38738,6 +38783,7 @@ pub unsafe fn SQLDriverConnectA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDriverConnectW(
     hdbc: *mut ::std::ffi::c_void,
     hwnd: isize,
@@ -38777,6 +38823,7 @@ pub unsafe fn SQLDriverConnectW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDrivers(
     henv: *mut ::std::ffi::c_void,
     fdirection: u16,
@@ -38816,6 +38863,7 @@ pub unsafe fn SQLDrivers(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDriversA(
     henv: *mut ::std::ffi::c_void,
     fdirection: u16,
@@ -38855,6 +38903,7 @@ pub unsafe fn SQLDriversA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLDriversW(
     henv: *mut ::std::ffi::c_void,
     fdirection: u16,
@@ -38894,6 +38943,7 @@ pub unsafe fn SQLDriversW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLEndTran(
     handletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -38918,6 +38968,7 @@ pub unsafe fn SQLEndTran(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLError(
     environmenthandle: *mut ::std::ffi::c_void,
     connectionhandle: *mut ::std::ffi::c_void,
@@ -38957,6 +39008,7 @@ pub unsafe fn SQLError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLErrorA(
     henv: *mut ::std::ffi::c_void,
     hdbc: *mut ::std::ffi::c_void,
@@ -38996,6 +39048,7 @@ pub unsafe fn SQLErrorA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLErrorW(
     henv: *mut ::std::ffi::c_void,
     hdbc: *mut ::std::ffi::c_void,
@@ -39035,6 +39088,7 @@ pub unsafe fn SQLErrorW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLExecDirect(
     statementhandle: *mut ::std::ffi::c_void,
     statementtext: *const u8,
@@ -39059,6 +39113,7 @@ pub unsafe fn SQLExecDirect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLExecDirectA(
     hstmt: *mut ::std::ffi::c_void,
     szsqlstr: *const u8,
@@ -39083,6 +39138,7 @@ pub unsafe fn SQLExecDirectA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLExecDirectW(
     hstmt: *mut ::std::ffi::c_void,
     szsqlstr: *const u16,
@@ -39107,6 +39163,7 @@ pub unsafe fn SQLExecDirectW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLExecute(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -39119,6 +39176,7 @@ pub unsafe fn SQLExecute(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLExtendedFetch(
     hstmt: *mut ::std::ffi::c_void,
     ffetchtype: u16,
@@ -39152,6 +39210,7 @@ pub unsafe fn SQLExtendedFetch(
 pub const SQLFLT4: u32 = 59u32;
 pub const SQLFLT8: u32 = 62u32;
 pub const SQLFLTN: u32 = 109u32;
+#[inline]
 pub unsafe fn SQLFetch(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -39164,6 +39223,7 @@ pub unsafe fn SQLFetch(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLFetchScroll(
     statementhandle: *mut ::std::ffi::c_void,
     fetchorientation: i16,
@@ -39188,6 +39248,7 @@ pub unsafe fn SQLFetchScroll(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLForeignKeys(
     hstmt: *mut ::std::ffi::c_void,
     szpkcatalogname: *const u8,
@@ -39242,6 +39303,7 @@ pub unsafe fn SQLForeignKeys(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLForeignKeysA(
     hstmt: *mut ::std::ffi::c_void,
     szpkcatalogname: *const u8,
@@ -39296,6 +39358,7 @@ pub unsafe fn SQLForeignKeysA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLForeignKeysW(
     hstmt: *mut ::std::ffi::c_void,
     szpkcatalogname: *const u16,
@@ -39350,6 +39413,7 @@ pub unsafe fn SQLForeignKeysW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -39362,6 +39426,7 @@ pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -39374,6 +39439,7 @@ pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -39389,6 +39455,7 @@ pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::std::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLFreeStmt(statementhandle: *mut ::std::ffi::c_void, option: u16) -> i16 {
     #[cfg(windows)]
     {
@@ -39404,6 +39471,7 @@ pub unsafe fn SQLFreeStmt(statementhandle: *mut ::std::ffi::c_void, option: u16)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetConnectAttr(
     connectionhandle: *mut ::std::ffi::c_void,
     attribute: i32,
@@ -39434,6 +39502,7 @@ pub unsafe fn SQLGetConnectAttr(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetConnectAttrA(
     hdbc: *mut ::std::ffi::c_void,
     fattribute: i32,
@@ -39464,6 +39533,7 @@ pub unsafe fn SQLGetConnectAttrA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetConnectAttrW(
     hdbc: *mut ::std::ffi::c_void,
     fattribute: i32,
@@ -39494,6 +39564,7 @@ pub unsafe fn SQLGetConnectAttrW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetConnectOption(
     connectionhandle: *mut ::std::ffi::c_void,
     option: u16,
@@ -39518,6 +39589,7 @@ pub unsafe fn SQLGetConnectOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetConnectOptionA(
     hdbc: *mut ::std::ffi::c_void,
     foption: u16,
@@ -39542,6 +39614,7 @@ pub unsafe fn SQLGetConnectOptionA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetConnectOptionW(
     hdbc: *mut ::std::ffi::c_void,
     foption: u16,
@@ -39566,6 +39639,7 @@ pub unsafe fn SQLGetConnectOptionW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetCursorName(
     statementhandle: *mut ::std::ffi::c_void,
     cursorname: *mut u8,
@@ -39593,6 +39667,7 @@ pub unsafe fn SQLGetCursorName(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetCursorNameA(
     hstmt: *mut ::std::ffi::c_void,
     szcursor: *mut u8,
@@ -39620,6 +39695,7 @@ pub unsafe fn SQLGetCursorNameA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetCursorNameW(
     hstmt: *mut ::std::ffi::c_void,
     szcursor: *mut u16,
@@ -39647,6 +39723,7 @@ pub unsafe fn SQLGetCursorNameW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetData(
     statementhandle: *mut ::std::ffi::c_void,
     columnnumber: u16,
@@ -39680,6 +39757,7 @@ pub unsafe fn SQLGetData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDescField(
     descriptorhandle: *mut ::std::ffi::c_void,
     recnumber: i16,
@@ -39713,6 +39791,7 @@ pub unsafe fn SQLGetDescField(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDescFieldA(
     hdesc: *mut ::std::ffi::c_void,
     irecord: i16,
@@ -39746,6 +39825,7 @@ pub unsafe fn SQLGetDescFieldA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDescFieldW(
     hdesc: *mut ::std::ffi::c_void,
     irecord: i16,
@@ -39779,6 +39859,7 @@ pub unsafe fn SQLGetDescFieldW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDescRec(
     descriptorhandle: *mut ::std::ffi::c_void,
     recnumber: i16,
@@ -39827,6 +39908,7 @@ pub unsafe fn SQLGetDescRec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDescRecA(
     hdesc: *mut ::std::ffi::c_void,
     irecord: i16,
@@ -39875,6 +39957,7 @@ pub unsafe fn SQLGetDescRecA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDescRecW(
     hdesc: *mut ::std::ffi::c_void,
     irecord: i16,
@@ -39923,6 +40006,7 @@ pub unsafe fn SQLGetDescRecW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDiagField(
     handletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -39959,6 +40043,7 @@ pub unsafe fn SQLGetDiagField(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDiagFieldA(
     fhandletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -39995,6 +40080,7 @@ pub unsafe fn SQLGetDiagFieldA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDiagFieldW(
     fhandletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -40031,6 +40117,7 @@ pub unsafe fn SQLGetDiagFieldW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDiagRec(
     handletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -40070,6 +40157,7 @@ pub unsafe fn SQLGetDiagRec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDiagRecA(
     fhandletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -40109,6 +40197,7 @@ pub unsafe fn SQLGetDiagRecA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetDiagRecW(
     fhandletype: i16,
     handle: *mut ::std::ffi::c_void,
@@ -40148,6 +40237,7 @@ pub unsafe fn SQLGetDiagRecW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetEnvAttr(
     environmenthandle: *mut ::std::ffi::c_void,
     attribute: i32,
@@ -40178,6 +40268,7 @@ pub unsafe fn SQLGetEnvAttr(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetFunctions(
     connectionhandle: *mut ::std::ffi::c_void,
     functionid: u16,
@@ -40202,6 +40293,7 @@ pub unsafe fn SQLGetFunctions(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetInfo(
     connectionhandle: *mut ::std::ffi::c_void,
     infotype: u16,
@@ -40232,6 +40324,7 @@ pub unsafe fn SQLGetInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetInfoA(
     hdbc: *mut ::std::ffi::c_void,
     finfotype: u16,
@@ -40262,6 +40355,7 @@ pub unsafe fn SQLGetInfoA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetInfoW(
     hdbc: *mut ::std::ffi::c_void,
     finfotype: u16,
@@ -40293,6 +40387,7 @@ pub unsafe fn SQLGetInfoW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SQLGetNextEnumeration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -40320,6 +40415,7 @@ pub unsafe fn SQLGetNextEnumeration<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetStmtAttr(
     statementhandle: *mut ::std::ffi::c_void,
     attribute: i32,
@@ -40350,6 +40446,7 @@ pub unsafe fn SQLGetStmtAttr(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetStmtAttrA(
     hstmt: *mut ::std::ffi::c_void,
     fattribute: i32,
@@ -40380,6 +40477,7 @@ pub unsafe fn SQLGetStmtAttrA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetStmtAttrW(
     hstmt: *mut ::std::ffi::c_void,
     fattribute: i32,
@@ -40410,6 +40508,7 @@ pub unsafe fn SQLGetStmtAttrW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetStmtOption(
     statementhandle: *mut ::std::ffi::c_void,
     option: u16,
@@ -40434,6 +40533,7 @@ pub unsafe fn SQLGetStmtOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
@@ -40449,6 +40549,7 @@ pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::std::ffi::c_void, datatype:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
@@ -40464,6 +40565,7 @@ pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::std::ffi::c_void, datatype
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::std::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
@@ -40518,6 +40620,7 @@ unsafe impl ::windows::runtime::Abi for SQLINTERVAL {
 }
 pub const SQLINTN: u32 = 38u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SQLInitEnumServers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -40544,6 +40647,7 @@ pub unsafe fn SQLInitEnumServers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SQLLinkedCatalogsA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40572,6 +40676,7 @@ pub unsafe fn SQLLinkedCatalogsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SQLLinkedCatalogsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -40599,6 +40704,7 @@ pub unsafe fn SQLLinkedCatalogsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLLinkedServers(param0: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -40614,6 +40720,7 @@ pub unsafe fn SQLLinkedServers(param0: *mut ::std::ffi::c_void) -> i16 {
 pub const SQLMONEY: u32 = 60u32;
 pub const SQLMONEY4: u32 = 122u32;
 pub const SQLMONEYN: u32 = 110u32;
+#[inline]
 pub unsafe fn SQLMoreResults(hstmt: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -40631,6 +40738,7 @@ pub const SQLNTEXT: u32 = 99u32;
 pub const SQLNUMERIC: u32 = 108u32;
 pub const SQLNUMERICN: u32 = 108u32;
 pub const SQLNVARCHAR: u32 = 231u32;
+#[inline]
 pub unsafe fn SQLNativeSql(
     hdbc: *mut ::std::ffi::c_void,
     szsqlstrin: *const u8,
@@ -40664,6 +40772,7 @@ pub unsafe fn SQLNativeSql(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLNativeSqlA(
     hdbc: *mut ::std::ffi::c_void,
     szsqlstrin: *const u8,
@@ -40697,6 +40806,7 @@ pub unsafe fn SQLNativeSqlA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLNativeSqlW(
     hdbc: *mut ::std::ffi::c_void,
     szsqlstrin: *const u16,
@@ -40730,6 +40840,7 @@ pub unsafe fn SQLNativeSqlW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLNumParams(hstmt: *mut ::std::ffi::c_void, pcpar: *mut i16) -> i16 {
     #[cfg(windows)]
     {
@@ -40745,6 +40856,7 @@ pub unsafe fn SQLNumParams(hstmt: *mut ::std::ffi::c_void, pcpar: *mut i16) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLNumResultCols(
     statementhandle: *mut ::std::ffi::c_void,
     columncount: *mut i16,
@@ -40766,6 +40878,7 @@ pub unsafe fn SQLNumResultCols(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLParamData(
     statementhandle: *mut ::std::ffi::c_void,
     value: *mut *mut ::std::ffi::c_void,
@@ -40787,6 +40900,7 @@ pub unsafe fn SQLParamData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
     #[cfg(windows)]
     {
@@ -40803,6 +40917,7 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLPrepare(
     statementhandle: *mut ::std::ffi::c_void,
     statementtext: *const u8,
@@ -40827,6 +40942,7 @@ pub unsafe fn SQLPrepare(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLPrepareA(
     hstmt: *mut ::std::ffi::c_void,
     szsqlstr: *const u8,
@@ -40851,6 +40967,7 @@ pub unsafe fn SQLPrepareA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLPrepareW(
     hstmt: *mut ::std::ffi::c_void,
     szsqlstr: *const u16,
@@ -40875,6 +40992,7 @@ pub unsafe fn SQLPrepareW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLPrimaryKeys(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -40911,6 +41029,7 @@ pub unsafe fn SQLPrimaryKeys(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLPrimaryKeysA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -40947,6 +41066,7 @@ pub unsafe fn SQLPrimaryKeysA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLPrimaryKeysW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -40983,6 +41103,7 @@ pub unsafe fn SQLPrimaryKeysW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLProcedureColumns(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -41025,6 +41146,7 @@ pub unsafe fn SQLProcedureColumns(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLProcedureColumnsA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -41067,6 +41189,7 @@ pub unsafe fn SQLProcedureColumnsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLProcedureColumnsW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -41109,6 +41232,7 @@ pub unsafe fn SQLProcedureColumnsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLProcedures(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -41145,6 +41269,7 @@ pub unsafe fn SQLProcedures(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLProceduresA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -41181,6 +41306,7 @@ pub unsafe fn SQLProceduresA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLProceduresW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -41217,6 +41343,7 @@ pub unsafe fn SQLProceduresW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLPutData(
     statementhandle: *mut ::std::ffi::c_void,
     data: *const ::std::ffi::c_void,
@@ -41241,6 +41368,7 @@ pub unsafe fn SQLPutData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i64) -> i16 {
     #[cfg(windows)]
     {
@@ -41256,6 +41384,7 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetConnectAttr(
     connectionhandle: *mut ::std::ffi::c_void,
     attribute: i32,
@@ -41283,6 +41412,7 @@ pub unsafe fn SQLSetConnectAttr(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetConnectAttrA(
     hdbc: *mut ::std::ffi::c_void,
     fattribute: i32,
@@ -41310,6 +41440,7 @@ pub unsafe fn SQLSetConnectAttrA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetConnectAttrW(
     hdbc: *mut ::std::ffi::c_void,
     fattribute: i32,
@@ -41337,6 +41468,7 @@ pub unsafe fn SQLSetConnectAttrW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetConnectOption(
     connectionhandle: *mut ::std::ffi::c_void,
     option: u16,
@@ -41361,6 +41493,7 @@ pub unsafe fn SQLSetConnectOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetConnectOptionA(
     hdbc: *mut ::std::ffi::c_void,
     foption: u16,
@@ -41385,6 +41518,7 @@ pub unsafe fn SQLSetConnectOptionA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetConnectOptionW(
     hdbc: *mut ::std::ffi::c_void,
     foption: u16,
@@ -41409,6 +41543,7 @@ pub unsafe fn SQLSetConnectOptionW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetCursorName(
     statementhandle: *mut ::std::ffi::c_void,
     cursorname: *const u8,
@@ -41433,6 +41568,7 @@ pub unsafe fn SQLSetCursorName(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetCursorNameA(
     hstmt: *mut ::std::ffi::c_void,
     szcursor: *const u8,
@@ -41457,6 +41593,7 @@ pub unsafe fn SQLSetCursorNameA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetCursorNameW(
     hstmt: *mut ::std::ffi::c_void,
     szcursor: *const u16,
@@ -41481,6 +41618,7 @@ pub unsafe fn SQLSetCursorNameW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetDescField(
     descriptorhandle: *mut ::std::ffi::c_void,
     recnumber: i16,
@@ -41511,6 +41649,7 @@ pub unsafe fn SQLSetDescField(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetDescFieldW(
     descriptorhandle: *mut ::std::ffi::c_void,
     recnumber: i16,
@@ -41541,6 +41680,7 @@ pub unsafe fn SQLSetDescFieldW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetDescRec(
     descriptorhandle: *mut ::std::ffi::c_void,
     recnumber: i16,
@@ -41586,6 +41726,7 @@ pub unsafe fn SQLSetDescRec(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetEnvAttr(
     environmenthandle: *mut ::std::ffi::c_void,
     attribute: i32,
@@ -41613,6 +41754,7 @@ pub unsafe fn SQLSetEnvAttr(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetParam(
     statementhandle: *mut ::std::ffi::c_void,
     parameternumber: u16,
@@ -41652,6 +41794,7 @@ pub unsafe fn SQLSetParam(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetPos(
     hstmt: *mut ::std::ffi::c_void,
     irow: u64,
@@ -41679,6 +41822,7 @@ pub unsafe fn SQLSetPos(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetScrollOptions(
     hstmt: *mut ::std::ffi::c_void,
     fconcurrency: u16,
@@ -41706,6 +41850,7 @@ pub unsafe fn SQLSetScrollOptions(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetStmtAttr(
     statementhandle: *mut ::std::ffi::c_void,
     attribute: i32,
@@ -41733,6 +41878,7 @@ pub unsafe fn SQLSetStmtAttr(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetStmtAttrW(
     hstmt: *mut ::std::ffi::c_void,
     fattribute: i32,
@@ -41760,6 +41906,7 @@ pub unsafe fn SQLSetStmtAttrW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSetStmtOption(
     statementhandle: *mut ::std::ffi::c_void,
     option: u16,
@@ -41784,6 +41931,7 @@ pub unsafe fn SQLSetStmtOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSpecialColumns(
     statementhandle: *mut ::std::ffi::c_void,
     identifiertype: u16,
@@ -41829,6 +41977,7 @@ pub unsafe fn SQLSpecialColumns(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSpecialColumnsA(
     hstmt: *mut ::std::ffi::c_void,
     fcoltype: u16,
@@ -41874,6 +42023,7 @@ pub unsafe fn SQLSpecialColumnsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLSpecialColumnsW(
     hstmt: *mut ::std::ffi::c_void,
     fcoltype: u16,
@@ -41919,6 +42069,7 @@ pub unsafe fn SQLSpecialColumnsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLStatistics(
     statementhandle: *mut ::std::ffi::c_void,
     catalogname: *const u8,
@@ -41961,6 +42112,7 @@ pub unsafe fn SQLStatistics(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLStatisticsA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -42003,6 +42155,7 @@ pub unsafe fn SQLStatisticsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLStatisticsW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -42046,6 +42199,7 @@ pub unsafe fn SQLStatisticsW(
     unimplemented!("Unsupported target OS");
 }
 pub const SQLTEXT: u32 = 35u32;
+#[inline]
 pub unsafe fn SQLTablePrivileges(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -42082,6 +42236,7 @@ pub unsafe fn SQLTablePrivileges(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLTablePrivilegesA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -42118,6 +42273,7 @@ pub unsafe fn SQLTablePrivilegesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLTablePrivilegesW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -42154,6 +42310,7 @@ pub unsafe fn SQLTablePrivilegesW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLTables(
     statementhandle: *mut ::std::ffi::c_void,
     catalogname: *const u8,
@@ -42196,6 +42353,7 @@ pub unsafe fn SQLTables(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLTablesA(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u8,
@@ -42238,6 +42396,7 @@ pub unsafe fn SQLTablesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLTablesW(
     hstmt: *mut ::std::ffi::c_void,
     szcatalogname: *const u16,
@@ -42280,6 +42439,7 @@ pub unsafe fn SQLTablesW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SQLTransact(
     environmenthandle: *mut ::std::ffi::c_void,
     connectionhandle: *mut ::std::ffi::c_void,
@@ -45074,6 +45234,7 @@ pub const _MAPI_E_UNKNOWN_LCID: i32 = -2147221217i32;
 pub const _MAPI_E_USER_CANCEL: i32 = -2147221229i32;
 pub const _MAPI_E_VERSION: i32 = -2147221232i32;
 pub const _MAPI_W_NO_SERVICE: i32 = 262659i32;
+#[inline]
 pub unsafe fn bcp_batch(param0: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -45086,6 +45247,7 @@ pub unsafe fn bcp_batch(param0: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_bind(
     param0: *mut ::std::ffi::c_void,
     param1: *mut u8,
@@ -45125,6 +45287,7 @@ pub unsafe fn bcp_bind(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_colfmt(
     param0: *mut ::std::ffi::c_void,
     param1: i32,
@@ -45164,6 +45327,7 @@ pub unsafe fn bcp_colfmt(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_collen(param0: *mut ::std::ffi::c_void, param1: i32, param2: i32) -> i16 {
     #[cfg(windows)]
     {
@@ -45180,6 +45344,7 @@ pub unsafe fn bcp_collen(param0: *mut ::std::ffi::c_void, param1: i32, param2: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_colptr(param0: *mut ::std::ffi::c_void, param1: *mut u8, param2: i32) -> i16 {
     #[cfg(windows)]
     {
@@ -45196,6 +45361,7 @@ pub unsafe fn bcp_colptr(param0: *mut ::std::ffi::c_void, param1: *mut u8, param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_columns(param0: *mut ::std::ffi::c_void, param1: i32) -> i16 {
     #[cfg(windows)]
     {
@@ -45211,6 +45377,7 @@ pub unsafe fn bcp_columns(param0: *mut ::std::ffi::c_void, param1: i32) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_control(
     param0: *mut ::std::ffi::c_void,
     param1: i32,
@@ -45235,6 +45402,7 @@ pub unsafe fn bcp_control(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_done(param0: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -45247,6 +45415,7 @@ pub unsafe fn bcp_done(param0: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_exec(param0: *mut ::std::ffi::c_void, param1: *mut i32) -> i16 {
     #[cfg(windows)]
     {
@@ -45262,6 +45431,7 @@ pub unsafe fn bcp_exec(param0: *mut ::std::ffi::c_void, param1: *mut i32) -> i16
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_getcolfmt(
     param0: *mut ::std::ffi::c_void,
     param1: i32,
@@ -45296,6 +45466,7 @@ pub unsafe fn bcp_getcolfmt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn bcp_initA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -45332,6 +45503,7 @@ pub unsafe fn bcp_initA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn bcp_initW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -45367,6 +45539,7 @@ pub unsafe fn bcp_initW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_moretext(param0: *mut ::std::ffi::c_void, param1: i32, param2: *mut u8) -> i16 {
     #[cfg(windows)]
     {
@@ -45384,6 +45557,7 @@ pub unsafe fn bcp_moretext(param0: *mut ::std::ffi::c_void, param1: i32, param2:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn bcp_readfmtA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -45409,6 +45583,7 @@ pub unsafe fn bcp_readfmtA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn bcp_readfmtW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -45433,6 +45608,7 @@ pub unsafe fn bcp_readfmtW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_sendrow(param0: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
@@ -45445,6 +45621,7 @@ pub unsafe fn bcp_sendrow(param0: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn bcp_setcolfmt(
     param0: *mut ::std::ffi::c_void,
     param1: i32,
@@ -45476,6 +45653,7 @@ pub unsafe fn bcp_setcolfmt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn bcp_writefmtA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -45501,6 +45679,7 @@ pub unsafe fn bcp_writefmtA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn bcp_writefmtW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -45616,6 +45795,7 @@ unsafe impl ::windows::runtime::Abi for dbmoney {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -45629,6 +45809,7 @@ pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {

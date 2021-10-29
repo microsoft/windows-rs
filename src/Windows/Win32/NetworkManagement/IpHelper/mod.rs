@@ -58,6 +58,7 @@ impl ::std::ops::Not for ADDRESS_FAMILY {
     }
 }
 pub const ANY_SIZE: u32 = 1u32;
+#[inline]
 pub unsafe fn AddIPAddress(
     address: u32,
     ipmask: u32,
@@ -92,6 +93,7 @@ pub const BEST_IF: u32 = 20u32;
 pub const BEST_ROUTE: u32 = 21u32;
 pub const BROADCAST_NODETYPE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CancelIPChangeNotify(
     notifyoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
@@ -130,6 +132,7 @@ pub unsafe fn CancelMibChangeNotify2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(
     interfaceluid: *const NET_LUID_LH,
     crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP,
@@ -513,6 +516,7 @@ pub unsafe fn CreateAnycastIpAddressEntry(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
 pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
     {
@@ -546,6 +550,7 @@ pub unsafe fn CreateIpForwardEntry2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
     {
@@ -575,6 +580,7 @@ pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreatePersistentTcpPortReservation(
     startport: u16,
     numberofports: u16,
@@ -599,6 +605,7 @@ pub unsafe fn CreatePersistentTcpPortReservation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreatePersistentUdpPortReservation(
     startport: u16,
     numberofports: u16,
@@ -623,6 +630,7 @@ pub unsafe fn CreatePersistentUdpPortReservation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1153,6 +1161,7 @@ pub unsafe fn DeleteAnycastIpAddressEntry(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1166,6 +1175,7 @@ pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
 pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
     {
@@ -1199,6 +1209,7 @@ pub unsafe fn DeleteIpForwardEntry2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
     {
@@ -1228,6 +1239,7 @@ pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32 {
     #[cfg(windows)]
     {
@@ -1243,6 +1255,7 @@ pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32 {
     #[cfg(windows)]
     {
@@ -1258,6 +1271,7 @@ pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1296,6 +1310,7 @@ pub unsafe fn DeleteUnicastIpAddressEntry(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DisableMediaSense(
     phandle: *mut super::super::Foundation::HANDLE,
     poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -1320,6 +1335,7 @@ pub unsafe fn DisableMediaSense(
 pub const ERROR_BASE: u32 = 23000u32;
 pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EnableRouter(
     phandle: *mut super::super::Foundation::HANDLE,
     poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
@@ -1402,6 +1418,7 @@ unsafe impl ::windows::runtime::Abi for FIXED_INFO_W2KSP1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1448,6 +1465,7 @@ pub unsafe fn FlushIpPathTable(family: u16) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
     #[cfg(windows)]
     {
@@ -1461,6 +1479,7 @@ pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
     #[cfg(windows)]
     {
@@ -1473,6 +1492,7 @@ pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FreeMibTable(memory: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -1576,6 +1596,7 @@ unsafe impl ::windows::runtime::Abi for GLOBAL_FILTER {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAdapterIndex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1600,6 +1621,7 @@ pub unsafe fn GetAdapterIndex<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
     #[cfg(windows)]
     {
@@ -1617,6 +1639,7 @@ pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn GetAdaptersAddresses(
     family: ADDRESS_FAMILY,
     flags: GET_ADAPTERS_ADDRESSES_FLAGS,
@@ -1648,6 +1671,7 @@ pub unsafe fn GetAdaptersAddresses(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1707,6 +1731,7 @@ pub unsafe fn GetAnycastIpAddressTable(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1726,6 +1751,7 @@ pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn GetBestInterfaceEx(
     pdestaddr: *const super::super::Networking::WinSock::SOCKADDR,
     pdwbestifindex: *mut u32,
@@ -1748,6 +1774,7 @@ pub unsafe fn GetBestInterfaceEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
 pub unsafe fn GetBestRoute(
     dwdestaddr: u32,
     dwsourceaddr: u32,
@@ -1814,6 +1841,7 @@ pub unsafe fn GetBestRoute2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
     #[cfg(windows)]
     {
@@ -1826,6 +1854,7 @@ pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCurrentThreadCompartmentScope(
     compartmentscope: *mut u32,
     compartmentid: *mut u32,
@@ -1847,6 +1876,7 @@ pub unsafe fn GetCurrentThreadCompartmentScope(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetDefaultCompartmentId() -> u32 {
     #[cfg(windows)]
     {
@@ -1873,6 +1903,7 @@ pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExtendedTcpTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1910,6 +1941,7 @@ pub unsafe fn GetExtendedTcpTable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExtendedUdpTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1946,6 +1978,7 @@ pub unsafe fn GetExtendedUdpTable<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1958,6 +1991,7 @@ pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
     #[cfg(windows)]
     {
@@ -1970,6 +2004,7 @@ pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1985,6 +2020,7 @@ pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
     #[cfg(windows)]
     {
@@ -2047,6 +2083,7 @@ pub unsafe fn GetIfStackTable(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIfTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2107,6 +2144,7 @@ pub unsafe fn GetIfTable2Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetInterfaceActiveTimestampCapabilities(
     interfaceluid: *const NET_LUID_LH,
     timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES,
@@ -2154,6 +2192,7 @@ pub unsafe fn GetInterfaceDnsSettings<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -2170,6 +2209,7 @@ pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetInterfaceSupportedTimestampCapabilities(
     interfaceluid: *const NET_LUID_LH,
     timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES,
@@ -2209,6 +2249,7 @@ pub unsafe fn GetInvertedIfStackTable(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIpAddrTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2237,6 +2278,7 @@ pub unsafe fn GetIpAddrTable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIpErrorString(
     errorcode: u32,
     buffer: super::super::Foundation::PWSTR,
@@ -2281,6 +2323,7 @@ pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn GetIpForwardTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2383,6 +2426,7 @@ pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> ::windows::runtime::Re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIpNetTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2499,6 +2543,7 @@ pub unsafe fn GetIpPathTable(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
     #[cfg(windows)]
     {
@@ -2511,6 +2556,7 @@ pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
@@ -2527,6 +2573,7 @@ pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetJobCompartmentId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2661,6 +2708,7 @@ pub unsafe fn GetNetworkInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetNetworkParams(
     pfixedinfo: *mut FIXED_INFO_W2KSP1,
     poutbuflen: *mut u32,
@@ -2682,6 +2730,7 @@ pub unsafe fn GetNetworkParams(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -2694,6 +2743,7 @@ pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetOwnerModuleFromPidAndInfo(
     ulpid: u32,
     pinfo: *const u64,
@@ -2724,6 +2774,7 @@ pub unsafe fn GetOwnerModuleFromPidAndInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetOwnerModuleFromTcp6Entry(
     ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE,
     class: TCPIP_OWNER_MODULE_INFO_CLASS,
@@ -2751,6 +2802,7 @@ pub unsafe fn GetOwnerModuleFromTcp6Entry(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetOwnerModuleFromTcpEntry(
     ptcpentry: *const MIB_TCPROW_OWNER_MODULE,
     class: TCPIP_OWNER_MODULE_INFO_CLASS,
@@ -2778,6 +2830,7 @@ pub unsafe fn GetOwnerModuleFromTcpEntry(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetOwnerModuleFromUdp6Entry(
     pudpentry: *const MIB_UDP6ROW_OWNER_MODULE,
     class: TCPIP_OWNER_MODULE_INFO_CLASS,
@@ -2805,6 +2858,7 @@ pub unsafe fn GetOwnerModuleFromUdp6Entry(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetOwnerModuleFromUdpEntry(
     pudpentry: *const MIB_UDPROW_OWNER_MODULE,
     class: TCPIP_OWNER_MODULE_INFO_CLASS,
@@ -2833,6 +2887,7 @@ pub unsafe fn GetOwnerModuleFromUdpEntry(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn GetPerAdapterInfo(
     ifindex: u32,
     pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1,
@@ -2858,6 +2913,7 @@ pub unsafe fn GetPerAdapterInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
 pub unsafe fn GetPerTcp6ConnectionEStats(
     row: *const MIB_TCP6ROW,
     estatstype: TCP_ESTATS_TYPE,
@@ -2906,6 +2962,7 @@ pub unsafe fn GetPerTcp6ConnectionEStats(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetPerTcpConnectionEStats(
     row: *const MIB_TCPROW_LH,
     estatstype: TCP_ESTATS_TYPE,
@@ -2955,6 +3012,7 @@ pub unsafe fn GetPerTcpConnectionEStats(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRTTAndHopCount(
     destipaddress: u32,
     hopcount: *mut u32,
@@ -2982,6 +3040,7 @@ pub unsafe fn GetRTTAndHopCount(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -2995,6 +3054,7 @@ pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn GetTcp6Table<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3023,6 +3083,7 @@ pub unsafe fn GetTcp6Table<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn GetTcp6Table2<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3050,6 +3111,7 @@ pub unsafe fn GetTcp6Table2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
     #[cfg(windows)]
     {
@@ -3062,6 +3124,7 @@ pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
@@ -3077,6 +3140,7 @@ pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
@@ -3093,6 +3157,7 @@ pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRES
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTcpTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3121,6 +3186,7 @@ pub unsafe fn GetTcpTable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTcpTable2<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3162,6 +3228,7 @@ pub unsafe fn GetTeredoPort(port: *mut u16) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn GetUdp6Table<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3189,6 +3256,7 @@ pub unsafe fn GetUdp6Table<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
     #[cfg(windows)]
     {
@@ -3201,6 +3269,7 @@ pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
@@ -3216,6 +3285,7 @@ pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
     {
@@ -3232,6 +3302,7 @@ pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRES
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetUdpTable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3259,6 +3330,7 @@ pub unsafe fn GetUdpTable<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetUniDirectionalAdapterInfo(
     pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS,
     dwoutbuflen: *mut u32,
@@ -5682,6 +5754,7 @@ unsafe impl ::windows::runtime::Abi for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
 }
 pub const IP_UNLOAD: u32 = 11022u32;
 pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
+#[inline]
 pub unsafe fn Icmp6CreateFile() -> IcmpHandle {
     #[cfg(windows)]
     {
@@ -5694,6 +5767,7 @@ pub unsafe fn Icmp6CreateFile() -> IcmpHandle {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -5714,6 +5788,7 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize:
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn Icmp6SendEcho2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>,
@@ -5770,6 +5845,7 @@ pub unsafe fn Icmp6SendEcho2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(
     icmphandle: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -5784,6 +5860,7 @@ pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, Icmp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn IcmpCreateFile() -> IcmpHandle {
     #[cfg(windows)]
     {
@@ -5815,6 +5892,7 @@ unsafe impl ::windows::runtime::Abi for IcmpHandle {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -5830,6 +5908,7 @@ pub unsafe fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(
     icmphandle: Param0,
     destinationaddress: u32,
@@ -5873,6 +5952,7 @@ pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHan
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn IcmpSendEcho2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>,
@@ -5929,6 +6009,7 @@ pub unsafe fn IcmpSendEcho2<
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn IcmpSendEcho2Ex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>,
@@ -5989,6 +6070,7 @@ pub unsafe fn IcmpSendEcho2Ex<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
     #[cfg(windows)]
     {
@@ -6002,6 +6084,7 @@ pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
     #[cfg(windows)]
     {
@@ -6019,6 +6102,7 @@ pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) {
     #[cfg(windows)]
     {
@@ -6031,6 +6115,7 @@ pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     #[cfg(windows)]
     {
@@ -6043,6 +6128,7 @@ pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     #[cfg(windows)]
     {
@@ -6061,6 +6147,7 @@ pub const LB_DST_MASK_LATE_FLAG: u32 = 32u32;
 pub const LB_SRC_ADDR_USE_DSTADDR_FLAG: u32 = 2u32;
 pub const LB_SRC_ADDR_USE_SRCADDR_FLAG: u32 = 1u32;
 pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
+#[inline]
 pub unsafe fn LookupPersistentTcpPortReservation(
     startport: u16,
     numberofports: u16,
@@ -6085,6 +6172,7 @@ pub unsafe fn LookupPersistentTcpPortReservation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LookupPersistentUdpPortReservation(
     startport: u16,
     numberofports: u16,
@@ -11408,6 +11496,7 @@ pub const NIIF_NDIS_RESERVED4: u32 = 256u32;
 pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32u32;
 pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -11443,6 +11532,7 @@ pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn NotifyAddrChange(
     handle: *mut super::super::Foundation::HANDLE,
     overlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -11532,6 +11622,7 @@ pub unsafe fn NotifyNetworkConnectivityHintChange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn NotifyRouteChange(
     handle: *mut super::super::Foundation::HANDLE,
     overlapped: *const super::super::System::SystemServices::OVERLAPPED,
@@ -12066,6 +12157,7 @@ pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = unsafe extern "system" fn(
     row: *const MIB_UNICASTIPADDRESS_ROW,
     notificationtype: MIB_NOTIFICATION_TYPE,
 );
+#[inline]
 pub unsafe fn PfAddFiltersToInterface(
     ih: *mut ::std::ffi::c_void,
     cinfilters: u32,
@@ -12099,6 +12191,7 @@ pub unsafe fn PfAddFiltersToInterface(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfAddGlobalFilterToInterface(
     pinterface: *mut ::std::ffi::c_void,
     gffilter: GLOBAL_FILTER,
@@ -12120,6 +12213,7 @@ pub unsafe fn PfAddGlobalFilterToInterface(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfBindInterfaceToIPAddress(
     pinterface: *mut ::std::ffi::c_void,
     pfattype: PFADDRESSTYPE,
@@ -12144,6 +12238,7 @@ pub unsafe fn PfBindInterfaceToIPAddress(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfBindInterfaceToIndex(
     pinterface: *mut ::std::ffi::c_void,
     dwindex: u32,
@@ -12172,6 +12267,7 @@ pub unsafe fn PfBindInterfaceToIndex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PfCreateInterface<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -12209,6 +12305,7 @@ pub unsafe fn PfCreateInterface<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfDeleteInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -12221,6 +12318,7 @@ pub unsafe fn PfDeleteInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfDeleteLog() -> u32 {
     #[cfg(windows)]
     {
@@ -12234,6 +12332,7 @@ pub unsafe fn PfDeleteLog() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PfGetInterfaceStatistics<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -12265,6 +12364,7 @@ pub unsafe fn PfGetInterfaceStatistics<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PfMakeLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12282,6 +12382,7 @@ pub unsafe fn PfMakeLog<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfRebindFilters(
     pinterface: *mut ::std::ffi::c_void,
     platebindinfo: *mut PF_LATEBIND_INFO,
@@ -12303,6 +12404,7 @@ pub unsafe fn PfRebindFilters(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfRemoveFilterHandles(
     pinterface: *mut ::std::ffi::c_void,
     cfilters: u32,
@@ -12327,6 +12429,7 @@ pub unsafe fn PfRemoveFilterHandles(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfRemoveFiltersFromInterface(
     ih: *mut ::std::ffi::c_void,
     cinfilters: u32,
@@ -12357,6 +12460,7 @@ pub unsafe fn PfRemoveFiltersFromInterface(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfRemoveGlobalFilterFromInterface(
     pinterface: *mut ::std::ffi::c_void,
     gffilter: GLOBAL_FILTER,
@@ -12378,6 +12482,7 @@ pub unsafe fn PfRemoveGlobalFilterFromInterface(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfSetLogBuffer(
     pbbuffer: *mut u8,
     dwsize: u32,
@@ -12414,6 +12519,7 @@ pub unsafe fn PfSetLogBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfTestPacket(
     pininterface: *mut ::std::ffi::c_void,
     poutinterface: *mut ::std::ffi::c_void,
@@ -12444,6 +12550,7 @@ pub unsafe fn PfTestPacket(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PfUnBindInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -12460,6 +12567,7 @@ pub const ROUTE_LONGER: u32 = 32u32;
 pub const ROUTE_MATCHING: u32 = 31u32;
 pub const ROUTE_SHORTER: u32 = 33u32;
 pub const ROUTE_STATE: u32 = 34u32;
+#[inline]
 pub unsafe fn RegisterInterfaceTimestampConfigChange(
     callback: ::std::option::Option<PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK>,
     callercontext: *const ::std::ffi::c_void,
@@ -12515,6 +12623,7 @@ pub unsafe fn ResolveIpNetEntry2(
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn ResolveNeighbor(
     networkaddress: *const super::super::Networking::WinSock::SOCKADDR,
     physicaladdress: *mut ::std::ffi::c_void,
@@ -12540,6 +12649,7 @@ pub unsafe fn ResolveNeighbor(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RestoreMediaSense(
     poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
     lpdwenablecount: *mut u32,
@@ -12561,6 +12671,7 @@ pub unsafe fn RestoreMediaSense(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SendARP(
     destip: u32,
     srcip: u32,
@@ -12633,6 +12744,7 @@ pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
     #[cfg(windows)]
     {
@@ -12672,6 +12784,7 @@ pub unsafe fn SetInterfaceDnsSettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
 pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
     {
@@ -12720,6 +12833,7 @@ pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
     {
@@ -12749,6 +12863,7 @@ pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
     #[cfg(windows)]
     {
@@ -12761,6 +12876,7 @@ pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -12776,6 +12892,7 @@ pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -12844,6 +12961,7 @@ pub unsafe fn SetNetworkInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
 pub unsafe fn SetPerTcp6ConnectionEStats(
     row: *const MIB_TCP6ROW,
     estatstype: TCP_ESTATS_TYPE,
@@ -12877,6 +12995,7 @@ pub unsafe fn SetPerTcp6ConnectionEStats(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetPerTcpConnectionEStats(
     row: *const MIB_TCPROW_LH,
     estatstype: TCP_ESTATS_TYPE,
@@ -12933,6 +13052,7 @@ pub unsafe fn SetSessionCompartmentId(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
     #[cfg(windows)]
     {
@@ -14110,6 +14230,7 @@ unsafe impl ::windows::runtime::Abi for UDP_TABLE_CLASS {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn UnenableRouter(
     poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
     lpdwenablecount: *mut u32,
@@ -14131,6 +14252,7 @@ pub unsafe fn UnenableRouter(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UnregisterInterfaceTimestampConfigChange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIFTIMESTAMPCHANGE>,
@@ -14296,6 +14418,7 @@ unsafe impl ::windows::runtime::Abi for icmpv6_echo_reply_lh {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn if_indextoname(
     interfaceindex: u32,
     interfacename: super::super::Foundation::PSTR,
@@ -14318,6 +14441,7 @@ pub unsafe fn if_indextoname(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn if_nametoindex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,

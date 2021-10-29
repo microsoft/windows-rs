@@ -2248,6 +2248,7 @@ unsafe impl ::windows::runtime::Abi for CIP_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16) {
     #[cfg(windows)]
     {
@@ -2263,6 +2264,7 @@ pub unsafe fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserFree64(param0: *const u32, param1: *const u16) {
     #[cfg(windows)]
     {
@@ -2278,6 +2280,7 @@ pub unsafe fn CLIPFORMAT_UserFree64(param0: *const u32, param1: *const u16) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -2302,6 +2305,7 @@ pub unsafe fn CLIPFORMAT_UserMarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -2326,6 +2330,7 @@ pub unsafe fn CLIPFORMAT_UserMarshal64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserSize(param0: *const u32, param1: u32, param2: *const u16) -> u32 {
     #[cfg(windows)]
     {
@@ -2342,6 +2347,7 @@ pub unsafe fn CLIPFORMAT_UserSize(param0: *const u32, param1: u32, param2: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserSize64(param0: *const u32, param1: u32, param2: *const u16) -> u32 {
     #[cfg(windows)]
     {
@@ -2358,6 +2364,7 @@ pub unsafe fn CLIPFORMAT_UserSize64(param0: *const u32, param1: u32, param2: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -2382,6 +2389,7 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CLIPFORMAT_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -3227,6 +3235,7 @@ pub const CatalogObject: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
     4560,
     [129, 182, 0, 160, 201, 35, 28, 41],
 );
+#[inline]
 pub unsafe fn CoAddRefServerProcess() -> u32 {
     #[cfg(windows)]
     {
@@ -3528,6 +3537,7 @@ pub unsafe fn CoDisconnectObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoDosDateTimeToFileTime(
     ndosdate: u16,
     ndostime: u16,
@@ -3586,6 +3596,7 @@ pub unsafe fn CoFileTimeNow() -> ::windows::runtime::Result<super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoFileTimeToDosDateTime(
     lpfiletime: *const super::super::Foundation::FILETIME,
     lpdosdate: *mut u16,
@@ -3610,6 +3621,7 @@ pub unsafe fn CoFileTimeToDosDateTime(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoFreeAllLibraries() {
     #[cfg(windows)]
     {
@@ -3623,6 +3635,7 @@ pub unsafe fn CoFreeAllLibraries() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoFreeLibrary<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -3640,6 +3653,7 @@ pub unsafe fn CoFreeLibrary<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoFreeUnusedLibraries() {
     #[cfg(windows)]
     {
@@ -3652,6 +3666,7 @@ pub unsafe fn CoFreeUnusedLibraries() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
     #[cfg(windows)]
     {
@@ -3862,6 +3877,7 @@ pub unsafe fn CoGetCurrentLogicalThreadId() -> ::windows::runtime::Result<::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoGetCurrentProcess() -> u32 {
     #[cfg(windows)]
     {
@@ -4293,6 +4309,7 @@ pub unsafe fn CoGetTreatAsClass(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoHandlePriorityEventsFromMessagePump() {
     #[cfg(windows)]
     {
@@ -5055,6 +5072,7 @@ pub unsafe fn CoInvalidateRemoteMachineBindings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoIsHandlerConnected<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -5075,6 +5093,7 @@ pub unsafe fn CoIsHandlerConnected<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoIsOle1Class(
     rclsid: *const ::windows::runtime::GUID,
 ) -> super::super::Foundation::BOOL {
@@ -5092,6 +5111,7 @@ pub unsafe fn CoIsOle1Class(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CoLoadLibrary<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5555,6 +5575,7 @@ pub unsafe fn CoReleaseMarshalData<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoReleaseServerProcess() -> u32 {
     #[cfg(windows)]
     {
@@ -5663,6 +5684,7 @@ pub unsafe fn CoSetCancelObject<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoSetMessageDispatcher<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IMessageDispatcher>,
@@ -5762,6 +5784,7 @@ pub unsafe fn CoSwitchCallContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -5774,6 +5797,7 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -5786,6 +5810,7 @@ pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoTaskMemRealloc(
     pv: *const ::std::ffi::c_void,
     cb: usize,
@@ -5841,6 +5866,7 @@ pub unsafe fn CoTreatAsClass(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoUninitialize() {
     #[cfg(windows)]
     {
@@ -7038,6 +7064,7 @@ unsafe impl ::windows::runtime::Abi for DWORD_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn DoDragDrop<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IDataObject>,
@@ -8167,6 +8194,7 @@ pub unsafe fn GetSoftwareUpdateInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserFree(
     param0: *const u32,
     param1: *const super::super::UI::WindowsAndMessaging::HACCEL,
@@ -8189,6 +8217,7 @@ pub unsafe fn HACCEL_UserFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserFree64(
     param0: *const u32,
     param1: *const super::super::UI::WindowsAndMessaging::HACCEL,
@@ -8211,6 +8240,7 @@ pub unsafe fn HACCEL_UserFree64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -8236,6 +8266,7 @@ pub unsafe fn HACCEL_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -8261,6 +8292,7 @@ pub unsafe fn HACCEL_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserSize(
     param0: *const u32,
     param1: u32,
@@ -8286,6 +8318,7 @@ pub unsafe fn HACCEL_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -8311,6 +8344,7 @@ pub unsafe fn HACCEL_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -8336,6 +8370,7 @@ pub unsafe fn HACCEL_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HACCEL_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -8361,6 +8396,7 @@ pub unsafe fn HACCEL_UserUnmarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserFree(
     param0: *const u32,
     param1: *const super::super::Graphics::Gdi::HBITMAP,
@@ -8383,6 +8419,7 @@ pub unsafe fn HBITMAP_UserFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserFree64(
     param0: *const u32,
     param1: *const super::super::Graphics::Gdi::HBITMAP,
@@ -8405,6 +8442,7 @@ pub unsafe fn HBITMAP_UserFree64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -8430,6 +8468,7 @@ pub unsafe fn HBITMAP_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -8455,6 +8494,7 @@ pub unsafe fn HBITMAP_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserSize(
     param0: *const u32,
     param1: u32,
@@ -8480,6 +8520,7 @@ pub unsafe fn HBITMAP_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -8505,6 +8546,7 @@ pub unsafe fn HBITMAP_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -8530,6 +8572,7 @@ pub unsafe fn HBITMAP_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HBITMAP_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -8555,6 +8598,7 @@ pub unsafe fn HBITMAP_UserUnmarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HDC) {
     #[cfg(windows)]
     {
@@ -8571,6 +8615,7 @@ pub unsafe fn HDC_UserFree(param0: *const u32, param1: *const super::super::Grap
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HDC) {
     #[cfg(windows)]
     {
@@ -8587,6 +8632,7 @@ pub unsafe fn HDC_UserFree64(param0: *const u32, param1: *const super::super::Gr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -8612,6 +8658,7 @@ pub unsafe fn HDC_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -8637,6 +8684,7 @@ pub unsafe fn HDC_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserSize(
     param0: *const u32,
     param1: u32,
@@ -8662,6 +8710,7 @@ pub unsafe fn HDC_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -8687,6 +8736,7 @@ pub unsafe fn HDC_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -8712,6 +8762,7 @@ pub unsafe fn HDC_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HDC_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -8736,6 +8787,7 @@ pub unsafe fn HDC_UserUnmarshal64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserFree(param0: *const u32, param1: *const isize) {
     #[cfg(windows)]
     {
@@ -8751,6 +8803,7 @@ pub unsafe fn HGLOBAL_UserFree(param0: *const u32, param1: *const isize) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserFree64(param0: *const u32, param1: *const isize) {
     #[cfg(windows)]
     {
@@ -8766,6 +8819,7 @@ pub unsafe fn HGLOBAL_UserFree64(param0: *const u32, param1: *const isize) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -8790,6 +8844,7 @@ pub unsafe fn HGLOBAL_UserMarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -8814,6 +8869,7 @@ pub unsafe fn HGLOBAL_UserMarshal64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserSize(param0: *const u32, param1: u32, param2: *const isize) -> u32 {
     #[cfg(windows)]
     {
@@ -8830,6 +8886,7 @@ pub unsafe fn HGLOBAL_UserSize(param0: *const u32, param1: u32, param2: *const i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserSize64(param0: *const u32, param1: u32, param2: *const isize) -> u32 {
     #[cfg(windows)]
     {
@@ -8846,6 +8903,7 @@ pub unsafe fn HGLOBAL_UserSize64(param0: *const u32, param1: u32, param2: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -8870,6 +8928,7 @@ pub unsafe fn HGLOBAL_UserUnmarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HGLOBAL_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -8895,6 +8954,7 @@ pub unsafe fn HGLOBAL_UserUnmarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserFree(
     param0: *const u32,
     param1: *const super::super::UI::WindowsAndMessaging::HICON,
@@ -8917,6 +8977,7 @@ pub unsafe fn HICON_UserFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserFree64(
     param0: *const u32,
     param1: *const super::super::UI::WindowsAndMessaging::HICON,
@@ -8939,6 +9000,7 @@ pub unsafe fn HICON_UserFree64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -8964,6 +9026,7 @@ pub unsafe fn HICON_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -8989,6 +9052,7 @@ pub unsafe fn HICON_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserSize(
     param0: *const u32,
     param1: u32,
@@ -9014,6 +9078,7 @@ pub unsafe fn HICON_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -9039,6 +9104,7 @@ pub unsafe fn HICON_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -9064,6 +9130,7 @@ pub unsafe fn HICON_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HICON_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -9159,6 +9226,7 @@ unsafe impl ::windows::runtime::Abi for HIT_LOGGING_INFO {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserFree(
     param0: *const u32,
     param1: *const super::super::UI::WindowsAndMessaging::HMENU,
@@ -9181,6 +9249,7 @@ pub unsafe fn HMENU_UserFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserFree64(
     param0: *const u32,
     param1: *const super::super::UI::WindowsAndMessaging::HMENU,
@@ -9203,6 +9272,7 @@ pub unsafe fn HMENU_UserFree64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -9228,6 +9298,7 @@ pub unsafe fn HMENU_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -9253,6 +9324,7 @@ pub unsafe fn HMENU_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserSize(
     param0: *const u32,
     param1: u32,
@@ -9278,6 +9350,7 @@ pub unsafe fn HMENU_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -9303,6 +9376,7 @@ pub unsafe fn HMENU_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -9328,6 +9402,7 @@ pub unsafe fn HMENU_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn HMENU_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -9353,6 +9428,7 @@ pub unsafe fn HMENU_UserUnmarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserFree(
     param0: *const u32,
     param1: *const super::super::Graphics::Gdi::HPALETTE,
@@ -9375,6 +9451,7 @@ pub unsafe fn HPALETTE_UserFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserFree64(
     param0: *const u32,
     param1: *const super::super::Graphics::Gdi::HPALETTE,
@@ -9397,6 +9474,7 @@ pub unsafe fn HPALETTE_UserFree64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -9422,6 +9500,7 @@ pub unsafe fn HPALETTE_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -9447,6 +9526,7 @@ pub unsafe fn HPALETTE_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserSize(
     param0: *const u32,
     param1: u32,
@@ -9472,6 +9552,7 @@ pub unsafe fn HPALETTE_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -9497,6 +9578,7 @@ pub unsafe fn HPALETTE_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -9522,6 +9604,7 @@ pub unsafe fn HPALETTE_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HPALETTE_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -9547,6 +9630,7 @@ pub unsafe fn HPALETTE_UserUnmarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
     #[cfg(windows)]
     {
@@ -9563,6 +9647,7 @@ pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Gra
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserFree64(
     param0: *const u32,
     param1: *const super::super::Graphics::Gdi::HRGN,
@@ -9585,6 +9670,7 @@ pub unsafe fn HRGN_UserFree64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -9610,6 +9696,7 @@ pub unsafe fn HRGN_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -9635,6 +9722,7 @@ pub unsafe fn HRGN_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserSize(
     param0: *const u32,
     param1: u32,
@@ -9660,6 +9748,7 @@ pub unsafe fn HRGN_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -9685,6 +9774,7 @@ pub unsafe fn HRGN_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -9710,6 +9800,7 @@ pub unsafe fn HRGN_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HRGN_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -17886,6 +17977,7 @@ pub struct IDummyHICONIncluder_abi(
     usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
@@ -48072,6 +48164,7 @@ pub struct IZoomEvents_abi(
     ) -> ::windows::runtime::HRESULT,
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn IsAccelerator<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HACCEL>,
@@ -48117,6 +48210,7 @@ pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, IMoni
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsLoggingEnabledA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -48137,6 +48231,7 @@ pub unsafe fn IsLoggingEnabledA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsLoggingEnabledW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -52078,6 +52173,7 @@ pub unsafe fn ObtainUserAgentString(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn OleBuildVersion() -> u32 {
     #[cfg(windows)]
     {
@@ -52814,6 +52910,7 @@ pub unsafe fn OleCreateLinkToFileEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn OleCreateMenuDescriptor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>,
@@ -53056,6 +53153,7 @@ pub unsafe fn OleDraw<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleDuplicateData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -53165,6 +53263,7 @@ pub unsafe fn OleGetClipboardWithEnterpriseInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleGetIconOfClass<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -53194,6 +53293,7 @@ pub unsafe fn OleGetIconOfClass<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleGetIconOfFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -53220,6 +53320,7 @@ pub unsafe fn OleGetIconOfFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn OleIconToCursor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -53274,6 +53375,7 @@ pub unsafe fn OleIsCurrentClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleIsRunning<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObject>>(
     pobject: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -53536,6 +53638,7 @@ unsafe impl ::windows::runtime::Abi for OleMenuGroupWidths {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn OleMetafilePictFromIconAndLabel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>,
@@ -53950,6 +54053,7 @@ pub unsafe fn OleTranslateColor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn OleUIAddVerbMenuA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IOleObject>,
@@ -53999,6 +54103,7 @@ pub unsafe fn OleUIAddVerbMenuA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn OleUIAddVerbMenuW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IOleObject>,
@@ -54052,6 +54157,7 @@ pub unsafe fn OleUIAddVerbMenuW<
     feature = "Win32_Media_Audio_CoreAudio",
     feature = "Win32_System_LibraryLoader"
 ))]
+#[inline]
 pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     #[cfg(windows)]
     {
@@ -54069,6 +54175,7 @@ pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     feature = "Win32_Media_Audio_CoreAudio",
     feature = "Win32_System_LibraryLoader"
 ))]
+#[inline]
 pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     #[cfg(windows)]
     {
@@ -54082,6 +54189,7 @@ pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleUICanConvertOrActivateAs<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -54114,6 +54222,7 @@ pub unsafe fn OleUICanConvertOrActivateAs<
     feature = "Win32_System_LibraryLoader",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     #[cfg(windows)]
     {
@@ -54127,6 +54236,7 @@ pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[inline]
 pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     #[cfg(windows)]
     {
@@ -54144,6 +54254,7 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     feature = "Win32_System_LibraryLoader",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     #[cfg(windows)]
     {
@@ -54163,6 +54274,7 @@ pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     feature = "Win32_System_LibraryLoader",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     #[cfg(windows)]
     {
@@ -54178,6 +54290,7 @@ pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[inline]
 pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     #[cfg(windows)]
     {
@@ -54191,6 +54304,7 @@ pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[inline]
 pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     #[cfg(windows)]
     {
@@ -54204,6 +54318,7 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[inline]
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     #[cfg(windows)]
     {
@@ -54217,6 +54332,7 @@ pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[inline]
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     #[cfg(windows)]
     {
@@ -54234,6 +54350,7 @@ pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_LibraryLoader"
 ))]
+#[inline]
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     #[cfg(windows)]
     {
@@ -54253,6 +54370,7 @@ pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_LibraryLoader"
 ))]
+#[inline]
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     #[cfg(windows)]
     {
@@ -54273,6 +54391,7 @@ pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     feature = "Win32_UI_Controls",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     #[cfg(windows)]
     {
@@ -54293,6 +54412,7 @@ pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     feature = "Win32_UI_Controls",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     #[cfg(windows)]
     {
@@ -54308,6 +54428,7 @@ pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[inline]
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     #[cfg(windows)]
     {
@@ -54323,6 +54444,7 @@ pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[inline]
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     #[cfg(windows)]
     {
@@ -54338,6 +54460,7 @@ pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleUIPromptUserA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54360,6 +54483,7 @@ pub unsafe fn OleUIPromptUserA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleUIPromptUserW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54382,6 +54506,7 @@ pub unsafe fn OleUIPromptUserW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleUIUpdateLinksA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IOleUILinkContainerA>,
@@ -54415,6 +54540,7 @@ pub unsafe fn OleUIUpdateLinksA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OleUIUpdateLinksW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IOleUILinkContainerW>,
@@ -54447,6 +54573,7 @@ pub unsafe fn OleUIUpdateLinksW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn OleUninitialize() {
     #[cfg(windows)]
     {
@@ -56126,6 +56253,7 @@ pub unsafe fn RegisterMediaTypes(
     feature = "Win32_Security",
     feature = "Win32_Storage_StructuredStorage"
 ))]
+#[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut BINDINFO) {
     #[cfg(windows)]
     {
@@ -56143,6 +56271,7 @@ pub unsafe fn ReleaseBindInfo(pbindinfo: *mut BINDINFO) {
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_Storage_StructuredStorage"
 ))]
+#[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut STGMEDIUM) {
     #[cfg(windows)]
     {
@@ -56498,6 +56627,7 @@ unsafe impl ::windows::runtime::Abi for SHORT_SIZEDARR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16) {
     #[cfg(windows)]
     {
@@ -56513,6 +56643,7 @@ pub unsafe fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u16) {
     #[cfg(windows)]
     {
@@ -56528,6 +56659,7 @@ pub unsafe fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SNB_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -56552,6 +56684,7 @@ pub unsafe fn SNB_UserMarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SNB_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -56576,6 +56709,7 @@ pub unsafe fn SNB_UserMarshal64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SNB_UserSize(
     param0: *const u32,
     param1: u32,
@@ -56600,6 +56734,7 @@ pub unsafe fn SNB_UserSize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SNB_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -56624,6 +56759,7 @@ pub unsafe fn SNB_UserSize64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SNB_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -56648,6 +56784,7 @@ pub unsafe fn SNB_UserUnmarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SNB_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -57132,6 +57269,7 @@ pub unsafe fn StringFromCLSID(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StringFromGUID2(
     rguid: *const ::windows::runtime::GUID,
     lpsz: super::super::Foundation::PWSTR,
@@ -58294,6 +58432,7 @@ unsafe impl ::windows::runtime::Abi for WPCSETTING {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WriteHitLogging(
     lplogginginfo: *const HIT_LOGGING_INFO,
 ) -> super::super::Foundation::BOOL {

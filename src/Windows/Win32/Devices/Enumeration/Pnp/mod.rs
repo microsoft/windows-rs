@@ -4395,6 +4395,7 @@ unsafe impl ::windows::runtime::Abi for SW_DEVICE_LIFETIME {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SwDeviceClose<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>>(
     hswdevice: Param0,
 ) {
@@ -4634,6 +4635,7 @@ pub unsafe fn SwDeviceSetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SwMemFree(pmem: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {

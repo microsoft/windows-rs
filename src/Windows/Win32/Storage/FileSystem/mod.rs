@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddLogContainer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -40,6 +41,7 @@ pub unsafe fn AddLogContainer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddLogContainerSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -74,6 +76,7 @@ pub unsafe fn AddLogContainerSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn AddUsersToEncryptedFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -99,6 +102,7 @@ pub unsafe fn AddUsersToEncryptedFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AdvanceLogBase(
     pvmarshal: *mut ::std::ffi::c_void,
     plsnbase: *mut CLS_LSN,
@@ -127,6 +131,7 @@ pub unsafe fn AdvanceLogBase(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AlignReservedLog(
     pvmarshal: *mut ::std::ffi::c_void,
     creservedrecords: u32,
@@ -155,6 +160,7 @@ pub unsafe fn AlignReservedLog(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AllocReservedLog(
     pvmarshal: *mut ::std::ffi::c_void,
     creservedrecords: u32,
@@ -180,6 +186,7 @@ pub unsafe fn AllocReservedLog(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -193,6 +200,7 @@ pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AreShortNamesEnabled<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -338,6 +346,7 @@ unsafe impl ::windows::runtime::Abi for BY_HANDLE_FILE_INFORMATION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BackupRead<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -380,6 +389,7 @@ pub unsafe fn BackupRead<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BackupSeek<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -417,6 +427,7 @@ pub unsafe fn BackupSeek<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BackupWrite<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2849,6 +2860,7 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CancelIo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2867,6 +2879,7 @@ pub unsafe fn CancelIo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CancelIoEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2892,6 +2905,7 @@ pub unsafe fn CancelIoEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CancelSynchronousIo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2912,6 +2926,7 @@ pub unsafe fn CancelSynchronousIo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2946,6 +2961,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2990,6 +3006,7 @@ pub const ClfsDataRecord: u8 = 1u8;
 pub const ClfsNullRecord: u8 = 0u8;
 pub const ClfsRestartRecord: u8 = 2u8;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseAndResetLogFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3009,6 +3026,7 @@ pub unsafe fn CloseAndResetLogFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -3040,6 +3058,7 @@ pub const ClsContainerInitializing: u32 = 1u32;
 pub const ClsContainerPendingArchive: u32 = 16u32;
 pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CommitComplete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3065,6 +3084,7 @@ pub unsafe fn CommitComplete<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CommitEnlistment<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3090,6 +3110,7 @@ pub unsafe fn CommitEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CommitTransaction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3110,6 +3131,7 @@ pub unsafe fn CommitTransaction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CommitTransactionAsync<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3130,6 +3152,7 @@ pub unsafe fn CommitTransactionAsync<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CompareFileTime(
     lpfiletime1: *const super::super::Foundation::FILETIME,
     lpfiletime2: *const super::super::Foundation::FILETIME,
@@ -3182,6 +3205,7 @@ pub unsafe fn CopyFile2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3212,6 +3236,7 @@ pub unsafe fn CopyFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFileExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3250,6 +3275,7 @@ pub unsafe fn CopyFileExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFileExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3288,6 +3314,7 @@ pub unsafe fn CopyFileExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFileFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3318,6 +3345,7 @@ pub unsafe fn CopyFileFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFileTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3360,6 +3388,7 @@ pub unsafe fn CopyFileTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFileTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3402,6 +3431,7 @@ pub unsafe fn CopyFileTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3431,6 +3461,7 @@ pub unsafe fn CopyFileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -3447,6 +3478,7 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateDirectoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3472,6 +3504,7 @@ pub unsafe fn CreateDirectoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateDirectoryExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3501,6 +3534,7 @@ pub unsafe fn CreateDirectoryExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateDirectoryExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3530,6 +3564,7 @@ pub unsafe fn CreateDirectoryExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateDirectoryFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3555,6 +3590,7 @@ pub unsafe fn CreateDirectoryFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateDirectoryTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3588,6 +3624,7 @@ pub unsafe fn CreateDirectoryTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateDirectoryTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3621,6 +3658,7 @@ pub unsafe fn CreateDirectoryTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateDirectoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3646,6 +3684,7 @@ pub unsafe fn CreateDirectoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateEnlistment<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3684,6 +3723,7 @@ pub unsafe fn CreateEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateFile2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3718,6 +3758,7 @@ pub unsafe fn CreateFile2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateFile2FromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3752,6 +3793,7 @@ pub unsafe fn CreateFile2FromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3793,6 +3835,7 @@ pub unsafe fn CreateFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateFileFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3834,6 +3877,7 @@ pub unsafe fn CreateFileFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateFileTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3885,6 +3929,7 @@ pub unsafe fn CreateFileTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateFileTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3936,6 +3981,7 @@ pub unsafe fn CreateFileTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3977,6 +4023,7 @@ pub unsafe fn CreateFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateHardLinkA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4006,6 +4053,7 @@ pub unsafe fn CreateHardLinkA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateHardLinkTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4039,6 +4087,7 @@ pub unsafe fn CreateHardLinkTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateHardLinkTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4072,6 +4121,7 @@ pub unsafe fn CreateHardLinkTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateHardLinkW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4101,6 +4151,7 @@ pub unsafe fn CreateHardLinkW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateIoCompletionPort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4164,6 +4215,7 @@ pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CreateLogContainerScanContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4201,6 +4253,7 @@ pub unsafe fn CreateLogContainerScanContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateLogFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4238,6 +4291,7 @@ pub unsafe fn CreateLogFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateLogMarshallingArea<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4281,6 +4335,7 @@ pub unsafe fn CreateLogMarshallingArea<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateResourceManager<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4316,6 +4371,7 @@ pub unsafe fn CreateResourceManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateSymbolicLinkA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4345,6 +4401,7 @@ pub unsafe fn CreateSymbolicLinkA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateSymbolicLinkTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4378,6 +4435,7 @@ pub unsafe fn CreateSymbolicLinkTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateSymbolicLinkTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4411,6 +4469,7 @@ pub unsafe fn CreateSymbolicLinkTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateSymbolicLinkW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4440,6 +4499,7 @@ pub unsafe fn CreateSymbolicLinkW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateTapePartition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4471,6 +4531,7 @@ pub unsafe fn CreateTapePartition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateTransaction<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4511,6 +4572,7 @@ pub unsafe fn CreateTransaction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateTransactionManager<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5930,6 +5992,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DecryptFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5955,6 +6018,7 @@ pub unsafe fn DecryptFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DecryptFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5980,6 +6044,7 @@ pub unsafe fn DecryptFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DefineDosDeviceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6009,6 +6074,7 @@ pub unsafe fn DefineDosDeviceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DefineDosDeviceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6038,6 +6104,7 @@ pub unsafe fn DefineDosDeviceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6058,6 +6125,7 @@ pub unsafe fn DeleteFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteFileFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6078,6 +6146,7 @@ pub unsafe fn DeleteFileFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteFileTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6104,6 +6173,7 @@ pub unsafe fn DeleteFileTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteFileTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6130,6 +6200,7 @@ pub unsafe fn DeleteFileTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6150,6 +6221,7 @@ pub unsafe fn DeleteFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteLogByHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6170,6 +6242,7 @@ pub unsafe fn DeleteLogByHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteLogFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6195,6 +6268,7 @@ pub unsafe fn DeleteLogFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteLogMarshallingArea(
     pvmarshal: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -6212,6 +6286,7 @@ pub unsafe fn DeleteLogMarshallingArea(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteVolumeMountPointA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6234,6 +6309,7 @@ pub unsafe fn DeleteVolumeMountPointA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteVolumeMountPointW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6256,6 +6332,7 @@ pub unsafe fn DeleteVolumeMountPointW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeregisterManageableLogClient<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6276,6 +6353,7 @@ pub unsafe fn DeregisterManageableLogClient<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn DuplicateEncryptionInfoFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6972,6 +7050,7 @@ unsafe impl ::windows::runtime::Abi for EXFAT_STATISTICS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EncryptFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6992,6 +7071,7 @@ pub unsafe fn EncryptFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EncryptFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7012,6 +7092,7 @@ pub unsafe fn EncryptFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EncryptionDisable<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7038,6 +7119,7 @@ pub unsafe fn EncryptionDisable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EraseTape<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10316,6 +10398,7 @@ unsafe impl ::windows::runtime::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FileEncryptionStatusA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10341,6 +10424,7 @@ pub unsafe fn FileEncryptionStatusA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FileEncryptionStatusW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10366,6 +10450,7 @@ pub unsafe fn FileEncryptionStatusW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FileTimeToLocalFileTime(
     lpfiletime: *const super::super::Foundation::FILETIME,
     lplocalfiletime: *mut super::super::Foundation::FILETIME,
@@ -10407,6 +10492,7 @@ unsafe impl ::windows::runtime::Abi for FindChangeNotificationHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHandle>>(
     hfindfile: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -10422,6 +10508,7 @@ pub unsafe fn FindClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindCloseChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, FindChangeNotificationHandle>,
@@ -10482,6 +10569,7 @@ unsafe impl ::windows::runtime::Abi for FindFileNameHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstChangeNotificationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10511,6 +10599,7 @@ pub unsafe fn FindFirstChangeNotificationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstChangeNotificationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10540,6 +10629,7 @@ pub unsafe fn FindFirstChangeNotificationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FindFirstFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10565,6 +10655,7 @@ pub unsafe fn FindFirstFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10602,6 +10693,7 @@ pub unsafe fn FindFirstFileExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileExFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10639,6 +10731,7 @@ pub unsafe fn FindFirstFileExFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10676,6 +10769,7 @@ pub unsafe fn FindFirstFileExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileNameTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10711,6 +10805,7 @@ pub unsafe fn FindFirstFileNameTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10742,6 +10837,7 @@ pub unsafe fn FindFirstFileNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10783,6 +10879,7 @@ pub unsafe fn FindFirstFileTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10824,6 +10921,7 @@ pub unsafe fn FindFirstFileTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10849,6 +10947,7 @@ pub unsafe fn FindFirstFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstStreamTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10884,6 +10983,7 @@ pub unsafe fn FindFirstStreamTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstStreamW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10915,6 +11015,7 @@ pub unsafe fn FindFirstStreamW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstVolumeA(
     lpszvolumename: super::super::Foundation::PSTR,
     cchbufferlength: u32,
@@ -10937,6 +11038,7 @@ pub unsafe fn FindFirstVolumeA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstVolumeMountPointA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10965,6 +11067,7 @@ pub unsafe fn FindFirstVolumeMountPointA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstVolumeMountPointW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10993,6 +11096,7 @@ pub unsafe fn FindFirstVolumeMountPointW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstVolumeW(
     lpszvolumename: super::super::Foundation::PWSTR,
     cchbufferlength: u32,
@@ -11015,6 +11119,7 @@ pub unsafe fn FindFirstVolumeW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, FindChangeNotificationHandle>,
@@ -11035,6 +11140,7 @@ pub unsafe fn FindNextChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FindNextFileA<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHandle>>(
     hfindfile: Param0,
     lpfindfiledata: *mut WIN32_FIND_DATAA,
@@ -11057,6 +11163,7 @@ pub unsafe fn FindNextFileA<'a, Param0: ::windows::runtime::IntoParam<'a, FindFi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextFileNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, FindFileNameHandle>,
@@ -11085,6 +11192,7 @@ pub unsafe fn FindNextFileNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11110,6 +11218,7 @@ pub unsafe fn FindNextFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, FindStreamHandle>>(
     hfindstream: Param0,
     lpfindstreamdata: *mut ::std::ffi::c_void,
@@ -11132,6 +11241,7 @@ pub unsafe fn FindNextStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, Find
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeHandle>>(
     hfindvolume: Param0,
     lpszvolumename: super::super::Foundation::PSTR,
@@ -11157,6 +11267,7 @@ pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::runtime::IntoParam<'a, Find
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextVolumeMountPointA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, FindVolumeMointPointHandle>,
@@ -11185,6 +11296,7 @@ pub unsafe fn FindNextVolumeMountPointA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextVolumeMountPointW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, FindVolumeMointPointHandle>,
@@ -11213,6 +11325,7 @@ pub unsafe fn FindNextVolumeMountPointW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeHandle>>(
     hfindvolume: Param0,
     lpszvolumename: super::super::Foundation::PWSTR,
@@ -11257,6 +11370,7 @@ unsafe impl ::windows::runtime::Abi for FindStreamHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindVolumeClose<'a, Param0: ::windows::runtime::IntoParam<'a, FindVolumeHandle>>(
     hfindvolume: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -11310,6 +11424,7 @@ unsafe impl ::windows::runtime::Abi for FindVolumeMointPointHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindVolumeMountPointClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, FindVolumeMointPointHandle>,
@@ -11332,6 +11447,7 @@ pub unsafe fn FindVolumeMountPointClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlushFileBuffers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11352,6 +11468,7 @@ pub unsafe fn FlushFileBuffers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FlushLogBuffers(
     pvmarshal: *mut ::std::ffi::c_void,
     poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
@@ -11374,6 +11491,7 @@ pub unsafe fn FlushLogBuffers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FlushLogToLsn(
     pvmarshalcontext: *mut ::std::ffi::c_void,
     plsnflush: *mut CLS_LSN,
@@ -11401,6 +11519,7 @@ pub unsafe fn FlushLogToLsn(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
     #[cfg(windows)]
     {
@@ -11414,6 +11533,7 @@ pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
     #[cfg(windows)]
     {
@@ -11429,6 +11549,7 @@ pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIF
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeReservedLog(
     pvmarshal: *mut ::std::ffi::c_void,
     creservedrecords: u32,
@@ -11693,6 +11814,7 @@ impl ::std::ops::Not for GPT_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetBinaryTypeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11718,6 +11840,7 @@ pub unsafe fn GetBinaryTypeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetBinaryTypeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11743,6 +11866,7 @@ pub unsafe fn GetBinaryTypeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCompressedFileSizeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11768,6 +11892,7 @@ pub unsafe fn GetCompressedFileSizeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCompressedFileSizeTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11797,6 +11922,7 @@ pub unsafe fn GetCompressedFileSizeTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCompressedFileSizeTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11826,6 +11952,7 @@ pub unsafe fn GetCompressedFileSizeTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCompressedFileSizeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11851,6 +11978,7 @@ pub unsafe fn GetCompressedFileSizeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentClockTransactionManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11876,6 +12004,7 @@ pub unsafe fn GetCurrentClockTransactionManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskFreeSpaceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11910,6 +12039,7 @@ pub unsafe fn GetDiskFreeSpaceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskFreeSpaceExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11941,6 +12071,7 @@ pub unsafe fn GetDiskFreeSpaceExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskFreeSpaceExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11972,6 +12103,7 @@ pub unsafe fn GetDiskFreeSpaceExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskFreeSpaceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12054,6 +12186,7 @@ pub unsafe fn GetDiskSpaceInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDriveTypeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12072,6 +12205,7 @@ pub unsafe fn GetDriveTypeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDriveTypeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12090,6 +12224,7 @@ pub unsafe fn GetDriveTypeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEncryptedFileMetadata<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12118,6 +12253,7 @@ pub unsafe fn GetEncryptedFileMetadata<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEnlistmentId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12143,6 +12279,7 @@ pub unsafe fn GetEnlistmentId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEnlistmentRecoveryInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12174,6 +12311,7 @@ pub unsafe fn GetEnlistmentRecoveryInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExpandedNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12199,6 +12337,7 @@ pub unsafe fn GetExpandedNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExpandedNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12224,6 +12363,7 @@ pub unsafe fn GetExpandedNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileAttributesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12242,6 +12382,7 @@ pub unsafe fn GetFileAttributesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileAttributesExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12270,6 +12411,7 @@ pub unsafe fn GetFileAttributesExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileAttributesExFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12298,6 +12440,7 @@ pub unsafe fn GetFileAttributesExFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileAttributesExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12326,6 +12469,7 @@ pub unsafe fn GetFileAttributesExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileAttributesTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12358,6 +12502,7 @@ pub unsafe fn GetFileAttributesTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileAttributesTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12390,6 +12535,7 @@ pub unsafe fn GetFileAttributesTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileAttributesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12408,6 +12554,7 @@ pub unsafe fn GetFileAttributesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileBandwidthReservation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12445,6 +12592,7 @@ pub unsafe fn GetFileBandwidthReservation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileInformationByHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12470,6 +12618,7 @@ pub unsafe fn GetFileInformationByHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileInformationByHandleEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12501,6 +12650,7 @@ pub unsafe fn GetFileInformationByHandleEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12526,6 +12676,7 @@ pub unsafe fn GetFileSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileSizeEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12551,6 +12702,7 @@ pub unsafe fn GetFileSizeEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileTime<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12582,6 +12734,7 @@ pub unsafe fn GetFileTime<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileType<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12600,6 +12753,7 @@ pub unsafe fn GetFileType<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12631,6 +12785,7 @@ pub unsafe fn GetFileVersionInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12665,6 +12820,7 @@ pub unsafe fn GetFileVersionInfoExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12699,6 +12855,7 @@ pub unsafe fn GetFileVersionInfoExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoSizeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12724,6 +12881,7 @@ pub unsafe fn GetFileVersionInfoSizeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoSizeExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12752,6 +12910,7 @@ pub unsafe fn GetFileVersionInfoSizeExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoSizeExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12780,6 +12939,7 @@ pub unsafe fn GetFileVersionInfoSizeExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoSizeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12805,6 +12965,7 @@ pub unsafe fn GetFileVersionInfoSizeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFileVersionInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12836,6 +12997,7 @@ pub unsafe fn GetFileVersionInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFinalPathNameByHandleA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12867,6 +13029,7 @@ pub unsafe fn GetFinalPathNameByHandleA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFinalPathNameByHandleW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12898,6 +13061,7 @@ pub unsafe fn GetFinalPathNameByHandleW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFullPathNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12929,6 +13093,7 @@ pub unsafe fn GetFullPathNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFullPathNameTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12964,6 +13129,7 @@ pub unsafe fn GetFullPathNameTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFullPathNameTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12999,6 +13165,7 @@ pub unsafe fn GetFullPathNameTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFullPathNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13047,6 +13214,7 @@ pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::runtime::Res
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLogContainerName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13082,6 +13250,7 @@ pub unsafe fn GetLogContainerName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLogFileInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13110,6 +13279,7 @@ pub unsafe fn GetLogFileInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLogIoStatistics<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13144,6 +13314,7 @@ pub unsafe fn GetLogIoStatistics<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLogReservationInfo(
     pvmarshal: *const ::std::ffi::c_void,
     pcbrecordnumber: *mut u32,
@@ -13172,6 +13343,7 @@ pub unsafe fn GetLogReservationInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLogicalDriveStringsA(
     nbufferlength: u32,
     lpbuffer: super::super::Foundation::PSTR,
@@ -13194,6 +13366,7 @@ pub unsafe fn GetLogicalDriveStringsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLogicalDriveStringsW(
     nbufferlength: u32,
     lpbuffer: super::super::Foundation::PWSTR,
@@ -13215,6 +13388,7 @@ pub unsafe fn GetLogicalDriveStringsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetLogicalDrives() -> u32 {
     #[cfg(windows)]
     {
@@ -13228,6 +13402,7 @@ pub unsafe fn GetLogicalDrives() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLongPathNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13256,6 +13431,7 @@ pub unsafe fn GetLongPathNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLongPathNameTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13288,6 +13464,7 @@ pub unsafe fn GetLongPathNameTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLongPathNameTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13320,6 +13497,7 @@ pub unsafe fn GetLongPathNameTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLongPathNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13348,6 +13526,7 @@ pub unsafe fn GetLongPathNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNextLogArchiveExtent(
     pvarchivecontext: *mut ::std::ffi::c_void,
     rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR,
@@ -13376,6 +13555,7 @@ pub unsafe fn GetNextLogArchiveExtent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNotificationResourceManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13410,6 +13590,7 @@ pub unsafe fn GetNotificationResourceManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetNotificationResourceManagerAsync<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13444,6 +13625,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetQueuedCompletionStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13478,6 +13660,7 @@ pub unsafe fn GetQueuedCompletionStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetQueuedCompletionStatusEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13516,6 +13699,7 @@ pub unsafe fn GetQueuedCompletionStatusEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetShortPathNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13544,6 +13728,7 @@ pub unsafe fn GetShortPathNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetShortPathNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13572,6 +13757,7 @@ pub unsafe fn GetShortPathNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTapeParameters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13603,6 +13789,7 @@ pub unsafe fn GetTapeParameters<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTapePosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13637,6 +13824,7 @@ pub unsafe fn GetTapePosition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTapeStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13655,6 +13843,7 @@ pub unsafe fn GetTapeStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTempFileNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13687,6 +13876,7 @@ pub unsafe fn GetTempFileNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTempFileNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13719,6 +13909,7 @@ pub unsafe fn GetTempFileNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
@@ -13735,6 +13926,7 @@ pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
@@ -13751,6 +13943,7 @@ pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
@@ -13767,6 +13960,7 @@ pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
@@ -13783,6 +13977,7 @@ pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTransactionId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13808,6 +14003,7 @@ pub unsafe fn GetTransactionId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTransactionInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13848,6 +14044,7 @@ pub unsafe fn GetTransactionInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTransactionManagerId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13873,6 +14070,7 @@ pub unsafe fn GetTransactionManagerId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumeInformationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13916,6 +14114,7 @@ pub unsafe fn GetVolumeInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumeInformationByHandleW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13959,6 +14158,7 @@ pub unsafe fn GetVolumeInformationByHandleW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumeInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14002,6 +14202,7 @@ pub unsafe fn GetVolumeInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumeNameForVolumeMountPointA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14030,6 +14231,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumeNameForVolumeMountPointW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14058,6 +14260,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumePathNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14086,6 +14289,7 @@ pub unsafe fn GetVolumePathNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumePathNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14114,6 +14318,7 @@ pub unsafe fn GetVolumePathNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14145,6 +14350,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14204,6 +14410,7 @@ unsafe impl ::windows::runtime::Abi for HIORING__ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HandleLogFull<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -15760,6 +15967,7 @@ unsafe impl ::windows::runtime::Abi for IORING_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallLogPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -15785,6 +15993,7 @@ pub unsafe fn InstallLogPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsIoRingOpSupported(
     ioring: *const HIORING__,
     op: IORING_OP_CODE,
@@ -16200,6 +16409,7 @@ impl ::std::ops::Not for LPPROGRESS_ROUTINE_CALLBACK_REASON {
         Self(self.0.not())
     }
 }
+#[inline]
 pub unsafe fn LZClose(hfile: i32) {
     #[cfg(windows)]
     {
@@ -16212,6 +16422,7 @@ pub unsafe fn LZClose(hfile: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -16227,6 +16438,7 @@ pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LZDone() {
     #[cfg(windows)]
     {
@@ -16247,6 +16459,7 @@ pub const LZERROR_GLOBLOCK: i32 = -6i32;
 pub const LZERROR_READ: i32 = -3i32;
 pub const LZERROR_UNKNOWNALG: i32 = -8i32;
 pub const LZERROR_WRITE: i32 = -4i32;
+#[inline]
 pub unsafe fn LZInit(hfsource: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -16323,6 +16536,7 @@ impl ::std::ops::Not for LZOPENFILE_STYLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn LZOpenFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16351,6 +16565,7 @@ pub unsafe fn LZOpenFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn LZOpenFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16379,6 +16594,7 @@ pub unsafe fn LZOpenFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbread: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -16395,6 +16611,7 @@ pub unsafe fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbrea
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -16411,6 +16628,7 @@ pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LZStart() -> i32 {
     #[cfg(windows)]
     {
@@ -16424,6 +16642,7 @@ pub unsafe fn LZStart() -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LocalFileTimeToFileTime(
     lplocalfiletime: *const super::super::Foundation::FILETIME,
     lpfiletime: *mut super::super::Foundation::FILETIME,
@@ -16446,6 +16665,7 @@ pub unsafe fn LocalFileTimeToFileTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LockFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16480,6 +16700,7 @@ pub unsafe fn LockFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn LockFileEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16517,6 +16738,7 @@ pub unsafe fn LockFileEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LogTailAdvanceFailure<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16541,6 +16763,7 @@ pub unsafe fn LogTailAdvanceFailure<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
     {
@@ -16553,6 +16776,7 @@ pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
     {
@@ -16565,6 +16789,7 @@ pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN {
     #[cfg(windows)]
     {
@@ -16582,6 +16807,7 @@ pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_L
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsnEqual(
     plsn1: *const CLS_LSN,
     plsn2: *const CLS_LSN,
@@ -16604,6 +16830,7 @@ pub unsafe fn LsnEqual(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsnGreater(
     plsn1: *const CLS_LSN,
     plsn2: *const CLS_LSN,
@@ -16625,6 +16852,7 @@ pub unsafe fn LsnGreater(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
     #[cfg(windows)]
     {
@@ -16638,6 +16866,7 @@ pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
@@ -16651,6 +16880,7 @@ pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsnLess(
     plsn1: *const CLS_LSN,
     plsn2: *const CLS_LSN,
@@ -16673,6 +16903,7 @@ pub unsafe fn LsnLess(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
@@ -16685,6 +16916,7 @@ pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
     {
@@ -17051,6 +17283,7 @@ unsafe impl ::windows::runtime::Abi for MediaLabelInfo {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17077,6 +17310,7 @@ pub unsafe fn MoveFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17106,6 +17340,7 @@ pub unsafe fn MoveFileExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17135,6 +17370,7 @@ pub unsafe fn MoveFileExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17161,6 +17397,7 @@ pub unsafe fn MoveFileFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17200,6 +17437,7 @@ pub unsafe fn MoveFileTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17239,6 +17477,7 @@ pub unsafe fn MoveFileTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17265,6 +17504,7 @@ pub unsafe fn MoveFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileWithProgressA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17300,6 +17540,7 @@ pub unsafe fn MoveFileWithProgressA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MoveFileWithProgressW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20887,6 +21128,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_STORAGESLOTINFORMATION {
 pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetConnectionEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20931,6 +21173,7 @@ pub unsafe fn NetConnectionEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetFileClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20953,6 +21196,7 @@ pub unsafe fn NetFileClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetFileEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21001,6 +21245,7 @@ pub unsafe fn NetFileEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetFileGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21032,6 +21277,7 @@ pub unsafe fn NetFileGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerAliasAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21060,6 +21306,7 @@ pub unsafe fn NetServerAliasAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerAliasDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21088,6 +21335,7 @@ pub unsafe fn NetServerAliasDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerAliasEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21128,6 +21376,7 @@ pub unsafe fn NetServerAliasEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetSessionDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21158,6 +21407,7 @@ pub unsafe fn NetSessionDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetSessionEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21206,6 +21456,7 @@ pub unsafe fn NetSessionEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetSessionGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21242,6 +21493,7 @@ pub unsafe fn NetSessionGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21273,6 +21525,7 @@ pub unsafe fn NetShareAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareCheck<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21302,6 +21555,7 @@ pub unsafe fn NetShareCheck<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21331,6 +21585,7 @@ pub unsafe fn NetShareDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareDelEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21359,6 +21614,7 @@ pub unsafe fn NetShareDelEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareDelSticky<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21388,6 +21644,7 @@ pub unsafe fn NetShareDelSticky<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21428,6 +21685,7 @@ pub unsafe fn NetShareEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareEnumSticky<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21468,6 +21726,7 @@ pub unsafe fn NetShareEnumSticky<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21500,6 +21759,7 @@ pub unsafe fn NetShareGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetShareSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21534,6 +21794,7 @@ pub unsafe fn NetShareSetInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetStatisticsGet(
     servername: *const i8,
     service: *const i8,
@@ -22647,6 +22908,7 @@ unsafe impl ::windows::runtime::Abi for OVERLAPPED_ENTRY {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenEncryptedFileRawA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22675,6 +22937,7 @@ pub unsafe fn OpenEncryptedFileRawA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenEncryptedFileRawW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22703,6 +22966,7 @@ pub unsafe fn OpenEncryptedFileRawW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenEnlistment<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22731,6 +22995,7 @@ pub unsafe fn OpenEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn OpenFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22759,6 +23024,7 @@ pub unsafe fn OpenFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn OpenFileById<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22796,6 +23062,7 @@ pub unsafe fn OpenFileById<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenResourceManager<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22824,6 +23091,7 @@ pub unsafe fn OpenResourceManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenTransaction(
     dwdesiredaccess: u32,
     transactionid: *mut ::windows::runtime::GUID,
@@ -22846,6 +23114,7 @@ pub unsafe fn OpenTransaction(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenTransactionManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22874,6 +23143,7 @@ pub unsafe fn OpenTransactionManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenTransactionManagerById(
     transactionmanagerid: *const ::windows::runtime::GUID,
     desiredaccess: u32,
@@ -23419,6 +23689,7 @@ pub unsafe fn PopIoRingCompletion(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PostQueuedCompletionStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23450,6 +23721,7 @@ pub unsafe fn PostQueuedCompletionStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrePrepareComplete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23475,6 +23747,7 @@ pub unsafe fn PrePrepareComplete<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrePrepareEnlistment<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23500,6 +23773,7 @@ pub unsafe fn PrePrepareEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrepareComplete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23525,6 +23799,7 @@ pub unsafe fn PrepareComplete<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrepareEnlistment<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23550,6 +23825,7 @@ pub unsafe fn PrepareEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrepareLogArchive<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23606,6 +23882,7 @@ pub unsafe fn PrepareLogArchive<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrepareTape<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23635,6 +23912,7 @@ pub unsafe fn PrepareTape<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryDosDeviceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23663,6 +23941,7 @@ pub unsafe fn QueryDosDeviceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryDosDeviceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23707,6 +23986,7 @@ pub unsafe fn QueryIoRingCapabilities() -> ::windows::runtime::Result<IORING_CAP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryLogPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -23738,6 +24018,7 @@ pub unsafe fn QueryLogPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23763,6 +24044,7 @@ pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn QueryUsersOnEncryptedFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -24367,6 +24649,7 @@ unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTER_BASE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReOpenFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24398,6 +24681,7 @@ pub unsafe fn ReOpenFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadDirectoryChangesExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24445,6 +24729,7 @@ pub unsafe fn ReadDirectoryChangesExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadDirectoryChangesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24488,6 +24773,7 @@ pub unsafe fn ReadDirectoryChangesW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReadEncryptedFileRaw(
     pfexportcallback: ::std::option::Option<PFE_EXPORT_FUNC>,
     pvcallbackcontext: *const ::std::ffi::c_void,
@@ -24513,6 +24799,7 @@ pub unsafe fn ReadEncryptedFileRaw(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24547,6 +24834,7 @@ pub unsafe fn ReadFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadFileEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24581,6 +24869,7 @@ pub unsafe fn ReadFileEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadFileScatter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24615,6 +24904,7 @@ pub unsafe fn ReadFileScatter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadLogArchiveMetadata(
     pvarchivecontext: *mut ::std::ffi::c_void,
     cboffset: u32,
@@ -24646,6 +24936,7 @@ pub unsafe fn ReadLogArchiveMetadata(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadLogNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24674,6 +24965,7 @@ pub unsafe fn ReadLogNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadLogRecord(
     pvmarshal: *mut ::std::ffi::c_void,
     plsnfirst: *mut CLS_LSN,
@@ -24720,6 +25012,7 @@ pub unsafe fn ReadLogRecord(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadLogRestartArea(
     pvmarshal: *mut ::std::ffi::c_void,
     ppvrestartbuffer: *mut *mut ::std::ffi::c_void,
@@ -24754,6 +25047,7 @@ pub unsafe fn ReadLogRestartArea(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadNextLogRecord(
     pvreadcontext: *mut ::std::ffi::c_void,
     ppvbuffer: *mut *mut ::std::ffi::c_void,
@@ -24797,6 +25091,7 @@ pub unsafe fn ReadNextLogRecord(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadOnlyEnlistment<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24822,6 +25117,7 @@ pub unsafe fn ReadOnlyEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReadPreviousLogRestartArea(
     pvreadcontext: *mut ::std::ffi::c_void,
     ppvrestartbuffer: *mut *mut ::std::ffi::c_void,
@@ -24853,6 +25149,7 @@ pub unsafe fn ReadPreviousLogRestartArea(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RecoverEnlistment<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24878,6 +25175,7 @@ pub unsafe fn RecoverEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RecoverResourceManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24900,6 +25198,7 @@ pub unsafe fn RecoverResourceManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RecoverTransactionManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24922,6 +25221,7 @@ pub unsafe fn RecoverTransactionManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterForLogWriteNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24951,6 +25251,7 @@ pub unsafe fn RegisterForLogWriteNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterManageableLogClient<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24976,6 +25277,7 @@ pub unsafe fn RegisterManageableLogClient<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveDirectoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -24996,6 +25298,7 @@ pub unsafe fn RemoveDirectoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveDirectoryFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25016,6 +25319,7 @@ pub unsafe fn RemoveDirectoryFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveDirectoryTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -25042,6 +25346,7 @@ pub unsafe fn RemoveDirectoryTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveDirectoryTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25068,6 +25373,7 @@ pub unsafe fn RemoveDirectoryTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveDirectoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25088,6 +25394,7 @@ pub unsafe fn RemoveDirectoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveLogContainer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -25121,6 +25428,7 @@ pub unsafe fn RemoveLogContainer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveLogContainerSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -25156,6 +25464,7 @@ pub unsafe fn RemoveLogContainerSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveLogPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -25181,6 +25490,7 @@ pub unsafe fn RemoveLogPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RemoveUsersFromEncryptedFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25206,6 +25516,7 @@ pub unsafe fn RemoveUsersFromEncryptedFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RenameTransactionManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25231,6 +25542,7 @@ pub unsafe fn RenameTransactionManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReplaceFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -25270,6 +25582,7 @@ pub unsafe fn ReplaceFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReplaceFileFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25309,6 +25622,7 @@ pub unsafe fn ReplaceFileFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReplaceFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -25348,6 +25662,7 @@ pub unsafe fn ReplaceFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReserveAndAppendLog(
     pvmarshal: *mut ::std::ffi::c_void,
     rgwriteentries: *mut CLS_WRITE_ENTRY,
@@ -25394,6 +25709,7 @@ pub unsafe fn ReserveAndAppendLog(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReserveAndAppendLogAligned(
     pvmarshal: *mut ::std::ffi::c_void,
     rgwriteentries: *mut CLS_WRITE_ENTRY,
@@ -25443,6 +25759,7 @@ pub unsafe fn ReserveAndAppendLogAligned(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RollbackComplete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -25468,6 +25785,7 @@ pub unsafe fn RollbackComplete<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RollbackEnlistment<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -25493,6 +25811,7 @@ pub unsafe fn RollbackEnlistment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RollbackTransaction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -25513,6 +25832,7 @@ pub unsafe fn RollbackTransaction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RollbackTransactionAsync<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -25535,6 +25855,7 @@ pub unsafe fn RollbackTransactionAsync<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RollforwardTransactionManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -28763,6 +29084,7 @@ impl ::std::ops::Not for SYMBOLIC_LINK_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScanLogContainers(
     pcxscan: *mut CLS_SCAN_CONTEXT,
     escanmode: u8,
@@ -28788,6 +29110,7 @@ pub unsafe fn ScanLogContainers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SearchPathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -28827,6 +29150,7 @@ pub unsafe fn SearchPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SearchPathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -28866,6 +29190,7 @@ pub unsafe fn SearchPathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn SetEncryptedFileMetadata<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -28903,6 +29228,7 @@ pub unsafe fn SetEncryptedFileMetadata<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEndOfFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -28923,6 +29249,7 @@ pub unsafe fn SetEndOfFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetEndOfLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -28951,6 +29278,7 @@ pub unsafe fn SetEndOfLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEnlistmentRecoveryInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -28978,6 +29306,7 @@ pub unsafe fn SetEnlistmentRecoveryInformation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetFileApisToANSI() {
     #[cfg(windows)]
     {
@@ -28990,6 +29319,7 @@ pub unsafe fn SetFileApisToANSI() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetFileApisToOEM() {
     #[cfg(windows)]
     {
@@ -29003,6 +29333,7 @@ pub unsafe fn SetFileApisToOEM() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileAttributesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -29028,6 +29359,7 @@ pub unsafe fn SetFileAttributesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileAttributesFromAppW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -29053,6 +29385,7 @@ pub unsafe fn SetFileAttributesFromAppW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileAttributesTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -29082,6 +29415,7 @@ pub unsafe fn SetFileAttributesTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileAttributesTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -29111,6 +29445,7 @@ pub unsafe fn SetFileAttributesTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileAttributesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -29136,6 +29471,7 @@ pub unsafe fn SetFileAttributesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileBandwidthReservation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29174,6 +29510,7 @@ pub unsafe fn SetFileBandwidthReservation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileCompletionNotificationModes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29199,6 +29536,7 @@ pub unsafe fn SetFileCompletionNotificationModes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileInformationByHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29230,6 +29568,7 @@ pub unsafe fn SetFileInformationByHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileIoOverlappedRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29258,6 +29597,7 @@ pub unsafe fn SetFileIoOverlappedRange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFilePointer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29289,6 +29629,7 @@ pub unsafe fn SetFilePointer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFilePointerEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29320,6 +29661,7 @@ pub unsafe fn SetFilePointerEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileShortNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29346,6 +29688,7 @@ pub unsafe fn SetFileShortNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileShortNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29372,6 +29715,7 @@ pub unsafe fn SetFileShortNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileTime<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29403,6 +29747,7 @@ pub unsafe fn SetFileTime<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFileValidData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29450,6 +29795,7 @@ pub unsafe fn SetIoRingCompletionEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetLogArchiveMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29475,6 +29821,7 @@ pub unsafe fn SetLogArchiveMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetLogArchiveTail<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29503,6 +29850,7 @@ pub unsafe fn SetLogArchiveTail<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetLogFileSizeWithPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29531,6 +29879,7 @@ pub unsafe fn SetLogFileSizeWithPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetResourceManagerCompletionPort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29560,6 +29909,7 @@ pub unsafe fn SetResourceManagerCompletionPort<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -29573,6 +29923,7 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetTapeParameters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29601,6 +29952,7 @@ pub unsafe fn SetTapeParameters<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetTapePosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29639,6 +29991,7 @@ pub unsafe fn SetTapePosition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetTransactionInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29674,6 +30027,7 @@ pub unsafe fn SetTransactionInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security")]
+#[inline]
 pub unsafe fn SetUserFileEncryptionKey(
     pencryptioncertificate: *const ENCRYPTION_CERTIFICATE,
 ) -> u32 {
@@ -29693,6 +30047,7 @@ pub unsafe fn SetUserFileEncryptionKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security")]
+#[inline]
 pub unsafe fn SetUserFileEncryptionKeyEx(
     pencryptioncertificate: *const ENCRYPTION_CERTIFICATE,
     dwcapabilities: u32,
@@ -29721,6 +30076,7 @@ pub unsafe fn SetUserFileEncryptionKeyEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetVolumeLabelA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -29747,6 +30103,7 @@ pub unsafe fn SetVolumeLabelA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetVolumeLabelW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -29773,6 +30130,7 @@ pub unsafe fn SetVolumeLabelW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetVolumeMountPointA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -29799,6 +30157,7 @@ pub unsafe fn SetVolumeMountPointA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetVolumeMountPointW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -29825,6 +30184,7 @@ pub unsafe fn SetVolumeMountPointW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SinglePhaseReject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -31155,6 +31515,7 @@ unsafe impl ::windows::runtime::Abi for TXF_LOG_RECORD_WRITE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TerminateLogArchive(
     pvarchivecontext: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -31172,6 +31533,7 @@ pub unsafe fn TerminateLogArchive(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TerminateReadLog(
     pvcursorcontext: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -31189,6 +31551,7 @@ pub unsafe fn TerminateReadLog(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn TruncateLog(
     pvmarshal: *const ::std::ffi::c_void,
     plsnend: *const CLS_LSN,
@@ -31213,6 +31576,7 @@ pub unsafe fn TruncateLog(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
     #[cfg(windows)]
     {
@@ -31228,6 +31592,7 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TxfLogCreateFileReadContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -31264,6 +31629,7 @@ pub unsafe fn TxfLogCreateFileReadContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TxfLogCreateRangeReadContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -31306,6 +31672,7 @@ pub unsafe fn TxfLogCreateRangeReadContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TxfLogDestroyReadContext(
     txflogcontext: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -31325,6 +31692,7 @@ pub unsafe fn TxfLogDestroyReadContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TxfLogReadRecords(
     txflogcontext: *const ::std::ffi::c_void,
     bufferlength: u32,
@@ -31356,6 +31724,7 @@ pub unsafe fn TxfLogReadRecords(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TxfLogRecordGetFileName(
     recordbuffer: *const ::std::ffi::c_void,
     recordbufferlengthinbytes: u32,
@@ -31387,6 +31756,7 @@ pub unsafe fn TxfLogRecordGetFileName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TxfLogRecordGetGenericType(
     recordbuffer: *const ::std::ffi::c_void,
     recordbufferlengthinbytes: u32,
@@ -31415,6 +31785,7 @@ pub unsafe fn TxfLogRecordGetGenericType(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TxfReadMetadataInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -31448,6 +31819,7 @@ pub unsafe fn TxfReadMetadataInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     #[cfg(windows)]
     {
@@ -32067,6 +32439,7 @@ unsafe impl ::windows::runtime::Abi for USN_TRACK_MODIFIED_RANGES {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnlockFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -32101,6 +32474,7 @@ pub unsafe fn UnlockFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn UnlockFileEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -33228,6 +33602,7 @@ unsafe impl ::windows::runtime::Abi for VS_FIXEDFILEINFO_FILE_TYPE {
 pub const VS_USER_DEFINED: u32 = 100u32;
 pub const VS_VERSION_INFO: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn ValidateLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -33259,6 +33634,7 @@ pub unsafe fn ValidateLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerFindFileA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -33304,6 +33680,7 @@ pub unsafe fn VerFindFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerFindFileW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -33349,6 +33726,7 @@ pub unsafe fn VerFindFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerInstallFileA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -33396,6 +33774,7 @@ pub unsafe fn VerInstallFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerInstallFileW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -33443,6 +33822,7 @@ pub unsafe fn VerInstallFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerLanguageNameA(
     wlang: u32,
     szlang: super::super::Foundation::PSTR,
@@ -33468,6 +33848,7 @@ pub unsafe fn VerLanguageNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerLanguageNameW(
     wlang: u32,
     szlang: super::super::Foundation::PWSTR,
@@ -33493,6 +33874,7 @@ pub unsafe fn VerLanguageNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerQueryValueA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -33524,6 +33906,7 @@ pub unsafe fn VerQueryValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerQueryValueW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34266,6 +34649,7 @@ pub unsafe fn WofSetFileDataLocation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofShouldCompressBinaries<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34441,6 +34825,7 @@ pub unsafe fn WofWimUpdateEntry<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Wow64DisableWow64FsRedirection(
     oldvalue: *mut *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -34460,6 +34845,7 @@ pub unsafe fn Wow64DisableWow64FsRedirection(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Wow64EnableWow64FsRedirection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -34482,6 +34868,7 @@ pub unsafe fn Wow64EnableWow64FsRedirection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Wow64RevertWow64FsRedirection(
     olvalue: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -34500,6 +34887,7 @@ pub unsafe fn Wow64RevertWow64FsRedirection(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WriteEncryptedFileRaw(
     pfimportcallback: ::std::option::Option<PFE_IMPORT_FUNC>,
     pvcallbackcontext: *const ::std::ffi::c_void,
@@ -34525,6 +34913,7 @@ pub unsafe fn WriteEncryptedFileRaw(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -34559,6 +34948,7 @@ pub unsafe fn WriteFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteFileEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -34593,6 +34983,7 @@ pub unsafe fn WriteFileEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteFileGather<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -34627,6 +35018,7 @@ pub unsafe fn WriteFileGather<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WriteLogRestartArea(
     pvmarshal: *mut ::std::ffi::c_void,
     pvrestartbuffer: *mut ::std::ffi::c_void,
@@ -34667,6 +35059,7 @@ pub unsafe fn WriteLogRestartArea(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WriteTapemark<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

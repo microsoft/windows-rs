@@ -6474,6 +6474,7 @@ unsafe impl ::windows::runtime::Abi for HID_XFER_PACKET {
 }
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_FlushQueue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6494,6 +6495,7 @@ pub unsafe fn HidD_FlushQueue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
@@ -6507,6 +6509,7 @@ pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetAttributes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6532,6 +6535,7 @@ pub unsafe fn HidD_GetAttributes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetConfiguration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6560,6 +6564,7 @@ pub unsafe fn HidD_GetConfiguration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetFeature<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6587,6 +6592,7 @@ pub unsafe fn HidD_GetFeature<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID) {
     #[cfg(windows)]
     {
@@ -6600,6 +6606,7 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetIndexedString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6631,6 +6638,7 @@ pub unsafe fn HidD_GetIndexedString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetInputReport<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6659,6 +6667,7 @@ pub unsafe fn HidD_GetInputReport<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetManufacturerString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6687,6 +6696,7 @@ pub unsafe fn HidD_GetManufacturerString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetMsGenreDescriptor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6715,6 +6725,7 @@ pub unsafe fn HidD_GetMsGenreDescriptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetNumInputBuffers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6740,6 +6751,7 @@ pub unsafe fn HidD_GetNumInputBuffers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetPhysicalDescriptor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6768,6 +6780,7 @@ pub unsafe fn HidD_GetPhysicalDescriptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetPreparsedData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6793,6 +6806,7 @@ pub unsafe fn HidD_GetPreparsedData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetProductString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6821,6 +6835,7 @@ pub unsafe fn HidD_GetProductString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_GetSerialNumberString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6849,6 +6864,7 @@ pub unsafe fn HidD_GetSerialNumberString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_SetConfiguration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6877,6 +6893,7 @@ pub unsafe fn HidD_SetConfiguration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_SetFeature<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6905,6 +6922,7 @@ pub unsafe fn HidD_SetFeature<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_SetNumInputBuffers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6930,6 +6948,7 @@ pub unsafe fn HidD_SetNumInputBuffers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HidD_SetOutputReport<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7504,6 +7523,7 @@ pub unsafe fn HidP_InitializeReportForID(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -7519,6 +7539,7 @@ pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HidP_MaxUsageListLength(
     reporttype: HIDP_REPORT_TYPE,
     usagepage: u16,
@@ -15609,6 +15630,7 @@ pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
     :: std :: marker :: Copy,
 )]
 pub struct _HIDP_PREPARSED_DATA(pub u8);
+#[inline]
 pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
     #[cfg(windows)]
     {

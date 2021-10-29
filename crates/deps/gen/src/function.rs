@@ -137,6 +137,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             quote! {
                 #arch
                 #features
+                #[inline]
                 pub unsafe fn #name<#constraints>(#params) #abi_return_type {
                     #[cfg(windows)]
                     {

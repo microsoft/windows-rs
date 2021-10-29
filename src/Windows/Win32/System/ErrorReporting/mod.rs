@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddERExcludedApplicationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -28,6 +29,7 @@ pub unsafe fn AddERExcludedApplicationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddERExcludedApplicationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -187,6 +189,7 @@ unsafe impl ::windows::runtime::Abi for REPORT_STORE_TYPES {
     feature = "Win32_System_Diagnostics_Debug",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn ReportFault(
     pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS,
     dwopt: u32,
@@ -1492,6 +1495,7 @@ pub unsafe fn WerAddExcludedApplication<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WerFreeString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1976,6 +1980,7 @@ pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::runtime::R
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WerStoreClose<'a, Param0: ::windows::runtime::IntoParam<'a, HREPORTSTORE>>(
     hreportstore: Param0,
 ) {

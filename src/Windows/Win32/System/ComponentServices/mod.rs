@@ -1760,6 +1760,7 @@ pub unsafe fn CoGetDefaultContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CoLeaveServiceDomain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -28386,6 +28387,7 @@ unsafe impl ::windows::runtime::Abi for ReleaseModes {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SafeRef<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,

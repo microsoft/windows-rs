@@ -351,6 +351,7 @@ unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddVirtualDiskParent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -377,6 +378,7 @@ pub unsafe fn AddVirtualDiskParent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplySnapshotVhdSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -409,6 +411,7 @@ pub unsafe fn ApplySnapshotVhdSet<
     feature = "Win32_Security",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn AttachVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -446,6 +449,7 @@ pub unsafe fn AttachVirtualDisk<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BreakMirrorVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1036,6 +1040,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CompactVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1067,6 +1072,7 @@ pub unsafe fn CompactVirtualDisk<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CompleteForkVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1091,6 +1097,7 @@ pub unsafe fn CompleteForkVirtualDisk<
     feature = "Win32_Security",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CreateVirtualDisk<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1397,6 +1404,7 @@ impl ::std::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteSnapshotVhdSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1425,6 +1433,7 @@ pub unsafe fn DeleteSnapshotVhdSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteVirtualDiskMetadata<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1450,6 +1459,7 @@ pub unsafe fn DeleteVirtualDiskMetadata<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DetachVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1622,6 +1632,7 @@ unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumerateVirtualDiskMetadata<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1650,6 +1661,7 @@ pub unsafe fn EnumerateVirtualDiskMetadata<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ExpandVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1843,6 +1855,7 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ForkVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2204,6 +2217,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(
     pathsbuffersizeinbytes: *mut u32,
     pathsbuffer: super::super::Foundation::PWSTR,
@@ -2226,6 +2240,7 @@ pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetStorageDependencyInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2260,6 +2275,7 @@ pub unsafe fn GetStorageDependencyInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVirtualDiskInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2291,6 +2307,7 @@ pub unsafe fn GetVirtualDiskInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVirtualDiskMetadata<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2322,6 +2339,7 @@ pub unsafe fn GetVirtualDiskMetadata<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetVirtualDiskOperationProgress<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2350,6 +2368,7 @@ pub unsafe fn GetVirtualDiskOperationProgress<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVirtualDiskPhysicalPath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2890,6 +2909,7 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_VERSION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn MergeVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2921,6 +2941,7 @@ pub unsafe fn MergeVirtualDisk<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn MirrorVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2952,6 +2973,7 @@ pub unsafe fn MirrorVirtualDisk<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ModifyVhdSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3243,6 +3265,7 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenVirtualDisk<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3363,6 +3386,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryChangesVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3816,6 +3840,7 @@ unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RawSCSIVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3847,6 +3872,7 @@ pub unsafe fn RawSCSIVirtualDisk<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ResizeVirtualDisk<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4223,6 +4249,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetVirtualDiskInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4248,6 +4275,7 @@ pub unsafe fn SetVirtualDiskInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetVirtualDiskMetadata<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4424,6 +4452,7 @@ unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TakeSnapshotVhdSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

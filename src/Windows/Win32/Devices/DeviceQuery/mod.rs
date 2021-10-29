@@ -382,6 +382,7 @@ unsafe impl ::windows::runtime::Abi for DEV_QUERY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
     #[cfg(windows)]
     {
@@ -701,6 +702,7 @@ pub unsafe fn DevCreateObjectQueryFromIdsEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevFindProperty<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -735,6 +737,7 @@ pub unsafe fn DevFindProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevFreeObjectProperties(
     cpropertycount: u32,
     pproperties: *const super::super::System::SystemServices::DEVPROPERTY,
@@ -757,6 +760,7 @@ pub unsafe fn DevFreeObjectProperties(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
     #[cfg(windows)]
     {

@@ -53,6 +53,7 @@ pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::f
     17604,
     [144, 88, 244, 64, 199, 31, 23, 212],
 );
+#[inline]
 pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
     #[cfg(windows)]
     {
@@ -66,6 +67,7 @@ pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ControlTraceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -97,6 +99,7 @@ pub unsafe fn ControlTraceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ControlTraceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -128,6 +131,7 @@ pub unsafe fn ControlTraceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateTraceInstanceId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -153,6 +157,7 @@ pub unsafe fn CreateTraceInstanceId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CveEventWrite<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -3264,6 +3269,7 @@ pub const EVENT_TRACE_USE_PAGED_MEMORY: u32 = 16777216u32;
 pub const EVENT_TRACE_USE_PROCTIME: u32 = 1u32;
 pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
+#[inline]
 pub unsafe fn EnableTrace(
     enable: u32,
     enableflag: u32,
@@ -3294,6 +3300,7 @@ pub unsafe fn EnableTrace(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnableTraceEx(
     providerid: *const ::windows::runtime::GUID,
     sourceid: *const ::windows::runtime::GUID,
@@ -3336,6 +3343,7 @@ pub unsafe fn EnableTraceEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnableTraceEx2(
     tracehandle: u64,
     providerid: *const ::windows::runtime::GUID,
@@ -3376,6 +3384,7 @@ pub unsafe fn EnableTraceEx2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumerateTraceGuids(
     guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES,
     propertyarraycount: u32,
@@ -3400,6 +3409,7 @@ pub unsafe fn EnumerateTraceGuids(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnumerateTraceGuidsEx(
     tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
     inbuffer: *const ::std::ffi::c_void,
@@ -3434,6 +3444,7 @@ pub unsafe fn EnumerateTraceGuidsEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EventAccessControl<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
@@ -3469,6 +3480,7 @@ pub unsafe fn EventAccessControl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn EventAccessQuery(
     guid: *const ::windows::runtime::GUID,
     buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR,
@@ -3493,6 +3505,7 @@ pub unsafe fn EventAccessQuery(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
     {
@@ -3505,6 +3518,7 @@ pub unsafe fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EventActivityIdControl(
     controlcode: u32,
     activityid: *mut ::windows::runtime::GUID,
@@ -3527,6 +3541,7 @@ pub unsafe fn EventActivityIdControl(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EventEnabled(
     reghandle: u64,
     eventdescriptor: *const EVENT_DESCRIPTOR,
@@ -3549,6 +3564,7 @@ pub unsafe fn EventEnabled(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EventProviderEnabled(
     reghandle: u64,
     level: u8,
@@ -3573,6 +3589,7 @@ pub unsafe fn EventProviderEnabled(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EventRegister(
     providerid: *const ::windows::runtime::GUID,
     enablecallback: ::std::option::Option<PENABLECALLBACK>,
@@ -3600,6 +3617,7 @@ pub unsafe fn EventRegister(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EventSetInformation(
     reghandle: u64,
     informationclass: EVENT_INFO_CLASS,
@@ -3639,6 +3657,7 @@ pub const EventTraceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::f
     4561,
     [132, 244, 0, 0, 248, 4, 100, 227],
 );
+#[inline]
 pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
     #[cfg(windows)]
     {
@@ -3651,6 +3670,7 @@ pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EventWrite(
     reghandle: u64,
     eventdescriptor: *const EVENT_DESCRIPTOR,
@@ -3678,6 +3698,7 @@ pub unsafe fn EventWrite(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EventWriteEx(
     reghandle: u64,
     eventdescriptor: *const EVENT_DESCRIPTOR,
@@ -3718,6 +3739,7 @@ pub unsafe fn EventWriteEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EventWriteString<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -3748,6 +3770,7 @@ pub unsafe fn EventWriteString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EventWriteTransfer(
     reghandle: u64,
     eventdescriptor: *const EVENT_DESCRIPTOR,
@@ -3782,6 +3805,7 @@ pub unsafe fn EventWriteTransfer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlushTraceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -3810,6 +3834,7 @@ pub unsafe fn FlushTraceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlushTraceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -3837,6 +3862,7 @@ pub unsafe fn FlushTraceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTraceEnableFlags(tracehandle: u64) -> u32 {
     #[cfg(windows)]
     {
@@ -3849,6 +3875,7 @@ pub unsafe fn GetTraceEnableFlags(tracehandle: u64) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTraceEnableLevel(tracehandle: u64) -> u8 {
     #[cfg(windows)]
     {
@@ -3861,6 +3888,7 @@ pub unsafe fn GetTraceEnableLevel(tracehandle: u64) -> u8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTraceLoggerHandle(buffer: *const ::std::ffi::c_void) -> u64 {
     #[cfg(windows)]
     {
@@ -4532,6 +4560,7 @@ unsafe impl ::windows::runtime::Abi for OFFSETINSTANCEDATAANDLENGTH {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[inline]
 pub unsafe fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64 {
     #[cfg(windows)]
     {
@@ -4545,6 +4574,7 @@ pub unsafe fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+#[inline]
 pub unsafe fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64 {
     #[cfg(windows)]
     {
@@ -4925,6 +4955,7 @@ pub const PrivateLoggerNotificationGuid: ::windows::runtime::GUID =
         [185, 66, 45, 5, 155, 254, 177, 177],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ProcessTrace(
     handlearray: *const u64,
     handlecount: u32,
@@ -4953,6 +4984,7 @@ pub unsafe fn ProcessTrace(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryAllTracesA(
     propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
     propertyarraycount: u32,
@@ -4978,6 +5010,7 @@ pub unsafe fn QueryAllTracesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryAllTracesW(
     propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
     propertyarraycount: u32,
@@ -5003,6 +5036,7 @@ pub unsafe fn QueryAllTracesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryTraceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -5030,6 +5064,7 @@ pub unsafe fn QueryTraceA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn QueryTraceProcessingHandle(
     processinghandle: u64,
     informationclass: ETW_PROCESS_HANDLE_INFO_TYPE,
@@ -5067,6 +5102,7 @@ pub unsafe fn QueryTraceProcessingHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryTraceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -5095,6 +5131,7 @@ pub unsafe fn QueryTraceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterTraceGuidsA<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -5139,6 +5176,7 @@ pub unsafe fn RegisterTraceGuidsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterTraceGuidsW<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -5182,6 +5220,7 @@ pub unsafe fn RegisterTraceGuidsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RemoveTraceCallback(pguid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
     {
@@ -5289,6 +5328,7 @@ pub const SYSTEM_SCHEDULER_KW_XSCHEDULER: u64 = 1u64;
 pub const SYSTEM_SYSCALL_KW_GENERAL: u64 = 1u64;
 pub const SYSTEM_TIMER_KW_CLOCK_TIMER: u64 = 2u64;
 pub const SYSTEM_TIMER_KW_GENERAL: u64 = 1u64;
+#[inline]
 pub unsafe fn SetTraceCallback(
     pguid: *const ::windows::runtime::GUID,
     eventcallback: ::std::option::Option<PEVENT_CALLBACK>,
@@ -5311,6 +5351,7 @@ pub unsafe fn SetTraceCallback(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartTraceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -5339,6 +5380,7 @@ pub unsafe fn StartTraceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartTraceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -5367,6 +5409,7 @@ pub unsafe fn StartTraceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StopTraceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -5395,6 +5438,7 @@ pub unsafe fn StopTraceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StopTraceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -6768,6 +6812,7 @@ unsafe impl ::windows::runtime::Abi for TRACE_VERSION_INFO {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhAggregatePayloadFilters(
     payloadfiltercount: u32,
     payloadfilterptrs: *const *const ::std::ffi::c_void,
@@ -6795,6 +6840,7 @@ pub unsafe fn TdhAggregatePayloadFilters(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(
     eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR,
 ) -> u32 {
@@ -6813,6 +6859,7 @@ pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
     handle: Param0,
 ) -> u32 {
@@ -6828,6 +6875,7 @@ pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhCreatePayloadFilter<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>,
@@ -6864,6 +6912,7 @@ pub unsafe fn TdhCreatePayloadFilter<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -6876,6 +6925,7 @@ pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhEnumerateManifestProviderEvents(
     providerguid: *const ::windows::runtime::GUID,
     buffer: *mut PROVIDER_EVENT_INFO,
@@ -6900,6 +6950,7 @@ pub unsafe fn TdhEnumerateManifestProviderEvents(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhEnumerateProviderFieldInformation(
     pguid: *const ::windows::runtime::GUID,
     eventfieldtype: EVENT_FIELD_TYPE,
@@ -6927,6 +6978,7 @@ pub unsafe fn TdhEnumerateProviderFieldInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhEnumerateProviderFilters(
     guid: *const ::windows::runtime::GUID,
     tdhcontextcount: u32,
@@ -6960,6 +7012,7 @@ pub unsafe fn TdhEnumerateProviderFilters(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhEnumerateProviders(
     pbuffer: *mut PROVIDER_ENUMERATION_INFO,
     pbuffersize: *mut u32,
@@ -6981,6 +7034,7 @@ pub unsafe fn TdhEnumerateProviders(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhEnumerateProvidersForDecodingSource(
     filter: DECODING_SOURCE,
     buffer: *mut PROVIDER_ENUMERATION_INFO,
@@ -7009,6 +7063,7 @@ pub unsafe fn TdhEnumerateProvidersForDecodingSource(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhFormatProperty(
     eventinfo: *const TRACE_EVENT_INFO,
     mapinfo: *const EVENT_MAP_INFO,
@@ -7057,6 +7112,7 @@ pub unsafe fn TdhFormatProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
     handle: Param0,
     tdhcontext: *mut TDH_CONTEXT,
@@ -7075,6 +7131,7 @@ pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhGetEventInformation(
     event: *const EVENT_RECORD,
     tdhcontextcount: u32,
@@ -7106,6 +7163,7 @@ pub unsafe fn TdhGetEventInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhGetEventMapInformation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -7136,6 +7194,7 @@ pub unsafe fn TdhGetEventMapInformation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhGetManifestEventInformation(
     providerguid: *const ::windows::runtime::GUID,
     eventdescriptor: *const EVENT_DESCRIPTOR,
@@ -7163,6 +7222,7 @@ pub unsafe fn TdhGetManifestEventInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhGetProperty(
     pevent: *const EVENT_RECORD,
     tdhcontextcount: u32,
@@ -7199,6 +7259,7 @@ pub unsafe fn TdhGetProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhGetPropertySize(
     pevent: *const EVENT_RECORD,
     tdhcontextcount: u32,
@@ -7232,6 +7293,7 @@ pub unsafe fn TdhGetPropertySize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
     handle: Param0,
     eventrecord: *const EVENT_RECORD,
@@ -7260,6 +7322,7 @@ pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::runtime::IntoParam<'a, TDH
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhGetWppProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>,
@@ -7295,6 +7358,7 @@ pub unsafe fn TdhGetWppProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhLoadManifest<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -7313,6 +7377,7 @@ pub unsafe fn TdhLoadManifest<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhLoadManifestFromBinary<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -7331,6 +7396,7 @@ pub unsafe fn TdhLoadManifestFromBinary<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhLoadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -7346,6 +7412,7 @@ pub unsafe fn TdhLoadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32 {
     #[cfg(windows)]
     {
@@ -7358,6 +7425,7 @@ pub unsafe fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhQueryProviderFieldInformation(
     pguid: *const ::windows::runtime::GUID,
     eventfieldvalue: u64,
@@ -7388,6 +7456,7 @@ pub unsafe fn TdhQueryProviderFieldInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
     handle: Param0,
     tdhcontext: *const TDH_CONTEXT,
@@ -7407,6 +7476,7 @@ pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TdhUnloadManifest<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -7424,6 +7494,7 @@ pub unsafe fn TdhUnloadManifest<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -7439,6 +7510,7 @@ pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32 {
     #[cfg(windows)]
     {
@@ -7455,6 +7527,7 @@ pub unsafe fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceEventInstance(
     tracehandle: u64,
     eventtrace: *const EVENT_INSTANCE_HEADER,
@@ -7482,6 +7555,7 @@ pub unsafe fn TraceEventInstance(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceMessage(
     loggerhandle: u64,
     messageflags: TRACE_MESSAGE_FLAGS,
@@ -7509,6 +7583,7 @@ pub unsafe fn TraceMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceMessageVa(
     loggerhandle: u64,
     messageflags: TRACE_MESSAGE_FLAGS,
@@ -7539,6 +7614,7 @@ pub unsafe fn TraceMessageVa(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceQueryInformation(
     sessionhandle: u64,
     informationclass: TRACE_QUERY_INFO_CLASS,
@@ -7569,6 +7645,7 @@ pub unsafe fn TraceQueryInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceSetInformation(
     sessionhandle: u64,
     informationclass: TRACE_QUERY_INFO_CLASS,
@@ -7596,6 +7673,7 @@ pub unsafe fn TraceSetInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UnregisterTraceGuids(registrationhandle: u64) -> u32 {
     #[cfg(windows)]
     {
@@ -7611,6 +7689,7 @@ pub unsafe fn UnregisterTraceGuids(registrationhandle: u64) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateTraceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -7639,6 +7718,7 @@ pub unsafe fn UpdateTraceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateTraceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,

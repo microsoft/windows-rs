@@ -2207,6 +2207,7 @@ unsafe impl ::windows::runtime::Abi for AZ_PROP_CONSTANTS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzAccessCheck<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2254,6 +2255,7 @@ pub unsafe fn AuthzAccessCheck<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzAddSidsToContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2291,6 +2293,7 @@ pub unsafe fn AuthzAddSidsToContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzCachedAccessCheck<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>,
@@ -2326,6 +2329,7 @@ pub unsafe fn AuthzCachedAccessCheck<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzEnumerateSecurityEventSources(
     dwflags: u32,
     buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION,
@@ -2354,6 +2358,7 @@ pub unsafe fn AuthzEnumerateSecurityEventSources(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzEvaluateSacl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2392,6 +2397,7 @@ pub unsafe fn AuthzEvaluateSacl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzFreeAuditEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>,
@@ -2412,6 +2418,7 @@ pub unsafe fn AuthzFreeAuditEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzFreeCentralAccessPolicyCache() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2425,6 +2432,7 @@ pub unsafe fn AuthzFreeCentralAccessPolicyCache() -> super::super::Foundation::B
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzFreeContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2445,6 +2453,7 @@ pub unsafe fn AuthzFreeContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzFreeHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>,
@@ -2465,6 +2474,7 @@ pub unsafe fn AuthzFreeHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzFreeResourceManager<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_RESOURCE_MANAGER_HANDLE>,
@@ -2487,6 +2497,7 @@ pub unsafe fn AuthzFreeResourceManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzGetInformationFromContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2521,6 +2532,7 @@ pub unsafe fn AuthzGetInformationFromContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzInitializeCompoundContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2550,6 +2562,7 @@ pub unsafe fn AuthzInitializeCompoundContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AuthzInitializeContextFromAuthzContext<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2588,6 +2601,7 @@ pub unsafe fn AuthzInitializeContextFromAuthzContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AuthzInitializeContextFromSid<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -2630,6 +2644,7 @@ pub unsafe fn AuthzInitializeContextFromSid<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AuthzInitializeContextFromToken<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2672,6 +2687,7 @@ pub unsafe fn AuthzInitializeContextFromToken<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
@@ -2719,6 +2735,7 @@ pub unsafe fn AuthzInitializeObjectAccessAuditEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
@@ -2770,6 +2787,7 @@ pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzInitializeRemoteResourceManager(
     prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT,
     phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE,
@@ -2792,6 +2810,7 @@ pub unsafe fn AuthzInitializeRemoteResourceManager(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzInitializeResourceManager<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2829,6 +2848,7 @@ pub unsafe fn AuthzInitializeResourceManager<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzInitializeResourceManagerEx(
     flags: AUTHZ_RESOURCE_MANAGER_FLAGS,
     pauthzinitinfo: *const AUTHZ_INIT_INFO,
@@ -2854,6 +2874,7 @@ pub unsafe fn AuthzInitializeResourceManagerEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzInstallSecurityEventSource(
     dwflags: u32,
     pregistration: *const AUTHZ_SOURCE_SCHEMA_REGISTRATION,
@@ -2876,6 +2897,7 @@ pub unsafe fn AuthzInstallSecurityEventSource(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzModifyClaims<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2907,6 +2929,7 @@ pub unsafe fn AuthzModifyClaims<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzModifySecurityAttributes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2935,6 +2958,7 @@ pub unsafe fn AuthzModifySecurityAttributes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzModifySids<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -2966,6 +2990,7 @@ pub unsafe fn AuthzModifySids<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzOpenObjectAudit<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -3010,6 +3035,7 @@ pub unsafe fn AuthzOpenObjectAudit<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AuthzRegisterCapChangeNotification(
     phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__,
     pfncapchangecallback: ::std::option::Option<
@@ -3037,6 +3063,7 @@ pub unsafe fn AuthzRegisterCapChangeNotification(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzRegisterSecurityEventSource<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3065,6 +3092,7 @@ pub unsafe fn AuthzRegisterSecurityEventSource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzReportSecurityEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
@@ -3100,6 +3128,7 @@ pub unsafe fn AuthzReportSecurityEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzReportSecurityEventFromParams<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
@@ -3135,6 +3164,7 @@ pub unsafe fn AuthzReportSecurityEventFromParams<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzSetAppContainerInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -3167,6 +3197,7 @@ pub unsafe fn AuthzSetAppContainerInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzUninstallSecurityEventSource<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3192,6 +3223,7 @@ pub unsafe fn AuthzUninstallSecurityEventSource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzUnregisterCapChangeNotification(
     hcapchangesubscription: *const AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__,
 ) -> super::super::Foundation::BOOL {
@@ -3211,6 +3243,7 @@ pub unsafe fn AuthzUnregisterCapChangeNotification(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuthzUnregisterSecurityEventSource(
     dwflags: u32,
     pheventprovider: *mut isize,
@@ -3251,6 +3284,7 @@ pub const AzPrincipalLocator: ::windows::runtime::GUID = ::windows::runtime::GUI
     [171, 220, 161, 222, 77, 1, 90, 62],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildExplicitAccessWithNameA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3285,6 +3319,7 @@ pub unsafe fn BuildExplicitAccessWithNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildExplicitAccessWithNameW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3319,6 +3354,7 @@ pub unsafe fn BuildExplicitAccessWithNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildImpersonateExplicitAccessWithNameA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3356,6 +3392,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildImpersonateExplicitAccessWithNameW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3393,6 +3430,7 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildImpersonateTrusteeA(
     ptrustee: *mut TRUSTEE_A,
     pimpersonatetrustee: *const TRUSTEE_A,
@@ -3415,6 +3453,7 @@ pub unsafe fn BuildImpersonateTrusteeA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildImpersonateTrusteeW(
     ptrustee: *mut TRUSTEE_W,
     pimpersonatetrustee: *const TRUSTEE_W,
@@ -3437,6 +3476,7 @@ pub unsafe fn BuildImpersonateTrusteeW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildSecurityDescriptorA(
     powner: *const TRUSTEE_A,
     pgroup: *const TRUSTEE_A,
@@ -3480,6 +3520,7 @@ pub unsafe fn BuildSecurityDescriptorA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildSecurityDescriptorW(
     powner: *const TRUSTEE_W,
     pgroup: *const TRUSTEE_W,
@@ -3523,6 +3564,7 @@ pub unsafe fn BuildSecurityDescriptorW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithNameA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3548,6 +3590,7 @@ pub unsafe fn BuildTrusteeWithNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithNameW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3573,6 +3616,7 @@ pub unsafe fn BuildTrusteeWithNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndNameA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3612,6 +3656,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndNameW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3651,6 +3696,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndSidA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -3685,6 +3731,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndSidW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -3719,6 +3766,7 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithSidA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -3741,6 +3789,7 @@ pub unsafe fn BuildTrusteeWithSidA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildTrusteeWithSidW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -3763,6 +3812,7 @@ pub unsafe fn BuildTrusteeWithSidW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(
     securitydescriptor: *const super::SECURITY_DESCRIPTOR,
     requestedstringsdrevision: u32,
@@ -3794,6 +3844,7 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(
     securitydescriptor: *const super::SECURITY_DESCRIPTOR,
     requestedstringsdrevision: u32,
@@ -3825,6 +3876,7 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertSidToStringSidA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -3850,6 +3902,7 @@ pub unsafe fn ConvertSidToStringSidA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertSidToStringSidW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -3875,6 +3928,7 @@ pub unsafe fn ConvertSidToStringSidW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3906,6 +3960,7 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3937,6 +3992,7 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertStringSidToSidA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3962,6 +4018,7 @@ pub unsafe fn ConvertStringSidToSidA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertStringSidToSidW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3987,6 +4044,7 @@ pub unsafe fn ConvertStringSidToSidW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_Controls")]
+#[inline]
 pub unsafe fn CreateSecurityPage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ISecurityInformation>,
@@ -4144,6 +4202,7 @@ unsafe impl ::windows::runtime::Abi for EXPLICIT_ACCESS_W {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditSecurity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -4236,6 +4295,7 @@ pub type FN_PROGRESS = unsafe extern "system" fn(
     securityset: super::super::Foundation::BOOL,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeInheritedFromArray(
     pinheritarray: *const INHERITED_FROMW,
     acecnt: u16,
@@ -4261,6 +4321,7 @@ pub unsafe fn FreeInheritedFromArray(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAuditedPermissionsFromAclA(
     pacl: *const super::ACL,
     ptrustee: *const TRUSTEE_A,
@@ -4289,6 +4350,7 @@ pub unsafe fn GetAuditedPermissionsFromAclA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAuditedPermissionsFromAclW(
     pacl: *const super::ACL,
     ptrustee: *const TRUSTEE_W,
@@ -4317,6 +4379,7 @@ pub unsafe fn GetAuditedPermissionsFromAclW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEffectiveRightsFromAclA(
     pacl: *const super::ACL,
     ptrustee: *const TRUSTEE_A,
@@ -4342,6 +4405,7 @@ pub unsafe fn GetEffectiveRightsFromAclA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEffectiveRightsFromAclW(
     pacl: *const super::ACL,
     ptrustee: *const TRUSTEE_W,
@@ -4367,6 +4431,7 @@ pub unsafe fn GetEffectiveRightsFromAclW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExplicitEntriesFromAclA(
     pacl: *const super::ACL,
     pccountofexplicitentries: *mut u32,
@@ -4392,6 +4457,7 @@ pub unsafe fn GetExplicitEntriesFromAclA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExplicitEntriesFromAclW(
     pacl: *const super::ACL,
     pccountofexplicitentries: *mut u32,
@@ -4417,6 +4483,7 @@ pub unsafe fn GetExplicitEntriesFromAclW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetInheritanceSourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4467,6 +4534,7 @@ pub unsafe fn GetInheritanceSourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetInheritanceSourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4517,6 +4585,7 @@ pub unsafe fn GetInheritanceSourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A {
     #[cfg(windows)]
     {
@@ -4530,6 +4599,7 @@ pub unsafe fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMultipleTrusteeOperationA(
     ptrustee: *const TRUSTEE_A,
 ) -> MULTIPLE_TRUSTEE_OPERATION {
@@ -4549,6 +4619,7 @@ pub unsafe fn GetMultipleTrusteeOperationA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMultipleTrusteeOperationW(
     ptrustee: *const TRUSTEE_W,
 ) -> MULTIPLE_TRUSTEE_OPERATION {
@@ -4568,6 +4639,7 @@ pub unsafe fn GetMultipleTrusteeOperationW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W {
     #[cfg(windows)]
     {
@@ -4581,6 +4653,7 @@ pub unsafe fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedSecurityInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4624,6 +4697,7 @@ pub unsafe fn GetNamedSecurityInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedSecurityInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4667,6 +4741,7 @@ pub unsafe fn GetNamedSecurityInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetSecurityInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4710,6 +4785,7 @@ pub unsafe fn GetSecurityInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
     #[cfg(windows)]
     {
@@ -4723,6 +4799,7 @@ pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
     #[cfg(windows)]
     {
@@ -4736,6 +4813,7 @@ pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -4749,6 +4827,7 @@ pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Found
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
@@ -4762,6 +4841,7 @@ pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Found
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE {
     #[cfg(windows)]
     {
@@ -4775,6 +4855,7 @@ pub unsafe fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE {
     #[cfg(windows)]
     {
@@ -35252,6 +35333,7 @@ pub struct ISecurityObjectTypeInfo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LookupSecurityDescriptorPartsA(
     ppowner: *mut *mut TRUSTEE_A,
     ppgroup: *mut *mut TRUSTEE_A,
@@ -35289,6 +35371,7 @@ pub unsafe fn LookupSecurityDescriptorPartsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LookupSecurityDescriptorPartsW(
     ppowner: *mut *mut TRUSTEE_W,
     ppgroup: *mut *mut TRUSTEE_W,
@@ -36097,6 +36180,7 @@ pub const SI_RESET_DACL_TREE: i32 = 16384i32;
 pub const SI_RESET_SACL_TREE: i32 = 32768i32;
 pub const SI_SERVER_IS_DC: i32 = 4096i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEntriesInAclA(
     ccountofexplicitentries: u32,
     plistofexplicitentries: *const EXPLICIT_ACCESS_A,
@@ -36125,6 +36209,7 @@ pub unsafe fn SetEntriesInAclA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEntriesInAclW(
     ccountofexplicitentries: u32,
     plistofexplicitentries: *const EXPLICIT_ACCESS_W,
@@ -36153,6 +36238,7 @@ pub unsafe fn SetEntriesInAclW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetNamedSecurityInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -36195,6 +36281,7 @@ pub unsafe fn SetNamedSecurityInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetNamedSecurityInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -36237,6 +36324,7 @@ pub unsafe fn SetNamedSecurityInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetSecurityInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36568,6 +36656,7 @@ unsafe impl ::windows::runtime::Abi for TRUSTEE_W {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TreeResetNamedSecurityInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -36623,6 +36712,7 @@ pub unsafe fn TreeResetNamedSecurityInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TreeResetNamedSecurityInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -36678,6 +36768,7 @@ pub unsafe fn TreeResetNamedSecurityInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TreeSetNamedSecurityInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -36732,6 +36823,7 @@ pub unsafe fn TreeSetNamedSecurityInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TreeSetNamedSecurityInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

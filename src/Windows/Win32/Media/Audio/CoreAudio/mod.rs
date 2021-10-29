@@ -33464,6 +33464,7 @@ pub const KS_iPALETTE_COLORS: u32 = 256u32;
 pub const KS_iRED: u32 = 0u32;
 pub const KS_iTRUECOLOR: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreateAllocator<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -33521,6 +33522,7 @@ pub unsafe fn KsCreateAllocator2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreateClock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -33578,6 +33580,7 @@ pub unsafe fn KsCreateClock2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreatePin<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -33641,6 +33644,7 @@ pub unsafe fn KsCreatePin2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KsCreateTopologyNode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -37847,6 +37851,7 @@ unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciDriverNotify<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -37874,6 +37879,7 @@ pub unsafe fn mciDriverNotify<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -37887,6 +37893,7 @@ pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -37899,6 +37906,7 @@ pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mciGetCreatorTask(mciid: u32) -> HTASK {
     #[cfg(windows)]
     {
@@ -37912,6 +37920,7 @@ pub unsafe fn mciGetCreatorTask(mciid: u32) -> HTASK {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciGetDeviceIDA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -37930,6 +37939,7 @@ pub unsafe fn mciGetDeviceIDA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -37955,6 +37965,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -37980,6 +37991,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciGetDeviceIDW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -37997,6 +38009,7 @@ pub unsafe fn mciGetDeviceIDW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     #[cfg(windows)]
     {
@@ -38010,6 +38023,7 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciGetErrorStringA(
     mcierr: u32,
     psztext: super::super::super::Foundation::PSTR,
@@ -38035,6 +38049,7 @@ pub unsafe fn mciGetErrorStringA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciGetErrorStringW(
     mcierr: u32,
     psztext: super::super::super::Foundation::PWSTR,
@@ -38059,6 +38074,7 @@ pub unsafe fn mciGetErrorStringW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mciGetYieldProc(
     mciid: u32,
     pdwyielddata: *const u32,
@@ -38081,6 +38097,7 @@ pub unsafe fn mciGetYieldProc(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciLoadCommandResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -38109,6 +38126,7 @@ pub unsafe fn mciLoadCommandResource<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
@@ -38126,6 +38144,7 @@ pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
@@ -38144,6 +38163,7 @@ pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciSendStringA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
@@ -38176,6 +38196,7 @@ pub unsafe fn mciSendStringA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciSendStringW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -38208,6 +38229,7 @@ pub unsafe fn mciSendStringW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciSetDriverData(
     wdeviceid: u32,
     dwdata: usize,
@@ -38230,6 +38252,7 @@ pub unsafe fn mciSetDriverData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mciSetYieldProc(
     mciid: u32,
     fpyieldproc: ::std::option::Option<YIELDPROC>,

@@ -10,6 +10,7 @@
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AssociateColorProfileWithDeviceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40,6 +41,7 @@ pub unsafe fn AssociateColorProfileWithDeviceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AssociateColorProfileWithDeviceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -242,6 +244,7 @@ unsafe impl ::windows::runtime::Abi for CIEXYZTRIPLE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMCheckColors(
     hcmtransform: isize,
     lpainputcolors: *const COLOR,
@@ -273,6 +276,7 @@ pub unsafe fn CMCheckColors(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn CMCheckColorsInGamut(
     hcmtransform: isize,
     lpargbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE,
@@ -301,6 +305,7 @@ pub unsafe fn CMCheckColorsInGamut(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMCheckRGBs<
     'a,
     Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -347,6 +352,7 @@ pub unsafe fn CMCheckRGBs<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMConvertColorNameToIndex(
     hprofile: isize,
     pacolorname: *const *const i8,
@@ -375,6 +381,7 @@ pub unsafe fn CMConvertColorNameToIndex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMConvertIndexToColorName(
     hprofile: isize,
     paindex: *const u32,
@@ -403,6 +410,7 @@ pub unsafe fn CMConvertIndexToColorName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMCreateDeviceLinkProfile(
     pahprofiles: *const isize,
     nprofiles: u32,
@@ -436,6 +444,7 @@ pub unsafe fn CMCreateDeviceLinkProfile(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CMCreateMultiProfileTransform(
     pahprofiles: *const isize,
     nprofiles: u32,
@@ -467,6 +476,7 @@ pub unsafe fn CMCreateMultiProfileTransform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CMCreateProfile(
     lpcolorspace: *mut LOGCOLORSPACEA,
     lpprofiledata: *mut *mut ::std::ffi::c_void,
@@ -489,6 +499,7 @@ pub unsafe fn CMCreateProfile(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMCreateProfileW(
     lpcolorspace: *mut LOGCOLORSPACEW,
     lpprofiledata: *mut *mut ::std::ffi::c_void,
@@ -511,6 +522,7 @@ pub unsafe fn CMCreateProfileW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CMCreateTransform(
     lpcolorspace: *const LOGCOLORSPACEA,
     lpdevcharacter: *const ::std::ffi::c_void,
@@ -536,6 +548,7 @@ pub unsafe fn CMCreateTransform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CMCreateTransformExt(
     lpcolorspace: *const LOGCOLORSPACEA,
     lpdevcharacter: *const ::std::ffi::c_void,
@@ -563,6 +576,7 @@ pub unsafe fn CMCreateTransformExt(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CMCreateTransformExtW(
     lpcolorspace: *const LOGCOLORSPACEW,
     lpdevcharacter: *const ::std::ffi::c_void,
@@ -590,6 +604,7 @@ pub unsafe fn CMCreateTransformExtW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CMCreateTransformW(
     lpcolorspace: *const LOGCOLORSPACEW,
     lpdevcharacter: *const ::std::ffi::c_void,
@@ -615,6 +630,7 @@ pub unsafe fn CMCreateTransformW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -627,6 +643,7 @@ pub unsafe fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CMGetInfo(dwinfo: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -640,6 +657,7 @@ pub unsafe fn CMGetInfo(dwinfo: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMGetNamedProfileInfo(
     hprofile: isize,
     pnamedprofileinfo: *mut NAMED_PROFILE_INFO,
@@ -662,6 +680,7 @@ pub unsafe fn CMGetNamedProfileInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMIsProfileValid(
     hprofile: isize,
     lpbvalid: *mut i32,
@@ -709,6 +728,7 @@ pub const CMS_USEAPPLYCALLBACK: u32 = 256u32;
 pub const CMS_USEDESCRIPTION: u32 = 512u32;
 pub const CMS_USEHOOK: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMTranslateColors(
     hcmtransform: isize,
     lpainputcolors: *const COLOR,
@@ -743,6 +763,7 @@ pub unsafe fn CMTranslateColors(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMTranslateRGB(
     hcmtransform: isize,
     colorref: u32,
@@ -771,6 +792,7 @@ pub unsafe fn CMTranslateRGB(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMTranslateRGBs(
     hcmtransform: isize,
     lpsrcbits: *const ::std::ffi::c_void,
@@ -814,6 +836,7 @@ pub unsafe fn CMTranslateRGBs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CMTranslateRGBsExt<
     'a,
     Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -1278,6 +1301,7 @@ pub const CSA_GRAY: u32 = 5u32;
 pub const CSA_Lab: u32 = 8u32;
 pub const CSA_RGB: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckBitmapBits<
     'a,
     Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -1324,6 +1348,7 @@ pub unsafe fn CheckBitmapBits<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckColors(
     hcolortransform: isize,
     painputcolors: *const COLOR,
@@ -1355,6 +1380,7 @@ pub unsafe fn CheckColors(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn CheckColorsInGamut<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -1386,6 +1412,7 @@ pub unsafe fn CheckColorsInGamut<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1399,6 +1426,7 @@ pub unsafe fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ColorCorrectPalette<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -1431,6 +1459,7 @@ pub unsafe fn ColorCorrectPalette<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ColorMatchToTarget<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -1681,6 +1710,7 @@ pub unsafe fn ColorProfileSetDisplayDefaultAssociation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertColorNameToIndex(
     hprofile: isize,
     pacolorname: *const *const i8,
@@ -1709,6 +1739,7 @@ pub unsafe fn ConvertColorNameToIndex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertIndexToColorName(
     hprofile: isize,
     paindex: *const u32,
@@ -1737,6 +1768,7 @@ pub unsafe fn ConvertIndexToColorName(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
     #[cfg(windows)]
     {
@@ -1749,6 +1781,7 @@ pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
     #[cfg(windows)]
     {
@@ -1762,6 +1795,7 @@ pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CreateColorTransformA(
     plogcolorspace: *const LOGCOLORSPACEA,
     hdestprofile: isize,
@@ -1789,6 +1823,7 @@ pub unsafe fn CreateColorTransformA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateColorTransformW(
     plogcolorspace: *const LOGCOLORSPACEW,
     hdestprofile: isize,
@@ -1817,6 +1852,7 @@ pub unsafe fn CreateColorTransformW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateDeviceLinkProfile(
     hprofile: *const isize,
     nprofiles: u32,
@@ -1853,6 +1889,7 @@ pub unsafe fn CreateDeviceLinkProfile(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateMultiProfileTransform(
     pahprofiles: *const isize,
     nprofiles: u32,
@@ -1887,6 +1924,7 @@ pub unsafe fn CreateMultiProfileTransform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CreateProfileFromLogColorSpaceA(
     plogcolorspace: *const LOGCOLORSPACEA,
     pprofile: *mut *mut u8,
@@ -1909,6 +1947,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateProfileFromLogColorSpaceW(
     plogcolorspace: *const LOGCOLORSPACEW,
     pprofile: *mut *mut u8,
@@ -1932,6 +1971,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceW(
 }
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(
     hcs: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -1947,6 +1987,7 @@ pub unsafe fn DeleteColorSpace<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1960,6 +2001,7 @@ pub unsafe fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::B
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DisassociateColorProfileFromDeviceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1990,6 +2032,7 @@ pub unsafe fn DisassociateColorProfileFromDeviceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DisassociateColorProfileFromDeviceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2225,6 +2268,7 @@ pub const ET_RESOLUTION: u32 = 8u32;
 pub const ET_SIGNATURE: u32 = 256u32;
 pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumColorProfilesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2259,6 +2303,7 @@ pub unsafe fn EnumColorProfilesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumColorProfilesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2293,6 +2338,7 @@ pub unsafe fn EnumColorProfilesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn EnumICMProfilesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -2322,6 +2368,7 @@ pub unsafe fn EnumICMProfilesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn EnumICMProfilesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -2528,6 +2575,7 @@ unsafe impl ::windows::runtime::Abi for GamutShellTriangle {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -2544,6 +2592,7 @@ pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetColorDirectoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2572,6 +2621,7 @@ pub unsafe fn GetColorDirectoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetColorDirectoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2600,6 +2650,7 @@ pub unsafe fn GetColorDirectoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetColorProfileElement(
     hprofile: isize,
     tag: u32,
@@ -2634,6 +2685,7 @@ pub unsafe fn GetColorProfileElement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetColorProfileElementTag(
     hprofile: isize,
     dwindex: u32,
@@ -2659,6 +2711,7 @@ pub unsafe fn GetColorProfileElementTag(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetColorProfileFromHandle(
     hprofile: isize,
     pprofile: *mut u8,
@@ -2684,6 +2737,7 @@ pub unsafe fn GetColorProfileFromHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetColorProfileHeader(
     hprofile: isize,
     pheader: *mut PROFILEHEADER,
@@ -2706,6 +2760,7 @@ pub unsafe fn GetColorProfileHeader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetColorSpace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -2724,6 +2779,7 @@ pub unsafe fn GetColorSpace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCountColorProfileElements(
     hprofile: isize,
     pnelementcount: *mut u32,
@@ -2746,6 +2802,7 @@ pub unsafe fn GetCountColorProfileElements(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetDeviceGammaRamp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -2771,6 +2828,7 @@ pub unsafe fn GetDeviceGammaRamp<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetICMProfileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -2799,6 +2857,7 @@ pub unsafe fn GetICMProfileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetICMProfileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -2827,6 +2886,7 @@ pub unsafe fn GetICMProfileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(
     hcolorspace: Param0,
     lpbuffer: *mut LOGCOLORSPACEA,
@@ -2852,6 +2912,7 @@ pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLogColorSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(
     hcolorspace: Param0,
     lpbuffer: *mut LOGCOLORSPACEW,
@@ -2877,6 +2938,7 @@ pub unsafe fn GetLogColorSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedProfileInfo(
     hprofile: isize,
     pnamedprofileinfo: *mut NAMED_PROFILE_INFO,
@@ -2899,6 +2961,7 @@ pub unsafe fn GetNamedProfileInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPS2ColorRenderingDictionary(
     hprofile: isize,
     dwintent: u32,
@@ -2930,6 +2993,7 @@ pub unsafe fn GetPS2ColorRenderingDictionary(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPS2ColorRenderingIntent(
     hprofile: isize,
     dwintent: u32,
@@ -2958,6 +3022,7 @@ pub unsafe fn GetPS2ColorRenderingIntent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPS2ColorSpaceArray(
     hprofile: isize,
     dwintent: u32,
@@ -2992,6 +3057,7 @@ pub unsafe fn GetPS2ColorSpaceArray(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetStandardColorSpaceProfileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3023,6 +3089,7 @@ pub unsafe fn GetStandardColorSpaceProfileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetStandardColorSpaceProfileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3553,6 +3620,7 @@ pub const INTENT_PERCEPTUAL: u32 = 0u32;
 pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
 pub const INTENT_SATURATION: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallColorProfileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3579,6 +3647,7 @@ pub unsafe fn InstallColorProfileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallColorProfileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3605,6 +3674,7 @@ pub unsafe fn InstallColorProfileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsColorProfileTagPresent(
     hprofile: isize,
     tag: u32,
@@ -3630,6 +3700,7 @@ pub unsafe fn IsColorProfileTagPresent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsColorProfileValid(
     hprofile: isize,
     pbvalid: *mut super::super::Foundation::BOOL,
@@ -3940,6 +4011,7 @@ unsafe impl ::windows::runtime::Abi for NAMED_PROFILE_INFO {
     type DefaultType = Self;
 }
 pub const NORMAL_MODE: u32 = 2u32;
+#[inline]
 pub unsafe fn OpenColorProfileA(
     pprofile: *const PROFILE,
     dwdesiredaccess: u32,
@@ -3967,6 +4039,7 @@ pub unsafe fn OpenColorProfileA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn OpenColorProfileW(
     pprofile: *const PROFILE,
     dwdesiredaccess: u32,
@@ -4252,6 +4325,7 @@ unsafe impl ::windows::runtime::Abi for RGBCOLOR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterCMMA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4281,6 +4355,7 @@ pub unsafe fn RegisterCMMA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterCMMW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4311,6 +4386,7 @@ pub unsafe fn RegisterCMMW<
 }
 pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4324,6 +4400,7 @@ pub unsafe fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetColorProfileElement(
     hprofile: isize,
     tag: u32,
@@ -4355,6 +4432,7 @@ pub unsafe fn SetColorProfileElement(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetColorProfileElementReference(
     hprofile: isize,
     newtag: u32,
@@ -4380,6 +4458,7 @@ pub unsafe fn SetColorProfileElementReference(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetColorProfileElementSize(
     hprofile: isize,
     tagtype: u32,
@@ -4405,6 +4484,7 @@ pub unsafe fn SetColorProfileElementSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetColorProfileHeader(
     hprofile: isize,
     pheader: *const PROFILEHEADER,
@@ -4427,6 +4507,7 @@ pub unsafe fn SetColorProfileHeader(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn SetColorSpace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4453,6 +4534,7 @@ pub unsafe fn SetColorSpace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn SetDeviceGammaRamp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4478,6 +4560,7 @@ pub unsafe fn SetDeviceGammaRamp<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn SetICMMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4500,6 +4583,7 @@ pub unsafe fn SetICMMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn SetICMProfileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4526,6 +4610,7 @@ pub unsafe fn SetICMProfileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn SetICMProfileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4552,6 +4637,7 @@ pub unsafe fn SetICMProfileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetStandardColorSpaceProfileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4581,6 +4667,7 @@ pub unsafe fn SetStandardColorSpaceProfileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetStandardColorSpaceProfileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4610,6 +4697,7 @@ pub unsafe fn SetStandardColorSpaceProfileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4625,6 +4713,7 @@ pub unsafe fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4640,6 +4729,7 @@ pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TranslateBitmapBits<
     'a,
     Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -4692,6 +4782,7 @@ pub unsafe fn TranslateBitmapBits<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TranslateColors(
     hcolortransform: isize,
     painputcolors: *const COLOR,
@@ -4727,6 +4818,7 @@ pub unsafe fn TranslateColors(
 }
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UninstallColorProfileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4757,6 +4849,7 @@ pub unsafe fn UninstallColorProfileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UninstallColorProfileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4787,6 +4880,7 @@ pub unsafe fn UninstallColorProfileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterCMMA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4812,6 +4906,7 @@ pub unsafe fn UnregisterCMMA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterCMMW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4837,6 +4932,7 @@ pub unsafe fn UnregisterCMMW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateICMRegKeyA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4869,6 +4965,7 @@ pub unsafe fn UpdateICMRegKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateICMRegKeyW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5033,6 +5130,7 @@ unsafe impl ::windows::runtime::Abi for WCS_PROFILE_MANAGEMENT_SCOPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsAssociateColorProfileWithDevice<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5062,6 +5160,7 @@ pub unsafe fn WcsAssociateColorProfileWithDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsCheckColors(
     hcolortransform: isize,
     ncolors: u32,
@@ -5098,6 +5197,7 @@ pub unsafe fn WcsCheckColors(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
     #[cfg(windows)]
     {
@@ -5114,6 +5214,7 @@ pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsDisassociateColorProfileFromDevice<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5143,6 +5244,7 @@ pub unsafe fn WcsDisassociateColorProfileFromDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsEnumColorProfiles(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     penumrecord: *const ENUMTYPEW,
@@ -5174,6 +5276,7 @@ pub unsafe fn WcsEnumColorProfiles(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsEnumColorProfilesSize(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     penumrecord: *const ENUMTYPEW,
@@ -5199,6 +5302,7 @@ pub unsafe fn WcsEnumColorProfilesSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsGetCalibrationManagementState(
     pbisenabled: *mut super::super::Foundation::BOOL,
 ) -> super::super::Foundation::BOOL {
@@ -5218,6 +5322,7 @@ pub unsafe fn WcsGetCalibrationManagementState(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsGetDefaultColorProfile<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5258,6 +5363,7 @@ pub unsafe fn WcsGetDefaultColorProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsGetDefaultColorProfileSize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5295,6 +5401,7 @@ pub unsafe fn WcsGetDefaultColorProfileSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsGetDefaultRenderingIntent(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     pdwrenderingintent: *mut u32,
@@ -5317,6 +5424,7 @@ pub unsafe fn WcsGetDefaultRenderingIntent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsGetUsePerUserProfiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5344,6 +5452,7 @@ pub unsafe fn WcsGetUsePerUserProfiles<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WcsOpenColorProfileA(
     pcdmpprofile: *const PROFILE,
     pcampprofile: *const PROFILE,
@@ -5380,6 +5489,7 @@ pub unsafe fn WcsOpenColorProfileA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WcsOpenColorProfileW(
     pcdmpprofile: *const PROFILE,
     pcampprofile: *const PROFILE,
@@ -5417,6 +5527,7 @@ pub unsafe fn WcsOpenColorProfileW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsSetCalibrationManagementState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -5439,6 +5550,7 @@ pub unsafe fn WcsSetCalibrationManagementState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsSetDefaultColorProfile<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5477,6 +5589,7 @@ pub unsafe fn WcsSetDefaultColorProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsSetDefaultRenderingIntent(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     dwrenderingintent: u32,
@@ -5499,6 +5612,7 @@ pub unsafe fn WcsSetDefaultRenderingIntent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsSetUsePerUserProfiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5528,6 +5642,7 @@ pub unsafe fn WcsSetUsePerUserProfiles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcsTranslateColors(
     hcolortransform: isize,
     ncolors: u32,

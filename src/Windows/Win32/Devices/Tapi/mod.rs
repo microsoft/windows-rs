@@ -38728,6 +38728,7 @@ pub const atypNull: i32 = 0i32;
 pub const atypOle: i32 = 2i32;
 pub const atypPicture: i32 = 3i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineAccept<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -38756,6 +38757,7 @@ pub unsafe fn lineAccept<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineAddProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -38785,6 +38787,7 @@ pub unsafe fn lineAddProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineAddProviderA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -38814,6 +38817,7 @@ pub unsafe fn lineAddProviderA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineAddProviderW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -38842,6 +38846,7 @@ pub unsafe fn lineAddProviderW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -38857,6 +38862,7 @@ pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineAgentSpecific(
     hline: u32,
     dwaddressid: u32,
@@ -38888,6 +38894,7 @@ pub unsafe fn lineAgentSpecific(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineAnswer<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -38916,6 +38923,7 @@ pub unsafe fn lineAnswer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineBlindTransfer<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -38944,6 +38952,7 @@ pub unsafe fn lineBlindTransfer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineBlindTransferA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -38972,6 +38981,7 @@ pub unsafe fn lineBlindTransferA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineBlindTransferW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -38999,6 +39009,7 @@ pub unsafe fn lineBlindTransferW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineClose(hline: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -39011,6 +39022,7 @@ pub unsafe fn lineClose(hline: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineCompleteCall(
     hcall: u32,
     lpdwcompletionid: *mut u32,
@@ -39038,6 +39050,7 @@ pub unsafe fn lineCompleteCall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineCompleteTransfer(
     hcall: u32,
     hconsultcall: u32,
@@ -39066,6 +39079,7 @@ pub unsafe fn lineCompleteTransfer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineConfigDialog<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39095,6 +39109,7 @@ pub unsafe fn lineConfigDialog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineConfigDialogA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39124,6 +39139,7 @@ pub unsafe fn lineConfigDialogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineConfigDialogEdit<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39162,6 +39178,7 @@ pub unsafe fn lineConfigDialogEdit<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineConfigDialogEditA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39200,6 +39217,7 @@ pub unsafe fn lineConfigDialogEditA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineConfigDialogEditW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39238,6 +39256,7 @@ pub unsafe fn lineConfigDialogEditW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineConfigDialogW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39267,6 +39286,7 @@ pub unsafe fn lineConfigDialogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineConfigProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -39292,6 +39312,7 @@ pub unsafe fn lineConfigProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineCreateAgentA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39324,6 +39345,7 @@ pub unsafe fn lineCreateAgentA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineCreateAgentSessionA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39361,6 +39383,7 @@ pub unsafe fn lineCreateAgentSessionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineCreateAgentSessionW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -39398,6 +39421,7 @@ pub unsafe fn lineCreateAgentSessionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineCreateAgentW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -39429,6 +39453,7 @@ pub unsafe fn lineCreateAgentW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -39441,6 +39466,7 @@ pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineDevSpecific(
     hline: u32,
     dwaddressid: u32,
@@ -39471,6 +39497,7 @@ pub unsafe fn lineDevSpecific(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineDevSpecificFeature(
     hline: u32,
     dwfeature: u32,
@@ -39499,6 +39526,7 @@ pub unsafe fn lineDevSpecificFeature(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineDial<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39527,6 +39555,7 @@ pub unsafe fn lineDial<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineDialA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39555,6 +39584,7 @@ pub unsafe fn lineDialA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineDialW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -39583,6 +39613,7 @@ pub unsafe fn lineDialW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineDrop<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39610,6 +39641,7 @@ pub unsafe fn lineDrop<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineForward(
     hline: u32,
     balladdresses: u32,
@@ -39646,6 +39678,7 @@ pub unsafe fn lineForward(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineForwardA(
     hline: u32,
     balladdresses: u32,
@@ -39682,6 +39715,7 @@ pub unsafe fn lineForwardA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineForwardW(
     hline: u32,
     balladdresses: u32,
@@ -39719,6 +39753,7 @@ pub unsafe fn lineForwardW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGatherDigits<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39759,6 +39794,7 @@ pub unsafe fn lineGatherDigits<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGatherDigitsA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39799,6 +39835,7 @@ pub unsafe fn lineGatherDigitsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGatherDigitsW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -39839,6 +39876,7 @@ pub unsafe fn lineGatherDigitsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGenerateDigits<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39870,6 +39908,7 @@ pub unsafe fn lineGenerateDigits<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGenerateDigitsA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -39901,6 +39940,7 @@ pub unsafe fn lineGenerateDigitsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGenerateDigitsW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -39931,6 +39971,7 @@ pub unsafe fn lineGenerateDigitsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGenerateTone(
     hcall: u32,
     dwtonemode: u32,
@@ -39961,6 +40002,7 @@ pub unsafe fn lineGenerateTone(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAddressCaps(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -39994,6 +40036,7 @@ pub unsafe fn lineGetAddressCaps(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAddressCapsA(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -40027,6 +40070,7 @@ pub unsafe fn lineGetAddressCapsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAddressCapsW(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -40061,6 +40105,7 @@ pub unsafe fn lineGetAddressCapsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetAddressID<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40095,6 +40140,7 @@ pub unsafe fn lineGetAddressID<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetAddressIDA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40129,6 +40175,7 @@ pub unsafe fn lineGetAddressIDA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetAddressIDW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -40162,6 +40209,7 @@ pub unsafe fn lineGetAddressIDW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAddressStatus(
     hline: u32,
     dwaddressid: u32,
@@ -40186,6 +40234,7 @@ pub unsafe fn lineGetAddressStatus(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAddressStatusA(
     hline: u32,
     dwaddressid: u32,
@@ -40210,6 +40259,7 @@ pub unsafe fn lineGetAddressStatusA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAddressStatusW(
     hline: u32,
     dwaddressid: u32,
@@ -40234,6 +40284,7 @@ pub unsafe fn lineGetAddressStatusW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentActivityListA(
     hline: u32,
     dwaddressid: u32,
@@ -40258,6 +40309,7 @@ pub unsafe fn lineGetAgentActivityListA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentActivityListW(
     hline: u32,
     dwaddressid: u32,
@@ -40282,6 +40334,7 @@ pub unsafe fn lineGetAgentActivityListW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentCapsA(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -40312,6 +40365,7 @@ pub unsafe fn lineGetAgentCapsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentCapsW(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -40342,6 +40396,7 @@ pub unsafe fn lineGetAgentCapsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentGroupListA(
     hline: u32,
     dwaddressid: u32,
@@ -40366,6 +40421,7 @@ pub unsafe fn lineGetAgentGroupListA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentGroupListW(
     hline: u32,
     dwaddressid: u32,
@@ -40391,6 +40447,7 @@ pub unsafe fn lineGetAgentGroupListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32 {
     #[cfg(windows)]
     {
@@ -40408,6 +40465,7 @@ pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAG
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn lineGetAgentSessionInfo(
     hline: u32,
     hagentsession: u32,
@@ -40432,6 +40490,7 @@ pub unsafe fn lineGetAgentSessionInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentSessionList(
     hline: u32,
     hagent: u32,
@@ -40456,6 +40515,7 @@ pub unsafe fn lineGetAgentSessionList(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentStatusA(
     hline: u32,
     dwaddressid: u32,
@@ -40480,6 +40540,7 @@ pub unsafe fn lineGetAgentStatusA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetAgentStatusW(
     hline: u32,
     dwaddressid: u32,
@@ -40505,6 +40566,7 @@ pub unsafe fn lineGetAgentStatusW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetAppPriority<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40542,6 +40604,7 @@ pub unsafe fn lineGetAppPriority<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetAppPriorityA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40579,6 +40642,7 @@ pub unsafe fn lineGetAppPriorityA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetAppPriorityW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -40615,6 +40679,7 @@ pub unsafe fn lineGetAppPriorityW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
@@ -40630,6 +40695,7 @@ pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
@@ -40645,6 +40711,7 @@ pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
     {
@@ -40661,6 +40728,7 @@ pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -40676,6 +40744,7 @@ pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
     #[cfg(windows)]
     {
@@ -40691,6 +40760,7 @@ pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetCountry(
     dwcountryid: u32,
     dwapiversion: u32,
@@ -40715,6 +40785,7 @@ pub unsafe fn lineGetCountry(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetCountryA(
     dwcountryid: u32,
     dwapiversion: u32,
@@ -40739,6 +40810,7 @@ pub unsafe fn lineGetCountryA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetCountryW(
     dwcountryid: u32,
     dwapiversion: u32,
@@ -40763,6 +40835,7 @@ pub unsafe fn lineGetCountryW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetDevCaps(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -40793,6 +40866,7 @@ pub unsafe fn lineGetDevCaps(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetDevCapsA(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -40823,6 +40897,7 @@ pub unsafe fn lineGetDevCapsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetDevCapsW(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -40854,6 +40929,7 @@ pub unsafe fn lineGetDevCapsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetDevConfig<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40882,6 +40958,7 @@ pub unsafe fn lineGetDevConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetDevConfigA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -40910,6 +40987,7 @@ pub unsafe fn lineGetDevConfigA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetDevConfigW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -40937,6 +41015,7 @@ pub unsafe fn lineGetDevConfigW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
@@ -40952,6 +41031,7 @@ pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
     {
@@ -40968,6 +41048,7 @@ pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetID<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41005,6 +41086,7 @@ pub unsafe fn lineGetID<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetIDA<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41042,6 +41124,7 @@ pub unsafe fn lineGetIDA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetIDW<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -41079,6 +41162,7 @@ pub unsafe fn lineGetIDW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetIcon<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41107,6 +41191,7 @@ pub unsafe fn lineGetIcon<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetIconA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41135,6 +41220,7 @@ pub unsafe fn lineGetIconA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineGetIconW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -41162,6 +41248,7 @@ pub unsafe fn lineGetIconW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -41177,6 +41264,7 @@ pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -41192,6 +41280,7 @@ pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -41207,6 +41296,7 @@ pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -41223,6 +41313,7 @@ pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetNewCalls(
     hline: u32,
     dwaddressid: u32,
@@ -41250,6 +41341,7 @@ pub unsafe fn lineGetNewCalls(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -41266,6 +41358,7 @@ pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
     {
@@ -41282,6 +41375,7 @@ pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetProviderListA(
     dwapiversion: u32,
     lpproviderlist: *mut LINEPROVIDERLIST,
@@ -41303,6 +41397,7 @@ pub unsafe fn lineGetProviderListA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetProviderListW(
     dwapiversion: u32,
     lpproviderlist: *mut LINEPROVIDERLIST,
@@ -41324,6 +41419,7 @@ pub unsafe fn lineGetProviderListW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetProxyStatus(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -41351,6 +41447,7 @@ pub unsafe fn lineGetProxyStatus(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetQueueInfo(
     hline: u32,
     dwqueueid: u32,
@@ -41375,6 +41472,7 @@ pub unsafe fn lineGetQueueInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetQueueListA(
     hline: u32,
     lpgroupid: *mut ::windows::runtime::GUID,
@@ -41399,6 +41497,7 @@ pub unsafe fn lineGetQueueListA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetQueueListW(
     hline: u32,
     lpgroupid: *mut ::windows::runtime::GUID,
@@ -41423,6 +41522,7 @@ pub unsafe fn lineGetQueueListW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetRequest(
     hlineapp: u32,
     dwrequestmode: u32,
@@ -41447,6 +41547,7 @@ pub unsafe fn lineGetRequest(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetRequestA(
     hlineapp: u32,
     dwrequestmode: u32,
@@ -41471,6 +41572,7 @@ pub unsafe fn lineGetRequestA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetRequestW(
     hlineapp: u32,
     dwrequestmode: u32,
@@ -41495,6 +41597,7 @@ pub unsafe fn lineGetRequestW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetStatusMessages(
     hline: u32,
     lpdwlinestates: *mut u32,
@@ -41519,6 +41622,7 @@ pub unsafe fn lineGetStatusMessages(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetTranslateCaps(
     hlineapp: u32,
     dwapiversion: u32,
@@ -41543,6 +41647,7 @@ pub unsafe fn lineGetTranslateCaps(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetTranslateCapsA(
     hlineapp: u32,
     dwapiversion: u32,
@@ -41567,6 +41672,7 @@ pub unsafe fn lineGetTranslateCapsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineGetTranslateCapsW(
     hlineapp: u32,
     dwapiversion: u32,
@@ -41592,6 +41698,7 @@ pub unsafe fn lineGetTranslateCapsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineHandoff<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41620,6 +41727,7 @@ pub unsafe fn lineHandoff<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineHandoffA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41648,6 +41756,7 @@ pub unsafe fn lineHandoffA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineHandoffW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -41675,6 +41784,7 @@ pub unsafe fn lineHandoffW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineHold(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -41688,6 +41798,7 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineInitialize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -41723,6 +41834,7 @@ pub unsafe fn lineInitialize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineInitializeExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -41764,6 +41876,7 @@ pub unsafe fn lineInitializeExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineInitializeExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -41805,6 +41918,7 @@ pub unsafe fn lineInitializeExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineMakeCall<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41839,6 +41953,7 @@ pub unsafe fn lineMakeCall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineMakeCallA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -41873,6 +41988,7 @@ pub unsafe fn lineMakeCallA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineMakeCallW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -41906,6 +42022,7 @@ pub unsafe fn lineMakeCallW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -41921,6 +42038,7 @@ pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -41936,6 +42054,7 @@ pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineMonitorTones(
     hcall: u32,
     lptonelist: *const LINEMONITORTONE,
@@ -41960,6 +42079,7 @@ pub unsafe fn lineMonitorTones(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineNegotiateAPIVersion(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -41993,6 +42113,7 @@ pub unsafe fn lineNegotiateAPIVersion(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineNegotiateExtVersion(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -42026,6 +42147,7 @@ pub unsafe fn lineNegotiateExtVersion(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineOpen(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -42068,6 +42190,7 @@ pub unsafe fn lineOpen(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineOpenA(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -42110,6 +42233,7 @@ pub unsafe fn lineOpenA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineOpenW(
     hlineapp: u32,
     dwdeviceid: u32,
@@ -42153,6 +42277,7 @@ pub unsafe fn lineOpenW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn linePark<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42184,6 +42309,7 @@ pub unsafe fn linePark<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineParkA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42215,6 +42341,7 @@ pub unsafe fn lineParkA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineParkW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -42246,6 +42373,7 @@ pub unsafe fn lineParkW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn linePickup<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42281,6 +42409,7 @@ pub unsafe fn linePickup<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn linePickupA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42316,6 +42445,7 @@ pub unsafe fn linePickupA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn linePickupW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -42350,6 +42480,7 @@ pub unsafe fn linePickupW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn linePrepareAddToConference(
     hconfcall: u32,
     lphconsultcall: *mut u32,
@@ -42374,6 +42505,7 @@ pub unsafe fn linePrepareAddToConference(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn linePrepareAddToConferenceA(
     hconfcall: u32,
     lphconsultcall: *mut u32,
@@ -42398,6 +42530,7 @@ pub unsafe fn linePrepareAddToConferenceA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn linePrepareAddToConferenceW(
     hconfcall: u32,
     lphconsultcall: *mut u32,
@@ -42422,6 +42555,7 @@ pub unsafe fn linePrepareAddToConferenceW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineProxyMessage(
     hline: u32,
     hcall: u32,
@@ -42456,6 +42590,7 @@ pub unsafe fn lineProxyMessage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn lineProxyResponse(
     hline: u32,
     lpproxyrequest: *mut LINEPROXYREQUEST,
@@ -42481,6 +42616,7 @@ pub unsafe fn lineProxyResponse(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineRedirect<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42509,6 +42645,7 @@ pub unsafe fn lineRedirect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineRedirectA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42537,6 +42674,7 @@ pub unsafe fn lineRedirectA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineRedirectW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -42564,6 +42702,7 @@ pub unsafe fn lineRedirectW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineRegisterRequestRecipient(
     hlineapp: u32,
     dwregistrationinstance: u32,
@@ -42591,6 +42730,7 @@ pub unsafe fn lineRegisterRequestRecipient(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -42603,6 +42743,7 @@ pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -42616,6 +42757,7 @@ pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineRemoveProvider<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -42640,6 +42782,7 @@ pub unsafe fn lineRemoveProvider<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -42653,6 +42796,7 @@ pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSendUserUserInfo<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42680,6 +42824,7 @@ pub unsafe fn lineSendUserUserInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -42696,6 +42841,7 @@ pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetAgentGroup(
     hline: u32,
     dwaddressid: u32,
@@ -42720,6 +42866,7 @@ pub unsafe fn lineSetAgentGroup(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetAgentMeasurementPeriod(
     hline: u32,
     hagent: u32,
@@ -42744,6 +42891,7 @@ pub unsafe fn lineSetAgentMeasurementPeriod(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetAgentSessionState(
     hline: u32,
     hagentsession: u32,
@@ -42771,6 +42919,7 @@ pub unsafe fn lineSetAgentSessionState(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetAgentState(
     hline: u32,
     dwaddressid: u32,
@@ -42798,6 +42947,7 @@ pub unsafe fn lineSetAgentState(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetAgentStateEx(
     hline: u32,
     hagent: u32,
@@ -42826,6 +42976,7 @@ pub unsafe fn lineSetAgentStateEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetAppPriority<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42864,6 +43015,7 @@ pub unsafe fn lineSetAppPriority<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetAppPriorityA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -42902,6 +43054,7 @@ pub unsafe fn lineSetAppPriorityA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetAppPriorityW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -42939,6 +43092,7 @@ pub unsafe fn lineSetAppPriorityW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -42954,6 +43108,7 @@ pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::std::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -42971,6 +43126,7 @@ pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::std::ffi::c_void, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetCallParams(
     hcall: u32,
     dwbearermode: u32,
@@ -43001,6 +43157,7 @@ pub unsafe fn lineSetCallParams(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43016,6 +43173,7 @@ pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetCallQualityOfService(
     hcall: u32,
     lpsendingflowspec: *mut ::std::ffi::c_void,
@@ -43046,6 +43204,7 @@ pub unsafe fn lineSetCallQualityOfService(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43061,6 +43220,7 @@ pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43077,6 +43237,7 @@ pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetDevConfig<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43108,6 +43269,7 @@ pub unsafe fn lineSetDevConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetDevConfigA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43139,6 +43301,7 @@ pub unsafe fn lineSetDevConfigA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetDevConfigW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -43169,6 +43332,7 @@ pub unsafe fn lineSetDevConfigW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43185,6 +43349,7 @@ pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetMediaControl(
     hline: u32,
     dwaddressid: u32,
@@ -43236,6 +43401,7 @@ pub unsafe fn lineSetMediaControl(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43251,6 +43417,7 @@ pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43267,6 +43434,7 @@ pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetQueueMeasurementPeriod(
     hline: u32,
     dwqueueid: u32,
@@ -43291,6 +43459,7 @@ pub unsafe fn lineSetQueueMeasurementPeriod(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43307,6 +43476,7 @@ pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetTerminal(
     hline: u32,
     dwaddressid: u32,
@@ -43344,6 +43514,7 @@ pub unsafe fn lineSetTerminal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetTollList<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43375,6 +43546,7 @@ pub unsafe fn lineSetTollList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetTollListA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43406,6 +43578,7 @@ pub unsafe fn lineSetTollListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineSetTollListW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -43436,6 +43609,7 @@ pub unsafe fn lineSetTollListW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetupConference(
     hcall: u32,
     hline: u32,
@@ -43469,6 +43643,7 @@ pub unsafe fn lineSetupConference(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetupConferenceA(
     hcall: u32,
     hline: u32,
@@ -43502,6 +43677,7 @@ pub unsafe fn lineSetupConferenceA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetupConferenceW(
     hcall: u32,
     hline: u32,
@@ -43535,6 +43711,7 @@ pub unsafe fn lineSetupConferenceW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetupTransfer(
     hcall: u32,
     lphconsultcall: *mut u32,
@@ -43559,6 +43736,7 @@ pub unsafe fn lineSetupTransfer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetupTransferA(
     hcall: u32,
     lphconsultcall: *mut u32,
@@ -43583,6 +43761,7 @@ pub unsafe fn lineSetupTransferA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSetupTransferW(
     hcall: u32,
     lphconsultcall: *mut u32,
@@ -43607,6 +43786,7 @@ pub unsafe fn lineSetupTransferW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43619,6 +43799,7 @@ pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43635,6 +43816,7 @@ pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineTranslateAddress<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43675,6 +43857,7 @@ pub unsafe fn lineTranslateAddress<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineTranslateAddressA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43715,6 +43898,7 @@ pub unsafe fn lineTranslateAddressA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineTranslateAddressW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -43755,6 +43939,7 @@ pub unsafe fn lineTranslateAddressW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineTranslateDialog<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43790,6 +43975,7 @@ pub unsafe fn lineTranslateDialog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineTranslateDialogA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43825,6 +44011,7 @@ pub unsafe fn lineTranslateDialogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineTranslateDialogW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -43859,6 +44046,7 @@ pub unsafe fn lineTranslateDialogW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43874,6 +44062,7 @@ pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn lineUnhold(hcall: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -43887,6 +44076,7 @@ pub unsafe fn lineUnhold(hcall: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineUnpark<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43918,6 +44108,7 @@ pub unsafe fn lineUnpark<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineUnparkA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -43949,6 +44140,7 @@ pub unsafe fn lineUnparkA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn lineUnparkW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -44039,6 +44231,7 @@ unsafe impl ::windows::runtime::Abi for linereqmediacallW_tag {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn phoneClose(hphone: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44052,6 +44245,7 @@ pub unsafe fn phoneClose(hphone: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneConfigDialog<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -44081,6 +44275,7 @@ pub unsafe fn phoneConfigDialog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneConfigDialogA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -44110,6 +44305,7 @@ pub unsafe fn phoneConfigDialogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneConfigDialogW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -44138,6 +44334,7 @@ pub unsafe fn phoneConfigDialogW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::std::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44155,6 +44352,7 @@ pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::std::ffi::c_void, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetButtonInfo(
     hphone: u32,
     dwbuttonlampid: u32,
@@ -44179,6 +44377,7 @@ pub unsafe fn phoneGetButtonInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetButtonInfoA(
     hphone: u32,
     dwbuttonlampid: u32,
@@ -44203,6 +44402,7 @@ pub unsafe fn phoneGetButtonInfoA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetButtonInfoW(
     hphone: u32,
     dwbuttonlampid: u32,
@@ -44227,6 +44427,7 @@ pub unsafe fn phoneGetButtonInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetData(
     hphone: u32,
     dwdataid: u32,
@@ -44254,6 +44455,7 @@ pub unsafe fn phoneGetData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetDevCaps(
     hphoneapp: u32,
     dwdeviceid: u32,
@@ -44284,6 +44486,7 @@ pub unsafe fn phoneGetDevCaps(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetDevCapsA(
     hphoneapp: u32,
     dwdeviceid: u32,
@@ -44314,6 +44517,7 @@ pub unsafe fn phoneGetDevCapsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetDevCapsW(
     hphoneapp: u32,
     dwdeviceid: u32,
@@ -44344,6 +44548,7 @@ pub unsafe fn phoneGetDevCapsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
     {
@@ -44359,6 +44564,7 @@ pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44375,6 +44581,7 @@ pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44391,6 +44598,7 @@ pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneGetID<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -44419,6 +44627,7 @@ pub unsafe fn phoneGetID<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneGetIDA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -44447,6 +44656,7 @@ pub unsafe fn phoneGetIDA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneGetIDW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -44475,6 +44685,7 @@ pub unsafe fn phoneGetIDW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneGetIcon<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -44503,6 +44714,7 @@ pub unsafe fn phoneGetIcon<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneGetIconA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -44531,6 +44743,7 @@ pub unsafe fn phoneGetIconA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneGetIconW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -44558,6 +44771,7 @@ pub unsafe fn phoneGetIconW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44574,6 +44788,7 @@ pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44591,6 +44806,7 @@ pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44607,6 +44823,7 @@ pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -44622,6 +44839,7 @@ pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -44637,6 +44855,7 @@ pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetStatusMessages(
     hphone: u32,
     lpdwphonestates: *mut u32,
@@ -44664,6 +44883,7 @@ pub unsafe fn phoneGetStatusMessages(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -44679,6 +44899,7 @@ pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -44696,6 +44917,7 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneInitialize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -44731,6 +44953,7 @@ pub unsafe fn phoneInitialize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneInitializeExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -44772,6 +44995,7 @@ pub unsafe fn phoneInitializeExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneInitializeExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -44812,6 +45036,7 @@ pub unsafe fn phoneInitializeExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneNegotiateAPIVersion(
     hphoneapp: u32,
     dwdeviceid: u32,
@@ -44845,6 +45070,7 @@ pub unsafe fn phoneNegotiateAPIVersion(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneNegotiateExtVersion(
     hphoneapp: u32,
     dwdeviceid: u32,
@@ -44878,6 +45104,7 @@ pub unsafe fn phoneNegotiateExtVersion(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneOpen(
     hphoneapp: u32,
     dwdeviceid: u32,
@@ -44914,6 +45141,7 @@ pub unsafe fn phoneOpen(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetButtonInfo(
     hphone: u32,
     dwbuttonlampid: u32,
@@ -44938,6 +45166,7 @@ pub unsafe fn phoneSetButtonInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetButtonInfoA(
     hphone: u32,
     dwbuttonlampid: u32,
@@ -44962,6 +45191,7 @@ pub unsafe fn phoneSetButtonInfoA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetButtonInfoW(
     hphone: u32,
     dwbuttonlampid: u32,
@@ -44986,6 +45216,7 @@ pub unsafe fn phoneSetButtonInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetData(
     hphone: u32,
     dwdataid: u32,
@@ -45014,6 +45245,7 @@ pub unsafe fn phoneSetData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn phoneSetDisplay<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -45047,6 +45279,7 @@ pub unsafe fn phoneSetDisplay<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -45063,6 +45296,7 @@ pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -45080,6 +45314,7 @@ pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -45096,6 +45331,7 @@ pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -45112,6 +45348,7 @@ pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetStatusMessages(
     hphone: u32,
     dwphonestates: u32,
@@ -45139,6 +45376,7 @@ pub unsafe fn phoneSetStatusMessages(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -45155,6 +45393,7 @@ pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -45168,6 +45407,7 @@ pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiGetLocationInfo(
     lpszcountrycode: super::super::Foundation::PSTR,
     lpszcitycode: super::super::Foundation::PSTR,
@@ -45190,6 +45430,7 @@ pub unsafe fn tapiGetLocationInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiGetLocationInfoA(
     lpszcountrycode: super::super::Foundation::PSTR,
     lpszcitycode: super::super::Foundation::PSTR,
@@ -45212,6 +45453,7 @@ pub unsafe fn tapiGetLocationInfoA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiGetLocationInfoW(
     lpszcountrycodew: super::super::Foundation::PWSTR,
     lpszcitycodew: super::super::Foundation::PWSTR,
@@ -45234,6 +45476,7 @@ pub unsafe fn tapiGetLocationInfoW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiRequestDrop<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -45260,6 +45503,7 @@ pub unsafe fn tapiRequestDrop<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiRequestMakeCall<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -45294,6 +45538,7 @@ pub unsafe fn tapiRequestMakeCall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiRequestMakeCallA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -45328,6 +45573,7 @@ pub unsafe fn tapiRequestMakeCallA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiRequestMakeCallW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -45362,6 +45608,7 @@ pub unsafe fn tapiRequestMakeCallW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiRequestMediaCall<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -45418,6 +45665,7 @@ pub unsafe fn tapiRequestMediaCall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiRequestMediaCallA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -45474,6 +45722,7 @@ pub unsafe fn tapiRequestMediaCallA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn tapiRequestMediaCallW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

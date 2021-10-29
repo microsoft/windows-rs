@@ -139,6 +139,7 @@ unsafe impl ::windows::runtime::Abi for COMPRESS_INFORMATION_CLASS {
 }
 pub const COMPRESS_RAW: u32 = 536870912u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMPRESSOR_HANDLE>>(
     compressorhandle: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -156,6 +157,7 @@ pub unsafe fn CloseCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -169,6 +171,7 @@ pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Compress<'a, Param0: ::windows::runtime::IntoParam<'a, COMPRESSOR_HANDLE>>(
     compressorhandle: Param0,
     uncompresseddata: *const ::std::ffi::c_void,
@@ -203,6 +206,7 @@ pub unsafe fn Compress<'a, Param0: ::windows::runtime::IntoParam<'a, COMPRESSOR_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateCompressor(
     algorithm: COMPRESS_ALGORITHM,
     allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES,
@@ -228,6 +232,7 @@ pub unsafe fn CreateCompressor(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateDecompressor(
     algorithm: COMPRESS_ALGORITHM,
     allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES,
@@ -253,6 +258,7 @@ pub unsafe fn CreateDecompressor(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Decompress(
     decompressorhandle: isize,
     compresseddata: *const ::std::ffi::c_void,
@@ -295,6 +301,7 @@ pub type PFN_COMPRESS_FREE = unsafe extern "system" fn(
     memory: *const ::std::ffi::c_void,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryCompressorInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, COMPRESSOR_HANDLE>,
@@ -326,6 +333,7 @@ pub unsafe fn QueryCompressorInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryDecompressorInformation(
     decompressorhandle: isize,
     compressinformationclass: COMPRESS_INFORMATION_CLASS,
@@ -354,6 +362,7 @@ pub unsafe fn QueryDecompressorInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ResetCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMPRESSOR_HANDLE>>(
     compressorhandle: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -371,6 +380,7 @@ pub unsafe fn ResetCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, COMP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -384,6 +394,7 @@ pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetCompressorInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, COMPRESSOR_HANDLE>,
@@ -415,6 +426,7 @@ pub unsafe fn SetCompressorInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDecompressorInformation(
     decompressorhandle: isize,
     compressinformationclass: COMPRESS_INFORMATION_CLASS,
