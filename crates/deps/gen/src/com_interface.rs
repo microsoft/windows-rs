@@ -42,13 +42,20 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let mut method_names = BTreeMap::<String, u32>::new();
 
-        let (method_bases, dispatch) = if !bases.is_empty() && bases[0].type_name() == TypeName::IDispatch {
-            (bases.iter().skip(1), true)
-        } else {
-            (bases.iter().skip(0), false)
-        };
+        let (method_bases, dispatch) =
+            if !bases.is_empty() && bases[0].type_name() == TypeName::IDispatch {
+                (bases.iter().skip(1), true)
+            } else {
+                (bases.iter().skip(0), false)
+            };
 
-        let base_offset = if inspectable { 3 } else if dispatch { 4 } else { 0 };
+        let base_offset = if inspectable {
+            3
+        } else if dispatch {
+            4
+        } else {
+            0
+        };
 
         let methods = method_bases
             .rev()

@@ -1,7 +1,8 @@
-
 use windows::runtime::*;
 use windows::Win32::System::Com::*;
 use windows::Win32::Web::MsHtml::*;
+
+// This test exists primarily to validate that IDispatch-based interfaces are generated correctly.
 
 #[test]
 fn main() -> Result<()> {
