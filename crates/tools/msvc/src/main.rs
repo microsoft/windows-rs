@@ -107,7 +107,13 @@ fn build_library(
 LIBRARY {}
 EXPORTS
 "#,
-            library
+            // DllImportAttribute dllName not explicitly specified for bthprops.cpl #714
+            // https://github.com/microsoft/win32metadata/issues/714
+            if library == "bthprops" {
+                "bthprops.cpl"
+            } else {
+                library
+            }
         )
         .as_bytes(),
     )
