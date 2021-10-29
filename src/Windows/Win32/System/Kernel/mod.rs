@@ -178,38 +178,6 @@ unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-pub struct GROUP_AFFINITY {
-    pub Mask: usize,
-    pub Group: u16,
-    pub Reserved: [u16; 3],
-}
-impl GROUP_AFFINITY {}
-impl ::std::default::Default for GROUP_AFFINITY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for GROUP_AFFINITY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GROUP_AFFINITY")
-            .field("Mask", &self.Mask)
-            .field("Group", &self.Group)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for GROUP_AFFINITY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Mask == other.Mask && self.Group == other.Group && self.Reserved == other.Reserved
-    }
-}
-impl ::std::cmp::Eq for GROUP_AFFINITY {}
-unsafe impl ::windows::runtime::Abi for GROUP_AFFINITY {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
 pub struct LIST_ENTRY {
     pub Flink: *mut LIST_ENTRY,
     pub Blink: *mut LIST_ENTRY,
@@ -955,47 +923,6 @@ impl ::std::convert::From<i32> for TIMER_TYPE {
     }
 }
 unsafe impl ::windows::runtime::Abi for TIMER_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct UNICODE_STRING {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Buffer: super::super::Foundation::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl UNICODE_STRING {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for UNICODE_STRING {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for UNICODE_STRING {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("UNICODE_STRING")
-            .field("Length", &self.Length)
-            .field("MaximumLength", &self.MaximumLength)
-            .field("Buffer", &self.Buffer)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for UNICODE_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumLength == other.MaximumLength
-            && self.Buffer == other.Buffer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for UNICODE_STRING {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for UNICODE_STRING {
     type Abi = Self;
     type DefaultType = Self;
 }

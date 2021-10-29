@@ -70,20 +70,20 @@ unsafe impl ::windows::runtime::Abi for DIAGNOSIS_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
-    pub data: [super::super::System::SystemServices::CHAR; 126],
+    pub data: [super::super::Foundation::CHAR; 126],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DIAG_SOCKADDR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIAG_SOCKADDR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIAG_SOCKADDR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIAG_SOCKADDR")
@@ -92,15 +92,15 @@ impl ::std::fmt::Debug for DIAG_SOCKADDR {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIAG_SOCKADDR {
     fn eq(&self, other: &Self) -> bool {
         self.family == other.family && self.data == other.data
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIAG_SOCKADDR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAG_SOCKADDR {
     type Abi = Self;
     type DefaultType = Self;
@@ -137,36 +137,36 @@ unsafe impl ::windows::runtime::Abi for DiagnosticsInfo {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HELPER_ATTRIBUTE {
     pub pwszName: super::super::Foundation::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
     pub Anonymous: HELPER_ATTRIBUTE_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl HELPER_ATTRIBUTE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HELPER_ATTRIBUTE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HELPER_ATTRIBUTE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HELPER_ATTRIBUTE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HELPER_ATTRIBUTE {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -183,45 +183,45 @@ pub union HELPER_ATTRIBUTE_0 {
     pub Address: DIAG_SOCKADDR,
     pub OctetString: OCTET_STRING,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl HELPER_ATTRIBUTE_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HELPER_ATTRIBUTE_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HELPER_ATTRIBUTE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HELPER_ATTRIBUTE_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HELPER_ATTRIBUTE_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HYPOTHESIS {
     pub pwszClassName: super::super::Foundation::PWSTR,
     pub pwszDescription: super::super::Foundation::PWSTR,
     pub celt: u32,
     pub rgAttributes: *mut HELPER_ATTRIBUTE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl HYPOTHESIS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HYPOTHESIS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HYPOTHESIS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HYPOTHESIS")
@@ -232,7 +232,7 @@ impl ::std::fmt::Debug for HYPOTHESIS {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HYPOTHESIS {
     fn eq(&self, other: &Self) -> bool {
         self.pwszClassName == other.pwszClassName
@@ -241,9 +241,9 @@ impl ::std::cmp::PartialEq for HYPOTHESIS {
             && self.rgAttributes == other.rgAttributes
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HYPOTHESIS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HYPOTHESIS {
     type Abi = Self;
     type DefaultType = Self;
@@ -287,20 +287,20 @@ unsafe impl ::windows::runtime::Abi for HelperAttributeInfo {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl HypothesisResult {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HypothesisResult {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HypothesisResult {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HypothesisResult")
@@ -309,15 +309,15 @@ impl ::std::fmt::Debug for HypothesisResult {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HypothesisResult {
     fn eq(&self, other: &Self) -> bool {
         self.hypothesis == other.hypothesis && self.pathStatus == other.pathStatus
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HypothesisResult {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HypothesisResult {
     type Abi = Self;
     type DefaultType = Self;
@@ -331,7 +331,7 @@ unsafe impl ::windows::runtime::Abi for HypothesisResult {
 )]
 pub struct INetDiagExtensibleHelper(::windows::runtime::IUnknown);
 impl INetDiagExtensibleHelper {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResolveAttributes(
         &self,
         celt: u32,
@@ -398,7 +398,7 @@ pub struct INetDiagExtensibleHelper_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         celt: u32,
@@ -406,7 +406,7 @@ pub struct INetDiagExtensibleHelper_abi(
         pcelt: *mut u32,
         prgmatchvalues: *mut *mut HELPER_ATTRIBUTE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -417,7 +417,7 @@ pub struct INetDiagExtensibleHelper_abi(
 )]
 pub struct INetDiagHelper(::windows::runtime::IUnknown);
 impl INetDiagHelper {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize(
         &self,
         celt: u32,
@@ -439,7 +439,7 @@ impl INetDiagHelper {
         )
         .from_abi::<*mut DiagnosticsInfo>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetKeyAttributes(
         &self,
         pcelt: *mut u32,
@@ -492,7 +492,7 @@ impl INetDiagHelper {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLowerHypotheses(
         &self,
         pcelt: *mut u32,
@@ -505,7 +505,7 @@ impl INetDiagHelper {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDownStreamHypotheses(
         &self,
         pcelt: *mut u32,
@@ -518,7 +518,7 @@ impl INetDiagHelper {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHigherHypotheses(
         &self,
         pcelt: *mut u32,
@@ -531,7 +531,7 @@ impl INetDiagHelper {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUpStreamHypotheses(
         &self,
         pcelt: *mut u32,
@@ -620,7 +620,7 @@ impl INetDiagHelper {
         )
         .from_abi::<super::super::Foundation::FILETIME>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes(
         &self,
         pcelt: *mut u32,
@@ -685,24 +685,33 @@ pub struct INetDiagHelper_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         celt: u32,
         rgattributes: *const HELPER_ATTRIBUTE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppinfo: *mut *mut DiagnosticsInfo,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcelt: *mut u32,
         pprgattributes: *mut *mut HELPER_ATTRIBUTE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pwszinstancedescription: super::super::Foundation::PWSTR,
+        ppwszdescription: *mut super::super::Foundation::PWSTR,
+        pdeferredtime: *mut i32,
+        pstatus: *mut DIAGNOSIS_STATUS,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -715,40 +724,31 @@ pub struct INetDiagHelper_abi(
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pwszinstancedescription: super::super::Foundation::PWSTR,
-        ppwszdescription: *mut super::super::Foundation::PWSTR,
-        pdeferredtime: *mut i32,
-        pstatus: *mut DIAGNOSIS_STATUS,
+        pcelt: *mut u32,
+        pprghypotheses: *mut *mut HYPOTHESIS,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcelt: *mut u32,
         pprghypotheses: *mut *mut HYPOTHESIS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcelt: *mut u32,
         pprghypotheses: *mut *mut HYPOTHESIS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcelt: *mut u32,
         pprghypotheses: *mut *mut HYPOTHESIS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcelt: *mut u32,
-        pprghypotheses: *mut *mut HYPOTHESIS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -789,13 +789,13 @@ pub struct INetDiagHelper_abi(
         pcachetime: *mut super::super::Foundation::FILETIME,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcelt: *mut u32,
         pprgattributes: *mut *mut HELPER_ATTRIBUTE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -808,7 +808,7 @@ pub struct INetDiagHelper_abi(
 )]
 pub struct INetDiagHelperEx(::windows::runtime::IUnknown);
 impl INetDiagHelperEx {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReconfirmLowHealth(
         &self,
         celt: u32,
@@ -887,7 +887,7 @@ pub struct INetDiagHelperEx_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         celt: u32,
@@ -895,7 +895,7 @@ pub struct INetDiagHelperEx_abi(
         ppwszupdateddescription: *mut super::super::Foundation::PWSTR,
         pupdatedstatus: *mut DIAGNOSIS_STATUS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         putilities: ::windows::runtime::RawPtr,
@@ -1112,6 +1112,7 @@ pub const NDF_E_VALIDATION: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2146895610i32 as _);
 pub const NDF_INBOUND_FLAG_EDGETRAVERSAL: u32 = 1u32;
 pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2u32;
+#[inline]
 pub unsafe fn NdfCancelIncident(
     handle: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -1126,6 +1127,7 @@ pub unsafe fn NdfCancelIncident(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdfCloseIncident(handle: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1138,6 +1140,7 @@ pub unsafe fn NdfCloseIncident(handle: *mut ::std::ffi::c_void) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdfCreateConnectivityIncident(
     handle: *mut *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -1155,6 +1158,7 @@ pub unsafe fn NdfCreateConnectivityIncident(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateDNSIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1183,11 +1187,8 @@ pub unsafe fn NdfCreateDNSIncident<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn NdfCreateGroupingIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1232,7 +1233,8 @@ pub unsafe fn NdfCreateGroupingIncident<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1264,6 +1266,7 @@ pub unsafe fn NdfCreateIncident<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdfCreateNetConnectionIncident<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
@@ -1286,6 +1289,7 @@ pub unsafe fn NdfCreateNetConnectionIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreatePnrpIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1324,6 +1328,7 @@ pub unsafe fn NdfCreatePnrpIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateSharingIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1346,6 +1351,7 @@ pub unsafe fn NdfCreateSharingIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateWebIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1368,6 +1374,7 @@ pub unsafe fn NdfCreateWebIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfCreateWebIncidentEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1406,6 +1413,7 @@ pub unsafe fn NdfCreateWebIncidentEx<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_Security"
 ))]
+#[inline]
 pub unsafe fn NdfCreateWinSockIncident<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::SOCKET>,
@@ -1446,6 +1454,7 @@ pub unsafe fn NdfCreateWinSockIncident<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfDiagnoseIncident(
     handle: *const ::std::ffi::c_void,
     rootcausecount: *mut u32,
@@ -1478,6 +1487,7 @@ pub unsafe fn NdfDiagnoseIncident(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfExecuteDiagnosis<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1500,6 +1510,7 @@ pub unsafe fn NdfExecuteDiagnosis<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfGetTraceFile(
     handle: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -1521,6 +1532,7 @@ pub unsafe fn NdfGetTraceFile(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NdfRepairIncident(
     handle: *const ::std::ffi::c_void,
     repairex: *const RepairInfoEx,

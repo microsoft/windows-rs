@@ -14,7 +14,7 @@ pub const CB_MAX_DISK_NAME: u32 = 256u32;
 pub const CB_MAX_FILENAME: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -25,19 +25,19 @@ pub struct CCAB {
     pub iDisk: i32,
     pub fFailOnIncompressible: i32,
     pub setID: u16,
-    pub szDisk: [super::super::System::SystemServices::CHAR; 256],
-    pub szCab: [super::super::System::SystemServices::CHAR; 256],
-    pub szCabPath: [super::super::System::SystemServices::CHAR; 256],
+    pub szDisk: [super::super::Foundation::CHAR; 256],
+    pub szCab: [super::super::Foundation::CHAR; 256],
+    pub szCabPath: [super::super::Foundation::CHAR; 256],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl CCAB {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CCAB {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CCAB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("CCAB")
@@ -56,7 +56,7 @@ impl ::std::fmt::Debug for CCAB {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CCAB {
     fn eq(&self, other: &Self) -> bool {
         self.cb == other.cb
@@ -73,9 +73,9 @@ impl ::std::cmp::PartialEq for CCAB {
             && self.szCabPath == other.szCabPath
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CCAB {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CCAB {
     type Abi = Self;
     type DefaultType = Self;
@@ -121,7 +121,7 @@ unsafe impl ::windows::runtime::Abi for ERF {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIAddFile<
     'a,
@@ -167,7 +167,7 @@ pub unsafe fn FCIAddFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCICreate(
     perf: *const ERF,
@@ -266,7 +266,7 @@ unsafe impl ::windows::runtime::Abi for FCIERROR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushCabinet<
     'a,
@@ -298,7 +298,7 @@ pub unsafe fn FCIFlushCabinet<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushFolder(
     hfci: *const ::std::ffi::c_void,
@@ -886,20 +886,20 @@ unsafe impl ::windows::runtime::Abi for FDINOTIFICATIONTYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDISPILLFILE {
-    pub ach: [super::super::System::SystemServices::CHAR; 2],
+    pub ach: [super::super::Foundation::CHAR; 2],
     pub cbFile: i32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl FDISPILLFILE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FDISPILLFILE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FDISPILLFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FDISPILLFILE")
@@ -908,15 +908,15 @@ impl ::std::fmt::Debug for FDISPILLFILE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FDISPILLFILE {
     fn eq(&self, other: &Self) -> bool {
         self.ach == other.ach && self.cbFile == other.cbFile
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FDISPILLFILE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
     type Abi = Self;
     type DefaultType = Self;
@@ -964,7 +964,7 @@ pub type PFNFCIDELETE = unsafe extern "system" fn(
     err: *mut i32,
     pv: *mut ::std::ffi::c_void,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIFILEPLACED = unsafe extern "system" fn(
     pccab: *mut CCAB,
     pszfile: super::super::Foundation::PSTR,
@@ -973,7 +973,7 @@ pub type PFNFCIFILEPLACED = unsafe extern "system" fn(
     pv: *mut ::std::ffi::c_void,
 ) -> i32;
 pub type PFNFCIFREE = unsafe extern "system" fn(memory: *mut ::std::ffi::c_void);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIGETNEXTCABINET = unsafe extern "system" fn(
     pccab: *mut CCAB,
     cbprevcab: u32,

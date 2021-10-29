@@ -7747,24 +7747,24 @@ pub const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(
-    feature = "Win32_NetworkManagement_IpHelper",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Foundation",
+    feature = "Win32_NetworkManagement_IpHelper"
 ))]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
     pub NetLuid: super::IpHelper::NET_LUID_LH,
     pub DeviceNameLength: u16,
-    pub DeviceName: [super::super::System::SystemServices::CHAR; 1],
+    pub DeviceName: [super::super::Foundation::CHAR; 1],
 }
 #[cfg(all(
-    feature = "Win32_NetworkManagement_IpHelper",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Foundation",
+    feature = "Win32_NetworkManagement_IpHelper"
 ))]
 impl NDIS_WMI_ENUM_ADAPTER {}
 #[cfg(all(
-    feature = "Win32_NetworkManagement_IpHelper",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Foundation",
+    feature = "Win32_NetworkManagement_IpHelper"
 ))]
 impl ::std::default::Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
@@ -7772,8 +7772,8 @@ impl ::std::default::Default for NDIS_WMI_ENUM_ADAPTER {
     }
 }
 #[cfg(all(
-    feature = "Win32_NetworkManagement_IpHelper",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Foundation",
+    feature = "Win32_NetworkManagement_IpHelper"
 ))]
 impl ::std::cmp::PartialEq for NDIS_WMI_ENUM_ADAPTER {
     fn eq(&self, _other: &Self) -> bool {
@@ -7781,13 +7781,13 @@ impl ::std::cmp::PartialEq for NDIS_WMI_ENUM_ADAPTER {
     }
 }
 #[cfg(all(
-    feature = "Win32_NetworkManagement_IpHelper",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Foundation",
+    feature = "Win32_NetworkManagement_IpHelper"
 ))]
 impl ::std::cmp::Eq for NDIS_WMI_ENUM_ADAPTER {}
 #[cfg(all(
-    feature = "Win32_NetworkManagement_IpHelper",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Foundation",
+    feature = "Win32_NetworkManagement_IpHelper"
 ))]
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_ENUM_ADAPTER {
     type Abi = Self;

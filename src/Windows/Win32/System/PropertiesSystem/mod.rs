@@ -9,14 +9,13 @@
 )]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn ClearPropVariantArray(
-    rgpropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    rgpropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     cvars: u32,
 ) {
     #[cfg(windows)]
@@ -25,7 +24,7 @@ pub unsafe fn ClearPropVariantArray(
         extern "system" {
             fn ClearPropVariantArray(
                 rgpropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 cvars: u32,
             );
@@ -40,17 +39,17 @@ pub unsafe fn ClearPropVariantArray(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
-pub unsafe fn ClearVariantArray(pvars: *mut super::OleAutomation::VARIANT, cvars: u32) {
+pub unsafe fn ClearVariantArray(pvars: *mut super::Com::VARIANT, cvars: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ClearVariantArray(
-                pvars: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvars: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 cvars: u32,
             );
         }
@@ -448,11 +447,8 @@ pub struct IInitializeWithFile_abi(
 )]
 pub struct IInitializeWithStream(::windows::runtime::IUnknown);
 impl IInitializeWithStream {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
-    >(
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(
         &self,
         pstream: Param0,
         grfmode: u32,
@@ -512,13 +508,13 @@ pub struct IInitializeWithStream_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstream: ::windows::runtime::RawPtr,
         grfmode: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -531,10 +527,9 @@ pub struct INamedPropertyStore(::windows::runtime::IUnknown);
 impl INamedPropertyStore {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetNamedValue<
         'a,
@@ -542,21 +537,20 @@ impl INamedPropertyStore {
     >(
         &self,
         pszname: Param0,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             pszname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetNamedValue<
         'a,
@@ -564,7 +558,7 @@ impl INamedPropertyStore {
     >(
         &self,
         pszname: Param0,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -643,46 +637,38 @@ pub struct INamedPropertyStore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -1078,22 +1064,21 @@ impl IPropertyChange {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ApplyToPropVariant(
         &self,
-        propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propvarin),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IPropertyChange {
@@ -1173,26 +1158,20 @@ pub struct IPropertyChange_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvarin: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
-        ppropvarout: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvarin: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+        ppropvarout: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -1483,15 +1462,14 @@ impl IPropertyDescription {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRelativeDescription(
         &self,
-        propvar1: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        propvar2: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar1: *const super::Com::StructuredStorage::PROPVARIANT,
+        propvar2: *const super::Com::StructuredStorage::PROPVARIANT,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::Result<()> {
@@ -1569,14 +1547,13 @@ impl IPropertyDescription {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CoerceToCanonicalValue(
         &self,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -1586,14 +1563,13 @@ impl IPropertyDescription {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplay(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pdfflags: PROPDESC_FORMAT_FLAGS,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
@@ -1608,14 +1584,13 @@ impl IPropertyDescription {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn IsValueCanonical(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(
             ::std::mem::transmute_copy(self),
@@ -1726,28 +1701,22 @@ pub struct IPropertyDescription_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar1: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
-        propvar2: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar1: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+        propvar2: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -1779,67 +1748,55 @@ pub struct IPropertyDescription_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pdfflags: PROPDESC_FORMAT_FLAGS,
         ppszdisplay: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -1973,15 +1930,14 @@ impl IPropertyDescription2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRelativeDescription(
         &self,
-        propvar1: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        propvar2: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar1: *const super::Com::StructuredStorage::PROPVARIANT,
+        propvar2: *const super::Com::StructuredStorage::PROPVARIANT,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::Result<()> {
@@ -2059,14 +2015,13 @@ impl IPropertyDescription2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CoerceToCanonicalValue(
         &self,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -2076,14 +2031,13 @@ impl IPropertyDescription2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplay(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pdfflags: PROPDESC_FORMAT_FLAGS,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
@@ -2098,14 +2052,13 @@ impl IPropertyDescription2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn IsValueCanonical(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(
             ::std::mem::transmute_copy(self),
@@ -2115,14 +2068,13 @@ impl IPropertyDescription2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetImageReferenceForValue(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -2260,28 +2212,22 @@ pub struct IPropertyDescription2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar1: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
-        propvar2: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar1: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+        propvar2: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -2313,89 +2259,73 @@ pub struct IPropertyDescription2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pdfflags: PROPDESC_FORMAT_FLAGS,
         ppszdisplay: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppszimageres: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -2529,15 +2459,14 @@ impl IPropertyDescriptionAliasInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRelativeDescription(
         &self,
-        propvar1: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        propvar2: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar1: *const super::Com::StructuredStorage::PROPVARIANT,
+        propvar2: *const super::Com::StructuredStorage::PROPVARIANT,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::Result<()> {
@@ -2615,14 +2544,13 @@ impl IPropertyDescriptionAliasInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CoerceToCanonicalValue(
         &self,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -2632,14 +2560,13 @@ impl IPropertyDescriptionAliasInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplay(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pdfflags: PROPDESC_FORMAT_FLAGS,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
@@ -2654,14 +2581,13 @@ impl IPropertyDescriptionAliasInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn IsValueCanonical(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(
             ::std::mem::transmute_copy(self),
@@ -2822,28 +2748,22 @@ pub struct IPropertyDescriptionAliasInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar1: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
-        propvar2: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar1: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+        propvar2: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -2875,67 +2795,55 @@ pub struct IPropertyDescriptionAliasInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pdfflags: PROPDESC_FORMAT_FLAGS,
         ppszdisplay: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -3170,15 +3078,14 @@ impl IPropertyDescriptionRelatedPropertyInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRelativeDescription(
         &self,
-        propvar1: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        propvar2: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar1: *const super::Com::StructuredStorage::PROPVARIANT,
+        propvar2: *const super::Com::StructuredStorage::PROPVARIANT,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::Result<()> {
@@ -3256,14 +3163,13 @@ impl IPropertyDescriptionRelatedPropertyInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CoerceToCanonicalValue(
         &self,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -3273,14 +3179,13 @@ impl IPropertyDescriptionRelatedPropertyInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplay(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pdfflags: PROPDESC_FORMAT_FLAGS,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
@@ -3295,14 +3200,13 @@ impl IPropertyDescriptionRelatedPropertyInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn IsValueCanonical(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(
             ::std::mem::transmute_copy(self),
@@ -3465,28 +3369,22 @@ pub struct IPropertyDescriptionRelatedPropertyInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar1: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
-        propvar2: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar1: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+        propvar2: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -3518,67 +3416,55 @@ pub struct IPropertyDescriptionRelatedPropertyInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pdfflags: PROPDESC_FORMAT_FLAGS,
         ppszdisplay: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -3720,15 +3606,14 @@ impl IPropertyDescriptionSearchInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRelativeDescription(
         &self,
-        propvar1: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        propvar2: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar1: *const super::Com::StructuredStorage::PROPVARIANT,
+        propvar2: *const super::Com::StructuredStorage::PROPVARIANT,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::Result<()> {
@@ -3806,14 +3691,13 @@ impl IPropertyDescriptionSearchInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CoerceToCanonicalValue(
         &self,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -3823,14 +3707,13 @@ impl IPropertyDescriptionSearchInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplay(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pdfflags: PROPDESC_FORMAT_FLAGS,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
@@ -3845,14 +3728,13 @@ impl IPropertyDescriptionSearchInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn IsValueCanonical(
         &self,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(
             ::std::mem::transmute_copy(self),
@@ -4035,28 +3917,22 @@ pub struct IPropertyDescriptionSearchInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar1: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
-        propvar2: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar1: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+        propvar2: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppszdesc1: *mut super::super::Foundation::PWSTR,
         ppszdesc2: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -4088,67 +3964,55 @@ pub struct IPropertyDescriptionSearchInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pdfflags: PROPDESC_FORMAT_FLAGS,
         ppszdisplay: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -4189,54 +4053,51 @@ impl IPropertyEnumType {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRangeMinValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRangeSetValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayText(
@@ -4302,65 +4163,53 @@ pub struct IPropertyEnumType_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvarmin: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvarmin: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvarset: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvarset: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4389,54 +4238,51 @@ impl IPropertyEnumType2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRangeMinValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRangeSetValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayText(
@@ -4536,65 +4382,53 @@ pub struct IPropertyEnumType2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvarmin: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvarmin: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropvarset: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvarset: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4655,14 +4489,13 @@ impl IPropertyEnumTypeList {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindMatchingIndex(
         &self,
-        propvarcmp: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvarcmp: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
@@ -4738,24 +4571,20 @@ pub struct IPropertyEnumTypeList_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propvarcmp: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvarcmp: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pnindex: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -4787,34 +4616,32 @@ impl IPropertyStore {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
         key: *const PROPERTYKEY,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(key),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetValue(
         &self,
         key: *const PROPERTYKEY,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -4883,44 +4710,38 @@ pub struct IPropertyStore_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        pv: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pv: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -4953,34 +4774,32 @@ impl IPropertyStoreCache {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
         key: *const PROPERTYKEY,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(key),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetValue(
         &self,
         key: *const PROPERTYKEY,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -5006,15 +4825,14 @@ impl IPropertyStoreCache {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValueAndState(
         &self,
         key: *const PROPERTYKEY,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
         pstate: *mut PSC_STATE,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(
@@ -5039,15 +4857,14 @@ impl IPropertyStoreCache {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetValueAndState(
         &self,
         key: *const PROPERTYKEY,
-        ppropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
         state: PSC_STATE,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(
@@ -5137,44 +4954,38 @@ pub struct IPropertyStoreCache_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        pv: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pv: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -5185,25 +4996,21 @@ pub struct IPropertyStoreCache_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pstate: *mut PSC_STATE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -5213,25 +5020,21 @@ pub struct IPropertyStoreCache_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        ppropvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         state: PSC_STATE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -5491,15 +5294,14 @@ impl IPropertySystem {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplay(
         &self,
         key: *const PROPERTYKEY,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pdff: PROPDESC_FORMAT_FLAGS,
         psztext: super::super::Foundation::PWSTR,
         cchtext: u32,
@@ -5516,15 +5318,14 @@ impl IPropertySystem {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplayAlloc(
         &self,
         key: *const PROPERTYKEY,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pdff: PROPDESC_FORMAT_FLAGS,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
@@ -5645,51 +5446,43 @@ pub struct IPropertySystem_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pdff: PROPDESC_FORMAT_FLAGS,
         psztext: super::super::Foundation::PWSTR,
         cchtext: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const PROPERTYKEY,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pdff: PROPDESC_FORMAT_FLAGS,
         ppszdisplay: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -5882,16 +5675,15 @@ impl IPropertyUI {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FormatForDisplay(
         &self,
         fmtid: *const ::windows::runtime::GUID,
         pid: u32,
-        ppropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
         puiff: u32,
         pwsztext: super::super::Foundation::PWSTR,
         cchtext: u32,
@@ -6023,28 +5815,24 @@ pub struct IPropertyUI_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         fmtid: *const ::windows::runtime::GUID,
         pid: u32,
-        ppropvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         puiff: u32,
         pwsztext: super::super::Foundation::PWSTR,
         cchtext: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -6073,15 +5861,15 @@ pub const InMemoryPropertyStoreMarshalByValue: ::windows::runtime::GUID =
     );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromBooleanVector(
     prgf: *const super::super::Foundation::BOOL,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6089,33 +5877,31 @@ pub unsafe fn InitPropVariantFromBooleanVector(
             fn InitPropVariantFromBooleanVector(
                 prgf: *const super::super::Foundation::BOOL,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromBooleanVector(
             ::std::mem::transmute(prgf),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromBuffer(
     pv: *const ::std::ffi::c_void,
     cb: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6123,61 +5909,57 @@ pub unsafe fn InitPropVariantFromBuffer(
             fn InitPropVariantFromBuffer(
                 pv: *const ::std::ffi::c_void,
                 cb: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromBuffer(
             ::std::mem::transmute(pv),
             ::std::mem::transmute(cb),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromCLSID(
     clsid: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromCLSID(
                 clsid: *const ::windows::runtime::GUID,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromCLSID(::std::mem::transmute(clsid), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromDoubleVector(
     prgn: *const f64,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6185,61 +5967,57 @@ pub unsafe fn InitPropVariantFromDoubleVector(
             fn InitPropVariantFromDoubleVector(
                 prgn: *const f64,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromDoubleVector(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromFileTime(
     pftin: *const super::super::Foundation::FILETIME,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromFileTime(
                 pftin: *const super::super::Foundation::FILETIME,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromFileTime(::std::mem::transmute(pftin), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromFileTimeVector(
     prgft: *const super::super::Foundation::FILETIME,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6247,61 +6025,57 @@ pub unsafe fn InitPropVariantFromFileTimeVector(
             fn InitPropVariantFromFileTimeVector(
                 prgft: *const super::super::Foundation::FILETIME,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromFileTimeVector(
             ::std::mem::transmute(prgft),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromGUIDAsString(
     guid: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromGUIDAsString(
                 guid: *const ::windows::runtime::GUID,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromGUIDAsString(::std::mem::transmute(guid), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromInt16Vector(
     prgn: *const i16,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6309,33 +6083,31 @@ pub unsafe fn InitPropVariantFromInt16Vector(
             fn InitPropVariantFromInt16Vector(
                 prgn: *const i16,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromInt16Vector(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromInt32Vector(
     prgn: *const i32,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6343,33 +6115,31 @@ pub unsafe fn InitPropVariantFromInt32Vector(
             fn InitPropVariantFromInt32Vector(
                 prgn: *const i32,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromInt32Vector(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromInt64Vector(
     prgn: *const i64,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6377,72 +6147,68 @@ pub unsafe fn InitPropVariantFromInt64Vector(
             fn InitPropVariantFromInt64Vector(
                 prgn: *const i64,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromInt64Vector(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromPropVariantVectorElem(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromPropVariantVectorElem(
             ::std::mem::transmute(propvarin),
             ::std::mem::transmute(ielem),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
 >(
     hinst: Param0,
     id: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6450,34 +6216,32 @@ pub unsafe fn InitPropVariantFromResource<
             fn InitPropVariantFromResource(
                 hinst: super::super::Foundation::HINSTANCE,
                 id: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromResource(
             hinst.into_param().abi(),
             ::std::mem::transmute(id),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices",
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromStrRet(
     pstrret: *mut super::super::UI::Shell::STRRET,
     pidl: *const super::super::UI::Shell::ITEMIDLIST,
-    ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -6486,9 +6250,7 @@ pub unsafe fn InitPropVariantFromStrRet(
             fn InitPropVariantFromStrRet(
                 pstrret: *mut super::super::UI::Shell::STRRET,
                 pidl: *const super::super::UI::Shell::ITEMIDLIST,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         InitPropVariantFromStrRet(
@@ -6503,46 +6265,44 @@ pub unsafe fn InitPropVariantFromStrRet(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromStringAsVector<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     psz: Param0,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantFromStringAsVector(
                 psz: super::super::Foundation::PWSTR,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromStringAsVector(psz.into_param().abi(), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromStringVector(
     prgsz: *const super::super::Foundation::PWSTR,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6550,33 +6310,31 @@ pub unsafe fn InitPropVariantFromStringVector(
             fn InitPropVariantFromStringVector(
                 prgsz: *const super::super::Foundation::PWSTR,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromStringVector(
             ::std::mem::transmute(prgsz),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromUInt16Vector(
     prgn: *const u16,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6584,33 +6342,31 @@ pub unsafe fn InitPropVariantFromUInt16Vector(
             fn InitPropVariantFromUInt16Vector(
                 prgn: *const u16,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromUInt16Vector(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromUInt32Vector(
     prgn: *const u32,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6618,33 +6374,31 @@ pub unsafe fn InitPropVariantFromUInt32Vector(
             fn InitPropVariantFromUInt32Vector(
                 prgn: *const u32,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromUInt32Vector(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromUInt64Vector(
     prgn: *const u64,
     celems: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6652,61 +6406,60 @@ pub unsafe fn InitPropVariantFromUInt64Vector(
             fn InitPropVariantFromUInt64Vector(
                 prgn: *const u64,
                 celems: u32,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromUInt64Vector(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantVectorFromPropVariant(
-    propvarsingle: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+    propvarsingle: *const super::Com::StructuredStorage::PROPVARIANT,
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitPropVariantVectorFromPropVariant(
                 propvarsingle: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ppropvarvector: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantVectorFromPropVariant(::std::mem::transmute(propvarsingle), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromBooleanArray(
     prgf: *const super::super::Foundation::BOOL,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6714,30 +6467,31 @@ pub unsafe fn InitVariantFromBooleanArray(
             fn InitVariantFromBooleanArray(
                 prgf: *const super::super::Foundation::BOOL,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromBooleanArray(
             ::std::mem::transmute(prgf),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromBuffer(
     pv: *const ::std::ffi::c_void,
     cb: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6745,30 +6499,31 @@ pub unsafe fn InitVariantFromBuffer(
             fn InitVariantFromBuffer(
                 pv: *const ::std::ffi::c_void,
                 cb: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromBuffer(
             ::std::mem::transmute(pv),
             ::std::mem::transmute(cb),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromDoubleArray(
     prgn: *const f64,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6776,55 +6531,57 @@ pub unsafe fn InitVariantFromDoubleArray(
             fn InitVariantFromDoubleArray(
                 prgn: *const f64,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromDoubleArray(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromFileTime(
     pft: *const super::super::Foundation::FILETIME,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromFileTime(
                 pft: *const super::super::Foundation::FILETIME,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromFileTime(::std::mem::transmute(pft), &mut result__)
-            .from_abi::<super::OleAutomation::VARIANT>(result__)
+            .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromFileTimeArray(
     prgft: *const super::super::Foundation::FILETIME,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6832,55 +6589,57 @@ pub unsafe fn InitVariantFromFileTimeArray(
             fn InitVariantFromFileTimeArray(
                 prgft: *const super::super::Foundation::FILETIME,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromFileTimeArray(
             ::std::mem::transmute(prgft),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromGUIDAsString(
     guid: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromGUIDAsString(
                 guid: *const ::windows::runtime::GUID,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromGUIDAsString(::std::mem::transmute(guid), &mut result__)
-            .from_abi::<super::OleAutomation::VARIANT>(result__)
+            .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromInt16Array(
     prgn: *const i16,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6888,30 +6647,31 @@ pub unsafe fn InitVariantFromInt16Array(
             fn InitVariantFromInt16Array(
                 prgn: *const i16,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromInt16Array(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromInt32Array(
     prgn: *const i32,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6919,30 +6679,31 @@ pub unsafe fn InitVariantFromInt32Array(
             fn InitVariantFromInt32Array(
                 prgn: *const i32,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromInt32Array(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromInt64Array(
     prgn: *const i64,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6950,33 +6711,34 @@ pub unsafe fn InitVariantFromInt64Array(
             fn InitVariantFromInt64Array(
                 prgn: *const i64,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromInt64Array(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
 >(
     hinst: Param0,
     id: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6984,31 +6746,32 @@ pub unsafe fn InitVariantFromResource<
             fn InitVariantFromResource(
                 hinst: super::super::Foundation::HINSTANCE,
                 id: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromResource(
             hinst.into_param().abi(),
             ::std::mem::transmute(id),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices",
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromStrRet(
     pstrret: *const super::super::UI::Shell::STRRET,
     pidl: *const super::super::UI::Shell::ITEMIDLIST,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7016,30 +6779,31 @@ pub unsafe fn InitVariantFromStrRet(
             fn InitVariantFromStrRet(
                 pstrret: *const super::super::UI::Shell::STRRET,
                 pidl: *const super::super::UI::Shell::ITEMIDLIST,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromStrRet(
             ::std::mem::transmute(pstrret),
             ::std::mem::transmute(pidl),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromStringArray(
     prgsz: *const super::super::Foundation::PWSTR,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7047,30 +6811,31 @@ pub unsafe fn InitVariantFromStringArray(
             fn InitVariantFromStringArray(
                 prgsz: *const super::super::Foundation::PWSTR,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromStringArray(
             ::std::mem::transmute(prgsz),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromUInt16Array(
     prgn: *const u16,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7078,30 +6843,31 @@ pub unsafe fn InitVariantFromUInt16Array(
             fn InitVariantFromUInt16Array(
                 prgn: *const u16,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromUInt16Array(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromUInt32Array(
     prgn: *const u32,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7109,30 +6875,31 @@ pub unsafe fn InitVariantFromUInt32Array(
             fn InitVariantFromUInt32Array(
                 prgn: *const u32,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromUInt32Array(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromUInt64Array(
     prgn: *const u64,
     celems: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7140,48 +6907,49 @@ pub unsafe fn InitVariantFromUInt64Array(
             fn InitVariantFromUInt64Array(
                 prgn: *const u64,
                 celems: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromUInt64Array(
             ::std::mem::transmute(prgn),
             ::std::mem::transmute(celems),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitVariantFromVariantArrayElem(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     ielem: u32,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn InitVariantFromVariantArrayElem(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         InitVariantFromVariantArrayElem(
             ::std::mem::transmute(varin),
             ::std::mem::transmute(ielem),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7652,38 +7420,38 @@ unsafe impl ::windows::runtime::Abi for PROPERTYKEY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROPPRG {
     pub flPrg: u16,
     pub flPrgInit: u16,
-    pub achTitle: [super::SystemServices::CHAR; 30],
-    pub achCmdLine: [super::SystemServices::CHAR; 128],
-    pub achWorkDir: [super::SystemServices::CHAR; 64],
+    pub achTitle: [super::super::Foundation::CHAR; 30],
+    pub achCmdLine: [super::super::Foundation::CHAR; 128],
+    pub achWorkDir: [super::super::Foundation::CHAR; 64],
     pub wHotKey: u16,
-    pub achIconFile: [super::SystemServices::CHAR; 80],
+    pub achIconFile: [super::super::Foundation::CHAR; 80],
     pub wIconIndex: u16,
     pub dwEnhModeFlags: u32,
     pub dwRealModeFlags: u32,
-    pub achOtherFile: [super::SystemServices::CHAR; 80],
-    pub achPIFFile: [super::SystemServices::CHAR; 260],
+    pub achOtherFile: [super::super::Foundation::CHAR; 80],
+    pub achPIFFile: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl PROPPRG {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PROPPRG {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PROPPRG {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PROPPRG {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROPPRG {
     type Abi = Self;
     type DefaultType = Self;
@@ -7790,14 +7558,14 @@ unsafe impl ::windows::runtime::Abi for PSC_STATE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSCoerceToCanonicalValue(
     key: *const PROPERTYKEY,
-    ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -7805,9 +7573,7 @@ pub unsafe fn PSCoerceToCanonicalValue(
         extern "system" {
             fn PSCoerceToCanonicalValue(
                 key: *const PROPERTYKEY,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         PSCoerceToCanonicalValue(::std::mem::transmute(key), ::std::mem::transmute(ppropvar)).ok()
@@ -7815,6 +7581,7 @@ pub unsafe fn PSCoerceToCanonicalValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateAdapterFromPropertyStore<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -7843,6 +7610,7 @@ pub unsafe fn PSCreateAdapterFromPropertyStore<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateDelayedMultiplexPropertyStore<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IDelayedPropertyStoreFactory>,
@@ -7880,6 +7648,7 @@ pub unsafe fn PSCreateDelayedMultiplexPropertyStore<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateMemoryPropertyStore(
     riid: *const ::windows::runtime::GUID,
     ppv: *mut *mut ::std::ffi::c_void,
@@ -7898,6 +7667,7 @@ pub unsafe fn PSCreateMemoryPropertyStore(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreateMultiplexPropertyStore(
     prgpunkstores: *const ::std::option::Option<::windows::runtime::IUnknown>,
     cstores: u32,
@@ -7928,15 +7698,15 @@ pub unsafe fn PSCreateMultiplexPropertyStore(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSCreatePropertyChangeArray(
     rgpropkey: *const PROPERTYKEY,
     rgflags: *const PKA_FLAGS,
-    rgpropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    rgpropvar: *const super::Com::StructuredStorage::PROPVARIANT,
     cchanges: u32,
     riid: *const ::windows::runtime::GUID,
     ppv: *mut *mut ::std::ffi::c_void,
@@ -7949,7 +7719,7 @@ pub unsafe fn PSCreatePropertyChangeArray(
                 rgpropkey: *const PROPERTYKEY,
                 rgflags: *const PKA_FLAGS,
                 rgpropvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 cchanges: u32,
                 riid: *const ::windows::runtime::GUID,
@@ -7969,6 +7739,7 @@ pub unsafe fn PSCreatePropertyChangeArray(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSCreatePropertyStoreFromObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -8000,13 +7771,11 @@ pub unsafe fn PSCreatePropertyStoreFromObject<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<
     'a,
-    Param0: ::windows::runtime::IntoParam<
-        'a,
-        super::super::Storage::StructuredStorage::IPropertySetStorage,
-    >,
+    Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertySetStorage>,
 >(
     ppss: Param0,
     grfmode: u32,
@@ -8037,15 +7806,15 @@ pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSCreateSimplePropertyChange(
     flags: PKA_FLAGS,
     key: *const PROPERTYKEY,
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     riid: *const ::windows::runtime::GUID,
     ppv: *mut *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -8057,7 +7826,7 @@ pub unsafe fn PSCreateSimplePropertyChange(
                 flags: PKA_FLAGS,
                 key: *const PROPERTYKEY,
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 riid: *const ::windows::runtime::GUID,
                 ppv: *mut *mut ::std::ffi::c_void,
@@ -8075,6 +7844,7 @@ pub unsafe fn PSCreateSimplePropertyChange(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSEnumeratePropertyDescriptions(
     filteron: PROPDESC_ENUMFILTER,
     riid: *const ::windows::runtime::GUID,
@@ -8102,14 +7872,14 @@ pub unsafe fn PSEnumeratePropertyDescriptions(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSFormatForDisplay(
     propkey: *const PROPERTYKEY,
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pdfflags: PROPDESC_FORMAT_FLAGS,
     pwsztext: super::super::Foundation::PWSTR,
     cchtext: u32,
@@ -8121,7 +7891,7 @@ pub unsafe fn PSFormatForDisplay(
             fn PSFormatForDisplay(
                 propkey: *const PROPERTYKEY,
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pdfflags: PROPDESC_FORMAT_FLAGS,
                 pwsztext: super::super::Foundation::PWSTR,
@@ -8142,14 +7912,14 @@ pub unsafe fn PSFormatForDisplay(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSFormatForDisplayAlloc(
     key: *const PROPERTYKEY,
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pdff: PROPDESC_FORMAT_FLAGS,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -8159,7 +7929,7 @@ pub unsafe fn PSFormatForDisplayAlloc(
             fn PSFormatForDisplayAlloc(
                 key: *const PROPERTYKEY,
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pdff: PROPDESC_FORMAT_FLAGS,
                 ppszdisplay: *mut super::super::Foundation::PWSTR,
@@ -8179,6 +7949,7 @@ pub unsafe fn PSFormatForDisplayAlloc(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSFormatPropertyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -8214,14 +7985,14 @@ pub unsafe fn PSFormatPropertyValue<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetImageReferenceForValue(
     propkey: *const PROPERTYKEY,
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
@@ -8230,7 +8001,7 @@ pub unsafe fn PSGetImageReferenceForValue(
             fn PSGetImageReferenceForValue(
                 propkey: *const PROPERTYKEY,
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ppszimageres: *mut super::super::Foundation::PWSTR,
             ) -> ::windows::runtime::HRESULT;
@@ -8248,6 +8019,7 @@ pub unsafe fn PSGetImageReferenceForValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetItemPropertyHandler<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -8281,6 +8053,7 @@ pub unsafe fn PSGetItemPropertyHandler<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -8318,6 +8091,7 @@ pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetNameFromPropertyKey(
     propkey: *const PROPERTYKEY,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
@@ -8340,11 +8114,11 @@ pub unsafe fn PSGetNameFromPropertyKey(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetNamedPropertyFromPropertyStorage<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8352,7 +8126,7 @@ pub unsafe fn PSGetNamedPropertyFromPropertyStorage<
     psps: *const SERIALIZEDPROPSTORAGE,
     cb: u32,
     pszname: Param2,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8361,23 +8135,22 @@ pub unsafe fn PSGetNamedPropertyFromPropertyStorage<
                 psps: *const SERIALIZEDPROPSTORAGE,
                 cb: u32,
                 pszname: super::super::Foundation::PWSTR,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         PSGetNamedPropertyFromPropertyStorage(
             ::std::mem::transmute(psps),
             ::std::mem::transmute(cb),
             pszname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSGetPropertyDescription(
     propkey: *const PROPERTYKEY,
     riid: *const ::windows::runtime::GUID,
@@ -8404,6 +8177,7 @@ pub unsafe fn PSGetPropertyDescription(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetPropertyDescriptionByName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8433,6 +8207,7 @@ pub unsafe fn PSGetPropertyDescriptionByName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetPropertyDescriptionListFromString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8463,16 +8238,16 @@ pub unsafe fn PSGetPropertyDescriptionListFromString<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetPropertyFromPropertyStorage(
     psps: *const SERIALIZEDPROPSTORAGE,
     cb: u32,
     rpkey: *const PROPERTYKEY,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8481,24 +8256,23 @@ pub unsafe fn PSGetPropertyFromPropertyStorage(
                 psps: *const SERIALIZEDPROPSTORAGE,
                 cb: u32,
                 rpkey: *const PROPERTYKEY,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         PSGetPropertyFromPropertyStorage(
             ::std::mem::transmute(psps),
             ::std::mem::transmute(cb),
             ::std::mem::transmute(rpkey),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSGetPropertyKeyFromName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8521,6 +8295,7 @@ pub unsafe fn PSGetPropertyKeyFromName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSGetPropertySystem(
     riid: *const ::windows::runtime::GUID,
     ppv: *mut *mut ::std::ffi::c_void,
@@ -8541,11 +8316,11 @@ pub unsafe fn PSGetPropertySystem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSGetPropertyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -8553,7 +8328,7 @@ pub unsafe fn PSGetPropertyValue<
 >(
     pps: Param0,
     ppd: Param1,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8561,23 +8336,22 @@ pub unsafe fn PSGetPropertyValue<
             fn PSGetPropertyValue(
                 pps: ::windows::runtime::RawPtr,
                 ppd: ::windows::runtime::RawPtr,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         PSGetPropertyValue(
             pps.into_param().abi(),
             ppd.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSLookupPropertyHandlerCLSID<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8601,10 +8375,11 @@ pub unsafe fn PSLookupPropertyHandlerCLSID<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_Delete<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8624,10 +8399,11 @@ pub unsafe fn PSPropertyBag_Delete<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadBOOL<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8655,10 +8431,11 @@ pub unsafe fn PSPropertyBag_ReadBOOL<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadBSTR<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8686,10 +8463,11 @@ pub unsafe fn PSPropertyBag_ReadBSTR<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadDWORD<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8716,10 +8494,11 @@ pub unsafe fn PSPropertyBag_ReadDWORD<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadGUID<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8747,10 +8526,11 @@ pub unsafe fn PSPropertyBag_ReadGUID<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadInt<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8777,10 +8557,11 @@ pub unsafe fn PSPropertyBag_ReadInt<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadLONG<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8807,10 +8588,11 @@ pub unsafe fn PSPropertyBag_ReadLONG<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTL<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8838,10 +8620,11 @@ pub unsafe fn PSPropertyBag_ReadPOINTL<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTS<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8869,10 +8652,11 @@ pub unsafe fn PSPropertyBag_ReadPOINTS<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadPropertyKey<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8899,10 +8683,11 @@ pub unsafe fn PSPropertyBag_ReadPropertyKey<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadRECTL<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8930,10 +8715,11 @@ pub unsafe fn PSPropertyBag_ReadRECTL<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadSHORT<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8960,10 +8746,11 @@ pub unsafe fn PSPropertyBag_ReadSHORT<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadStr<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -8993,10 +8780,11 @@ pub unsafe fn PSPropertyBag_ReadStr<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadStrAlloc<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9026,17 +8814,18 @@ pub unsafe fn PSPropertyBag_ReadStrAlloc<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadStream<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
     propname: Param1,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
+) -> ::windows::runtime::Result<super::Com::IStream> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9047,30 +8836,32 @@ pub unsafe fn PSPropertyBag_ReadStream<
                 value: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__: <super::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         PSPropertyBag_ReadStream(
             propbag.into_param().abi(),
             propname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::Com::IStream>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadType<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
     propname: Param1,
-    var: *mut super::OleAutomation::VARIANT,
+    var: *mut super::Com::VARIANT,
     r#type: u16,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9080,7 +8871,7 @@ pub unsafe fn PSPropertyBag_ReadType<
             fn PSPropertyBag_ReadType(
                 propbag: ::windows::runtime::RawPtr,
                 propname: super::super::Foundation::PWSTR,
-                var: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 r#type: u16,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -9095,10 +8886,11 @@ pub unsafe fn PSPropertyBag_ReadType<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadULONGLONG<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9125,10 +8917,11 @@ pub unsafe fn PSPropertyBag_ReadULONGLONG<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_ReadUnknown<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9158,10 +8951,11 @@ pub unsafe fn PSPropertyBag_ReadUnknown<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteBOOL<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
@@ -9189,10 +8983,11 @@ pub unsafe fn PSPropertyBag_WriteBOOL<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteBSTR<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
 >(
@@ -9220,10 +9015,11 @@ pub unsafe fn PSPropertyBag_WriteBSTR<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteDWORD<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9250,10 +9046,11 @@ pub unsafe fn PSPropertyBag_WriteDWORD<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteGUID<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9280,10 +9077,11 @@ pub unsafe fn PSPropertyBag_WriteGUID<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteInt<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9310,10 +9108,11 @@ pub unsafe fn PSPropertyBag_WriteInt<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteLONG<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9340,10 +9139,11 @@ pub unsafe fn PSPropertyBag_WriteLONG<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WritePOINTL<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9370,10 +9170,11 @@ pub unsafe fn PSPropertyBag_WritePOINTL<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WritePOINTS<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9400,10 +9201,11 @@ pub unsafe fn PSPropertyBag_WritePOINTS<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WritePropertyKey<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9430,10 +9232,11 @@ pub unsafe fn PSPropertyBag_WritePropertyKey<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteRECTL<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9460,10 +9263,11 @@ pub unsafe fn PSPropertyBag_WriteRECTL<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteSHORT<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9490,10 +9294,11 @@ pub unsafe fn PSPropertyBag_WriteSHORT<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteStr<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
@@ -9523,14 +9328,15 @@ pub unsafe fn PSPropertyBag_WriteStr<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteStream<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+    Param2: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
 >(
     propbag: Param0,
     propname: Param1,
@@ -9556,10 +9362,11 @@ pub unsafe fn PSPropertyBag_WriteStream<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteULONGLONG<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     propbag: Param0,
@@ -9586,10 +9393,11 @@ pub unsafe fn PSPropertyBag_WriteULONGLONG<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[inline]
 pub unsafe fn PSPropertyBag_WriteUnknown<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IPropertyBag>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IPropertyBag>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
 >(
@@ -9618,6 +9426,7 @@ pub unsafe fn PSPropertyBag_WriteUnknown<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSPropertyKeyFromString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9640,6 +9449,7 @@ pub unsafe fn PSPropertyKeyFromString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PSRefreshPropertySchema() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -9653,6 +9463,7 @@ pub unsafe fn PSRefreshPropertySchema() -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSRegisterPropertySchema<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9674,11 +9485,11 @@ pub unsafe fn PSRegisterPropertySchema<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PSSetPropertyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IPropertyStore>,
@@ -9686,7 +9497,7 @@ pub unsafe fn PSSetPropertyValue<
 >(
     pps: Param0,
     ppd: Param1,
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -9696,7 +9507,7 @@ pub unsafe fn PSSetPropertyValue<
                 pps: ::windows::runtime::RawPtr,
                 ppd: ::windows::runtime::RawPtr,
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -9711,6 +9522,7 @@ pub unsafe fn PSSetPropertyValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSStringFromPropertyKey(
     pkey: *const PROPERTYKEY,
     psz: super::super::Foundation::PWSTR,
@@ -9758,6 +9570,7 @@ unsafe impl ::windows::runtime::Abi for PSTIME_FLAGS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PSUnregisterPropertySchema<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9910,14 +9723,14 @@ pub unsafe fn PifMgr_SetProperties<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantChangeType(
-    ppropvardest: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
-    propvarsrc: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    ppropvardest: *mut super::Com::StructuredStorage::PROPVARIANT,
+    propvarsrc: *const super::Com::StructuredStorage::PROPVARIANT,
     flags: PROPVAR_CHANGE_FLAGS,
     vt: u16,
 ) -> ::windows::runtime::Result<()> {
@@ -9927,10 +9740,10 @@ pub unsafe fn PropVariantChangeType(
         extern "system" {
             fn PropVariantChangeType(
                 ppropvardest: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 propvarsrc: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 flags: PROPVAR_CHANGE_FLAGS,
                 vt: u16,
@@ -9949,15 +9762,14 @@ pub unsafe fn PropVariantChangeType(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantCompareEx(
-    propvar1: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-    propvar2: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar1: *const super::Com::StructuredStorage::PROPVARIANT,
+    propvar2: *const super::Com::StructuredStorage::PROPVARIANT,
     unit: PROPVAR_COMPARE_UNIT,
     flags: PROPVAR_COMPARE_FLAGS,
 ) -> i32 {
@@ -9967,10 +9779,10 @@ pub unsafe fn PropVariantCompareEx(
         extern "system" {
             fn PropVariantCompareEx(
                 propvar1: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 propvar2: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 unit: PROPVAR_COMPARE_UNIT,
                 flags: PROPVAR_COMPARE_FLAGS,
@@ -9988,13 +9800,13 @@ pub unsafe fn PropVariantCompareEx(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetBooleanElem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -10003,7 +9815,7 @@ pub unsafe fn PropVariantGetBooleanElem(
         extern "system" {
             fn PropVariantGetBooleanElem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pfval: *mut super::super::Foundation::BOOL,
@@ -10023,13 +9835,13 @@ pub unsafe fn PropVariantGetBooleanElem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetDoubleElem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -10038,7 +9850,7 @@ pub unsafe fn PropVariantGetDoubleElem(
         extern "system" {
             fn PropVariantGetDoubleElem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pnval: *mut f64,
@@ -10057,14 +9869,13 @@ pub unsafe fn PropVariantGetDoubleElem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantGetElementCount(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -10072,7 +9883,7 @@ pub unsafe fn PropVariantGetElementCount(
         extern "system" {
             fn PropVariantGetElementCount(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> u32;
         }
@@ -10083,13 +9894,13 @@ pub unsafe fn PropVariantGetElementCount(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetFileTimeElem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -10098,7 +9909,7 @@ pub unsafe fn PropVariantGetFileTimeElem(
         extern "system" {
             fn PropVariantGetFileTimeElem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pftval: *mut super::super::Foundation::FILETIME,
@@ -10118,13 +9929,13 @@ pub unsafe fn PropVariantGetFileTimeElem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInt16Elem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -10133,7 +9944,7 @@ pub unsafe fn PropVariantGetInt16Elem(
         extern "system" {
             fn PropVariantGetInt16Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pnval: *mut i16,
@@ -10152,13 +9963,13 @@ pub unsafe fn PropVariantGetInt16Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInt32Elem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -10167,7 +9978,7 @@ pub unsafe fn PropVariantGetInt32Elem(
         extern "system" {
             fn PropVariantGetInt32Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pnval: *mut i32,
@@ -10186,13 +9997,13 @@ pub unsafe fn PropVariantGetInt32Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInt64Elem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -10201,7 +10012,7 @@ pub unsafe fn PropVariantGetInt64Elem(
         extern "system" {
             fn PropVariantGetInt64Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pnval: *mut i64,
@@ -10220,13 +10031,13 @@ pub unsafe fn PropVariantGetInt64Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetStringElem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -10235,7 +10046,7 @@ pub unsafe fn PropVariantGetStringElem(
         extern "system" {
             fn PropVariantGetStringElem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 ppszval: *mut super::super::Foundation::PWSTR,
@@ -10255,13 +10066,13 @@ pub unsafe fn PropVariantGetStringElem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetUInt16Elem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -10270,7 +10081,7 @@ pub unsafe fn PropVariantGetUInt16Elem(
         extern "system" {
             fn PropVariantGetUInt16Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pnval: *mut u16,
@@ -10289,13 +10100,13 @@ pub unsafe fn PropVariantGetUInt16Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetUInt32Elem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -10304,7 +10115,7 @@ pub unsafe fn PropVariantGetUInt32Elem(
         extern "system" {
             fn PropVariantGetUInt32Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pnval: *mut u32,
@@ -10323,13 +10134,13 @@ pub unsafe fn PropVariantGetUInt32Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetUInt64Elem(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -10338,7 +10149,7 @@ pub unsafe fn PropVariantGetUInt64Elem(
         extern "system" {
             fn PropVariantGetUInt64Elem(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ielem: u32,
                 pnval: *mut u64,
@@ -10357,13 +10168,13 @@ pub unsafe fn PropVariantGetUInt64Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBSTR(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
@@ -10371,7 +10182,7 @@ pub unsafe fn PropVariantToBSTR(
         extern "system" {
             fn PropVariantToBSTR(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pbstrout: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
             ) -> ::windows::runtime::HRESULT;
@@ -10386,13 +10197,13 @@ pub unsafe fn PropVariantToBSTR(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBoolean(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
@@ -10400,7 +10211,7 @@ pub unsafe fn PropVariantToBoolean(
         extern "system" {
             fn PropVariantToBoolean(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pfret: *mut super::super::Foundation::BOOL,
             ) -> ::windows::runtime::HRESULT;
@@ -10415,13 +10226,13 @@ pub unsafe fn PropVariantToBoolean(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBooleanVector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgf: *mut super::super::Foundation::BOOL,
     crgf: u32,
     pcelem: *mut u32,
@@ -10432,7 +10243,7 @@ pub unsafe fn PropVariantToBooleanVector(
         extern "system" {
             fn PropVariantToBooleanVector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgf: *mut super::super::Foundation::BOOL,
                 crgf: u32,
@@ -10452,13 +10263,13 @@ pub unsafe fn PropVariantToBooleanVector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBooleanVectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgf: *mut *mut super::super::Foundation::BOOL,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -10468,7 +10279,7 @@ pub unsafe fn PropVariantToBooleanVectorAlloc(
         extern "system" {
             fn PropVariantToBooleanVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgf: *mut *mut super::super::Foundation::BOOL,
                 pcelem: *mut u32,
@@ -10486,17 +10297,16 @@ pub unsafe fn PropVariantToBooleanVectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToBooleanWithDefault<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     fdefault: Param1,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10505,7 +10315,7 @@ pub unsafe fn PropVariantToBooleanWithDefault<
         extern "system" {
             fn PropVariantToBooleanWithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 fdefault: super::super::Foundation::BOOL,
             ) -> super::super::Foundation::BOOL;
@@ -10520,13 +10330,13 @@ pub unsafe fn PropVariantToBooleanWithDefault<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToBuffer(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pv: *mut ::std::ffi::c_void,
     cb: u32,
 ) -> ::windows::runtime::Result<()> {
@@ -10536,7 +10346,7 @@ pub unsafe fn PropVariantToBuffer(
         extern "system" {
             fn PropVariantToBuffer(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pv: *mut ::std::ffi::c_void,
                 cb: u32,
@@ -10554,13 +10364,13 @@ pub unsafe fn PropVariantToBuffer(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToDouble(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -10568,7 +10378,7 @@ pub unsafe fn PropVariantToDouble(
         extern "system" {
             fn PropVariantToDouble(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pdblret: *mut f64,
             ) -> ::windows::runtime::HRESULT;
@@ -10582,13 +10392,13 @@ pub unsafe fn PropVariantToDouble(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToDoubleVector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut f64,
     crgn: u32,
     pcelem: *mut u32,
@@ -10599,7 +10409,7 @@ pub unsafe fn PropVariantToDoubleVector(
         extern "system" {
             fn PropVariantToDoubleVector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgn: *mut f64,
                 crgn: u32,
@@ -10619,13 +10429,13 @@ pub unsafe fn PropVariantToDoubleVector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToDoubleVectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut f64,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -10635,7 +10445,7 @@ pub unsafe fn PropVariantToDoubleVectorAlloc(
         extern "system" {
             fn PropVariantToDoubleVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgn: *mut *mut f64,
                 pcelem: *mut u32,
@@ -10653,14 +10463,13 @@ pub unsafe fn PropVariantToDoubleVectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToDoubleWithDefault(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     dbldefault: f64,
 ) -> f64 {
     #[cfg(windows)]
@@ -10669,7 +10478,7 @@ pub unsafe fn PropVariantToDoubleWithDefault(
         extern "system" {
             fn PropVariantToDoubleWithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 dbldefault: f64,
             ) -> f64;
@@ -10684,13 +10493,13 @@ pub unsafe fn PropVariantToDoubleWithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToFileTime(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pstfout: PSTIME_FLAGS,
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -10699,7 +10508,7 @@ pub unsafe fn PropVariantToFileTime(
         extern "system" {
             fn PropVariantToFileTime(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pstfout: PSTIME_FLAGS,
                 pftout: *mut super::super::Foundation::FILETIME,
@@ -10719,13 +10528,13 @@ pub unsafe fn PropVariantToFileTime(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToFileTimeVector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgft: *mut super::super::Foundation::FILETIME,
     crgft: u32,
     pcelem: *mut u32,
@@ -10736,7 +10545,7 @@ pub unsafe fn PropVariantToFileTimeVector(
         extern "system" {
             fn PropVariantToFileTimeVector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgft: *mut super::super::Foundation::FILETIME,
                 crgft: u32,
@@ -10756,13 +10565,13 @@ pub unsafe fn PropVariantToFileTimeVector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToFileTimeVectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgft: *mut *mut super::super::Foundation::FILETIME,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -10772,7 +10581,7 @@ pub unsafe fn PropVariantToFileTimeVectorAlloc(
         extern "system" {
             fn PropVariantToFileTimeVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgft: *mut *mut super::super::Foundation::FILETIME,
                 pcelem: *mut u32,
@@ -10790,13 +10599,13 @@ pub unsafe fn PropVariantToFileTimeVectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToGUID(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
@@ -10804,7 +10613,7 @@ pub unsafe fn PropVariantToGUID(
         extern "system" {
             fn PropVariantToGUID(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pguid: *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT;
@@ -10819,13 +10628,13 @@ pub unsafe fn PropVariantToGUID(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt16(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
@@ -10833,7 +10642,7 @@ pub unsafe fn PropVariantToInt16(
         extern "system" {
             fn PropVariantToInt16(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 piret: *mut i16,
             ) -> ::windows::runtime::HRESULT;
@@ -10847,13 +10656,13 @@ pub unsafe fn PropVariantToInt16(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt16Vector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut i16,
     crgn: u32,
     pcelem: *mut u32,
@@ -10864,7 +10673,7 @@ pub unsafe fn PropVariantToInt16Vector(
         extern "system" {
             fn PropVariantToInt16Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgn: *mut i16,
                 crgn: u32,
@@ -10884,13 +10693,13 @@ pub unsafe fn PropVariantToInt16Vector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt16VectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut i16,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -10900,7 +10709,7 @@ pub unsafe fn PropVariantToInt16VectorAlloc(
         extern "system" {
             fn PropVariantToInt16VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgn: *mut *mut i16,
                 pcelem: *mut u32,
@@ -10918,14 +10727,13 @@ pub unsafe fn PropVariantToInt16VectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToInt16WithDefault(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     idefault: i16,
 ) -> i16 {
     #[cfg(windows)]
@@ -10934,7 +10742,7 @@ pub unsafe fn PropVariantToInt16WithDefault(
         extern "system" {
             fn PropVariantToInt16WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 idefault: i16,
             ) -> i16;
@@ -10949,13 +10757,13 @@ pub unsafe fn PropVariantToInt16WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt32(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
@@ -10963,7 +10771,7 @@ pub unsafe fn PropVariantToInt32(
         extern "system" {
             fn PropVariantToInt32(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 plret: *mut i32,
             ) -> ::windows::runtime::HRESULT;
@@ -10977,13 +10785,13 @@ pub unsafe fn PropVariantToInt32(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt32Vector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut i32,
     crgn: u32,
     pcelem: *mut u32,
@@ -10994,7 +10802,7 @@ pub unsafe fn PropVariantToInt32Vector(
         extern "system" {
             fn PropVariantToInt32Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgn: *mut i32,
                 crgn: u32,
@@ -11014,13 +10822,13 @@ pub unsafe fn PropVariantToInt32Vector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt32VectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut i32,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -11030,7 +10838,7 @@ pub unsafe fn PropVariantToInt32VectorAlloc(
         extern "system" {
             fn PropVariantToInt32VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgn: *mut *mut i32,
                 pcelem: *mut u32,
@@ -11048,14 +10856,13 @@ pub unsafe fn PropVariantToInt32VectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToInt32WithDefault(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     ldefault: i32,
 ) -> i32 {
     #[cfg(windows)]
@@ -11064,7 +10871,7 @@ pub unsafe fn PropVariantToInt32WithDefault(
         extern "system" {
             fn PropVariantToInt32WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ldefault: i32,
             ) -> i32;
@@ -11079,13 +10886,13 @@ pub unsafe fn PropVariantToInt32WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt64(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
@@ -11093,7 +10900,7 @@ pub unsafe fn PropVariantToInt64(
         extern "system" {
             fn PropVariantToInt64(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pllret: *mut i64,
             ) -> ::windows::runtime::HRESULT;
@@ -11107,13 +10914,13 @@ pub unsafe fn PropVariantToInt64(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt64Vector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut i64,
     crgn: u32,
     pcelem: *mut u32,
@@ -11124,7 +10931,7 @@ pub unsafe fn PropVariantToInt64Vector(
         extern "system" {
             fn PropVariantToInt64Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgn: *mut i64,
                 crgn: u32,
@@ -11144,13 +10951,13 @@ pub unsafe fn PropVariantToInt64Vector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToInt64VectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut i64,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -11160,7 +10967,7 @@ pub unsafe fn PropVariantToInt64VectorAlloc(
         extern "system" {
             fn PropVariantToInt64VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgn: *mut *mut i64,
                 pcelem: *mut u32,
@@ -11178,14 +10985,13 @@ pub unsafe fn PropVariantToInt64VectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToInt64WithDefault(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     lldefault: i64,
 ) -> i64 {
     #[cfg(windows)]
@@ -11194,7 +11000,7 @@ pub unsafe fn PropVariantToInt64WithDefault(
         extern "system" {
             fn PropVariantToInt64WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 lldefault: i64,
             ) -> i64;
@@ -11209,14 +11015,14 @@ pub unsafe fn PropVariantToInt64WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices",
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStrRet(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::UI::Shell::STRRET> {
     #[cfg(windows)]
     {
@@ -11224,7 +11030,7 @@ pub unsafe fn PropVariantToStrRet(
         extern "system" {
             fn PropVariantToStrRet(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pstrret: *mut super::super::UI::Shell::STRRET,
             ) -> ::windows::runtime::HRESULT;
@@ -11239,13 +11045,13 @@ pub unsafe fn PropVariantToStrRet(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToString(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     psz: super::super::Foundation::PWSTR,
     cch: u32,
 ) -> ::windows::runtime::Result<()> {
@@ -11255,7 +11061,7 @@ pub unsafe fn PropVariantToString(
         extern "system" {
             fn PropVariantToString(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 psz: super::super::Foundation::PWSTR,
                 cch: u32,
@@ -11273,13 +11079,13 @@ pub unsafe fn PropVariantToString(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStringAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
@@ -11287,7 +11093,7 @@ pub unsafe fn PropVariantToStringAlloc(
         extern "system" {
             fn PropVariantToStringAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ppszout: *mut super::super::Foundation::PWSTR,
             ) -> ::windows::runtime::HRESULT;
@@ -11302,13 +11108,13 @@ pub unsafe fn PropVariantToStringAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStringVector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgsz: *mut super::super::Foundation::PWSTR,
     crgsz: u32,
     pcelem: *mut u32,
@@ -11319,7 +11125,7 @@ pub unsafe fn PropVariantToStringVector(
         extern "system" {
             fn PropVariantToStringVector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgsz: *mut super::super::Foundation::PWSTR,
                 crgsz: u32,
@@ -11339,13 +11145,13 @@ pub unsafe fn PropVariantToStringVector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToStringVectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgsz: *mut *mut super::super::Foundation::PWSTR,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -11355,7 +11161,7 @@ pub unsafe fn PropVariantToStringVectorAlloc(
         extern "system" {
             fn PropVariantToStringVectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgsz: *mut *mut super::super::Foundation::PWSTR,
                 pcelem: *mut u32,
@@ -11373,17 +11179,16 @@ pub unsafe fn PropVariantToStringVectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToStringWithDefault<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     pszdefault: Param1,
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -11392,7 +11197,7 @@ pub unsafe fn PropVariantToStringWithDefault<
         extern "system" {
             fn PropVariantToStringWithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pszdefault: super::super::Foundation::PWSTR,
             ) -> super::super::Foundation::PWSTR;
@@ -11407,13 +11212,13 @@ pub unsafe fn PropVariantToStringWithDefault<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt16(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
@@ -11421,7 +11226,7 @@ pub unsafe fn PropVariantToUInt16(
         extern "system" {
             fn PropVariantToUInt16(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 puiret: *mut u16,
             ) -> ::windows::runtime::HRESULT;
@@ -11435,13 +11240,13 @@ pub unsafe fn PropVariantToUInt16(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt16Vector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut u16,
     crgn: u32,
     pcelem: *mut u32,
@@ -11452,7 +11257,7 @@ pub unsafe fn PropVariantToUInt16Vector(
         extern "system" {
             fn PropVariantToUInt16Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgn: *mut u16,
                 crgn: u32,
@@ -11472,13 +11277,13 @@ pub unsafe fn PropVariantToUInt16Vector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt16VectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut u16,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -11488,7 +11293,7 @@ pub unsafe fn PropVariantToUInt16VectorAlloc(
         extern "system" {
             fn PropVariantToUInt16VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgn: *mut *mut u16,
                 pcelem: *mut u32,
@@ -11506,14 +11311,13 @@ pub unsafe fn PropVariantToUInt16VectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToUInt16WithDefault(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     uidefault: u16,
 ) -> u16 {
     #[cfg(windows)]
@@ -11522,7 +11326,7 @@ pub unsafe fn PropVariantToUInt16WithDefault(
         extern "system" {
             fn PropVariantToUInt16WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 uidefault: u16,
             ) -> u16;
@@ -11537,13 +11341,13 @@ pub unsafe fn PropVariantToUInt16WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt32(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -11551,7 +11355,7 @@ pub unsafe fn PropVariantToUInt32(
         extern "system" {
             fn PropVariantToUInt32(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pulret: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -11565,13 +11369,13 @@ pub unsafe fn PropVariantToUInt32(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt32Vector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut u32,
     crgn: u32,
     pcelem: *mut u32,
@@ -11582,7 +11386,7 @@ pub unsafe fn PropVariantToUInt32Vector(
         extern "system" {
             fn PropVariantToUInt32Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgn: *mut u32,
                 crgn: u32,
@@ -11602,13 +11406,13 @@ pub unsafe fn PropVariantToUInt32Vector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt32VectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut u32,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -11618,7 +11422,7 @@ pub unsafe fn PropVariantToUInt32VectorAlloc(
         extern "system" {
             fn PropVariantToUInt32VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgn: *mut *mut u32,
                 pcelem: *mut u32,
@@ -11636,14 +11440,13 @@ pub unsafe fn PropVariantToUInt32VectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToUInt32WithDefault(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     uldefault: u32,
 ) -> u32 {
     #[cfg(windows)]
@@ -11652,7 +11455,7 @@ pub unsafe fn PropVariantToUInt32WithDefault(
         extern "system" {
             fn PropVariantToUInt32WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 uldefault: u32,
             ) -> u32;
@@ -11667,13 +11470,13 @@ pub unsafe fn PropVariantToUInt32WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt64(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -11681,7 +11484,7 @@ pub unsafe fn PropVariantToUInt64(
         extern "system" {
             fn PropVariantToUInt64(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pullret: *mut u64,
             ) -> ::windows::runtime::HRESULT;
@@ -11695,13 +11498,13 @@ pub unsafe fn PropVariantToUInt64(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt64Vector(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     prgn: *mut u64,
     crgn: u32,
     pcelem: *mut u32,
@@ -11712,7 +11515,7 @@ pub unsafe fn PropVariantToUInt64Vector(
         extern "system" {
             fn PropVariantToUInt64Vector(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 prgn: *mut u64,
                 crgn: u32,
@@ -11732,13 +11535,13 @@ pub unsafe fn PropVariantToUInt64Vector(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToUInt64VectorAlloc(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     pprgn: *mut *mut u64,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -11748,7 +11551,7 @@ pub unsafe fn PropVariantToUInt64VectorAlloc(
         extern "system" {
             fn PropVariantToUInt64VectorAlloc(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 pprgn: *mut *mut u64,
                 pcelem: *mut u32,
@@ -11766,14 +11569,13 @@ pub unsafe fn PropVariantToUInt64VectorAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn PropVariantToUInt64WithDefault(
-    propvarin: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvarin: *const super::Com::StructuredStorage::PROPVARIANT,
     ulldefault: u64,
 ) -> u64 {
     #[cfg(windows)]
@@ -11782,7 +11584,7 @@ pub unsafe fn PropVariantToUInt64WithDefault(
         extern "system" {
             fn PropVariantToUInt64WithDefault(
                 propvarin: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 ulldefault: u64,
             ) -> u64;
@@ -11797,42 +11599,42 @@ pub unsafe fn PropVariantToUInt64WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToVariant(
-    ppropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
+    ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
+) -> ::windows::runtime::Result<super::Com::VARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PropVariantToVariant(
                 ppropvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
-                pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         PropVariantToVariant(::std::mem::transmute(ppropvar), &mut result__)
-            .from_abi::<super::OleAutomation::VARIANT>(result__)
+            .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantToWinRTPropertyValue<T: ::windows::runtime::Interface>(
-    propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     result__: *mut ::std::option::Option<T>,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11841,7 +11643,7 @@ pub unsafe fn PropVariantToWinRTPropertyValue<T: ::windows::runtime::Interface>(
         extern "system" {
             fn PropVariantToWinRTPropertyValue(
                 propvar: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::Com::StructuredStorage::PROPVARIANT,
                 >,
                 riid: *const ::windows::runtime::GUID,
                 ppv: *mut *mut ::std::ffi::c_void,
@@ -11874,6 +11676,7 @@ pub const PropertySystem: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 )]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SHAddDefaultPropertiesByExt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11897,6 +11700,7 @@ pub unsafe fn SHAddDefaultPropertiesByExt<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SHGetPropertyStoreForWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -11926,6 +11730,7 @@ pub unsafe fn SHGetPropertyStoreForWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_Shell")]
+#[inline]
 pub unsafe fn SHGetPropertyStoreFromIDList(
     pidl: *const super::super::UI::Shell::ITEMIDLIST,
     flags: GETPROPERTYSTOREFLAGS,
@@ -11955,6 +11760,7 @@ pub unsafe fn SHGetPropertyStoreFromIDList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn SHGetPropertyStoreFromParsingName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11990,13 +11796,11 @@ pub unsafe fn SHGetPropertyStoreFromParsingName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn SHPropStgCreate<
     'a,
-    Param0: ::windows::runtime::IntoParam<
-        'a,
-        super::super::Storage::StructuredStorage::IPropertySetStorage,
-    >,
+    Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertySetStorage>,
 >(
     psstg: Param0,
     fmtid: *const ::windows::runtime::GUID,
@@ -12004,7 +11808,7 @@ pub unsafe fn SHPropStgCreate<
     grfflags: u32,
     grfmode: u32,
     dwdisposition: u32,
-    ppstg: *mut ::std::option::Option<super::super::Storage::StructuredStorage::IPropertyStorage>,
+    ppstg: *mut ::std::option::Option<super::Com::StructuredStorage::IPropertyStorage>,
     pucodepage: *mut u32,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12039,20 +11843,20 @@ pub unsafe fn SHPropStgCreate<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn SHPropStgReadMultiple<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IPropertyStorage>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertyStorage>,
 >(
     pps: Param0,
     ucodepage: u32,
     cpspec: u32,
-    rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+    rgpspec: *const super::Com::StructuredStorage::PROPSPEC,
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12061,13 +11865,11 @@ pub unsafe fn SHPropStgReadMultiple<
                 pps: ::windows::runtime::RawPtr,
                 ucodepage: u32,
                 cpspec: u32,
-                rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-                rgvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                rgpspec: *const super::Com::StructuredStorage::PROPSPEC,
+                rgvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         SHPropStgReadMultiple(
             pps.into_param().abi(),
             ::std::mem::transmute(ucodepage),
@@ -12075,27 +11877,27 @@ pub unsafe fn SHPropStgReadMultiple<
             ::std::mem::transmute(rgpspec),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn SHPropStgWriteMultiple<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IPropertyStorage>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPropertyStorage>,
 >(
     pps: Param0,
     pucodepage: *mut u32,
     cpspec: u32,
-    rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-    rgvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    rgpspec: *const super::Com::StructuredStorage::PROPSPEC,
+    rgvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     propidnamefirst: u32,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12106,10 +11908,8 @@ pub unsafe fn SHPropStgWriteMultiple<
                 pps: ::windows::runtime::RawPtr,
                 pucodepage: *mut u32,
                 cpspec: u32,
-                rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-                rgvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                rgpspec: *const super::Com::StructuredStorage::PROPSPEC,
+                rgvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
                 propidnamefirst: u32,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -12195,21 +11995,21 @@ unsafe impl ::windows::runtime::Abi for SYNC_TRANSFER_STATUS {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn VariantCompare(
-    var1: *const super::OleAutomation::VARIANT,
-    var2: *const super::OleAutomation::VARIANT,
+    var1: *const super::Com::VARIANT,
+    var2: *const super::Com::VARIANT,
 ) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantCompare(
-                var1: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-                var2: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var1: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+                var2: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> i32;
         }
         ::std::mem::transmute(VariantCompare(
@@ -12222,11 +12022,12 @@ pub unsafe fn VariantCompare(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetBooleanElem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -12234,7 +12035,7 @@ pub unsafe fn VariantGetBooleanElem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetBooleanElem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pfval: *mut super::super::Foundation::BOOL,
             ) -> ::windows::runtime::HRESULT;
@@ -12253,11 +12054,12 @@ pub unsafe fn VariantGetBooleanElem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetDoubleElem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -12265,7 +12067,7 @@ pub unsafe fn VariantGetDoubleElem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetDoubleElem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pnval: *mut f64,
             ) -> ::windows::runtime::HRESULT;
@@ -12283,17 +12085,17 @@ pub unsafe fn VariantGetDoubleElem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
-pub unsafe fn VariantGetElementCount(varin: *const super::OleAutomation::VARIANT) -> u32 {
+pub unsafe fn VariantGetElementCount(varin: *const super::Com::VARIANT) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetElementCount(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> u32;
         }
         ::std::mem::transmute(VariantGetElementCount(::std::mem::transmute(varin)))
@@ -12303,11 +12105,12 @@ pub unsafe fn VariantGetElementCount(varin: *const super::OleAutomation::VARIANT
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetInt16Elem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -12315,7 +12118,7 @@ pub unsafe fn VariantGetInt16Elem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetInt16Elem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pnval: *mut i16,
             ) -> ::windows::runtime::HRESULT;
@@ -12333,11 +12136,12 @@ pub unsafe fn VariantGetInt16Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetInt32Elem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -12345,7 +12149,7 @@ pub unsafe fn VariantGetInt32Elem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetInt32Elem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pnval: *mut i32,
             ) -> ::windows::runtime::HRESULT;
@@ -12363,11 +12167,12 @@ pub unsafe fn VariantGetInt32Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetInt64Elem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -12375,7 +12180,7 @@ pub unsafe fn VariantGetInt64Elem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetInt64Elem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pnval: *mut i64,
             ) -> ::windows::runtime::HRESULT;
@@ -12393,11 +12198,12 @@ pub unsafe fn VariantGetInt64Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetStringElem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -12405,7 +12211,7 @@ pub unsafe fn VariantGetStringElem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetStringElem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 ppszval: *mut super::super::Foundation::PWSTR,
             ) -> ::windows::runtime::HRESULT;
@@ -12424,11 +12230,12 @@ pub unsafe fn VariantGetStringElem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetUInt16Elem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -12436,7 +12243,7 @@ pub unsafe fn VariantGetUInt16Elem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetUInt16Elem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pnval: *mut u16,
             ) -> ::windows::runtime::HRESULT;
@@ -12454,11 +12261,12 @@ pub unsafe fn VariantGetUInt16Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetUInt32Elem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -12466,7 +12274,7 @@ pub unsafe fn VariantGetUInt32Elem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetUInt32Elem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pnval: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -12484,11 +12292,12 @@ pub unsafe fn VariantGetUInt32Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantGetUInt64Elem(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     ielem: u32,
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -12496,7 +12305,7 @@ pub unsafe fn VariantGetUInt64Elem(
         #[link(name = "windows")]
         extern "system" {
             fn VariantGetUInt64Elem(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ielem: u32,
                 pnval: *mut u64,
             ) -> ::windows::runtime::HRESULT;
@@ -12514,18 +12323,19 @@ pub unsafe fn VariantGetUInt64Elem(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBoolean(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToBoolean(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pfret: *mut super::super::Foundation::BOOL,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -12539,11 +12349,12 @@ pub unsafe fn VariantToBoolean(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBooleanArray(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgf: *mut super::super::Foundation::BOOL,
     crgn: u32,
     pcelem: *mut u32,
@@ -12553,7 +12364,7 @@ pub unsafe fn VariantToBooleanArray(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToBooleanArray(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgf: *mut super::super::Foundation::BOOL,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -12572,11 +12383,12 @@ pub unsafe fn VariantToBooleanArray(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBooleanArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgf: *mut *mut super::super::Foundation::BOOL,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -12585,7 +12397,7 @@ pub unsafe fn VariantToBooleanArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToBooleanArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgf: *mut *mut super::super::Foundation::BOOL,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -12602,15 +12414,15 @@ pub unsafe fn VariantToBooleanArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn VariantToBooleanWithDefault<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     fdefault: Param1,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12618,7 +12430,7 @@ pub unsafe fn VariantToBooleanWithDefault<
         #[link(name = "windows")]
         extern "system" {
             fn VariantToBooleanWithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 fdefault: super::super::Foundation::BOOL,
             ) -> super::super::Foundation::BOOL;
         }
@@ -12632,11 +12444,12 @@ pub unsafe fn VariantToBooleanWithDefault<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToBuffer(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     pv: *mut ::std::ffi::c_void,
     cb: u32,
 ) -> ::windows::runtime::Result<()> {
@@ -12645,7 +12458,7 @@ pub unsafe fn VariantToBuffer(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToBuffer(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pv: *mut ::std::ffi::c_void,
                 cb: u32,
             ) -> ::windows::runtime::HRESULT;
@@ -12662,11 +12475,12 @@ pub unsafe fn VariantToBuffer(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDosDateTime(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     pwdate: *mut u16,
     pwtime: *mut u16,
 ) -> ::windows::runtime::Result<()> {
@@ -12675,7 +12489,7 @@ pub unsafe fn VariantToDosDateTime(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToDosDateTime(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pwdate: *mut u16,
                 pwtime: *mut u16,
             ) -> ::windows::runtime::HRESULT;
@@ -12692,18 +12506,19 @@ pub unsafe fn VariantToDosDateTime(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDouble(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToDouble(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pdblret: *mut f64,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -12715,11 +12530,12 @@ pub unsafe fn VariantToDouble(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDoubleArray(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgn: *mut f64,
     crgn: u32,
     pcelem: *mut u32,
@@ -12729,7 +12545,7 @@ pub unsafe fn VariantToDoubleArray(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToDoubleArray(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgn: *mut f64,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -12748,11 +12564,12 @@ pub unsafe fn VariantToDoubleArray(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToDoubleArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgn: *mut *mut f64,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -12761,7 +12578,7 @@ pub unsafe fn VariantToDoubleArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToDoubleArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgn: *mut *mut f64,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -12778,12 +12595,12 @@ pub unsafe fn VariantToDoubleArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn VariantToDoubleWithDefault(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     dbldefault: f64,
 ) -> f64 {
     #[cfg(windows)]
@@ -12791,7 +12608,7 @@ pub unsafe fn VariantToDoubleWithDefault(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToDoubleWithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 dbldefault: f64,
             ) -> f64;
         }
@@ -12805,11 +12622,12 @@ pub unsafe fn VariantToDoubleWithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToFileTime(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     stfout: PSTIME_FLAGS,
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -12817,7 +12635,7 @@ pub unsafe fn VariantToFileTime(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToFileTime(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 stfout: PSTIME_FLAGS,
                 pftout: *mut super::super::Foundation::FILETIME,
             ) -> ::windows::runtime::HRESULT;
@@ -12836,18 +12654,19 @@ pub unsafe fn VariantToFileTime(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToGUID(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToGUID(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pguid: *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -12861,18 +12680,17 @@ pub unsafe fn VariantToGUID(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
-pub unsafe fn VariantToInt16(
-    varin: *const super::OleAutomation::VARIANT,
-) -> ::windows::runtime::Result<i16> {
+#[inline]
+pub unsafe fn VariantToInt16(varin: *const super::Com::VARIANT) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 piret: *mut i16,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -12884,11 +12702,12 @@ pub unsafe fn VariantToInt16(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt16Array(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgn: *mut i16,
     crgn: u32,
     pcelem: *mut u32,
@@ -12898,7 +12717,7 @@ pub unsafe fn VariantToInt16Array(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16Array(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgn: *mut i16,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -12917,11 +12736,12 @@ pub unsafe fn VariantToInt16Array(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt16ArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgn: *mut *mut i16,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -12930,7 +12750,7 @@ pub unsafe fn VariantToInt16ArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16ArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgn: *mut *mut i16,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -12947,20 +12767,17 @@ pub unsafe fn VariantToInt16ArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
-pub unsafe fn VariantToInt16WithDefault(
-    varin: *const super::OleAutomation::VARIANT,
-    idefault: i16,
-) -> i16 {
+pub unsafe fn VariantToInt16WithDefault(varin: *const super::Com::VARIANT, idefault: i16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt16WithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 idefault: i16,
             ) -> i16;
         }
@@ -12974,18 +12791,17 @@ pub unsafe fn VariantToInt16WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
-pub unsafe fn VariantToInt32(
-    varin: *const super::OleAutomation::VARIANT,
-) -> ::windows::runtime::Result<i32> {
+#[inline]
+pub unsafe fn VariantToInt32(varin: *const super::Com::VARIANT) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 plret: *mut i32,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -12997,11 +12813,12 @@ pub unsafe fn VariantToInt32(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt32Array(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgn: *mut i32,
     crgn: u32,
     pcelem: *mut u32,
@@ -13011,7 +12828,7 @@ pub unsafe fn VariantToInt32Array(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32Array(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgn: *mut i32,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -13030,11 +12847,12 @@ pub unsafe fn VariantToInt32Array(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt32ArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgn: *mut *mut i32,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -13043,7 +12861,7 @@ pub unsafe fn VariantToInt32ArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32ArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgn: *mut *mut i32,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -13060,20 +12878,17 @@ pub unsafe fn VariantToInt32ArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
-pub unsafe fn VariantToInt32WithDefault(
-    varin: *const super::OleAutomation::VARIANT,
-    ldefault: i32,
-) -> i32 {
+pub unsafe fn VariantToInt32WithDefault(varin: *const super::Com::VARIANT, ldefault: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt32WithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ldefault: i32,
             ) -> i32;
         }
@@ -13087,18 +12902,17 @@ pub unsafe fn VariantToInt32WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
-pub unsafe fn VariantToInt64(
-    varin: *const super::OleAutomation::VARIANT,
-) -> ::windows::runtime::Result<i64> {
+#[inline]
+pub unsafe fn VariantToInt64(varin: *const super::Com::VARIANT) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pllret: *mut i64,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -13110,11 +12924,12 @@ pub unsafe fn VariantToInt64(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt64Array(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgn: *mut i64,
     crgn: u32,
     pcelem: *mut u32,
@@ -13124,7 +12939,7 @@ pub unsafe fn VariantToInt64Array(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64Array(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgn: *mut i64,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -13143,11 +12958,12 @@ pub unsafe fn VariantToInt64Array(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToInt64ArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgn: *mut *mut i64,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -13156,7 +12972,7 @@ pub unsafe fn VariantToInt64ArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64ArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgn: *mut *mut i64,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -13173,20 +12989,17 @@ pub unsafe fn VariantToInt64ArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
-pub unsafe fn VariantToInt64WithDefault(
-    varin: *const super::OleAutomation::VARIANT,
-    lldefault: i64,
-) -> i64 {
+pub unsafe fn VariantToInt64WithDefault(varin: *const super::Com::VARIANT, lldefault: i64) -> i64 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToInt64WithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 lldefault: i64,
             ) -> i64;
         }
@@ -13200,47 +13013,46 @@ pub unsafe fn VariantToInt64WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToPropVariant(
-    pvar: *const super::OleAutomation::VARIANT,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+    pvar: *const super::Com::VARIANT,
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToPropVariant(
-                pvar: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                pvar: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         VariantToPropVariant(::std::mem::transmute(pvar), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices",
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation",
     feature = "Win32_UI_Shell"
 ))]
+#[inline]
 pub unsafe fn VariantToStrRet(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::UI::Shell::STRRET> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToStrRet(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pstrret: *mut super::super::UI::Shell::STRRET,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -13254,11 +13066,12 @@ pub unsafe fn VariantToStrRet(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToString(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     pszbuf: super::super::Foundation::PWSTR,
     cchbuf: u32,
 ) -> ::windows::runtime::Result<()> {
@@ -13267,7 +13080,7 @@ pub unsafe fn VariantToString(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToString(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pszbuf: super::super::Foundation::PWSTR,
                 cchbuf: u32,
             ) -> ::windows::runtime::HRESULT;
@@ -13284,18 +13097,19 @@ pub unsafe fn VariantToString(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToStringAlloc(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToStringAlloc(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ppszbuf: *mut super::super::Foundation::PWSTR,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -13309,11 +13123,12 @@ pub unsafe fn VariantToStringAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToStringArray(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgsz: *mut super::super::Foundation::PWSTR,
     crgsz: u32,
     pcelem: *mut u32,
@@ -13323,7 +13138,7 @@ pub unsafe fn VariantToStringArray(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToStringArray(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgsz: *mut super::super::Foundation::PWSTR,
                 crgsz: u32,
                 pcelem: *mut u32,
@@ -13342,11 +13157,12 @@ pub unsafe fn VariantToStringArray(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToStringArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgsz: *mut *mut super::super::Foundation::PWSTR,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -13355,7 +13171,7 @@ pub unsafe fn VariantToStringArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToStringArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgsz: *mut *mut super::super::Foundation::PWSTR,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -13372,15 +13188,15 @@ pub unsafe fn VariantToStringArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn VariantToStringWithDefault<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     pszdefault: Param1,
 ) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -13388,7 +13204,7 @@ pub unsafe fn VariantToStringWithDefault<
         #[link(name = "windows")]
         extern "system" {
             fn VariantToStringWithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pszdefault: super::super::Foundation::PWSTR,
             ) -> super::super::Foundation::PWSTR;
         }
@@ -13402,18 +13218,19 @@ pub unsafe fn VariantToStringWithDefault<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt16(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 puiret: *mut u16,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -13425,11 +13242,12 @@ pub unsafe fn VariantToUInt16(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt16Array(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgn: *mut u16,
     crgn: u32,
     pcelem: *mut u32,
@@ -13439,7 +13257,7 @@ pub unsafe fn VariantToUInt16Array(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16Array(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgn: *mut u16,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -13458,11 +13276,12 @@ pub unsafe fn VariantToUInt16Array(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt16ArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgn: *mut *mut u16,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -13471,7 +13290,7 @@ pub unsafe fn VariantToUInt16ArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16ArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgn: *mut *mut u16,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -13488,20 +13307,17 @@ pub unsafe fn VariantToUInt16ArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
-pub unsafe fn VariantToUInt16WithDefault(
-    varin: *const super::OleAutomation::VARIANT,
-    uidefault: u16,
-) -> u16 {
+pub unsafe fn VariantToUInt16WithDefault(varin: *const super::Com::VARIANT, uidefault: u16) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt16WithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 uidefault: u16,
             ) -> u16;
         }
@@ -13515,18 +13331,19 @@ pub unsafe fn VariantToUInt16WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt32(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pulret: *mut u32,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -13538,11 +13355,12 @@ pub unsafe fn VariantToUInt32(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt32Array(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgn: *mut u32,
     crgn: u32,
     pcelem: *mut u32,
@@ -13552,7 +13370,7 @@ pub unsafe fn VariantToUInt32Array(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32Array(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgn: *mut u32,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -13571,11 +13389,12 @@ pub unsafe fn VariantToUInt32Array(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt32ArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgn: *mut *mut u32,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -13584,7 +13403,7 @@ pub unsafe fn VariantToUInt32ArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32ArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgn: *mut *mut u32,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -13601,20 +13420,17 @@ pub unsafe fn VariantToUInt32ArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
-pub unsafe fn VariantToUInt32WithDefault(
-    varin: *const super::OleAutomation::VARIANT,
-    uldefault: u32,
-) -> u32 {
+pub unsafe fn VariantToUInt32WithDefault(varin: *const super::Com::VARIANT, uldefault: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt32WithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 uldefault: u32,
             ) -> u32;
         }
@@ -13628,18 +13444,19 @@ pub unsafe fn VariantToUInt32WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt64(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
 ) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pullret: *mut u64,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -13651,11 +13468,12 @@ pub unsafe fn VariantToUInt64(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt64Array(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     prgn: *mut u64,
     crgn: u32,
     pcelem: *mut u32,
@@ -13665,7 +13483,7 @@ pub unsafe fn VariantToUInt64Array(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64Array(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 prgn: *mut u64,
                 crgn: u32,
                 pcelem: *mut u32,
@@ -13684,11 +13502,12 @@ pub unsafe fn VariantToUInt64Array(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn VariantToUInt64ArrayAlloc(
-    var: *const super::OleAutomation::VARIANT,
+    var: *const super::Com::VARIANT,
     pprgn: *mut *mut u64,
     pcelem: *mut u32,
 ) -> ::windows::runtime::Result<()> {
@@ -13697,7 +13516,7 @@ pub unsafe fn VariantToUInt64ArrayAlloc(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64ArrayAlloc(
-                var: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                var: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 pprgn: *mut *mut u64,
                 pcelem: *mut u32,
             ) -> ::windows::runtime::HRESULT;
@@ -13714,12 +13533,12 @@ pub unsafe fn VariantToUInt64ArrayAlloc(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn VariantToUInt64WithDefault(
-    varin: *const super::OleAutomation::VARIANT,
+    varin: *const super::Com::VARIANT,
     ulldefault: u64,
 ) -> u64 {
     #[cfg(windows)]
@@ -13727,7 +13546,7 @@ pub unsafe fn VariantToUInt64WithDefault(
         #[link(name = "windows")]
         extern "system" {
             fn VariantToUInt64WithDefault(
-                varin: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                varin: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 ulldefault: u64,
             ) -> u64;
         }
@@ -13741,31 +13560,29 @@ pub unsafe fn VariantToUInt64WithDefault(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn WinRTPropertyValueToPropVariant<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
 >(
     punkpropertyvalue: Param0,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WinRTPropertyValueToPropVariant(
                 punkpropertyvalue: ::windows::runtime::RawPtr,
-                ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
-                >,
+                ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         WinRTPropertyValueToPropVariant(punkpropertyvalue.into_param().abi(), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

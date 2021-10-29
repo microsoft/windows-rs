@@ -463,6 +463,7 @@ pub unsafe fn IUnknown_AddRef_Proxy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn IUnknown_QueryInterface_Proxy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -522,7 +523,7 @@ pub unsafe fn I_RpcAllocate(size: u32) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn I_RpcAsyncAbortCall(
     pasync: *const RPC_ASYNC_STATE,
@@ -545,7 +546,7 @@ pub unsafe fn I_RpcAsyncAbortCall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn I_RpcAsyncSetHandle(
     message: *const RPC_MESSAGE,
@@ -640,13 +641,13 @@ pub unsafe fn I_RpcBindingHandleToAsyncHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn I_RpcBindingInqClientTokenAttributes(
     binding: *const ::std::ffi::c_void,
-    tokenid: *mut super::SystemServices::LUID,
-    authenticationid: *mut super::SystemServices::LUID,
-    modifiedid: *mut super::SystemServices::LUID,
+    tokenid: *mut super::super::Foundation::LUID,
+    authenticationid: *mut super::super::Foundation::LUID,
+    modifiedid: *mut super::super::Foundation::LUID,
 ) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -654,9 +655,9 @@ pub unsafe fn I_RpcBindingInqClientTokenAttributes(
         extern "system" {
             fn I_RpcBindingInqClientTokenAttributes(
                 binding: *const ::std::ffi::c_void,
-                tokenid: *mut super::SystemServices::LUID,
-                authenticationid: *mut super::SystemServices::LUID,
-                modifiedid: *mut super::SystemServices::LUID,
+                tokenid: *mut super::super::Foundation::LUID,
+                authenticationid: *mut super::super::Foundation::LUID,
+                modifiedid: *mut super::super::Foundation::LUID,
             ) -> RPC_STATUS;
         }
         ::std::mem::transmute(I_RpcBindingInqClientTokenAttributes(
@@ -7757,6 +7758,7 @@ pub unsafe fn NdrGetBuffer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrGetDcomProtocolVersion(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pversion: *mut RPC_VERSION,
@@ -10125,7 +10127,7 @@ pub unsafe fn NdrXmitOrRepAsUnmarshall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = unsafe extern "system" fn(
     pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
     context: *mut ::std::ffi::c_void,
@@ -10287,14 +10289,14 @@ unsafe impl ::windows::runtime::Abi for RPC_ASYNC_EVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub APC: ::std::mem::ManuallyDrop<RPC_ASYNC_NOTIFICATION_INFO_0>,
     pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
@@ -10302,43 +10304,43 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub hEvent: super::super::Foundation::HANDLE,
     pub NotificationRoutine: ::windows::runtime::RawPtr,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl RPC_ASYNC_NOTIFICATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for RPC_ASYNC_NOTIFICATION_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: ::std::option::Option<PFN_RPCNOTIFICATION_ROUTINE>,
     pub hThread: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl RPC_ASYNC_NOTIFICATION_INFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_APC_e__Struct")
@@ -10346,7 +10348,7 @@ impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.NotificationRoutine.map(|f| f as usize)
@@ -10354,31 +10356,31 @@ impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_0 {
             && self.hThread == other.hThread
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::super::Foundation::HANDLE,
     pub dwNumberOfBytesTransferred: u32,
     pub dwCompletionKey: usize,
-    pub lpOverlapped: *mut super::SystemServices::OVERLAPPED,
+    pub lpOverlapped: *mut super::IO::OVERLAPPED,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl RPC_ASYNC_NOTIFICATION_INFO_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_IOC_e__Struct")
@@ -10392,7 +10394,7 @@ impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_1 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.hIOPort == other.hIOPort
@@ -10401,9 +10403,9 @@ impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
             && self.lpOverlapped == other.lpOverlapped
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -10445,14 +10447,14 @@ unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::clone::Clone for RPC_ASYNC_STATE {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_STATE {
     pub Size: u32,
     pub Signature: u32,
@@ -10466,23 +10468,23 @@ pub struct RPC_ASYNC_STATE {
     pub u: RPC_ASYNC_NOTIFICATION_INFO,
     pub Reserved: [isize; 4],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl RPC_ASYNC_STATE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for RPC_ASYNC_STATE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for RPC_ASYNC_STATE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for RPC_ASYNC_STATE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_STATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -13766,7 +13768,7 @@ unsafe impl ::windows::runtime::Abi for RPC_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS {
     #[cfg(windows)]
@@ -13786,7 +13788,7 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcAsyncCancelCall<
     'a,
@@ -13812,7 +13814,7 @@ pub unsafe fn RpcAsyncCancelCall<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcAsyncCompleteCall(
     pasync: *mut RPC_ASYNC_STATE,
@@ -13835,7 +13837,7 @@ pub unsafe fn RpcAsyncCompleteCall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     #[cfg(windows)]
@@ -13851,7 +13853,7 @@ pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) -> RPC_STATUS {
     #[cfg(windows)]
@@ -13871,7 +13873,7 @@ pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     #[cfg(windows)]
@@ -13887,7 +13889,7 @@ pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcBindingBind(
     pasync: *const RPC_ASYNC_STATE,
@@ -14782,13 +14784,10 @@ pub unsafe fn RpcCancelThreadEx(thread: *const ::std::ffi::c_void, timeout: i32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn RpcCertGeneratePrincipalNameA(
-    context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    context: *const super::super::Security::Cryptography::CERT_CONTEXT,
     flags: u32,
     pbuffer: *mut *mut u8,
 ) -> RPC_STATUS {
@@ -14797,7 +14796,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameA(
         #[link(name = "windows")]
         extern "system" {
             fn RpcCertGeneratePrincipalNameA(
-                context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+                context: *const super::super::Security::Cryptography::CERT_CONTEXT,
                 flags: u32,
                 pbuffer: *mut *mut u8,
             ) -> RPC_STATUS;
@@ -14811,13 +14810,10 @@ pub unsafe fn RpcCertGeneratePrincipalNameA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn RpcCertGeneratePrincipalNameW(
-    context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    context: *const super::super::Security::Cryptography::CERT_CONTEXT,
     flags: u32,
     pbuffer: *mut *mut u16,
 ) -> RPC_STATUS {
@@ -14826,7 +14822,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameW(
         #[link(name = "windows")]
         extern "system" {
             fn RpcCertGeneratePrincipalNameW(
-                context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+                context: *const super::super::Security::Cryptography::CERT_CONTEXT,
                 flags: u32,
                 pbuffer: *mut *mut u16,
             ) -> RPC_STATUS;
@@ -15198,12 +15194,12 @@ pub unsafe fn RpcFreeAuthorizationContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RpcGetAuthorizationContextForClient<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param4: ::windows::runtime::IntoParam<'a, super::SystemServices::LUID>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
 >(
     clientbinding: *const ::std::ffi::c_void,
     impersonateonreturn: Param1,
@@ -15223,7 +15219,7 @@ pub unsafe fn RpcGetAuthorizationContextForClient<
                 impersonateonreturn: super::super::Foundation::BOOL,
                 reserved1: *const ::std::ffi::c_void,
                 pexpirationtime: *const i64,
-                reserved2: super::SystemServices::LUID,
+                reserved2: super::super::Foundation::LUID,
                 reserved3: u32,
                 reserved4: *const ::std::ffi::c_void,
                 pauthzclientcontext: *mut *mut ::std::ffi::c_void,
@@ -17952,7 +17948,7 @@ pub unsafe fn RpcServerRegisterIfEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RpcServerSubscribeForNotification(
     binding: *const ::std::ffi::c_void,

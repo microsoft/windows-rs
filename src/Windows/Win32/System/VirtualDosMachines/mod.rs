@@ -109,22 +109,22 @@ pub const GT_TASK: u32 = 4u32;
 pub const GT_UNKNOWN: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_NOTE {
-    pub Module: [super::SystemServices::CHAR; 10],
-    pub FileName: [super::SystemServices::CHAR; 256],
+    pub Module: [super::super::Foundation::CHAR; 10],
+    pub FileName: [super::super::Foundation::CHAR; 256],
     pub hModule: u16,
     pub hTask: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl IMAGE_NOTE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IMAGE_NOTE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IMAGE_NOTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("IMAGE_NOTE")
@@ -135,7 +135,7 @@ impl ::std::fmt::Debug for IMAGE_NOTE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IMAGE_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Module == other.Module
@@ -144,9 +144,9 @@ impl ::std::cmp::PartialEq for IMAGE_NOTE {
             && self.hTask == other.hTask
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IMAGE_NOTE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMAGE_NOTE {
     type Abi = Self;
     type DefaultType = Self;
@@ -155,32 +155,32 @@ pub const MAX_MODULE_NAME: u32 = 9u32;
 pub const MAX_PATH16: u32 = 255u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY {
     pub dwSize: u32,
-    pub szModule: [super::SystemServices::CHAR; 10],
+    pub szModule: [super::super::Foundation::CHAR; 10],
     pub hModule: super::super::Foundation::HANDLE,
     pub wcUsage: u16,
-    pub szExePath: [super::SystemServices::CHAR; 256],
+    pub szExePath: [super::super::Foundation::CHAR; 256],
     pub wNext: u16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl MODULEENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MODULEENTRY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MODULEENTRY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MODULEENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY {
     type Abi = Self;
     type DefaultType = Self;
@@ -193,25 +193,25 @@ pub type PROCESSENUMPROC = unsafe extern "system" fn(
 ) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SEGMENT_NOTE {
     pub Selector1: u16,
     pub Selector2: u16,
     pub Segment: u16,
-    pub Module: [super::SystemServices::CHAR; 10],
-    pub FileName: [super::SystemServices::CHAR; 256],
+    pub Module: [super::super::Foundation::CHAR; 10],
+    pub FileName: [super::super::Foundation::CHAR; 256],
     pub Type: u16,
     pub Length: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SEGMENT_NOTE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SEGMENT_NOTE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SEGMENT_NOTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SEGMENT_NOTE")
@@ -225,7 +225,7 @@ impl ::std::fmt::Debug for SEGMENT_NOTE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Selector1 == other.Selector1
@@ -237,9 +237,9 @@ impl ::std::cmp::PartialEq for SEGMENT_NOTE {
             && self.Length == other.Length
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SEGMENT_NOTE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SEGMENT_NOTE {
     type Abi = Self;
     type DefaultType = Self;
@@ -604,7 +604,7 @@ pub type VDMGETPOINTERPROC = unsafe extern "system" fn(
     param3: u32,
     param4: super::super::Foundation::BOOL,
 ) -> u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type VDMGETSEGMENTINFOPROC = unsafe extern "system" fn(
     param0: u16,
     param1: u32,
@@ -838,24 +838,24 @@ pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct VDM_SEGINFO {
     pub Selector: u16,
     pub SegNumber: u16,
     pub Length: u32,
     pub Type: u16,
-    pub ModuleName: [super::SystemServices::CHAR; 9],
-    pub FileName: [super::SystemServices::CHAR; 255],
+    pub ModuleName: [super::super::Foundation::CHAR; 9],
+    pub FileName: [super::super::Foundation::CHAR; 255],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl VDM_SEGINFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for VDM_SEGINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VDM_SEGINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("VDM_SEGINFO")
@@ -868,7 +868,7 @@ impl ::std::fmt::Debug for VDM_SEGINFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
         self.Selector == other.Selector
@@ -879,9 +879,9 @@ impl ::std::cmp::PartialEq for VDM_SEGINFO {
             && self.FileName == other.FileName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for VDM_SEGINFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDM_SEGINFO {
     type Abi = Self;
     type DefaultType = Self;

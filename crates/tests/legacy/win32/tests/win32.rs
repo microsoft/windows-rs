@@ -7,12 +7,14 @@ use test_win32::Windows::Win32::{
     },
     Networking::Ldap::ldapsearch,
     Security::Authorization::*,
-    Storage::StructuredStorage::*,
+    System::Com::StructuredStorage::*,
+    System::Com::*,
     System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
     UI::{
         Accessibility::UIA_ScrollPatternNoScroll,
         Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
-        WindowsAndMessaging::{CHOOSECOLORW, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
+        Controls::Dialogs::CHOOSECOLORW,
+        WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     },
 };
 

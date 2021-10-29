@@ -645,8 +645,7 @@ unsafe impl ::windows::runtime::Abi for DDCORECAPS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 pub struct DDHAL_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
@@ -657,16 +656,14 @@ pub struct DDHAL_DESTROYDDLOCALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl DDHAL_DESTROYDDLOCALDATA {}
 #[cfg(all(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::default::Default for DDHAL_DESTROYDDLOCALDATA {
     fn default() -> Self {
@@ -677,8 +674,7 @@ impl ::std::default::Default for DDHAL_DESTROYDDLOCALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::fmt::Debug for DDHAL_DESTROYDDLOCALDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -693,8 +689,7 @@ impl ::std::fmt::Debug for DDHAL_DESTROYDDLOCALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DESTROYDDLOCALDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -705,16 +700,14 @@ impl ::std::cmp::PartialEq for DDHAL_DESTROYDDLOCALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::cmp::Eq for DDHAL_DESTROYDDLOCALDATA {}
 #[cfg(all(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYDDLOCALDATA {
     type Abi = Self;
@@ -726,8 +719,7 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYDDLOCALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut super::super::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_GBL,
@@ -742,16 +734,14 @@ pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl DDHAL_WAITFORVERTICALBLANKDATA {}
 #[cfg(all(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::default::Default for DDHAL_WAITFORVERTICALBLANKDATA {
     fn default() -> Self {
@@ -762,8 +752,7 @@ impl ::std::default::Default for DDHAL_WAITFORVERTICALBLANKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::fmt::Debug for DDHAL_WAITFORVERTICALBLANKDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -780,8 +769,7 @@ impl ::std::fmt::Debug for DDHAL_WAITFORVERTICALBLANKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_WAITFORVERTICALBLANKDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -798,16 +786,14 @@ impl ::std::cmp::PartialEq for DDHAL_WAITFORVERTICALBLANKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 impl ::std::cmp::Eq for DDHAL_WAITFORVERTICALBLANKDATA {}
 #[cfg(all(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_Graphics_Gdi"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_WAITFORVERTICALBLANKDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -6778,392 +6764,6 @@ unsafe impl ::windows::runtime::Abi for DEVINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVMODEA {
-    pub dmDeviceName: [u8; 32],
-    pub dmSpecVersion: u16,
-    pub dmDriverVersion: u16,
-    pub dmSize: u16,
-    pub dmDriverExtra: u16,
-    pub dmFields: u32,
-    pub Anonymous1: DEVMODEA_0,
-    pub dmColor: i16,
-    pub dmDuplex: i16,
-    pub dmYResolution: i16,
-    pub dmTTOption: i16,
-    pub dmCollate: i16,
-    pub dmFormName: [u8; 32],
-    pub dmLogPixels: u16,
-    pub dmBitsPerPel: u32,
-    pub dmPelsWidth: u32,
-    pub dmPelsHeight: u32,
-    pub Anonymous2: DEVMODEA_1,
-    pub dmDisplayFrequency: u32,
-    pub dmICMMethod: u32,
-    pub dmICMIntent: u32,
-    pub dmMediaType: u32,
-    pub dmDitherType: u32,
-    pub dmReserved1: u32,
-    pub dmReserved2: u32,
-    pub dmPanningWidth: u32,
-    pub dmPanningHeight: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVMODEA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVMODEA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVMODEA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVMODEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVMODEA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub union DEVMODEA_0 {
-    pub Anonymous1: DEVMODEA_0_0,
-    pub Anonymous2: DEVMODEA_0_1,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVMODEA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVMODEA_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVMODEA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVMODEA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVMODEA_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DEVMODEA_0_0 {
-    pub dmOrientation: i16,
-    pub dmPaperSize: i16,
-    pub dmPaperLength: i16,
-    pub dmPaperWidth: i16,
-    pub dmScale: i16,
-    pub dmCopies: i16,
-    pub dmDefaultSource: i16,
-    pub dmPrintQuality: i16,
-}
-impl DEVMODEA_0_0 {}
-impl ::std::default::Default for DEVMODEA_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DEVMODEA_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("dmOrientation", &self.dmOrientation)
-            .field("dmPaperSize", &self.dmPaperSize)
-            .field("dmPaperLength", &self.dmPaperLength)
-            .field("dmPaperWidth", &self.dmPaperWidth)
-            .field("dmScale", &self.dmScale)
-            .field("dmCopies", &self.dmCopies)
-            .field("dmDefaultSource", &self.dmDefaultSource)
-            .field("dmPrintQuality", &self.dmPrintQuality)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DEVMODEA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dmOrientation == other.dmOrientation
-            && self.dmPaperSize == other.dmPaperSize
-            && self.dmPaperLength == other.dmPaperLength
-            && self.dmPaperWidth == other.dmPaperWidth
-            && self.dmScale == other.dmScale
-            && self.dmCopies == other.dmCopies
-            && self.dmDefaultSource == other.dmDefaultSource
-            && self.dmPrintQuality == other.dmPrintQuality
-    }
-}
-impl ::std::cmp::Eq for DEVMODEA_0_0 {}
-unsafe impl ::windows::runtime::Abi for DEVMODEA_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVMODEA_0_1 {
-    pub dmPosition: super::super::Foundation::POINTL,
-    pub dmDisplayOrientation: u32,
-    pub dmDisplayFixedOutput: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVMODEA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVMODEA_0_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DEVMODEA_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous2_e__Struct")
-            .field("dmPosition", &self.dmPosition)
-            .field("dmDisplayOrientation", &self.dmDisplayOrientation)
-            .field("dmDisplayFixedOutput", &self.dmDisplayFixedOutput)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVMODEA_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dmPosition == other.dmPosition
-            && self.dmDisplayOrientation == other.dmDisplayOrientation
-            && self.dmDisplayFixedOutput == other.dmDisplayFixedOutput
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVMODEA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVMODEA_0_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union DEVMODEA_1 {
-    pub dmDisplayFlags: u32,
-    pub dmNup: u32,
-}
-impl DEVMODEA_1 {}
-impl ::std::default::Default for DEVMODEA_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for DEVMODEA_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for DEVMODEA_1 {}
-unsafe impl ::windows::runtime::Abi for DEVMODEA_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVMODEW {
-    pub dmDeviceName: [u16; 32],
-    pub dmSpecVersion: u16,
-    pub dmDriverVersion: u16,
-    pub dmSize: u16,
-    pub dmDriverExtra: u16,
-    pub dmFields: u32,
-    pub Anonymous1: DEVMODEW_0,
-    pub dmColor: i16,
-    pub dmDuplex: i16,
-    pub dmYResolution: i16,
-    pub dmTTOption: i16,
-    pub dmCollate: i16,
-    pub dmFormName: [u16; 32],
-    pub dmLogPixels: u16,
-    pub dmBitsPerPel: u32,
-    pub dmPelsWidth: u32,
-    pub dmPelsHeight: u32,
-    pub Anonymous2: DEVMODEW_1,
-    pub dmDisplayFrequency: u32,
-    pub dmICMMethod: u32,
-    pub dmICMIntent: u32,
-    pub dmMediaType: u32,
-    pub dmDitherType: u32,
-    pub dmReserved1: u32,
-    pub dmReserved2: u32,
-    pub dmPanningWidth: u32,
-    pub dmPanningHeight: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVMODEW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVMODEW {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVMODEW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVMODEW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVMODEW {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub union DEVMODEW_0 {
-    pub Anonymous1: DEVMODEW_0_0,
-    pub Anonymous2: DEVMODEW_0_1,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVMODEW_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVMODEW_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVMODEW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVMODEW_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVMODEW_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DEVMODEW_0_0 {
-    pub dmOrientation: i16,
-    pub dmPaperSize: i16,
-    pub dmPaperLength: i16,
-    pub dmPaperWidth: i16,
-    pub dmScale: i16,
-    pub dmCopies: i16,
-    pub dmDefaultSource: i16,
-    pub dmPrintQuality: i16,
-}
-impl DEVMODEW_0_0 {}
-impl ::std::default::Default for DEVMODEW_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DEVMODEW_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("dmOrientation", &self.dmOrientation)
-            .field("dmPaperSize", &self.dmPaperSize)
-            .field("dmPaperLength", &self.dmPaperLength)
-            .field("dmPaperWidth", &self.dmPaperWidth)
-            .field("dmScale", &self.dmScale)
-            .field("dmCopies", &self.dmCopies)
-            .field("dmDefaultSource", &self.dmDefaultSource)
-            .field("dmPrintQuality", &self.dmPrintQuality)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DEVMODEW_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dmOrientation == other.dmOrientation
-            && self.dmPaperSize == other.dmPaperSize
-            && self.dmPaperLength == other.dmPaperLength
-            && self.dmPaperWidth == other.dmPaperWidth
-            && self.dmScale == other.dmScale
-            && self.dmCopies == other.dmCopies
-            && self.dmDefaultSource == other.dmDefaultSource
-            && self.dmPrintQuality == other.dmPrintQuality
-    }
-}
-impl ::std::cmp::Eq for DEVMODEW_0_0 {}
-unsafe impl ::windows::runtime::Abi for DEVMODEW_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVMODEW_0_1 {
-    pub dmPosition: super::super::Foundation::POINTL,
-    pub dmDisplayOrientation: u32,
-    pub dmDisplayFixedOutput: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVMODEW_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVMODEW_0_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DEVMODEW_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous2_e__Struct")
-            .field("dmPosition", &self.dmPosition)
-            .field("dmDisplayOrientation", &self.dmDisplayOrientation)
-            .field("dmDisplayFixedOutput", &self.dmDisplayFixedOutput)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVMODEW_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dmPosition == other.dmPosition
-            && self.dmDisplayOrientation == other.dmDisplayOrientation
-            && self.dmDisplayFixedOutput == other.dmDisplayFixedOutput
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVMODEW_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVMODEW_0_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union DEVMODEW_1 {
-    pub dmDisplayFlags: u32,
-    pub dmNup: u32,
-}
-impl DEVMODEW_1 {}
-impl ::std::default::Default for DEVMODEW_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for DEVMODEW_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for DEVMODEW_1 {}
-unsafe impl ::windows::runtime::Abi for DEVMODEW_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
 pub struct DISPLAYCONFIG_2DREGION {
     pub cx: u32,
     pub cy: u32,
@@ -7194,20 +6794,20 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_2DREGION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_ADAPTER_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub adapterDevicePath: [u16; 128],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_ADAPTER_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_ADAPTER_NAME {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_ADAPTER_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DISPLAYCONFIG_ADAPTER_NAME")
@@ -7216,15 +6816,15 @@ impl ::std::fmt::Debug for DISPLAYCONFIG_ADAPTER_NAME {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_ADAPTER_NAME {
     fn eq(&self, other: &Self) -> bool {
         self.header == other.header && self.adapterDevicePath == other.adapterDevicePath
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_ADAPTER_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_ADAPTER_NAME {
     type Abi = Self;
     type DefaultType = Self;
@@ -7272,22 +6872,22 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub r#type: DISPLAYCONFIG_DEVICE_INFO_TYPE,
     pub size: u32,
-    pub adapterId: super::super::System::SystemServices::LUID,
+    pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_DEVICE_INFO_HEADER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DISPLAYCONFIG_DEVICE_INFO_HEADER")
@@ -7298,7 +6898,7 @@ impl ::std::fmt::Debug for DISPLAYCONFIG_DEVICE_INFO_HEADER {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.r#type == other.r#type
@@ -7307,9 +6907,9 @@ impl ::std::cmp::PartialEq for DISPLAYCONFIG_DEVICE_INFO_HEADER {
             && self.id == other.id
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_DEVICE_INFO_HEADER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     type Abi = Self;
     type DefaultType = Self;
@@ -7363,30 +6963,188 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DEVICE_INFO_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0,
+    pub colorEncoding: super::super::Graphics::Gdi::DISPLAYCONFIG_COLOR_ENCODING,
+    pub bitsPerColorChannel: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::default::Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+    pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0,
+    pub value: u32,
+}
+impl DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    pub _bitfield: u32,
+}
+impl DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct")
+            .field("_bitfield", &self._bitfield)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+    pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0,
+    pub value: u32,
+}
+impl DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    pub _bitfield: u32,
+}
+impl DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct")
+            .field("_bitfield", &self._bitfield)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_MODE_INFO {
     pub infoType: DISPLAYCONFIG_MODE_INFO_TYPE,
     pub id: u32,
-    pub adapterId: super::super::System::SystemServices::LUID,
+    pub adapterId: super::super::Foundation::LUID,
     pub Anonymous: DISPLAYCONFIG_MODE_INFO_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_MODE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_MODE_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_MODE_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_MODE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -7449,59 +7207,59 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_PATH_INFO {
     pub sourceInfo: DISPLAYCONFIG_PATH_SOURCE_INFO,
     pub targetInfo: DISPLAYCONFIG_PATH_TARGET_INFO,
     pub flags: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_PATH_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_PATH_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_PATH_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_PATH_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
-    pub adapterId: super::super::System::SystemServices::LUID,
+    pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0,
     pub statusFlags: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_PATH_SOURCE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_PATH_SOURCE_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_PATH_SOURCE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -7558,9 +7316,9 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
-    pub adapterId: super::super::System::SystemServices::LUID,
+    pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0,
     pub outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
@@ -7571,23 +7329,23 @@ pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
     pub targetAvailable: super::super::Foundation::BOOL,
     pub statusFlags: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_PATH_TARGET_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_PATH_TARGET_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_PATH_TARGET_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -7788,28 +7546,224 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SCANLINE_ORDERING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub SDRWhiteLevel: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DISPLAYCONFIG_SDR_WHITE_LEVEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DISPLAYCONFIG_SDR_WHITE_LEVEL {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for DISPLAYCONFIG_SDR_WHITE_LEVEL {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("DISPLAYCONFIG_SDR_WHITE_LEVEL")
+            .field("header", &self.header)
+            .field("SDRWhiteLevel", &self.SDRWhiteLevel)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_SDR_WHITE_LEVEL {
+    fn eq(&self, other: &Self) -> bool {
+        self.header == other.header && self.SDRWhiteLevel == other.SDRWhiteLevel
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DISPLAYCONFIG_SDR_WHITE_LEVEL {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SDR_WHITE_LEVEL {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+    pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0,
+    pub value: u32,
+}
+impl DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    pub _bitfield: u32,
+}
+impl DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct")
+            .field("_bitfield", &self._bitfield)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0,
+    pub specializationType: ::windows::runtime::GUID,
+    pub specializationSubType: ::windows::runtime::GUID,
+    pub specializationApplicationName: [u16; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+    pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0,
+    pub value: u32,
+}
+impl DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    pub _bitfield: u32,
+}
+impl DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {}
+impl ::std::default::Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct")
+            .field("_bitfield", &self._bitfield)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::std::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {}
+unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     type Abi = Self;
     type DefaultType = Self;
@@ -7866,20 +7820,20 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub viewGdiDeviceName: [u16; 32],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_SOURCE_DEVICE_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DISPLAYCONFIG_SOURCE_DEVICE_NAME")
@@ -7888,15 +7842,15 @@ impl ::std::fmt::Debug for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn eq(&self, other: &Self) -> bool {
         self.header == other.header && self.viewGdiDeviceName == other.viewGdiDeviceName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_SOURCE_DEVICE_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     type Abi = Self;
     type DefaultType = Self;
@@ -7947,28 +7901,28 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SOURCE_MODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     type Abi = Self;
     type DefaultType = Self;
@@ -8025,20 +7979,20 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_TARGET_BASE_TYPE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_TARGET_BASE_TYPE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_TARGET_BASE_TYPE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_TARGET_BASE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DISPLAYCONFIG_TARGET_BASE_TYPE")
@@ -8047,22 +8001,22 @@ impl ::std::fmt::Debug for DISPLAYCONFIG_TARGET_BASE_TYPE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_TARGET_BASE_TYPE {
     fn eq(&self, other: &Self) -> bool {
         self.header == other.header && self.baseOutputTechnology == other.baseOutputTechnology
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_TARGET_BASE_TYPE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_BASE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub flags: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS,
@@ -8073,23 +8027,23 @@ pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
     pub monitorFriendlyDeviceName: [u16; 64],
     pub monitorDevicePath: [u16; 128],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_TARGET_DEVICE_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     type Abi = Self;
     type DefaultType = Self;
@@ -8188,30 +8142,30 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_MODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub width: u32,
     pub height: u32,
     pub targetMode: DISPLAYCONFIG_TARGET_MODE,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     type Abi = Self;
     type DefaultType = Self;
@@ -8502,7 +8456,7 @@ unsafe impl ::windows::runtime::Abi for DRVFN {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisplayConfigGetDeviceInfo(
     requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -8522,7 +8476,7 @@ pub unsafe fn DisplayConfigGetDeviceInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisplayConfigSetDeviceInfo(
     setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER,
@@ -8723,7 +8677,7 @@ pub unsafe fn EngAlphaBlend(
 #[inline]
 pub unsafe fn EngAssociateSurface<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
+    Param0: ::windows::runtime::IntoParam<'a, HSURF>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>,
 >(
     hsurf: Param0,
@@ -8735,7 +8689,7 @@ pub unsafe fn EngAssociateSurface<
         #[link(name = "windows")]
         extern "system" {
             fn EngAssociateSurface(
-                hsurf: super::super::System::SystemServices::HSURF,
+                hsurf: HSURF,
                 hdev: super::super::System::SystemServices::HDEV,
                 flhooks: u32,
             ) -> super::super::Foundation::BOOL;
@@ -8959,7 +8913,7 @@ pub unsafe fn EngCreateDeviceSurface<
     dhsurf: Param0,
     sizl: Param1,
     iformatcompat: u32,
-) -> super::super::System::SystemServices::HSURF {
+) -> HSURF {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8968,7 +8922,7 @@ pub unsafe fn EngCreateDeviceSurface<
                 dhsurf: super::super::System::SystemServices::DHSURF,
                 sizl: super::super::Foundation::SIZE,
                 iformatcompat: u32,
-            ) -> super::super::System::SystemServices::HSURF;
+            ) -> HSURF;
         }
         ::std::mem::transmute(EngCreateDeviceSurface(
             dhsurf.into_param().abi(),
@@ -9090,21 +9044,16 @@ pub unsafe fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServic
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngDeleteSurface<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
->(
+pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(
     hsurf: Param0,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngDeleteSurface(
-                hsurf: super::super::System::SystemServices::HSURF,
-            ) -> super::super::Foundation::BOOL;
+            fn EngDeleteSurface(hsurf: HSURF) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngDeleteSurface(hsurf.into_param().abi()))
     }
@@ -9402,38 +9351,30 @@ pub unsafe fn EngLoadModule<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngLockSurface<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
->(
+pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(
     hsurf: Param0,
 ) -> *mut SURFOBJ {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngLockSurface(hsurf: super::super::System::SystemServices::HSURF) -> *mut SURFOBJ;
+            fn EngLockSurface(hsurf: HSURF) -> *mut SURFOBJ;
         }
         ::std::mem::transmute(EngLockSurface(hsurf.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngMarkBandingSurface<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
->(
+pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(
     hsurf: Param0,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngMarkBandingSurface(
-                hsurf: super::super::System::SystemServices::HSURF,
-            ) -> super::super::Foundation::BOOL;
+            fn EngMarkBandingSurface(hsurf: HSURF) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngMarkBandingSurface(hsurf.into_param().abi()))
     }
@@ -10986,6 +10927,25 @@ unsafe impl ::windows::runtime::Abi for HSEMAPHORE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[derive(
+    :: std :: clone :: Clone,
+    :: std :: marker :: Copy,
+    :: std :: fmt :: Debug,
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+)]
+#[repr(transparent)]
+pub struct HSURF(pub isize);
+impl ::std::default::Default for HSURF {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for HSURF {}
+unsafe impl ::windows::runtime::Abi for HSURF {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HT_Get8BPPFormatPalette(
@@ -12030,7 +11990,7 @@ unsafe impl ::windows::runtime::Abi for PERBANDINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvQueryGlyphAttrs =
     unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryDisplayConfig(
     flags: u32,
@@ -12259,7 +12219,7 @@ pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct SURFOBJ {
     pub dhsurf: super::super::System::SystemServices::DHSURF,
-    pub hsurf: super::super::System::SystemServices::HSURF,
+    pub hsurf: HSURF,
     pub dhpdev: super::super::System::SystemServices::DHPDEV,
     pub hdev: super::super::System::SystemServices::HDEV,
     pub sizlBitmap: super::super::Foundation::SIZE,
@@ -12325,7 +12285,7 @@ unsafe impl ::windows::runtime::Abi for SURFOBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDisplayConfig(
     numpatharrayelements: u32,

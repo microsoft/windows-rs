@@ -409,7 +409,7 @@ pub unsafe fn ApplySnapshotVhdSet<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Security",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 #[inline]
 pub unsafe fn AttachVirtualDisk<
@@ -421,7 +421,7 @@ pub unsafe fn AttachVirtualDisk<
     flags: ATTACH_VIRTUAL_DISK_FLAG,
     providerspecificflags: u32,
     parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -433,7 +433,7 @@ pub unsafe fn AttachVirtualDisk<
                 flags: ATTACH_VIRTUAL_DISK_FLAG,
                 providerspecificflags: u32,
                 parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(AttachVirtualDisk(
@@ -1039,7 +1039,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CompactVirtualDisk<
     'a,
@@ -1048,7 +1048,7 @@ pub unsafe fn CompactVirtualDisk<
     virtualdiskhandle: Param0,
     flags: COMPACT_VIRTUAL_DISK_FLAG,
     parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -1058,7 +1058,7 @@ pub unsafe fn CompactVirtualDisk<
                 virtualdiskhandle: super::super::Foundation::HANDLE,
                 flags: COMPACT_VIRTUAL_DISK_FLAG,
                 parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(CompactVirtualDisk(
@@ -1095,7 +1095,7 @@ pub unsafe fn CompleteForkVirtualDisk<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Security",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 #[inline]
 pub unsafe fn CreateVirtualDisk<
@@ -1109,7 +1109,7 @@ pub unsafe fn CreateVirtualDisk<
     flags: CREATE_VIRTUAL_DISK_FLAG,
     providerspecificflags: u32,
     parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
     handle: *mut super::super::Foundation::HANDLE,
 ) -> u32 {
     #[cfg(windows)]
@@ -1124,7 +1124,7 @@ pub unsafe fn CreateVirtualDisk<
                 flags: CREATE_VIRTUAL_DISK_FLAG,
                 providerspecificflags: u32,
                 parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
                 handle: *mut super::super::Foundation::HANDLE,
             ) -> u32;
         }
@@ -1660,7 +1660,7 @@ pub unsafe fn EnumerateVirtualDiskMetadata<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ExpandVirtualDisk<
     'a,
@@ -1669,7 +1669,7 @@ pub unsafe fn ExpandVirtualDisk<
     virtualdiskhandle: Param0,
     flags: EXPAND_VIRTUAL_DISK_FLAG,
     parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -1679,7 +1679,7 @@ pub unsafe fn ExpandVirtualDisk<
                 virtualdiskhandle: super::super::Foundation::HANDLE,
                 flags: EXPAND_VIRTUAL_DISK_FLAG,
                 parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(ExpandVirtualDisk(
@@ -1854,7 +1854,7 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ForkVirtualDisk<
     'a,
@@ -1863,7 +1863,7 @@ pub unsafe fn ForkVirtualDisk<
     virtualdiskhandle: Param0,
     flags: FORK_VIRTUAL_DISK_FLAG,
     parameters: *const FORK_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -1873,7 +1873,7 @@ pub unsafe fn ForkVirtualDisk<
                 virtualdiskhandle: super::super::Foundation::HANDLE,
                 flags: FORK_VIRTUAL_DISK_FLAG,
                 parameters: *const FORK_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(ForkVirtualDisk(
@@ -2338,14 +2338,14 @@ pub unsafe fn GetVirtualDiskMetadata<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetVirtualDiskOperationProgress<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     virtualdiskhandle: Param0,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
     progress: *mut VIRTUAL_DISK_PROGRESS,
 ) -> u32 {
     #[cfg(windows)]
@@ -2354,7 +2354,7 @@ pub unsafe fn GetVirtualDiskOperationProgress<
         extern "system" {
             fn GetVirtualDiskOperationProgress(
                 virtualdiskhandle: super::super::Foundation::HANDLE,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
                 progress: *mut VIRTUAL_DISK_PROGRESS,
             ) -> u32;
         }
@@ -2908,7 +2908,7 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MergeVirtualDisk<
     'a,
@@ -2917,7 +2917,7 @@ pub unsafe fn MergeVirtualDisk<
     virtualdiskhandle: Param0,
     flags: MERGE_VIRTUAL_DISK_FLAG,
     parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -2927,7 +2927,7 @@ pub unsafe fn MergeVirtualDisk<
                 virtualdiskhandle: super::super::Foundation::HANDLE,
                 flags: MERGE_VIRTUAL_DISK_FLAG,
                 parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(MergeVirtualDisk(
@@ -2940,7 +2940,7 @@ pub unsafe fn MergeVirtualDisk<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MirrorVirtualDisk<
     'a,
@@ -2949,7 +2949,7 @@ pub unsafe fn MirrorVirtualDisk<
     virtualdiskhandle: Param0,
     flags: MIRROR_VIRTUAL_DISK_FLAG,
     parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -2959,7 +2959,7 @@ pub unsafe fn MirrorVirtualDisk<
                 virtualdiskhandle: super::super::Foundation::HANDLE,
                 flags: MIRROR_VIRTUAL_DISK_FLAG,
                 parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(MirrorVirtualDisk(
@@ -3871,7 +3871,7 @@ pub unsafe fn RawSCSIVirtualDisk<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ResizeVirtualDisk<
     'a,
@@ -3880,7 +3880,7 @@ pub unsafe fn ResizeVirtualDisk<
     virtualdiskhandle: Param0,
     flags: RESIZE_VIRTUAL_DISK_FLAG,
     parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -3890,7 +3890,7 @@ pub unsafe fn ResizeVirtualDisk<
                 virtualdiskhandle: super::super::Foundation::HANDLE,
                 flags: RESIZE_VIRTUAL_DISK_FLAG,
                 parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(ResizeVirtualDisk(

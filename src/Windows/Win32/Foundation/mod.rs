@@ -489,6 +489,25 @@ pub const CERT_E_VALIDITYPERIODNESTING: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2146762494i32 as _);
 pub const CERT_E_WRONG_USAGE: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2146762480i32 as _);
+#[derive(
+    :: std :: clone :: Clone,
+    :: std :: marker :: Copy,
+    :: std :: fmt :: Debug,
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+)]
+#[repr(transparent)]
+pub struct CHAR(pub u8);
+impl ::std::default::Default for CHAR {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for CHAR {}
+unsafe impl ::windows::runtime::Abi for CHAR {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const CI_CORRUPT_CATALOG: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-1073473535i32 as _);
 pub const CI_CORRUPT_DATABASE: ::windows::runtime::HRESULT =
@@ -1451,6 +1470,134 @@ pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: ::windows::runtime::HRE
     ::windows::runtime::HRESULT(-2003302398i32 as _);
 pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2003302400i32 as _);
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct DECIMAL {
+    pub wReserved: u16,
+    pub Anonymous1: DECIMAL_0,
+    pub Hi32: u32,
+    pub Anonymous2: DECIMAL_1,
+}
+impl DECIMAL {}
+impl ::std::default::Default for DECIMAL {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DECIMAL {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DECIMAL {}
+unsafe impl ::windows::runtime::Abi for DECIMAL {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union DECIMAL_0 {
+    pub Anonymous: DECIMAL_0_0,
+    pub signscale: u16,
+}
+impl DECIMAL_0 {}
+impl ::std::default::Default for DECIMAL_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DECIMAL_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DECIMAL_0 {}
+unsafe impl ::windows::runtime::Abi for DECIMAL_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct DECIMAL_0_0 {
+    pub scale: u8,
+    pub sign: u8,
+}
+impl DECIMAL_0_0 {}
+impl ::std::default::Default for DECIMAL_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for DECIMAL_0_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct")
+            .field("scale", &self.scale)
+            .field("sign", &self.sign)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for DECIMAL_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.scale == other.scale && self.sign == other.sign
+    }
+}
+impl ::std::cmp::Eq for DECIMAL_0_0 {}
+unsafe impl ::windows::runtime::Abi for DECIMAL_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union DECIMAL_1 {
+    pub Anonymous: DECIMAL_1_0,
+    pub Lo64: u64,
+}
+impl DECIMAL_1 {}
+impl ::std::default::Default for DECIMAL_1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DECIMAL_1 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DECIMAL_1 {}
+unsafe impl ::windows::runtime::Abi for DECIMAL_1 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct DECIMAL_1_0 {
+    pub Lo32: u32,
+    pub Mid32: u32,
+}
+impl DECIMAL_1_0 {}
+impl ::std::default::Default for DECIMAL_1_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for DECIMAL_1_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct")
+            .field("Lo32", &self.Lo32)
+            .field("Mid32", &self.Mid32)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for DECIMAL_1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Lo32 == other.Lo32 && self.Mid32 == other.Mid32
+    }
+}
+impl ::std::cmp::Eq for DECIMAL_1_0 {}
+unsafe impl ::windows::runtime::Abi for DECIMAL_1_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const DIGSIG_E_CRYPTO: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2146762744i32 as _);
 pub const DIGSIG_E_DECODE: ::windows::runtime::HRESULT =
@@ -2838,6 +2985,36 @@ pub const FILTER_S_NO_SECURITY_DESCRIPTOR: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(268092i32 as _);
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(268081i32 as _);
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct FLOAT128 {
+    pub LowPart: i64,
+    pub HighPart: i64,
+}
+impl FLOAT128 {}
+impl ::std::default::Default for FLOAT128 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for FLOAT128 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("FLOAT128")
+            .field("LowPart", &self.LowPart)
+            .field("HighPart", &self.HighPart)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for FLOAT128 {
+    fn eq(&self, other: &Self) -> bool {
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
+    }
+}
+impl ::std::cmp::Eq for FLOAT128 {}
+unsafe impl ::windows::runtime::Abi for FLOAT128 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 pub const FRS_ERR_CHILD_TO_PARENT_COMM: i32 = 8011i32;
 pub const FRS_ERR_INSUFFICIENT_PRIV: i32 = 8007i32;
@@ -3556,6 +3733,25 @@ impl ::std::ops::Not for HANDLE_FLAGS {
         Self(self.0.not())
     }
 }
+#[derive(
+    :: std :: clone :: Clone,
+    :: std :: marker :: Copy,
+    :: std :: fmt :: Debug,
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+)]
+#[repr(transparent)]
+pub struct HANDLE_PTR(pub usize);
+impl ::std::default::Default for HANDLE_PTR {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for HANDLE_PTR {}
+unsafe impl ::windows::runtime::Abi for HANDLE_PTR {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const HCN_E_ADAPTER_NOT_FOUND: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2143617018i32 as _);
 pub const HCN_E_ADDR_INVALID_OR_RESERVED: ::windows::runtime::HRESULT =
@@ -3977,6 +4173,36 @@ impl ::std::default::Default for LSTATUS {
 }
 unsafe impl ::windows::runtime::Handle for LSTATUS {}
 unsafe impl ::windows::runtime::Abi for LSTATUS {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct LUID {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl LUID {}
+impl ::std::default::Default for LUID {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for LUID {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("LUID")
+            .field("LowPart", &self.LowPart)
+            .field("HighPart", &self.HighPart)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for LUID {
+    fn eq(&self, other: &Self) -> bool {
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
+    }
+}
+impl ::std::cmp::Eq for LUID {}
+unsafe impl ::windows::runtime::Abi for LUID {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -6100,6 +6326,25 @@ pub const SEC_I_SIGNATURE_NEEDED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(590684i32 as _);
 pub const SEVERITY_ERROR: u32 = 1u32;
 pub const SEVERITY_SUCCESS: u32 = 0u32;
+#[derive(
+    :: std :: clone :: Clone,
+    :: std :: marker :: Copy,
+    :: std :: fmt :: Debug,
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+)]
+#[repr(transparent)]
+pub struct SHANDLE_PTR(pub isize);
+impl ::std::default::Default for SHANDLE_PTR {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for SHANDLE_PTR {}
+unsafe impl ::windows::runtime::Abi for SHANDLE_PTR {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct SIZE {
@@ -9497,6 +9742,7 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SysAddRefString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
     bstrstring: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -10566,6 +10812,40 @@ pub const UI_E_WINDOW_CLOSED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2144730623i32 as _);
 pub const UI_E_WRONG_THREAD: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2144731124i32 as _);
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct UNICODE_STRING {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Buffer: PWSTR,
+}
+impl UNICODE_STRING {}
+impl ::std::default::Default for UNICODE_STRING {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for UNICODE_STRING {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("UNICODE_STRING")
+            .field("Length", &self.Length)
+            .field("MaximumLength", &self.MaximumLength)
+            .field("Buffer", &self.Buffer)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for UNICODE_STRING {
+    fn eq(&self, other: &Self) -> bool {
+        self.Length == other.Length
+            && self.MaximumLength == other.MaximumLength
+            && self.Buffer == other.Buffer
+    }
+}
+impl ::std::cmp::Eq for UNICODE_STRING {}
+unsafe impl ::windows::runtime::Abi for UNICODE_STRING {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2017128380i32 as _);
 pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: ::windows::runtime::HRESULT =

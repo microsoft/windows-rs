@@ -30,6 +30,7 @@ unsafe impl ::windows::runtime::Abi for DRMATTESTTYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMAcquireAdvisories<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -63,6 +64,7 @@ pub unsafe fn DRMAcquireAdvisories<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMAcquireIssuanceLicenseTemplate<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -104,6 +106,7 @@ pub unsafe fn DRMAcquireIssuanceLicenseTemplate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMAcquireLicense<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -148,6 +151,7 @@ pub unsafe fn DRMAcquireLicense<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMActivate<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -186,6 +190,7 @@ pub unsafe fn DRMActivate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMAddLicense<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -214,6 +219,7 @@ pub unsafe fn DRMAddLicense<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMAddRightWithUser(
     hissuancelicense: u32,
     hright: u32,
@@ -240,6 +246,7 @@ pub unsafe fn DRMAddRightWithUser(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMAttest<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -350,6 +357,7 @@ pub type DRMCALLBACK = unsafe extern "system" fn(
 ) -> ::windows::runtime::HRESULT;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
 pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
+#[inline]
 pub unsafe fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -362,6 +370,7 @@ pub unsafe fn DRMCheckSecurity(henv: u32, clevel: u32) -> ::windows::runtime::Re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -374,6 +383,7 @@ pub unsafe fn DRMClearAllRights(hissuancelicense: u32) -> ::windows::runtime::Re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -386,6 +396,7 @@ pub unsafe fn DRMCloseEnvironmentHandle(henv: u32) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMCloseHandle(handle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -398,6 +409,7 @@ pub unsafe fn DRMCloseHandle(handle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMClosePubHandle(hpub: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -410,6 +422,7 @@ pub unsafe fn DRMClosePubHandle(hpub: u32) -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMCloseQueryHandle(hquery: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -422,6 +435,7 @@ pub unsafe fn DRMCloseQueryHandle(hquery: u32) -> ::windows::runtime::Result<()>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMCloseSession(hsession: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -435,6 +449,7 @@ pub unsafe fn DRMCloseSession(hsession: u32) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMConstructCertificateChain(
     ccertificates: u32,
     rgwszcertificates: *const super::super::Foundation::PWSTR,
@@ -464,6 +479,7 @@ pub unsafe fn DRMConstructCertificateChain(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateBoundLicense<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -499,6 +515,7 @@ pub unsafe fn DRMCreateBoundLicense<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateClientSession<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -535,6 +552,7 @@ pub unsafe fn DRMCreateClientSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateEnablingBitsDecryptor<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -571,6 +589,7 @@ pub unsafe fn DRMCreateEnablingBitsDecryptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateEnablingBitsEncryptor<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -607,6 +626,7 @@ pub unsafe fn DRMCreateEnablingBitsEncryptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateEnablingPrincipal<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -646,6 +666,7 @@ pub unsafe fn DRMCreateEnablingPrincipal<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateIssuanceLicense<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -692,6 +713,7 @@ pub unsafe fn DRMCreateIssuanceLicense<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateLicenseStorageSession<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -730,6 +752,7 @@ pub unsafe fn DRMCreateLicenseStorageSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateRight<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -771,6 +794,7 @@ pub unsafe fn DRMCreateRight<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMCreateUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -805,6 +829,7 @@ pub unsafe fn DRMCreateUser<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMDecode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -838,6 +863,7 @@ pub unsafe fn DRMDecode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMDeconstructCertificateChain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -869,6 +895,7 @@ pub unsafe fn DRMDeconstructCertificateChain<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMDecrypt(
     hcryptoprovider: u32,
     iposition: u32,
@@ -904,6 +931,7 @@ pub unsafe fn DRMDecrypt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMDeleteLicense<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -929,6 +957,7 @@ pub unsafe fn DRMDeleteLicense<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMDuplicateEnvironmentHandle(
     htocopy: u32,
     phcopy: *mut u32,
@@ -951,6 +980,7 @@ pub unsafe fn DRMDuplicateEnvironmentHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -967,6 +997,7 @@ pub unsafe fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMDuplicatePubHandle(
     hpubin: u32,
     phpubout: *mut u32,
@@ -989,6 +1020,7 @@ pub unsafe fn DRMDuplicatePubHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMDuplicateSession(
     hsessionin: u32,
     phsessionout: *mut u32,
@@ -1038,6 +1070,7 @@ unsafe impl ::windows::runtime::Abi for DRMENCODINGTYPE {
 }
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMEncode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1072,6 +1105,7 @@ pub unsafe fn DRMEncode<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMEncrypt(
     hcryptoprovider: u32,
     iposition: u32,
@@ -1107,6 +1141,7 @@ pub unsafe fn DRMEncrypt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMEnumerateLicense(
     hsession: u32,
     uflags: u32,
@@ -1163,6 +1198,7 @@ unsafe impl ::windows::runtime::Abi for DRMGLOBALOPTIONS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetApplicationSpecificData(
     hissuancelicense: u32,
     uindex: u32,
@@ -1198,6 +1234,7 @@ pub unsafe fn DRMGetApplicationSpecificData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetBoundLicenseAttribute<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1236,6 +1273,7 @@ pub unsafe fn DRMGetBoundLicenseAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetBoundLicenseAttributeCount<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1265,6 +1303,7 @@ pub unsafe fn DRMGetBoundLicenseAttributeCount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetBoundLicenseObject<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1297,6 +1336,7 @@ pub unsafe fn DRMGetBoundLicenseObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetBoundLicenseObjectCount<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1326,6 +1366,7 @@ pub unsafe fn DRMGetBoundLicenseObjectCount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetCertificateChainCount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1351,6 +1392,7 @@ pub unsafe fn DRMGetCertificateChainCount<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMGetClientVersion(
     pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO,
 ) -> ::windows::runtime::Result<()> {
@@ -1368,6 +1410,7 @@ pub unsafe fn DRMGetClientVersion(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetEnvironmentInfo<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1403,6 +1446,7 @@ pub unsafe fn DRMGetEnvironmentInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetInfo<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1437,6 +1481,7 @@ pub unsafe fn DRMGetInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMGetIntervalTime(
     hissuancelicense: u32,
     pcdays: *mut u32,
@@ -1460,6 +1505,7 @@ pub unsafe fn DRMGetIntervalTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetIssuanceLicenseInfo(
     hissuancelicense: u32,
     psttimefrom: *mut super::super::Foundation::SYSTEMTIME,
@@ -1507,6 +1553,7 @@ pub unsafe fn DRMGetIssuanceLicenseInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetIssuanceLicenseTemplate(
     hissuancelicense: u32,
     puissuancelicensetemplatelength: *mut u32,
@@ -1533,6 +1580,7 @@ pub unsafe fn DRMGetIssuanceLicenseTemplate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetMetaData(
     hissuancelicense: u32,
     pucontentidlength: *mut u32,
@@ -1589,6 +1637,7 @@ pub unsafe fn DRMGetMetaData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetNameAndDescription(
     hissuancelicense: u32,
     uindex: u32,
@@ -1627,6 +1676,7 @@ pub unsafe fn DRMGetNameAndDescription(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetOwnerLicense(
     hissuancelicense: u32,
     puownerlicenselength: *mut u32,
@@ -1653,6 +1703,7 @@ pub unsafe fn DRMGetOwnerLicense(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetProcAddress<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1682,6 +1733,7 @@ pub unsafe fn DRMGetProcAddress<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetRevocationPoint(
     hissuancelicense: u32,
     puidlength: *mut u32,
@@ -1735,6 +1787,7 @@ pub unsafe fn DRMGetRevocationPoint(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetRightExtendedInfo(
     hright: u32,
     uindex: u32,
@@ -1770,6 +1823,7 @@ pub unsafe fn DRMGetRightExtendedInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetRightInfo(
     hright: u32,
     purightnamelength: *mut u32,
@@ -1802,6 +1856,7 @@ pub unsafe fn DRMGetRightInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetSecurityProvider(
     uflags: u32,
     putypelen: *mut u32,
@@ -1834,6 +1889,7 @@ pub unsafe fn DRMGetSecurityProvider(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetServiceLocation<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1872,6 +1928,7 @@ pub unsafe fn DRMGetServiceLocation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetSignedIssuanceLicense<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1924,6 +1981,7 @@ pub unsafe fn DRMGetSignedIssuanceLicense<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetSignedIssuanceLicenseEx<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1977,6 +2035,7 @@ pub unsafe fn DRMGetSignedIssuanceLicenseEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetTime(
     henv: u32,
     etimeridtype: DRMTIMETYPE,
@@ -2003,6 +2062,7 @@ pub unsafe fn DRMGetTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetUnboundLicenseAttribute<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2041,6 +2101,7 @@ pub unsafe fn DRMGetUnboundLicenseAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetUnboundLicenseAttributeCount<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2070,6 +2131,7 @@ pub unsafe fn DRMGetUnboundLicenseAttributeCount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetUnboundLicenseObject<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2102,6 +2164,7 @@ pub unsafe fn DRMGetUnboundLicenseObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetUnboundLicenseObjectCount<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2131,6 +2194,7 @@ pub unsafe fn DRMGetUnboundLicenseObjectCount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetUsagePolicy(
     hissuancelicense: u32,
     uindex: u32,
@@ -2196,6 +2260,7 @@ pub unsafe fn DRMGetUsagePolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMGetUserInfo(
     huser: u32,
     puusernamelength: *mut u32,
@@ -2233,6 +2298,7 @@ pub unsafe fn DRMGetUserInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMGetUserRights(
     hissuancelicense: u32,
     huser: u32,
@@ -2261,6 +2327,7 @@ pub unsafe fn DRMGetUserRights(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMGetUsers(
     hissuancelicense: u32,
     uindex: u32,
@@ -2331,6 +2398,7 @@ unsafe impl ::windows::runtime::Abi for DRMID {
 }
 pub const DRMIDVERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMInitEnvironment<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2374,6 +2442,7 @@ pub unsafe fn DRMInitEnvironment<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMIsActivated(
     hclient: u32,
     uflags: u32,
@@ -2400,6 +2469,7 @@ pub unsafe fn DRMIsActivated(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMIsWindowProtected<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2423,6 +2493,7 @@ pub unsafe fn DRMIsWindowProtected<
 }
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMLoadLibrary<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2460,6 +2531,7 @@ pub unsafe fn DRMLoadLibrary<
 }
 pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMParseUnboundLicense<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2487,6 +2559,7 @@ pub unsafe fn DRMParseUnboundLicense<
 }
 pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMRegisterContent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2507,6 +2580,7 @@ pub unsafe fn DRMRegisterContent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMRegisterProtectedWindow<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2529,6 +2603,7 @@ pub unsafe fn DRMRegisterProtectedWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMRegisterRevocationList<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2554,6 +2629,7 @@ pub unsafe fn DRMRegisterRevocationList<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMRepair() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2609,6 +2685,7 @@ unsafe impl ::windows::runtime::Abi for DRMSPECTYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMSetApplicationSpecificData<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2642,6 +2719,7 @@ pub unsafe fn DRMSetApplicationSpecificData<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMSetGlobalOptions(
     eglobaloptions: DRMGLOBALOPTIONS,
     pvdata: *mut ::std::ffi::c_void,
@@ -2667,6 +2745,7 @@ pub unsafe fn DRMSetGlobalOptions(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DRMSetIntervalTime(
     hissuancelicense: u32,
     cdays: u32,
@@ -2688,6 +2767,7 @@ pub unsafe fn DRMSetIntervalTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMSetMetaData<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2734,6 +2814,7 @@ pub unsafe fn DRMSetMetaData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMSetNameAndDescription<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2771,6 +2852,7 @@ pub unsafe fn DRMSetNameAndDescription<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMSetRevocationPoint<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2820,6 +2902,7 @@ pub unsafe fn DRMSetRevocationPoint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMSetUsagePolicy<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2900,6 +2983,7 @@ unsafe impl ::windows::runtime::Abi for DRMTIMETYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DRMVerify<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

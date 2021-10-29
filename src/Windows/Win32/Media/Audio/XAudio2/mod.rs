@@ -19,6 +19,7 @@ pub const AudioVolumeMeter: ::windows::runtime::GUID = ::windows::runtime::GUID:
     16591,
     [188, 55, 125, 176, 61, 178, 251, 163],
 );
+#[inline]
 pub unsafe fn CreateAudioReverb() -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
@@ -35,6 +36,7 @@ pub unsafe fn CreateAudioReverb() -> ::windows::runtime::Result<::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateAudioVolumeMeter() -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
     {
@@ -51,6 +53,7 @@ pub unsafe fn CreateAudioVolumeMeter() -> ::windows::runtime::Result<::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateFX(
     clsid: *const ::windows::runtime::GUID,
     peffect: *mut ::std::option::Option<::windows::runtime::IUnknown>,
@@ -79,6 +82,7 @@ pub unsafe fn CreateFX(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::runtime::Result<IXAPO> {
     #[cfg(windows)]
     {
@@ -3882,6 +3886,7 @@ unsafe impl ::windows::runtime::Abi for XAUDIO2_VOICE_STATE {
     type DefaultType = Self;
 }
 pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
+#[inline]
 pub unsafe fn XAudio2CreateWithVersionInfo(
     ppxaudio2: *mut ::std::option::Option<IXAudio2>,
     flags: u32,

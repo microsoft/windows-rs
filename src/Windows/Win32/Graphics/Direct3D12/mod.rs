@@ -34,6 +34,7 @@ pub const CLSID_D3D12Tools: ::windows::runtime::GUID = ::windows::runtime::GUID:
     [170, 9, 10, 6, 182, 93, 150, 200],
 );
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D11On12CreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -176,6 +177,7 @@ unsafe impl ::windows::runtime::Abi for D3D11_RESOURCE_FLAGS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D12CreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -207,6 +209,7 @@ pub unsafe fn D3D12CreateDevice<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D12CreateRootSignatureDeserializer(
     psrcdata: *const ::std::ffi::c_void,
     srcdatasizeinbytes: usize,
@@ -235,6 +238,7 @@ pub unsafe fn D3D12CreateRootSignatureDeserializer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(
     psrcdata: *const ::std::ffi::c_void,
     srcdatasizeinbytes: usize,
@@ -263,6 +267,7 @@ pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D12EnableExperimentalFeatures(
     numfeatures: u32,
     piids: *const ::windows::runtime::GUID,
@@ -298,6 +303,7 @@ pub const D3D12ExperimentalShaderModels: ::windows::runtime::GUID =
         16629,
         [178, 151, 129, 206, 158, 24, 147, 63],
     );
+#[inline]
 pub unsafe fn D3D12GetDebugInterface<T: ::windows::runtime::Interface>(
     result__: *mut ::std::option::Option<T>,
 ) -> ::windows::runtime::Result<()> {
@@ -319,6 +325,7 @@ pub unsafe fn D3D12GetDebugInterface<T: ::windows::runtime::Interface>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D12GetInterface<T: ::windows::runtime::Interface>(
     rclsid: *const ::windows::runtime::GUID,
     result__: *mut ::std::option::Option<T>,
@@ -358,6 +365,7 @@ pub const D3D12MetaCommand: ::windows::runtime::GUID = ::windows::runtime::GUID:
     [159, 220, 217, 209, 221, 49, 221, 119],
 );
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D12SerializeRootSignature(
     prootsignature: *const D3D12_ROOT_SIGNATURE_DESC,
     version: D3D_ROOT_SIGNATURE_VERSION,
@@ -387,6 +395,7 @@ pub unsafe fn D3D12SerializeRootSignature(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D12SerializeVersionedRootSignature(
     prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC,
     ppblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>,
@@ -17662,6 +17671,7 @@ pub unsafe fn Direct3DCreate9On12(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[inline]
 pub unsafe fn Direct3DCreate9On12Ex(
     sdkversion: u32,
     poverridelist: *mut D3D9ON12_ARGS,
@@ -21978,10 +21988,9 @@ impl ID3D12Device {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -22340,12 +22349,12 @@ pub struct ID3D12Device_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -22998,10 +23007,9 @@ impl ID3D12Device1 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -23433,12 +23441,12 @@ pub struct ID3D12Device1_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -24114,10 +24122,9 @@ impl ID3D12Device2 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -24584,12 +24591,12 @@ pub struct ID3D12Device2_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -25271,10 +25278,9 @@ impl ID3D12Device3 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -25815,12 +25821,12 @@ pub struct ID3D12Device3_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -26524,10 +26530,9 @@ impl ID3D12Device4 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -27210,12 +27215,12 @@ pub struct ID3D12Device4_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -27974,10 +27979,9 @@ impl ID3D12Device5 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -28791,12 +28795,12 @@ pub struct ID3D12Device5_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -29606,10 +29610,9 @@ impl ID3D12Device6 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -30466,12 +30469,12 @@ pub struct ID3D12Device6_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -31290,10 +31293,9 @@ impl ID3D12Device7 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -32204,12 +32206,12 @@ pub struct ID3D12Device7_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -33041,10 +33043,9 @@ impl ID3D12Device8 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -34092,12 +34093,12 @@ pub struct ID3D12Device8_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -34983,10 +34984,9 @@ impl ID3D12Device9 {
             ::std::mem::transmute(psubresourcetilingsfornonpackedmips),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAdapterLuid(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).43)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -36096,12 +36096,12 @@ pub struct ID3D12Device9_abi(
         firstsubresourcetilingtoget: u32,
         psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING,
     ),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         plibraryblob: *const ::std::ffi::c_void,
@@ -56188,10 +56188,9 @@ pub struct ID3D12StateObjectProperties_abi(
 )]
 pub struct ID3D12SwapChainAssistant(::windows::runtime::IUnknown);
 impl ID3D12SwapChainAssistant {
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetLUID(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetLUID(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -56277,12 +56276,12 @@ pub struct ID3D12SwapChainAssistant_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         riid: *const ::windows::runtime::GUID,
@@ -56823,6 +56822,7 @@ pub struct IMFD3D12SynchronizationObjectCommands_abi(
 );
 pub const LUID_DEFINED: u32 = 1u32;
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
+#[inline]
 pub unsafe fn MFCreateD3D12SynchronizationObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D12Device>,

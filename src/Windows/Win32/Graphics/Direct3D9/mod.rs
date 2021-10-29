@@ -16,11 +16,11 @@ pub const D3D9b_SDK_VERSION: u32 = 31u32;
 pub const D3DADAPTER_DEFAULT: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct D3DADAPTER_IDENTIFIER9 {
-    pub Driver: [super::super::System::SystemServices::CHAR; 512],
-    pub Description: [super::super::System::SystemServices::CHAR; 512],
-    pub DeviceName: [super::super::System::SystemServices::CHAR; 32],
+    pub Driver: [super::super::Foundation::CHAR; 512],
+    pub Description: [super::super::Foundation::CHAR; 512],
+    pub DeviceName: [super::super::Foundation::CHAR; 32],
     pub DriverVersion: i64,
     pub VendorId: u32,
     pub DeviceId: u32,
@@ -29,15 +29,15 @@ pub struct D3DADAPTER_IDENTIFIER9 {
     pub DeviceIdentifier: ::windows::runtime::GUID,
     pub WHQLLevel: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl D3DADAPTER_IDENTIFIER9 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for D3DADAPTER_IDENTIFIER9 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DADAPTER_IDENTIFIER9 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("D3DADAPTER_IDENTIFIER9")
@@ -54,7 +54,7 @@ impl ::std::fmt::Debug for D3DADAPTER_IDENTIFIER9 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DADAPTER_IDENTIFIER9 {
     fn eq(&self, other: &Self) -> bool {
         self.Driver == other.Driver
@@ -69,9 +69,9 @@ impl ::std::cmp::PartialEq for D3DADAPTER_IDENTIFIER9 {
             && self.WHQLLevel == other.WHQLLevel
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for D3DADAPTER_IDENTIFIER9 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3DADAPTER_IDENTIFIER9 {
     type Abi = Self;
     type DefaultType = Self;
@@ -5926,6 +5926,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::runtime::Result<IDirect3D9Ex> {
     #[cfg(windows)]
     {
@@ -5967,7 +5968,7 @@ impl IDirect3D9 {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterIdentifier(
         &self,
         adapter: u32,
@@ -6213,14 +6214,14 @@ pub struct IDirect3D9_abi(
         pinitializefunction: *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         adapter: u32,
         flags: u32,
         pidentifier: *mut D3DADAPTER_IDENTIFIER9,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         adapter: u32,
@@ -6331,7 +6332,7 @@ impl IDirect3D9Ex {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterIdentifier(
         &self,
         adapter: u32,
@@ -6593,11 +6594,11 @@ impl IDirect3D9Ex {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLUID(
         &self,
         adapter: u32,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -6679,14 +6680,14 @@ pub struct IDirect3D9Ex_abi(
         pinitializefunction: *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         adapter: u32,
         flags: u32,
         pidentifier: *mut D3DADAPTER_IDENTIFIER9,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         adapter: u32,
@@ -6802,13 +6803,13 @@ pub struct IDirect3D9Ex_abi(
         ppreturneddeviceinterface: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         adapter: u32,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -7512,11 +7513,7 @@ impl IDirect3DDevice9 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<
         'a,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -9003,11 +9000,7 @@ pub struct IDirect3DDevice9_abi(
         ppresentationparameters: *mut D3DPRESENT_PARAMETERS,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         psourcerect: *const super::super::Foundation::RECT,
@@ -9015,12 +9008,7 @@ pub struct IDirect3DDevice9_abi(
         hdestwindowoverride: super::super::Foundation::HWND,
         pdirtyregion: *const super::Gdi::RGNDATA,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         iswapchain: u32,
@@ -9763,11 +9751,7 @@ impl IDirect3DDevice9Ex {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<
         'a,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -11200,11 +11184,7 @@ impl IDirect3DDevice9Ex {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn PresentEx<
         'a,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -11525,11 +11505,7 @@ pub struct IDirect3DDevice9Ex_abi(
         ppresentationparameters: *mut D3DPRESENT_PARAMETERS,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         psourcerect: *const super::super::Foundation::RECT,
@@ -11537,12 +11513,7 @@ pub struct IDirect3DDevice9Ex_abi(
         hdestwindowoverride: super::super::Foundation::HWND,
         pdirtyregion: *const super::Gdi::RGNDATA,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         iswapchain: u32,
@@ -12164,11 +12135,7 @@ pub struct IDirect3DDevice9Ex_abi(
         xoffset: i32,
         yoffset: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         psourcerect: *const super::super::Foundation::RECT,
@@ -12177,12 +12144,7 @@ pub struct IDirect3DDevice9Ex_abi(
         pdirtyregion: *const super::Gdi::RGNDATA,
         dwflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppriority: *mut i32,
@@ -13174,11 +13136,7 @@ pub struct IDirect3DSurface9_abi(
 )]
 pub struct IDirect3DSwapChain9(::windows::runtime::IUnknown);
 impl IDirect3DSwapChain9 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<
         'a,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13314,11 +13272,7 @@ pub struct IDirect3DSwapChain9_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         psourcerect: *const super::super::Foundation::RECT,
@@ -13327,12 +13281,7 @@ pub struct IDirect3DSwapChain9_abi(
         pdirtyregion: *const super::Gdi::RGNDATA,
         dwflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdestsurface: ::windows::runtime::RawPtr,
@@ -13373,11 +13322,7 @@ pub struct IDirect3DSwapChain9_abi(
 )]
 pub struct IDirect3DSwapChain9Ex(::windows::runtime::IUnknown);
 impl IDirect3DSwapChain9Ex {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<
         'a,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13569,11 +13514,7 @@ pub struct IDirect3DSwapChain9Ex_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         psourcerect: *const super::super::Foundation::RECT,
@@ -13582,12 +13523,7 @@ pub struct IDirect3DSwapChain9Ex_abi(
         pdirtyregion: *const super::Gdi::RGNDATA,
         dwflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdestsurface: ::windows::runtime::RawPtr,

@@ -295,7 +295,7 @@ pub unsafe fn AddISNSServerW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddIScsiConnectionA<
     'a,
@@ -389,7 +389,7 @@ pub unsafe fn AddIScsiConnectionW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddIScsiSendTargetPortalA<
     'a,
@@ -459,7 +459,7 @@ pub unsafe fn AddIScsiSendTargetPortalW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddIScsiStaticTargetA<
     'a,
@@ -1012,7 +1012,7 @@ pub const FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 5u32;
 pub const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: u32 = 32u32;
 pub const FIRMWARE_STATUS_SUCCESS: u32 = 0u32;
 pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129u32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 #[inline]
 pub unsafe fn GetDevicesForIScsiSessionA(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
@@ -1038,7 +1038,7 @@ pub unsafe fn GetDevicesForIScsiSessionA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 #[inline]
 pub unsafe fn GetDevicesForIScsiSessionW(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
@@ -2064,26 +2064,26 @@ unsafe impl ::windows::runtime::Abi for ISCSI_CONNECTION_INFO_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 pub struct ISCSI_DEVICE_ON_SESSIONA {
-    pub InitiatorName: [super::super::System::SystemServices::CHAR; 256],
-    pub TargetName: [super::super::System::SystemServices::CHAR; 224],
+    pub InitiatorName: [super::super::Foundation::CHAR; 256],
+    pub TargetName: [super::super::Foundation::CHAR; 224],
     pub ScsiAddress: SCSI_ADDRESS,
     pub DeviceInterfaceType: ::windows::runtime::GUID,
-    pub DeviceInterfaceName: [super::super::System::SystemServices::CHAR; 260],
-    pub LegacyName: [super::super::System::SystemServices::CHAR; 260],
-    pub StorageDeviceNumber: super::super::System::SystemServices::STORAGE_DEVICE_NUMBER,
+    pub DeviceInterfaceName: [super::super::Foundation::CHAR; 260],
+    pub LegacyName: [super::super::Foundation::CHAR; 260],
+    pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ISCSI_DEVICE_ON_SESSIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ::std::default::Default for ISCSI_DEVICE_ON_SESSIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ::std::fmt::Debug for ISCSI_DEVICE_ON_SESSIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ISCSI_DEVICE_ON_SESSIONA")
@@ -2098,7 +2098,7 @@ impl ::std::fmt::Debug for ISCSI_DEVICE_ON_SESSIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ::std::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName
@@ -2111,16 +2111,16 @@ impl ::std::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONA {
             && self.DeviceInstance == other.DeviceInstance
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ::std::cmp::Eq for ISCSI_DEVICE_ON_SESSIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 unsafe impl ::windows::runtime::Abi for ISCSI_DEVICE_ON_SESSIONA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub InitiatorName: [u16; 256],
     pub TargetName: [u16; 224],
@@ -2128,18 +2128,18 @@ pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub DeviceInterfaceType: ::windows::runtime::GUID,
     pub DeviceInterfaceName: [u16; 260],
     pub LegacyName: [u16; 260],
-    pub StorageDeviceNumber: super::super::System::SystemServices::STORAGE_DEVICE_NUMBER,
+    pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ISCSI_DEVICE_ON_SESSIONW {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::std::default::Default for ISCSI_DEVICE_ON_SESSIONW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::std::fmt::Debug for ISCSI_DEVICE_ON_SESSIONW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ISCSI_DEVICE_ON_SESSIONW")
@@ -2154,7 +2154,7 @@ impl ::std::fmt::Debug for ISCSI_DEVICE_ON_SESSIONW {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::std::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONW {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName
@@ -2167,9 +2167,9 @@ impl ::std::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONW {
             && self.DeviceInstance == other.DeviceInstance
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::std::cmp::Eq for ISCSI_DEVICE_ON_SESSIONW {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Ioctl")]
 unsafe impl ::windows::runtime::Abi for ISCSI_DEVICE_ON_SESSIONW {
     type Abi = Self;
     type DefaultType = Self;
@@ -2468,26 +2468,26 @@ pub const ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: u32 = 2u32;
 pub const ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_MAPPINGA {
-    pub InitiatorName: [super::super::System::SystemServices::CHAR; 256],
-    pub TargetName: [super::super::System::SystemServices::CHAR; 224],
-    pub OSDeviceName: [super::super::System::SystemServices::CHAR; 260],
+    pub InitiatorName: [super::super::Foundation::CHAR; 256],
+    pub TargetName: [super::super::Foundation::CHAR; 224],
+    pub OSDeviceName: [super::super::Foundation::CHAR; 260],
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub OSBusNumber: u32,
     pub OSTargetNumber: u32,
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ISCSI_TARGET_MAPPINGA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ISCSI_TARGET_MAPPINGA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_MAPPINGA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ISCSI_TARGET_MAPPINGA")
@@ -2502,7 +2502,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_MAPPINGA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_MAPPINGA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName
@@ -2515,9 +2515,9 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_MAPPINGA {
             && self.LUNList == other.LUNList
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ISCSI_TARGET_MAPPINGA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_MAPPINGA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2573,21 +2573,21 @@ unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_MAPPINGW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTALA {
-    pub SymbolicName: [super::super::System::SystemServices::CHAR; 256],
-    pub Address: [super::super::System::SystemServices::CHAR; 256],
+    pub SymbolicName: [super::super::Foundation::CHAR; 256],
+    pub Address: [super::super::Foundation::CHAR; 256],
     pub Socket: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ISCSI_TARGET_PORTALA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ISCSI_TARGET_PORTALA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTALA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ISCSI_TARGET_PORTALA")
@@ -2597,7 +2597,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_PORTALA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTALA {
     fn eq(&self, other: &Self) -> bool {
         self.SymbolicName == other.SymbolicName
@@ -2605,9 +2605,9 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTALA {
             && self.Socket == other.Socket
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTALA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTALA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2648,20 +2648,20 @@ unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTALW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTAL_GROUPA {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALA; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ISCSI_TARGET_PORTAL_GROUPA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ISCSI_TARGET_PORTAL_GROUPA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_GROUPA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ISCSI_TARGET_PORTAL_GROUPA")
@@ -2670,15 +2670,15 @@ impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_GROUPA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_GROUPA {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Portals == other.Portals
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_GROUPA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_GROUPA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2715,23 +2715,23 @@ unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_GROUPW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTAL_INFOA {
-    pub InitiatorName: [super::super::System::SystemServices::CHAR; 256],
+    pub InitiatorName: [super::super::Foundation::CHAR; 256],
     pub InitiatorPortNumber: u32,
-    pub SymbolicName: [super::super::System::SystemServices::CHAR; 256],
-    pub Address: [super::super::System::SystemServices::CHAR; 256],
+    pub SymbolicName: [super::super::Foundation::CHAR; 256],
+    pub Address: [super::super::Foundation::CHAR; 256],
     pub Socket: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ISCSI_TARGET_PORTAL_INFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ISCSI_TARGET_PORTAL_INFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ISCSI_TARGET_PORTAL_INFOA")
@@ -2743,7 +2743,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName
@@ -2753,9 +2753,9 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOA {
             && self.Socket == other.Socket
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2802,25 +2802,25 @@ unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
-    pub InitiatorName: [super::super::System::SystemServices::CHAR; 256],
+    pub InitiatorName: [super::super::Foundation::CHAR; 256],
     pub InitiatorPortNumber: u32,
-    pub SymbolicName: [super::super::System::SystemServices::CHAR; 256],
-    pub Address: [super::super::System::SystemServices::CHAR; 256],
+    pub SymbolicName: [super::super::Foundation::CHAR; 256],
+    pub Address: [super::super::Foundation::CHAR; 256],
     pub Socket: u16,
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ISCSI_TARGET_PORTAL_INFO_EXA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXA")
@@ -2834,7 +2834,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName
@@ -2846,9 +2846,9 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXA {
             && self.LoginOptions == other.LoginOptions
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFO_EXA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFO_EXA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2963,7 +2963,7 @@ unsafe impl ::windows::runtime::Abi for ISCSI_VERSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoginIScsiTargetA<
     'a,
@@ -3987,26 +3987,26 @@ unsafe impl ::windows::runtime::Abi for NV_SEP_WRITE_CACHE_TYPE {
 pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
-    pub TargetName: [super::super::System::SystemServices::CHAR; 224],
+    pub TargetName: [super::super::Foundation::CHAR; 224],
     pub IsInformationalSession: super::super::Foundation::BOOLEAN,
-    pub InitiatorInstance: [super::super::System::SystemServices::CHAR; 256],
+    pub InitiatorInstance: [super::super::Foundation::CHAR; 256],
     pub InitiatorPortNumber: u32,
     pub TargetPortal: ISCSI_TARGET_PORTALA,
     pub SecurityFlags: u64,
     pub Mappings: *mut ISCSI_TARGET_MAPPINGA,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl PERSISTENT_ISCSI_LOGIN_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PERSISTENT_ISCSI_LOGIN_INFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PERSISTENT_ISCSI_LOGIN_INFOA")
@@ -4021,7 +4021,7 @@ impl ::std::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERSISTENT_ISCSI_LOGIN_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.TargetName == other.TargetName
@@ -4034,9 +4034,9 @@ impl ::std::cmp::PartialEq for PERSISTENT_ISCSI_LOGIN_INFOA {
             && self.LoginOptions == other.LoginOptions
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PERSISTENT_ISCSI_LOGIN_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERSISTENT_ISCSI_LOGIN_INFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -4135,7 +4135,7 @@ pub unsafe fn RefreshISNSServerW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshIScsiSendTargetPortalA<
     'a,
@@ -4253,7 +4253,7 @@ pub unsafe fn RemoveIScsiConnection(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveIScsiPersistentTargetA<
     'a,
@@ -4319,7 +4319,7 @@ pub unsafe fn RemoveIScsiPersistentTargetW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveIScsiSendTargetPortalA<
     'a,
@@ -4491,7 +4491,7 @@ pub unsafe fn RemoveRadiusServerW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportActiveIScsiTargetMappingsA(
     buffersize: *mut u32,
@@ -4640,7 +4640,7 @@ pub unsafe fn ReportIScsiInitiatorListW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportIScsiPersistentLoginsA(
     count: *mut u32,
@@ -4692,7 +4692,7 @@ pub unsafe fn ReportIScsiPersistentLoginsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsA(
     portalcount: *mut u32,
@@ -4715,7 +4715,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsExA(
     portalcount: *mut u32,
@@ -4788,7 +4788,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportIScsiTargetPortalsA<
     'a,

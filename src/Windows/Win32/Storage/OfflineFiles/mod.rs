@@ -6154,12 +6154,12 @@ impl IOfflineFilesSetting {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPreference(
         &self,
-        pvarvalue: *mut super::super::System::OleAutomation::VARIANT,
+        pvarvalue: *mut super::super::System::Com::VARIANT,
         dwscope: u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
@@ -6179,12 +6179,12 @@ impl IOfflineFilesSetting {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetPreference(
         &self,
-        pvarvalue: *const super::super::System::OleAutomation::VARIANT,
+        pvarvalue: *const super::super::System::Com::VARIANT,
         dwscope: u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
@@ -6203,12 +6203,12 @@ impl IOfflineFilesSetting {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPolicy(
         &self,
-        pvarvalue: *mut super::super::System::OleAutomation::VARIANT,
+        pvarvalue: *mut super::super::System::Com::VARIANT,
         dwscope: u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(
@@ -6228,12 +6228,12 @@ impl IOfflineFilesSetting {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
-        pvarvalue: *mut super::super::System::OleAutomation::VARIANT,
+        pvarvalue: *mut super::super::System::Com::VARIANT,
         pbsetbypolicy: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(
@@ -6301,18 +6301,18 @@ pub struct IOfflineFilesSetting_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         dwscope: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -6321,18 +6321,18 @@ pub struct IOfflineFilesSetting_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarvalue: *const ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         dwscope: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -6341,18 +6341,18 @@ pub struct IOfflineFilesSetting_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         dwscope: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -6361,18 +6361,18 @@ pub struct IOfflineFilesSetting_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pbsetbypolicy: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );

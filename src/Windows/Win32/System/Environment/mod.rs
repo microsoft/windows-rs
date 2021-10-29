@@ -289,6 +289,7 @@ unsafe impl ::windows::runtime::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn EnclaveGetAttestationReport(
     enclavedata: *const u8,
     report: *mut ::std::ffi::c_void,
@@ -317,6 +318,7 @@ pub unsafe fn EnclaveGetAttestationReport(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnclaveGetEnclaveInformation(
     informationsize: u32,
 ) -> ::windows::runtime::Result<ENCLAVE_INFORMATION> {
@@ -337,6 +339,7 @@ pub unsafe fn EnclaveGetEnclaveInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnclaveSealData(
     datatoencrypt: *const ::std::ffi::c_void,
     datatoencryptsize: u32,
@@ -374,6 +377,7 @@ pub unsafe fn EnclaveSealData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnclaveUnsealData(
     protectedblob: *const ::std::ffi::c_void,
     protectedblobsize: u32,
@@ -411,6 +415,7 @@ pub unsafe fn EnclaveUnsealData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnclaveVerifyAttestationReport(
     enclavetype: u32,
     report: *const ::std::ffi::c_void,

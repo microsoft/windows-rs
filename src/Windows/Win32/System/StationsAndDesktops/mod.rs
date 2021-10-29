@@ -7,6 +7,311 @@
     dead_code,
     clippy::all
 )]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: marker :: Copy,
+    :: std :: clone :: Clone,
+    :: std :: default :: Default,
+    :: std :: fmt :: Debug,
+)]
+#[repr(transparent)]
+pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
+pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
+pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(4u32);
+pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(32u32);
+pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS =
+    BROADCAST_SYSTEM_MESSAGE_FLAGS(2u32);
+pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(8u32);
+pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS =
+    BROADCAST_SYSTEM_MESSAGE_FLAGS(64u32);
+pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(16u32);
+pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1u32);
+pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS =
+    BROADCAST_SYSTEM_MESSAGE_FLAGS(256u32);
+pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
+pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
+impl ::std::convert::From<u32> for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn from(value: u32) -> Self {
+        Self(value)
+    }
+}
+unsafe impl ::windows::runtime::Abi for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+impl ::std::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, rhs: Self) -> Self {
+        Self(self.0 | rhs.0)
+    }
+}
+impl ::std::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, rhs: Self) -> Self {
+        Self(self.0 & rhs.0)
+    }
+}
+impl ::std::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn bitor_assign(&mut self, rhs: Self) {
+        self.0.bitor_assign(rhs.0)
+    }
+}
+impl ::std::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn bitand_assign(&mut self, rhs: Self) {
+        self.0.bitand_assign(rhs.0)
+    }
+}
+impl ::std::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: marker :: Copy,
+    :: std :: clone :: Clone,
+    :: std :: default :: Default,
+    :: std :: fmt :: Debug,
+)]
+#[repr(transparent)]
+pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
+pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
+pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
+pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
+impl ::std::convert::From<u32> for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn from(value: u32) -> Self {
+        Self(value)
+    }
+}
+unsafe impl ::windows::runtime::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+impl ::std::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn bitor(self, rhs: Self) -> Self {
+        Self(self.0 | rhs.0)
+    }
+}
+impl ::std::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn bitand(self, rhs: Self) -> Self {
+        Self(self.0 & rhs.0)
+    }
+}
+impl ::std::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn bitor_assign(&mut self, rhs: Self) {
+        self.0.bitor_assign(rhs.0)
+    }
+}
+impl ::std::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn bitand_assign(&mut self, rhs: Self) {
+        self.0.bitand_assign(rhs.0)
+    }
+}
+impl ::std::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BSMINFO {
+    pub cbSize: u32,
+    pub hdesk: HDESK,
+    pub hwnd: super::super::Foundation::HWND,
+    pub luid: super::super::Foundation::LUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl BSMINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for BSMINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for BSMINFO {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("BSMINFO")
+            .field("cbSize", &self.cbSize)
+            .field("hdesk", &self.hdesk)
+            .field("hwnd", &self.hwnd)
+            .field("luid", &self.luid)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for BSMINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize
+            && self.hdesk == other.hdesk
+            && self.hwnd == other.hwnd
+            && self.luid == other.luid
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for BSMINFO {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for BSMINFO {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn BroadcastSystemMessageA<
+    'a,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
+>(
+    flags: u32,
+    lpinfo: *mut u32,
+    msg: u32,
+    wparam: Param3,
+    lparam: Param4,
+) -> i32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn BroadcastSystemMessageA(
+                flags: u32,
+                lpinfo: *mut u32,
+                msg: u32,
+                wparam: super::super::Foundation::WPARAM,
+                lparam: super::super::Foundation::LPARAM,
+            ) -> i32;
+        }
+        ::std::mem::transmute(BroadcastSystemMessageA(
+            ::std::mem::transmute(flags),
+            ::std::mem::transmute(lpinfo),
+            ::std::mem::transmute(msg),
+            wparam.into_param().abi(),
+            lparam.into_param().abi(),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn BroadcastSystemMessageExA<
+    'a,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
+>(
+    flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
+    lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO,
+    msg: u32,
+    wparam: Param3,
+    lparam: Param4,
+    pbsminfo: *mut BSMINFO,
+) -> i32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn BroadcastSystemMessageExA(
+                flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
+                lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO,
+                msg: u32,
+                wparam: super::super::Foundation::WPARAM,
+                lparam: super::super::Foundation::LPARAM,
+                pbsminfo: *mut BSMINFO,
+            ) -> i32;
+        }
+        ::std::mem::transmute(BroadcastSystemMessageExA(
+            ::std::mem::transmute(flags),
+            ::std::mem::transmute(lpinfo),
+            ::std::mem::transmute(msg),
+            wparam.into_param().abi(),
+            lparam.into_param().abi(),
+            ::std::mem::transmute(pbsminfo),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn BroadcastSystemMessageExW<
+    'a,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
+>(
+    flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
+    lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO,
+    msg: u32,
+    wparam: Param3,
+    lparam: Param4,
+    pbsminfo: *mut BSMINFO,
+) -> i32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn BroadcastSystemMessageExW(
+                flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
+                lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO,
+                msg: u32,
+                wparam: super::super::Foundation::WPARAM,
+                lparam: super::super::Foundation::LPARAM,
+                pbsminfo: *mut BSMINFO,
+            ) -> i32;
+        }
+        ::std::mem::transmute(BroadcastSystemMessageExW(
+            ::std::mem::transmute(flags),
+            ::std::mem::transmute(lpinfo),
+            ::std::mem::transmute(msg),
+            wparam.into_param().abi(),
+            lparam.into_param().abi(),
+            ::std::mem::transmute(pbsminfo),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn BroadcastSystemMessageW<
+    'a,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
+>(
+    flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
+    lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO,
+    msg: u32,
+    wparam: Param3,
+    lparam: Param4,
+) -> i32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn BroadcastSystemMessageW(
+                flags: BROADCAST_SYSTEM_MESSAGE_FLAGS,
+                lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO,
+                msg: u32,
+                wparam: super::super::Foundation::WPARAM,
+                lparam: super::super::Foundation::LPARAM,
+            ) -> i32;
+        }
+        ::std::mem::transmute(BroadcastSystemMessageW(
+            ::std::mem::transmute(flags),
+            ::std::mem::transmute(lpinfo),
+            ::std::mem::transmute(msg),
+            wparam.into_param().abi(),
+            lparam.into_param().abi(),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>>(
@@ -41,8 +346,8 @@ pub unsafe fn CloseWindowStation<'a, Param0: ::windows::runtime::IntoParam<'a, H
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_UI_DisplayDevices"
+    feature = "Win32_Graphics_Gdi",
+    feature = "Win32_Security"
 ))]
 #[inline]
 pub unsafe fn CreateDesktopA<
@@ -52,7 +357,7 @@ pub unsafe fn CreateDesktopA<
 >(
     lpszdesktop: Param0,
     lpszdevice: Param1,
-    pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEA,
+    pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA,
     dwflags: u32,
     dwdesiredaccess: u32,
     lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -64,7 +369,7 @@ pub unsafe fn CreateDesktopA<
             fn CreateDesktopA(
                 lpszdesktop: super::super::Foundation::PSTR,
                 lpszdevice: super::super::Foundation::PSTR,
-                pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEA,
+                pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA,
                 dwflags: u32,
                 dwdesiredaccess: u32,
                 lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -84,8 +389,8 @@ pub unsafe fn CreateDesktopA<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_UI_DisplayDevices"
+    feature = "Win32_Graphics_Gdi",
+    feature = "Win32_Security"
 ))]
 #[inline]
 pub unsafe fn CreateDesktopExA<
@@ -95,7 +400,7 @@ pub unsafe fn CreateDesktopExA<
 >(
     lpszdesktop: Param0,
     lpszdevice: Param1,
-    pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEA,
+    pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA,
     dwflags: u32,
     dwdesiredaccess: u32,
     lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -109,7 +414,7 @@ pub unsafe fn CreateDesktopExA<
             fn CreateDesktopExA(
                 lpszdesktop: super::super::Foundation::PSTR,
                 lpszdevice: super::super::Foundation::PSTR,
-                pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEA,
+                pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA,
                 dwflags: u32,
                 dwdesiredaccess: u32,
                 lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -133,8 +438,8 @@ pub unsafe fn CreateDesktopExA<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_UI_DisplayDevices"
+    feature = "Win32_Graphics_Gdi",
+    feature = "Win32_Security"
 ))]
 #[inline]
 pub unsafe fn CreateDesktopExW<
@@ -144,7 +449,7 @@ pub unsafe fn CreateDesktopExW<
 >(
     lpszdesktop: Param0,
     lpszdevice: Param1,
-    pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEW,
+    pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW,
     dwflags: u32,
     dwdesiredaccess: u32,
     lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -158,7 +463,7 @@ pub unsafe fn CreateDesktopExW<
             fn CreateDesktopExW(
                 lpszdesktop: super::super::Foundation::PWSTR,
                 lpszdevice: super::super::Foundation::PWSTR,
-                pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEW,
+                pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW,
                 dwflags: u32,
                 dwdesiredaccess: u32,
                 lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -182,8 +487,8 @@ pub unsafe fn CreateDesktopExW<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_UI_DisplayDevices"
+    feature = "Win32_Graphics_Gdi",
+    feature = "Win32_Security"
 ))]
 #[inline]
 pub unsafe fn CreateDesktopW<
@@ -193,7 +498,7 @@ pub unsafe fn CreateDesktopW<
 >(
     lpszdesktop: Param0,
     lpszdevice: Param1,
-    pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEW,
+    pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW,
     dwflags: u32,
     dwdesiredaccess: u32,
     lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -205,7 +510,7 @@ pub unsafe fn CreateDesktopW<
             fn CreateDesktopW(
                 lpszdesktop: super::super::Foundation::PWSTR,
                 lpszdevice: super::super::Foundation::PWSTR,
-                pdevmode: *mut super::super::UI::DisplayDevices::DEVMODEW,
+                pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW,
                 dwflags: u32,
                 dwdesiredaccess: u32,
                 lpsa: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -287,6 +592,16 @@ pub unsafe fn CreateWindowStationW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "Win32_Foundation")]
+pub type DESKTOPENUMPROCA = unsafe extern "system" fn(
+    param0: super::super::Foundation::PSTR,
+    param1: super::super::Foundation::LPARAM,
+) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type DESKTOPENUMPROCW = unsafe extern "system" fn(
+    param0: super::super::Foundation::PWSTR,
+    param1: super::super::Foundation::LPARAM,
+) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn EnumDesktopWindows<
@@ -317,7 +632,7 @@ pub unsafe fn EnumDesktopWindows<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDesktopsA<
     'a,
@@ -325,7 +640,7 @@ pub unsafe fn EnumDesktopsA<
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
 >(
     hwinsta: Param0,
-    lpenumfunc: ::std::option::Option<super::super::UI::WindowsAndMessaging::DESKTOPENUMPROCA>,
+    lpenumfunc: ::std::option::Option<DESKTOPENUMPROCA>,
     lparam: Param2,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -347,7 +662,7 @@ pub unsafe fn EnumDesktopsA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDesktopsW<
     'a,
@@ -355,7 +670,7 @@ pub unsafe fn EnumDesktopsW<
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
 >(
     hwinsta: Param0,
-    lpenumfunc: ::std::option::Option<super::super::UI::WindowsAndMessaging::DESKTOPENUMPROCW>,
+    lpenumfunc: ::std::option::Option<DESKTOPENUMPROCW>,
     lparam: Param2,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -377,13 +692,13 @@ pub unsafe fn EnumDesktopsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumWindowStationsA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
 >(
-    lpenumfunc: ::std::option::Option<super::super::UI::WindowsAndMessaging::WINSTAENUMPROCA>,
+    lpenumfunc: ::std::option::Option<WINSTAENUMPROCA>,
     lparam: Param1,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -403,13 +718,13 @@ pub unsafe fn EnumWindowStationsA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumWindowStationsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
 >(
-    lpenumfunc: ::std::option::Option<super::super::UI::WindowsAndMessaging::WINSTAENUMPROCW>,
+    lpenumfunc: ::std::option::Option<WINSTAENUMPROCW>,
     lparam: Param1,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -924,3 +1239,13 @@ impl ::std::ops::Not for USER_OBJECT_INFORMATION_INDEX {
         Self(self.0.not())
     }
 }
+#[cfg(feature = "Win32_Foundation")]
+pub type WINSTAENUMPROCA = unsafe extern "system" fn(
+    param0: super::super::Foundation::PSTR,
+    param1: super::super::Foundation::LPARAM,
+) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type WINSTAENUMPROCW = unsafe extern "system" fn(
+    param0: super::super::Foundation::PWSTR,
+    param1: super::super::Foundation::LPARAM,
+) -> super::super::Foundation::BOOL;

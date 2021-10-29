@@ -7,10 +7,11 @@
     dead_code,
     clippy::all
 )]
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn BindIFilterFromStorage<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStorage>,
+    Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
 >(
     pstg: Param0,
@@ -37,10 +38,11 @@ pub unsafe fn BindIFilterFromStorage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn BindIFilterFromStream<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+    Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
 >(
     pstm: Param0,
@@ -412,20 +414,20 @@ pub const FILTER_W_MONIKER_CLIPPED: ::windows::runtime::HRESULT =
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 pub struct FULLPROPSPEC {
     pub guidPropSet: ::windows::runtime::GUID,
-    pub psProperty: super::StructuredStorage::PROPSPEC,
+    pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl FULLPROPSPEC {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::default::Default for FULLPROPSPEC {
     fn default() -> Self {
@@ -434,7 +436,7 @@ impl ::std::default::Default for FULLPROPSPEC {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::PartialEq for FULLPROPSPEC {
     fn eq(&self, _other: &Self) -> bool {
@@ -443,12 +445,12 @@ impl ::std::cmp::PartialEq for FULLPROPSPEC {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::Eq for FULLPROPSPEC {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 unsafe impl ::windows::runtime::Abi for FULLPROPSPEC {
     type Abi = Self;
@@ -520,7 +522,7 @@ pub struct IFilter(::windows::runtime::IUnknown);
 impl IFilter {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn Init(
         &self,
@@ -539,7 +541,7 @@ impl IFilter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(
@@ -561,14 +563,13 @@ impl IFilter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
-        pppropvalue: *mut *mut super::StructuredStorage::PROPVARIANT,
+        pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> i32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -636,7 +637,7 @@ pub struct IFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -647,17 +648,17 @@ pub struct IFilter_abi(
     ) -> i32,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstat: *mut STAT_CHUNK) -> i32,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -669,21 +670,19 @@ pub struct IFilter_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pppropvalue: *mut *mut super::StructuredStorage::PROPVARIANT,
+        pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> i32,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -809,6 +808,7 @@ pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadIFilter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -839,6 +839,7 @@ pub unsafe fn LoadIFilter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadIFilterEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -913,7 +914,7 @@ pub const STAT_BUSY: u32 = 0u32;
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
@@ -927,12 +928,12 @@ pub struct STAT_CHUNK {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl STAT_CHUNK {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::default::Default for STAT_CHUNK {
     fn default() -> Self {
@@ -941,7 +942,7 @@ impl ::std::default::Default for STAT_CHUNK {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::PartialEq for STAT_CHUNK {
     fn eq(&self, _other: &Self) -> bool {
@@ -950,12 +951,12 @@ impl ::std::cmp::PartialEq for STAT_CHUNK {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::Eq for STAT_CHUNK {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 unsafe impl ::windows::runtime::Abi for STAT_CHUNK {
     type Abi = Self;

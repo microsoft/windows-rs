@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateAppContainerProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -49,6 +50,7 @@ pub unsafe fn CreateAppContainerProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteAppContainerProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -69,6 +71,7 @@ pub unsafe fn DeleteAppContainerProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -96,6 +99,7 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -127,6 +131,7 @@ pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedNam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAppContainerFolderPath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -187,6 +192,7 @@ pub unsafe fn GetAppContainerNamedObjectPath<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Registry")]
+#[inline]
 pub unsafe fn GetAppContainerRegistryLocation(
     desiredaccess: u32,
 ) -> ::windows::runtime::Result<super::super::System::Registry::HKEY> {
@@ -291,6 +297,7 @@ pub struct IIsolatedAppLauncher_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsProcessInIsolatedContainer(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -310,6 +317,7 @@ pub unsafe fn IsProcessInIsolatedContainer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsProcessInIsolatedWindowsEnvironment(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -329,6 +337,7 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsProcessInWDAGContainer(
     reserved: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {

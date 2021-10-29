@@ -9,10 +9,7 @@
 )]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
     pub RoleGuid: ::windows::runtime::GUID,
@@ -20,24 +17,15 @@ pub struct UAL_DATA_BLOB {
     pub Address: super::super::Networking::WinSock::SOCKADDR_STORAGE,
     pub UserName: [u16; 260],
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl UAL_DATA_BLOB {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for UAL_DATA_BLOB {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for UAL_DATA_BLOB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("UAL_DATA_BLOB")
@@ -49,10 +37,7 @@ impl ::std::fmt::Debug for UAL_DATA_BLOB {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for UAL_DATA_BLOB {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size
@@ -62,23 +47,15 @@ impl ::std::cmp::PartialEq for UAL_DATA_BLOB {
             && self.UserName == other.UserName
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for UAL_DATA_BLOB {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for UAL_DATA_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -92,6 +69,7 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::R
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UalRegisterProduct<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -122,10 +100,8 @@ pub unsafe fn UalRegisterProduct<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -138,10 +114,8 @@ pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
 pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {

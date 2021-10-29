@@ -95,6 +95,7 @@ impl ::std::ops::Not for ACC_UTILITY_STATE_FLAGS {
 }
 pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AccNotifyTouchInteraction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -126,6 +127,7 @@ pub unsafe fn AccNotifyTouchInteraction<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AccSetRunningUtilityState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -169,14 +171,15 @@ pub const AccessKey_Property_GUID: ::windows::runtime::GUID = ::windows::runtime
 );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn AccessibleChildren<'a, Param0: ::windows::runtime::IntoParam<'a, IAccessible>>(
     pacccontainer: Param0,
     ichildstart: i32,
     cchildren: i32,
-    rgvarchildren: *mut super::super::System::OleAutomation::VARIANT,
+    rgvarchildren: *mut super::super::System::Com::VARIANT,
     pcobtained: *mut i32,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -187,9 +190,7 @@ pub unsafe fn AccessibleChildren<'a, Param0: ::windows::runtime::IntoParam<'a, I
                 pacccontainer: ::windows::runtime::RawPtr,
                 ichildstart: i32,
                 cchildren: i32,
-                rgvarchildren: *mut ::std::mem::ManuallyDrop<
-                    super::super::System::OleAutomation::VARIANT,
-                >,
+                rgvarchildren: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
                 pcobtained: *mut i32,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -207,9 +208,10 @@ pub unsafe fn AccessibleChildren<'a, Param0: ::windows::runtime::IntoParam<'a, I
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn AccessibleObjectFromEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -218,7 +220,7 @@ pub unsafe fn AccessibleObjectFromEvent<
     dwid: u32,
     dwchildid: u32,
     ppacc: *mut ::std::option::Option<IAccessible>,
-    pvarchild: *mut super::super::System::OleAutomation::VARIANT,
+    pvarchild: *mut super::super::System::Com::VARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -229,9 +231,7 @@ pub unsafe fn AccessibleObjectFromEvent<
                 dwid: u32,
                 dwchildid: u32,
                 ppacc: *mut ::windows::runtime::RawPtr,
-                pvarchild: *mut ::std::mem::ManuallyDrop<
-                    super::super::System::OleAutomation::VARIANT,
-                >,
+                pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         AccessibleObjectFromEvent(
@@ -248,16 +248,17 @@ pub unsafe fn AccessibleObjectFromEvent<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn AccessibleObjectFromPoint<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>,
 >(
     ptscreen: Param0,
     ppacc: *mut ::std::option::Option<IAccessible>,
-    pvarchild: *mut super::super::System::OleAutomation::VARIANT,
+    pvarchild: *mut super::super::System::Com::VARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -266,9 +267,7 @@ pub unsafe fn AccessibleObjectFromPoint<
             fn AccessibleObjectFromPoint(
                 ptscreen: super::super::Foundation::POINT,
                 ppacc: *mut ::windows::runtime::RawPtr,
-                pvarchild: *mut ::std::mem::ManuallyDrop<
-                    super::super::System::OleAutomation::VARIANT,
-                >,
+                pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         AccessibleObjectFromPoint(
@@ -282,6 +281,7 @@ pub unsafe fn AccessibleObjectFromPoint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AccessibleObjectFromWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1039,6 +1039,7 @@ pub const ControllerFor_Property_GUID: ::windows::runtime::GUID =
         [155, 230, 127, 168, 186, 157, 58, 144],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStdAccessibleObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1071,6 +1072,7 @@ pub unsafe fn CreateStdAccessibleObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStdAccessibleProxyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1107,6 +1109,7 @@ pub unsafe fn CreateStdAccessibleProxyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateStdAccessibleProxyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1199,6 +1202,7 @@ pub const DescribedBy_Property_GUID: ::windows::runtime::GUID =
         16637,
         [141, 176, 107, 241, 211, 23, 249, 152],
     );
+#[inline]
 pub unsafe fn DockPattern_SetDockPosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -1396,6 +1400,7 @@ unsafe impl ::windows::runtime::Abi for EventArgsType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ExpandCollapsePattern_Collapse<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -1415,6 +1420,7 @@ pub unsafe fn ExpandCollapsePattern_Collapse<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ExpandCollapsePattern_Expand<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -1796,6 +1802,7 @@ pub const GridItem_Row_Property_GUID: ::windows::runtime::GUID =
         17763,
         [147, 41, 253, 201, 116, 175, 37, 83],
     );
+#[inline]
 pub unsafe fn GridPattern_GetItem<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -2251,8 +2258,8 @@ pub struct IAccPropServer(::windows::runtime::IUnknown);
 impl IAccPropServer {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPropValue<
         'a,
@@ -2262,7 +2269,7 @@ impl IAccPropServer {
         pidstring: *const u8,
         dwidstringlen: u32,
         idprop: Param2,
-        pvarvalue: *mut super::super::System::OleAutomation::VARIANT,
+        pvarvalue: *mut super::super::System::Com::VARIANT,
         pfhasprop: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
@@ -2323,21 +2330,21 @@ pub struct IAccPropServer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pidstring: *const u8,
         dwidstringlen: u32,
         idprop: ::windows::runtime::GUID,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pfhasprop: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -2352,13 +2359,13 @@ pub struct IAccPropServices(::windows::runtime::IUnknown);
 impl IAccPropServices {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetPropValue<
         'a,
         Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         pidstring: *const u8,
@@ -2413,14 +2420,14 @@ impl IAccPropServices {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetHwndProp<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
         Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
-        Param4: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param4: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         hwnd: Param0,
@@ -2555,15 +2562,15 @@ impl IAccPropServices {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices",
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation",
         feature = "Win32_UI_WindowsAndMessaging"
     ))]
     pub unsafe fn SetHmenuProp<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HMENU>,
         Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         hmenu: Param0,
@@ -2732,20 +2739,20 @@ pub struct IAccPropServices_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pidstring: *const u8,
         dwidstringlen: u32,
         idprop: ::windows::runtime::GUID,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -2766,8 +2773,8 @@ pub struct IAccPropServices_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -2775,12 +2782,12 @@ pub struct IAccPropServices_abi(
         idobject: u32,
         idchild: u32,
         idprop: ::windows::runtime::GUID,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2837,8 +2844,8 @@ pub struct IAccPropServices_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices",
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation",
         feature = "Win32_UI_WindowsAndMessaging"
     ))]
     pub  unsafe extern "system" fn(
@@ -2846,12 +2853,12 @@ pub struct IAccPropServices_abi(
         hmenu: super::WindowsAndMessaging::HMENU,
         idchild: u32,
         idprop: ::windows::runtime::GUID,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices",
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation",
         feature = "Win32_UI_WindowsAndMessaging"
     )))]
     usize,
@@ -2920,20 +2927,20 @@ impl IAccessible {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
-        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
+        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(itinfo),
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -2956,8 +2963,8 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -2965,9 +2972,9 @@ impl IAccessible {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::super::System::Com::VARIANT,
+        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -2983,16 +2990,16 @@ impl IAccessible {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn accParent(
         &self,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::IDispatch> {
-        let mut result__ : < super::super::System::OleAutomation:: IDispatch as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
+        let mut result__ : < super::super::System::Ole::Automation:: IDispatch as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
     }
     pub unsafe fn accChildCount(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -3004,32 +3011,32 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accChild<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::IDispatch> {
-        let mut result__ : < super::super::System::OleAutomation:: IDispatch as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
+        let mut result__ : < super::super::System::Ole::Automation:: IDispatch as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             varchild.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accName<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
@@ -3045,12 +3052,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accValue<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
@@ -3066,12 +3073,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accDescription<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
@@ -3087,52 +3094,54 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accRole<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             varchild.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accState<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(
             ::std::mem::transmute_copy(self),
             varchild.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accHelp<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
@@ -3148,12 +3157,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accHelpTopic<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         pszhelpfile: *mut super::super::Foundation::BSTR,
@@ -3170,12 +3179,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accKeyboardShortcut<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
@@ -3191,42 +3200,44 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accFocus(
         &self,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accSelection(
         &self,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accDefaultAction<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
@@ -3242,12 +3253,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accSelect<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         flagsselect: i32,
@@ -3262,12 +3273,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accLocation<
         'a,
-        Param4: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param4: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         pxleft: *mut i32,
@@ -3288,53 +3299,55 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accNavigate<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         navdir: i32,
         varstart: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(navdir),
             varstart.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accHitTest(
         &self,
         xleft: i32,
         ytop: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(xleft),
             ::std::mem::transmute(ytop),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn accDoDefaultAction<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         varchild: Param0,
@@ -3347,12 +3360,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetaccName<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
@@ -3368,12 +3381,12 @@ impl IAccessible {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetaccValue<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
@@ -3423,39 +3436,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IA
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IAccessible> for super::super::System::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IAccessible> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAccessible) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IAccessible> for super::super::System::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IAccessible> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: &IAccessible) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
     for IAccessible
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::OleAutomation::IDispatch,
+            super::super::System::Ole::Automation::IDispatch,
         >::into(self))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
     for &IAccessible
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::OleAutomation::IDispatch,
+            super::super::System::Ole::Automation::IDispatch,
         >::into(::std::clone::Clone::clone(self)))
     }
 }
@@ -3473,14 +3486,14 @@ pub struct IAccessible_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3493,8 +3506,8 @@ pub struct IAccessible_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3502,238 +3515,238 @@ pub struct IAccessible_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppdispparent: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcountchildren: *mut i32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         ppdispchild: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pszname: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pszvalue: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pszdescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
-        pvarrole: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
+        pvarrole: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
-        pvarstate: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
+        pvarstate: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pszhelp: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszhelpfile: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pidtopic: *mut i32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pszkeyboardshortcut: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarchildren: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarchildren: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pszdefaultaction: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         flagsselect: i32,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3741,93 +3754,93 @@ pub struct IAccessible_abi(
         pytop: *mut i32,
         pcxwidth: *mut i32,
         pcyheight: *mut i32,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         navdir: i32,
-        varstart: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
-        pvarendupat: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varstart: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
+        pvarendupat: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         xleft: i32,
         ytop: i32,
-        pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         szname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        varchild: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varchild: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         szvalue: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -3864,16 +3877,16 @@ impl IAccessibleEx {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn ConvertReturnedElement<
         'a,
@@ -3946,12 +3959,12 @@ pub struct IAccessibleEx_abi(
         ppacc: *mut ::windows::runtime::RawPtr,
         pidchild: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pin: ::windows::runtime::RawPtr,
@@ -4043,16 +4056,16 @@ pub struct IAccessibleHandler_abi(
 )]
 pub struct IAccessibleHostingElementProviders(::windows::runtime::IUnknown);
 impl IAccessibleHostingElementProviders {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEmbeddedFragmentRoots(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetObjectIdForProvider<
         'a,
@@ -4119,12 +4132,12 @@ pub struct IAccessibleHostingElementProviders_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprovider: ::windows::runtime::RawPtr,
@@ -4172,21 +4185,21 @@ impl IAccessibleWindowlessSite {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryObjectIdRanges<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IAccessibleHandler>,
     >(
         &self,
         prangesowner: Param0,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             prangesowner.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetParentAccessible(&self) -> ::windows::runtime::Result<IAccessible> {
         let mut result__: <IAccessible as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -4257,13 +4270,13 @@ pub struct IAccessibleWindowlessSite_abi(
         rangebase: i32,
         prangeowner: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         prangesowner: ::windows::runtime::RawPtr,
-        psaranges: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        psaranges: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppparent: *mut ::windows::runtime::RawPtr,
@@ -4589,27 +4602,27 @@ impl IDragProvider {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DropEffects(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGrabbedItems(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDragProvider {
@@ -4669,18 +4682,18 @@ pub struct IDragProvider_abi(
         pretval: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4703,16 +4716,16 @@ impl IDropTargetProvider {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DropTargetEffects(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDropTargetProvider {
@@ -4766,12 +4779,12 @@ pub struct IDropTargetProvider_abi(
         pretval: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5155,13 +5168,13 @@ pub struct IItemContainerProvider(::windows::runtime::IUnknown);
 impl IItemContainerProvider {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindItemByProperty<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         pstartafter: Param0,
@@ -5231,20 +5244,20 @@ pub struct IItemContainerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstartafter: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pfound: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -5365,16 +5378,16 @@ impl ILegacyIAccessibleProvider {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).15)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefaultAction(
@@ -5495,12 +5508,12 @@ pub struct ILegacyIAccessibleProvider_abi(
         pszkeyboardshortcut: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarselectedchildren: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pvarselectedchildren: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5546,16 +5559,16 @@ impl IMultipleViewProvider {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSupportedViews(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMultipleViewProvider {
@@ -5620,12 +5633,12 @@ pub struct IMultipleViewProvider_abi(
         this: ::windows::runtime::RawPtr,
         pretval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5802,13 +5815,13 @@ pub struct IProxyProviderWinEventSink(::windows::runtime::IUnknown);
 impl IProxyProviderWinEventSink {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddAutomationPropertyChangedEvent<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         pprovider: Param0,
@@ -5838,7 +5851,7 @@ impl IProxyProviderWinEventSink {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddStructureChangedEvent<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -5846,7 +5859,7 @@ impl IProxyProviderWinEventSink {
         &self,
         pprovider: Param0,
         structurechangetype: StructureChangeType,
-        runtimeid: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -5908,19 +5921,19 @@ pub struct IProxyProviderWinEventSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprovider: ::windows::runtime::RawPtr,
         id: i32,
-        newvalue: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        newvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -5928,14 +5941,14 @@ pub struct IProxyProviderWinEventSink_abi(
         pprovider: ::windows::runtime::RawPtr,
         id: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprovider: ::windows::runtime::RawPtr,
         structurechangetype: StructureChangeType,
-        runtimeid: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6089,11 +6102,11 @@ pub struct IRangeValueProvider_abi(
 )]
 pub struct IRawElementProviderAdviseEvents(::windows::runtime::IUnknown);
 impl IRawElementProviderAdviseEvents {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdviseEventAdded(
         &self,
         eventid: i32,
-        propertyids: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -6102,11 +6115,11 @@ impl IRawElementProviderAdviseEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdviseEventRemoved(
         &self,
         eventid: i32,
-        propertyids: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -6165,20 +6178,20 @@ pub struct IRawElementProviderAdviseEvents_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         eventid: i32,
-        propertyids: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         eventid: i32,
-        propertyids: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6202,16 +6215,16 @@ impl IRawElementProviderFragment {
         )
         .from_abi::<IRawElementProviderFragment>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn BoundingRectangle(&self) -> ::windows::runtime::Result<UiaRect> {
         let mut result__: <UiaRect as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -6221,16 +6234,16 @@ impl IRawElementProviderFragment {
         )
         .from_abi::<UiaRect>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEmbeddedFragmentRoots(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -6301,22 +6314,22 @@ pub struct IRawElementProviderFragment_abi(
         direction: NavigateDirection,
         pretval: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pretval: *mut UiaRect,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6426,16 +6439,16 @@ pub struct IRawElementProviderFragmentRoot_abi(
 )]
 pub struct IRawElementProviderHostingAccessibles(::windows::runtime::IUnknown);
 impl IRawElementProviderHostingAccessibles {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEmbeddedAccessibles(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderHostingAccessibles {
@@ -6487,12 +6500,12 @@ pub struct IRawElementProviderHostingAccessibles_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6610,20 +6623,21 @@ impl IRawElementProviderSimple {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn HostRawElementProvider(
         &self,
@@ -6697,18 +6711,18 @@ pub struct IRawElementProviderSimple_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -6748,20 +6762,21 @@ impl IRawElementProviderSimple2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn HostRawElementProvider(
         &self,
@@ -6866,18 +6881,18 @@ pub struct IRawElementProviderSimple2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -6918,20 +6933,21 @@ impl IRawElementProviderSimple3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn HostRawElementProvider(
         &self,
@@ -6949,22 +6965,23 @@ impl IRawElementProviderSimple3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetMetadataValue(
         &self,
         targetid: i32,
         metadataid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(targetid),
             ::std::mem::transmute(metadataid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple3 {
@@ -7083,18 +7100,18 @@ pub struct IRawElementProviderSimple3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -7104,19 +7121,19 @@ pub struct IRawElementProviderSimple3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         targetid: i32,
         metadataid: i32,
-        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -7142,16 +7159,16 @@ impl IRawElementProviderWindowlessSite {
         )
         .from_abi::<IRawElementProviderFragment>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeIdPrefix(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IRawElementProviderWindowlessSite {
@@ -7208,12 +7225,161 @@ pub struct IRawElementProviderWindowlessSite_abi(
         direction: NavigateDirection,
         ppparent: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+);
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct IRichEditUiaInformation(::windows::runtime::IUnknown);
+impl IRichEditUiaInformation {
+    pub unsafe fn GetBoundaryRectangle(
+        &self,
+        puiarect: *mut UiaRect,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(puiarect),
+        )
+        .ok()
+    }
+    pub unsafe fn IsVisible(&self) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for IRichEditUiaInformation {
+    type Vtable = IRichEditUiaInformation_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IRichEditUiaInformation> for ::windows::runtime::IUnknown {
+    fn from(value: IRichEditUiaInformation) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRichEditUiaInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &IRichEditUiaInformation) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for IRichEditUiaInformation
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &IRichEditUiaInformation
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRichEditUiaInformation_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        puiarect: *mut UiaRect,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+);
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct IRicheditWindowlessAccessibility(::windows::runtime::IUnknown);
+impl IRicheditWindowlessAccessibility {
+    pub unsafe fn CreateProvider<
+        'a,
+        Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderWindowlessSite>,
+    >(
+        &self,
+        psite: Param0,
+    ) -> ::windows::runtime::Result<IRawElementProviderSimple> {
+        let mut result__: <IRawElementProviderSimple as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            psite.into_param().abi(),
+            &mut result__,
+        )
+        .from_abi::<IRawElementProviderSimple>(result__)
+    }
+}
+unsafe impl ::windows::runtime::Interface for IRicheditWindowlessAccessibility {
+    type Vtable = IRicheditWindowlessAccessibility_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IRicheditWindowlessAccessibility> for ::windows::runtime::IUnknown {
+    fn from(value: IRicheditWindowlessAccessibility) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IRicheditWindowlessAccessibility> for ::windows::runtime::IUnknown {
+    fn from(value: &IRicheditWindowlessAccessibility) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for IRicheditWindowlessAccessibility
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &IRicheditWindowlessAccessibility
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRicheditWindowlessAccessibility_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        psite: ::windows::runtime::RawPtr,
+        ppprovider: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
 #[derive(
@@ -7561,16 +7727,16 @@ pub struct ISelectionItemProvider_abi(
 )]
 pub struct ISelectionProvider(::windows::runtime::IUnknown);
 impl ISelectionProvider {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSelectMultiple(
@@ -7642,12 +7808,12 @@ pub struct ISelectionProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7670,16 +7836,16 @@ pub struct ISelectionProvider_abi(
 )]
 pub struct ISelectionProvider2(::windows::runtime::IUnknown);
 impl ISelectionProvider2 {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSelectMultiple(
@@ -7812,12 +7978,12 @@ pub struct ISelectionProvider2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7866,27 +8032,27 @@ impl ISpreadsheetItemProvider {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAnnotationObjects(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemProvider {
@@ -7944,18 +8110,18 @@ pub struct ISpreadsheetItemProvider_abi(
         pretval: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -8284,27 +8450,27 @@ pub struct ISynchronizedInputProvider_abi(
 )]
 pub struct ITableItemProvider(::windows::runtime::IUnknown);
 impl ITableItemProvider {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRowHeaderItems(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetColumnHeaderItems(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITableItemProvider {
@@ -8352,18 +8518,18 @@ pub struct ITableItemProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -8374,27 +8540,27 @@ pub struct ITableItemProvider_abi(
 )]
 pub struct ITableProvider(::windows::runtime::IUnknown);
 impl ITableProvider {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRowHeaders(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetColumnHeaders(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn RowOrColumnMajor(&self) -> ::windows::runtime::Result<RowOrColumnMajor> {
         let mut result__: <RowOrColumnMajor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -8450,18 +8616,18 @@ pub struct ITableProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pretval: *mut RowOrColumnMajor,
@@ -8558,27 +8724,27 @@ pub struct ITextChildProvider_abi(
 )]
 pub struct ITextEditProvider(::windows::runtime::IUnknown);
 impl ITextEditProvider {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleRanges(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn RangeFromChild<
         'a,
@@ -8715,18 +8881,18 @@ pub struct ITextEditProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         childelement: ::windows::runtime::RawPtr,
@@ -8763,27 +8929,27 @@ pub struct ITextEditProvider_abi(
 )]
 pub struct ITextProvider(::windows::runtime::IUnknown);
 impl ITextProvider {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleRanges(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn RangeFromChild<
         'a,
@@ -8880,18 +9046,18 @@ pub struct ITextProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         childelement: ::windows::runtime::RawPtr,
@@ -8920,27 +9086,27 @@ pub struct ITextProvider_abi(
 )]
 pub struct ITextProvider2(::windows::runtime::IUnknown);
 impl ITextProvider2 {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleRanges(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn RangeFromChild<
         'a,
@@ -9088,18 +9254,18 @@ pub struct ITextProvider2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         childelement: ::windows::runtime::RawPtr,
@@ -9191,12 +9357,12 @@ impl ITextRangeProvider {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindAttribute<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -9240,31 +9406,32 @@ impl ITextRangeProvider {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetAttributeValue(
         &self,
         attributeid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(attributeid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetEnclosingElement(
         &self,
@@ -9357,16 +9524,16 @@ impl ITextRangeProvider {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).20)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITextRangeProvider {
@@ -9438,20 +9605,20 @@ pub struct ITextRangeProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attributeid: i32,
-        val: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        val: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         backward: super::super::Foundation::BOOL,
         pretval: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -9465,26 +9632,26 @@ pub struct ITextRangeProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attributeid: i32,
-        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pretval: *mut ::windows::runtime::RawPtr,
@@ -9524,12 +9691,12 @@ pub struct ITextRangeProvider_abi(
         aligntotop: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -9591,12 +9758,12 @@ impl ITextRangeProvider2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindAttribute<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -9640,31 +9807,32 @@ impl ITextRangeProvider2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetAttributeValue(
         &self,
         attributeid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(attributeid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetEnclosingElement(
         &self,
@@ -9757,16 +9925,16 @@ impl ITextRangeProvider2 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).20)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn ShowContextMenu(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)).ok()
@@ -9863,20 +10031,20 @@ pub struct ITextRangeProvider2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attributeid: i32,
-        val: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        val: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         backward: super::super::Foundation::BOOL,
         pretval: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -9890,26 +10058,26 @@ pub struct ITextRangeProvider2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attributeid: i32,
-        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pretval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pretval: *mut ::windows::runtime::RawPtr,
@@ -9949,12 +10117,12 @@ pub struct ITextRangeProvider2_abi(
         aligntotop: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pretval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -10436,11 +10604,11 @@ impl IUIAutomation {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(
         &self,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -10683,12 +10851,12 @@ impl IUIAutomation {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyCondition<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -10706,12 +10874,12 @@ impl IUIAutomation {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyConditionEx<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -10748,10 +10916,10 @@ impl IUIAutomation {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -10796,10 +10964,10 @@ impl IUIAutomation {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -10907,7 +11075,7 @@ impl IUIAutomation {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -10919,7 +11087,7 @@ impl IUIAutomation {
         scope: TreeScope,
         cacherequest: Param2,
         handler: Param3,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(
             ::std::mem::transmute_copy(self),
@@ -11016,25 +11184,25 @@ impl IUIAutomation {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(
         &self,
         array: *const i32,
         arraycount: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).42)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(array),
             ::std::mem::transmute(arraycount),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(
         &self,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -11048,8 +11216,8 @@ impl IUIAutomation {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RectToVariant<
         'a,
@@ -11057,23 +11225,24 @@ impl IUIAutomation {
     >(
         &self,
         rc: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(
             ::std::mem::transmute_copy(self),
             rc.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn VariantToRect<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         var: Param0,
@@ -11087,10 +11256,10 @@ impl IUIAutomation {
         )
         .from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(
         &self,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -11157,15 +11326,15 @@ impl IUIAutomation {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(
             ::std::mem::transmute_copy(self),
@@ -11175,15 +11344,15 @@ impl IUIAutomation {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(
             ::std::mem::transmute_copy(self),
@@ -11195,12 +11364,12 @@ impl IUIAutomation {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CheckNotSupported<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         value: Param0,
@@ -11329,14 +11498,14 @@ pub struct IUIAutomation_abi(
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         root: *mut ::windows::runtime::RawPtr,
@@ -11428,37 +11597,37 @@ pub struct IUIAutomation_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         flags: PropertyConditionFlags,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -11467,13 +11636,13 @@ pub struct IUIAutomation_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -11486,13 +11655,13 @@ pub struct IUIAutomation_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -11527,16 +11696,16 @@ pub struct IUIAutomation_abi(
         propertyarray: *const i32,
         propertycount: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
         scope: TreeScope,
         cacherequest: ::windows::runtime::RawPtr,
         handler: ::windows::runtime::RawPtr,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
@@ -11564,62 +11733,62 @@ pub struct IUIAutomation_abi(
         handler: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         array: *const i32,
         arraycount: i32,
-        safearray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        safearray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         rc: super::super::Foundation::RECT,
-        var: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         rc: *mut super::super::Foundation::RECT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         factory: ::windows::runtime::RawPtr,
@@ -11643,36 +11812,36 @@ pub struct IUIAutomation_abi(
         name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         isnotsupported: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -11726,11 +11895,11 @@ impl IUIAutomation2 {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(
         &self,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -11973,12 +12142,12 @@ impl IUIAutomation2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyCondition<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -11996,12 +12165,12 @@ impl IUIAutomation2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyConditionEx<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -12038,10 +12207,10 @@ impl IUIAutomation2 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -12086,10 +12255,10 @@ impl IUIAutomation2 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -12197,7 +12366,7 @@ impl IUIAutomation2 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -12209,7 +12378,7 @@ impl IUIAutomation2 {
         scope: TreeScope,
         cacherequest: Param2,
         handler: Param3,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(
             ::std::mem::transmute_copy(self),
@@ -12306,25 +12475,25 @@ impl IUIAutomation2 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(
         &self,
         array: *const i32,
         arraycount: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).42)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(array),
             ::std::mem::transmute(arraycount),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(
         &self,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -12338,8 +12507,8 @@ impl IUIAutomation2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RectToVariant<
         'a,
@@ -12347,23 +12516,24 @@ impl IUIAutomation2 {
     >(
         &self,
         rc: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(
             ::std::mem::transmute_copy(self),
             rc.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn VariantToRect<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         var: Param0,
@@ -12377,10 +12547,10 @@ impl IUIAutomation2 {
         )
         .from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(
         &self,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -12447,15 +12617,15 @@ impl IUIAutomation2 {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(
             ::std::mem::transmute_copy(self),
@@ -12465,15 +12635,15 @@ impl IUIAutomation2 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(
             ::std::mem::transmute_copy(self),
@@ -12485,12 +12655,12 @@ impl IUIAutomation2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CheckNotSupported<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         value: Param0,
@@ -12697,14 +12867,14 @@ pub struct IUIAutomation2_abi(
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         root: *mut ::windows::runtime::RawPtr,
@@ -12796,37 +12966,37 @@ pub struct IUIAutomation2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         flags: PropertyConditionFlags,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -12835,13 +13005,13 @@ pub struct IUIAutomation2_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -12854,13 +13024,13 @@ pub struct IUIAutomation2_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -12895,16 +13065,16 @@ pub struct IUIAutomation2_abi(
         propertyarray: *const i32,
         propertycount: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
         scope: TreeScope,
         cacherequest: ::windows::runtime::RawPtr,
         handler: ::windows::runtime::RawPtr,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
@@ -12932,62 +13102,62 @@ pub struct IUIAutomation2_abi(
         handler: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         array: *const i32,
         arraycount: i32,
-        safearray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        safearray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         rc: super::super::Foundation::RECT,
-        var: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         rc: *mut super::super::Foundation::RECT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         factory: ::windows::runtime::RawPtr,
@@ -13011,36 +13181,36 @@ pub struct IUIAutomation2_abi(
         name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         isnotsupported: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -13122,11 +13292,11 @@ impl IUIAutomation3 {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(
         &self,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -13369,12 +13539,12 @@ impl IUIAutomation3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyCondition<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -13392,12 +13562,12 @@ impl IUIAutomation3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyConditionEx<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -13434,10 +13604,10 @@ impl IUIAutomation3 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -13482,10 +13652,10 @@ impl IUIAutomation3 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -13593,7 +13763,7 @@ impl IUIAutomation3 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -13605,7 +13775,7 @@ impl IUIAutomation3 {
         scope: TreeScope,
         cacherequest: Param2,
         handler: Param3,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(
             ::std::mem::transmute_copy(self),
@@ -13702,25 +13872,25 @@ impl IUIAutomation3 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(
         &self,
         array: *const i32,
         arraycount: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).42)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(array),
             ::std::mem::transmute(arraycount),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(
         &self,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -13734,8 +13904,8 @@ impl IUIAutomation3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RectToVariant<
         'a,
@@ -13743,23 +13913,24 @@ impl IUIAutomation3 {
     >(
         &self,
         rc: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(
             ::std::mem::transmute_copy(self),
             rc.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn VariantToRect<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         var: Param0,
@@ -13773,10 +13944,10 @@ impl IUIAutomation3 {
         )
         .from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(
         &self,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -13843,15 +14014,15 @@ impl IUIAutomation3 {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(
             ::std::mem::transmute_copy(self),
@@ -13861,15 +14032,15 @@ impl IUIAutomation3 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(
             ::std::mem::transmute_copy(self),
@@ -13881,12 +14052,12 @@ impl IUIAutomation3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CheckNotSupported<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         value: Param0,
@@ -14154,14 +14325,14 @@ pub struct IUIAutomation3_abi(
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         root: *mut ::windows::runtime::RawPtr,
@@ -14253,37 +14424,37 @@ pub struct IUIAutomation3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         flags: PropertyConditionFlags,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -14292,13 +14463,13 @@ pub struct IUIAutomation3_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -14311,13 +14482,13 @@ pub struct IUIAutomation3_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -14352,16 +14523,16 @@ pub struct IUIAutomation3_abi(
         propertyarray: *const i32,
         propertycount: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
         scope: TreeScope,
         cacherequest: ::windows::runtime::RawPtr,
         handler: ::windows::runtime::RawPtr,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
@@ -14389,62 +14560,62 @@ pub struct IUIAutomation3_abi(
         handler: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         array: *const i32,
         arraycount: i32,
-        safearray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        safearray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         rc: super::super::Foundation::RECT,
-        var: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         rc: *mut super::super::Foundation::RECT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         factory: ::windows::runtime::RawPtr,
@@ -14468,36 +14639,36 @@ pub struct IUIAutomation3_abi(
         name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         isnotsupported: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -14592,11 +14763,11 @@ impl IUIAutomation4 {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(
         &self,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -14839,12 +15010,12 @@ impl IUIAutomation4 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyCondition<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -14862,12 +15033,12 @@ impl IUIAutomation4 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyConditionEx<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -14904,10 +15075,10 @@ impl IUIAutomation4 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -14952,10 +15123,10 @@ impl IUIAutomation4 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -15063,7 +15234,7 @@ impl IUIAutomation4 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -15075,7 +15246,7 @@ impl IUIAutomation4 {
         scope: TreeScope,
         cacherequest: Param2,
         handler: Param3,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(
             ::std::mem::transmute_copy(self),
@@ -15172,25 +15343,25 @@ impl IUIAutomation4 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(
         &self,
         array: *const i32,
         arraycount: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).42)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(array),
             ::std::mem::transmute(arraycount),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(
         &self,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -15204,8 +15375,8 @@ impl IUIAutomation4 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RectToVariant<
         'a,
@@ -15213,23 +15384,24 @@ impl IUIAutomation4 {
     >(
         &self,
         rc: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(
             ::std::mem::transmute_copy(self),
             rc.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn VariantToRect<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         var: Param0,
@@ -15243,10 +15415,10 @@ impl IUIAutomation4 {
         )
         .from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(
         &self,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -15313,15 +15485,15 @@ impl IUIAutomation4 {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(
             ::std::mem::transmute_copy(self),
@@ -15331,15 +15503,15 @@ impl IUIAutomation4 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(
             ::std::mem::transmute_copy(self),
@@ -15351,12 +15523,12 @@ impl IUIAutomation4 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CheckNotSupported<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         value: Param0,
@@ -15687,14 +15859,14 @@ pub struct IUIAutomation4_abi(
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         root: *mut ::windows::runtime::RawPtr,
@@ -15786,37 +15958,37 @@ pub struct IUIAutomation4_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         flags: PropertyConditionFlags,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -15825,13 +15997,13 @@ pub struct IUIAutomation4_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -15844,13 +16016,13 @@ pub struct IUIAutomation4_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -15885,16 +16057,16 @@ pub struct IUIAutomation4_abi(
         propertyarray: *const i32,
         propertycount: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
         scope: TreeScope,
         cacherequest: ::windows::runtime::RawPtr,
         handler: ::windows::runtime::RawPtr,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
@@ -15922,62 +16094,62 @@ pub struct IUIAutomation4_abi(
         handler: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         array: *const i32,
         arraycount: i32,
-        safearray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        safearray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         rc: super::super::Foundation::RECT,
-        var: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         rc: *mut super::super::Foundation::RECT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         factory: ::windows::runtime::RawPtr,
@@ -16001,36 +16173,36 @@ pub struct IUIAutomation4_abi(
         name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         isnotsupported: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -16139,11 +16311,11 @@ impl IUIAutomation5 {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(
         &self,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -16386,12 +16558,12 @@ impl IUIAutomation5 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyCondition<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -16409,12 +16581,12 @@ impl IUIAutomation5 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyConditionEx<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -16451,10 +16623,10 @@ impl IUIAutomation5 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -16499,10 +16671,10 @@ impl IUIAutomation5 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -16610,7 +16782,7 @@ impl IUIAutomation5 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -16622,7 +16794,7 @@ impl IUIAutomation5 {
         scope: TreeScope,
         cacherequest: Param2,
         handler: Param3,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(
             ::std::mem::transmute_copy(self),
@@ -16719,25 +16891,25 @@ impl IUIAutomation5 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(
         &self,
         array: *const i32,
         arraycount: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).42)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(array),
             ::std::mem::transmute(arraycount),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(
         &self,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -16751,8 +16923,8 @@ impl IUIAutomation5 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RectToVariant<
         'a,
@@ -16760,23 +16932,24 @@ impl IUIAutomation5 {
     >(
         &self,
         rc: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(
             ::std::mem::transmute_copy(self),
             rc.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn VariantToRect<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         var: Param0,
@@ -16790,10 +16963,10 @@ impl IUIAutomation5 {
         )
         .from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(
         &self,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -16860,15 +17033,15 @@ impl IUIAutomation5 {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(
             ::std::mem::transmute_copy(self),
@@ -16878,15 +17051,15 @@ impl IUIAutomation5 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(
             ::std::mem::transmute_copy(self),
@@ -16898,12 +17071,12 @@ impl IUIAutomation5 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CheckNotSupported<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         value: Param0,
@@ -17293,14 +17466,14 @@ pub struct IUIAutomation5_abi(
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         root: *mut ::windows::runtime::RawPtr,
@@ -17392,37 +17565,37 @@ pub struct IUIAutomation5_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         flags: PropertyConditionFlags,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -17431,13 +17604,13 @@ pub struct IUIAutomation5_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -17450,13 +17623,13 @@ pub struct IUIAutomation5_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -17491,16 +17664,16 @@ pub struct IUIAutomation5_abi(
         propertyarray: *const i32,
         propertycount: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
         scope: TreeScope,
         cacherequest: ::windows::runtime::RawPtr,
         handler: ::windows::runtime::RawPtr,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
@@ -17528,62 +17701,62 @@ pub struct IUIAutomation5_abi(
         handler: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         array: *const i32,
         arraycount: i32,
-        safearray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        safearray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         rc: super::super::Foundation::RECT,
-        var: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         rc: *mut super::super::Foundation::RECT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         factory: ::windows::runtime::RawPtr,
@@ -17607,36 +17780,36 @@ pub struct IUIAutomation5_abi(
         name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         isnotsupported: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -17757,11 +17930,11 @@ impl IUIAutomation6 {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(
         &self,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -18004,12 +18177,12 @@ impl IUIAutomation6 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyCondition<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -18027,12 +18200,12 @@ impl IUIAutomation6 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreatePropertyConditionEx<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         propertyid: i32,
@@ -18069,10 +18242,10 @@ impl IUIAutomation6 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -18117,10 +18290,10 @@ impl IUIAutomation6 {
         )
         .from_abi::<IUIAutomationCondition>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(
         &self,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<IUIAutomationCondition> {
         let mut result__: <IUIAutomationCondition as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -18228,7 +18401,7 @@ impl IUIAutomation6 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -18240,7 +18413,7 @@ impl IUIAutomation6 {
         scope: TreeScope,
         cacherequest: Param2,
         handler: Param3,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(
             ::std::mem::transmute_copy(self),
@@ -18337,25 +18510,25 @@ impl IUIAutomation6 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(
         &self,
         array: *const i32,
         arraycount: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).42)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(array),
             ::std::mem::transmute(arraycount),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(
         &self,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -18369,8 +18542,8 @@ impl IUIAutomation6 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RectToVariant<
         'a,
@@ -18378,23 +18551,24 @@ impl IUIAutomation6 {
     >(
         &self,
         rc: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(
             ::std::mem::transmute_copy(self),
             rc.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn VariantToRect<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         var: Param0,
@@ -18408,10 +18582,10 @@ impl IUIAutomation6 {
         )
         .from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(
         &self,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::Result<()> {
@@ -18478,15 +18652,15 @@ impl IUIAutomation6 {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(
             ::std::mem::transmute_copy(self),
@@ -18496,15 +18670,15 @@ impl IUIAutomation6 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
     >(
         &self,
         pelement: Param0,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(
             ::std::mem::transmute_copy(self),
@@ -18516,12 +18690,12 @@ impl IUIAutomation6 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CheckNotSupported<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         value: Param0,
@@ -19053,14 +19227,14 @@ pub struct IUIAutomation6_abi(
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid1: *const super::super::System::OleAutomation::SAFEARRAY,
-        runtimeid2: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid1: *const super::super::System::Com::SAFEARRAY,
+        runtimeid2: *const super::super::System::Com::SAFEARRAY,
         aresame: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         root: *mut ::windows::runtime::RawPtr,
@@ -19152,37 +19326,37 @@ pub struct IUIAutomation6_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         flags: PropertyConditionFlags,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -19191,13 +19365,13 @@ pub struct IUIAutomation6_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -19210,13 +19384,13 @@ pub struct IUIAutomation6_abi(
         condition2: ::windows::runtime::RawPtr,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        conditions: *const super::super::System::OleAutomation::SAFEARRAY,
+        conditions: *const super::super::System::Com::SAFEARRAY,
         newcondition: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         conditions: *const ::windows::runtime::RawPtr,
@@ -19251,16 +19425,16 @@ pub struct IUIAutomation6_abi(
         propertyarray: *const i32,
         propertycount: i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
         scope: TreeScope,
         cacherequest: ::windows::runtime::RawPtr,
         handler: ::windows::runtime::RawPtr,
-        propertyarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        propertyarray: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         element: ::windows::runtime::RawPtr,
@@ -19288,62 +19462,62 @@ pub struct IUIAutomation6_abi(
         handler: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         array: *const i32,
         arraycount: i32,
-        safearray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        safearray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        intarray: *const super::super::System::OleAutomation::SAFEARRAY,
+        intarray: *const super::super::System::Com::SAFEARRAY,
         array: *mut *mut i32,
         arraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         rc: super::super::Foundation::RECT,
-        var: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        var: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         rc: *mut super::super::Foundation::RECT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        rects: *const super::super::System::OleAutomation::SAFEARRAY,
+        rects: *const super::super::System::Com::SAFEARRAY,
         rectarray: *mut *mut super::super::Foundation::RECT,
         rectarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         factory: ::windows::runtime::RawPtr,
@@ -19367,36 +19541,36 @@ pub struct IUIAutomation6_abi(
         name: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        patternids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        patternnames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        patternids: *mut *mut super::super::System::Com::SAFEARRAY,
+        patternnames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pelement: ::windows::runtime::RawPtr,
-        propertyids: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-        propertynames: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        propertyids: *mut *mut super::super::System::Com::SAFEARRAY,
+        propertynames: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         isnotsupported: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -19644,16 +19818,16 @@ impl IUIAutomationAndCondition {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationAndCondition {
@@ -19736,12 +19910,12 @@ pub struct IUIAutomationAndCondition_abi(
         childarray: *mut *mut ::windows::runtime::RawPtr,
         childarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        childarray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        childarray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -20249,8 +20423,8 @@ pub struct IUIAutomationChangesEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationChangesEventHandler {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn HandleChangesEvent<
         'a,
@@ -20321,8 +20495,8 @@ pub struct IUIAutomationChangesEventHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -20332,8 +20506,8 @@ pub struct IUIAutomationChangesEventHandler_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -20626,27 +20800,27 @@ impl IUIAutomationDragPattern {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentDropEffects(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedDropEffects(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetCurrentGrabbedItems(
         &self,
@@ -20744,18 +20918,18 @@ pub struct IUIAutomationDragPattern_abi(
         retval: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -20798,27 +20972,27 @@ impl IUIAutomationDropTargetPattern {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentDropTargetEffects(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedDropTargetEffects(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationDropTargetPattern {
@@ -20882,18 +21056,18 @@ pub struct IUIAutomationDropTargetPattern_abi(
         retval: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -20907,16 +21081,16 @@ impl IUIAutomationElement {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -21011,25 +21185,26 @@ impl IUIAutomationElement {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -21038,37 +21213,39 @@ impl IUIAutomationElement {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -21077,15 +21254,16 @@ impl IUIAutomationElement {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -21933,12 +22111,12 @@ pub struct IUIAutomationElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -21972,68 +22150,68 @@ pub struct IUIAutomationElement_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -22438,16 +22616,16 @@ impl IUIAutomationElement2 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -22542,25 +22720,26 @@ impl IUIAutomationElement2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -22569,37 +22748,39 @@ impl IUIAutomationElement2 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -22608,15 +22789,16 @@ impl IUIAutomationElement2 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -23546,12 +23728,12 @@ pub struct IUIAutomationElement2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -23585,68 +23767,68 @@ pub struct IUIAutomationElement2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -24079,16 +24261,16 @@ impl IUIAutomationElement3 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -24183,25 +24365,26 @@ impl IUIAutomationElement3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -24210,37 +24393,39 @@ impl IUIAutomationElement3 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -24249,15 +24434,16 @@ impl IUIAutomationElement3 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -25236,12 +25422,12 @@ pub struct IUIAutomationElement3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -25275,68 +25461,68 @@ pub struct IUIAutomationElement3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -25782,16 +25968,16 @@ impl IUIAutomationElement4 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -25886,25 +26072,26 @@ impl IUIAutomationElement4 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -25913,37 +26100,39 @@ impl IUIAutomationElement4 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -25952,15 +26141,16 @@ impl IUIAutomationElement4 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -26870,16 +27060,16 @@ impl IUIAutomationElement4 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).97)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CurrentAnnotationObjects(
         &self,
@@ -26916,16 +27106,16 @@ impl IUIAutomationElement4 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).102)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CachedAnnotationObjects(
         &self,
@@ -27053,12 +27243,12 @@ pub struct IUIAutomationElement4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -27092,68 +27282,68 @@ pub struct IUIAutomationElement4_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -27598,12 +27788,12 @@ pub struct IUIAutomationElement4_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -27620,12 +27810,12 @@ pub struct IUIAutomationElement4_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -27643,16 +27833,16 @@ impl IUIAutomationElement5 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -27747,25 +27937,26 @@ impl IUIAutomationElement5 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -27774,37 +27965,39 @@ impl IUIAutomationElement5 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -27813,15 +28006,16 @@ impl IUIAutomationElement5 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -28731,16 +28925,16 @@ impl IUIAutomationElement5 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).97)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CurrentAnnotationObjects(
         &self,
@@ -28777,16 +28971,16 @@ impl IUIAutomationElement5 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).102)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CachedAnnotationObjects(
         &self,
@@ -28976,12 +29170,12 @@ pub struct IUIAutomationElement5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -29015,68 +29209,68 @@ pub struct IUIAutomationElement5_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -29521,12 +29715,12 @@ pub struct IUIAutomationElement5_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -29543,12 +29737,12 @@ pub struct IUIAutomationElement5_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -29586,16 +29780,16 @@ impl IUIAutomationElement6 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -29690,25 +29884,26 @@ impl IUIAutomationElement6 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -29717,37 +29912,39 @@ impl IUIAutomationElement6 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -29756,15 +29953,16 @@ impl IUIAutomationElement6 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -30674,16 +30872,16 @@ impl IUIAutomationElement6 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).97)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CurrentAnnotationObjects(
         &self,
@@ -30720,16 +30918,16 @@ impl IUIAutomationElement6 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).102)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CachedAnnotationObjects(
         &self,
@@ -30965,12 +31163,12 @@ pub struct IUIAutomationElement6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -31004,68 +31202,68 @@ pub struct IUIAutomationElement6_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -31510,12 +31708,12 @@ pub struct IUIAutomationElement6_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -31532,12 +31730,12 @@ pub struct IUIAutomationElement6_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -31587,16 +31785,16 @@ impl IUIAutomationElement7 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -31691,25 +31889,26 @@ impl IUIAutomationElement7 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -31718,37 +31917,39 @@ impl IUIAutomationElement7 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -31757,15 +31958,16 @@ impl IUIAutomationElement7 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -32675,16 +32877,16 @@ impl IUIAutomationElement7 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).97)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CurrentAnnotationObjects(
         &self,
@@ -32721,16 +32923,16 @@ impl IUIAutomationElement7 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).102)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CachedAnnotationObjects(
         &self,
@@ -32907,22 +33109,23 @@ impl IUIAutomationElement7 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentMetadataValue(
         &self,
         targetid: i32,
         metadataid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).114)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(targetid),
             ::std::mem::transmute(metadataid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationElement7 {
@@ -33105,12 +33308,12 @@ pub struct IUIAutomationElement7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -33144,68 +33347,68 @@ pub struct IUIAutomationElement7_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -33650,12 +33853,12 @@ pub struct IUIAutomationElement7_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -33672,12 +33875,12 @@ pub struct IUIAutomationElement7_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -33750,19 +33953,19 @@ pub struct IUIAutomationElement7_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         targetid: i32,
         metadataid: i32,
-        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -33778,16 +33981,16 @@ impl IUIAutomationElement8 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -33882,25 +34085,26 @@ impl IUIAutomationElement8 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -33909,37 +34113,39 @@ impl IUIAutomationElement8 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -33948,15 +34154,16 @@ impl IUIAutomationElement8 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -34866,16 +35073,16 @@ impl IUIAutomationElement8 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).97)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CurrentAnnotationObjects(
         &self,
@@ -34912,16 +35119,16 @@ impl IUIAutomationElement8 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).102)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CachedAnnotationObjects(
         &self,
@@ -35098,22 +35305,23 @@ impl IUIAutomationElement8 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentMetadataValue(
         &self,
         targetid: i32,
         metadataid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).114)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(targetid),
             ::std::mem::transmute(metadataid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -35334,12 +35542,12 @@ pub struct IUIAutomationElement8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -35373,68 +35581,68 @@ pub struct IUIAutomationElement8_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -35879,12 +36087,12 @@ pub struct IUIAutomationElement8_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -35901,12 +36109,12 @@ pub struct IUIAutomationElement8_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -35979,19 +36187,19 @@ pub struct IUIAutomationElement8_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         targetid: i32,
         metadataid: i32,
-        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -36015,16 +36223,16 @@ impl IUIAutomationElement9 {
     pub unsafe fn SetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn FindFirst<
         'a,
@@ -36119,25 +36327,26 @@ impl IUIAutomationElement9 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentPropertyValueEx<
         'a,
@@ -36146,37 +36355,39 @@ impl IUIAutomationElement9 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValue(
         &self,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCachedPropertyValueEx<
         'a,
@@ -36185,15 +36396,16 @@ impl IUIAutomationElement9 {
         &self,
         propertyid: i32,
         ignoredefaultvalue: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(propertyid),
             ignoredefaultvalue.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T: ::windows::runtime::Interface>(
         &self,
@@ -37103,16 +37315,16 @@ impl IUIAutomationElement9 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).97)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CurrentAnnotationObjects(
         &self,
@@ -37149,16 +37361,16 @@ impl IUIAutomationElement9 {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).102)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CachedAnnotationObjects(
         &self,
@@ -37335,22 +37547,23 @@ impl IUIAutomationElement9 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCurrentMetadataValue(
         &self,
         targetid: i32,
         metadataid: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).114)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(targetid),
             ::std::mem::transmute(metadataid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -37617,12 +37830,12 @@ pub struct IUIAutomationElement9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        runtimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         scope: TreeScope,
@@ -37656,68 +37869,68 @@ pub struct IUIAutomationElement9_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propertyid: i32,
         ignoredefaultvalue: super::super::Foundation::BOOL,
-        retval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        retval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -38162,12 +38375,12 @@ pub struct IUIAutomationElement9_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -38184,12 +38397,12 @@ pub struct IUIAutomationElement9_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
@@ -38262,19 +38475,19 @@ pub struct IUIAutomationElement9_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         targetid: i32,
         metadataid: i32,
-        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        returnval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -39275,13 +39488,13 @@ pub struct IUIAutomationItemContainerPattern(::windows::runtime::IUnknown);
 impl IUIAutomationItemContainerPattern {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindItemByProperty<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         pstartafter: Param0,
@@ -39351,20 +39564,20 @@ pub struct IUIAutomationItemContainerPattern_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstartafter: ::windows::runtime::RawPtr,
         propertyid: i32,
-        value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pfound: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -39821,16 +40034,16 @@ impl IUIAutomationMultipleViewPattern {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurrentSupportedViews(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn CachedCurrentView(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -39840,16 +40053,16 @@ impl IUIAutomationMultipleViewPattern {
         )
         .from_abi::<i32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCachedSupportedViews(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationMultipleViewPattern {
@@ -39916,22 +40129,22 @@ pub struct IUIAutomationMultipleViewPattern_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         retval: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -40226,16 +40439,16 @@ impl IUIAutomationOrCondition {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationOrCondition {
@@ -40318,12 +40531,12 @@ pub struct IUIAutomationOrCondition_abi(
         childarray: *mut *mut ::windows::runtime::RawPtr,
         childarraycount: *mut i32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        childarray: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        childarray: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -40552,13 +40765,13 @@ pub struct IUIAutomationPropertyChangedEventHandler(::windows::runtime::IUnknown
 impl IUIAutomationPropertyChangedEventHandler {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn HandlePropertyChangedEvent<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         sender: Param0,
@@ -40629,19 +40842,19 @@ pub struct IUIAutomationPropertyChangedEventHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sender: ::windows::runtime::RawPtr,
         propertyid: i32,
-        newvalue: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        newvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -40664,18 +40877,19 @@ impl IUIAutomationPropertyCondition {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn PropertyValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn PropertyConditionFlags(
         &self,
@@ -40770,17 +40984,17 @@ pub struct IUIAutomationPropertyCondition_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        propertyvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        propertyvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -41040,12 +41254,12 @@ impl IUIAutomationProxyFactoryEntry {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWinEventsForAutomationEvent(
         &self,
         eventid: i32,
         propertyid: i32,
-        winevents: *const super::super::System::OleAutomation::SAFEARRAY,
+        winevents: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(
             ::std::mem::transmute_copy(self),
@@ -41055,20 +41269,20 @@ impl IUIAutomationProxyFactoryEntry {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWinEventsForAutomationEvent(
         &self,
         eventid: i32,
         propertyid: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).15)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(eventid),
             ::std::mem::transmute(propertyid),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationProxyFactoryEntry {
@@ -41184,22 +41398,22 @@ pub struct IUIAutomationProxyFactoryEntry_abi(
         adviseevents: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         eventid: i32,
         propertyid: i32,
-        winevents: *const super::super::System::OleAutomation::SAFEARRAY,
+        winevents: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         eventid: i32,
         propertyid: i32,
-        winevents: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        winevents: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -41218,16 +41432,16 @@ impl IUIAutomationProxyFactoryMapping {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTable(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetEntry(
         &self,
@@ -41242,10 +41456,10 @@ impl IUIAutomationProxyFactoryMapping {
         )
         .from_abi::<IUIAutomationProxyFactoryEntry>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTable(
         &self,
-        factorylist: *const super::super::System::OleAutomation::SAFEARRAY,
+        factorylist: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -41253,11 +41467,11 @@ impl IUIAutomationProxyFactoryMapping {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEntries(
         &self,
         before: u32,
-        factorylist: *const super::super::System::OleAutomation::SAFEARRAY,
+        factorylist: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -41348,30 +41562,30 @@ pub struct IUIAutomationProxyFactoryMapping_abi(
         this: ::windows::runtime::RawPtr,
         count: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        table: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        table: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         index: u32,
         entry: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        factorylist: *const super::super::System::OleAutomation::SAFEARRAY,
+        factorylist: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         before: u32,
-        factorylist: *const super::super::System::OleAutomation::SAFEARRAY,
+        factorylist: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         before: u32,
@@ -42710,16 +42924,16 @@ impl IUIAutomationSpreadsheetItemPattern {
         )
         .from_abi::<IUIAutomationElementArray>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurrentAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedFormula(
@@ -42744,16 +42958,16 @@ impl IUIAutomationSpreadsheetItemPattern {
         )
         .from_abi::<IUIAutomationElementArray>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCachedAnnotationTypes(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationSpreadsheetItemPattern {
@@ -42815,12 +43029,12 @@ pub struct IUIAutomationSpreadsheetItemPattern_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -42831,12 +43045,12 @@ pub struct IUIAutomationSpreadsheetItemPattern_abi(
         this: ::windows::runtime::RawPtr,
         retval: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        retval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        retval: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -42931,7 +43145,7 @@ pub struct IUIAutomationSpreadsheetPattern_abi(
 )]
 pub struct IUIAutomationStructureChangedEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationStructureChangedEventHandler {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HandleStructureChangedEvent<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -42939,7 +43153,7 @@ impl IUIAutomationStructureChangedEventHandler {
         &self,
         sender: Param0,
         changetype: StructureChangeType,
-        runtimeid: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -43003,14 +43217,14 @@ pub struct IUIAutomationStructureChangedEventHandler_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sender: ::windows::runtime::RawPtr,
         changetype: StructureChangeType,
-        runtimeid: *const super::super::System::OleAutomation::SAFEARRAY,
+        runtimeid: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -43980,7 +44194,7 @@ pub struct IUIAutomationTextEditPattern_abi(
 )]
 pub struct IUIAutomationTextEditTextChangedEventHandler(::windows::runtime::IUnknown);
 impl IUIAutomationTextEditTextChangedEventHandler {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HandleTextEditTextChangedEvent<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IUIAutomationElement>,
@@ -43988,7 +44202,7 @@ impl IUIAutomationTextEditTextChangedEventHandler {
         &self,
         sender: Param0,
         texteditchangetype: TextEditChangeType,
-        eventstrings: *const super::super::System::OleAutomation::SAFEARRAY,
+        eventstrings: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -44052,14 +44266,14 @@ pub struct IUIAutomationTextEditTextChangedEventHandler_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sender: ::windows::runtime::RawPtr,
         texteditchangetype: TextEditChangeType,
-        eventstrings: *const super::super::System::OleAutomation::SAFEARRAY,
+        eventstrings: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -44513,12 +44727,12 @@ impl IUIAutomationTextRange {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindAttribute<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -44562,31 +44776,32 @@ impl IUIAutomationTextRange {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetAttributeValue(
         &self,
         attr: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(attr),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetEnclosingElement(&self) -> ::windows::runtime::Result<IUIAutomationElement> {
         let mut result__: <IUIAutomationElement as ::windows::runtime::Abi>::Abi =
@@ -44760,20 +44975,20 @@ pub struct IUIAutomationTextRange_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attr: i32,
-        val: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        val: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         backward: super::super::Foundation::BOOL,
         found: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -44787,26 +45002,26 @@ pub struct IUIAutomationTextRange_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attr: i32,
-        value: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        boundingrects: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        boundingrects: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         enclosingelement: *mut ::windows::runtime::RawPtr,
@@ -44914,12 +45129,12 @@ impl IUIAutomationTextRange2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindAttribute<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -44963,31 +45178,32 @@ impl IUIAutomationTextRange2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetAttributeValue(
         &self,
         attr: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(attr),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetEnclosingElement(&self) -> ::windows::runtime::Result<IUIAutomationElement> {
         let mut result__: <IUIAutomationElement as ::windows::runtime::Abi>::Abi =
@@ -45186,20 +45402,20 @@ pub struct IUIAutomationTextRange2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attr: i32,
-        val: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        val: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         backward: super::super::Foundation::BOOL,
         found: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -45213,26 +45429,26 @@ pub struct IUIAutomationTextRange2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attr: i32,
-        value: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        boundingrects: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        boundingrects: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         enclosingelement: *mut ::windows::runtime::RawPtr,
@@ -45341,12 +45557,12 @@ impl IUIAutomationTextRange3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn FindAttribute<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -45390,31 +45606,32 @@ impl IUIAutomationTextRange3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetAttributeValue(
         &self,
         attr: i32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(attr),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetEnclosingElement(&self) -> ::windows::runtime::Result<IUIAutomationElement> {
         let mut result__: <IUIAutomationElement as ::windows::runtime::Abi>::Abi =
@@ -45549,20 +45766,20 @@ impl IUIAutomationTextRange3 {
         )
         .from_abi::<IUIAutomationElementArray>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAttributeValues(
         &self,
         attributeids: *const i32,
         attributeidcount: i32,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).24)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(attributeids),
             ::std::mem::transmute(attributeidcount),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IUIAutomationTextRange3 {
@@ -45684,20 +45901,20 @@ pub struct IUIAutomationTextRange3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attr: i32,
-        val: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        val: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         backward: super::super::Foundation::BOOL,
         found: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -45711,26 +45928,26 @@ pub struct IUIAutomationTextRange3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attr: i32,
-        value: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        value: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        boundingrects: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        boundingrects: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         enclosingelement: *mut ::windows::runtime::RawPtr,
@@ -45785,14 +46002,14 @@ pub struct IUIAutomationTextRange3_abi(
         cacherequest: ::windows::runtime::RawPtr,
         children: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         attributeids: *const i32,
         attributeidcount: i32,
-        attributevalues: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        attributevalues: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -47790,6 +48007,7 @@ pub const InputReachedTarget_Event_GUID: ::windows::runtime::GUID =
         16624,
         [190, 219, 40, 228, 79, 125, 226, 163],
     );
+#[inline]
 pub unsafe fn InvokePattern_Invoke<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48156,14 +48374,15 @@ pub const IsWindowPatternAvailable_Property_GUID: ::windows::runtime::GUID =
     );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn ItemContainerPattern_FindItemByProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
     Param1: ::windows::runtime::IntoParam<'a, HUIANODE>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
 >(
     hobj: Param0,
     hnodestartafter: Param1,
@@ -48179,7 +48398,7 @@ pub unsafe fn ItemContainerPattern_FindItemByProperty<
                 hobj: HUIAPATTERNOBJECT,
                 hnodestartafter: HUIANODE,
                 propertyid: i32,
-                value: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+                value: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
                 pfound: *mut HUIANODE,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -48223,25 +48442,25 @@ pub const LIBID_Accessibility: ::windows::runtime::GUID = ::windows::runtime::GU
 );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub type LPFNACCESSIBLECHILDREN = unsafe extern "system" fn(
     pacccontainer: ::windows::runtime::RawPtr,
     ichildstart: i32,
     cchildren: i32,
-    rgvarchildren: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+    rgvarchildren: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     pcobtained: *mut i32,
 ) -> ::windows::runtime::HRESULT;
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub type LPFNACCESSIBLEOBJECTFROMPOINT = unsafe extern "system" fn(
     ptscreen: super::super::Foundation::POINT,
     ppacc: *mut ::windows::runtime::RawPtr,
-    pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+    pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
 ) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNACCESSIBLEOBJECTFROMWINDOW = unsafe extern "system" fn(
@@ -48290,6 +48509,7 @@ pub const LayoutInvalidated_Event_GUID: ::windows::runtime::GUID =
         17813,
         [155, 174, 61, 40, 148, 108, 199, 21],
     );
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48309,6 +48529,7 @@ pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48331,6 +48552,7 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_Select<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48354,6 +48576,7 @@ pub unsafe fn LegacyIAccessiblePattern_Select<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LegacyIAccessiblePattern_SetValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48683,6 +48906,7 @@ pub const Menu_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID
     [179, 116, 193, 234, 111, 80, 60, 209],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MultipleViewPattern_GetViewName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48711,6 +48935,7 @@ pub unsafe fn MultipleViewPattern_GetViewName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MultipleViewPattern_SetCurrentView<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -48913,6 +49138,7 @@ pub unsafe fn NotifyWinEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ObjectFromLresult<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LRESULT>,
@@ -49359,6 +49585,7 @@ pub const RadioButton_Control_GUID: ::windows::runtime::GUID =
         17539,
         [179, 225, 229, 127, 33, 148, 64, 198],
     );
+#[inline]
 pub unsafe fn RangeValuePattern_SetValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50213,6 +50440,7 @@ pub const ScrollBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime:
     18758,
     [178, 47, 146, 89, 95, 192, 117, 26],
 );
+#[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50238,6 +50466,7 @@ pub const ScrollItem_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime
     19804,
     [180, 213, 141, 40, 0, 249, 6, 167],
 );
+#[inline]
 pub unsafe fn ScrollPattern_Scroll<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50266,6 +50495,7 @@ pub unsafe fn ScrollPattern_Scroll<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ScrollPattern_SetScrollPercent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50370,6 +50600,7 @@ pub const Selection2_LastSelectedItem_Property_GUID: ::windows::runtime::GUID =
         18936,
         [134, 12, 156, 227, 148, 207, 137, 180],
     );
+#[inline]
 pub unsafe fn SelectionItemPattern_AddToSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50389,6 +50620,7 @@ pub unsafe fn SelectionItemPattern_AddToSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SelectionItemPattern_RemoveFromSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50408,6 +50640,7 @@ pub unsafe fn SelectionItemPattern_RemoveFromSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SelectionItemPattern_Select<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50891,6 +51124,7 @@ unsafe impl ::windows::runtime::Abi for SupportedTextSelection {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SynchronizedInputPattern_Cancel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -50910,6 +51144,7 @@ pub unsafe fn SynchronizedInputPattern_Cancel<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SynchronizedInputPattern_StartListening<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51189,13 +51424,14 @@ unsafe impl ::windows::runtime::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextPattern_GetSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
 >(
     hobj: Param0,
-    pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pretval: *mut *mut super::super::System::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -51203,7 +51439,7 @@ pub unsafe fn TextPattern_GetSelection<
         extern "system" {
             fn TextPattern_GetSelection(
                 hobj: HUIAPATTERNOBJECT,
-                pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pretval: *mut *mut super::super::System::Com::SAFEARRAY,
             ) -> ::windows::runtime::HRESULT;
         }
         TextPattern_GetSelection(hobj.into_param().abi(), ::std::mem::transmute(pretval)).ok()
@@ -51211,13 +51447,14 @@ pub unsafe fn TextPattern_GetSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextPattern_GetVisibleRanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
 >(
     hobj: Param0,
-    pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pretval: *mut *mut super::super::System::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -51225,7 +51462,7 @@ pub unsafe fn TextPattern_GetVisibleRanges<
         extern "system" {
             fn TextPattern_GetVisibleRanges(
                 hobj: HUIAPATTERNOBJECT,
-                pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pretval: *mut *mut super::super::System::Com::SAFEARRAY,
             ) -> ::windows::runtime::HRESULT;
         }
         TextPattern_GetVisibleRanges(hobj.into_param().abi(), ::std::mem::transmute(pretval)).ok()
@@ -51233,6 +51470,7 @@ pub unsafe fn TextPattern_GetVisibleRanges<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_RangeFromChild<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51262,6 +51500,7 @@ pub unsafe fn TextPattern_RangeFromChild<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_RangeFromPoint<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51291,6 +51530,7 @@ pub unsafe fn TextPattern_RangeFromPoint<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_get_DocumentRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51312,6 +51552,7 @@ pub unsafe fn TextPattern_get_DocumentRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextPattern_get_SupportedTextSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -51337,6 +51578,7 @@ pub unsafe fn TextPattern_get_SupportedTextSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_AddToSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51354,6 +51596,7 @@ pub unsafe fn TextRange_AddToSelection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_Clone<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
     pretval: *mut HUIATEXTRANGE,
@@ -51373,6 +51616,7 @@ pub unsafe fn TextRange_Clone<'a, Param0: ::windows::runtime::IntoParam<'a, HUIA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_Compare<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51402,6 +51646,7 @@ pub unsafe fn TextRange_Compare<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_CompareEndpoints<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51437,6 +51682,7 @@ pub unsafe fn TextRange_CompareEndpoints<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_ExpandToEnclosingUnit<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51460,13 +51706,14 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn TextRange_FindAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
     hobj: Param0,
@@ -51482,7 +51729,7 @@ pub unsafe fn TextRange_FindAttribute<
             fn TextRange_FindAttribute(
                 hobj: HUIATEXTRANGE,
                 attributeid: i32,
-                val: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+                val: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
                 backward: super::super::Foundation::BOOL,
                 pretval: *mut HUIATEXTRANGE,
             ) -> ::windows::runtime::HRESULT;
@@ -51500,6 +51747,7 @@ pub unsafe fn TextRange_FindAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_FindText<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51539,16 +51787,17 @@ pub unsafe fn TextRange_FindText<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn TextRange_GetAttributeValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
 >(
     hobj: Param0,
     attributeid: i32,
-    pretval: *mut super::super::System::OleAutomation::VARIANT,
+    pretval: *mut super::super::System::Com::VARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -51557,9 +51806,7 @@ pub unsafe fn TextRange_GetAttributeValue<
             fn TextRange_GetAttributeValue(
                 hobj: HUIATEXTRANGE,
                 attributeid: i32,
-                pretval: *mut ::std::mem::ManuallyDrop<
-                    super::super::System::OleAutomation::VARIANT,
-                >,
+                pretval: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         TextRange_GetAttributeValue(
@@ -51572,13 +51819,14 @@ pub unsafe fn TextRange_GetAttributeValue<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextRange_GetBoundingRectangles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
 >(
     hobj: Param0,
-    pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pretval: *mut *mut super::super::System::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -51586,7 +51834,7 @@ pub unsafe fn TextRange_GetBoundingRectangles<
         extern "system" {
             fn TextRange_GetBoundingRectangles(
                 hobj: HUIATEXTRANGE,
-                pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pretval: *mut *mut super::super::System::Com::SAFEARRAY,
             ) -> ::windows::runtime::HRESULT;
         }
         TextRange_GetBoundingRectangles(hobj.into_param().abi(), ::std::mem::transmute(pretval))
@@ -51595,13 +51843,14 @@ pub unsafe fn TextRange_GetBoundingRectangles<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn TextRange_GetChildren<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
 >(
     hobj: Param0,
-    pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pretval: *mut *mut super::super::System::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -51609,7 +51858,7 @@ pub unsafe fn TextRange_GetChildren<
         extern "system" {
             fn TextRange_GetChildren(
                 hobj: HUIATEXTRANGE,
-                pretval: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pretval: *mut *mut super::super::System::Com::SAFEARRAY,
             ) -> ::windows::runtime::HRESULT;
         }
         TextRange_GetChildren(hobj.into_param().abi(), ::std::mem::transmute(pretval)).ok()
@@ -51617,6 +51866,7 @@ pub unsafe fn TextRange_GetChildren<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_GetEnclosingElement<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51639,6 +51889,7 @@ pub unsafe fn TextRange_GetEnclosingElement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_GetText<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
     maxlength: i32,
@@ -51664,6 +51915,7 @@ pub unsafe fn TextRange_GetText<'a, Param0: ::windows::runtime::IntoParam<'a, HU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_Move<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
     unit: TextUnit,
@@ -51692,6 +51944,7 @@ pub unsafe fn TextRange_Move<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_MoveEndpointByRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51724,6 +51977,7 @@ pub unsafe fn TextRange_MoveEndpointByRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_MoveEndpointByUnit<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51758,6 +52012,7 @@ pub unsafe fn TextRange_MoveEndpointByUnit<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_RemoveFromSelection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51776,6 +52031,7 @@ pub unsafe fn TextRange_RemoveFromSelection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TextRange_ScrollIntoView<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>,
@@ -51798,6 +52054,7 @@ pub unsafe fn TextRange_ScrollIntoView<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TextRange_Select<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -52204,6 +52461,7 @@ pub const TitleBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::
     19301,
     [131, 110, 46, 163, 13, 188, 23, 31],
 );
+#[inline]
 pub unsafe fn TogglePattern_Toggle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -52316,6 +52574,7 @@ pub const Transform2_ZoomMinimum_Property_GUID: ::windows::runtime::GUID =
         19975,
         [150, 254, 177, 34, 198, 230, 178, 43],
     );
+#[inline]
 pub unsafe fn TransformPattern_Move<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -52344,6 +52603,7 @@ pub unsafe fn TransformPattern_Move<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TransformPattern_Resize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -52372,6 +52632,7 @@ pub unsafe fn TransformPattern_Resize<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TransformPattern_Rotate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -53103,7 +53364,8 @@ unsafe impl ::windows::runtime::Abi for UIAutomationType {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaAddEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     eventid: i32,
@@ -53264,8 +53526,8 @@ unsafe impl ::windows::runtime::Abi for UiaCacheRequest {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for UiaChangeInfo {
     fn clone(&self) -> Self {
@@ -53275,24 +53537,24 @@ impl ::std::clone::Clone for UiaChangeInfo {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
-    pub payload: super::super::System::OleAutomation::VARIANT,
-    pub extraInfo: super::super::System::OleAutomation::VARIANT,
+    pub payload: super::super::System::Com::VARIANT,
+    pub extraInfo: super::super::System::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl UiaChangeInfo {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for UiaChangeInfo {
     fn default() -> Self {
@@ -53301,8 +53563,8 @@ impl ::std::default::Default for UiaChangeInfo {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for UiaChangeInfo {
     fn eq(&self, _other: &Self) -> bool {
@@ -53311,14 +53573,14 @@ impl ::std::cmp::PartialEq for UiaChangeInfo {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for UiaChangeInfo {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for UiaChangeInfo {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -53328,8 +53590,8 @@ unsafe impl ::windows::runtime::Abi for UiaChangeInfo {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct UiaChangesEventArgs {
     pub Type: EventArgsType,
@@ -53339,14 +53601,14 @@ pub struct UiaChangesEventArgs {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl UiaChangesEventArgs {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for UiaChangesEventArgs {
     fn default() -> Self {
@@ -53355,8 +53617,8 @@ impl ::std::default::Default for UiaChangesEventArgs {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for UiaChangesEventArgs {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -53370,8 +53632,8 @@ impl ::std::fmt::Debug for UiaChangesEventArgs {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for UiaChangesEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -53383,14 +53645,14 @@ impl ::std::cmp::PartialEq for UiaChangesEventArgs {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for UiaChangesEventArgs {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for UiaChangesEventArgs {
     type Abi = Self;
@@ -53438,6 +53700,7 @@ unsafe impl ::windows::runtime::Abi for UiaCondition {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53450,6 +53713,7 @@ pub unsafe fn UiaDisconnectAllProviders() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaDisconnectProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -53470,6 +53734,7 @@ pub unsafe fn UiaDisconnectProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaEventAddWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAEVENT>,
@@ -53522,13 +53787,14 @@ unsafe impl ::windows::runtime::Abi for UiaEventArgs {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaEventCallback = unsafe extern "system" fn(
     pargs: *mut UiaEventArgs,
-    prequesteddata: *mut super::super::System::OleAutomation::SAFEARRAY,
+    prequesteddata: *mut super::super::System::Com::SAFEARRAY,
     ptreestructure: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaEventRemoveWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAEVENT>,
@@ -53551,14 +53817,15 @@ pub unsafe fn UiaEventRemoveWindow<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaFind<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     pparams: *mut UiaFindParams,
     prequest: *mut UiaCacheRequest,
-    pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-    ppoffsets: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-    pptreestructures: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
+    ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY,
+    pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53568,9 +53835,9 @@ pub unsafe fn UiaFind<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
                 hnode: HUIANODE,
                 pparams: *mut UiaFindParams,
                 prequest: *mut UiaCacheRequest,
-                pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-                ppoffsets: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
-                pptreestructures: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
+                ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY,
+                pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY,
             ) -> ::windows::runtime::HRESULT;
         }
         UiaFind(
@@ -53648,6 +53915,7 @@ pub unsafe fn UiaGetErrorDescription(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     patternid: i32,
@@ -53675,13 +53943,14 @@ pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     propertyid: i32,
-    pvalue: *mut super::super::System::OleAutomation::VARIANT,
+    pvalue: *mut super::super::System::Com::VARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53690,7 +53959,7 @@ pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, 
             fn UiaGetPropertyValue(
                 hnode: HUIANODE,
                 propertyid: i32,
-                pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+                pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         UiaGetPropertyValue(
@@ -53703,6 +53972,7 @@ pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue(
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
@@ -53721,6 +53991,7 @@ pub unsafe fn UiaGetReservedMixedAttributeValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetReservedNotSupportedValue(
 ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
@@ -53739,6 +54010,7 @@ pub unsafe fn UiaGetReservedNotSupportedValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53751,10 +54023,11 @@ pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::runtime::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
-    pruntimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53762,7 +54035,7 @@ pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::runtime::IntoParam<'a, HUIA
         extern "system" {
             fn UiaGetRuntimeId(
                 hnode: HUIANODE,
-                pruntimeid: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY,
             ) -> ::windows::runtime::HRESULT;
         }
         UiaGetRuntimeId(hnode.into_param().abi(), ::std::mem::transmute(pruntimeid)).ok()
@@ -53770,13 +54043,14 @@ pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::runtime::IntoParam<'a, HUIA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     prequest: *mut UiaCacheRequest,
     normalizestate: NormalizeState,
     pnormalizecondition: *mut UiaCondition,
-    pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
     pptreestructure: *mut super::super::Foundation::BSTR,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53788,7 +54062,7 @@ pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::runtime::IntoParam<'a, H
                 prequest: *mut UiaCacheRequest,
                 normalizestate: NormalizeState,
                 pnormalizecondition: *mut UiaCondition,
-                pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
                 pptreestructure: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -53807,11 +54081,12 @@ pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::runtime::IntoParam<'a, H
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(
-    pvar: *mut super::super::System::OleAutomation::VARIANT,
+    pvar: *mut super::super::System::Com::VARIANT,
     phobj: *mut HUIAPATTERNOBJECT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53819,7 +54094,7 @@ pub unsafe fn UiaHPatternObjectFromVariant(
         #[link(name = "windows")]
         extern "system" {
             fn UiaHPatternObjectFromVariant(
-                pvar: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
                 phobj: *mut HUIAPATTERNOBJECT,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -53830,11 +54105,12 @@ pub unsafe fn UiaHPatternObjectFromVariant(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaHTextRangeFromVariant(
-    pvar: *mut super::super::System::OleAutomation::VARIANT,
+    pvar: *mut super::super::System::Com::VARIANT,
     phtextrange: *mut HUIATEXTRANGE,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53842,7 +54118,7 @@ pub unsafe fn UiaHTextRangeFromVariant(
         #[link(name = "windows")]
         extern "system" {
             fn UiaHTextRangeFromVariant(
-                pvar: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
                 phtextrange: *mut HUIATEXTRANGE,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -53857,11 +54133,12 @@ pub unsafe fn UiaHTextRangeFromVariant(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(
-    pvar: *mut super::super::System::OleAutomation::VARIANT,
+    pvar: *mut super::super::System::Com::VARIANT,
     phnode: *mut HUIANODE,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53869,7 +54146,7 @@ pub unsafe fn UiaHUiaNodeFromVariant(
         #[link(name = "windows")]
         extern "system" {
             fn UiaHUiaNodeFromVariant(
-                pvar: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+                pvar: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
                 phnode: *mut HUIANODE,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -53900,6 +54177,7 @@ pub unsafe fn UiaHasServerSideProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaHostProviderFromHwnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -53925,9 +54203,10 @@ pub unsafe fn UiaHostProviderFromHwnd<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaIAccessibleFromProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -53935,7 +54214,7 @@ pub unsafe fn UiaIAccessibleFromProvider<
     pprovider: Param0,
     dwflags: u32,
     ppaccessible: *mut ::std::option::Option<IAccessible>,
-    pvarchild: *mut super::super::System::OleAutomation::VARIANT,
+    pvarchild: *mut super::super::System::Com::VARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -53945,9 +54224,7 @@ pub unsafe fn UiaIAccessibleFromProvider<
                 pprovider: ::windows::runtime::RawPtr,
                 dwflags: u32,
                 ppaccessible: *mut ::windows::runtime::RawPtr,
-                pvarchild: *mut ::std::mem::ManuallyDrop<
-                    super::super::System::OleAutomation::VARIANT,
-                >,
+                pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         UiaIAccessibleFromProvider(
@@ -53983,13 +54260,14 @@ pub unsafe fn UiaLookupId(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
     direction: NavigateDirection,
     pcondition: *mut UiaCondition,
     prequest: *mut UiaCacheRequest,
-    pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
     pptreestructure: *mut super::super::Foundation::BSTR,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54001,7 +54279,7 @@ pub unsafe fn UiaNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE
                 direction: NavigateDirection,
                 pcondition: *mut UiaCondition,
                 prequest: *mut UiaCacheRequest,
-                pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
                 pptreestructure: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -54018,10 +54296,11 @@ pub unsafe fn UiaNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaNodeFromFocus(
     prequest: *mut UiaCacheRequest,
-    pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
     pptreestructure: *mut super::super::Foundation::BSTR,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54030,7 +54309,7 @@ pub unsafe fn UiaNodeFromFocus(
         extern "system" {
             fn UiaNodeFromFocus(
                 prequest: *mut UiaCacheRequest,
-                pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
                 pptreestructure: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -54045,6 +54324,7 @@ pub unsafe fn UiaNodeFromFocus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaNodeFromHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54066,12 +54346,13 @@ pub unsafe fn UiaNodeFromHandle<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn UiaNodeFromPoint(
     x: f64,
     y: f64,
     prequest: *mut UiaCacheRequest,
-    pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+    pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
     pptreestructure: *mut super::super::Foundation::BSTR,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54082,7 +54363,7 @@ pub unsafe fn UiaNodeFromPoint(
                 x: f64,
                 y: f64,
                 prequest: *mut UiaCacheRequest,
-                pprequesteddata: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+                pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY,
                 pptreestructure: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -54098,6 +54379,7 @@ pub unsafe fn UiaNodeFromPoint(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaNodeFromProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54216,8 +54498,8 @@ unsafe impl ::windows::runtime::Abi for UiaPoint {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for UiaPropertyChangedEventArgs {
     fn clone(&self) -> Self {
@@ -54227,26 +54509,26 @@ impl ::std::clone::Clone for UiaPropertyChangedEventArgs {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub PropertyId: i32,
-    pub OldValue: super::super::System::OleAutomation::VARIANT,
-    pub NewValue: super::super::System::OleAutomation::VARIANT,
+    pub OldValue: super::super::System::Com::VARIANT,
+    pub NewValue: super::super::System::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl UiaPropertyChangedEventArgs {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for UiaPropertyChangedEventArgs {
     fn default() -> Self {
@@ -54255,8 +54537,8 @@ impl ::std::default::Default for UiaPropertyChangedEventArgs {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for UiaPropertyChangedEventArgs {
     fn eq(&self, _other: &Self) -> bool {
@@ -54265,14 +54547,14 @@ impl ::std::cmp::PartialEq for UiaPropertyChangedEventArgs {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for UiaPropertyChangedEventArgs {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for UiaPropertyChangedEventArgs {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -54280,8 +54562,8 @@ unsafe impl ::windows::runtime::Abi for UiaPropertyChangedEventArgs {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for UiaPropertyCondition {
     fn clone(&self) -> Self {
@@ -54291,25 +54573,25 @@ impl ::std::clone::Clone for UiaPropertyCondition {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
     pub PropertyId: i32,
-    pub Value: super::super::System::OleAutomation::VARIANT,
+    pub Value: super::super::System::Com::VARIANT,
     pub Flags: PropertyConditionFlags,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl UiaPropertyCondition {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for UiaPropertyCondition {
     fn default() -> Self {
@@ -54318,8 +54600,8 @@ impl ::std::default::Default for UiaPropertyCondition {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for UiaPropertyCondition {
     fn eq(&self, _other: &Self) -> bool {
@@ -54328,26 +54610,27 @@ impl ::std::cmp::PartialEq for UiaPropertyCondition {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for UiaPropertyCondition {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for UiaPropertyCondition {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaProviderCallback =
     unsafe extern "system" fn(
         hwnd: super::super::Foundation::HWND,
         providertype: ProviderType,
-    ) -> *mut super::super::System::OleAutomation::SAFEARRAY;
+    ) -> *mut super::super::System::Com::SAFEARRAY;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaProviderForNonClient<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54380,6 +54663,7 @@ pub unsafe fn UiaProviderForNonClient<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaProviderFromIAccessible<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAccessible>,
@@ -54412,6 +54696,7 @@ pub unsafe fn UiaProviderFromIAccessible<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54438,6 +54723,7 @@ pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseAsyncContentLoadedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54466,6 +54752,7 @@ pub unsafe fn UiaRaiseAsyncContentLoadedEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseAutomationEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54489,14 +54776,15 @@ pub unsafe fn UiaRaiseAutomationEvent<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
 >(
     pprovider: Param0,
     id: i32,
@@ -54510,8 +54798,8 @@ pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<
             fn UiaRaiseAutomationPropertyChangedEvent(
                 pprovider: ::windows::runtime::RawPtr,
                 id: i32,
-                oldvalue: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
-                newvalue: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+                oldvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
+                newvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
             ) -> ::windows::runtime::HRESULT;
         }
         UiaRaiseAutomationPropertyChangedEvent(
@@ -54527,9 +54815,10 @@ pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn UiaRaiseChangesEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54559,6 +54848,7 @@ pub unsafe fn UiaRaiseChangesEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaRaiseNotificationEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54595,6 +54885,7 @@ pub unsafe fn UiaRaiseNotificationEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRaiseStructureChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
@@ -54626,14 +54917,15 @@ pub unsafe fn UiaRaiseStructureChangedEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn UiaRaiseTextEditTextChangedEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRawElementProviderSimple>,
 >(
     pprovider: Param0,
     texteditchangetype: TextEditChangeType,
-    pchangeddata: *mut super::super::System::OleAutomation::SAFEARRAY,
+    pchangeddata: *mut super::super::System::Com::SAFEARRAY,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -54642,7 +54934,7 @@ pub unsafe fn UiaRaiseTextEditTextChangedEvent<
             fn UiaRaiseTextEditTextChangedEvent(
                 pprovider: ::windows::runtime::RawPtr,
                 texteditchangetype: TextEditChangeType,
-                pchangeddata: *mut super::super::System::OleAutomation::SAFEARRAY,
+                pchangeddata: *mut super::super::System::Com::SAFEARRAY,
             ) -> ::windows::runtime::HRESULT;
         }
         UiaRaiseTextEditTextChangedEvent(
@@ -54692,7 +54984,7 @@ unsafe impl ::windows::runtime::Abi for UiaRect {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(
     pcallback: *mut ::std::option::Option<UiaProviderCallback>,
@@ -54710,6 +55002,7 @@ pub unsafe fn UiaRegisterProviderCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaRemoveEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAEVENT>>(
     hevent: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -54760,6 +55053,7 @@ pub unsafe fn UiaReturnRawElementProvider<
     unimplemented!("Unsupported target OS");
 }
 pub const UiaRootObjectId: i32 = -25i32;
+#[inline]
 pub unsafe fn UiaSetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -54816,22 +55110,22 @@ unsafe impl ::windows::runtime::Abi for UiaStructureChangedEventArgs {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct UiaTextEditTextChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub TextEditChangeType: TextEditChangeType,
-    pub pTextChange: *mut super::super::System::OleAutomation::SAFEARRAY,
+    pub pTextChange: *mut super::super::System::Com::SAFEARRAY,
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
 impl UiaTextEditTextChangedEventArgs {}
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for UiaTextEditTextChangedEventArgs {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for UiaTextEditTextChangedEventArgs {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("UiaTextEditTextChangedEventArgs")
@@ -54842,7 +55136,7 @@ impl ::std::fmt::Debug for UiaTextEditTextChangedEventArgs {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for UiaTextEditTextChangedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type
@@ -54851,9 +55145,9 @@ impl ::std::cmp::PartialEq for UiaTextEditTextChangedEventArgs {
             && self.pTextChange == other.pTextChange
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for UiaTextEditTextChangedEventArgs {}
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for UiaTextEditTextChangedEventArgs {
     type Abi = Self;
     type DefaultType = Self;
@@ -54980,6 +55274,7 @@ pub unsafe fn UnregisterPointerInputTargetEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ValuePattern_SetValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55022,6 +55317,7 @@ pub const Value_Value_Property_GUID: ::windows::runtime::GUID =
         19077,
         [186, 153, 64, 146, 195, 234, 41, 134],
     );
+#[inline]
 pub unsafe fn VirtualizedItemPattern_Realize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55091,6 +55387,7 @@ pub type WINEVENTPROC = unsafe extern "system" fn(
     dwmseventtime: u32,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowFromAccessibleObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAccessible>,
@@ -55141,6 +55438,7 @@ unsafe impl ::windows::runtime::Abi for WindowInteractionState {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WindowPattern_Close<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55158,6 +55456,7 @@ pub unsafe fn WindowPattern_Close<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowPattern_SetWindowVisualState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -55181,6 +55480,7 @@ pub unsafe fn WindowPattern_SetWindowVisualState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowPattern_WaitForInputIdle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,

@@ -56,6 +56,7 @@ pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;
 pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
 pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
 #[cfg(feature = "Win32_Storage_Xps")]
+#[inline]
 pub unsafe fn PTCloseProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>,
@@ -77,18 +78,19 @@ pub unsafe fn PTCloseProvider<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
+    feature = "Win32_Graphics_Gdi",
     feature = "Win32_Storage_Xps",
-    feature = "Win32_UI_DisplayDevices"
+    feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn PTConvertDevModeToPrintTicket<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
 >(
     hprovider: Param0,
     cbdevmode: u32,
-    pdevmode: *const super::super::super::UI::DisplayDevices::DEVMODEA,
+    pdevmode: *const super::super::Gdi::DEVMODEA,
     scope: EPrintTicketScope,
     pprintticket: Param4,
 ) -> ::windows::runtime::Result<()> {
@@ -99,7 +101,7 @@ pub unsafe fn PTConvertDevModeToPrintTicket<
             fn PTConvertDevModeToPrintTicket(
                 hprovider: super::super::super::Storage::Xps::HPTPROVIDER,
                 cbdevmode: u32,
-                pdevmode: *const super::super::super::UI::DisplayDevices::DEVMODEA,
+                pdevmode: *const super::super::Gdi::DEVMODEA,
                 scope: EPrintTicketScope,
                 pprintticket: ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT;
@@ -118,21 +120,22 @@ pub unsafe fn PTConvertDevModeToPrintTicket<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
+    feature = "Win32_Graphics_Gdi",
     feature = "Win32_Storage_Xps",
-    feature = "Win32_UI_DisplayDevices"
+    feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn PTConvertPrintTicketToDevMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
+    Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
 >(
     hprovider: Param0,
     pprintticket: Param1,
     basedevmodetype: EDefaultDevmodeType,
     scope: EPrintTicketScope,
     pcbdevmode: *mut u32,
-    ppdevmode: *mut *mut super::super::super::UI::DisplayDevices::DEVMODEA,
+    ppdevmode: *mut *mut super::super::Gdi::DEVMODEA,
     pbstrerrormessage: *mut super::super::super::Foundation::BSTR,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -145,7 +148,7 @@ pub unsafe fn PTConvertPrintTicketToDevMode<
                 basedevmodetype: EDefaultDevmodeType,
                 scope: EPrintTicketScope,
                 pcbdevmode: *mut u32,
-                ppdevmode: *mut *mut super::super::super::UI::DisplayDevices::DEVMODEA,
+                ppdevmode: *mut *mut super::super::Gdi::DEVMODEA,
                 pbstrerrormessage: *mut ::std::mem::ManuallyDrop<
                     super::super::super::Foundation::BSTR,
                 >,
@@ -167,14 +170,15 @@ pub unsafe fn PTConvertPrintTicketToDevMode<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
-    feature = "Win32_Storage_Xps"
+    feature = "Win32_Storage_Xps",
+    feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn PTGetPrintCapabilities<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
+    Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
 >(
     hprovider: Param0,
     pprintticket: Param1,
@@ -207,14 +211,15 @@ pub unsafe fn PTGetPrintCapabilities<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
-    feature = "Win32_Storage_Xps"
+    feature = "Win32_Storage_Xps",
+    feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn PTGetPrintDeviceCapabilities<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
+    Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
 >(
     hprovider: Param0,
     pprintticket: Param1,
@@ -247,15 +252,16 @@ pub unsafe fn PTGetPrintDeviceCapabilities<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
-    feature = "Win32_Storage_Xps"
+    feature = "Win32_Storage_Xps",
+    feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn PTGetPrintDeviceResources<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
 >(
     hprovider: Param0,
     pszlocalename: Param1,
@@ -291,15 +297,16 @@ pub unsafe fn PTGetPrintDeviceResources<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
-    feature = "Win32_Storage_Xps"
+    feature = "Win32_Storage_Xps",
+    feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn PTMergeAndValidatePrintTicket<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Xps::HPTPROVIDER>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::super::Storage::StructuredStorage::IStream>,
+    Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
 >(
     hprovider: Param0,
     pbaseticket: Param1,
@@ -337,6 +344,7 @@ pub unsafe fn PTMergeAndValidatePrintTicket<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
+#[inline]
 pub unsafe fn PTOpenProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -366,6 +374,7 @@ pub unsafe fn PTOpenProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
+#[inline]
 pub unsafe fn PTOpenProviderEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -401,6 +410,7 @@ pub unsafe fn PTOpenProviderEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PTQuerySchemaVersionSupport<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -423,6 +433,7 @@ pub unsafe fn PTQuerySchemaVersionSupport<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PTReleaseMemory(
     pbuffer: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {

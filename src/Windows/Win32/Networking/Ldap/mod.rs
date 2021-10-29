@@ -605,10 +605,10 @@ pub type NOTIFYOFNEWCONNECTION = unsafe extern "system" fn(
 ) -> super::super::Foundation::BOOLEAN;
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
-pub type QUERYCLIENTCERT = unsafe extern "system" fn ( connection : * mut ldap , trusted_cas : * mut super::super::Security::Authentication::Identity::Core:: SecPkgContext_IssuerListInfoEx , ppcertificate : * mut * mut super::super::Security::Cryptography::Core:: CERT_CONTEXT ) -> super::super::Foundation:: BOOLEAN ;
+pub type QUERYCLIENTCERT = unsafe extern "system" fn ( connection : * mut ldap , trusted_cas : * mut super::super::Security::Authentication::Identity:: SecPkgContext_IssuerListInfoEx , ppcertificate : * mut * mut super::super::Security::Cryptography:: CERT_CONTEXT ) -> super::super::Foundation:: BOOLEAN ;
 #[cfg(feature = "Win32_Foundation")]
 pub type QUERYFORCONNECTION = unsafe extern "system" fn(
     primaryconnection: *mut ldap,
@@ -622,13 +622,10 @@ pub type QUERYFORCONNECTION = unsafe extern "system" fn(
 ) -> u32;
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type VERIFYSERVERCERT = unsafe extern "system" fn(
     connection: *mut ldap,
-    pservercert: *mut *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
 ) -> super::super::Foundation::BOOLEAN;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -686,12 +683,12 @@ pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ber_first_element(
     pberelement: *mut berelement,
     plen: *mut u32,
-    ppopaque: *mut *mut super::super::System::SystemServices::CHAR,
+    ppopaque: *mut *mut super::super::Foundation::CHAR,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -700,7 +697,7 @@ pub unsafe fn ber_first_element(
             fn ber_first_element(
                 pberelement: *mut berelement,
                 plen: *mut u32,
-                ppopaque: *mut *mut super::super::System::SystemServices::CHAR,
+                ppopaque: *mut *mut super::super::Foundation::CHAR,
             ) -> u32;
         }
         ::std::mem::transmute(ber_first_element(

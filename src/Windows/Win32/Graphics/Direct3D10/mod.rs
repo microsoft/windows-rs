@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[inline]
 pub unsafe fn D3D10CompileEffectFromMemory<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -56,6 +57,7 @@ pub unsafe fn D3D10CompileEffectFromMemory<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[inline]
 pub unsafe fn D3D10CompileShader<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -110,6 +112,7 @@ pub unsafe fn D3D10CompileShader<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D10CreateBlob(
     numbytes: usize,
 ) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
@@ -131,6 +134,7 @@ pub unsafe fn D3D10CreateBlob(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[inline]
 pub unsafe fn D3D10CreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>,
@@ -170,6 +174,7 @@ pub unsafe fn D3D10CreateDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[inline]
 pub unsafe fn D3D10CreateDevice1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>,
@@ -212,6 +217,7 @@ pub unsafe fn D3D10CreateDevice1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[inline]
 pub unsafe fn D3D10CreateDeviceAndSwapChain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>,
@@ -257,6 +263,7 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[inline]
 pub unsafe fn D3D10CreateDeviceAndSwapChain1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>,
@@ -304,6 +311,7 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain1<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10CreateEffectFromMemory<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, ID3D10Device>,
@@ -342,6 +350,7 @@ pub unsafe fn D3D10CreateEffectFromMemory<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10CreateEffectPoolFromMemory<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, ID3D10Device>,
@@ -376,6 +385,7 @@ pub unsafe fn D3D10CreateEffectPoolFromMemory<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10CreateStateBlock<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>>(
     pdevice: Param0,
     pstateblockmask: *const D3D10_STATE_BLOCK_MASK,
@@ -402,6 +412,7 @@ pub unsafe fn D3D10CreateStateBlock<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[inline]
 pub unsafe fn D3D10DisassembleEffect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D10Effect>,
@@ -433,6 +444,7 @@ pub unsafe fn D3D10DisassembleEffect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[inline]
 pub unsafe fn D3D10DisassembleShader<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -491,6 +503,7 @@ pub unsafe fn D3D10GetGeometryShaderProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D10GetInputAndOutputSignatureBlob(
     pshaderbytecode: *const ::std::ffi::c_void,
     bytecodelength: usize,
@@ -518,6 +531,7 @@ pub unsafe fn D3D10GetInputAndOutputSignatureBlob(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D10GetInputSignatureBlob(
     pshaderbytecode: *const ::std::ffi::c_void,
     bytecodelength: usize,
@@ -545,6 +559,7 @@ pub unsafe fn D3D10GetInputSignatureBlob(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D10GetOutputSignatureBlob(
     pshaderbytecode: *const ::std::ffi::c_void,
     bytecodelength: usize,
@@ -593,6 +608,7 @@ pub unsafe fn D3D10GetPixelShaderProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[inline]
 pub unsafe fn D3D10GetShaderDebugInfo(
     pshaderbytecode: *const ::std::ffi::c_void,
     bytecodelength: usize,
@@ -641,6 +657,7 @@ pub unsafe fn D3D10GetVertexShaderProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[inline]
 pub unsafe fn D3D10PreprocessShader<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -683,6 +700,7 @@ pub unsafe fn D3D10PreprocessShader<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10ReflectShader(
     pshaderbytecode: *const ::std::ffi::c_void,
     bytecodelength: usize,
@@ -709,6 +727,7 @@ pub unsafe fn D3D10ReflectShader(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10StateBlockMaskDifference(
     pa: *const D3D10_STATE_BLOCK_MASK,
     pb: *const D3D10_STATE_BLOCK_MASK,
@@ -735,6 +754,7 @@ pub unsafe fn D3D10StateBlockMaskDifference(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK>
 {
     #[cfg(windows)]
@@ -752,6 +772,7 @@ pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::runtime::Result<D3D1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10StateBlockMaskDisableCapture(
     pmask: *mut D3D10_STATE_BLOCK_MASK,
     statetype: D3D10_DEVICE_STATE_TYPES,
@@ -780,6 +801,7 @@ pub unsafe fn D3D10StateBlockMaskDisableCapture(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
@@ -796,6 +818,7 @@ pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::runtime::Result<D3D10
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10StateBlockMaskEnableCapture(
     pmask: *mut D3D10_STATE_BLOCK_MASK,
     statetype: D3D10_DEVICE_STATE_TYPES,
@@ -850,6 +873,7 @@ pub unsafe fn D3D10StateBlockMaskGetSetting(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10StateBlockMaskIntersect(
     pa: *const D3D10_STATE_BLOCK_MASK,
     pb: *const D3D10_STATE_BLOCK_MASK,
@@ -876,6 +900,7 @@ pub unsafe fn D3D10StateBlockMaskIntersect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3D10StateBlockMaskUnion(
     pa: *const D3D10_STATE_BLOCK_MASK,
     pb: *const D3D10_STATE_BLOCK_MASK,

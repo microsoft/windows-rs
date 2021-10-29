@@ -24,6 +24,7 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetInterfaceContextTableForHostName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -147,6 +148,7 @@ pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
 pub type ONDEMAND_NOTIFICATION_CALLBACK =
     unsafe extern "system" fn(param0: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OnDemandGetRoutingHint<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -170,6 +172,7 @@ pub unsafe fn OnDemandGetRoutingHint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OnDemandRegisterNotification(
     callback: ::std::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>,
     callbackcontext: *const ::std::ffi::c_void,
@@ -197,6 +200,7 @@ pub unsafe fn OnDemandRegisterNotification(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OnDemandUnRegisterNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

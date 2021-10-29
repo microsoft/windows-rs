@@ -1747,9 +1747,9 @@ pub type PF_NPGetUser = unsafe extern "system" fn(
     lpusername: super::super::Foundation::PWSTR,
     lpnbufferlen: *mut u32,
 ) -> u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type PF_NPLogonNotify = unsafe extern "system" fn(
-    lplogonid: *const super::super::System::SystemServices::LUID,
+    lplogonid: *const super::super::Foundation::LUID,
     lpauthentinfotype: super::super::Foundation::PWSTR,
     lpauthentinfo: *const ::std::ffi::c_void,
     lppreviousauthentinfotype: super::super::Foundation::PWSTR,

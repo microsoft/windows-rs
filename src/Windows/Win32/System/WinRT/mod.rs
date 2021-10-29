@@ -180,6 +180,7 @@ pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes"
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str =
     "PreferredSourceUriScheme";
 pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
+#[inline]
 pub unsafe fn CoDecodeProxy(
     dwclientpid: u32,
     ui64proxyaddress: u64,
@@ -207,6 +208,7 @@ pub unsafe fn CoDecodeProxy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGIDevice>,
@@ -231,6 +233,7 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGISurface>,
@@ -255,6 +258,7 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "System")]
+#[inline]
 pub unsafe fn CreateDispatcherQueueController<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, DispatcherQueueOptions>,
@@ -300,6 +304,7 @@ unsafe impl ::windows::runtime::Abi for CreateProcessMethod {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateRandomAccessStreamOnFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -331,10 +336,11 @@ pub unsafe fn CreateRandomAccessStreamOnFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn CreateRandomAccessStreamOverStream<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
     T: ::windows::runtime::Interface,
 >(
     stream: Param0,
@@ -363,6 +369,7 @@ pub unsafe fn CreateRandomAccessStreamOverStream<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateStreamOverRandomAccessStream<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -541,6 +548,7 @@ unsafe impl ::windows::runtime::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::runtime::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
     {
@@ -760,55 +768,55 @@ unsafe impl ::windows::runtime::Abi for HSTRING_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HSTRING_HEADER {
     pub Reserved: HSTRING_HEADER_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl HSTRING_HEADER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HSTRING_HEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HSTRING_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HSTRING_HEADER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSTRING_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub union HSTRING_HEADER_0 {
     pub Reserved1: *mut ::std::ffi::c_void,
-    pub Reserved2: [super::SystemServices::CHAR; 24],
+    pub Reserved2: [super::super::Foundation::CHAR; 24],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl HSTRING_HEADER_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HSTRING_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HSTRING_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HSTRING_HEADER_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSTRING_HEADER_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -5948,6 +5956,79 @@ pub struct IMemoryBufferByteAccess_abi(
     :: std :: clone :: Clone,
     :: std :: fmt :: Debug,
 )]
+pub struct IMessageDispatcher(::windows::runtime::IUnknown);
+impl IMessageDispatcher {
+    pub unsafe fn PumpMessages(&self) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for IMessageDispatcher {
+    type Vtable = IMessageDispatcher_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        4126690447,
+        53200,
+        19670,
+        [182, 107, 197, 210, 111, 241, 104, 157],
+    );
+}
+impl ::std::convert::From<IMessageDispatcher> for ::windows::runtime::IUnknown {
+    fn from(value: IMessageDispatcher) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMessageDispatcher> for ::windows::runtime::IUnknown {
+    fn from(value: &IMessageDispatcher) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMessageDispatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMessageDispatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMessageDispatcher_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        count: *mut u32,
+        values: *mut *mut ::windows::runtime::GUID,
+    ) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        value: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        value: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+);
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
 pub struct IOplockBreakingHandler(::windows::runtime::IUnknown);
 impl IOplockBreakingHandler {
     pub unsafe fn OplockBreaking(&self) -> ::windows::runtime::Result<()> {
@@ -6669,10 +6750,10 @@ pub struct IPrintWorkflowXpsObjectModelTargetPackageNative_abi(
 )]
 pub struct IPrintWorkflowXpsReceiver(::windows::runtime::IUnknown);
 impl IPrintWorkflowXpsReceiver {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentSequencePrintTicket<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
     >(
         &self,
         documentsequenceprintticket: Param0,
@@ -6697,13 +6778,10 @@ impl IPrintWorkflowXpsReceiver {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddDocumentData<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     >(
         &self,
@@ -6793,33 +6871,26 @@ pub struct IPrintWorkflowXpsReceiver_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documentsequenceprintticket: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documentsequenceuri: super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documentid: u32,
         documentprintticket: ::windows::runtime::RawPtr,
         documenturi: super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6840,10 +6911,10 @@ pub struct IPrintWorkflowXpsReceiver_abi(
 )]
 pub struct IPrintWorkflowXpsReceiver2(::windows::runtime::IUnknown);
 impl IPrintWorkflowXpsReceiver2 {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentSequencePrintTicket<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
     >(
         &self,
         documentsequenceprintticket: Param0,
@@ -6868,13 +6939,10 @@ impl IPrintWorkflowXpsReceiver2 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddDocumentData<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     >(
         &self,
@@ -7002,33 +7070,26 @@ pub struct IPrintWorkflowXpsReceiver2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documentsequenceprintticket: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documentsequenceuri: super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documentid: u32,
         documentprintticket: ::windows::runtime::RawPtr,
         documenturi: super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11076,12 +11137,12 @@ pub struct IVisualInteractionSourceInterop(::windows::runtime::IUnknown);
 impl IVisualInteractionSourceInterop {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_UI_PointerInput",
+        feature = "Win32_UI_Input_Pointer",
         feature = "Win32_UI_WindowsAndMessaging"
     ))]
     pub unsafe fn TryRedirectForManipulation(
         &self,
-        pointerinfo: *const super::super::UI::PointerInput::POINTER_INFO,
+        pointerinfo: *const super::super::UI::Input::Pointer::POINTER_INFO,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -11141,16 +11202,16 @@ pub struct IVisualInteractionSourceInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_UI_PointerInput",
+        feature = "Win32_UI_Input_Pointer",
         feature = "Win32_UI_WindowsAndMessaging"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pointerinfo: *const super::super::UI::PointerInput::POINTER_INFO,
+        pointerinfo: *const super::super::UI::Input::Pointer::POINTER_INFO,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_UI_PointerInput",
+        feature = "Win32_UI_Input_Pointer",
         feature = "Win32_UI_WindowsAndMessaging"
     )))]
     usize,
@@ -11856,6 +11917,7 @@ pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
+#[inline]
 pub unsafe fn MetaDataGetDispenser(
     rclsid: *const ::windows::runtime::GUID,
     riid: *const ::windows::runtime::GUID,
@@ -11952,6 +12014,7 @@ pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(
     buffer: *mut u8,
 ) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
 pub unsafe fn PdfCreateRenderer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGIDevice>,
@@ -12071,6 +12134,7 @@ unsafe impl ::windows::runtime::Abi for RO_INIT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn RoActivateInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12094,6 +12158,7 @@ pub unsafe fn RoActivateInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoCaptureErrorContext(
     hr: ::windows::runtime::HRESULT,
 ) -> ::windows::runtime::Result<()> {
@@ -12154,6 +12219,7 @@ pub unsafe fn RoFreeParameterizedTypeExtra<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoGetActivationFactory<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12182,6 +12248,7 @@ pub unsafe fn RoGetActivationFactory<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoGetAgileReference<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -12213,6 +12280,7 @@ pub unsafe fn RoGetAgileReference<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoGetApartmentIdentifier() -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
     {
@@ -12228,8 +12296,9 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
-pub unsafe fn RoGetBufferMarshaler() -> ::windows::runtime::Result<super::Com::IMarshal> {
+#[cfg(feature = "Win32_System_Com_Marshal")]
+#[inline]
+pub unsafe fn RoGetBufferMarshaler() -> ::windows::runtime::Result<super::Com::Marshal::IMarshal> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12238,13 +12307,14 @@ pub unsafe fn RoGetBufferMarshaler() -> ::windows::runtime::Result<super::Com::I
                 buffermarshaler: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::Com::IMarshal as ::windows::runtime::Abi>::Abi =
+        let mut result__: <super::Com::Marshal::IMarshal as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
-        RoGetBufferMarshaler(&mut result__).from_abi::<super::Com::IMarshal>(result__)
+        RoGetBufferMarshaler(&mut result__).from_abi::<super::Com::Marshal::IMarshal>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoGetErrorReportingFlags() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -12258,6 +12328,7 @@ pub unsafe fn RoGetErrorReportingFlags() -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoGetMatchingRestrictedErrorInfo(
     hrin: ::windows::runtime::HRESULT,
 ) -> ::windows::runtime::Result<IRestrictedErrorInfo> {
@@ -12279,6 +12350,7 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoGetParameterizedTypeInstanceIID<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, IRoMetaDataLocator>,
@@ -12313,6 +12385,7 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoGetServerActivatableClasses<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12343,6 +12416,7 @@ pub unsafe fn RoGetServerActivatableClasses<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -12355,6 +12429,7 @@ pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoInspectCapturedStackBackTrace(
     targeterrorinfoaddress: usize,
     machine: u16,
@@ -12389,6 +12464,7 @@ pub unsafe fn RoInspectCapturedStackBackTrace(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoInspectThreadErrorInfo(
     targettebaddress: usize,
     machine: u16,
@@ -12528,6 +12604,7 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoRegisterActivationFactories(
     activatableclassids: *const ::windows::runtime::HSTRING,
     activationfactorycallbacks: *const isize,
@@ -12556,6 +12633,7 @@ pub unsafe fn RoRegisterActivationFactories(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoRegisterForApartmentShutdown<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IApartmentShutdown>,
@@ -12584,6 +12662,7 @@ pub unsafe fn RoRegisterForApartmentShutdown<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoReportFailedDelegate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -12610,6 +12689,7 @@ pub unsafe fn RoReportFailedDelegate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoReportUnhandledError<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRestrictedErrorInfo>,
@@ -12630,6 +12710,7 @@ pub unsafe fn RoReportUnhandledError<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12666,6 +12747,7 @@ pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -12752,6 +12834,7 @@ pub unsafe fn RoUninitialize() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoUnregisterForApartmentShutdown<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>,
@@ -12805,6 +12888,7 @@ unsafe impl ::windows::runtime::Abi for ServerInformation {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn SetRestrictedErrorInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IRestrictedErrorInfo>,
@@ -12874,6 +12958,7 @@ unsafe impl ::windows::runtime::Abi for TrustLevel {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WindowsCompareStringOrdinal<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12903,6 +12988,7 @@ pub unsafe fn WindowsCompareStringOrdinal<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsConcatString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12934,6 +13020,7 @@ pub unsafe fn WindowsConcatString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowsCreateString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12963,7 +13050,8 @@ pub unsafe fn WindowsCreateString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowsCreateStringReference<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12995,6 +13083,7 @@ pub unsafe fn WindowsCreateStringReference<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsDeleteString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13014,6 +13103,7 @@ pub unsafe fn WindowsDeleteString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsDeleteStringBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSTRING_BUFFER>,
@@ -13033,6 +13123,7 @@ pub unsafe fn WindowsDeleteStringBuffer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsDuplicateString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13102,6 +13193,7 @@ pub unsafe fn WindowsGetStringRawBuffer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsInspectString(
     targethstring: usize,
     machine: u16,
@@ -13136,6 +13228,7 @@ pub unsafe fn WindowsInspectString(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsInspectString2(
     targethstring: u64,
     machine: u16,
@@ -13191,6 +13284,7 @@ pub unsafe fn WindowsIsStringEmpty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsPreallocateStringBuffer(
     length: u32,
     charbuffer: *mut *mut u16,
@@ -13216,6 +13310,7 @@ pub unsafe fn WindowsPreallocateStringBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsPromoteStringBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSTRING_BUFFER>,
@@ -13239,6 +13334,7 @@ pub unsafe fn WindowsPromoteStringBuffer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsReplaceString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13274,6 +13370,7 @@ pub unsafe fn WindowsReplaceString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowsStringHasEmbeddedNull<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13297,6 +13394,7 @@ pub unsafe fn WindowsStringHasEmbeddedNull<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsSubstring<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13326,6 +13424,7 @@ pub unsafe fn WindowsSubstring<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsSubstringWithSpecifiedLength<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13358,6 +13457,7 @@ pub unsafe fn WindowsSubstringWithSpecifiedLength<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsTrimStringEnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13388,6 +13488,7 @@ pub unsafe fn WindowsTrimStringEnd<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsTrimStringStart<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,

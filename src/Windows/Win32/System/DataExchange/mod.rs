@@ -2591,24 +2591,24 @@ unsafe impl ::windows::runtime::Abi for MONERRSTRUCT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
     pub dwTime: u32,
     pub hsz: HSZ,
     pub hTask: super::super::Foundation::HANDLE,
-    pub str: [super::SystemServices::CHAR; 1],
+    pub str: [super::super::Foundation::CHAR; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl MONHSZSTRUCTA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MONHSZSTRUCTA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MONHSZSTRUCTA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MONHSZSTRUCTA")
@@ -2621,7 +2621,7 @@ impl ::std::fmt::Debug for MONHSZSTRUCTA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MONHSZSTRUCTA {
     fn eq(&self, other: &Self) -> bool {
         self.cb == other.cb
@@ -2632,9 +2632,9 @@ impl ::std::cmp::PartialEq for MONHSZSTRUCTA {
             && self.str == other.str
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MONHSZSTRUCTA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONHSZSTRUCTA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3009,6 +3009,38 @@ pub unsafe fn SetClipboardViewer<
             ) -> super::super::Foundation::HWND;
         }
         ::std::mem::transmute(SetClipboardViewer(hwndnewviewer.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn SetWinMetaFileBits<
+    'a,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
+>(
+    nsize: u32,
+    lpmeta16data: *const u8,
+    hdcref: Param2,
+    lpmfp: *const METAFILEPICT,
+) -> super::super::Graphics::Gdi::HENHMETAFILE {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SetWinMetaFileBits(
+                nsize: u32,
+                lpmeta16data: *const u8,
+                hdcref: super::super::Graphics::Gdi::HDC,
+                lpmfp: *const METAFILEPICT,
+            ) -> super::super::Graphics::Gdi::HENHMETAFILE;
+        }
+        ::std::mem::transmute(SetWinMetaFileBits(
+            ::std::mem::transmute(nsize),
+            ::std::mem::transmute(lpmeta16data),
+            hdcref.into_param().abi(),
+            ::std::mem::transmute(lpmfp),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

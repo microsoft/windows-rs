@@ -3558,27 +3558,27 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: ::windows::runtime::GUID,
-    pub DescriptionA: [super::super::super::System::SystemServices::CHAR; 256],
+    pub DescriptionA: [super::super::super::Foundation::CHAR; 256],
     pub DescriptionW: [u16; 256],
-    pub ModuleA: [super::super::super::System::SystemServices::CHAR; 260],
+    pub ModuleA: [super::super::super::Foundation::CHAR; 260],
     pub ModuleW: [u16; 260],
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub WaveDeviceId: u32,
     pub Devnode: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA")
@@ -3594,7 +3594,7 @@ impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.DeviceId == other.DeviceId
@@ -3608,9 +3608,9 @@ impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
             && self.Devnode == other.Devnode
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3723,20 +3723,20 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     pub Callback: ::std::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1>,
     pub Context: *mut ::std::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA")
@@ -3744,16 +3744,16 @@ impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
             && self.Context == other.Context
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -3960,6 +3960,7 @@ pub const DV_SD: u32 = 0u32;
 pub const DV_SL: u32 = 2u32;
 pub const DV_SMCHN: u32 = 57344u32;
 pub const DV_STYPE: u32 = 2031616u32;
+#[inline]
 pub unsafe fn DirectSoundCaptureCreate<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -3988,6 +3989,7 @@ pub unsafe fn DirectSoundCaptureCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectSoundCaptureCreate8<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -4017,6 +4019,7 @@ pub unsafe fn DirectSoundCaptureCreate8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>,
     pcontext: *const ::std::ffi::c_void,
@@ -4040,6 +4043,7 @@ pub unsafe fn DirectSoundCaptureEnumerateA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>,
     pcontext: *const ::std::ffi::c_void,
@@ -4062,6 +4066,7 @@ pub unsafe fn DirectSoundCaptureEnumerateW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectSoundCreate<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -4090,6 +4095,7 @@ pub unsafe fn DirectSoundCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DirectSoundCreate8<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -4119,6 +4125,7 @@ pub unsafe fn DirectSoundCreate8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundEnumerateA(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>,
     pcontext: *const ::std::ffi::c_void,
@@ -4142,6 +4149,7 @@ pub unsafe fn DirectSoundEnumerateA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DirectSoundEnumerateW(
     pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>,
     pcontext: *const ::std::ffi::c_void,
@@ -4165,6 +4173,7 @@ pub unsafe fn DirectSoundEnumerateW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
+#[inline]
 pub unsafe fn DirectSoundFullDuplexCreate<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
@@ -4495,6 +4504,7 @@ pub const GUID_DSFX_WAVES_REVERB: ::windows::runtime::GUID = ::windows::runtime:
     17248,
     [149, 170, 0, 74, 29, 157, 226, 108],
 );
+#[inline]
 pub unsafe fn GetDeviceID(
     pguidsrc: *const ::windows::runtime::GUID,
 ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -6818,7 +6828,7 @@ impl IDirectMusicPort {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn DeviceIoControl(
         &self,
         dwiocontrolcode: u32,
@@ -6827,7 +6837,7 @@ impl IDirectMusicPort {
         lpoutbuffer: *mut ::std::ffi::c_void,
         noutbuffersize: u32,
         lpbytesreturned: *mut u32,
-        lpoverlapped: *mut super::super::super::System::SystemServices::OVERLAPPED,
+        lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
@@ -7020,7 +7030,7 @@ pub struct IDirectMusicPort_abi(
         this: ::windows::runtime::RawPtr,
         pportcaps: *mut DMUS_PORTCAPS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dwiocontrolcode: u32,
@@ -7029,9 +7039,9 @@ pub struct IDirectMusicPort_abi(
         lpoutbuffer: *mut ::std::ffi::c_void,
         noutbuffersize: u32,
         lpbytesreturned: *mut u32,
-        lpoverlapped: *mut super::super::super::System::SystemServices::OVERLAPPED,
+        lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_IO")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dwchannelgroups: u32,
@@ -12038,7 +12048,7 @@ pub type LPDSENUMCALLBACKW = unsafe extern "system" fn(
     param2: super::super::super::Foundation::PWSTR,
     param3: *mut ::std::ffi::c_void,
 ) -> super::super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 =
     unsafe extern "system" fn(
         param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA,

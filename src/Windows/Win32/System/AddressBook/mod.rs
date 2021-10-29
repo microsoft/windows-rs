@@ -9,21 +9,21 @@
 )]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct ADRENTRY {
     pub ulReserved1: u32,
     pub cValues: u32,
     pub rgPropVals: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ADRENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for ADRENTRY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for ADRENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ADRENTRY")
@@ -33,7 +33,7 @@ impl ::std::fmt::Debug for ADRENTRY {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for ADRENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.ulReserved1 == other.ulReserved1
@@ -41,29 +41,29 @@ impl ::std::cmp::PartialEq for ADRENTRY {
             && self.rgPropVals == other.rgPropVals
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for ADRENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ADRENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct ADRLIST {
     pub cEntries: u32,
     pub aEntries: [ADRENTRY; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ADRLIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for ADRLIST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for ADRLIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ADRLIST")
@@ -72,22 +72,22 @@ impl ::std::fmt::Debug for ADRLIST {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for ADRLIST {
     fn eq(&self, other: &Self) -> bool {
         self.cEntries == other.cEntries && self.aEntries == other.aEntries
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for ADRLIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ADRLIST {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct ADRPARM {
     pub cbABContEntryID: u32,
     pub lpABContEntryID: *mut ENTRYID,
@@ -108,15 +108,15 @@ pub struct ADRPARM {
     pub lpContRestriction: *mut SRestriction,
     pub lpHierRestriction: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ADRPARM {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for ADRPARM {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for ADRPARM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ADRPARM")
@@ -139,7 +139,7 @@ impl ::std::fmt::Debug for ADRPARM {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for ADRPARM {
     fn eq(&self, other: &Self) -> bool {
         self.cbABContEntryID == other.cbABContEntryID
@@ -162,14 +162,15 @@ impl ::std::cmp::PartialEq for ADRPARM {
             && self.lpHierRestriction == other.lpHierRestriction
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for ADRPARM {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ADRPARM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn BuildDisplayTable<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::Com::IMalloc>,
@@ -1308,7 +1309,7 @@ unsafe impl ::windows::runtime::Abi for FLATMTSIDLIST {
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIDLE =
     unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropCompareProp(
     lpspropvalue1: *mut SPropValue,
@@ -1334,7 +1335,7 @@ pub unsafe fn FPropCompareProp(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropContainsProp(
     lpspropvaluedst: *mut SPropValue,
@@ -1383,7 +1384,7 @@ pub unsafe fn FPropExists<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     #[cfg(windows)]
@@ -1397,7 +1398,7 @@ pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     #[cfg(windows)]
@@ -1589,6 +1590,7 @@ unsafe impl ::windows::runtime::Abi for Gender {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn HrAddColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITable>>(
     lptbl: Param0,
     lpproptagcolumnsnew: *mut SPropTagArray,
@@ -1617,6 +1619,7 @@ pub unsafe fn HrAddColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITable>>(
     lptbl: Param0,
     lpproptagcolumnsnew: *mut SPropTagArray,
@@ -1648,7 +1651,8 @@ pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrAllocAdviseSink(
     lpfncallback: ::std::option::Option<LPNOTIFCALLBACK>,
     lpvcontext: *mut ::std::ffi::c_void,
@@ -1674,6 +1678,7 @@ pub unsafe fn HrAllocAdviseSink(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1686,7 +1691,8 @@ pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::runtime::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrGetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(
     lpmapiprop: Param0,
     ulproptag: u32,
@@ -1712,7 +1718,8 @@ pub unsafe fn HrGetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn HrIStorageFromStream<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -1720,7 +1727,7 @@ pub unsafe fn HrIStorageFromStream<
     lpunkin: Param0,
     lpinterface: *mut ::windows::runtime::GUID,
     ulflags: u32,
-    lppstorageout: *mut ::std::option::Option<super::super::Storage::StructuredStorage::IStorage>,
+    lppstorageout: *mut ::std::option::Option<super::Com::StructuredStorage::IStorage>,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1744,7 +1751,8 @@ pub unsafe fn HrIStorageFromStream<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPITable>>(
     lptable: Param0,
     lpproptags: *mut SPropTagArray,
@@ -1779,7 +1787,8 @@ pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
 pub unsafe fn HrSetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIProp>>(
     lpmapiprop: Param0,
     lpprop: *mut SPropValue,
@@ -1798,6 +1807,7 @@ pub unsafe fn HrSetOneProp<'a, Param0: ::windows::runtime::IntoParam<'a, IMAPIPr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HrThisThreadAdviseSink<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IMAPIAdviseSink>,
@@ -1850,7 +1860,7 @@ impl IABContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -1897,7 +1907,7 @@ impl IABContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -2046,7 +2056,7 @@ impl IABContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetSearchCriteria(
         &self,
         lprestriction: *const SRestriction,
@@ -2061,7 +2071,7 @@ impl IABContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSearchCriteria(
         &self,
         ulflags: u32,
@@ -2122,7 +2132,7 @@ impl IABContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(
         &self,
         lpproptagarray: *const SPropTagArray,
@@ -2234,7 +2244,7 @@ pub struct IABContainer_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -2242,7 +2252,7 @@ pub struct IABContainer_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -2256,14 +2266,14 @@ pub struct IABContainer_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -2329,15 +2339,15 @@ pub struct IABContainer_abi(
         lpulobjtype: *mut u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lprestriction: *const SRestriction,
         lpcontainerlist: *const SBinaryArray,
         ulsearchflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -2345,7 +2355,7 @@ pub struct IABContainer_abi(
         lppcontainerlist: *mut *mut SBinaryArray,
         lpulsearchstate: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cbentryid: u32,
@@ -2365,7 +2375,7 @@ pub struct IABContainer_abi(
         lpentries: *const SBinaryArray,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *const SPropTagArray,
@@ -2373,7 +2383,7 @@ pub struct IABContainer_abi(
         lpadrlist: *const ADRLIST,
         lpflaglist: *mut _flaglist,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -2405,7 +2415,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -2452,7 +2462,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -2672,7 +2682,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveName(
         &self,
         uluiparam: usize,
@@ -2689,7 +2699,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Address(
         &self,
         lpuluiparam: *mut u32,
@@ -2730,7 +2740,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RecipOptions(
         &self,
         uluiparam: u32,
@@ -2745,7 +2755,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryDefaultRecipOpt(
         &self,
         lpszadrtype: *mut i8,
@@ -2810,7 +2820,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSearchPath(
         &self,
         ulflags: u32,
@@ -2823,7 +2833,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetSearchPath(
         &self,
         ulflags: u32,
@@ -2836,7 +2846,7 @@ impl IAddrBook {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn PrepareRecips(
         &self,
         ulflags: u32,
@@ -2924,7 +2934,7 @@ pub struct IAddrBook_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -2932,7 +2942,7 @@ pub struct IAddrBook_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -2946,14 +2956,14 @@ pub struct IAddrBook_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -3050,7 +3060,7 @@ pub struct IAddrBook_abi(
         lpcbeidnewentry: *mut u32,
         lppeidnewentry: *mut *mut ENTRYID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         uluiparam: usize,
@@ -3058,15 +3068,15 @@ pub struct IAddrBook_abi(
         lpsznewentrytitle: *mut i8,
         lpadrlist: *mut ADRLIST,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpuluiparam: *mut u32,
         lpadrparms: *mut ::std::mem::ManuallyDrop<ADRPARM>,
         lppadrlist: *mut *mut ADRLIST,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpuluiparam: *mut usize,
@@ -3079,15 +3089,15 @@ pub struct IAddrBook_abi(
         lpszbuttontext: *mut i8,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         uluiparam: u32,
         ulflags: u32,
         lprecip: *mut ADRENTRY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpszadrtype: *mut i8,
@@ -3095,7 +3105,7 @@ pub struct IAddrBook_abi(
         lpcvalues: *mut u32,
         lppoptions: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpcbentryid: *mut u32,
@@ -3116,28 +3126,28 @@ pub struct IAddrBook_abi(
         cbentryid: u32,
         lpentryid: *mut ENTRYID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
         lppsearchpath: *mut *mut SRowSet,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
         lpsearchpath: *mut SRowSet,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
         lpproptagarray: *mut SPropTagArray,
         lpreciplist: *mut ADRLIST,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -3169,7 +3179,7 @@ impl IAttach {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -3216,7 +3226,7 @@ impl IAttach {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -3400,7 +3410,7 @@ pub struct IAttach_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -3408,7 +3418,7 @@ pub struct IAttach_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -3422,14 +3432,14 @@ pub struct IAttach_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -3507,7 +3517,7 @@ impl IDistList {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -3554,7 +3564,7 @@ impl IDistList {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -3703,7 +3713,7 @@ impl IDistList {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetSearchCriteria(
         &self,
         lprestriction: *const SRestriction,
@@ -3718,7 +3728,7 @@ impl IDistList {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSearchCriteria(
         &self,
         ulflags: u32,
@@ -3779,7 +3789,7 @@ impl IDistList {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(
         &self,
         lpproptagarray: *const SPropTagArray,
@@ -3891,7 +3901,7 @@ pub struct IDistList_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -3899,7 +3909,7 @@ pub struct IDistList_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -3913,14 +3923,14 @@ pub struct IDistList_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -3986,15 +3996,15 @@ pub struct IDistList_abi(
         lpulobjtype: *mut u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lprestriction: *const SRestriction,
         lpcontainerlist: *const SBinaryArray,
         ulsearchflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -4002,7 +4012,7 @@ pub struct IDistList_abi(
         lppcontainerlist: *mut *mut SBinaryArray,
         lpulsearchstate: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cbentryid: u32,
@@ -4022,7 +4032,7 @@ pub struct IDistList_abi(
         lpentries: *const SBinaryArray,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *const SPropTagArray,
@@ -4030,7 +4040,7 @@ pub struct IDistList_abi(
         lpadrlist: *const ADRLIST,
         lpflaglist: *mut _flaglist,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4041,7 +4051,7 @@ pub struct IDistList_abi(
 )]
 pub struct IMAPIAdviseSink(::windows::runtime::IUnknown);
 impl IMAPIAdviseSink {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnNotify(&self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -4090,13 +4100,13 @@ pub struct IMAPIAdviseSink_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cnotif: u32,
         lpnotifications: *mut NOTIFICATION,
     ) -> u32,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4128,7 +4138,7 @@ impl IMAPIContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -4175,7 +4185,7 @@ impl IMAPIContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -4324,7 +4334,7 @@ impl IMAPIContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetSearchCriteria(
         &self,
         lprestriction: *const SRestriction,
@@ -4339,7 +4349,7 @@ impl IMAPIContainer {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSearchCriteria(
         &self,
         ulflags: u32,
@@ -4429,7 +4439,7 @@ pub struct IMAPIContainer_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -4437,7 +4447,7 @@ pub struct IMAPIContainer_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -4451,14 +4461,14 @@ pub struct IMAPIContainer_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -4524,15 +4534,15 @@ pub struct IMAPIContainer_abi(
         lpulobjtype: *mut u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lprestriction: *const SRestriction,
         lpcontainerlist: *const SBinaryArray,
         ulsearchflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -4540,7 +4550,7 @@ pub struct IMAPIContainer_abi(
         lppcontainerlist: *mut *mut SBinaryArray,
         lpulsearchstate: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4677,7 +4687,7 @@ impl IMAPIFolder {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -4724,7 +4734,7 @@ impl IMAPIFolder {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -4873,7 +4883,7 @@ impl IMAPIFolder {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetSearchCriteria(
         &self,
         lprestriction: *const SRestriction,
@@ -4888,7 +4898,7 @@ impl IMAPIFolder {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSearchCriteria(
         &self,
         ulflags: u32,
@@ -5188,7 +5198,7 @@ pub struct IMAPIFolder_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -5196,7 +5206,7 @@ pub struct IMAPIFolder_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -5210,14 +5220,14 @@ pub struct IMAPIFolder_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -5283,15 +5293,15 @@ pub struct IMAPIFolder_abi(
         lpulobjtype: *mut u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lprestriction: *const SRestriction,
         lpcontainerlist: *const SBinaryArray,
         ulsearchflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -5299,7 +5309,7 @@ pub struct IMAPIFolder_abi(
         lppcontainerlist: *mut *mut SBinaryArray,
         lpulsearchstate: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpinterface: *mut ::windows::runtime::GUID,
@@ -5538,7 +5548,7 @@ impl IMAPIProp {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -5585,7 +5595,7 @@ impl IMAPIProp {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -5747,7 +5757,7 @@ pub struct IMAPIProp_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -5755,7 +5765,7 @@ pub struct IMAPIProp_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -5769,14 +5779,14 @@ pub struct IMAPIProp_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -5854,7 +5864,7 @@ impl IMAPIStatus {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -5901,7 +5911,7 @@ impl IMAPIStatus {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -6139,7 +6149,7 @@ pub struct IMAPIStatus_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -6147,7 +6157,7 @@ pub struct IMAPIStatus_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -6161,14 +6171,14 @@ pub struct IMAPIStatus_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -6371,7 +6381,7 @@ impl IMAPITable {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn FindRow(
         &self,
         lprestriction: *mut SRestriction,
@@ -6386,7 +6396,7 @@ impl IMAPITable {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Restrict(
         &self,
         lprestriction: *mut SRestriction,
@@ -6435,7 +6445,7 @@ impl IMAPITable {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryRows(
         &self,
         lrowcount: i32,
@@ -6453,7 +6463,7 @@ impl IMAPITable {
     pub unsafe fn Abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ExpandRow(
         &self,
         cbinstancekey: u32,
@@ -6632,21 +6642,21 @@ pub struct IMAPITable_abi(
         lpulnumerator: *mut u32,
         lpuldenominator: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lprestriction: *mut SRestriction,
         bkorigin: u32,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lprestriction: *mut SRestriction,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpbkposition: *mut u32,
@@ -6664,16 +6674,16 @@ pub struct IMAPITable_abi(
         this: ::windows::runtime::RawPtr,
         lppsortcriteria: *mut *mut SSortOrderSet,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lrowcount: i32,
         ulflags: u32,
         lpprows: *mut *mut SRowSet,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cbinstancekey: u32,
@@ -6683,7 +6693,7 @@ pub struct IMAPITable_abi(
         lpprows: *mut *mut SRowSet,
         lpulmorerows: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cbinstancekey: u32,
@@ -6867,7 +6877,7 @@ impl IMailUser {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -6914,7 +6924,7 @@ impl IMailUser {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -7098,7 +7108,7 @@ pub struct IMailUser_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -7106,7 +7116,7 @@ pub struct IMailUser_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -7120,14 +7130,14 @@ pub struct IMailUser_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -7205,7 +7215,7 @@ impl IMessage {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -7252,7 +7262,7 @@ impl IMessage {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -7432,7 +7442,7 @@ impl IMessage {
         )
         .from_abi::<IMAPITable>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ModifyRecipients(
         &self,
         ulflags: u32,
@@ -7532,7 +7542,7 @@ pub struct IMessage_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -7540,7 +7550,7 @@ pub struct IMessage_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -7554,14 +7564,14 @@ pub struct IMessage_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -7639,13 +7649,13 @@ pub struct IMessage_abi(
         ulflags: u32,
         lpptable: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
         lpmods: *const ADRLIST,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -7685,7 +7695,7 @@ impl IMsgStore {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -7732,7 +7742,7 @@ impl IMsgStore {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -8010,7 +8020,7 @@ impl IMsgStore {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn NotifyNewMail(
         &self,
         lpnotification: *const NOTIFICATION,
@@ -8094,7 +8104,7 @@ pub struct IMsgStore_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -8102,7 +8112,7 @@ pub struct IMsgStore_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -8116,14 +8126,14 @@ pub struct IMsgStore_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -8246,12 +8256,12 @@ pub struct IMsgStore_abi(
         cbentryid: u32,
         lpentryid: *const ENTRYID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpnotification: *const NOTIFICATION,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -8283,7 +8293,7 @@ impl IProfSect {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -8330,7 +8340,7 @@ impl IProfSect {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -8514,7 +8524,7 @@ pub struct IProfSect_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -8522,7 +8532,7 @@ pub struct IProfSect_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -8536,14 +8546,14 @@ pub struct IProfSect_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -8621,7 +8631,7 @@ impl IPropData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(
         &self,
         lpproptagarray: *mut SPropTagArray,
@@ -8668,7 +8678,7 @@ impl IPropData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(
         &self,
         cvalues: u32,
@@ -8895,7 +8905,7 @@ pub struct IPropData_abi(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -8903,7 +8913,7 @@ pub struct IPropData_abi(
         lpcvalues: *mut u32,
         lppproparray: *mut *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
@@ -8917,14 +8927,14 @@ pub struct IPropData_abi(
         ulflags: u32,
         lppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cvalues: u32,
         lpproparray: *mut SPropValue,
         lppproblems: *mut *mut SPropProblemArray,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpproptagarray: *mut SPropTagArray,
@@ -9023,7 +9033,7 @@ impl IProviderAdmin {
         )
         .from_abi::<IMAPITable>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateProvider(
         &self,
         lpszprovider: *const i8,
@@ -9119,7 +9129,7 @@ pub struct IProviderAdmin_abi(
         ulflags: u32,
         lpptable: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpszprovider: *const i8,
@@ -9129,7 +9139,7 @@ pub struct IProviderAdmin_abi(
         ulflags: u32,
         lpuid: *mut MAPIUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpuid: *const MAPIUID,
@@ -9167,7 +9177,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrModifyRow(&self, param0: *mut SRow) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -9175,7 +9185,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrDeleteRow(
         &self,
         lpspropvalue: *mut SPropValue,
@@ -9186,7 +9196,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrQueryRow(
         &self,
         lpspropvalue: *mut SPropValue,
@@ -9201,7 +9211,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrEnumRow(
         &self,
         ulrownumber: u32,
@@ -9214,7 +9224,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrNotify(
         &self,
         ulflags: u32,
@@ -9229,7 +9239,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrInsertRow(
         &self,
         ulirow: u32,
@@ -9242,7 +9252,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrModifyRows(
         &self,
         ulflags: u32,
@@ -9255,7 +9265,7 @@ impl ITableData {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrDeleteRows(
         &self,
         ulflags: u32,
@@ -9318,63 +9328,63 @@ pub struct ITableData_abi(
         ulcallerdata: u32,
         lppmapitable: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut SRow,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpspropvalue: *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lpspropvalue: *mut SPropValue,
         lppsrow: *mut *mut SRow,
         lpulirow: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulrownumber: u32,
         lppsrow: *mut *mut SRow,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
         cvalues: u32,
         lpspropvalue: *mut SPropValue,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulirow: u32,
         lpsrow: *mut SRow,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
         lpsrowset: *mut SRowSet,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulflags: u32,
         lprowsettodelete: *mut SRowSet,
         crowsdeleted: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -10334,13 +10344,13 @@ pub type LPFNBUTTON = unsafe extern "system" fn(
 pub type LPFNDISMISS =
     unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::std::ffi::c_void);
 pub type LPFREEBUFFER = unsafe extern "system" fn(lpbuffer: *mut ::std::ffi::c_void) -> u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNOTIFCALLBACK = unsafe extern "system" fn(
     lpvcontext: *mut ::std::ffi::c_void,
     cnotification: u32,
     lpnotifications: *mut NOTIFICATION,
 ) -> i32;
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
 pub type LPOPENSTREAMONFILE = unsafe extern "system" fn(
     lpallocatebuffer: ::windows::runtime::RawPtr,
     lpfreebuffer: ::windows::runtime::RawPtr,
@@ -10381,7 +10391,7 @@ pub type LPWABOPENEX = unsafe extern "system" fn(
     fnallocatemore: ::windows::runtime::RawPtr,
     fnfreebuffer: ::windows::runtime::RawPtr,
 ) -> ::windows::runtime::HRESULT;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LPropCompareProp(
     lpspropvaluea: *mut SPropValue,
@@ -10404,7 +10414,7 @@ pub unsafe fn LPropCompareProp(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LpValFindProp(
     ulproptag: u32,
@@ -10692,36 +10702,36 @@ unsafe impl ::windows::runtime::Abi for NEWMAIL_NOTIFICATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct NOTIFICATION {
     pub ulEventType: u32,
     pub ulAlignPad: u32,
     pub info: NOTIFICATION_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for NOTIFICATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for NOTIFICATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for NOTIFICATION {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union NOTIFICATION_0 {
     pub err: ERROR_NOTIFICATION,
     pub newmail: NEWMAIL_NOTIFICATION,
@@ -10730,23 +10740,23 @@ pub union NOTIFICATION_0 {
     pub ext: EXTENDED_NOTIFICATION,
     pub statobj: STATUS_OBJECT_NOTIFICATION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl NOTIFICATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for NOTIFICATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for NOTIFICATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for NOTIFICATION_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -10836,14 +10846,15 @@ unsafe impl ::windows::runtime::Abi for OBJECT_NOTIFICATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn OpenStreamOnFile(
     lpallocatebuffer: ::std::option::Option<LPALLOCATEBUFFER>,
     lpfreebuffer: ::std::option::Option<LPFREEBUFFER>,
     ulflags: u32,
     lpszfilename: *const i8,
     lpszprefix: *const i8,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
+) -> ::windows::runtime::Result<super::Com::IStream> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10857,7 +10868,8 @@ pub unsafe fn OpenStreamOnFile(
                 lppstream: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__: <super::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         OpenStreamOnFile(
             ::std::mem::transmute(lpallocatebuffer),
             ::std::mem::transmute(lpfreebuffer),
@@ -10866,7 +10878,7 @@ pub unsafe fn OpenStreamOnFile(
             ::std::mem::transmute(lpszprefix),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::Com::IStream>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10880,7 +10892,7 @@ pub const PROP_ID_INVALID: u32 = 65535u32;
 pub const PROP_ID_NULL: u32 = 0u32;
 pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
 pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PpropFindProp(
     lpproparray: *mut SPropValue,
@@ -10906,7 +10918,7 @@ pub unsafe fn PpropFindProp(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PropCopyMore(
     lpspropvaluedest: *mut SPropValue,
@@ -10936,6 +10948,7 @@ pub unsafe fn PropCopyMore(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RTFSync<'a, Param0: ::windows::runtime::IntoParam<'a, IMessage>>(
     lpmessage: Param0,
     ulflags: u32,
@@ -10963,20 +10976,20 @@ pub unsafe fn RTFSync<'a, Param0: ::windows::runtime::IntoParam<'a, IMessage>>(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SAndRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SAndRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SAndRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SAndRestriction {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SAndRestriction")
@@ -10985,15 +10998,15 @@ impl ::std::fmt::Debug for SAndRestriction {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SAndRestriction {
     fn eq(&self, other: &Self) -> bool {
         self.cRes == other.cRes && self.lpRes == other.lpRes
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SAndRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SAndRestriction {
     type Abi = Self;
     type DefaultType = Self;
@@ -11124,21 +11137,21 @@ unsafe impl ::windows::runtime::Abi for SBitMaskRestriction {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SCommentRestriction {
     pub cValues: u32,
     pub lpRes: *mut SRestriction,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SCommentRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SCommentRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SCommentRestriction {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SCommentRestriction")
@@ -11148,15 +11161,15 @@ impl ::std::fmt::Debug for SCommentRestriction {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SCommentRestriction {
     fn eq(&self, other: &Self) -> bool {
         self.cValues == other.cValues && self.lpRes == other.lpRes && self.lpProp == other.lpProp
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SCommentRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SCommentRestriction {
     type Abi = Self;
     type DefaultType = Self;
@@ -11197,21 +11210,21 @@ unsafe impl ::windows::runtime::Abi for SComparePropsRestriction {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SContentRestriction {
     pub ulFuzzyLevel: u32,
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SContentRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SContentRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SContentRestriction {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SContentRestriction")
@@ -11221,7 +11234,7 @@ impl ::std::fmt::Debug for SContentRestriction {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SContentRestriction {
     fn eq(&self, other: &Self) -> bool {
         self.ulFuzzyLevel == other.ulFuzzyLevel
@@ -11229,29 +11242,29 @@ impl ::std::cmp::PartialEq for SContentRestriction {
             && self.lpProp == other.lpProp
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SContentRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SContentRestriction {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Com")]
 pub struct SCurrencyArray {
     pub cValues: u32,
-    pub lpcur: *mut super::SystemServices::CY,
+    pub lpcur: *mut super::Com::CY,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Com")]
 impl SCurrencyArray {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for SCurrencyArray {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for SCurrencyArray {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SCurrencyArray")
@@ -11260,15 +11273,15 @@ impl ::std::fmt::Debug for SCurrencyArray {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for SCurrencyArray {
     fn eq(&self, other: &Self) -> bool {
         self.cValues == other.cValues && self.lpcur == other.lpcur
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for SCurrencyArray {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for SCurrencyArray {
     type Abi = Self;
     type DefaultType = Self;
@@ -11505,20 +11518,20 @@ unsafe impl ::windows::runtime::Abi for SLongArray {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SNotRestriction {
     pub ulReserved: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SNotRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SNotRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SNotRestriction {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SNotRestriction")
@@ -11527,35 +11540,35 @@ impl ::std::fmt::Debug for SNotRestriction {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SNotRestriction {
     fn eq(&self, other: &Self) -> bool {
         self.ulReserved == other.ulReserved && self.lpRes == other.lpRes
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SNotRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SNotRestriction {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SOrRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SOrRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SOrRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SOrRestriction {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOrRestriction")
@@ -11564,15 +11577,15 @@ impl ::std::fmt::Debug for SOrRestriction {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SOrRestriction {
     fn eq(&self, other: &Self) -> bool {
         self.cRes == other.cRes && self.lpRes == other.lpRes
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SOrRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SOrRestriction {
     type Abi = Self;
     type DefaultType = Self;
@@ -11673,50 +11686,50 @@ unsafe impl ::windows::runtime::Abi for SPropTagArray {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SPropValue {
     pub ulPropTag: u32,
     pub dwAlignPad: u32,
     pub Value: _PV,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SPropValue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SPropValue {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SPropValue {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SPropValue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SPropValue {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SPropertyRestriction {
     pub relop: u32,
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SPropertyRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SPropertyRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SPropertyRestriction {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SPropertyRestriction")
@@ -11726,7 +11739,7 @@ impl ::std::fmt::Debug for SPropertyRestriction {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SPropertyRestriction {
     fn eq(&self, other: &Self) -> bool {
         self.relop == other.relop
@@ -11734,9 +11747,9 @@ impl ::std::cmp::PartialEq for SPropertyRestriction {
             && self.lpProp == other.lpProp
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SPropertyRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SPropertyRestriction {
     type Abi = Self;
     type DefaultType = Self;
@@ -11773,35 +11786,35 @@ unsafe impl ::windows::runtime::Abi for SRealArray {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SRestriction {
     pub rt: u32,
     pub res: SRestriction_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SRestriction {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRestriction {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union SRestriction_0 {
     pub resCompareProps: SComparePropsRestriction,
     pub resAnd: SAndRestriction,
@@ -11815,44 +11828,44 @@ pub union SRestriction_0 {
     pub resSub: SSubRestriction,
     pub resComment: SCommentRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SRestriction_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SRestriction_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SRestriction_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SRestriction_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRestriction_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SRow {
     pub ulAdrEntryPad: u32,
     pub cValues: u32,
     pub lpProps: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SRow {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SRow {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SRow {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SRow")
@@ -11862,7 +11875,7 @@ impl ::std::fmt::Debug for SRow {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SRow {
     fn eq(&self, other: &Self) -> bool {
         self.ulAdrEntryPad == other.ulAdrEntryPad
@@ -11870,29 +11883,29 @@ impl ::std::cmp::PartialEq for SRow {
             && self.lpProps == other.lpProps
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SRow {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRow {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SRowSet {
     pub cRows: u32,
     pub aRow: [SRow; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SRowSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SRowSet {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SRowSet {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SRowSet")
@@ -11901,15 +11914,15 @@ impl ::std::fmt::Debug for SRowSet {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SRowSet {
     fn eq(&self, other: &Self) -> bool {
         self.cRows == other.cRows && self.aRow == other.aRow
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SRowSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRowSet {
     type Abi = Self;
     type DefaultType = Self;
@@ -12045,20 +12058,20 @@ unsafe impl ::windows::runtime::Abi for SSortOrderSet {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSubRestriction {
     pub ulSubObject: u32,
     pub lpRes: *mut SRestriction,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSubRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSubRestriction {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SSubRestriction {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SSubRestriction")
@@ -12067,37 +12080,37 @@ impl ::std::fmt::Debug for SSubRestriction {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSubRestriction {
     fn eq(&self, other: &Self) -> bool {
         self.ulSubObject == other.ulSubObject && self.lpRes == other.lpRes
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSubRestriction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSubRestriction {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct STATUS_OBJECT_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
     pub cValues: u32,
     pub lpPropVals: *mut SPropValue,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl STATUS_OBJECT_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for STATUS_OBJECT_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for STATUS_OBJECT_NOTIFICATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("STATUS_OBJECT_NOTIFICATION")
@@ -12108,7 +12121,7 @@ impl ::std::fmt::Debug for STATUS_OBJECT_NOTIFICATION {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for STATUS_OBJECT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.cbEntryID == other.cbEntryID
@@ -12117,9 +12130,9 @@ impl ::std::cmp::PartialEq for STATUS_OBJECT_NOTIFICATION {
             && self.lpPropVals == other.lpPropVals
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for STATUS_OBJECT_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for STATUS_OBJECT_NOTIFICATION {
     type Abi = Self;
     type DefaultType = Self;
@@ -12173,7 +12186,7 @@ pub const S_IMAPI_SPEEDADJUSTED: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(11141124i32 as _);
 pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(11141890i32 as _);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyNotifications(
     cnotification: i32,
@@ -12202,7 +12215,7 @@ pub unsafe fn ScCopyNotifications(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyProps(
     cvalues: i32,
@@ -12231,7 +12244,7 @@ pub unsafe fn ScCopyProps(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountNotifications(
     cnotifications: i32,
@@ -12257,7 +12270,7 @@ pub unsafe fn ScCountNotifications(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -12303,7 +12316,7 @@ pub unsafe fn ScCreateConversationIndex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScDupPropset(
     cvalues: i32,
@@ -12375,7 +12388,7 @@ pub unsafe fn ScLocalPathFromUNC<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScRelocNotifications(
     cnotification: i32,
@@ -12407,7 +12420,7 @@ pub unsafe fn ScRelocNotifications(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScRelocProps(
     cvalues: i32,
@@ -12521,7 +12534,7 @@ pub const TABLE_CHANGED: u32 = 1u32;
 pub const TABLE_ERROR: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct TABLE_NOTIFICATION {
     pub ulTableEvent: u32,
     pub hResult: ::windows::runtime::HRESULT,
@@ -12530,23 +12543,23 @@ pub struct TABLE_NOTIFICATION {
     pub row: SRow,
     pub ulPad: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl TABLE_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for TABLE_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for TABLE_NOTIFICATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for TABLE_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for TABLE_NOTIFICATION {
     type Abi = Self;
     type DefaultType = Self;
@@ -12587,7 +12600,7 @@ pub unsafe fn UlAddRef(lpunk: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     #[cfg(windows)]
@@ -12780,14 +12793,15 @@ pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
 pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
 pub const WAB_VCARD_FILE: u32 = 0u32;
 pub const WAB_VCARD_STREAM: u32 = 1u32;
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn WrapCompressedRTFStream<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+    Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
 >(
     lpcompressedrtfstream: Param0,
     ulflags: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
+) -> ::windows::runtime::Result<super::Com::IStream> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12798,17 +12812,19 @@ pub unsafe fn WrapCompressedRTFStream<
                 lpuncompressedrtfstream: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__: <super::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         WrapCompressedRTFStream(
             lpcompressedrtfstream.into_param().abi(),
             ::std::mem::transmute(ulflags),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::Com::IStream>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WrapStoreEntryID(
     ulflags: u32,
     lpszdllname: *const i8,
@@ -12845,7 +12861,7 @@ pub unsafe fn WrapStoreEntryID(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union _PV {
     pub i: i16,
     pub l: i32,
@@ -12853,7 +12869,7 @@ pub union _PV {
     pub flt: f32,
     pub dbl: f64,
     pub b: u16,
-    pub cur: super::SystemServices::CY,
+    pub cur: super::Com::CY,
     pub at: f64,
     pub ft: super::super::Foundation::FILETIME,
     pub lpszA: super::super::Foundation::PSTR,
@@ -12876,23 +12892,23 @@ pub union _PV {
     pub err: i32,
     pub x: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl _PV {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for _PV {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for _PV {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for _PV {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _PV {
     type Abi = Self;
     type DefaultType = Self;

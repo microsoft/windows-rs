@@ -2452,20 +2452,16 @@ pub struct IWSDOutboundAttachment_abi(
 )]
 pub struct IWSDSSLClientCertificate(::windows::runtime::IUnknown);
 impl IWSDSSLClientCertificate {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn GetClientCertificate(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::Security::Cryptography::Core::CERT_CONTEXT>
-    {
-        let mut result__ : < * mut super::super::Security::Cryptography::Core:: CERT_CONTEXT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::Security::Cryptography::CERT_CONTEXT> {
+        let mut result__ : < * mut super::super::Security::Cryptography:: CERT_CONTEXT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::Security::Cryptography::Core::CERT_CONTEXT>(result__)
+        .from_abi::<*mut super::super::Security::Cryptography::CERT_CONTEXT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMappedAccessToken(
@@ -2529,19 +2525,12 @@ pub struct IWSDSSLClientCertificate_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppcertcontext: *mut *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        ppcertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4082,10 +4071,7 @@ impl IWSDUdpAddress {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Networking_WinSock",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub unsafe fn SetSockaddr(
         &self,
         psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE,
@@ -4096,10 +4082,7 @@ impl IWSDUdpAddress {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Networking_WinSock",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub unsafe fn GetSockaddr(
         &self,
     ) -> ::windows::runtime::Result<super::super::Networking::WinSock::SOCKADDR_STORAGE> {
@@ -4311,32 +4294,18 @@ pub struct IWSDUdpAddress_abi(
         pszaddress: super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Networking_WinSock",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Networking_WinSock",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Networking_WinSock",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Networking_WinSock",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6267,6 +6236,7 @@ pub unsafe fn WSDAttachLinkedMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceHost<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6297,6 +6267,7 @@ pub unsafe fn WSDCreateDeviceHost<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceHost2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6333,6 +6304,7 @@ pub unsafe fn WSDCreateDeviceHost2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceHostAdvanced<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6369,6 +6341,7 @@ pub unsafe fn WSDCreateDeviceHostAdvanced<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceProxy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6403,6 +6376,7 @@ pub unsafe fn WSDCreateDeviceProxy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceProxy2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6443,6 +6417,7 @@ pub unsafe fn WSDCreateDeviceProxy2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDCreateDeviceProxyAdvanced<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6480,6 +6455,7 @@ pub unsafe fn WSDCreateDeviceProxyAdvanced<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6503,6 +6479,7 @@ pub unsafe fn WSDCreateDiscoveryProvider<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryProvider2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6535,6 +6512,7 @@ pub unsafe fn WSDCreateDiscoveryProvider2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryPublisher<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6558,6 +6536,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateDiscoveryPublisher2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IWSDXMLContext>,
@@ -6590,6 +6569,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateHttpAddress() -> ::windows::runtime::Result<IWSDHttpAddress> {
     #[cfg(windows)]
     {
@@ -6605,6 +6585,7 @@ pub unsafe fn WSDCreateHttpAddress() -> ::windows::runtime::Result<IWSDHttpAddre
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateHttpMessageParameters(
 ) -> ::windows::runtime::Result<IWSDHttpMessageParameters> {
     #[cfg(windows)]
@@ -6623,6 +6604,7 @@ pub unsafe fn WSDCreateHttpMessageParameters(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::runtime::Result<IWSDOutboundAttachment> {
     #[cfg(windows)]
     {
@@ -6639,6 +6621,7 @@ pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::runtime::Result<IWSDOu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateUdpAddress() -> ::windows::runtime::Result<IWSDUdpAddress> {
     #[cfg(windows)]
     {
@@ -6654,6 +6637,7 @@ pub unsafe fn WSDCreateUdpAddress() -> ::windows::runtime::Result<IWSDUdpAddress
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::runtime::Result<IWSDUdpMessageParameters>
 {
     #[cfg(windows)]
@@ -6722,6 +6706,7 @@ pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDGenerateFault<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6765,6 +6750,7 @@ pub unsafe fn WSDGenerateFault<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDGenerateFaultEx<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6800,6 +6786,7 @@ pub unsafe fn WSDGenerateFaultEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDGetConfigurationOption(
     dwoption: u32,
     pvoid: *mut ::std::ffi::c_void,
@@ -6825,6 +6812,7 @@ pub unsafe fn WSDGetConfigurationOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDSetConfigurationOption(
     dwoption: u32,
     pvoid: *const ::std::ffi::c_void,
@@ -6912,6 +6900,7 @@ unsafe impl ::windows::runtime::Abi for WSDUdpRetransmitParams {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDUriDecode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6944,6 +6933,7 @@ pub unsafe fn WSDUriDecode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDUriEncode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6976,6 +6966,7 @@ pub unsafe fn WSDUriEncode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLAddChild(
     pparent: *mut WSDXML_ELEMENT,
     pchild: *mut WSDXML_ELEMENT,
@@ -6999,6 +6990,7 @@ pub unsafe fn WSDXMLAddChild(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLAddSibling(
     pfirst: *mut WSDXML_ELEMENT,
     psecond: *mut WSDXML_ELEMENT,
@@ -7022,6 +7014,7 @@ pub unsafe fn WSDXMLAddSibling(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLBuildAnyForSingleElement<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7051,6 +7044,7 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -7063,6 +7057,7 @@ pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDXMLCreateContext() -> ::windows::runtime::Result<IWSDXMLContext> {
     #[cfg(windows)]
     {
@@ -7079,6 +7074,7 @@ pub unsafe fn WSDXMLCreateContext() -> ::windows::runtime::Result<IWSDXMLContext
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7109,6 +7105,7 @@ pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WSDXMLGetValueFromAny<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9116,12 +9113,9 @@ unsafe impl ::windows::runtime::Abi for WSD_SCOPES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WSD_SECURITY_CERT_VALIDATION {
-    pub certMatchArray: *mut *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
     pub hCertMatchStore: *mut ::std::ffi::c_void,
     pub hCertIssuerStore: *mut ::std::ffi::c_void,
@@ -9130,24 +9124,15 @@ pub struct WSD_SECURITY_CERT_VALIDATION {
     pub pbCertHash: *mut u8,
     pub dwCertHashSize: u32,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl WSD_SECURITY_CERT_VALIDATION {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for WSD_SECURITY_CERT_VALIDATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for WSD_SECURITY_CERT_VALIDATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSD_SECURITY_CERT_VALIDATION")
@@ -9162,10 +9147,7 @@ impl ::std::fmt::Debug for WSD_SECURITY_CERT_VALIDATION {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WSD_SECURITY_CERT_VALIDATION {
     fn eq(&self, other: &Self) -> bool {
         self.certMatchArray == other.certMatchArray
@@ -9178,50 +9160,32 @@ impl ::std::cmp::PartialEq for WSD_SECURITY_CERT_VALIDATION {
             && self.dwCertHashSize == other.dwCertHashSize
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for WSD_SECURITY_CERT_VALIDATION {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WSD_SECURITY_CERT_VALIDATION {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
-    pub certMatchArray: *mut *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
     pub hCertMatchStore: *mut ::std::ffi::c_void,
     pub hCertIssuerStore: *mut ::std::ffi::c_void,
     pub dwCertCheckOptions: u32,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl WSD_SECURITY_CERT_VALIDATION_V1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSD_SECURITY_CERT_VALIDATION_V1")
@@ -9233,10 +9197,7 @@ impl ::std::fmt::Debug for WSD_SECURITY_CERT_VALIDATION_V1 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WSD_SECURITY_CERT_VALIDATION_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.certMatchArray == other.certMatchArray
@@ -9246,15 +9207,9 @@ impl ::std::cmp::PartialEq for WSD_SECURITY_CERT_VALIDATION_V1 {
             && self.dwCertCheckOptions == other.dwCertCheckOptions
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for WSD_SECURITY_CERT_VALIDATION_V1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WSD_SECURITY_CERT_VALIDATION_V1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -9263,34 +9218,22 @@ pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
-    pub signingCertArray: *mut *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    pub signingCertArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub dwSigningCertArrayCount: u32,
     pub hSigningCertStore: *mut ::std::ffi::c_void,
     pub dwFlags: u32,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl WSD_SECURITY_SIGNATURE_VALIDATION {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSD_SECURITY_SIGNATURE_VALIDATION")
@@ -9301,10 +9244,7 @@ impl ::std::fmt::Debug for WSD_SECURITY_SIGNATURE_VALIDATION {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WSD_SECURITY_SIGNATURE_VALIDATION {
     fn eq(&self, other: &Self) -> bool {
         self.signingCertArray == other.signingCertArray
@@ -9313,15 +9253,9 @@ impl ::std::cmp::PartialEq for WSD_SECURITY_SIGNATURE_VALIDATION {
             && self.dwFlags == other.dwFlags
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for WSD_SECURITY_SIGNATURE_VALIDATION {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WSD_SECURITY_SIGNATURE_VALIDATION {
     type Abi = Self;
     type DefaultType = Self;

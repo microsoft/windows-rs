@@ -454,7 +454,7 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WnvRequestNotification<
     'a,
@@ -462,7 +462,7 @@ pub unsafe fn WnvRequestNotification<
 >(
     wnvhandle: Param0,
     notificationparam: *mut WNV_NOTIFICATION_PARAM,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
     bytestransferred: *mut u32,
 ) -> u32 {
     #[cfg(windows)]
@@ -472,7 +472,7 @@ pub unsafe fn WnvRequestNotification<
             fn WnvRequestNotification(
                 wnvhandle: super::super::Foundation::HANDLE,
                 notificationparam: *mut WNV_NOTIFICATION_PARAM,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
                 bytestransferred: *mut u32,
             ) -> u32;
         }

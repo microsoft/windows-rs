@@ -7,6 +7,96 @@
     dead_code,
     clippy::all
 )]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct CACHE_DESCRIPTOR {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub Size: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+}
+impl CACHE_DESCRIPTOR {}
+impl ::std::default::Default for CACHE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for CACHE_DESCRIPTOR {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("CACHE_DESCRIPTOR")
+            .field("Level", &self.Level)
+            .field("Associativity", &self.Associativity)
+            .field("LineSize", &self.LineSize)
+            .field("Size", &self.Size)
+            .field("Type", &self.Type)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for CACHE_DESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        self.Level == other.Level
+            && self.Associativity == other.Associativity
+            && self.LineSize == other.LineSize
+            && self.Size == other.Size
+            && self.Type == other.Type
+    }
+}
+impl ::std::cmp::Eq for CACHE_DESCRIPTOR {}
+unsafe impl ::windows::runtime::Abi for CACHE_DESCRIPTOR {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct CACHE_RELATIONSHIP {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub CacheSize: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: CACHE_RELATIONSHIP_0,
+}
+impl CACHE_RELATIONSHIP {}
+impl ::std::default::Default for CACHE_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for CACHE_RELATIONSHIP {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for CACHE_RELATIONSHIP {}
+unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union CACHE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl CACHE_RELATIONSHIP_0 {}
+impl ::std::default::Default for CACHE_RELATIONSHIP_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for CACHE_RELATIONSHIP_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for CACHE_RELATIONSHIP_0 {}
+unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -32,6 +122,26 @@ impl ::std::convert::From<i32> for COMPUTER_NAME_FORMAT {
     }
 }
 unsafe impl ::windows::runtime::Abi for COMPUTER_NAME_FORMAT {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: marker :: Copy,
+    :: std :: clone :: Clone,
+    :: std :: default :: Default,
+    :: std :: fmt :: Debug,
+)]
+#[repr(transparent)]
+pub struct CPU_SET_INFORMATION_TYPE(pub i32);
+pub const CpuSetInformation: CPU_SET_INFORMATION_TYPE = CPU_SET_INFORMATION_TYPE(0i32);
+impl ::std::convert::From<i32> for CPU_SET_INFORMATION_TYPE {
+    fn from(value: i32) -> Self {
+        Self(value)
+    }
+}
+unsafe impl ::windows::runtime::Abi for CPU_SET_INFORMATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -205,6 +315,75 @@ unsafe impl ::windows::runtime::Abi for FIRMWARE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct GROUP_AFFINITY {
+    pub Mask: usize,
+    pub Group: u16,
+    pub Reserved: [u16; 3],
+}
+impl GROUP_AFFINITY {}
+impl ::std::default::Default for GROUP_AFFINITY {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for GROUP_AFFINITY {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("GROUP_AFFINITY")
+            .field("Mask", &self.Mask)
+            .field("Group", &self.Group)
+            .field("Reserved", &self.Reserved)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for GROUP_AFFINITY {
+    fn eq(&self, other: &Self) -> bool {
+        self.Mask == other.Mask && self.Group == other.Group && self.Reserved == other.Reserved
+    }
+}
+impl ::std::cmp::Eq for GROUP_AFFINITY {}
+unsafe impl ::windows::runtime::Abi for GROUP_AFFINITY {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct GROUP_RELATIONSHIP {
+    pub MaximumGroupCount: u16,
+    pub ActiveGroupCount: u16,
+    pub Reserved: [u8; 20],
+    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
+}
+impl GROUP_RELATIONSHIP {}
+impl ::std::default::Default for GROUP_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for GROUP_RELATIONSHIP {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("GROUP_RELATIONSHIP")
+            .field("MaximumGroupCount", &self.MaximumGroupCount)
+            .field("ActiveGroupCount", &self.ActiveGroupCount)
+            .field("Reserved", &self.Reserved)
+            .field("GroupInfo", &self.GroupInfo)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for GROUP_RELATIONSHIP {
+    fn eq(&self, other: &Self) -> bool {
+        self.MaximumGroupCount == other.MaximumGroupCount
+            && self.ActiveGroupCount == other.ActiveGroupCount
+            && self.Reserved == other.Reserved
+            && self.GroupInfo == other.GroupInfo
+    }
+}
+impl ::std::cmp::Eq for GROUP_RELATIONSHIP {}
+unsafe impl ::windows::runtime::Abi for GROUP_RELATIONSHIP {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerNameExA(
@@ -271,6 +450,7 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIntegratedDisplaySize() -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
     {
@@ -298,7 +478,7 @@ pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformation(
     buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION,
@@ -321,15 +501,11 @@ pub unsafe fn GetLogicalProcessorInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Kernel",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformationEx(
     relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP,
-    buffer: *mut super::SystemServices::SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX,
+    buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX,
     returnedlength: *mut u32,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -338,7 +514,7 @@ pub unsafe fn GetLogicalProcessorInformationEx(
         extern "system" {
             fn GetLogicalProcessorInformationEx(
                 relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP,
-                buffer: *mut super::SystemServices::SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX,
+                buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX,
                 returnedlength: *mut u32,
             ) -> super::super::Foundation::BOOL;
         }
@@ -879,7 +1055,7 @@ pub unsafe fn GetVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVersionExA(
     lpversioninformation: *mut OSVERSIONINFOA,
@@ -1001,6 +1177,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsWow64GuestMachineSupported(
     wowguestmachine: u16,
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
@@ -1204,24 +1381,70 @@ pub const NTDDI_WS08SP3: u32 = 100664064u32;
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+pub struct NUMA_NODE_RELATIONSHIP {
+    pub NodeNumber: u32,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
+}
+impl NUMA_NODE_RELATIONSHIP {}
+impl ::std::default::Default for NUMA_NODE_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for NUMA_NODE_RELATIONSHIP {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for NUMA_NODE_RELATIONSHIP {}
+unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union NUMA_NODE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl NUMA_NODE_RELATIONSHIP_0 {}
+impl ::std::default::Default for NUMA_NODE_RELATIONSHIP_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for NUMA_NODE_RELATIONSHIP_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for NUMA_NODE_RELATIONSHIP_0 {}
+unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OSVERSIONINFOA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
-    pub szCSDVersion: [super::SystemServices::CHAR; 128],
+    pub szCSDVersion: [super::super::Foundation::CHAR; 128],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl OSVERSIONINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OSVERSIONINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OSVERSIONINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OSVERSIONINFOA")
@@ -1234,7 +1457,7 @@ impl ::std::fmt::Debug for OSVERSIONINFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OSVERSIONINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize
@@ -1245,38 +1468,38 @@ impl ::std::cmp::PartialEq for OSVERSIONINFOA {
             && self.szCSDVersion == other.szCSDVersion
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OSVERSIONINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OSVERSIONINFOEXA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
-    pub szCSDVersion: [super::SystemServices::CHAR; 128],
+    pub szCSDVersion: [super::super::Foundation::CHAR; 128],
     pub wServicePackMajor: u16,
     pub wServicePackMinor: u16,
     pub wSuiteMask: u16,
     pub wProductType: u8,
     pub wReserved: u8,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl OSVERSIONINFOEXA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OSVERSIONINFOEXA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OSVERSIONINFOEXA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OSVERSIONINFOEXA")
@@ -1294,7 +1517,7 @@ impl ::std::fmt::Debug for OSVERSIONINFOEXA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OSVERSIONINFOEXA {
     fn eq(&self, other: &Self) -> bool {
         self.dwOSVersionInfoSize == other.dwOSVersionInfoSize
@@ -1310,9 +1533,9 @@ impl ::std::cmp::PartialEq for OSVERSIONINFOEXA {
             && self.wReserved == other.wReserved
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OSVERSIONINFOEXA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOEXA {
     type Abi = Self;
     type DefaultType = Self;
@@ -1568,9 +1791,255 @@ pub type PGET_SYSTEM_WOW64_DIRECTORY_A =
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W =
     unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: marker :: Copy,
+    :: std :: clone :: Clone,
+    :: std :: default :: Default,
+    :: std :: fmt :: Debug,
+)]
+#[repr(transparent)]
+pub struct PROCESSOR_CACHE_TYPE(pub i32);
+pub const CacheUnified: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(0i32);
+pub const CacheInstruction: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(1i32);
+pub const CacheData: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(2i32);
+pub const CacheTrace: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(3i32);
+impl ::std::convert::From<i32> for PROCESSOR_CACHE_TYPE {
+    fn from(value: i32) -> Self {
+        Self(value)
+    }
+}
+unsafe impl ::windows::runtime::Abi for PROCESSOR_CACHE_TYPE {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct PROCESSOR_GROUP_INFO {
+    pub MaximumProcessorCount: u8,
+    pub ActiveProcessorCount: u8,
+    pub Reserved: [u8; 38],
+    pub ActiveProcessorMask: usize,
+}
+impl PROCESSOR_GROUP_INFO {}
+impl ::std::default::Default for PROCESSOR_GROUP_INFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for PROCESSOR_GROUP_INFO {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("PROCESSOR_GROUP_INFO")
+            .field("MaximumProcessorCount", &self.MaximumProcessorCount)
+            .field("ActiveProcessorCount", &self.ActiveProcessorCount)
+            .field("Reserved", &self.Reserved)
+            .field("ActiveProcessorMask", &self.ActiveProcessorMask)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for PROCESSOR_GROUP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.MaximumProcessorCount == other.MaximumProcessorCount
+            && self.ActiveProcessorCount == other.ActiveProcessorCount
+            && self.Reserved == other.Reserved
+            && self.ActiveProcessorMask == other.ActiveProcessorMask
+    }
+}
+impl ::std::cmp::Eq for PROCESSOR_GROUP_INFO {}
+unsafe impl ::windows::runtime::Abi for PROCESSOR_GROUP_INFO {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct PROCESSOR_RELATIONSHIP {
+    pub Flags: u8,
+    pub EfficiencyClass: u8,
+    pub Reserved: [u8; 20],
+    pub GroupCount: u16,
+    pub GroupMask: [GROUP_AFFINITY; 1],
+}
+impl PROCESSOR_RELATIONSHIP {}
+impl ::std::default::Default for PROCESSOR_RELATIONSHIP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for PROCESSOR_RELATIONSHIP {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("PROCESSOR_RELATIONSHIP")
+            .field("Flags", &self.Flags)
+            .field("EfficiencyClass", &self.EfficiencyClass)
+            .field("Reserved", &self.Reserved)
+            .field("GroupCount", &self.GroupCount)
+            .field("GroupMask", &self.GroupMask)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for PROCESSOR_RELATIONSHIP {
+    fn eq(&self, other: &Self) -> bool {
+        self.Flags == other.Flags
+            && self.EfficiencyClass == other.EfficiencyClass
+            && self.Reserved == other.Reserved
+            && self.GroupCount == other.GroupCount
+            && self.GroupMask == other.GroupMask
+    }
+}
+impl ::std::cmp::Eq for PROCESSOR_RELATIONSHIP {}
+unsafe impl ::windows::runtime::Abi for PROCESSOR_RELATIONSHIP {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
 pub const SPVERSION_MASK: u32 = 65280u32;
 pub const SUBVERSION_MASK: u32 = 255u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct SYSTEM_CPU_SET_INFORMATION {
+    pub Size: u32,
+    pub Type: CPU_SET_INFORMATION_TYPE,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
+}
+impl SYSTEM_CPU_SET_INFORMATION {}
+impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union SYSTEM_CPU_SET_INFORMATION_0 {
+    pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
+}
+impl SYSTEM_CPU_SET_INFORMATION_0 {}
+impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0 {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
+    pub Id: u32,
+    pub Group: u16,
+    pub LogicalProcessorIndex: u8,
+    pub CoreIndex: u8,
+    pub LastLevelCacheIndex: u8,
+    pub NumaNodeIndex: u8,
+    pub EfficiencyClass: u8,
+    pub Anonymous1: SYSTEM_CPU_SET_INFORMATION_0_0_0,
+    pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
+    pub AllocationTag: u64,
+}
+impl SYSTEM_CPU_SET_INFORMATION_0_0 {}
+impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0 {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    pub AllFlags: u8,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
+}
+impl SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
+impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    pub _bitfield: u8,
+}
+impl SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
+impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct")
+            .field("_bitfield", &self._bitfield)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    pub Reserved: u32,
+    pub SchedulingClass: u8,
+}
+impl SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
+impl ::std::default::Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -1675,59 +2144,47 @@ unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     pub ProcessorMask: usize,
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
-#[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
     pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
-    pub Cache: super::SystemServices::CACHE_DESCRIPTOR,
+    pub Cache: CACHE_DESCRIPTOR,
     pub Reserved: [u64; 2],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -1790,6 +2247,88 @@ unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Size: u32,
+    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
+}
+impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
+impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    pub Processor: PROCESSOR_RELATIONSHIP,
+    pub NumaNode: NUMA_NODE_RELATIONSHIP,
+    pub Cache: CACHE_RELATIONSHIP,
+    pub Group: GROUP_RELATIONSHIP,
+}
+impl SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
+impl ::std::default::Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SYSTEM_POOL_ZEROING_INFORMATION {
+    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SYSTEM_POOL_ZEROING_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SYSTEM_POOL_ZEROING_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for SYSTEM_POOL_ZEROING_INFORMATION {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("SYSTEM_POOL_ZEROING_INFORMATION")
+            .field("PoolZeroingSupportPresent", &self.PoolZeroingSupportPresent)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SYSTEM_POOL_ZEROING_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        self.PoolZeroingSupportPresent == other.PoolZeroingSupportPresent
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SYSTEM_POOL_ZEROING_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SYSTEM_POOL_ZEROING_INFORMATION {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     pub CycleTime: u64,
 }
@@ -1813,6 +2352,34 @@ impl ::std::cmp::PartialEq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 }
 impl ::std::cmp::Eq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    pub _bitfield: u32,
+}
+impl SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
+impl ::std::default::Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION")
+            .field("_bitfield", &self._bitfield)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::std::cmp::Eq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
+unsafe impl ::windows::runtime::Abi for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -2151,7 +2718,7 @@ pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyVersionInfoA(
     lpversioninformation: *mut OSVERSIONINFOEXA,

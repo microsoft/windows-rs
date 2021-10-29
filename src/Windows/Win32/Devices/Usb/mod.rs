@@ -5209,7 +5209,7 @@ pub unsafe fn WinUsb_AbortPipe(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ControlTransfer<
     'a,
@@ -5220,7 +5220,7 @@ pub unsafe fn WinUsb_ControlTransfer<
     buffer: *mut u8,
     bufferlength: u32,
     lengthtransferred: *mut u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -5232,7 +5232,7 @@ pub unsafe fn WinUsb_ControlTransfer<
                 buffer: *mut u8,
                 bufferlength: u32,
                 lengthtransferred: *mut u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_ControlTransfer(
@@ -5447,14 +5447,14 @@ pub unsafe fn WinUsb_GetDescriptor(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_GetOverlappedResult<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
     interfacehandle: *const ::std::ffi::c_void,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpnumberofbytestransferred: *mut u32,
     bwait: Param3,
 ) -> super::super::Foundation::BOOL {
@@ -5464,7 +5464,7 @@ pub unsafe fn WinUsb_GetOverlappedResult<
         extern "system" {
             fn WinUsb_GetOverlappedResult(
                 interfacehandle: *const ::std::ffi::c_void,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 lpnumberofbytestransferred: *mut u32,
                 bwait: super::super::Foundation::BOOL,
             ) -> super::super::Foundation::BOOL;
@@ -5744,7 +5744,7 @@ pub unsafe fn WinUsb_QueryPipeEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipe(
     bufferhandle: *const ::std::ffi::c_void,
@@ -5753,7 +5753,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(
     framenumber: *mut u32,
     numberofpackets: u32,
     isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -5766,7 +5766,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(
                 framenumber: *mut u32,
                 numberofpackets: u32,
                 isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_ReadIsochPipe(
@@ -5782,7 +5782,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipeAsap<
     'a,
@@ -5794,7 +5794,7 @@ pub unsafe fn WinUsb_ReadIsochPipeAsap<
     continuestream: Param3,
     numberofpackets: u32,
     isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -5807,7 +5807,7 @@ pub unsafe fn WinUsb_ReadIsochPipeAsap<
                 continuestream: super::super::Foundation::BOOL,
                 numberofpackets: u32,
                 isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_ReadIsochPipeAsap(
@@ -5823,7 +5823,7 @@ pub unsafe fn WinUsb_ReadIsochPipeAsap<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadPipe(
     interfacehandle: *const ::std::ffi::c_void,
@@ -5831,7 +5831,7 @@ pub unsafe fn WinUsb_ReadPipe(
     buffer: *mut u8,
     bufferlength: u32,
     lengthtransferred: *mut u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -5843,7 +5843,7 @@ pub unsafe fn WinUsb_ReadPipe(
                 buffer: *mut u8,
                 bufferlength: u32,
                 lengthtransferred: *mut u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_ReadPipe(
@@ -6063,14 +6063,14 @@ pub unsafe fn WinUsb_UnregisterIsochBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipe(
     bufferhandle: *const ::std::ffi::c_void,
     offset: u32,
     length: u32,
     framenumber: *mut u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -6081,7 +6081,7 @@ pub unsafe fn WinUsb_WriteIsochPipe(
                 offset: u32,
                 length: u32,
                 framenumber: *mut u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_WriteIsochPipe(
@@ -6095,7 +6095,7 @@ pub unsafe fn WinUsb_WriteIsochPipe(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipeAsap<
     'a,
@@ -6105,7 +6105,7 @@ pub unsafe fn WinUsb_WriteIsochPipeAsap<
     offset: u32,
     length: u32,
     continuestream: Param3,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -6116,7 +6116,7 @@ pub unsafe fn WinUsb_WriteIsochPipeAsap<
                 offset: u32,
                 length: u32,
                 continuestream: super::super::Foundation::BOOL,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_WriteIsochPipeAsap(
@@ -6130,7 +6130,7 @@ pub unsafe fn WinUsb_WriteIsochPipeAsap<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WritePipe(
     interfacehandle: *const ::std::ffi::c_void,
@@ -6138,7 +6138,7 @@ pub unsafe fn WinUsb_WritePipe(
     buffer: *const u8,
     bufferlength: u32,
     lengthtransferred: *mut u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -6150,7 +6150,7 @@ pub unsafe fn WinUsb_WritePipe(
                 buffer: *const u8,
                 bufferlength: u32,
                 lengthtransferred: *mut u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_WritePipe(

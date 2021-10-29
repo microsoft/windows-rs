@@ -59,6 +59,43 @@ pub unsafe fn DescribePixelFormat<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct EMRPIXELFORMAT {
+    pub emr: super::Gdi::EMR,
+    pub pfd: PIXELFORMATDESCRIPTOR,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl EMRPIXELFORMAT {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::default::Default for EMRPIXELFORMAT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::fmt::Debug for EMRPIXELFORMAT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("EMRPIXELFORMAT")
+            .field("emr", &self.emr)
+            .field("pfd", &self.pfd)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::cmp::PartialEq for EMRPIXELFORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        self.emr == other.emr && self.pfd == other.pfd
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::cmp::Eq for EMRPIXELFORMAT {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::runtime::Abi for EMRPIXELFORMAT {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
 pub const GLU_BEGIN: u32 = 100100u32;
 pub const GLU_CCW: u32 = 100121u32;

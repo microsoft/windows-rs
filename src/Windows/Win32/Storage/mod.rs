@@ -33,6 +33,8 @@ pub mod IndexServer;
 pub mod InstallableFileSystems;
 #[cfg(feature = "Win32_Storage_IscsiDisc")]
 pub mod IscsiDisc;
+#[cfg(feature = "Win32_Storage_Jet")]
+pub mod Jet;
 #[cfg(feature = "Win32_Storage_OfflineFiles")]
 pub mod OfflineFiles;
 #[cfg(feature = "Win32_Storage_OperationRecorder")]

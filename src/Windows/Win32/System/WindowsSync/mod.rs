@@ -11496,36 +11496,34 @@ impl ISyncProviderConfigUIInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn GetValue(
         &self,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(key),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn SetValue(
         &self,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -11645,48 +11643,42 @@ pub struct ISyncProviderConfigUIInfo_abi(
     #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-        pv: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pv: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -11729,36 +11721,34 @@ impl ISyncProviderInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn GetValue(
         &self,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(key),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn SetValue(
         &self,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -11874,48 +11864,42 @@ pub struct ISyncProviderInfo_abi(
     #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-        pv: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pv: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const super::PropertiesSystem::PROPERTYKEY,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,

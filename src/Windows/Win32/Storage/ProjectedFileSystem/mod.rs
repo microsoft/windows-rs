@@ -1292,6 +1292,7 @@ pub unsafe fn PrjAllocateAlignedBuffer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PrjClearNegativePathCache<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1317,6 +1318,7 @@ pub unsafe fn PrjClearNegativePathCache<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PrjCompleteCommand<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1349,6 +1351,7 @@ pub unsafe fn PrjCompleteCommand<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjDeleteFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1458,6 +1461,7 @@ pub unsafe fn PrjFileNameMatch<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjFillDirEntryBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1488,6 +1492,7 @@ pub unsafe fn PrjFillDirEntryBuffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjFillDirEntryBuffer2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>,
@@ -1534,6 +1539,7 @@ pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjGetOnDiskFileState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1556,6 +1562,7 @@ pub unsafe fn PrjGetOnDiskFileState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PrjGetVirtualizationInstanceInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1583,6 +1590,7 @@ pub unsafe fn PrjGetVirtualizationInstanceInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjMarkDirectoryAsPlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1616,6 +1624,7 @@ pub unsafe fn PrjMarkDirectoryAsPlaceholder<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjStartVirtualizing<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1674,6 +1683,7 @@ pub unsafe fn PrjStopVirtualizing<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjUpdateFileIfNeeded<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1713,6 +1723,7 @@ pub unsafe fn PrjUpdateFileIfNeeded<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PrjWriteFileData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1748,6 +1759,7 @@ pub unsafe fn PrjWriteFileData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjWritePlaceholderInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1781,6 +1793,7 @@ pub unsafe fn PrjWritePlaceholderInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjWritePlaceholderInfo2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,

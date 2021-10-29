@@ -7,7 +7,7 @@ fn main() -> std::io::Result<()> {
         Windows::Win32::System::Diagnostics::Debug::FormatMessageW,
         Windows::Win32::System::LibraryLoader::{FreeLibrary, GetProcAddress, LoadLibraryA},
         Windows::Win32::System::Memory::{GetProcessHeap, HeapAlloc, HeapFree},
-        Windows::Win32::System::OleAutomation::{GetErrorInfo, IErrorInfo, SetErrorInfo},
+        Windows::Win32::System::Ole::Automation::{GetErrorInfo, IErrorInfo, SetErrorInfo},
         Windows::Win32::System::Threading::{CreateEventA, SetEvent, WaitForSingleObject},
         Windows::Win32::System::WinRT::{
             ILanguageExceptionErrorInfo2, IRestrictedErrorInfo, IWeakReference,

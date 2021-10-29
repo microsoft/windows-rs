@@ -581,33 +581,21 @@ unsafe impl ::windows::runtime::Abi for WINHTTP_CONNECTION_GROUP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl WINHTTP_CONNECTION_INFO {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for WINHTTP_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for WINHTTP_CONNECTION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WINHTTP_CONNECTION_INFO")
@@ -617,10 +605,7 @@ impl ::std::fmt::Debug for WINHTTP_CONNECTION_INFO {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -628,15 +613,9 @@ impl ::std::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
             && self.RemoteAddress == other.RemoteAddress
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for WINHTTP_CONNECTION_INFO {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for WINHTTP_CONNECTION_INFO {
     type Abi = Self;
     type DefaultType = Self;

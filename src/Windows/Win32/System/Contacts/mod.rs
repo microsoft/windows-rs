@@ -3018,10 +3018,7 @@ impl IContactProperties {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetBinary<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3033,7 +3030,7 @@ impl IContactProperties {
         pszcontenttype: Param2,
         cchcontenttype: u32,
         pdwcchcontenttyperequired: *mut u32,
-        ppstream: *mut ::std::option::Option<super::super::Storage::StructuredStorage::IStream>,
+        ppstream: *mut ::std::option::Option<super::Com::IStream>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -3107,15 +3104,12 @@ impl IContactProperties {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetBinary<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
     >(
         &self,
         pszpropertyname: Param0,
@@ -3315,10 +3309,7 @@ pub struct IContactProperties_abi(
         pftdatetime: *mut super::super::Foundation::FILETIME,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszpropertyname: super::super::Foundation::PWSTR,
@@ -3328,11 +3319,7 @@ pub struct IContactProperties_abi(
         pdwcchcontenttyperequired: *mut u32,
         ppstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3359,10 +3346,7 @@ pub struct IContactProperties_abi(
         ftdatetime: super::super::Foundation::FILETIME,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszpropertyname: super::super::Foundation::PWSTR,
@@ -3370,11 +3354,7 @@ pub struct IContactProperties_abi(
         pszcontenttype: super::super::Foundation::PWSTR,
         pstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,

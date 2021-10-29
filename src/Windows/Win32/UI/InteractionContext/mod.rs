@@ -7,6 +7,7 @@
     dead_code,
     clippy::all
 )]
+#[inline]
 pub unsafe fn AddPointerInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -34,16 +35,17 @@ pub unsafe fn AddPointerInteractionContext<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_UI_PointerInput",
+    feature = "Win32_UI_Input_Pointer",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn BufferPointerPacketsInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
 >(
     interactioncontext: Param0,
     entriescount: u32,
-    pointerinfo: *const super::PointerInput::POINTER_INFO,
+    pointerinfo: *const super::Input::Pointer::POINTER_INFO,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -52,7 +54,7 @@ pub unsafe fn BufferPointerPacketsInteractionContext<
             fn BufferPointerPacketsInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
                 entriescount: u32,
-                pointerinfo: *const super::PointerInput::POINTER_INFO,
+                pointerinfo: *const super::Input::Pointer::POINTER_INFO,
             ) -> ::windows::runtime::HRESULT;
         }
         BufferPointerPacketsInteractionContext(
@@ -174,6 +176,7 @@ unsafe impl ::windows::runtime::Abi for CROSS_SLIDE_THRESHOLD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CreateInteractionContext() -> ::windows::runtime::Result<HINTERACTIONCONTEXT> {
     #[cfg(windows)]
     {
@@ -190,6 +193,7 @@ pub unsafe fn CreateInteractionContext() -> ::windows::runtime::Result<HINTERACT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DestroyInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -209,6 +213,7 @@ pub unsafe fn DestroyInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCrossSlideParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -237,6 +242,7 @@ pub unsafe fn GetCrossSlideParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetHoldParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -265,6 +271,7 @@ pub unsafe fn GetHoldParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetInertiaParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -293,6 +300,7 @@ pub unsafe fn GetInertiaParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetInteractionConfigurationInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -321,6 +329,7 @@ pub unsafe fn GetInteractionConfigurationInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetMouseWheelParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -349,6 +358,7 @@ pub unsafe fn GetMouseWheelParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetPropertyInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -379,15 +389,16 @@ pub unsafe fn GetPropertyInteractionContext<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_UI_PointerInput",
+    feature = "Win32_UI_Input_Pointer",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn GetStateInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
 >(
     interactioncontext: Param0,
-    pointerinfo: *const super::PointerInput::POINTER_INFO,
+    pointerinfo: *const super::Input::Pointer::POINTER_INFO,
 ) -> ::windows::runtime::Result<INTERACTION_STATE> {
     #[cfg(windows)]
     {
@@ -395,7 +406,7 @@ pub unsafe fn GetStateInteractionContext<
         extern "system" {
             fn GetStateInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
-                pointerinfo: *const super::PointerInput::POINTER_INFO,
+                pointerinfo: *const super::Input::Pointer::POINTER_INFO,
                 state: *mut INTERACTION_STATE,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -411,6 +422,7 @@ pub unsafe fn GetStateInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTapParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -439,6 +451,7 @@ pub unsafe fn GetTapParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetTranslationParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1146,6 +1159,7 @@ unsafe impl ::windows::runtime::Abi for MOUSE_WHEEL_PARAMETER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ProcessBufferedPacketsInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1165,6 +1179,7 @@ pub unsafe fn ProcessBufferedPacketsInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ProcessInertiaInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1186,9 +1201,10 @@ pub unsafe fn ProcessInertiaInteractionContext<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_UI_PointerInput",
+    feature = "Win32_UI_Input_Pointer",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn ProcessPointerFramesInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1196,7 +1212,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<
     interactioncontext: Param0,
     entriescount: u32,
     pointercount: u32,
-    pointerinfo: *const super::PointerInput::POINTER_INFO,
+    pointerinfo: *const super::Input::Pointer::POINTER_INFO,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1206,7 +1222,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<
                 interactioncontext: HINTERACTIONCONTEXT,
                 entriescount: u32,
                 pointercount: u32,
-                pointerinfo: *const super::PointerInput::POINTER_INFO,
+                pointerinfo: *const super::Input::Pointer::POINTER_INFO,
             ) -> ::windows::runtime::HRESULT;
         }
         ProcessPointerFramesInteractionContext(
@@ -1221,6 +1237,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1250,6 +1267,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1278,6 +1296,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RemovePointerInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1303,6 +1322,7 @@ pub unsafe fn RemovePointerInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ResetInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1322,6 +1342,7 @@ pub unsafe fn ResetInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetCrossSlideParametersInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1350,6 +1371,7 @@ pub unsafe fn SetCrossSlideParametersInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetHoldParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1378,6 +1400,7 @@ pub unsafe fn SetHoldParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetInertiaParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1406,6 +1429,7 @@ pub unsafe fn SetInertiaParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetInteractionConfigurationInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1434,6 +1458,7 @@ pub unsafe fn SetInteractionConfigurationInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetMouseWheelParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1462,6 +1487,7 @@ pub unsafe fn SetMouseWheelParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetPivotInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1493,6 +1519,7 @@ pub unsafe fn SetPivotInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetPropertyInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1521,6 +1548,7 @@ pub unsafe fn SetPropertyInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetTapParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1549,6 +1577,7 @@ pub unsafe fn SetTapParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetTranslationParameterInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
@@ -1577,6 +1606,7 @@ pub unsafe fn SetTranslationParameterInteractionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn StopInteractionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,

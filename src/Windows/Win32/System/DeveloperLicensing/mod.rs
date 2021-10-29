@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AcquireDeveloperLicense<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -32,6 +33,7 @@ pub unsafe fn AcquireDeveloperLicense<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckDeveloperLicense(
 ) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -51,6 +53,7 @@ pub unsafe fn CheckDeveloperLicense(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveDeveloperLicense<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

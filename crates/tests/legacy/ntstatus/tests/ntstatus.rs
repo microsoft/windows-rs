@@ -1,6 +1,4 @@
-use test_ntstatus::{
-    Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::Core::*,
-};
+use test_ntstatus::{Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::*};
 
 use windows::runtime::{Result, GUID, HRESULT};
 

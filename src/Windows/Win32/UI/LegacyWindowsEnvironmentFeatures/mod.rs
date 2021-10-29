@@ -44,10 +44,10 @@ impl IADesktopP2 {
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn MakeDynamicChanges<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IOleObject>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::IOleObject>,
     >(
         &self,
         poleobj: Param0,
@@ -111,12 +111,12 @@ pub struct IADesktopP2_abi(
         dwmask: u32,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         poleobj: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -821,15 +821,15 @@ pub struct IReconcilableObject(::windows::runtime::IUnknown);
 impl IReconcilableObject {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn Reconcile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IReconcileInitiator>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param7: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStorage>,
+        Param7: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>,
     >(
         &self,
         pinitiator: Param0,
@@ -912,8 +912,8 @@ pub struct IReconcilableObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -929,8 +929,8 @@ pub struct IReconcilableObject_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     pub  unsafe extern "system" fn(

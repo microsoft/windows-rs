@@ -915,12 +915,12 @@ impl IAccDictionary {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ConvertValueToString<
         'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         term: *const ::windows::runtime::GUID,
@@ -1015,21 +1015,21 @@ pub struct IAccDictionary_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         term: *const ::windows::runtime::GUID,
         lcid: u32,
-        varvalue: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
         pbstrresult: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         plcid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -1645,13 +1645,13 @@ pub struct ICoCreateLocally(::windows::runtime::IUnknown);
 impl ICoCreateLocally {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CoCreateLocally<
         'a,
         Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param6: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param6: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         rclsid: *const ::windows::runtime::GUID,
@@ -1722,8 +1722,8 @@ pub struct ICoCreateLocally_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1733,12 +1733,12 @@ pub struct ICoCreateLocally_abi(
         punk: *mut ::windows::runtime::RawPtr,
         riidparam: *const ::windows::runtime::GUID,
         punkparam: ::windows::runtime::RawPtr,
-        varparam: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varparam: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -1753,14 +1753,14 @@ pub struct ICoCreatedLocally(::windows::runtime::IUnknown);
 impl ICoCreatedLocally {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn LocalInit<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         punklocalobject: Param0,
@@ -1825,20 +1825,20 @@ pub struct ICoCreatedLocally_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         punklocalobject: ::windows::runtime::RawPtr,
         riidparam: *const ::windows::runtime::GUID,
         punkparam: ::windows::runtime::RawPtr,
-        varparam: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        varparam: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -3337,8 +3337,8 @@ impl IEnumTfPropertyValue {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Next(
         &self,
@@ -3416,8 +3416,8 @@ pub struct IEnumTfPropertyValue_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3427,8 +3427,8 @@ pub struct IEnumTfPropertyValue_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -4210,8 +4210,8 @@ impl ITextStoreACP {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RetrieveRequestedAttrs(
         &self,
@@ -4510,8 +4510,8 @@ pub struct ITextStoreACP_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4521,8 +4521,8 @@ pub struct ITextStoreACP_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -4916,8 +4916,8 @@ impl ITextStoreACP2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RetrieveRequestedAttrs(
         &self,
@@ -5202,8 +5202,8 @@ pub struct ITextStoreACP2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5213,8 +5213,8 @@ pub struct ITextStoreACP2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -5346,12 +5346,12 @@ pub struct ITextStoreACPEx_abi(
 )]
 pub struct ITextStoreACPServices(::windows::runtime::IUnknown);
 impl ITextStoreACPServices {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ITfProperty>,
         Param1: ::windows::runtime::IntoParam<'a, ITfRange>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pprop: Param0,
@@ -5368,11 +5368,11 @@ impl ITextStoreACPServices {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Unserialize<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ITfProperty>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param3: ::windows::runtime::IntoParam<'a, ITfPersistentPropertyLoaderACP>,
     >(
         &self,
@@ -5462,7 +5462,7 @@ pub struct ITextStoreACPServices_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprop: ::windows::runtime::RawPtr,
@@ -5470,8 +5470,8 @@ pub struct ITextStoreACPServices_abi(
         phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP,
         pstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprop: ::windows::runtime::RawPtr,
@@ -5479,7 +5479,7 @@ pub struct ITextStoreACPServices_abi(
         pstream: ::windows::runtime::RawPtr,
         ploader: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprop: ::windows::runtime::RawPtr,
@@ -6120,8 +6120,8 @@ impl ITextStoreAnchor {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RetrieveRequestedAttrs(
         &self,
@@ -6457,8 +6457,8 @@ pub struct ITextStoreAnchor_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6468,8 +6468,8 @@ pub struct ITextStoreAnchor_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -8419,13 +8419,13 @@ pub struct ITfCompartment(::windows::runtime::IUnknown);
 impl ITfCompartment {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetValue(
         &self,
         tid: u32,
-        pvarvalue: *const super::super::System::OleAutomation::VARIANT,
+        pvarvalue: *const super::super::System::Com::VARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -8436,18 +8436,19 @@ impl ITfCompartment {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITfCompartment {
@@ -8497,33 +8498,33 @@ pub struct ITfCompartment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         tid: u32,
-        pvarvalue: *const ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -9766,20 +9767,21 @@ impl ITfContextOwner {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetAttribute(
         &self,
         rguidattribute: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(rguidattribute),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITfContextOwner {
@@ -9862,18 +9864,18 @@ pub struct ITfContextOwner_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         rguidattribute: *const ::windows::runtime::GUID,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -10219,12 +10221,12 @@ impl ITfContextOwnerServices {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ITfProperty>,
         Param1: ::windows::runtime::IntoParam<'a, ITfRange>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pprop: Param0,
@@ -10241,11 +10243,11 @@ impl ITfContextOwnerServices {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Unserialize<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ITfProperty>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param3: ::windows::runtime::IntoParam<'a, ITfPersistentPropertyLoaderACP>,
     >(
         &self,
@@ -10346,7 +10348,7 @@ pub struct ITfContextOwnerServices_abi(
         this: ::windows::runtime::RawPtr,
         rguidattribute: *const ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprop: ::windows::runtime::RawPtr,
@@ -10354,8 +10356,8 @@ pub struct ITfContextOwnerServices_abi(
         phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP,
         pstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprop: ::windows::runtime::RawPtr,
@@ -10363,7 +10365,7 @@ pub struct ITfContextOwnerServices_abi(
         pstream: ::windows::runtime::RawPtr,
         ploader: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprop: ::windows::runtime::RawPtr,
@@ -10548,11 +10550,11 @@ impl ITfCreatePropertyStore {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyStore<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, ITfRange>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         guidprop: *const ::windows::runtime::GUID,
@@ -10630,7 +10632,7 @@ pub struct ITfCreatePropertyStore_abi(
         pfserializable: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         guidprop: *const ::windows::runtime::GUID,
@@ -10639,7 +10641,7 @@ pub struct ITfCreatePropertyStore_abi(
         pstream: ::windows::runtime::RawPtr,
         ppstore: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -19293,18 +19295,19 @@ pub struct ITfMouseTrackerACP_abi(
 )]
 pub struct ITfPersistentPropertyLoaderACP(::windows::runtime::IUnknown);
 impl ITfPersistentPropertyLoaderACP {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadProperty(
         &self,
         phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(phdr),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ITfPersistentPropertyLoaderACP {
@@ -19356,13 +19359,13 @@ pub struct ITfPersistentPropertyLoaderACP_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP,
         ppstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -19472,22 +19475,23 @@ impl ITfProperty {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(
         &self,
         ec: u32,
         prange: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(ec),
             prange.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetContext(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -19533,14 +19537,14 @@ impl ITfProperty {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetValue<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(
         &self,
         ec: u32,
         prange: Param1,
-        pvarvalue: *const super::super::System::OleAutomation::VARIANT,
+        pvarvalue: *const super::super::System::Com::VARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
@@ -19642,19 +19646,19 @@ pub struct ITfProperty_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ec: u32,
         prange: ::windows::runtime::RawPtr,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -19676,19 +19680,19 @@ pub struct ITfProperty_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ec: u32,
         prange: ::windows::runtime::RawPtr,
-        pvarvalue: *const ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -19725,18 +19729,17 @@ impl ITfPropertyStore {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
-    pub unsafe fn GetData(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    pub unsafe fn GetData(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTextUpdated<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(
@@ -19805,10 +19808,10 @@ impl ITfPropertyStore {
         )
         .from_abi::<::windows::runtime::GUID>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pstream: Param0,
@@ -19877,17 +19880,17 @@ pub struct ITfPropertyStore_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -19919,13 +19922,13 @@ pub struct ITfPropertyStore_abi(
         this: ::windows::runtime::RawPtr,
         pclsid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstream: ::windows::runtime::RawPtr,
         pcb: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -21242,22 +21245,23 @@ impl ITfReadOnlyProperty {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(
         &self,
         ec: u32,
         prange: Param1,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::VARIANT> {
-        let mut result__ : < super::super::System::OleAutomation:: VARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(ec),
             prange.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetContext(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -21325,19 +21329,19 @@ pub struct ITfReadOnlyProperty_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ec: u32,
         prange: ::windows::runtime::RawPtr,
-        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -24888,6 +24892,7 @@ pub struct IVersionInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -25960,8 +25965,8 @@ pub const TF_PROFILE_YI: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
@@ -25971,23 +25976,23 @@ impl ::std::clone::Clone for TF_PROPERTYVAL {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct TF_PROPERTYVAL {
     pub guidId: ::windows::runtime::GUID,
-    pub varValue: super::super::System::OleAutomation::VARIANT,
+    pub varValue: super::super::System::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl TF_PROPERTYVAL {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for TF_PROPERTYVAL {
     fn default() -> Self {
@@ -25996,8 +26001,8 @@ impl ::std::default::Default for TF_PROPERTYVAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for TF_PROPERTYVAL {
     fn eq(&self, _other: &Self) -> bool {
@@ -26006,14 +26011,14 @@ impl ::std::cmp::PartialEq for TF_PROPERTYVAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for TF_PROPERTYVAL {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for TF_PROPERTYVAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -26777,8 +26782,8 @@ pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for TS_ATTRVAL {
     fn clone(&self) -> Self {
@@ -26788,24 +26793,24 @@ impl ::std::clone::Clone for TS_ATTRVAL {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct TS_ATTRVAL {
     pub idAttr: ::windows::runtime::GUID,
     pub dwOverlapId: u32,
-    pub varValue: super::super::System::OleAutomation::VARIANT,
+    pub varValue: super::super::System::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl TS_ATTRVAL {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for TS_ATTRVAL {
     fn default() -> Self {
@@ -26814,8 +26819,8 @@ impl ::std::default::Default for TS_ATTRVAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for TS_ATTRVAL {
     fn eq(&self, _other: &Self) -> bool {
@@ -26824,14 +26829,14 @@ impl ::std::cmp::PartialEq for TS_ATTRVAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for TS_ATTRVAL {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for TS_ATTRVAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -27437,6 +27442,7 @@ unsafe impl ::windows::runtime::Abi for TsShiftDir {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {

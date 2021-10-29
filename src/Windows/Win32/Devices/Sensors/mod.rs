@@ -81,12 +81,12 @@ unsafe impl ::windows::runtime::Abi for AXIS {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListAllocateBufferAndSerialize(
     sourcecollection: *const SENSOR_COLLECTION_LIST,
     ptargetbuffersizeinbytes: *mut u32,
@@ -114,12 +114,12 @@ pub unsafe fn CollectionsListAllocateBufferAndSerialize(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListCopyAndMarshall(
     target: *mut SENSOR_COLLECTION_LIST,
     source: *const SENSOR_COLLECTION_LIST,
@@ -141,12 +141,12 @@ pub unsafe fn CollectionsListCopyAndMarshall(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListDeserializeFromBuffer(
     sourcebuffersizeinbytes: u32,
     sourcebuffer: *const u8,
@@ -189,11 +189,10 @@ pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
@@ -214,11 +213,10 @@ pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECT
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(
@@ -241,11 +239,10 @@ pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 #[inline]
 pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
@@ -266,12 +263,12 @@ pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECT
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListMarshall(
     target: *mut SENSOR_COLLECTION_LIST,
 ) -> ::windows::runtime::Result<()> {
@@ -290,12 +287,12 @@ pub unsafe fn CollectionsListMarshall(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListSerializeToBuffer(
     sourcecollection: *const SENSOR_COLLECTION_LIST,
     targetbuffersizeinbytes: u32,
@@ -323,12 +320,12 @@ pub unsafe fn CollectionsListSerializeToBuffer(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(
     thresholds: *const SENSOR_COLLECTION_LIST,
     pcollection: *mut SENSOR_COLLECTION_LIST,
@@ -353,12 +350,12 @@ pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn CollectionsListUpdateMarshalledPointer(
     collection: *mut SENSOR_COLLECTION_LIST,
 ) -> ::windows::runtime::Result<()> {
@@ -401,11 +398,10 @@ unsafe impl ::windows::runtime::Abi for ELEVATION_CHANGE_MODE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 #[inline]
 pub unsafe fn EvaluateActivityThresholds(
@@ -663,6 +659,7 @@ pub const GUID_SensorType_Temperature: ::windows::runtime::GUID =
         [149, 169, 93, 179, 142, 225, 147, 6],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -863,23 +860,22 @@ impl ISensor {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn GetProperty(
         &self,
         key: *const super::super::System::PropertiesSystem::PROPERTYKEY,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(key),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetProperties<
@@ -1066,26 +1062,24 @@ pub struct ISensor_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         key: *const super::super::System::PropertiesSystem::PROPERTYKEY,
         pproperty: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -1294,23 +1288,22 @@ impl ISensorDataReport {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn GetSensorValue(
         &self,
         pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(pkey),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetSensorValues<
@@ -1382,24 +1375,24 @@ pub struct ISensorDataReport_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
-        pvalue: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pvalue: *mut ::std::mem::ManuallyDrop<
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
+        >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -1774,15 +1767,15 @@ pub struct ISensorManagerEvents_abi(
 );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromCLSIDArray(
     members: *const ::windows::runtime::GUID,
     size: u32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1791,31 +1784,31 @@ pub unsafe fn InitPropVariantFromCLSIDArray(
                 members: *const ::windows::runtime::GUID,
                 size: u32,
                 ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::super::System::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromCLSIDArray(
             ::std::mem::transmute(members),
             ::std::mem::transmute(size),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn InitPropVariantFromFloat(
     fltval: f32,
-) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
+) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1823,24 +1816,23 @@ pub unsafe fn InitPropVariantFromFloat(
             fn InitPropVariantFromFloat(
                 fltval: f32,
                 ppropvar: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::super::System::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         InitPropVariantFromFloat(::std::mem::transmute(fltval), &mut result__)
-            .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+            .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 #[inline]
 pub unsafe fn IsCollectionListSame(
@@ -1892,11 +1884,10 @@ pub unsafe fn IsGUIDPresentInList(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 #[inline]
 pub unsafe fn IsKeyPresentInCollectionList(
@@ -1948,11 +1939,10 @@ pub unsafe fn IsKeyPresentInPropertyList(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 #[inline]
 pub unsafe fn IsSensorSubscribed<
@@ -2272,12 +2262,12 @@ unsafe impl ::windows::runtime::Abi for PROXIMITY_TYPE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetBool(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2305,12 +2295,12 @@ pub unsafe fn PropKeyFindKeyGetBool(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetDouble(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2338,12 +2328,12 @@ pub unsafe fn PropKeyFindKeyGetDouble(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetFileTime(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2371,12 +2361,12 @@ pub unsafe fn PropKeyFindKeyGetFileTime(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetFloat(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2404,12 +2394,12 @@ pub unsafe fn PropKeyFindKeyGetFloat(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetGuid(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2437,12 +2427,12 @@ pub unsafe fn PropKeyFindKeyGetGuid(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetInt32(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2470,12 +2460,12 @@ pub unsafe fn PropKeyFindKeyGetInt32(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetInt64(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2503,12 +2493,12 @@ pub unsafe fn PropKeyFindKeyGetInt64(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetNthInt64(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2539,12 +2529,12 @@ pub unsafe fn PropKeyFindKeyGetNthInt64(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetNthUlong(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2575,12 +2565,12 @@ pub unsafe fn PropKeyFindKeyGetNthUlong(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetNthUshort(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2611,12 +2601,12 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetPropVariant<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -2624,7 +2614,7 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
     typecheck: Param2,
-    pvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2635,7 +2625,7 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<
                 pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
                 typecheck: super::super::Foundation::BOOLEAN,
                 pvalue: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::super::System::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> super::super::Foundation::NTSTATUS;
         }
@@ -2652,12 +2642,12 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetUlong(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2685,12 +2675,12 @@ pub unsafe fn PropKeyFindKeyGetUlong(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeyGetUshort(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -2718,12 +2708,12 @@ pub unsafe fn PropKeyFindKeyGetUshort(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropKeyFindKeySetPropVariant<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -2731,7 +2721,7 @@ pub unsafe fn PropKeyFindKeySetPropVariant<
     plist: *mut SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
     typecheck: Param2,
-    pvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -2742,7 +2732,7 @@ pub unsafe fn PropKeyFindKeySetPropVariant<
                 pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
                 typecheck: super::super::Foundation::BOOLEAN,
                 pvalue: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::super::System::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> super::super::Foundation::NTSTATUS;
         }
@@ -2759,13 +2749,13 @@ pub unsafe fn PropKeyFindKeySetPropVariant<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
+#[inline]
 pub unsafe fn PropVariantGetInformation(
-    propvariantvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+    propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     propvariantoffset: *mut u32,
     propvariantsize: *mut u32,
     propvariantpointer: *mut *mut ::std::ffi::c_void,
@@ -2777,7 +2767,7 @@ pub unsafe fn PropVariantGetInformation(
         extern "system" {
             fn PropVariantGetInformation(
                 propvariantvalue: *const ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::super::System::Com::StructuredStorage::PROPVARIANT,
                 >,
                 propvariantoffset: *mut u32,
                 propvariantsize: *mut u32,
@@ -2801,6 +2791,7 @@ pub unsafe fn PropVariantGetInformation(
     feature = "Win32_Foundation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn PropertiesListCopy(
     target: *mut SENSOR_PROPERTY_LIST,
     source: *const SENSOR_PROPERTY_LIST,
@@ -2949,11 +2940,10 @@ pub const SENSOR_CATEGORY_UNSUPPORTED: ::windows::runtime::GUID =
     );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::clone::Clone for SENSOR_COLLECTION_LIST {
     fn clone(&self) -> Self {
@@ -2963,11 +2953,10 @@ impl ::std::clone::Clone for SENSOR_COLLECTION_LIST {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 pub struct SENSOR_COLLECTION_LIST {
     pub AllocatedSizeInBytes: u32,
@@ -2976,20 +2965,18 @@ pub struct SENSOR_COLLECTION_LIST {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl SENSOR_COLLECTION_LIST {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::default::Default for SENSOR_COLLECTION_LIST {
     fn default() -> Self {
@@ -2998,11 +2985,10 @@ impl ::std::default::Default for SENSOR_COLLECTION_LIST {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::cmp::PartialEq for SENSOR_COLLECTION_LIST {
     fn eq(&self, _other: &Self) -> bool {
@@ -3011,20 +2997,18 @@ impl ::std::cmp::PartialEq for SENSOR_COLLECTION_LIST {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::cmp::Eq for SENSOR_COLLECTION_LIST {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 unsafe impl ::windows::runtime::Abi for SENSOR_COLLECTION_LIST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -3617,11 +3601,10 @@ pub const SENSOR_TYPE_VOLTAGE: ::windows::runtime::GUID = ::windows::runtime::GU
 );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::clone::Clone for SENSOR_VALUE_PAIR {
     fn clone(&self) -> Self {
@@ -3631,32 +3614,29 @@ impl ::std::clone::Clone for SENSOR_VALUE_PAIR {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::System::PropertiesSystem::PROPERTYKEY,
-    pub Value: super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl SENSOR_VALUE_PAIR {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::default::Default for SENSOR_VALUE_PAIR {
     fn default() -> Self {
@@ -3665,11 +3645,10 @@ impl ::std::default::Default for SENSOR_VALUE_PAIR {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::cmp::PartialEq for SENSOR_VALUE_PAIR {
     fn eq(&self, _other: &Self) -> bool {
@@ -3678,20 +3657,18 @@ impl ::std::cmp::PartialEq for SENSOR_VALUE_PAIR {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::cmp::Eq for SENSOR_VALUE_PAIR {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 unsafe impl ::windows::runtime::Abi for SENSOR_VALUE_PAIR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -3742,17 +3719,17 @@ pub const SensorCollection: ::windows::runtime::GUID = ::windows::runtime::GUID:
 );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation",
+    feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn SensorCollectionGetAt(
     index: u32,
     psensorslist: *const SENSOR_COLLECTION_LIST,
     pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY,
-    pvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3763,7 +3740,7 @@ pub unsafe fn SensorCollectionGetAt(
                 psensorslist: *const ::std::mem::ManuallyDrop<SENSOR_COLLECTION_LIST>,
                 pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY,
                 pvalue: *mut ::std::mem::ManuallyDrop<
-                    super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::super::System::Com::StructuredStorage::PROPVARIANT,
                 >,
             ) -> super::super::Foundation::NTSTATUS;
         }
@@ -3840,6 +3817,7 @@ unsafe impl ::windows::runtime::Abi for SensorState {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SerializationBufferAllocate(
     sizeinbytes: u32,
     pbuffer: *mut *mut u8,
